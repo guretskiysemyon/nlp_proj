@@ -101,7 +101,7 @@ def _existing_keys(df: pd.DataFrame) -> set:
 # -------------------- Gemini Client --------------------
 
 class SimpleGeminiClient:
-    def __init__(self, model_name: str = "models/gemini-2.5-flash-lite", max_retries: int = 3, sleep_seconds: float = 5.0):
+    def __init__(self, model_name: str = "models/gemini-3.5-flash-lite", max_retries: int = 3, sleep_seconds: float = 5.0):
         api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_TOKEN") or os.getenv("GEMINI_API_KEY")
         if not api_key:
             raise RuntimeError("No Gemini API key found. Set GOOGLE_API_KEY, GEMINI_API_TOKEN, or GEMINI_API_KEY.")
@@ -331,7 +331,7 @@ def main():
     parser.add_argument("--activation-col", type=str, default="activating_tokens")
     parser.add_argument("--projection-col", type=str, default="projection_top_tokens")
     parser.add_argument("--top-k", type=int, default=20)
-    parser.add_argument("--gemini-model", type=str, default="models/gemini-2.5-flash-lite")
+    parser.add_argument("--gemini-model", type=str, default="models/gemini-3.5-flash-lite")
     parser.add_argument("--max-workers", type=int, default=5)
     parser.add_argument("--save-every", type=int, default=50)
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True,

@@ -50,7 +50,7 @@ OUTPUT_PRICE_NIS_PER_1M = 1.259279999
 ROOT_DIR = Path(__file__).resolve().parents[2]
 USAGE_LOG_PATH = ROOT_DIR / "gemini_usage_log.jsonl"
 
-DEFAULT_MODEL_NAME = "models/gemini-2.5-flash-lite"
+DEFAULT_MODEL_NAME = "models/gemini-3.5-flash-lite"
 
 # ========================================================================== #
 # Module-level rate limiter + quota counter                                   #

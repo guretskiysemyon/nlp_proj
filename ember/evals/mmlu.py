@@ -96,7 +96,7 @@ def evaluate_mmlu_generation(
         model: Any,
         items: List[MMLUItem],
         max_new_tokens: int = 6,
-        batch_size: int = 32,
+        batch_size: int = 8,
 ) -> Tuple[int, int, List[Dict[str, Any]]]:
     """Batched MMLU generation eval. Returns ``(correct, invalid, records)``."""
     prompts_raw = [build_mmlu_prompt(it.question, it.choices) for it in items]

@@ -53,6 +53,7 @@ def load_hf_model(
         model_name,
         device_map=_resolve_device_map(),
         torch_dtype=dtype,
+        attn_implementation="eager",
         cache_dir=cache_dir_arg,
     )
 

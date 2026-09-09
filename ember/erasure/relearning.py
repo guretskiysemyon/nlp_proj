@@ -19,7 +19,7 @@ from ember.erasure import log
 
 DEFAULT_LR = 1e-5
 DEFAULT_BATCH_SIZE = 1
-DEFAULT_MAX_LEN = 256
+DEFAULT_MAX_LEN = 128
 DEFAULT_N_EPOCHS = 2
 
 
@@ -49,7 +49,7 @@ def load_relearn_paragraphs(json_path: Path) -> Dict[str, List[str]]:
 def _make_optimizer(hf_model: torch.nn.Module, model_name: str,
                     lr: float = DEFAULT_LR) -> torch.optim.Optimizer:
     """8-bit AdamW for Llama (memory pressure), standard AdamW otherwise."""
-    if "llama" in model_name.lower():
+    if "llama" in model_name.lower() or "gemma" in model_name.lower():
         import bitsandbytes as bnb
         log.info("optimizer: bnb.AdamW8bit lr=%.2e (llama)", lr)
         return bnb.optim.AdamW8bit(hf_model.parameters(), lr=lr, weight_decay=0.01)
@@ -124,6 +124,7 @@ def run_relearning(
     log.info("starting %d-epoch relearning on %d paragraphs", n_epochs, len(paras))
 
     hf_model.config.use_cache = False
+    hf_model.gradient_checkpointing_enable()
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
     for p in hf_model.parameters():

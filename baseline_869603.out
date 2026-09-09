@@ -1,0 +1,61 @@
+/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/google/api_core/_python_version_support.py:273: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+[17:39:28] [-|-|-] ensuring features for 1 concept(s) of google/gemma-2-2b-it (rank100, seed42) from ClSu/ember-features
+Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files:   3%|▎         | 1/36 [00:00<00:25,  1.38it/s]Fetching 36 files:  11%|█         | 4/36 [00:00<00:06,  4.75it/s]Fetching 36 files:  25%|██▌       | 9/36 [00:01<00:02, 10.46it/s]Fetching 36 files: 100%|██████████| 36/36 [00:01<00:00, 30.55it/s]
+[17:39:29] [ember|-|-] starting pipeline: model=google/gemma-2-2b-it rank=100 train_eval=mc seed=42 concepts=['Harry Potter']
+[17:39:30] [ember|-|load_model] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [08:53<08:53, 533.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [09:17<00:00, 233.73s/it]Loading checkpoint shards: 100%|██████████| 2/2 [09:17<00:00, 278.65s/it]
+[17:49:09] [ember|-|load_model] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[17:49:09] [ember|-|-] alpaca_batch_size=8
+[17:49:10] [ember|Harry Potter|grid] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv
+[17:49:11] [ember|-|validate] method ember does not write top-K; skipping validate
+[17:49:13] [ember|Harry Potter|final_test] concept state = partial
+[17:49:20] [ember|Harry Potter|final_test] relearning: 806 paragraphs (cap=100)
+[17:49:20] [ember|Harry Potter|final_test] starting 2-epoch relearning on 100 paragraphs
+[17:49:30] [ember|Harry Potter|final_test] optimizer: bnb.AdamW8bit lr=1.00e-05 (llama)
+Traceback (most recent call last):
+  File "/a/home/cc/csguests/semyong/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/a/home/cc/csguests/semyong/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/run_erasure.py", line 43, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/run_erasure.py", line 39, in main
+    pipeline.run(cfg)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 109, in run
+    _run_final_test(method, cfg, hf_model, tokenizer,
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 596, in _run_final_test
+    _run_relearning_and_update(
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 651, in _run_relearning_and_update
+    relearn_mod.run_relearning(
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/relearning.py", line 145, in run_relearning
+    loss = _run_one_epoch(hf_model, tokenizer, paras, optimizer,
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/relearning.py", line 91, in _run_one_epoch
+    loss.backward()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/autograd/function.py", line 307, in apply
+    return user_fn(self, *args)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 303, in backward
+    outputs = ctx.run_function(*detached_inputs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/transformers/models/gemma2/modeling_gemma2.py", line 290, in forward
+    hidden_states = self.post_feedforward_layernorm(hidden_states)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/transformers/models/gemma2/modeling_gemma2.py", line 60, in forward
+    output = self._norm(x.float())
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/transformers/models/gemma2/modeling_gemma2.py", line 57, in _norm
+    return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 10.57 GiB of which 10.06 MiB is free. Including non-PyTorch memory, this process has 10.55 GiB memory in use. Of the allocated memory 10.36 GiB is allocated by PyTorch, and 4.24 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -21,6 +21,7 @@ ember:
 # max_qa_acc=None) in grid_eval_kwargs(), so only alpaca matters here.
 eval:
   alpaca: true
+  alpaca_batch_size: 8
 
 relearning:
   enabled: true
