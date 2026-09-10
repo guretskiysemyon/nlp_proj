@@ -1,65 +1,0 @@
-/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/google/api_core/_python_version_support.py:273: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
-  warnings.warn(message, FutureWarning)
-[12:19:17] [-|-|-] ensuring features for 1 concept(s) of google/gemma-2-2b-it (rank100, seed42) from ClSu/ember-features
-Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files:   3%|▎         | 1/36 [00:00<00:26,  1.31it/s]Fetching 36 files:  11%|█         | 4/36 [00:00<00:05,  5.74it/s]Fetching 36 files:  25%|██▌       | 9/36 [00:01<00:02, 10.15it/s]Fetching 36 files: 100%|██████████| 36/36 [00:01<00:00, 30.74it/s]
-[12:19:18] [ember|-|-] starting pipeline: model=google/gemma-2-2b-it rank=100 train_eval=mc seed=42 concepts=['Harry Potter']
-[12:19:19] [ember|-|load_model] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:24<01:24, 84.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:27<00:00, 36.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:27<00:00, 43.90s/it]
-[12:20:53] [ember|-|load_model] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
-[12:20:53] [ember|-|-] alpaca_batch_size=8
-[baseline] computing baseline for set=alpaca_test, model=google/gemma-2-2b-it
-[baseline] saved 150 sampled examples to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baseline_samples/samples_alpaca_test_google_gemma-2-2b-it.json
-[baseline] saved baseline to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baselines/google_gemma-2-2b-it/baseline_alpaca_test.json
-[baseline] computing baseline for set=qa_test_open, model=google/gemma-2-2b-it
-[baseline] saved 900 sampled examples to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baseline_samples/samples_qa_test_open_google_gemma-2-2b-it.json
-[baseline] saved baseline to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baselines/google_gemma-2-2b-it/baseline_qa_test_open.json
-[baseline] saved 18 correct IDs to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baselines/google_gemma-2-2b-it/correct_ids_qa_test_open.json
-[baseline] computing baseline for set=simdom_test_open, model=google/gemma-2-2b-it
-[baseline] saved 900 sampled examples to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baseline_samples/samples_simdom_test_open_google_gemma-2-2b-it.json
-[baseline] saved baseline to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baselines/google_gemma-2-2b-it/baseline_simdom_test_open.json
-[baseline] saved 18 correct IDs to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/data/baselines/google_gemma-2-2b-it/correct_ids_simdom_test_open.json
-[12:46:52] [ember|Harry Potter|grid] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv
-[12:55:39] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.1311
-[13:04:22] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.3944
-[13:13:08] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.5195
-[13:21:56] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.6265
-[13:30:39] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.6897
-[13:39:22] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.6860
-[13:48:08] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.6860
-[13:56:53] [ember|Harry Potter|grid] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv harmonic=0.6555
-[13:56:54] [ember|-|validate] method ember does not write top-K; skipping validate
-[13:56:56] [ember|Harry Potter|final_test] concept state = fresh
-[13:56:58] [ember|Harry Potter|final_test] eval test_mc
-[14:09:24] [ember|Harry Potter|final_test] wrote final-test row to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/test_mc/final_test_mc.csv
-[14:09:24] [ember|Harry Potter|final_test] eval test_open
-[14:22:34] [ember|Harry Potter|final_test] wrote final-test row to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/test_mc/final_test_open.csv
-[14:22:34] [ember|Harry Potter|final_test] relearning: 806 paragraphs (cap=100)
-[14:22:34] [ember|Harry Potter|final_test] starting 2-epoch relearning on 100 paragraphs
-[14:22:34] [ember|Harry Potter|final_test] optimizer: AdamW lr=1.00e-05
-It is strongly recommended to train Gemma2 models with the `eager` attention implementation instead of `sdpa`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
-Traceback (most recent call last):
-  File "/a/home/cc/csguests/semyong/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/a/home/cc/csguests/semyong/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
-    exec(code, run_globals)
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/run_erasure.py", line 43, in <module>
-    main()
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/run_erasure.py", line 39, in main
-    pipeline.run(cfg)
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 109, in run
-    _run_final_test(method, cfg, hf_model, tokenizer,
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 596, in _run_final_test
-    _run_relearning_and_update(
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 651, in _run_relearning_and_update
-    relearn_mod.run_relearning(
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/relearning.py", line 144, in run_relearning
-    loss = _run_one_epoch(hf_model, tokenizer, paras, optimizer,
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/relearning.py", line 91, in _run_one_epoch
-    loss.backward()
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/_tensor.py", line 648, in backward
-    torch.autograd.backward(
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/autograd/__init__.py", line 353, in backward
-    _engine_run_backward(
-  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
-    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 42.00 MiB. GPU 0 has a total capacity of 10.57 GiB of which 26.06 MiB is free. Including non-PyTorch memory, this process has 10.54 GiB memory in use. Of the allocated memory 10.22 GiB is allocated by PyTorch, and 125.36 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
