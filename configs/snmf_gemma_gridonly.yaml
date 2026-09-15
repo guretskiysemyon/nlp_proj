@@ -1,0 +1,52 @@
+# SNMF MLP erasure (no EMBER embedding step) on Gemma-2-2b-it -- GRID ONLY.
+#
+# Identical to configs/snmf_gemma.yaml except that the final-test and
+# relearning stages are off, so the run stops after the HP search:
+#   Step 2 grid      -> train_mc/<concept>/hps.csv
+#   Step 3 validate  -> train_mc/<concept>/top_hps.csv, top_hps_valid.csv
+# That is exactly what crosslingual/run.py reads via crosslingual/best_hp.py;
+# final_test_mc.csv / relearning.csv are not needed by it.
+#
+# eval.alpaca_batch_size is also set here (8, same as configs/ember_gemma.yaml)
+# -- configs/snmf_gemma.yaml leaves it unset, which falls back to the
+# pipeline's default of 50 (see pipeline.py's _ALPACA_BATCH_SIZE_DEFAULT) and
+# OOMs generating 200-token AlpacaEval completions in the validate stage on a
+# ~10.5GB GPU. ember_gemma.yaml already discovered 8 is safe on this hardware;
+# this is the same latent gap in the original snmf_gemma.yaml, just never
+# exercised before because SNMF had not been run in this checkout yet.
+#
+# Usage:
+#   python -m ember.run_erasure --config configs/snmf_gemma_gridonly.yaml \
+#       --train-eval mc --concepts "Harry Potter"
+
+method: snmf
+model_name: google/gemma-2-2b-it
+rank: 100
+seed: 42
+topk: 15
+run_tests_after_train: false
+
+selection:
+  ratio_thresh: 2.0
+  coverage_thresh: 0.95
+
+ember_step:
+  enabled: false
+
+snmf:
+  w_mode: both
+  feature_source: all
+  in_deltas: [1.0, 4.0, 7.0, 10.0]
+  out_deltas: [1.0, 4.0, 7.0, 10.0]
+  dtype: bf16
+
+eval:
+  alpaca: true
+  alpaca_batch_size: 8
+  min_mmlu: 0.7
+  max_qa_acc: 0.6
+
+relearning:
+  enabled: false
+  max_paragraphs: 100
+  csv_path: data/relearn_paragraphs.json

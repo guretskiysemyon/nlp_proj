@@ -1,24 +1,0 @@
-/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.10/site-packages/google/api_core/_python_version_support.py:273: FutureWarning: You are using a Python version (3.10.21) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
-  warnings.warn(message, FutureWarning)
-[14:09:11] [-|-|-] ensuring features for 1 concept(s) of google/gemma-2-2b-it (rank100, seed42) from ClSu/ember-features
-Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files:   3%|▎         | 1/36 [00:00<00:25,  1.36it/s]Fetching 36 files:  11%|█         | 4/36 [00:00<00:06,  4.99it/s]Fetching 36 files:  25%|██▌       | 9/36 [00:01<00:03,  8.84it/s]Fetching 36 files: 100%|██████████| 36/36 [00:01<00:00, 27.62it/s]
-[14:09:14] [ember|-|-] starting pipeline: model=google/gemma-2-2b-it rank=100 train_eval=mc seed=42 concepts=['Harry Potter']
-[14:09:15] [ember|-|load_model] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
-[14:09:22] [ember|-|load_model] max_memory cap: 2GiB per GPU across 4 GPUs
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [08:26<08:26, 506.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [08:51<00:00, 223.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [08:51<00:00, 265.90s/it]
-[14:18:29] [ember|-|load_model] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
-[14:18:29] [ember|-|-] alpaca_batch_size=8
-[14:18:30] [ember|Harry Potter|grid] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/hps.csv
-[14:18:32] [ember|-|validate] method ember does not write top-K; skipping validate
-[14:18:33] [ember|Harry Potter|final_test] concept state = partial
-[14:18:42] [ember|Harry Potter|final_test] relearning: 806 paragraphs (cap=100)
-[14:18:42] [ember|Harry Potter|final_test] starting 2-epoch relearning on 100 paragraphs
-[14:18:51] [ember|Harry Potter|final_test] optimizer: bnb.AdamW8bit lr=1.00e-05 (llama)
-[14:21:02] [ember|Harry Potter|final_test] epoch 1 loss=3.3487 qa_acc=0.6800
-[14:22:57] [ember|Harry Potter|final_test] epoch 2 loss=1.5946 qa_acc=0.6600
-[14:22:58] [ember|Harry Potter|final_test] relearning post-eval: test_mc
-[14:23:50] [ember|Harry Potter|final_test] relearning post-eval: test_open
-[14:24:54] [ember|Harry Potter|final_test] patched final_test_mc.csv with relearning_qa_mc=0.6600
-[14:24:54] [ember|Harry Potter|final_test] patched final_test_open.csv with relearning_qa_open=0.2600
-[14:24:56] [ember|-|-] wrote timing.json -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/ember/google_gemma-2-2b-it/rank100/seed42/timing.json (total 380.7s)
-[14:24:56] [ember|-|-] pipeline complete

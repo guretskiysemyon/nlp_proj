@@ -1,0 +1,35 @@
+# EMBER standalone embedding erasure on Gemma-2-2b-it -- GRID ONLY.
+#
+# Identical to configs/ember_gemma.yaml except that the final-test and
+# relearning stages are off, so the run stops after the HP search:
+#   Step 2 grid      -> train_mc/<concept>/hps.csv
+#   Step 3 validate  -> train_mc/<concept>/top_hps.csv, top_hps_valid.csv
+# That is exactly what crosslingual/run.py reads via crosslingual/best_hp.py;
+# final_test_mc.csv / relearning.csv are not needed by it.
+#
+# Usage:
+#   python -m ember.run_erasure --config configs/ember_gemma_gridonly.yaml \
+#       --train-eval mc --concepts "Harry Potter"
+
+method: ember
+model_name: google/gemma-2-2b-it
+rank: 100
+seed: 42
+run_tests_after_train: false
+
+selection:
+  ratio_thresh: 2.0
+
+ember:
+  deltas: [0.5, 1.0, 2.0, 5.0, 10.0, 50.0, 100.0, 200.0]
+
+# Note: EMBER's grid hardcodes its own gate (min_mmlu=0.9, min_alpaca=0.9,
+# max_qa_acc=None) in grid_eval_kwargs(), so only alpaca matters here.
+eval:
+  alpaca: true
+  alpaca_batch_size: 8
+
+relearning:
+  enabled: false
+  max_paragraphs: 100
+  csv_path: data/relearn_paragraphs.json
