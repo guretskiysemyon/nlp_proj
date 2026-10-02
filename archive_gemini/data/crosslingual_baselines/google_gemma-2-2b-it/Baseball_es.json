@@ -1,0 +1,1927 @@
+{
+  "concept": "Baseball",
+  "language": "es",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "es",
+  "mc": {
+    "qa": {
+      "accuracy": 0.6,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el término para la carrera anotada cuando un corredor toca el plato de home?",
+          "options": {
+            "A": "Tarjeta de anotación",
+            "B": "Carrera",
+            "C": "RBI",
+            "D": "Strike"
+          },
+          "correct_letter": "B",
+          "correct_text": "Carrera",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuántas entradas se juegan en un partido estándar de las Grandes Ligas de Béisbol?",
+          "options": {
+            "A": "Ocho entradas",
+            "B": "Diez entradas",
+            "C": "Nueve entradas",
+            "D": "Siete entradas"
+          },
+          "correct_letter": "C",
+          "correct_text": "Nueve entradas",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué jugador defensivo se coloca detrás del bateador para atrapar la pelota lanzada?",
+          "options": {
+            "A": "Primera base",
+            "B": "Campocorto",
+            "C": "Árbitro",
+            "D": "Catcher"
+          },
+          "correct_letter": "D",
+          "correct_text": "Catcher",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué término describe un jonrón conectado con las bases llenas?",
+          "options": {
+            "A": "Solo shot",
+            "B": "Grand slam",
+            "C": "Jonrón dentro del campo",
+            "D": "Walk-off"
+          },
+          "correct_letter": "B",
+          "correct_text": "Grand slam",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Para los estadios construidos o remodelados después de 1958, ¿cuál es la distancia mínima desde el plato de home hasta la barda del jardín izquierdo o derecho?",
+          "options": {
+            "A": "330 pies",
+            "B": "325 pies",
+            "C": "300 pies",
+            "D": "350 pies"
+          },
+          "correct_letter": "B",
+          "correct_text": "325 pies",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿De cuántas ligas mayores consta la Major League Baseball (MLB)?",
+          "options": {
+            "A": "Dos",
+            "B": "Tres",
+            "C": "Una",
+            "D": "Cuatro"
+          },
+          "correct_letter": "A",
+          "correct_text": "Dos",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuántos outs deben registrarse para finalizar el turno al bate de un equipo en una entrada?",
+          "options": {
+            "A": "Tres outs",
+            "B": "Cinco outs",
+            "C": "Dos outs",
+            "D": "Cuatro outs"
+          },
+          "correct_letter": "A",
+          "correct_text": "Tres outs",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la jugada en la que un fildeador atrapa una pelota bateada antes de que toque el suelo?",
+          "options": {
+            "A": "Fly out",
+            "B": "Ground out",
+            "C": "Pop foul",
+            "D": "Línea"
+          },
+          "correct_letter": "A",
+          "correct_text": "Fly out",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama un lanzamiento fuera de la zona de strike que el bateador no abanica ni golpea?",
+          "options": {
+            "A": "Bola",
+            "B": "Strike",
+            "C": "Foul",
+            "D": "Wild pitch"
+          },
+          "correct_letter": "A",
+          "correct_text": "Bola",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la jugada defensiva en la que se registran dos outs en una jugada continua?",
+          "options": {
+            "A": "Relevo",
+            "B": "Pickoff",
+            "C": "Doble play",
+            "D": "Force out"
+          },
+          "correct_letter": "C",
+          "correct_text": "Doble play",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué tipo de bate se utiliza típicamente en el béisbol profesional?",
+          "options": {
+            "A": "Bate de aluminio",
+            "B": "Bate compuesto",
+            "C": "Bate de plástico",
+            "D": "Bate de madera"
+          },
+          "correct_letter": "D",
+          "correct_text": "Bate de madera",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el término para el área fuera de las líneas de foul?",
+          "options": {
+            "A": "Bullpen",
+            "B": "Territorio de foul",
+            "C": "Pista de advertencia",
+            "D": "Territorio bueno"
+          },
+          "correct_letter": "B",
+          "correct_text": "Territorio de foul",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué pieza de equipo usan los fildeadores para atrapar la pelota?",
+          "options": {
+            "A": "Guante (o manopla)",
+            "B": "Espinillera",
+            "C": "Guante de bateo",
+            "D": "Casco"
+          },
+          "correct_letter": "A",
+          "correct_text": "Guante (o manopla)",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el término para un batazo que le permite a un bateador llegar a segunda base sin ser puesto out?",
+          "options": {
+            "A": "Doble",
+            "B": "Triple",
+            "C": "Sencillo",
+            "D": "Jonrón"
+          },
+          "correct_letter": "A",
+          "correct_text": "Doble",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el término para un batazo que le permite a un bateador llegar a tercera base sin ser puesto out?",
+          "options": {
+            "A": "Triple",
+            "B": "Sencillo",
+            "C": "Doble de regla",
+            "D": "Doble"
+          },
+          "correct_letter": "A",
+          "correct_text": "Triple",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo anota un bateador una carrera en el béisbol?",
+          "options": {
+            "A": "Llegando a tercera base a salvo",
+            "B": "Recibiendo una base por bolas solo con las bases llenas",
+            "C": "Robándose home sin que lo toque el fildeador",
+            "D": "Tocando las cuatro bases en orden y regresando al plato de home"
+          },
+          "correct_letter": "D",
+          "correct_text": "Tocando las cuatro bases en orden y regresando al plato de home",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuántos strikes se necesitan para ponchar a un bateador?",
+          "options": {
+            "A": "Dos strikes",
+            "B": "Cinco strikes",
+            "C": "Cuatro strikes",
+            "D": "Tres strikes"
+          },
+          "correct_letter": "D",
+          "correct_text": "Tres strikes",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el rol principal del lanzador?",
+          "options": {
+            "A": "Marcar bolas y strikes",
+            "B": "Dirigir la carrera de bases",
+            "C": "Establecer el orden al bate",
+            "D": "Hacer lanzamientos para poner fuera a los bateadores"
+          },
+          "correct_letter": "D",
+          "correct_text": "Hacer lanzamientos para poner fuera a los bateadores",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué jugador es responsable de hacer señas al lanzador sobre el tipo de lanzamiento?",
+          "options": {
+            "A": "Campocorto",
+            "B": "Mánager",
+            "C": "Catcher",
+            "D": "Segunda base"
+          },
+          "correct_letter": "C",
+          "correct_text": "Catcher",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es aproximadamente la circunferencia de una pelota de béisbol reglamentaria?",
+          "options": {
+            "A": "10 pulgadas",
+            "B": "9.5 pulgadas",
+            "C": "9 pulgadas",
+            "D": "8 pulgadas"
+          },
+          "correct_letter": "C",
+          "correct_text": "9 pulgadas",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿De qué está hecho típicamente el centro de una pelota de béisbol?",
+          "options": {
+            "A": "Caucho o corcho",
+            "B": "Acero",
+            "C": "Espuma",
+            "D": "Madera"
+          },
+          "correct_letter": "A",
+          "correct_text": "Caucho o corcho",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿De qué color son las costuras en una pelota de béisbol estándar?",
+          "options": {
+            "A": "Negro",
+            "B": "Azul",
+            "C": "Rojo",
+            "D": "Blanco"
+          },
+          "correct_letter": "C",
+          "correct_text": "Rojo",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es la longitud típica de un bate de béisbol utilizado por jugadores adultos?",
+          "options": {
+            "A": "Alrededor de 34 pulgadas",
+            "B": "Alrededor de 36 pulgadas",
+            "C": "Alrededor de 30 pulgadas",
+            "D": "Alrededor de 32 pulgadas"
+          },
+          "correct_letter": "A",
+          "correct_text": "Alrededor de 34 pulgadas",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuántos jugadores hay en el campo para un equipo durante el juego?",
+          "options": {
+            "A": "Ocho",
+            "B": "Nueve",
+            "C": "Diez",
+            "D": "Once"
+          },
+          "correct_letter": "B",
+          "correct_text": "Nueve",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué apodo se le da a menudo al béisbol en los Estados Unidos?",
+          "options": {
+            "A": "El pasatiempo de América",
+            "B": "Clásico de verano",
+            "C": "El pasatiempo nacional",
+            "D": "Bola de diamante"
+          },
+          "correct_letter": "A",
+          "correct_text": "El pasatiempo de América",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué sanción se impone cuando un lanzador comete un movimiento de engaño ilegal?",
+          "options": {
+            "A": "Balk",
+            "B": "Expulsión",
+            "C": "Interferencia del receptor",
+            "D": "Bola"
+          },
+          "correct_letter": "A",
+          "correct_text": "Balk",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué dos ligas componen las Grandes Ligas de Béisbol (MLB)?",
+          "options": {
+            "A": "La Liga Nacional y la Liga Americana",
+            "B": "La Liga del Este y la Liga del Sur",
+            "C": "La Liga Internacional y la Liga de la Costa del Pacífico",
+            "D": "La Liga Federal y la Asociación de la Unión"
+          },
+          "correct_letter": "A",
+          "correct_text": "La Liga Nacional y la Liga Americana",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo consigue un bateador una base por bolas?",
+          "options": {
+            "A": "Al conectar tres fouls",
+            "B": "Al embasarse por un error",
+            "C": "Al ser golpeado por un lanzamiento",
+            "D": "Al recibir cuatro bolas durante su turno al bate"
+          },
+          "correct_letter": "D",
+          "correct_text": "Al recibir cuatro bolas durante su turno al bate",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el objetivo principal del bateador?",
+          "options": {
+            "A": "Pedir los lanzamientos",
+            "B": "Eliminar corredores con lanzamientos",
+            "C": "Tocar a los corredores para eliminarlos",
+            "D": "Golpear la pelota y llegar a la base de forma segura"
+          },
+          "correct_letter": "D",
+          "correct_text": "Golpear la pelota y llegar a la base de forma segura",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Después de llegar a la primera base, ¿a qué base corre el bateador a continuación?",
+          "options": {
+            "A": "Tercera base",
+            "B": "Lomita del lanzador",
+            "C": "Segunda base",
+            "D": "Home"
+          },
+          "correct_letter": "C",
+          "correct_text": "Segunda base",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué base toca un corredor después de la segunda base?",
+          "options": {
+            "A": "Home",
+            "B": "Tercera base",
+            "C": "Primera base",
+            "D": "Zona de entrenadores"
+          },
+          "correct_letter": "B",
+          "correct_text": "Tercera base",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué parte del campo se conoce como la lomita del lanzador?",
+          "options": {
+            "A": "El área elevada desde donde el lanzador arroja la pelota",
+            "B": "El césped frente a la segunda base",
+            "C": "El área de calentamiento del bullpen",
+            "D": "El área plana detrás del home"
+          },
+          "correct_letter": "A",
+          "correct_text": "El área elevada desde donde el lanzador arroja la pelota",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el término para cuando a un bateador se le concede la primera base después de ser golpeado por un lanzamiento?",
+          "options": {
+            "A": "Interferencia",
+            "B": "Balk",
+            "C": "Golpeado por el lanzamiento",
+            "D": "Base por bolas"
+          },
+          "correct_letter": "C",
+          "correct_text": "Golpeado por el lanzamiento",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué es un error en el béisbol?",
+          "options": {
+            "A": "Un bateador que abanica y falla",
+            "B": "Un batazo de foul con dos strikes",
+            "C": "Un strike lanzado fuera de la zona",
+            "D": "Una mala jugada de un fildeador que permite a los corredores avanzar"
+          },
+          "correct_letter": "D",
+          "correct_text": "Una mala jugada de un fildeador que permite a los corredores avanzar",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué es un out forzado en el béisbol?",
+          "options": {
+            "A": "Cuando un corredor es eliminado porque está obligado a avanzar a la siguiente base",
+            "B": "Cuando un bateador falla tres lanzamientos",
+            "C": "Cuando un corredor es tocado mientras está fuera de la base",
+            "D": "Cuando se atrapa un elevado"
+          },
+          "correct_letter": "A",
+          "correct_text": "Cuando un corredor es eliminado porque está obligado a avanzar a la siguiente base",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuántos outs terminan una mitad de entrada en el béisbol?",
+          "options": {
+            "A": "Dos",
+            "B": "Cuatro",
+            "C": "Cinco",
+            "D": "Tres"
+          },
+          "correct_letter": "D",
+          "correct_text": "Tres",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué competencia internacional de béisbol cuenta con equipos nacionales?",
+          "options": {
+            "A": "Clásico Mundial de Béisbol",
+            "B": "Serie Mundial Universitaria",
+            "C": "Serie Mundial",
+            "D": "Juego de Estrellas"
+          },
+          "correct_letter": "A",
+          "correct_text": "Clásico Mundial de Béisbol",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué estadio icónico es conocido por su pared de jardín izquierdo llamada 'Monstruo Verde'?",
+          "options": {
+            "A": "Wrigley Field",
+            "B": "Fenway Park",
+            "C": "Dodger Stadium",
+            "D": "Yankee Stadium"
+          },
+          "correct_letter": "B",
+          "correct_text": "Fenway Park",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué son las asistencias en el fildeo de béisbol?",
+          "options": {
+            "A": "Eliminar a un corredor solo en el home",
+            "B": "Jugadas donde un fildeador ayuda a realizar un out tocando la pelota",
+            "C": "Outs exitosos de un fildeador",
+            "D": "Atrapadas hechas por los jardineros"
+          },
+          "correct_letter": "B",
+          "correct_text": "Jugadas donde un fildeador ayuda a realizar un out tocando la pelota",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿A qué se refiere 'entradas lanzadas' en las estadísticas de béisbol?",
+          "options": {
+            "A": "El número de juegos completos",
+            "B": "El número de bateadores enfrentados",
+            "C": "El número de outs registrados por un lanzador dividido entre tres",
+            "D": "El número total de lanzamientos realizados"
+          },
+          "correct_letter": "C",
+          "correct_text": "El número de outs registrados por un lanzador dividido entre tres",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué documento oficial registra cada jugada en un partido de béisbol?",
+          "options": {
+            "A": "Box score",
+            "B": "Tarjeta de anotación",
+            "C": "El informe de anotación",
+            "D": "Tarjeta de alineación"
+          },
+          "correct_letter": "C",
+          "correct_text": "El informe de anotación",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué es la sabermetría en el béisbol?",
+          "options": {
+            "A": "Un método para reclutar jugadores de secundaria",
+            "B": "El estudio y análisis de las estadísticas de béisbol",
+            "C": "Un sistema de evaluación de árbitros",
+            "D": "Una técnica para ablandar los guantes"
+          },
+          "correct_letter": "B",
+          "correct_text": "El estudio y análisis de las estadísticas de béisbol",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué es un cambio de ritmo en el béisbol?",
+          "options": {
+            "A": "Una recta con efecto hacia atrás adicional",
+            "B": "Un lanzamiento realizado de lado",
+            "C": "Un lanzamiento más lento diseñado para alterar el tiempo del bateador",
+            "D": "Un slider que quiebra tarde"
+          },
+          "correct_letter": "C",
+          "correct_text": "Un lanzamiento más lento diseñado para alterar el tiempo del bateador",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué es el orden al bate en el béisbol?",
+          "options": {
+            "A": "La alineación defensiva para cada entrada",
+            "B": "La lista de lanzadores disponibles para relevo",
+            "C": "El orden de los ejercicios de calentamiento",
+            "D": "La secuencia predeterminada en la que los jugadores pasan a batear"
+          },
+          "correct_letter": "D",
+          "correct_text": "La secuencia predeterminada en la que los jugadores pasan a batear",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Con qué debe tener contacto un lanzador durante su entrega desde la lomita?",
+          "options": {
+            "A": "La punta del pie en la línea de la caja de bateo",
+            "B": "Un pie en la placa de sustentación",
+            "C": "Ambos pies en la placa de sustentación",
+            "D": "El pie delantero en el plato de home"
+          },
+          "correct_letter": "B",
+          "correct_text": "Un pie en la placa de sustentación",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué significa 'territorio legal' en el béisbol?",
+          "options": {
+            "A": "La porción de tierra del cuadro interior",
+            "B": "Cualquier pelota que llegue a los jardines",
+            "C": "El área entre las líneas de foul donde la pelota está en juego",
+            "D": "El área más allá de la pista de advertencia"
+          },
+          "correct_letter": "C",
+          "correct_text": "El área entre las líneas de foul donde la pelota está en juego",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es la función principal del guante del receptor?",
+          "options": {
+            "A": "Recoger los tiros en la primera base",
+            "B": "Dar señas a los entrenadores de base",
+            "C": "Bloquear el plato de home únicamente",
+            "D": "Atrapar los lanzamientos y fildear pelotas"
+          },
+          "correct_letter": "D",
+          "correct_text": "Atrapar los lanzamientos y fildear pelotas",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se utiliza un hit para calcular el promedio de bateo?",
+          "options": {
+            "A": "Dividiendo el número de hits entre el número de turnos al bate",
+            "B": "Dividiendo el total de bases entre los turnos al bate",
+            "C": "Sumando los hits a las bases por bolas y dividiendo entre las apariciones al plato",
+            "D": "Dividiendo los hits entre los juegos jugados"
+          },
+          "correct_letter": "A",
+          "correct_text": "Dividiendo el número de hits entre el número de turnos al bate",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué estadística se obtiene sumando el OBP y el SLG?",
+          "options": {
+            "A": "WAR",
+            "B": "ERA",
+            "C": "OPS",
+            "D": "WHIP"
+          },
+          "correct_letter": "C",
+          "correct_text": "OPS",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Quién acuñó el término 'sabermetría' en el béisbol?",
+          "options": {
+            "A": "Billy Beane",
+            "B": "Branch Rickey",
+            "C": "Bill James",
+            "D": "Henry Chadwick"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bill James",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.7,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos puntos vale un tiro realizado desde detrás de la línea de tres puntos en el baloncesto?",
+          "options": {
+            "A": "3",
+            "B": "5",
+            "C": "4",
+            "D": "2"
+          },
+          "correct_letter": "A",
+          "correct_text": "3",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el baloncesto, ¿cuántos cuartos se juegan en un partido estándar de la NBA?",
+          "options": {
+            "A": "4",
+            "B": "3",
+            "C": "5",
+            "D": "2"
+          },
+          "correct_letter": "A",
+          "correct_text": "4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos segundos tiene un equipo para intentar un tiro en el juego de la NBA?",
+          "options": {
+            "A": "24 segundos",
+            "B": "30 segundos",
+            "C": "35 segundos",
+            "D": "20 segundos"
+          },
+          "correct_letter": "A",
+          "correct_text": "24 segundos",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos equipos compiten actualmente en la NBA?",
+          "options": {
+            "A": "30",
+            "B": "26",
+            "C": "32",
+            "D": "28"
+          },
+          "correct_letter": "A",
+          "correct_text": "30",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el baloncesto, ¿cómo se llama la acción de bloquear el tiro de un oponente?",
+          "options": {
+            "A": "Falta en ataque",
+            "B": "Robo",
+            "C": "Tapón",
+            "D": "Bloqueo"
+          },
+          "correct_letter": "C",
+          "correct_text": "Tapón",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama la infracción cuando un jugador de baloncesto da pasos de más ilegalmente sin driblar?",
+          "options": {
+            "A": "Caminando",
+            "B": "Falta de interferencia",
+            "C": "Acompañar el balón",
+            "D": "Dobles"
+          },
+          "correct_letter": "A",
+          "correct_text": "Caminando",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Para qué se utiliza el área rectangular cerca de la canasta, a menudo llamada «la pintura»?",
+          "options": {
+            "A": "Posicionamiento defensivo y ofensivo",
+            "B": "Solo para tiros libres",
+            "C": "Sustituciones y tiempos muertos",
+            "D": "Práctica de tiro de tres puntos"
+          },
+          "correct_letter": "A",
+          "correct_text": "Posicionamiento defensivo y ofensivo",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el fútbol, ¿cuántos jugadores hay en cada equipo durante un partido estándar?",
+          "options": {
+            "A": "10",
+            "B": "9",
+            "C": "12",
+            "D": "11"
+          },
+          "correct_letter": "D",
+          "correct_text": "11",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el nombre oficial del área donde un guardameta puede usar las manos?",
+          "options": {
+            "A": "Área de meta",
+            "B": "Línea de seis yardas",
+            "C": "Zona de banda",
+            "D": "Área de penalti"
+          },
+          "correct_letter": "D",
+          "correct_text": "Área de penalti",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuánto dura un partido de fútbol profesional estándar (excluyendo el tiempo añadido)?",
+          "options": {
+            "A": "90 minutos",
+            "B": "60 minutos",
+            "C": "80 minutos",
+            "D": "120 minutos"
+          },
+          "correct_letter": "A",
+          "correct_text": "90 minutos",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el fútbol, ¿cómo se llama el saque concedido después de que se comete una falta en el área de penalti?",
+          "options": {
+            "A": "Tiro penalti",
+            "B": "Saque de meta",
+            "C": "Tiro libre directo",
+            "D": "Tiro libre indirecto"
+          },
+          "correct_letter": "A",
+          "correct_text": "Tiro penalti",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama cuando un jugador marca tres goles en un partido de fútbol?",
+          "options": {
+            "A": "Triplete",
+            "B": "Triple",
+            "C": "Tiempo de triplete",
+            "D": "Doblete"
+          },
+          "correct_letter": "A",
+          "correct_text": "Triplete",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el fútbol, ¿cómo se llama el método para reanudar el juego cuando el balón sale por la banda?",
+          "options": {
+            "A": "Saque de esquina",
+            "B": "Saque de meta",
+            "C": "Saque de banda",
+            "D": "Balón al suelo"
+          },
+          "correct_letter": "C",
+          "correct_text": "Saque de banda",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el fútbol americano, ¿cuántos jugadores de un equipo están en el campo durante el juego?",
+          "options": {
+            "A": "9",
+            "B": "11",
+            "C": "12",
+            "D": "10"
+          },
+          "correct_letter": "B",
+          "correct_text": "11",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos puntos vale un gol de campo en el fútbol americano?",
+          "options": {
+            "A": "1",
+            "B": "6",
+            "C": "2",
+            "D": "3"
+          },
+          "correct_letter": "D",
+          "correct_text": "3",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué equipo de protección se lleva en la cabeza en el fútbol americano?",
+          "options": {
+            "A": "Gorro de melé",
+            "B": "Cinta para la cabeza",
+            "C": "Gorra",
+            "D": "Casco"
+          },
+          "correct_letter": "D",
+          "correct_text": "Casco",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el fútbol americano, ¿cuántas yardas se deben avanzar para conseguir una nueva serie de oportunidades (downs)?",
+          "options": {
+            "A": "10 yardas",
+            "B": "15 yardas",
+            "C": "5 yardas",
+            "D": "8 yardas"
+          },
+          "correct_letter": "A",
+          "correct_text": "10 yardas",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué posición en el fútbol americano es la principal responsable de lanzar el balón?",
+          "options": {
+            "A": "Receptor abierto",
+            "B": "Mariscal de campo",
+            "C": "Centro",
+            "D": "Corredor"
+          },
+          "correct_letter": "B",
+          "correct_text": "Mariscal de campo",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama un pase que resulta incompleto o sale fuera de los límites en el fútbol americano?",
+          "options": {
+            "A": "Pase soltado",
+            "B": "Pase incompleto",
+            "C": "Balón muerto",
+            "D": "Pase suelto"
+          },
+          "correct_letter": "B",
+          "correct_text": "Pase incompleto",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el críquet, ¿cómo se llama golpear la pelota por encima del límite sin que bote?",
+          "options": {
+            "A": "Seis",
+            "B": "Límite superado",
+            "C": "Máximo",
+            "D": "Cuatro"
+          },
+          "correct_letter": "A",
+          "correct_text": "Seis",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué equipo utiliza un bateador en el críquet?",
+          "options": {
+            "A": "Bate",
+            "B": "Palo",
+            "C": "Paleta",
+            "D": "Raqueta"
+          },
+          "correct_letter": "A",
+          "correct_text": "Bate",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántas bolas se lanzan en un «over» en el críquet?",
+          "options": {
+            "A": "4",
+            "B": "6",
+            "C": "5",
+            "D": "8"
+          },
+          "correct_letter": "B",
+          "correct_text": "6",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué tipo de lanzamiento en el críquet consiste en hacer girar la bola alejándola de un bateador diestro?",
+          "options": {
+            "A": "Off-spin",
+            "B": "Swing bowling",
+            "C": "Leg-spin",
+            "D": "Seam bowling"
+          },
+          "correct_letter": "C",
+          "correct_text": "Leg-spin",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el término que se usa cuando un bateador es eliminado porque la bola golpea los postes?",
+          "options": {
+            "A": "Caught",
+            "B": "LBW",
+            "C": "Bowled",
+            "D": "Run-out"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bowled",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el hockey sobre hielo, ¿cómo se llama el área frente a la portería utilizada para las oportunidades de gol?",
+          "options": {
+            "A": "Blue line",
+            "B": "Neutral zone",
+            "C": "Slot",
+            "D": "Crease"
+          },
+          "correct_letter": "C",
+          "correct_text": "Slot",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Sobre qué superficie se juega al hockey sobre hielo?",
+          "options": {
+            "A": "Pista",
+            "B": "Campo",
+            "C": "Cancha",
+            "D": "Terreno de juego"
+          },
+          "correct_letter": "A",
+          "correct_text": "Pista",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el tenis, ¿cómo se denomina un marcador de 40-40?",
+          "options": {
+            "A": "Punto de quiebre",
+            "B": "Deuce",
+            "C": "Love",
+            "D": "Ventaja"
+          },
+          "correct_letter": "B",
+          "correct_text": "Deuce",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el término para cero puntos en el tenis?",
+          "options": {
+            "A": "Cero",
+            "B": "Nil",
+            "C": "En blanco",
+            "D": "Love"
+          },
+          "correct_letter": "D",
+          "correct_text": "Love",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Sobre qué superficie se juega en Wimbledon?",
+          "options": {
+            "A": "Pista dura",
+            "B": "Moqueta",
+            "C": "Arcilla",
+            "D": "Césped"
+          },
+          "correct_letter": "D",
+          "correct_text": "Césped",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos torneos de Grand Slam se celebran cada año en el tenis?",
+          "options": {
+            "A": "5",
+            "B": "3",
+            "C": "4",
+            "D": "6"
+          },
+          "correct_letter": "C",
+          "correct_text": "4",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama un saque en el tenis que el oponente no logra tocar?",
+          "options": {
+            "A": "Falta",
+            "B": "Ace",
+            "C": "Let",
+            "D": "Winner"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ace",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el tenis, ¿cuántos juegos se necesitan generalmente para ganar un set (sin contar los desempates)?",
+          "options": {
+            "A": "4",
+            "B": "5",
+            "C": "6",
+            "D": "7"
+          },
+          "correct_letter": "C",
+          "correct_text": "6",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En la puntuación del tenis, ¿qué número viene después del 15?",
+          "options": {
+            "A": "20",
+            "B": "40",
+            "C": "30",
+            "D": "25"
+          },
+          "correct_letter": "C",
+          "correct_text": "30",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el área designada en una cancha de tenis donde debe botar el saque?",
+          "options": {
+            "A": "Cuadro de servicio",
+            "B": "Pasillo de dobles",
+            "C": "Área de la línea de fondo",
+            "D": "Zona de nadie"
+          },
+          "correct_letter": "A",
+          "correct_text": "Cuadro de servicio",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En un campo de golf estándar, ¿cuántos hoyos se juegan?",
+          "options": {
+            "A": "9",
+            "B": "18",
+            "C": "21",
+            "D": "12"
+          },
+          "correct_letter": "B",
+          "correct_text": "18",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué torneo de golf profesional se conoce comúnmente como The Masters?",
+          "options": {
+            "A": "The Open Championship",
+            "B": "U.S. Open",
+            "C": "The Masters Tournament",
+            "D": "PGA Championship"
+          },
+          "correct_letter": "C",
+          "correct_text": "The Masters Tournament",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el término para una puntuación de tres bajo par en un solo hoyo de golf?",
+          "options": {
+            "A": "Albatros",
+            "B": "Bogey",
+            "C": "Birdie",
+            "D": "Eagle"
+          },
+          "correct_letter": "A",
+          "correct_text": "Albatros",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué palo se utiliza principalmente en el green para rodar la bola hacia el hoyo en el golf?",
+          "options": {
+            "A": "Wedge",
+            "B": "Hierro",
+            "C": "Putter",
+            "D": "Driver"
+          },
+          "correct_letter": "C",
+          "correct_text": "Putter",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En el voleibol de sala, ¿cuántos jugadores de cada equipo están en la cancha?",
+          "options": {
+            "A": "6",
+            "B": "4",
+            "C": "7",
+            "D": "5"
+          },
+          "correct_letter": "A",
+          "correct_text": "6",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el término para un golpe de ataque por encima de la red en el voleibol?",
+          "options": {
+            "A": "Saque",
+            "B": "Remate",
+            "C": "Colocación",
+            "D": "Bloqueo"
+          },
+          "correct_letter": "B",
+          "correct_text": "Remate",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama cuando un saque en voleibol cae en el campo del oponente sin ser tocado?",
+          "options": {
+            "A": "Ace",
+            "B": "Punto de bloqueo",
+            "C": "Kill",
+            "D": "Punto de servicio"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ace",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En rugby union, ¿cuántos jugadores hay en cada equipo durante un partido?",
+          "options": {
+            "A": "15",
+            "B": "11",
+            "C": "13",
+            "D": "14"
+          },
+          "correct_letter": "A",
+          "correct_text": "15",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En bádminton, ¿cuántos puntos debe anotar un jugador para ganar un set en el juego estándar?",
+          "options": {
+            "A": "15",
+            "B": "11",
+            "C": "21",
+            "D": "25"
+          },
+          "correct_letter": "C",
+          "correct_text": "21",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En bádminton dobles, ¿cuántos jugadores hay en la cancha en total?",
+          "options": {
+            "A": "8",
+            "B": "2",
+            "C": "6",
+            "D": "4"
+          },
+          "correct_letter": "D",
+          "correct_text": "4",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En tenis de mesa, ¿a cuántos puntos debe llegar un jugador para ganar un juego en el juego competitivo estándar?",
+          "options": {
+            "A": "15",
+            "B": "11",
+            "C": "7",
+            "D": "21"
+          },
+          "correct_letter": "B",
+          "correct_text": "11",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En un partido de tenis de mesa de dobles, ¿cuántos jugadores hay en cada lado?",
+          "options": {
+            "A": "3",
+            "B": "4",
+            "C": "1",
+            "D": "2"
+          },
+          "correct_letter": "D",
+          "correct_text": "2",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "En sóftbol, ¿cuántas entradas se juegan típicamente en un partido estándar?",
+          "options": {
+            "A": "9",
+            "B": "7",
+            "C": "5",
+            "D": "6"
+          },
+          "correct_letter": "B",
+          "correct_text": "7",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué posición en sóftbol es responsable de lanzar la pelota desde el círculo de lanzamiento?",
+          "options": {
+            "A": "Primera base",
+            "B": "Receptor",
+            "C": "Campocorto",
+            "D": "Lanzador"
+          },
+          "correct_letter": "D",
+          "correct_text": "Lanzador",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es la distancia estándar entre bases en sóftbol?",
+          "options": {
+            "A": "70 pies",
+            "B": "65 pies",
+            "C": "90 pies",
+            "D": "60 pies"
+          },
+          "correct_letter": "D",
+          "correct_text": "60 pies",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama el equipo de protección que usa un receptor de sóftbol?",
+          "options": {
+            "A": "Protecciones de guardameta",
+            "B": "Equipo de bateo",
+            "C": "Equipo de receptor",
+            "D": "Solo guante de receptor"
+          },
+          "correct_letter": "C",
+          "correct_text": "Equipo de receptor",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}

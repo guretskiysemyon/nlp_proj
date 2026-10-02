@@ -1,0 +1,1927 @@
+{
+  "concept": "Halloween",
+  "language": "es",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "es",
+  "mc": {
+    "qa": {
+      "accuracy": 0.52,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿En qué fecha se celebra el Día de Todos los Santos?",
+          "options": {
+            "A": "2 de noviembre",
+            "B": "31 de octubre",
+            "C": "25 de diciembre",
+            "D": "1 de noviembre"
+          },
+          "correct_letter": "D",
+          "correct_text": "1 de noviembre",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama el caballo de juguete de la «yegua blanca» que se usa en las tradiciones irlandesas de Halloween?",
+          "options": {
+            "A": "Pooka",
+            "B": "Láir Bhán",
+            "C": "Kelpie",
+            "D": "Selkie"
+          },
+          "correct_letter": "B",
+          "correct_text": "Láir Bhán",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llaman las manzanas cubiertas de almíbar de azúcar pegajoso en el Reino Unido?",
+          "options": {
+            "A": "Pepitas de azúcar",
+            "B": "Manzanas de caramelo (Toffee apples)",
+            "C": "Crujientes glaseados",
+            "D": "Manzanas de caramelo (Candy apples)"
+          },
+          "correct_letter": "B",
+          "correct_text": "Manzanas de caramelo (Toffee apples)",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llamaba el herrero del cuento popular irlandés que engañó al diablo?",
+          "options": {
+            "A": "Jack",
+            "B": "Stingy Tom",
+            "C": "Pat",
+            "D": "Will"
+          },
+          "correct_letter": "A",
+          "correct_text": "Jack",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la víspera del Día de Todos los Santos?",
+          "options": {
+            "A": "Noche de Todos los Santos",
+            "B": "Día de las Almas",
+            "C": "Noche de las Travesuras",
+            "D": "Noche de Samhain"
+          },
+          "correct_letter": "A",
+          "correct_text": "Noche de Todos los Santos",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué significa la palabra «hallow» en inglés antiguo?",
+          "options": {
+            "A": "Hueco",
+            "B": "Viejo",
+            "C": "Sagrado",
+            "D": "Fantasma"
+          },
+          "correct_letter": "C",
+          "correct_text": "Sagrado",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál era la creencia detrás de encender hogueras en Halloween?",
+          "options": {
+            "A": "Cocinar pasteles de almas",
+            "B": "Alejar a los espíritus malignos",
+            "C": "Celebrar la cosecha",
+            "D": "Guiar a los barcos a la costa"
+          },
+          "correct_letter": "B",
+          "correct_text": "Alejar a los espíritus malignos",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama en el folclore a un alma a la que se le niega la entrada tanto al cielo como al infierno?",
+          "options": {
+            "A": "Banshee",
+            "B": "Wraith",
+            "C": "Poltergeist",
+            "D": "Jack-o'-lantern"
+          },
+          "correct_letter": "D",
+          "correct_text": "Jack-o'-lantern",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En la Edad Media, ¿qué usaban las iglesias pobres en lugar de reliquias de santos costosas?",
+          "options": {
+            "A": "Feligreses vestidos de santos",
+            "B": "Flores secas",
+            "C": "Tallados de madera",
+            "D": "Piedras pintadas"
+          },
+          "correct_letter": "A",
+          "correct_text": "Feligreses vestidos de santos",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿En qué década se generalizó el truco o trato en Norteamérica?",
+          "options": {
+            "A": "Década de 1910",
+            "B": "Década de 1970",
+            "C": "Década de 1950",
+            "D": "Década de 1930"
+          },
+          "correct_letter": "D",
+          "correct_text": "Década de 1930",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se le llama a una persona que practica el «souling» (pedir limosna por las almas)?",
+          "options": {
+            "A": "Guiser",
+            "B": "Souler",
+            "C": "Wassailer",
+            "D": "Mummer"
+          },
+          "correct_letter": "B",
+          "correct_text": "Souler",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué plato irlandés de patata se suele comer en Halloween en lugar de carne?",
+          "options": {
+            "A": "Boxty",
+            "B": "Colcannon",
+            "C": "Estofado irlandés",
+            "D": "Champ"
+          },
+          "correct_letter": "B",
+          "correct_text": "Colcannon",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llamaban los pastelillos que se daban a los pobres durante el tiempo de Todos los Santos?",
+          "options": {
+            "A": "Pasteles de Halloween",
+            "B": "Galletas de los espíritus",
+            "C": "Panecillos de santos",
+            "D": "Pasteles de almas"
+          },
+          "correct_letter": "D",
+          "correct_text": "Pasteles de almas",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llaman los «seres temibles» galeses disfrazados de hombres?",
+          "options": {
+            "A": "Bwbach",
+            "B": "Cwn Annwn",
+            "C": "Cyhyraeth",
+            "D": "Gwrachod"
+          },
+          "correct_letter": "D",
+          "correct_text": "Gwrachod",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la alternativa a Halloween centrada en la luz que celebran algunas iglesias?",
+          "options": {
+            "A": "Fiesta de la Luz",
+            "B": "Resplandor de la Cosecha",
+            "C": "Festival de los Santos",
+            "D": "Noche de Gloria"
+          },
+          "correct_letter": "A",
+          "correct_text": "Fiesta de la Luz",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En el siglo XIX, ¿qué dejaban las familias en Italia para los fantasmas antes de ir a la iglesia?",
+          "options": {
+            "A": "Una moneda de plata",
+            "B": "Un par de zapatos",
+            "C": "Una comida",
+            "D": "Una vela encendida"
+          },
+          "correct_letter": "C",
+          "correct_text": "Una comida",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál era la antigua festividad romana de los muertos celebrada en mayo?",
+          "options": {
+            "A": "Floralia",
+            "B": "Vinalia",
+            "C": "Lemuria",
+            "D": "Parentalia"
+          },
+          "correct_letter": "C",
+          "correct_text": "Lemuria",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál fue la primera atracción de terror construida específicamente para tal fin registrada, inaugurada en 1915?",
+          "options": {
+            "A": "Spooky Hollow",
+            "B": "Mansión Encantada de Disneyland",
+            "C": "London Dungeon",
+            "D": "Casa fantasma de Orton y Spooner"
+          },
+          "correct_letter": "D",
+          "correct_text": "Casa fantasma de Orton y Spooner",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué frutos secos se utilizan tradicionalmente junto con las manzanas para la adivinación de Halloween?",
+          "options": {
+            "A": "Avellanas",
+            "B": "Nueces",
+            "C": "Bellotas",
+            "D": "Castañas"
+          },
+          "correct_letter": "A",
+          "correct_text": "Avellanas",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Quién fue el miembro de la corte de Carlomagno que pudo haber promovido el Día de Todos los Santos?",
+          "options": {
+            "A": "Alcuino de York",
+            "B": "Pablo el Diácono",
+            "C": "Einhard",
+            "D": "Teodulfo"
+          },
+          "correct_letter": "A",
+          "correct_text": "Alcuino de York",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué novela de 1897 escrita por Bram Stoker contribuyó a la imaginería de monstruos de Halloween?",
+          "options": {
+            "A": "El hombre lobo",
+            "B": "El hombre invisible",
+            "C": "La momia",
+            "D": "Dracula"
+          },
+          "correct_letter": "D",
+          "correct_text": "Dracula",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En Roma en 1823, ¿qué se utilizaba en las representaciones teatrales de los muertos?",
+          "options": {
+            "A": "Títeres de sombra",
+            "B": "Figuras de cera",
+            "C": "Esqueletos de madera",
+            "D": "Máscaras pintadas"
+          },
+          "correct_letter": "B",
+          "correct_text": "Figuras de cera",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué novela gótica de Mary Shelley influyó en la imaginería moderna de Halloween?",
+          "options": {
+            "A": "Frankenstein",
+            "B": "El castillo de Otranto",
+            "C": "El monje",
+            "D": "Los misterios de Udolfo"
+          },
+          "correct_letter": "A",
+          "correct_text": "Frankenstein",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué significa el término 'memento mori' en relación con Halloween?",
+          "options": {
+            "A": "Recordatorio de la muerte",
+            "B": "Sueño eterno",
+            "C": "Danza con los fantasmas",
+            "D": "Regalo para los espíritus"
+          },
+          "correct_letter": "A",
+          "correct_text": "Recordatorio de la muerte",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es la fecha tradicional del inicio del invierno celta?",
+          "options": {
+            "A": "1 de noviembre",
+            "B": "21 de diciembre",
+            "C": "31 de octubre",
+            "D": "1 de octubre"
+          },
+          "correct_letter": "A",
+          "correct_text": "1 de noviembre",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la práctica en la que los niños se disfrazan y van de puerta en puerta pidiendo dulces?",
+          "options": {
+            "A": "Truco o trato",
+            "B": "Enmascaramiento",
+            "C": "Un centavo para el tipo",
+            "D": "Caza de dulces"
+          },
+          "correct_letter": "A",
+          "correct_text": "Truco o trato",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama la tradición escocesa e irlandesa de disfrazarse para ir de puerta en puerta?",
+          "options": {
+            "A": "Souling",
+            "B": "Wassailing",
+            "C": "Disfrazarse de murguista",
+            "D": "Mummering"
+          },
+          "correct_letter": "C",
+          "correct_text": "Disfrazarse de murguista",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué atracción de Disney, inaugurada en 1969, ayudó a convertir la casa encantada en un icono cultural?",
+          "options": {
+            "A": "Piratas del Caribe",
+            "B": "Space Mountain",
+            "C": "La Mansión Encantada",
+            "D": "Torre del Terror"
+          },
+          "correct_letter": "C",
+          "correct_text": "La Mansión Encantada",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué festividad judía se compara a veces con Halloween debido al uso de disfraces?",
+          "options": {
+            "A": "Janucá",
+            "B": "Pésaj",
+            "C": "Sucot",
+            "D": "Purim"
+          },
+          "correct_letter": "D",
+          "correct_text": "Purim",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el disfraz de Halloween más popular para mascotas?",
+          "options": {
+            "A": "Murciélago",
+            "B": "Calabaza",
+            "C": "León",
+            "D": "Perrito caliente"
+          },
+          "correct_letter": "B",
+          "correct_text": "Calabaza",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿El cráneo de qué ave o criatura sirve como memento mori en la imaginería de Halloween?",
+          "options": {
+            "A": "Cuervo",
+            "B": "Humano",
+            "C": "Gato",
+            "D": "Búho"
+          },
+          "correct_letter": "B",
+          "correct_text": "Humano",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué fruta se utiliza en un juego tradicional de Halloween donde los participantes la atrapan con los dientes en agua?",
+          "options": {
+            "A": "Durazno",
+            "B": "Pera",
+            "C": "Ciruela",
+            "D": "Manzana"
+          },
+          "correct_letter": "D",
+          "correct_text": "Manzana",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué grupo en Nueva Inglaterra se opuso históricamente a la celebración de Halloween?",
+          "options": {
+            "A": "Anglicanos",
+            "B": "Cuáqueros",
+            "C": "Católicos",
+            "D": "Puritanos"
+          },
+          "correct_letter": "D",
+          "correct_text": "Puritanos",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En el año litúrgico cristiano, ¿cómo se llama el período de tres días dedicado a recordar a los muertos?",
+          "options": {
+            "A": "Cuaresma",
+            "B": "El Triduo",
+            "C": "Adviento",
+            "D": "Allhallowtide"
+          },
+          "correct_letter": "D",
+          "correct_text": "Allhallowtide",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué evento inglés del 5 de noviembre eclipsó las costumbres de Halloween después de 1605?",
+          "options": {
+            "A": "Festival de la Cosecha",
+            "B": "Boxing Day",
+            "C": "El Primero de Mayo",
+            "D": "La Noche de Guy Fawkes"
+          },
+          "correct_letter": "D",
+          "correct_text": "La Noche de Guy Fawkes",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En el juego Púicíní, ¿qué significa encontrar una moneda?",
+          "options": {
+            "A": "Riqueza",
+            "B": "Matrimonio",
+            "C": "Pobreza",
+            "D": "Viaje"
+          },
+          "correct_letter": "A",
+          "correct_text": "Riqueza",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuál es el nombre de la festividad hindú para recordar a los antepasados?",
+          "options": {
+            "A": "Holi",
+            "B": "Navratri",
+            "C": "Pitru Paksha",
+            "D": "Diwali"
+          },
+          "correct_letter": "C",
+          "correct_text": "Pitru Paksha",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cuáles son los tres colores tradicionales de Halloween?",
+          "options": {
+            "A": "Negro, naranja y morado",
+            "B": "Negro, naranja y verde",
+            "C": "Rojo, blanco y negro",
+            "D": "Naranja, amarillo y marrón"
+          },
+          "correct_letter": "A",
+          "correct_text": "Negro, naranja y morado",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "En el juego Púicíní, ¿qué significa encontrar un anillo?",
+          "options": {
+            "A": "Riqueza",
+            "B": "Buena suerte",
+            "C": "Felicidad",
+            "D": "Matrimonio"
+          },
+          "correct_letter": "D",
+          "correct_text": "Matrimonio",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué significan la 'travesura' y el 'trato' en la frase 'truco o trato'?",
+          "options": {
+            "A": "Una amenaza de travesura o una solicitud de dulces",
+            "B": "Una historia de terror o un juego",
+            "C": "Una broma oculta o una moneda",
+            "D": "Un hechizo mágico o un regalo"
+          },
+          "correct_letter": "A",
+          "correct_text": "Una amenaza de travesura o una solicitud de dulces",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Con qué se asocia el 'Muck Olla' en la tradición irlandesa?",
+          "options": {
+            "A": "Un fantasma específico",
+            "B": "Un nabo gigante",
+            "C": "Una comida de la cosecha",
+            "D": "Buena o mala fortuna"
+          },
+          "correct_letter": "D",
+          "correct_text": "Buena o mala fortuna",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué significa la palabra 'even' en escocés de las tierras bajas (Lowland Scots)?",
+          "options": {
+            "A": "Plano",
+            "B": "Víspera o tarde",
+            "C": "Siempre",
+            "D": "Igual"
+          },
+          "correct_letter": "B",
+          "correct_text": "Víspera o tarde",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llama el límite del 'Otro Mundo' celta que se vuelve más delgado en Halloween?",
+          "options": {
+            "A": "La zona crepuscular",
+            "B": "El tiempo liminal",
+            "C": "El reino de las sombras",
+            "D": "La puerta de los espíritus"
+          },
+          "correct_letter": "B",
+          "correct_text": "El tiempo liminal",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué eran las 'luces de las almas' en la Baviera del siglo XIX?",
+          "options": {
+            "A": "Velas para guiar a las almas a casa",
+            "B": "Aurora boreal",
+            "C": "Luciérnagas",
+            "D": "Linternas para mineros"
+          },
+          "correct_letter": "A",
+          "correct_text": "Velas para guiar a las almas a casa",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿En qué fecha se celebra el Día de los Fieles Difuntos?",
+          "options": {
+            "A": "2 de noviembre",
+            "B": "1 de noviembre",
+            "C": "3 de noviembre",
+            "D": "31 de octubre"
+          },
+          "correct_letter": "A",
+          "correct_text": "2 de noviembre",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué verdura se tallaba tradicionalmente en linternas en Irlanda y Escocia antes de la calabaza?",
+          "options": {
+            "A": "Nabo",
+            "B": "Repollo",
+            "C": "Remolacha",
+            "D": "Patata"
+          },
+          "correct_letter": "A",
+          "correct_text": "Nabo",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué nombre usaban los celtas britónicos en Gales para su festival de invierno?",
+          "options": {
+            "A": "Yule",
+            "B": "Calan Gaeaf",
+            "C": "Litha",
+            "D": "Samhain"
+          },
+          "correct_letter": "B",
+          "correct_text": "Calan Gaeaf",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué simbolizaba el uso de velas en las tumbas para los cristianos?",
+          "options": {
+            "A": "El fuego del infierno",
+            "B": "La luz de Cristo",
+            "C": "El calor del alma",
+            "D": "El dios del sol"
+          },
+          "correct_letter": "B",
+          "correct_text": "La luz de Cristo",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Qué son los 'huesos de santo' en España?",
+          "options": {
+            "A": "Inciensos en barra",
+            "B": "Reliquias esqueléticas",
+            "C": "Monumentos de piedra",
+            "D": "Pasteles especiales"
+          },
+          "correct_letter": "D",
+          "correct_text": "Pasteles especiales",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "QA",
+          "split": "test",
+          "question": "¿Cómo se llaman los altares mexicanos construidos para los niños fallecidos?",
+          "options": {
+            "A": "Ofrendas",
+            "B": "Catrinas",
+            "C": "Calaveras",
+            "D": "Angelitos"
+          },
+          "correct_letter": "D",
+          "correct_text": "Angelitos",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.62,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué calabaza anaranjada se hornea usualmente en un pastel como postre para el Día de Acción de Gracias?",
+          "options": {
+            "A": "Ñame",
+            "B": "Calabacín",
+            "C": "Calabaza",
+            "D": "Camote"
+          },
+          "correct_letter": "C",
+          "correct_text": "Calabaza",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué letra simboliza un beso al final de una carta de amor?",
+          "options": {
+            "A": "L",
+            "B": "X",
+            "C": "K",
+            "D": "O"
+          },
+          "correct_letter": "B",
+          "correct_text": "X",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué piedra preciosa se engasta tradicionalmente en los anillos de compromiso entregados en el Día de San Valentín?",
+          "options": {
+            "A": "Esmeralda",
+            "B": "Zafiro",
+            "C": "Diamante",
+            "D": "Rubí"
+          },
+          "correct_letter": "C",
+          "correct_text": "Diamante",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué flor se asocia más comúnmente con el romance en el Día de San Valentín?",
+          "options": {
+            "A": "Lirio",
+            "B": "Rosa roja",
+            "C": "Tulipán",
+            "D": "Margarita"
+          },
+          "correct_letter": "B",
+          "correct_text": "Rosa roja",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama el primer día del año?",
+          "options": {
+            "A": "Día de enero",
+            "B": "Primer día",
+            "C": "Día de Año Nuevo",
+            "D": "Día de inicio"
+          },
+          "correct_letter": "C",
+          "correct_text": "Día de Año Nuevo",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué letra simboliza un abrazo al final de una carta de amor?",
+          "options": {
+            "A": "X",
+            "B": "H",
+            "C": "U",
+            "D": "O"
+          },
+          "correct_letter": "D",
+          "correct_text": "O",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué mes comienza el año del calendario moderno?",
+          "options": {
+            "A": "Enero",
+            "B": "Diciembre",
+            "C": "Marzo",
+            "D": "Julio"
+          },
+          "correct_letter": "A",
+          "correct_text": "Enero",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué período de 40 días de ayuno y oración precede a la Pascua?",
+          "options": {
+            "A": "Adviento",
+            "B": "Ramadán",
+            "C": "Cuaresma",
+            "D": "Epifanía"
+          },
+          "correct_letter": "C",
+          "correct_text": "Cuaresma",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué carne se sirve tradicionalmente como plato principal para la cena de Pascua?",
+          "options": {
+            "A": "Pavo",
+            "B": "Pollo",
+            "C": "Res",
+            "D": "Jamón"
+          },
+          "correct_letter": "D",
+          "correct_text": "Jamón",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿En qué mes se celebra el Día de la Madre en los Estados Unidos?",
+          "options": {
+            "A": "Abril",
+            "B": "Junio",
+            "C": "Marzo",
+            "D": "Mayo"
+          },
+          "correct_letter": "D",
+          "correct_text": "Mayo",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué animal tira famosamente del trineo de Santa Claus?",
+          "options": {
+            "A": "Perros husky",
+            "B": "Osos polares",
+            "C": "Caballos",
+            "D": "Reno"
+          },
+          "correct_letter": "D",
+          "correct_text": "Reno",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué gran ciudad estadounidense alberga el desfile anual del Día de Acción de Gracias de Macy's?",
+          "options": {
+            "A": "Washington D. C.",
+            "B": "Filadelfia",
+            "C": "Nueva York",
+            "D": "Chicago"
+          },
+          "correct_letter": "C",
+          "correct_text": "Nueva York",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué pequeña criatura mítica y barbuda se asocia con el Día de San Patricio?",
+          "options": {
+            "A": "Duende",
+            "B": "Gnomo",
+            "C": "Elfo",
+            "D": "Trol"
+          },
+          "correct_letter": "A",
+          "correct_text": "Duende",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuántos días de Navidad se mencionan en la famosa canción navideña?",
+          "options": {
+            "A": "Ocho",
+            "B": "Diez",
+            "C": "Siete",
+            "D": "Doce"
+          },
+          "correct_letter": "D",
+          "correct_text": "Doce",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Bajo qué planta verde se supone que la gente debe besarse en Navidad?",
+          "options": {
+            "A": "Acebo",
+            "B": "Muérdago",
+            "C": "Pino",
+            "D": "Hiedra"
+          },
+          "correct_letter": "B",
+          "correct_text": "Muérdago",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué plato de camote suele cubrirse con malvaviscos derretidos en el Día de Acción de Gracias?",
+          "options": {
+            "A": "Caserola de camote",
+            "B": "Gratín de papa",
+            "C": "Ñames garapiñados",
+            "D": "Ñame al horno"
+          },
+          "correct_letter": "A",
+          "correct_text": "Caserola de camote",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿En qué fecha celebra Estados Unidos su Día de la Independencia?",
+          "options": {
+            "A": "4 de julio",
+            "B": "4 de agosto",
+            "C": "1 de julio",
+            "D": "14 de junio"
+          },
+          "correct_letter": "A",
+          "correct_text": "4 de julio",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Según la leyenda, ¿qué reptil expulsó San Patricio de Irlanda?",
+          "options": {
+            "A": "Serpientes",
+            "B": "Dragones",
+            "C": "Sapos",
+            "D": "Lagartijas"
+          },
+          "correct_letter": "A",
+          "correct_text": "Serpientes",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué órgano interno es el símbolo más común del Día de San Valentín?",
+          "options": {
+            "A": "Corazón",
+            "B": "Cerebro",
+            "C": "Pulmones",
+            "D": "Hígado"
+          },
+          "correct_letter": "A",
+          "correct_text": "Corazón",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué ballet navideño presenta al Hada de Azúcar?",
+          "options": {
+            "A": "La bella durmiente",
+            "B": "Giselle",
+            "C": "El cascanueces",
+            "D": "El lago de los cisnes"
+          },
+          "correct_letter": "C",
+          "correct_text": "El cascanueces",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿De qué país declaró su independencia Estados Unidos?",
+          "options": {
+            "A": "España",
+            "B": "Gran Bretaña",
+            "C": "Alemania",
+            "D": "Francia"
+          },
+          "correct_letter": "B",
+          "correct_text": "Gran Bretaña",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué flor blanca en forma de trompeta está estrechamente asociada con la Pascua?",
+          "options": {
+            "A": "Lirio de Pascua",
+            "B": "Narciso",
+            "C": "Tulipán",
+            "D": "Jacinto"
+          },
+          "correct_letter": "A",
+          "correct_text": "Lirio de Pascua",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué comida tradicional irlandesa-estadounidense se suele comer el Día de San Patricio?",
+          "options": {
+            "A": "Pescado con papas fritas",
+            "B": "Estofado irlandés",
+            "C": "Carne en conserva con repollo",
+            "D": "Pastel de pastor"
+          },
+          "correct_letter": "C",
+          "correct_text": "Carne en conserva con repollo",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llaman los dulces de chocolate grandes y huecos comunes en Pascua?",
+          "options": {
+            "A": "Conejos de chocolate",
+            "B": "Conchas de chocolate",
+            "C": "Tazas de cacao",
+            "D": "Huevos de chocolate"
+          },
+          "correct_letter": "D",
+          "correct_text": "Huevos de chocolate",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué exhibiciones explosivas y coloridas son comunes en el cielo a la medianoche en Nochevieja?",
+          "options": {
+            "A": "Drones",
+            "B": "Fuegos artificiales",
+            "C": "Bengalas",
+            "D": "Espectáculo láser"
+          },
+          "correct_letter": "B",
+          "correct_text": "Fuegos artificiales",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llaman los pequeños ayudantes de Papá Noel que hacen juguetes?",
+          "options": {
+            "A": "Gnomos",
+            "B": "Duendecillos",
+            "C": "Hadas",
+            "D": "Elfos"
+          },
+          "correct_letter": "D",
+          "correct_text": "Elfos",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué cerveza negra irlandesa se consume mucho el Día de San Patricio?",
+          "options": {
+            "A": "Heineken",
+            "B": "Harp",
+            "C": "Guinness",
+            "D": "Budweiser"
+          },
+          "correct_letter": "C",
+          "correct_text": "Guinness",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el término común para un admirador romántico secreto el 14 de febrero?",
+          "options": {
+            "A": "Galán",
+            "B": "Valentín",
+            "C": "Amor",
+            "D": "Flechazo"
+          },
+          "correct_letter": "B",
+          "correct_text": "Valentín",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué hueso del pavo rompen tradicionalmente dos personas para tener buena suerte?",
+          "options": {
+            "A": "Espina dorsal",
+            "B": "Hueso del muslo",
+            "C": "Hueso de la fortuna",
+            "D": "Hueso de la ala"
+          },
+          "correct_letter": "C",
+          "correct_text": "Hueso de la fortuna",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿A qué juego de perinola o trompo juegan tradicionalmente los niños durante Hanukkah?",
+          "options": {
+            "A": "Yoyó",
+            "B": "Trompo",
+            "C": "Dreidel",
+            "D": "Canica"
+          },
+          "correct_letter": "C",
+          "correct_text": "Dreidel",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llaman las canciones festivas que se cantan durante la temporada navideña?",
+          "options": {
+            "A": "Baladas",
+            "B": "Cánticos",
+            "C": "Villancicos",
+            "D": "Himnos"
+          },
+          "correct_letter": "C",
+          "correct_text": "Villancicos",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es la ciudad capital de Irlanda?",
+          "options": {
+            "A": "Cork",
+            "B": "Galway",
+            "C": "Belfast",
+            "D": "Dublín"
+          },
+          "correct_letter": "D",
+          "correct_text": "Dublín",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué viernes cae inmediatamente antes del Domingo de Pascua?",
+          "options": {
+            "A": "Viernes Negro",
+            "B": "Viernes Santo",
+            "C": "Viernes Sagrado",
+            "D": "Gran Viernes"
+          },
+          "correct_letter": "B",
+          "correct_text": "Viernes Santo",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama el reno con la nariz roja brillante?",
+          "options": {
+            "A": "Rudolph",
+            "B": "Comet",
+            "C": "Blitzen",
+            "D": "Dasher"
+          },
+          "correct_letter": "A",
+          "correct_text": "Rudolph",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Quién es conocido por llevar regalos a los niños en Nochebuena?",
+          "options": {
+            "A": "San Nicolás",
+            "B": "Father Christmas",
+            "C": "Papá Noel",
+            "D": "El Grinch"
+          },
+          "correct_letter": "C",
+          "correct_text": "Papá Noel",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué decoración circular de hoja perenne se suele colgar en las puertas durante la Navidad?",
+          "options": {
+            "A": "Guirnalda",
+            "B": "Banderola",
+            "C": "Corona",
+            "D": "Ramo"
+          },
+          "correct_letter": "C",
+          "correct_text": "Corona",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué tipo de sombrero festivo se usa tradicionalmente en un desfile de Pascua?",
+          "options": {
+            "A": "Boina",
+            "B": "Sombrero de copa",
+            "C": "Sombrero de Pascua",
+            "D": "Sombrero de paja"
+          },
+          "correct_letter": "C",
+          "correct_text": "Sombrero de Pascua",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué fecha específica de febrero es el Día de San Valentín?",
+          "options": {
+            "A": "15",
+            "B": "14",
+            "C": "13",
+            "D": "12"
+          },
+          "correct_letter": "B",
+          "correct_text": "14",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿En qué fecha se celebra el Día de Navidad?",
+          "options": {
+            "A": "26 de diciembre",
+            "B": "25 de diciembre",
+            "C": "1 de enero",
+            "D": "24 de diciembre"
+          },
+          "correct_letter": "B",
+          "correct_text": "25 de diciembre",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué documento histórico se firmó para declarar la independencia estadounidense?",
+          "options": {
+            "A": "La Declaración de Independencia",
+            "B": "La Constitución",
+            "C": "La Carta Magna",
+            "D": "La Carta de Derechos"
+          },
+          "correct_letter": "A",
+          "correct_text": "La Declaración de Independencia",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué ave es el plato principal tradicional de una cena de Acción de Gracias?",
+          "options": {
+            "A": "Ganso",
+            "B": "Pavo",
+            "C": "Pollo",
+            "D": "Pato"
+          },
+          "correct_letter": "B",
+          "correct_text": "Pavo",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué diosa romana del amor es la madre de Cupido?",
+          "options": {
+            "A": "Minerva",
+            "B": "Juno",
+            "C": "Venus",
+            "D": "Diana"
+          },
+          "correct_letter": "C",
+          "correct_text": "Venus",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cómo se llama el candelabro de nueve brazos que se usa durante Hanukkah?",
+          "options": {
+            "A": "Cáliz",
+            "B": "Votiva",
+            "C": "Januquiá",
+            "D": "Menorá"
+          },
+          "correct_letter": "D",
+          "correct_text": "Menorá",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Con qué país se asocia principalmente el Día de San Patricio?",
+          "options": {
+            "A": "Escocia",
+            "B": "Gales",
+            "C": "Inglaterra",
+            "D": "Irlanda"
+          },
+          "correct_letter": "D",
+          "correct_text": "Irlanda",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué pan dulce con forma de persona es popular alrededor de Navidad?",
+          "options": {
+            "A": "Galleta de mantequilla",
+            "B": "Galleta de azúcar",
+            "C": "Panettone",
+            "D": "Hombre de jengibre"
+          },
+          "correct_letter": "D",
+          "correct_text": "Hombre de jengibre",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué gran evento de compras sigue inmediatamente al Día de Acción de Gracias estadounidense?",
+          "options": {
+            "A": "Día de San Esteban",
+            "B": "Ciberlunes",
+            "C": "Viernes Negro",
+            "D": "Sábado de Pequeños Negocios"
+          },
+          "correct_letter": "C",
+          "correct_text": "Viernes Negro",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Según el mito, ¿qué tesoro se encuentra al final de un arcoíris?",
+          "options": {
+            "A": "Una varita mágica",
+            "B": "Un anillo de diamantes",
+            "C": "Una olla de oro",
+            "D": "Un cofre de plata"
+          },
+          "correct_letter": "C",
+          "correct_text": "Una olla de oro",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué color se asocia más fuertemente con el Día de San Valentín?",
+          "options": {
+            "A": "Rosa",
+            "B": "Blanco",
+            "C": "Rojo",
+            "D": "Morado"
+          },
+          "correct_letter": "C",
+          "correct_text": "Rojo",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Cuál es el método tradicional de cocina al aire libre utilizado para las comidas del 4 de julio?",
+          "options": {
+            "A": "Pícnic",
+            "B": "Fritura",
+            "C": "Barbacoa",
+            "D": "Asado"
+          },
+          "correct_letter": "C",
+          "correct_text": "Barbacoa",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        },
+        {
+          "concept": "Halloween",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "¿Qué castigo lúdico podrías recibir si no vistes de verde el Día de San Patricio?",
+          "options": {
+            "A": "Un chorro de agua",
+            "B": "Una zapatilla",
+            "C": "Un empujón",
+            "D": "Un pellizco"
+          },
+          "correct_letter": "D",
+          "correct_text": "Un pellizco",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "es"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}

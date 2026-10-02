@@ -1,0 +1,1927 @@
+{
+  "concept": "Golf",
+  "language": "de",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "de",
+  "mc": {
+    "qa": {
+      "accuracy": 0.66,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welche Sportart beinhaltet die Verwendung von Schlägern und einem Ball, um diesen in eine Reihe von Löchern zu schlagen?",
+          "options": {
+            "A": "Polo",
+            "B": "Feldhockey",
+            "C": "Krocket",
+            "D": "Golf"
+          },
+          "correct_letter": "D",
+          "correct_text": "Golf",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Bereich auf einem Golfplatz enthält das Loch, in das der Ball versenkt werden muss?",
+          "options": {
+            "A": "Der Vorgrün (Fringe)",
+            "B": "Der Abschlag (Tee Box)",
+            "C": "Das Fairway",
+            "D": "Das Putting Green"
+          },
+          "correct_letter": "D",
+          "correct_text": "Das Putting Green",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "In welchem Jahrhundert entstand das moderne Golfspiel?",
+          "options": {
+            "A": "Im 18. Jahrhundert",
+            "B": "Im 16. Jahrhundert",
+            "C": "Im 14. Jahrhundert",
+            "D": "Im 15. Jahrhundert"
+          },
+          "correct_letter": "D",
+          "correct_text": "Im 15. Jahrhundert",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie heißt das älteste Major-Golfturnier der Welt?",
+          "options": {
+            "A": "The Open Championship (British Open)",
+            "B": "The U.S. Open",
+            "C": "The Masters Tournament",
+            "D": "The PGA Championship"
+          },
+          "correct_letter": "A",
+          "correct_text": "The Open Championship (British Open)",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Auf welchem Golfclub wurde The Open Championship zuerst ausgetragen?",
+          "options": {
+            "A": "Muirfield",
+            "B": "The Old Course at St Andrews",
+            "C": "Prestwick Golf Club",
+            "D": "Royal Troon"
+          },
+          "correct_letter": "C",
+          "correct_text": "Prestwick Golf Club",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welchen Zweck hat ein Tee beim Golfen?",
+          "options": {
+            "A": "Divots auf dem Fairway zu reparieren",
+            "B": "Die Entfernung zum Loch zu messen",
+            "C": "Den Ball für den ersten Schlag an einem Loch zu erhöhen",
+            "D": "Die Position des Balls auf dem Green zu markieren"
+          },
+          "correct_letter": "C",
+          "correct_text": "Den Ball für den ersten Schlag an einem Loch zu erhöhen",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Schläger ist dafür ausgelegt, den Ball vom Abschlag über weite Strecken zu schlagen?",
+          "options": {
+            "A": "Putter",
+            "B": "Driver",
+            "C": "5er-Eisen",
+            "D": "3er-Holz"
+          },
+          "correct_letter": "B",
+          "correct_text": "Driver",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was sollen Hybridschläger miteinander kombinieren?",
+          "options": {
+            "A": "Die Eigenschaften von Hölzern und Eisen",
+            "B": "Die Eigenschaften von Wedges und Puttern",
+            "C": "Die Eigenschaften von Schlägerschäften und Griffen",
+            "D": "Die Eigenschaften von Drivern und Puttern"
+          },
+          "correct_letter": "A",
+          "correct_text": "Die Eigenschaften von Hölzern und Eisen",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Warum haben Golfbälle Dellen (Dimples)?",
+          "options": {
+            "A": "Um den Ball bei Wind schwerer zu machen",
+            "B": "Um den Verschleiß durch die Rillen der Schlägerfläche zu verringern",
+            "C": "Um den aerodynamischen Luftwiderstand zu verringern und die Distanz zu erhöhen",
+            "D": "Um nur auf dem Green den Spin zu verbessern"
+          },
+          "correct_letter": "C",
+          "correct_text": "Um den aerodynamischen Luftwiderstand zu verringern und die Distanz zu erhöhen",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was bedeutet der Begriff „Green in Regulation“ (GIR)?",
+          "options": {
+            "A": "Das Erreichen des Greens mit einem Schlag weniger als Par",
+            "B": "Das Erreichen des Greens mit zwei Schlägen weniger als dem Par des Lochs",
+            "C": "Sich auf dem Green zu befinden, unabhängig von den benötigten Schlägen",
+            "D": "Das Erreichen des Greens mit zwei Schlägen über Par"
+          },
+          "correct_letter": "B",
+          "correct_text": "Das Erreichen des Greens mit zwei Schlägen weniger als dem Par des Lochs",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie lautet die typische Gesamtvorgabe (Par) für einen 18-Loch-Golfplatz?",
+          "options": {
+            "A": "66 bis 68",
+            "B": "74 bis 76",
+            "C": "70 bis 72",
+            "D": "60 bis 62"
+          },
+          "correct_letter": "C",
+          "correct_text": "70 bis 72",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn man den Ball mit nur einem Schlag ins Loch befördert?",
+          "options": {
+            "A": "Eagle",
+            "B": "Hole-in-One oder Ace",
+            "C": "Albatros",
+            "D": "Birdie"
+          },
+          "correct_letter": "B",
+          "correct_text": "Hole-in-One oder Ace",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff wird verwendet, wenn man an einem Loch einen Schlag unter Par erzielt?",
+          "options": {
+            "A": "Par",
+            "B": "Eagle",
+            "C": "Bogey",
+            "D": "Birdie"
+          },
+          "correct_letter": "D",
+          "correct_text": "Birdie",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff wird verwendet, wenn man an einem Loch zwei Schläge unter Par erzielt?",
+          "options": {
+            "A": "Eagle",
+            "B": "Par",
+            "C": "Birdie",
+            "D": "Albatros"
+          },
+          "correct_letter": "A",
+          "correct_text": "Eagle",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff wird verwendet, wenn man an einem Loch einen Schlag über Par erzielt?",
+          "options": {
+            "A": "Birdie",
+            "B": "Double Bogey",
+            "C": "Par",
+            "D": "Bogey"
+          },
+          "correct_letter": "D",
+          "correct_text": "Bogey",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff beschreibt ein Ergebnis von zwei Schlägen über Par?",
+          "options": {
+            "A": "Triple Bogey",
+            "B": "Double Bogey",
+            "C": "Double Eagle",
+            "D": "Bogey"
+          },
+          "correct_letter": "B",
+          "correct_text": "Double Bogey",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie heißt das sandgefüllte Hindernis auf einem Golfplatz?",
+          "options": {
+            "A": "Bunker oder Sand Trap",
+            "B": "Wasserhindernis",
+            "C": "Das Fairway",
+            "D": "Das Rough"
+          },
+          "correct_letter": "A",
+          "correct_text": "Bunker oder Sand Trap",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie lange dauert eine 18-Loch-Golfrunde normalerweise?",
+          "options": {
+            "A": "Etwa zwei Stunden",
+            "B": "Fünf bis sechs Stunden",
+            "C": "Ungefähr vier Stunden",
+            "D": "Etwa eine Stunde und fünfzehn Minuten"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ungefähr vier Stunden",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welche Alternative nutzen Spieler oft, anstatt den Platz zu Fuß zu gehen?",
+          "options": {
+            "A": "Einen Zieh-/Schiebewagen (Trolley)",
+            "B": "Ein Fahrrad",
+            "C": "Einen Caddy, der die Tasche trägt",
+            "D": "Ein Golfcart"
+          },
+          "correct_letter": "D",
+          "correct_text": "Ein Golfcart",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist das zugrundeliegende Prinzip der Golfregeln?",
+          "options": {
+            "A": "Spielgeschwindigkeit über alles",
+            "B": "Tradition allein",
+            "C": "Fairness",
+            "D": "Nachsicht"
+          },
+          "correct_letter": "C",
+          "correct_text": "Fairness",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist die Strafe für das Schlagen des falschen Balls?",
+          "options": {
+            "A": "Lochverlust",
+            "B": "Ein Strafschlag",
+            "C": "Zwei Strafschläge",
+            "D": "Den Schlag ohne Strafe wiederholen"
+          },
+          "correct_letter": "C",
+          "correct_text": "Zwei Strafschläge",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist das Hauptziel eines vollen Golfschwungs?",
+          "options": {
+            "A": "Jegliche Körperdrehung zu vermeiden",
+            "B": "Einen maximalen Rückwärtsdrall (Backspin) unabhängig von der Richtung zu erzeugen",
+            "C": "Den Ball mit maximaler Distanz und Genauigkeit zu treffen",
+            "D": "Den Ball jedes Mal so niedrig wie möglich zu halten"
+          },
+          "correct_letter": "C",
+          "correct_text": "Den Ball mit maximaler Distanz und Genauigkeit zu treffen",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist der Unterschied zwischen einem Drive und einem Annäherungsschlag (Approach Shot)?",
+          "options": {
+            "A": "Ein Drive ist ein Putt aus großer Distanz; ein Annäherungsschlag ist jeder Abschlag",
+            "B": "Ein Drive ist ein Weitschlag vom Abschlag; ein Annäherungsschlag wird verwendet, um das Grün zu erreichen",
+            "C": "Ein Drive wird nur mit Eisen ausgeführt; ein Annäherungsschlag nur mit Hölzern",
+            "D": "Ein Drive wird aus Bunkern geschlagen; ein Annäherungsschlag aus dem Rough"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ein Drive ist ein Weitschlag vom Abschlag; ein Annäherungsschlag wird verwendet, um das Grün zu erreichen",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist der Zweck eines Annäherungsschlags (Pitch Shot) beim Golf?",
+          "options": {
+            "A": "Den Ball vom Vorgrün (Fringe) über den Boden rollen zu lassen",
+            "B": "Lange Abschläge auf Par-5-Löchern zu machen",
+            "C": "Aus tiefem Rough mit einem flach rollenden Ball zu entkommen",
+            "D": "Den Ball aus kurzer Distanz auf das Grün zu befördern"
+          },
+          "correct_letter": "D",
+          "correct_text": "Den Ball aus kurzer Distanz auf das Grün zu befördern",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist ein Chip-Schlag beim Golf?",
+          "options": {
+            "A": "Ein kurzer Schlag, um den Ball auf oder nahe an das Grün zu bringen",
+            "B": "Ein Abschlag auf einem Par-3",
+            "C": "Ein langer Schlag, um das Grün vom Fairway aus zu erreichen",
+            "D": "Ein hoher, weicher Bunkerschlag aus dem Sand"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ein kurzer Schlag, um den Ball auf oder nahe an das Grün zu bringen",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie viele Spieler bilden typischerweise eine Freizeit-Golfgruppe?",
+          "options": {
+            "A": "Zwischen 2 und 6 Spieler",
+            "B": "Zwischen 3 und 5 Spieler",
+            "C": "Zwischen 1 und 4 Spieler",
+            "D": "Genau 4 Spieler"
+          },
+          "correct_letter": "C",
+          "correct_text": "Zwischen 1 und 4 Spieler",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was bedeutet es, wenn das Ergebnis eines Spielers an einem Loch genau dem Par-Wert entspricht?",
+          "options": {
+            "A": "Der Spieler hat einen Mulligan gemacht",
+            "B": "Der Spieler hat sein Handicap eingetragen",
+            "C": "Der Spieler hat Par gespielt",
+            "D": "Der Spieler hat seine Balllage verbessert"
+          },
+          "correct_letter": "C",
+          "correct_text": "Der Spieler hat Par gespielt",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff beschreibt die Krümmung oder Biegung eines Golflochs?",
+          "options": {
+            "A": "Fade",
+            "B": "Swale",
+            "C": "Dogleg",
+            "D": "Draw"
+          },
+          "correct_letter": "C",
+          "correct_text": "Dogleg",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welches Merkmal an einem Golfball hilft dabei, das Ablösen der Grenzschicht zu verzögern?",
+          "options": {
+            "A": "Grooves (Rillen)",
+            "B": "Nähte",
+            "C": "Dimples (Golfballvertiefungen)",
+            "D": "Eine matte Lackbeschichtung"
+          },
+          "correct_letter": "C",
+          "correct_text": "Dimples (Golfballvertiefungen)",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Begriff beschreibt den Prozess des Hinzufügens von Extra-Schlägen für Regelverstöße?",
+          "options": {
+            "A": "Provisorische Regelauslegung",
+            "B": "Strafschlagvergabe (Penalty Assessment)",
+            "C": "Warnung wegen Spieltempos",
+            "D": "Handicap-Anpassung"
+          },
+          "correct_letter": "B",
+          "correct_text": "Strafschlagvergabe (Penalty Assessment)",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welches Zählspielformat zählt jeden auf dem Platz ausgeführten Schlag?",
+          "options": {
+            "A": "Skins",
+            "B": "Nassau",
+            "C": "Lochspiel (Match Play)",
+            "D": "Zählspiel (Stroke Play)"
+          },
+          "correct_letter": "D",
+          "correct_text": "Zählspiel (Stroke Play)",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welches Wertungssystem beim Golf vergibt Punkte basierend auf dem Ergebnis eines Spielers im Verhältnis zu Par?",
+          "options": {
+            "A": "Medal Play",
+            "B": "Stableford-Punktesystem",
+            "C": "Lochspielpunkte",
+            "D": "Ryder-Cup-Teamwertung"
+          },
+          "correct_letter": "B",
+          "correct_text": "Stableford-Punktesystem",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was bedeutet ein Double Bogey beim Golfzählen?",
+          "options": {
+            "A": "Zwei Schläge über Par",
+            "B": "Ein Schlag über Par",
+            "C": "Drei Schläge über Par",
+            "D": "Zwei Schläge unter Par"
+          },
+          "correct_letter": "A",
+          "correct_text": "Zwei Schläge über Par",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist der Hauptzweck eines Handicap-Systems beim Golf?",
+          "options": {
+            "A": "Professionelle Spieler weltweit zu ranken",
+            "B": "Ausrüstungsspezifikationen zu vereinheitlichen",
+            "C": "Spielern unterschiedlichen Könnens zu ermöglichen, fair gegeneinander anzutreten",
+            "D": "Startzeiten für Spieler auszuwählen"
+          },
+          "correct_letter": "C",
+          "correct_text": "Spielern unterschiedlichen Könnens zu ermöglichen, fair gegeneinander anzutreten",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher schottische König verbot Golf im Jahr 1457?",
+          "options": {
+            "A": "Jakob V.",
+            "B": "Jakob III.",
+            "C": "Jakob I.",
+            "D": "Jakob II."
+          },
+          "correct_letter": "D",
+          "correct_text": "Jakob II.",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher schottische König hob das Golfverbot später auf und wurde selbst Golfer?",
+          "options": {
+            "A": "Jakob IV.",
+            "B": "Jakob V.",
+            "C": "Jakob III.",
+            "D": "Karl I."
+          },
+          "correct_letter": "A",
+          "correct_text": "Jakob IV.",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Auf welcher Art von Gelände wurden frühe schottische Golfplätze hauptsächlich angelegt?",
+          "options": {
+            "A": "Bergwiesen",
+            "B": "Links-Land (Küsten-Sanddünen)",
+            "C": "Städtische Parks",
+            "D": "Parklandschaften"
+          },
+          "correct_letter": "B",
+          "correct_text": "Links-Land (Küsten-Sanddünen)",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Womit transportieren Golfer ihre Schläger oft, wenn sie sich gegen das Gehen entscheiden?",
+          "options": {
+            "A": "Einen Golf-Trolley oder eine Tragtasche",
+            "B": "Einem Range-Korb",
+            "C": "Einem motorisierten Golfcart",
+            "D": "Einem Caddie-Service"
+          },
+          "correct_letter": "A",
+          "correct_text": "Einen Golf-Trolley oder eine Tragtasche",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist ein Hauptvorteil des Zählspielformats (Stroke Play)?",
+          "options": {
+            "A": "Es erlaubt das Schenken von Putts an den meisten Löchern",
+            "B": "Es fördert das Glücksspiel im Skins-Stil",
+            "C": "Jeder Schlag zählt für das Gesamtergebnis",
+            "D": "Schlechte Löcher spielen keine Rolle, da nur gewonnene Löcher zählen"
+          },
+          "correct_letter": "C",
+          "correct_text": "Jeder Schlag zählt für das Gesamtergebnis",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was stellt ein „Bogey“ beim Golfzählen dar?",
+          "options": {
+            "A": "Drei Schläge über Par",
+            "B": "Ein Schlag über Par",
+            "C": "Ein Schlag unter Par",
+            "D": "Zwei Schläge über Par"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ein Schlag über Par",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Schläger ist speziell mit einem großen, flacheren Schlägerkopf konstruiert, um die Distanz zu maximieren?",
+          "options": {
+            "A": "Driver",
+            "B": "3er-Holz",
+            "C": "Hybrid",
+            "D": "Lob Wedge"
+          },
+          "correct_letter": "A",
+          "correct_text": "Driver",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wofür wird ein Putter primär verwendet?",
+          "options": {
+            "A": "Um den Ball auf dem Green in das Loch zu rollen",
+            "B": "Um aus Bunkern zu entkommen",
+            "C": "Für den Abschlag auf langen Löchern",
+            "D": "Für Annäherungsschläge mit hohem Loft aus 100 Yards"
+          },
+          "correct_letter": "A",
+          "correct_text": "Um den Ball auf dem Green in das Loch zu rollen",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welcher Schläger wird am meisten mit Weitschlägen assoziiert?",
+          "options": {
+            "A": "Putter",
+            "B": "Driver",
+            "C": "9er-Eisen",
+            "D": "Sand Wedge"
+          },
+          "correct_letter": "B",
+          "correct_text": "Driver",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist der Zweck des Schlägerfittings (Clubfitting) im Golfunterricht?",
+          "options": {
+            "A": "Schläger an die körperlichen Eigenschaften und den Schwung eines Spielers anzupassen",
+            "B": "Die Farbe des Schafts anzupassen",
+            "C": "Die Kosten für Schläger zu reduzieren",
+            "D": "Ausschließlich Turniervorschriften zu erfüllen"
+          },
+          "correct_letter": "A",
+          "correct_text": "Schläger an die körperlichen Eigenschaften und den Schwung eines Spielers anzupassen",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist „Anchored Putting“ (Anker-Putten) beim Golf?",
+          "options": {
+            "A": "Ein Putt-Stil, bei dem der Putter am Körper des Spielers verankert wird",
+            "B": "Die Verwendung eines schlägerkopf-schlägerförmigen Putters",
+            "C": "Das Greifen des Putters nur mit den Handflächen",
+            "D": "Putten mit Blickrichtung zum Loch (Side-Saddle)"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ein Putt-Stil, bei dem der Putter am Körper des Spielers verankert wird",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Worauf bezieht sich der Begriff „Overlap“ bei Putt-Griffstilen?",
+          "options": {
+            "A": "Ein konventioneller Griff, bei dem der Finger der schwachen Hand den Finger der dominanten Hand überlappt",
+            "B": "Ein Baseball-Griff, bei dem alle Finger auf dem Schläger liegen",
+            "C": "Ein Interlocking-Griff, bei dem die Finger ineinandergreifen",
+            "D": "Ein Cross-Handed-Griff, bei dem die führende Hand tiefer ist"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ein konventioneller Griff, bei dem der Finger der schwachen Hand den Finger der dominanten Hand überlappt",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Welche Zählweise wird bei professionellen Golfturnieren am häufigsten verwendet?",
+          "options": {
+            "A": "Scramble",
+            "B": "Lochspiel (Match Play)",
+            "C": "Stableford",
+            "D": "Zählspiel (Stroke Play)"
+          },
+          "correct_letter": "D",
+          "correct_text": "Zählspiel (Stroke Play)",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Was ist ein Start von zwei Abschlägen (Two-Tee Start) bei einem Golfturnier?",
+          "options": {
+            "A": "Ein Shotgun-Start, bei dem alle Gruppen auf verschiedenen Löchern beginnen",
+            "B": "Das Abwechseln zwischen Abschlag- und Fairway-Starts",
+            "C": "Ein Format, bei dem das Teilnehmerfeld auf zwei Startabschläge aufgeteilt wird",
+            "D": "Zwei Übungseinheiten am Abschlag vor der Runde"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ein Format, bei dem das Teilnehmerfeld auf zwei Startabschläge aufgeteilt wird",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Wie nennt man den Score, bei dem ein Schlag unter Par auf einem Loch erzielt wird?",
+          "options": {
+            "A": "Bogey",
+            "B": "Eagle",
+            "C": "Birdie",
+            "D": "Ace"
+          },
+          "correct_letter": "C",
+          "correct_text": "Birdie",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "In welchem Land hat das moderne Golf seinen Ursprung?",
+          "options": {
+            "A": "Vereinigte Staaten",
+            "B": "Irland",
+            "C": "England",
+            "D": "Schottland"
+          },
+          "correct_letter": "D",
+          "correct_text": "Schottland",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.66,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn der Spielstand im Tennis 40:40 beträgt?",
+          "options": {
+            "A": "Love",
+            "B": "Einstand",
+            "C": "Vorteil",
+            "D": "Netz"
+          },
+          "correct_letter": "B",
+          "correct_text": "Einstand",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welcher Belag wird beim Turnier der French Open verwendet?",
+          "options": {
+            "A": "Teppich",
+            "B": "Sand",
+            "C": "Rasen",
+            "D": "Hartplatz"
+          },
+          "correct_letter": "B",
+          "correct_text": "Sand",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen sanft geschlagenen Schlag im Tennis, der das Netz knapp überquert?",
+          "options": {
+            "A": "Stoppball",
+            "B": "Lob",
+            "C": "Slice",
+            "D": "Volley"
+          },
+          "correct_letter": "A",
+          "correct_text": "Stoppball",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie wird der Spielstand von Null im Tennis genannt?",
+          "options": {
+            "A": "Fehler",
+            "B": "Null",
+            "C": "Einstand",
+            "D": "Love"
+          },
+          "correct_letter": "D",
+          "correct_text": "Love",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welches Grand-Slam-Turnier wird in den Vereinigten Staaten ausgetragen?",
+          "options": {
+            "A": "Wimbledon",
+            "B": "French Open",
+            "C": "Australian Open",
+            "D": "US Open"
+          },
+          "correct_letter": "D",
+          "correct_text": "US Open",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen Schlag im Baseball, bei dem der Schlagmann alle Bases umrunden kann?",
+          "options": {
+            "A": "Inside-the-Park-Double",
+            "B": "Home Run",
+            "C": "Triple",
+            "D": "Grand Slam"
+          },
+          "correct_letter": "B",
+          "correct_text": "Home Run",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Bases gibt es auf einem Standard-Baseballfeld (Diamond)?",
+          "options": {
+            "A": "Fünf",
+            "B": "Drei",
+            "C": "Vier",
+            "D": "Sechs"
+          },
+          "correct_letter": "C",
+          "correct_text": "Vier",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn ein Schlagmann im Baseball einen Wurf verfehlt und ausscheidet?",
+          "options": {
+            "A": "Foul Tip",
+            "B": "Strike",
+            "C": "Swing and Miss",
+            "D": "Strikeout"
+          },
+          "correct_letter": "B",
+          "correct_text": "Strike",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen Wurf, der im Baseball außerhalb der Strike-Zone liegt?",
+          "options": {
+            "A": "Balk",
+            "B": "Strike",
+            "C": "Ball",
+            "D": "Wild Pitch"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ball",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man einen Hit zur ersten Base im Baseball?",
+          "options": {
+            "A": "Walk",
+            "B": "Sacrifice Bunt",
+            "C": "Double",
+            "D": "Single"
+          },
+          "correct_letter": "D",
+          "correct_text": "Single",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Spieler einer Mannschaft stehen während eines Baseballspiels auf dem Feld?",
+          "options": {
+            "A": "Zehn",
+            "B": "Acht",
+            "C": "Elf",
+            "D": "Neun"
+          },
+          "correct_letter": "D",
+          "correct_text": "Neun",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen Walk im Baseball?",
+          "options": {
+            "A": "Base on Balls",
+            "B": "Fielder's Choice",
+            "C": "Hit by Pitch",
+            "D": "Catcher's Interference"
+          },
+          "correct_letter": "A",
+          "correct_text": "Base on Balls",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man die Spielaktion, bei der ein Feldspieler einen geschlagenen Ball aus der Luft fängt?",
+          "options": {
+            "A": "Ground Out",
+            "B": "Force Out",
+            "C": "Fly Out",
+            "D": "Tag Out"
+          },
+          "correct_letter": "C",
+          "correct_text": "Fly Out",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen geschlagenen Ball im Baseball, der langsam über den Boden rollt?",
+          "options": {
+            "A": "Fly Ball",
+            "B": "Line Drive",
+            "C": "Ground Ball",
+            "D": "Bunt"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ground Ball",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Spieler jeder Mannschaft befinden sich bei einem Basketballspiel auf dem Spielfeld?",
+          "options": {
+            "A": "Vier",
+            "B": "Sechs",
+            "C": "Fünf",
+            "D": "Sieben"
+          },
+          "correct_letter": "C",
+          "correct_text": "Fünf",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt die wichtigste professionelle Basketballliga in den Vereinigten Staaten?",
+          "options": {
+            "A": "NBA",
+            "B": "MLB",
+            "C": "NHL",
+            "D": "NFL"
+          },
+          "correct_letter": "A",
+          "correct_text": "NBA",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für eine Defensivaktion, die den Wurf eines Gegners im Basketball stoppt?",
+          "options": {
+            "A": "Block",
+            "B": "Screen",
+            "C": "Charge",
+            "D": "Steal"
+          },
+          "correct_letter": "A",
+          "correct_text": "Block",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen unerlaubten Körperkontakt im Basketball?",
+          "options": {
+            "A": "Backcourt Violation",
+            "B": "Double Dribble",
+            "C": "Foul",
+            "D": "Traveling"
+          },
+          "correct_letter": "C",
+          "correct_text": "Foul",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für einen schnellen Angriff direkt nach einem defensiven Rebound im Basketball?",
+          "options": {
+            "A": "Isolation",
+            "B": "Fast Break",
+            "C": "Full-Court Press",
+            "D": "Pick and Roll"
+          },
+          "correct_letter": "B",
+          "correct_text": "Fast Break",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn ein Spieler im Basketball durch einen Dunking punktet?",
+          "options": {
+            "A": "Layup",
+            "B": "Alley-Oop",
+            "C": "Tip-In",
+            "D": "Slam Dunk"
+          },
+          "correct_letter": "D",
+          "correct_text": "Slam Dunk",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für eine defensive Strategie, bei der Spieler im Basketball einen Gegner eng bewachen?",
+          "options": {
+            "A": "Manndeckung",
+            "B": "Box-and-One",
+            "C": "Zonenverteidigung",
+            "D": "Triangle-and-Two"
+          },
+          "correct_letter": "A",
+          "correct_text": "Manndeckung",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Spieler stehen bei einem Fußballspiel für eine Mannschaft auf dem Spielfeld?",
+          "options": {
+            "A": "Zehn",
+            "B": "Zwölf",
+            "C": "Elf",
+            "D": "Neun"
+          },
+          "correct_letter": "C",
+          "correct_text": "Elf",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man ein Spiel im Fußball, das mit einem gleichen Punktestand endet?",
+          "options": {
+            "A": "Unentschieden",
+            "B": "Elfmeterschießen",
+            "C": "Verlängerung",
+            "D": "Wiederholungsspiel"
+          },
+          "correct_letter": "A",
+          "correct_text": "Unentschieden",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie lange dauert ein reguläres professionelles Fußballspiel?",
+          "options": {
+            "A": "90 Minuten",
+            "B": "100 Minuten",
+            "C": "120 Minuten",
+            "D": "80 Minuten"
+          },
+          "correct_letter": "A",
+          "correct_text": "90 Minuten",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man den Begriff für die Fortsetzung des Spiels nach einem Torerfolg im Fußball?",
+          "options": {
+            "A": "Anstoß",
+            "B": "Schiedsrichterball",
+            "C": "Einwurf",
+            "D": "Abstoß"
+          },
+          "correct_letter": "A",
+          "correct_text": "Anstoß",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welches Land hat die FIFA-Weltmeisterschaft 2018 gewonnen?",
+          "options": {
+            "A": "Frankreich",
+            "B": "Deutschland",
+            "C": "Kroatien",
+            "D": "Argentinien"
+          },
+          "correct_letter": "A",
+          "correct_text": "Frankreich",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt die oberste professionelle Fußballliga in England?",
+          "options": {
+            "A": "Serie A",
+            "B": "Premier League",
+            "C": "La Liga",
+            "D": "Bundesliga"
+          },
+          "correct_letter": "B",
+          "correct_text": "Premier League",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Aus wie vielen Halbzeiten besteht ein Fußballspiel?",
+          "options": {
+            "A": "Drei",
+            "B": "Zwei plus Verlängerung",
+            "C": "Zwei",
+            "D": "Vier"
+          },
+          "correct_letter": "C",
+          "correct_text": "Zwei",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt das Endspiel der NFL?",
+          "options": {
+            "A": "NBA Finals",
+            "B": "Stanley Cup Final",
+            "C": "Super Bowl",
+            "D": "World Series"
+          },
+          "correct_letter": "C",
+          "correct_text": "Super Bowl",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn ein Verteidiger im American Football einen Pass abfängt, der für den Gegner bestimmt war?",
+          "options": {
+            "A": "Sack",
+            "B": "Interception",
+            "C": "Fumble Recovery",
+            "D": "Pass Deflection"
+          },
+          "correct_letter": "B",
+          "correct_text": "Interception",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welche Position ist im American Football hauptsächlich für das Fangen von Pässen verantwortlich?",
+          "options": {
+            "A": "Linebacker",
+            "B": "Running Back",
+            "C": "Tight End",
+            "D": "Wide Receiver"
+          },
+          "correct_letter": "D",
+          "correct_text": "Wide Receiver",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Punkte ist ein Field Goal im American Football wert?",
+          "options": {
+            "A": "Drei",
+            "B": "Zwei",
+            "C": "Eins",
+            "D": "Vier"
+          },
+          "correct_letter": "A",
+          "correct_text": "Drei",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welches Cricket-Format beinhaltet, dass jedes Team 50 Overs spielt?",
+          "options": {
+            "A": "Test",
+            "B": "T20",
+            "C": "ODI",
+            "D": "The Hundred"
+          },
+          "correct_letter": "C",
+          "correct_text": "ODI",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man ein Match im Cricket, das bis zu fünf Tage dauert?",
+          "options": {
+            "A": "T20",
+            "B": "ODI",
+            "C": "First-Class One-Day",
+            "D": "Test Match"
+          },
+          "correct_letter": "D",
+          "correct_text": "Test Match",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man eine Dismissal (Wicket-Ausscheiden) im Cricket, bei der ein Fielder den Ball fängt, bevor er den Boden berührt?",
+          "options": {
+            "A": "Bowled",
+            "B": "Caught",
+            "C": "Run Out",
+            "D": "LBW"
+          },
+          "correct_letter": "B",
+          "correct_text": "Caught",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Spieler stehen bei einem Eishockeyspiel pro Mannschaft auf dem Eis?",
+          "options": {
+            "A": "Sechs",
+            "B": "Sieben",
+            "C": "Vier",
+            "D": "Fünf"
+          },
+          "correct_letter": "A",
+          "correct_text": "Sechs",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt die Meisterschaftstrophäe, die in der NHL vergeben wird?",
+          "options": {
+            "A": "Commissioner's Trophy",
+            "B": "Grey Cup",
+            "C": "Lombardi Trophy",
+            "D": "Stanley Cup"
+          },
+          "correct_letter": "D",
+          "correct_text": "Stanley Cup",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man die Methode zur Spielfortsetzung durch einen Puckeinwurf im Eishockey?",
+          "options": {
+            "A": "Scrum",
+            "B": "Tip-Off",
+            "C": "Bully",
+            "D": "Kick-Off"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bully",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man das Vergehen im Eishockey, bei dem ein Spieler seinen Schläger benutzt, um einen Gegner illegal zu behindern?",
+          "options": {
+            "A": "Haken",
+            "B": "Stockschlag",
+            "C": "Icing",
+            "D": "Beinstellen"
+          },
+          "correct_letter": "A",
+          "correct_text": "Haken",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt der Begriff für den Kick, der nach einem Versuch (Try) im Rugby Union ausgeführt wird?",
+          "options": {
+            "A": "Straftritt",
+            "B": "Dropkick",
+            "C": "Erhöhung",
+            "D": "Freistoß"
+          },
+          "correct_letter": "C",
+          "correct_text": "Erhöhung",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie viele Spieler stehen in einer Rugby-Union-Mannschaft auf dem Feld?",
+          "options": {
+            "A": "15",
+            "B": "11",
+            "C": "13",
+            "D": "14"
+          },
+          "correct_letter": "A",
+          "correct_text": "15",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man die Formation, bei der sich Spieler zusammenschließen, um im Rugby um den Ballbesitz zu kämpfen?",
+          "options": {
+            "A": "Gasse",
+            "B": "Ruck",
+            "C": "Gedränge",
+            "D": "Maul"
+          },
+          "correct_letter": "C",
+          "correct_text": "Gedränge",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man es, wenn ein Boxer gewinnt, indem er den Gegner k. o. schlägt?",
+          "options": {
+            "A": "Knockout",
+            "B": "Geteilte Entscheidung",
+            "C": "Technischer Knockout",
+            "D": "Einstimmige Entscheidung"
+          },
+          "correct_letter": "A",
+          "correct_text": "Knockout",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man das Ergebnis, das von den Punktrichtern in einem Boxkampf ermittelt wird?",
+          "options": {
+            "A": "Entscheidung",
+            "B": "Technischer Knockout",
+            "C": "Knockout",
+            "D": "Wertungslos"
+          },
+          "correct_letter": "A",
+          "correct_text": "Entscheidung",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Welche Gewichtsklasse im Boxen ist für leichtere Kämpfer mit etwa 56 bis 60 kg vorgesehen?",
+          "options": {
+            "A": "Bantamgewicht",
+            "B": "Weltergewicht",
+            "C": "Federgewicht",
+            "D": "Leichtgewicht"
+          },
+          "correct_letter": "C",
+          "correct_text": "Federgewicht",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man die Rennserie in der Formel-1-Weltmeisterschaft?",
+          "options": {
+            "A": "IndyCar Series",
+            "B": "Tour de France",
+            "C": "Großer Preis",
+            "D": "World Rally Championship"
+          },
+          "correct_letter": "C",
+          "correct_text": "Großer Preis",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie heißt die Rennstrecke, auf der der Große Preis von Großbritannien ausgetragen wird?",
+          "options": {
+            "A": "Monza",
+            "B": "Brands Hatch",
+            "C": "Silverstone",
+            "D": "Spa-Francorchamps"
+          },
+          "correct_letter": "C",
+          "correct_text": "Silverstone",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man einen Aufschlag beim Volleyball, der direkt zu einem Punkt führt?",
+          "options": {
+            "A": "Aufschlag-Ass",
+            "B": "Bagger",
+            "C": "Block",
+            "D": "Kill"
+          },
+          "correct_letter": "A",
+          "correct_text": "Aufschlag-Ass",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man ein mehrtägiges Straßenradrennen?",
+          "options": {
+            "A": "Etappenrennen",
+            "B": "Kriterium",
+            "C": "Klassiker",
+            "D": "Etappe"
+          },
+          "correct_letter": "A",
+          "correct_text": "Etappenrennen",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Wie nennt man ein Skirennen, bei dem schnelle Kurven um Hindernisse gefahren werden?",
+          "options": {
+            "A": "Slalom",
+            "B": "Super-G",
+            "C": "Abfahrt",
+            "D": "Riesenslalom"
+          },
+          "correct_letter": "A",
+          "correct_text": "Slalom",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "de"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}

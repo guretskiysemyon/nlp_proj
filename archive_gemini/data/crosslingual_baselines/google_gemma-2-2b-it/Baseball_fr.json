@@ -1,0 +1,1927 @@
+{
+  "concept": "Baseball",
+  "language": "fr",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "fr",
+  "mc": {
+    "qa": {
+      "accuracy": 0.5,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le terme désignant le point marqué lorsqu'un coureur touche le marbre ?",
+          "options": {
+            "A": "Feuille de score",
+            "B": "Point (Run)",
+            "C": "Prise (Strike)",
+            "D": "RBI"
+          },
+          "correct_letter": "B",
+          "correct_text": "Point (Run)",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Combien de manches sont jouées lors d'un match standard de la Ligues majeures de baseball ?",
+          "options": {
+            "A": "Sept manches",
+            "B": "Huit manches",
+            "C": "Neuf manches",
+            "D": "Dix manches"
+          },
+          "correct_letter": "C",
+          "correct_text": "Neuf manches",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel joueur défensif se tient derrière le batteur pour attraper la balle lancée ?",
+          "options": {
+            "A": "Receveur",
+            "B": "Arbitre",
+            "C": "Arrêt-court",
+            "D": "Premier joueur de champ intérieur"
+          },
+          "correct_letter": "A",
+          "correct_text": "Receveur",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel terme décrit un coup de circuit frappé avec les buts pleins ?",
+          "options": {
+            "A": "Coup de grâce (Walk-off)",
+            "B": "Circuit intérieur",
+            "C": "Circuit en solitaire",
+            "D": "Grand chelem"
+          },
+          "correct_letter": "D",
+          "correct_text": "Grand chelem",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Pour les stades construits ou rénovés après 1958, quelle est la distance minimale entre le marbre et la clôture du champ gauche ou droit ?",
+          "options": {
+            "A": "330 pieds",
+            "B": "300 pieds",
+            "C": "325 pieds",
+            "D": "350 pieds"
+          },
+          "correct_letter": "C",
+          "correct_text": "325 pieds",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "De combien de ligues majeures le baseball majeur (MLB) se compose-t-il ?",
+          "options": {
+            "A": "Une",
+            "B": "Trois",
+            "C": "Deux",
+            "D": "Quatre"
+          },
+          "correct_letter": "C",
+          "correct_text": "Deux",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Combien de retraits faut-il enregistrer pour mettre fin au tour au bâton d'une équipe lors d'une manche ?",
+          "options": {
+            "A": "Quatre retraits",
+            "B": "Trois retraits",
+            "C": "Deux retraits",
+            "D": "Cinq retraits"
+          },
+          "correct_letter": "B",
+          "correct_text": "Trois retraits",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment appelle-t-on l'action lorsqu'une balle frappée est attrapée par un joueur de champ avant qu'elle ne touche le sol ?",
+          "options": {
+            "A": "Volée (Fly out)",
+            "B": "Mouflet (Pop foul)",
+            "C": "Retrait au sol",
+            "D": "Ligne (Line drive)"
+          },
+          "correct_letter": "A",
+          "correct_text": "Volée (Fly out)",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment appelle-t-on un lancer effectué en dehors de la zone de prise qui n'est pas frappé par le batteur ?",
+          "options": {
+            "A": "Balle",
+            "B": "Lancer sauvage",
+            "C": "Hors-limites (Foul)",
+            "D": "Prise (Strike)"
+          },
+          "correct_letter": "A",
+          "correct_text": "Balle",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment appelle-t-on l'action défensive où deux retraits sont enregistrés en une seule action continue ?",
+          "options": {
+            "A": "Relais",
+            "B": "Retrait sur bases (Pickoff)",
+            "C": "Retrait forcé",
+            "D": "Double jeu"
+          },
+          "correct_letter": "D",
+          "correct_text": "Double jeu",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel type de batte est généralement utilisé au baseball professionnel ?",
+          "options": {
+            "A": "Batte en plastique",
+            "B": "Batte composite",
+            "C": "Batte en aluminium",
+            "D": "Batte en bois"
+          },
+          "correct_letter": "D",
+          "correct_text": "Batte en bois",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le terme pour la zone située à l'extérieur des lignes de fausse balle ?",
+          "options": {
+            "A": "Piste d'avertissement",
+            "B": "Zone de fausse balle",
+            "C": "Territoire fair",
+            "D": "Enclos des releveurs (Bullpen)"
+          },
+          "correct_letter": "B",
+          "correct_text": "Zone de fausse balle",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel équipement les joueurs de champ utilisent-ils pour attraper la balle ?",
+          "options": {
+            "A": "Casque",
+            "B": "Protège-tibia",
+            "C": "Gant de frappe",
+            "D": "Gant (ou mitaine)"
+          },
+          "correct_letter": "D",
+          "correct_text": "Gant (ou mitaine)",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le terme pour un coup sûre qui permet à un batteur d'atteindre le deuxième buts en toute sécurité ?",
+          "options": {
+            "A": "Triple",
+            "B": "Double",
+            "C": "Simple",
+            "D": "Coup de circuit"
+          },
+          "correct_letter": "B",
+          "correct_text": "Double",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le terme pour un coup sûr qui permet à un batteur d'atteindre le troisième but en toute sécurité ?",
+          "options": {
+            "A": "Triple",
+            "B": "Double",
+            "C": "Simple",
+            "D": "Double de règle de terrain"
+          },
+          "correct_letter": "A",
+          "correct_text": "Triple",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment un batteur marque-t-il un point au baseball ?",
+          "options": {
+            "A": "En atteignant le troisième but en toute sécurité",
+            "B": "En touchant les quatre buts dans l'ordre et en retournant au marbre",
+            "C": "En volants le marbre sans être touché",
+            "D": "En obtenant un but sur balles avec les buts pleins uniquement"
+          },
+          "correct_letter": "B",
+          "correct_text": "En touchant les quatre buts dans l'ordre et en retournant au marbre",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Combien de prises faut-il pour éliminer un batteur sur des prises ?",
+          "options": {
+            "A": "Trois prises",
+            "B": "Cinq prises",
+            "C": "Deux prises",
+            "D": "Quatre prises"
+          },
+          "correct_letter": "A",
+          "correct_text": "Trois prises",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le rôle principal du lanceur ?",
+          "options": {
+            "A": "Appeler les balles et les prises",
+            "B": "Établir l'ordre des frappeurs",
+            "C": "Lancer des balles pour éliminer les batteurs",
+            "D": "Coacher la course sur les buts"
+          },
+          "correct_letter": "C",
+          "correct_text": "Lancer des balles pour éliminer les batteurs",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel joueur est responsable de signaler le type de lancer au lanceur ?",
+          "options": {
+            "A": "Arrêt-court",
+            "B": "Deuxième joueur de champ intérieur",
+            "C": "Manager",
+            "D": "Receveur"
+          },
+          "correct_letter": "D",
+          "correct_text": "Receveur",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est approximativement la circonférence d'une balle de baseball réglementaire ?",
+          "options": {
+            "A": "10 pouces",
+            "B": "9 pouces",
+            "C": "9,5 pouces",
+            "D": "8 pouces"
+          },
+          "correct_letter": "B",
+          "correct_text": "9 pouces",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "De quoi est généralement fait le centre d'une balle de baseball ?",
+          "options": {
+            "A": "En caoutchouc ou en liège",
+            "B": "En bois",
+            "C": "En mousse",
+            "D": "En acier"
+          },
+          "correct_letter": "A",
+          "correct_text": "En caoutchouc ou en liège",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "De quelle couleur sont les coutures d'une balle de baseball standard ?",
+          "options": {
+            "A": "Rouge",
+            "B": "Bleu",
+            "C": "Noir",
+            "D": "Blanc"
+          },
+          "correct_letter": "A",
+          "correct_text": "Rouge",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est la longueur typique d'une batte de baseball utilisée par des joueurs adultes ?",
+          "options": {
+            "A": "Environ 36 pouces",
+            "B": "Environ 34 pouces",
+            "C": "Environ 32 pouces",
+            "D": "Environ 30 pouces"
+          },
+          "correct_letter": "B",
+          "correct_text": "Environ 34 pouces",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Combien de joueurs d'une équipe sont sur le terrain pendant le jeu ?",
+          "options": {
+            "A": "Dix",
+            "B": "Onze",
+            "C": "Huit",
+            "D": "Neuf"
+          },
+          "correct_letter": "D",
+          "correct_text": "Neuf",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel surnom est souvent donné au baseball aux États-Unis ?",
+          "options": {
+            "A": "Balle de diamant",
+            "B": "Le passe-temps national",
+            "C": "Classique d'été",
+            "D": "Le passe-temps de l'Amérique"
+          },
+          "correct_letter": "D",
+          "correct_text": "Le passe-temps de l'Amérique",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle pénalité est infligée lorsqu'un lanceur commet un mouvement de relais illégal ?",
+          "options": {
+            "A": "Interférence du receveur",
+            "B": "Balk",
+            "C": "Balle",
+            "D": "Expulsion"
+          },
+          "correct_letter": "B",
+          "correct_text": "Balk",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelles sont les deux ligues qui composent la Ligues majeures de baseball (MLB) ?",
+          "options": {
+            "A": "La Ligue de l'Est et la Ligue du Sud",
+            "B": "La Ligue internationale et la Ligue de la côte du Pacifique",
+            "C": "La Ligue fédérale et l'Union Association",
+            "D": "La Ligue nationale et la Ligue américaine"
+          },
+          "correct_letter": "D",
+          "correct_text": "La Ligue nationale et la Ligue américaine",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment un batteur obtient-il un but sur balles ?",
+          "options": {
+            "A": "En frappant trois fausses balles",
+            "B": "En atteignant un but sur une erreur",
+            "C": "En étant touché par un lancers",
+            "D": "En recevant quatre balles lors de sa présence au bâton"
+          },
+          "correct_letter": "D",
+          "correct_text": "En recevant quatre balles lors de sa présence au bâton",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le principal objectif du batteur ?",
+          "options": {
+            "A": "Éliminer les coureurs en les touchant",
+            "B": "Frapper la balle et atteindre un but en sécurité",
+            "C": "Éliminer des coureurs par un lancer",
+            "D": "Appeler les lancers"
+          },
+          "correct_letter": "B",
+          "correct_text": "Frapper la balle et atteindre un but en sécurité",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Après avoir atteint le premier but, vers quel but le batteur court-il ensuite ?",
+          "options": {
+            "A": "Le monticule du lanceur",
+            "B": "Le troisième but",
+            "C": "Le marbre",
+            "D": "Le deuxième but"
+          },
+          "correct_letter": "D",
+          "correct_text": "Le deuxième but",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel but un coureur touche-t-il après le deuxième but ?",
+          "options": {
+            "A": "Le premier but",
+            "B": "La zone des entraîneurs",
+            "C": "Le troisième but",
+            "D": "Le marbre"
+          },
+          "correct_letter": "C",
+          "correct_text": "Le troisième but",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle partie du terrain est connue sous le nom de monticule du lanceur ?",
+          "options": {
+            "A": "La zone plate derrière le marbre",
+            "B": "La zone d'échauffement de l'enclos des relayeurs",
+            "C": "L'herbe devant le deuxième but",
+            "D": "La zone surélevée d'où le lanceur lance la balle"
+          },
+          "correct_letter": "D",
+          "correct_text": "La zone surélevée d'où le lanceur lance la balle",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le terme utilisé lorsqu'un batteur se voit attribuer le premier but après avoir été touché par un lancer ?",
+          "options": {
+            "A": "Touché par un lancer",
+            "B": "But sur balles",
+            "C": "Interférence",
+            "D": "Balk"
+          },
+          "correct_letter": "A",
+          "correct_text": "Touché par un lancer",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qu'est-ce qu'une erreur au baseball ?",
+          "options": {
+            "A": "Un prise lancée en dehors de la zone",
+            "B": "Une mauvaise manœuvre d'un joueur de champ qui permet aux coureurs d'avancer",
+            "C": "Un élan du batteur dans le vide",
+            "D": "Une fausse balle avec deux prises"
+          },
+          "correct_letter": "B",
+          "correct_text": "Une mauvaise manœuvre d'un joueur de champ qui permet aux coureurs d'avancer",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qu'est-ce qu'un retrait forcé au baseball ?",
+          "options": {
+            "A": "Lorsqu'un coureur est éliminé parce qu'il est forcé d'avancer au but suivant",
+            "B": "Lorsqu'un batteur rate trois lancers",
+            "C": "Lorsqu'une balle en hauteur est attrapée",
+            "D": "Lorsqu'un coureur est touché alors qu'il est hors du but"
+          },
+          "correct_letter": "A",
+          "correct_text": "Lorsqu'un coureur est éliminé parce qu'il est forcé d'avancer au but suivant",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Combien de retraits mettent fin à une demi-manche au baseball ?",
+          "options": {
+            "A": "Deux",
+            "B": "Trois",
+            "C": "Quatre",
+            "D": "Cinq"
+          },
+          "correct_letter": "B",
+          "correct_text": "Trois",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle compétition internationale de baseball met en vedette des équipes nationales ?",
+          "options": {
+            "A": "Série mondiale",
+            "B": "Série mondiale universitaire",
+            "C": "Match des étoiles",
+            "D": "Classique mondiale de baseball"
+          },
+          "correct_letter": "D",
+          "correct_text": "Classique mondiale de baseball",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel stade emblématique est connu pour son mur du champ gauche surnommé le « Monstre vert » ?",
+          "options": {
+            "A": "Yankee Stadium",
+            "B": "Dodger Stadium",
+            "C": "Wrigley Field",
+            "D": "Fenway Park"
+          },
+          "correct_letter": "D",
+          "correct_text": "Fenway Park",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Que sont les assistances dans le jeu défensif au baseball ?",
+          "options": {
+            "A": "Éliminer un coureur au marbre uniquement",
+            "B": "Des actions où un joueur de champ aide à réaliser un retrait en touchant la balle",
+            "C": "Les retraits réussis d'un joueur de champ",
+            "D": "Des attrapés réalisés par les voltigeurs"
+          },
+          "correct_letter": "B",
+          "correct_text": "Des actions où un joueur de champ aide à réaliser un retrait en touchant la balle",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "À quoi font référence les « manches lancées » dans les statistiques du baseball ?",
+          "options": {
+            "A": "Le nombre total de lancers effectués",
+            "B": "Le nombre de batteurs affrontés",
+            "C": "Le nombre de matchs complets",
+            "D": "Le nombre de retraits enregistrés par un lanceur divisé par trois"
+          },
+          "correct_letter": "D",
+          "correct_text": "Le nombre de retraits enregistrés par un lanceur divisé par trois",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel document officiel enregistre chaque action d'un match de baseball ?",
+          "options": {
+            "A": "Le rapport de score",
+            "B": "La carte de score",
+            "C": "La feuille de match",
+            "D": "La feuille d'alignement"
+          },
+          "correct_letter": "A",
+          "correct_text": "Le rapport de score",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Que sont les sabermétriques au baseball ?",
+          "options": {
+            "A": "Un système d'évaluation des arbitres",
+            "B": "Une technique pour assouplir les gants",
+            "C": "Une méthode de repérage des joueurs de lycée",
+            "D": "L'étude et l'analyse des statistiques du baseball"
+          },
+          "correct_letter": "D",
+          "correct_text": "L'étude et l'analyse des statistiques du baseball",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qu'est-ce qu'un « changeup » au baseball ?",
+          "options": {
+            "A": "Une balle rapide avec un effet rétro accru",
+            "B": "Un slider qui casse tardivement",
+            "C": "Un lourd lancer plus lent conçu pour perturber le timing du batteur",
+            "D": "Un lancer effectué par le côté"
+          },
+          "correct_letter": "C",
+          "correct_text": "Un lourd lancer plus lent conçu pour perturber le timing du batteur",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qu'est-ce que l'ordre des batteurs au baseball ?",
+          "options": {
+            "A": "La liste des lanceurs disponibles en relève",
+            "B": "L'ordre des exercices d'échauffement",
+            "C": "La séquence prédéterminée dans laquelle les joueurs se présentent au bâton",
+            "D": "Le positionnement défensif pour chaque manche"
+          },
+          "correct_letter": "C",
+          "correct_text": "La séquence prédéterminée dans laquelle les joueurs se présentent au bâton",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Avec quoi un lanceur doit-il être en contact lors de son lancer depuis le monticule ?",
+          "options": {
+            "A": "Le pied avant sur le marbre",
+            "B": "Un pied sur la plaque de caoutchouc",
+            "C": "Les deux pieds sur la plaque de caoutchouc",
+            "D": "L'orteil sur la ligne de la boîte du batteur"
+          },
+          "correct_letter": "B",
+          "correct_text": "Un pied sur la plaque de caoutchouc",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Que signifie « territoire fair » au baseball ?",
+          "options": {
+            "A": "La zone située au-delà de la piste d'avertissement",
+            "B": "La zone située entre les lignes de faute où la balle est en jeu",
+            "C": "La partie en terre battue de l'avant-champ",
+            "D": "N'importe quelle balle qui atteint le champ extérieur"
+          },
+          "correct_letter": "B",
+          "correct_text": "La zone située entre les lignes de faute où la balle est en jeu",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est la fonction principale du gant du receveur ?",
+          "options": {
+            "A": "Attraper les lancers et capter les balles",
+            "B": "Ramasser les lancers au premier but",
+            "C": "Bloquer uniquement le marbre",
+            "D": "Transmettre des signaux aux entraîneurs sur les buts"
+          },
+          "correct_letter": "A",
+          "correct_text": "Attraper les lancers et capter les balles",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Comment un coup sûr est-il utilisé pour calculer la moyenne au bâton ?",
+          "options": {
+            "A": "En divisant les coups sûrs par les matchs joués",
+            "B": "En additionnant les coups sûrs et les buts sur balles puis en divisant par les apparitions au plaque",
+            "C": "En divisant le nombre de coups sûrs par le nombre de présences au bâton",
+            "D": "En divisant le total des buts par les présences au bâton"
+          },
+          "correct_letter": "C",
+          "correct_text": "En divisant le nombre de coups sûrs par le nombre de présences au bâton",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle statistique obtient-on en additionnant l'OBP et le SLG ?",
+          "options": {
+            "A": "OPS",
+            "B": "ERA",
+            "C": "WHIP",
+            "D": "WAR"
+          },
+          "correct_letter": "A",
+          "correct_text": "OPS",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui a inventé le terme « sabermétrie » au baseball ?",
+          "options": {
+            "A": "Billy Beane",
+            "B": "Henry Chadwick",
+            "C": "Bill James",
+            "D": "Branch Rickey"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bill James",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.62,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien de points vaut un tir pris derrière la ligne des trois points au basketball ?",
+          "options": {
+            "A": "4",
+            "B": "5",
+            "C": "3",
+            "D": "2"
+          },
+          "correct_letter": "C",
+          "correct_text": "3",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au basketball, combien de quarts-temps sont joués lors d'un match standard de la NBA ?",
+          "options": {
+            "A": "3",
+            "B": "5",
+            "C": "4",
+            "D": "2"
+          },
+          "correct_letter": "C",
+          "correct_text": "4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien de secondes une équipe a-t-elle pour tenter un tir en jeu dans la NBA ?",
+          "options": {
+            "A": "35 secondes",
+            "B": "20 secondes",
+            "C": "30 secondes",
+            "D": "24 secondes"
+          },
+          "correct_letter": "D",
+          "correct_text": "24 secondes",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien d'équipes concourent actuellement dans la NBA ?",
+          "options": {
+            "A": "32",
+            "B": "28",
+            "C": "30",
+            "D": "26"
+          },
+          "correct_letter": "C",
+          "correct_text": "30",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au basketball, quel est le terme pour désigner le fait de contrer le tir d'un adversaire ?",
+          "options": {
+            "A": "En force",
+            "B": "Contre",
+            "C": "Interception",
+            "D": "Écran"
+          },
+          "correct_letter": "B",
+          "correct_text": "Contre",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Comment appelle-t-on la violation lorsqu'un joueur de basketball fait illégalement des pas supplémentaires sans dribbler ?",
+          "options": {
+            "A": "Reprise de dribble",
+            "B": "Marcher",
+            "C": "Interférence",
+            "D": "Porté"
+          },
+          "correct_letter": "B",
+          "correct_text": "Marcher",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "À quoi sert la zone rectangulaire proche du panier, souvent appelée « la raquette » ?",
+          "options": {
+            "A": "Remplacements et temps morts",
+            "B": "Positionnement défensif et offensif",
+            "C": "Lancers francs uniquement",
+            "D": "Entraînement au tir à trois points"
+          },
+          "correct_letter": "B",
+          "correct_text": "Positionnement défensif et offensif",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au football, combien de joueurs composent chaque équipe lors d'un match standard ?",
+          "options": {
+            "A": "9",
+            "B": "12",
+            "C": "11",
+            "D": "10"
+          },
+          "correct_letter": "C",
+          "correct_text": "11",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel est le nom officiel de la zone où un gardien de but peut utiliser ses mains ?",
+          "options": {
+            "A": "Zone de touche",
+            "B": "Zone de but",
+            "C": "Surface de réparation",
+            "D": "Ligne des six mètres"
+          },
+          "correct_letter": "C",
+          "correct_text": "Surface de réparation",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quelle est la durée d'un match de football professionnel standard (hors temps additionnel) ?",
+          "options": {
+            "A": "80 minutes",
+            "B": "90 minutes",
+            "C": "60 minutes",
+            "D": "120 minutes"
+          },
+          "correct_letter": "B",
+          "correct_text": "90 minutes",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au football, quel est le terme pour un coup de pied accordé après une faute commise dans la surface de réparation ?",
+          "options": {
+            "A": "Coup de pied de réparation",
+            "B": "Coup franc indirect",
+            "C": "Coup de pied de but",
+            "D": "Coup franc direct"
+          },
+          "correct_letter": "A",
+          "correct_text": "Coup de pied de réparation",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel est le terme utilisé lorsqu'un joueur marque trois buts lors d'un même match de football ?",
+          "options": {
+            "A": "Triplé",
+            "B": "Temps de triplé",
+            "C": "Triple",
+            "D": "Doublé"
+          },
+          "correct_letter": "A",
+          "correct_text": "Triplé",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au football, comment appelle-t-on la méthode pour reprendre le jeu lorsque le ballon sort par la ligne de touche ?",
+          "options": {
+            "A": "Coup de pied de but",
+            "B": "Touche",
+            "C": "Balle à terre",
+            "D": "Coup de coin"
+          },
+          "correct_letter": "B",
+          "correct_text": "Touche",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au football américain, combien de joueurs d'une même équipe sont sur le terrain pendant le jeu ?",
+          "options": {
+            "A": "10",
+            "B": "9",
+            "C": "11",
+            "D": "12"
+          },
+          "correct_letter": "C",
+          "correct_text": "11",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien de points vaut un field goal (coup de pied de placement) au football américain ?",
+          "options": {
+            "A": "6",
+            "B": "3",
+            "C": "2",
+            "D": "1"
+          },
+          "correct_letter": "B",
+          "correct_text": "3",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel équipement de protection porte-t-on sur la tête au football américain ?",
+          "options": {
+            "A": "Casque",
+            "B": "Casquette",
+            "C": "Casque de rugby",
+            "D": "Bandeau"
+          },
+          "correct_letter": "A",
+          "correct_text": "Casque",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au football américain, combien de yards faut-il gagner pour obtenir une nouvelle série de downs ?",
+          "options": {
+            "A": "5 yards",
+            "B": "15 yards",
+            "C": "8 yards",
+            "D": "10 yards"
+          },
+          "correct_letter": "D",
+          "correct_text": "10 yards",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel poste au football américain est principalement responsable de la passe du ballon ?",
+          "options": {
+            "A": "Quarterback",
+            "B": "Running back",
+            "C": "Wide receiver",
+            "D": "Center"
+          },
+          "correct_letter": "A",
+          "correct_text": "Quarterback",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel est le terme pour une passe incomplète ou qui sort des limites du terrain au football américain ?",
+          "options": {
+            "A": "Passe échappée",
+            "B": "Passe fumble",
+            "C": "Passe incomplète",
+            "D": "Ballon mort"
+          },
+          "correct_letter": "C",
+          "correct_text": "Passe incomplète",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au cricket, quel est le terme pour frapper la balle par-dessus la limite sans qu'elle ne rebondisse ?",
+          "options": {
+            "A": "Limite supérieure",
+            "B": "Maximum",
+            "C": "Six",
+            "D": "Quatre"
+          },
+          "correct_letter": "C",
+          "correct_text": "Six",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel équipement un batteur utilise-t-il au cricket ?",
+          "options": {
+            "A": "Raquette",
+            "B": "Palette",
+            "C": "Bâton",
+            "D": "Bat"
+          },
+          "correct_letter": "D",
+          "correct_text": "Bat",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien de lancers (balls) sont comptés dans un over au cricket ?",
+          "options": {
+            "A": "8",
+            "B": "5",
+            "C": "4",
+            "D": "6"
+          },
+          "correct_letter": "D",
+          "correct_text": "6",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel type de lancer au cricket consiste à faire tourner la balle en l'éloignant d'un batteur droitier ?",
+          "options": {
+            "A": "Seam bowling",
+            "B": "Off-spin",
+            "C": "Swing bowling",
+            "D": "Leg-spin"
+          },
+          "correct_letter": "D",
+          "correct_text": "Leg-spin",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel terme utilise-t-on lorsqu'un batteur est éliminé parce que la balle touche les stumps ?",
+          "options": {
+            "A": "Caught",
+            "B": "Bowled",
+            "C": "Run-out",
+            "D": "LBW"
+          },
+          "correct_letter": "B",
+          "correct_text": "Bowled",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au hockey sur glace, quel est le nom de la zone située devant le filet propice aux occasions de marquer ?",
+          "options": {
+            "A": "Zone neutre",
+            "B": "Slot",
+            "C": "Crease",
+            "D": "Ligne bleue"
+          },
+          "correct_letter": "B",
+          "correct_text": "Slot",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Sur quelle surface se joue le hockey sur glace ?",
+          "options": {
+            "A": "Pitch",
+            "B": "Court",
+            "C": "Terrain",
+            "D": "Patinoire"
+          },
+          "correct_letter": "D",
+          "correct_text": "Patinoire",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au tennis, quel terme désigne un score de 40-40 ?",
+          "options": {
+            "A": "Balle de break",
+            "B": "Avantage",
+            "C": "Égalité",
+            "D": "Love"
+          },
+          "correct_letter": "C",
+          "correct_text": "Égalité",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel terme désigne zéro point au tennis ?",
+          "options": {
+            "A": "Blank",
+            "B": "Zéro",
+            "C": "Nil",
+            "D": "Love"
+          },
+          "correct_letter": "D",
+          "correct_text": "Love",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Sur quelle surface se joue le tournoi de Wimbledon ?",
+          "options": {
+            "A": "Dur",
+            "B": "Gazon",
+            "C": "Moquette",
+            "D": "Terre battue"
+          },
+          "correct_letter": "B",
+          "correct_text": "Gazon",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Combien de tournois du Grand Chelem sont organisés chaque année au tennis ?",
+          "options": {
+            "A": "6",
+            "B": "5",
+            "C": "4",
+            "D": "3"
+          },
+          "correct_letter": "C",
+          "correct_text": "4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel terme désigne un service au tennis que l'adversaire ne parvient pas à toucher ?",
+          "options": {
+            "A": "Ace",
+            "B": "Faute",
+            "C": "Coup gagnant",
+            "D": "Let"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ace",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au tennis, combien de jeux faut-il généralement remporter pour gagner un set (sans compter les tie-breaks) ?",
+          "options": {
+            "A": "6",
+            "B": "4",
+            "C": "7",
+            "D": "5"
+          },
+          "correct_letter": "A",
+          "correct_text": "6",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le système de comptage du tennis, quel nombre vient après 15 ?",
+          "options": {
+            "A": "30",
+            "B": "25",
+            "C": "20",
+            "D": "40"
+          },
+          "correct_letter": "A",
+          "correct_text": "30",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quelle est la zone délimitée sur un court de tennis où le service doit obligatoirement rebondir ?",
+          "options": {
+            "A": "Carré de service",
+            "B": "Couloir de double",
+            "C": "Zone de fond de court",
+            "D": "No-man's land"
+          },
+          "correct_letter": "A",
+          "correct_text": "Carré de service",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Sur un parcours de golf standard, combien de trous joue-t-on ?",
+          "options": {
+            "A": "18",
+            "B": "9",
+            "C": "21",
+            "D": "12"
+          },
+          "correct_letter": "A",
+          "correct_text": "18",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel tournoi de golf professionnel est communément appelé The Masters ?",
+          "options": {
+            "A": "U.S. Open",
+            "B": "The Masters Tournament",
+            "C": "PGA Championship",
+            "D": "The Open Championship"
+          },
+          "correct_letter": "B",
+          "correct_text": "The Masters Tournament",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel terme désigne un score de trois coups sous le par sur un même trou de golf ?",
+          "options": {
+            "A": "Birdie",
+            "B": "Albatros",
+            "C": "Eagle",
+            "D": "Bogey"
+          },
+          "correct_letter": "B",
+          "correct_text": "Albatros",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel club utilise-t-on principalement sur le green pour faire rouler la balle jusque dans le trou au golf ?",
+          "options": {
+            "A": "Putter",
+            "B": "Fer",
+            "C": "Driver",
+            "D": "Wedge"
+          },
+          "correct_letter": "A",
+          "correct_text": "Putter",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au volley-ball en salle, combien de joueurs de chaque équipe sont sur le terrain ?",
+          "options": {
+            "A": "7",
+            "B": "4",
+            "C": "6",
+            "D": "5"
+          },
+          "correct_letter": "C",
+          "correct_text": "6",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel terme désigne une frappe offensive par-dessus le filet au volley-ball ?",
+          "options": {
+            "A": "Smash",
+            "B": "Service",
+            "C": "Contre",
+            "D": "Passe"
+          },
+          "correct_letter": "A",
+          "correct_text": "Smash",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Comment appelle-t-on un service au volley-ball qui atterrit dans le camp adverse sans être touché ?",
+          "options": {
+            "A": "Ace",
+            "B": "Block point",
+            "C": "Kill",
+            "D": "Service winner"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ace",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au rugby à XV, combien de joueurs y a-t-il dans chaque équipe lors d'un match ?",
+          "options": {
+            "A": "14",
+            "B": "15",
+            "C": "11",
+            "D": "13"
+          },
+          "correct_letter": "B",
+          "correct_text": "15",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au badminton, combien de points un joueur doit-il marquer pour gagner un set lors d'une partie standard ?",
+          "options": {
+            "A": "25",
+            "B": "21",
+            "C": "11",
+            "D": "15"
+          },
+          "correct_letter": "B",
+          "correct_text": "21",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au badminton en double, combien y a-t-il de joueurs au total sur le terrain ?",
+          "options": {
+            "A": "4",
+            "B": "6",
+            "C": "8",
+            "D": "2"
+          },
+          "correct_letter": "A",
+          "correct_text": "4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au tennis de table, combien de points un joueur doit-il atteindre pour gagner un set lors d'une compétition standard ?",
+          "options": {
+            "A": "11",
+            "B": "7",
+            "C": "21",
+            "D": "15"
+          },
+          "correct_letter": "A",
+          "correct_text": "11",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans un match de tennis de table en double, combien y a-t-il de joueurs de chaque côté ?",
+          "options": {
+            "A": "3",
+            "B": "1",
+            "C": "2",
+            "D": "4"
+          },
+          "correct_letter": "C",
+          "correct_text": "2",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Au softball, combien de manches (innings) joue-t-on généralement dans une partie standard ?",
+          "options": {
+            "A": "6",
+            "B": "7",
+            "C": "9",
+            "D": "5"
+          },
+          "correct_letter": "B",
+          "correct_text": "7",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quel poste au softball est chargé de lancer la balle depuis le cercle du lanceur ?",
+          "options": {
+            "A": "Receveur",
+            "B": "Lanceur",
+            "C": "Arrêt-court",
+            "D": "Premier bâtonniste"
+          },
+          "correct_letter": "B",
+          "correct_text": "Lanceur",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Quelle est la distance standard entre les bases au softball ?",
+          "options": {
+            "A": "90 pieds",
+            "B": "70 pieds",
+            "C": "60 pieds",
+            "D": "65 pieds"
+          },
+          "correct_letter": "C",
+          "correct_text": "60 pieds",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Comment appelle-t-on l'équipement de protection porté par le receveur au softball ?",
+          "options": {
+            "A": "Équipement de battage",
+            "B": "Jambières de gardien de but",
+            "C": "Équipement de receveur",
+            "D": "Gant de receveur uniquement"
+          },
+          "correct_letter": "C",
+          "correct_text": "Équipement de receveur",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}

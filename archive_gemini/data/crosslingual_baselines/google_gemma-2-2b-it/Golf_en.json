@@ -1,0 +1,1927 @@
+{
+  "concept": "Golf",
+  "language": "en",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "en",
+  "mc": {
+    "qa": {
+      "accuracy": 0.8,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What sport involves using clubs and a ball to hit it into a series of holes?",
+          "options": {
+            "A": "Golf",
+            "B": "Field hockey",
+            "C": "Croquet",
+            "D": "Polo"
+          },
+          "correct_letter": "A",
+          "correct_text": "Golf",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which area on a golf course contains the cup where the ball must be sunk?",
+          "options": {
+            "A": "The putting green",
+            "B": "The fairway",
+            "C": "The fringe",
+            "D": "The tee box"
+          },
+          "correct_letter": "A",
+          "correct_text": "The putting green",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "During which century did modern golf originate?",
+          "options": {
+            "A": "The 15th century",
+            "B": "The 18th century",
+            "C": "The 16th century",
+            "D": "The 14th century"
+          },
+          "correct_letter": "A",
+          "correct_text": "The 15th century",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the name of the world's oldest major golf tournament?",
+          "options": {
+            "A": "The Masters Tournament",
+            "B": "The U.S. Open",
+            "C": "The Open Championship (British Open)",
+            "D": "The PGA Championship"
+          },
+          "correct_letter": "C",
+          "correct_text": "The Open Championship (British Open)",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "At which golf club was The Open Championship first played?",
+          "options": {
+            "A": "Muirfield",
+            "B": "Prestwick Golf Club",
+            "C": "The Old Course at St Andrews",
+            "D": "Royal Troon"
+          },
+          "correct_letter": "B",
+          "correct_text": "Prestwick Golf Club",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the purpose of a tee in golf?",
+          "options": {
+            "A": "To measure yardage to the hole",
+            "B": "To repair divots on the fairway",
+            "C": "To mark the ball’s position on the green",
+            "D": "To elevate the ball for the first stroke on a hole"
+          },
+          "correct_letter": "D",
+          "correct_text": "To elevate the ball for the first stroke on a hole",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which club is designed to hit the ball long distances from the tee?",
+          "options": {
+            "A": "Driver",
+            "B": "3-wood",
+            "C": "5-iron",
+            "D": "Putter"
+          },
+          "correct_letter": "A",
+          "correct_text": "Driver",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What are hybrid clubs designed to combine?",
+          "options": {
+            "A": "The properties of shafts and grips",
+            "B": "The features of wedges and putters",
+            "C": "The features of drivers and putters",
+            "D": "The features of woods and irons"
+          },
+          "correct_letter": "D",
+          "correct_text": "The features of woods and irons",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Why do golf balls have dimples?",
+          "options": {
+            "A": "To reduce wear from clubface grooves",
+            "B": "To improve spin on the green only",
+            "C": "To make the ball heavier in wind",
+            "D": "To reduce aerodynamic drag and increase distance"
+          },
+          "correct_letter": "D",
+          "correct_text": "To reduce aerodynamic drag and increase distance",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What does the term 'green in regulation' (GIR) mean?",
+          "options": {
+            "A": "Reaching the green in two strokes less than the hole’s par",
+            "B": "Reaching the green in two strokes over par",
+            "C": "Being on the green regardless of strokes taken",
+            "D": "Reaching the green in one stroke less than par"
+          },
+          "correct_letter": "A",
+          "correct_text": "Reaching the green in two strokes less than the hole’s par",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the typical overall par score for an 18-hole golf course?",
+          "options": {
+            "A": "60 to 62",
+            "B": "70 to 72",
+            "C": "66 to 68",
+            "D": "74 to 76"
+          },
+          "correct_letter": "B",
+          "correct_text": "70 to 72",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the term for hitting the ball into the hole with one stroke?",
+          "options": {
+            "A": "Hole in one or ace",
+            "B": "Eagle",
+            "C": "Albatross",
+            "D": "Birdie"
+          },
+          "correct_letter": "A",
+          "correct_text": "Hole in one or ace",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term is used for scoring one stroke under par on a hole?",
+          "options": {
+            "A": "Bogey",
+            "B": "Eagle",
+            "C": "Par",
+            "D": "Birdie"
+          },
+          "correct_letter": "D",
+          "correct_text": "Birdie",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term is used for scoring two strokes under par on a hole?",
+          "options": {
+            "A": "Albatross",
+            "B": "Eagle",
+            "C": "Birdie",
+            "D": "Par"
+          },
+          "correct_letter": "B",
+          "correct_text": "Eagle",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term is used for scoring one stroke over par on a hole?",
+          "options": {
+            "A": "Double bogey",
+            "B": "Par",
+            "C": "Bogey",
+            "D": "Birdie"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bogey",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term describes a score of two strokes over par?",
+          "options": {
+            "A": "Double eagle",
+            "B": "Double bogey",
+            "C": "Bogey",
+            "D": "Triple bogey"
+          },
+          "correct_letter": "B",
+          "correct_text": "Double bogey",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the name of the sand-filled hazard on a golf course?",
+          "options": {
+            "A": "The rough",
+            "B": "The fairway",
+            "C": "Bunker or sand trap",
+            "D": "Water hazard"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bunker or sand trap",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "How long does an 18-hole round of golf usually take?",
+          "options": {
+            "A": "About two hours",
+            "B": "About one hour and fifteen minutes",
+            "C": "Approximately four hours",
+            "D": "Five to six hours"
+          },
+          "correct_letter": "C",
+          "correct_text": "Approximately four hours",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What alternative do players often use instead of walking the course?",
+          "options": {
+            "A": "A bicycle",
+            "B": "A caddie carrying the bag",
+            "C": "A golf cart",
+            "D": "A pull/push trolley"
+          },
+          "correct_letter": "C",
+          "correct_text": "A golf cart",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the underlying principle of the rules of golf?",
+          "options": {
+            "A": "Tradition only",
+            "B": "Fairness",
+            "C": "Speed of play above all",
+            "D": "Leniency"
+          },
+          "correct_letter": "B",
+          "correct_text": "Fairness",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the penalty for hitting the wrong ball?",
+          "options": {
+            "A": "Two strokes",
+            "B": "Loss of hole",
+            "C": "One stroke",
+            "D": "Replay the shot without penalty"
+          },
+          "correct_letter": "A",
+          "correct_text": "Two strokes",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the main objective of a full golf swing?",
+          "options": {
+            "A": "To avoid any body rotation",
+            "B": "To generate maximum backspin regardless of direction",
+            "C": "To keep the ball as low as possible every time",
+            "D": "To hit the ball with maximum distance and accuracy"
+          },
+          "correct_letter": "D",
+          "correct_text": "To hit the ball with maximum distance and accuracy",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the difference between a drive and an approach shot?",
+          "options": {
+            "A": "A drive is taken only with irons; an approach only with woods",
+            "B": "A drive is from bunkers; an approach is from the rough",
+            "C": "A drive is a putt from long range; an approach is any tee shot",
+            "D": "A drive is a long-distance tee shot; an approach shot is used to reach the green"
+          },
+          "correct_letter": "D",
+          "correct_text": "A drive is a long-distance tee shot; an approach shot is used to reach the green",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the purpose of a pitch shot in golf?",
+          "options": {
+            "A": "To roll the ball along the ground from the fringe",
+            "B": "To deliver the ball onto the green from a short distance",
+            "C": "To escape from deep rough with a low runner",
+            "D": "To hit long tee shots on par-5 holes"
+          },
+          "correct_letter": "B",
+          "correct_text": "To deliver the ball onto the green from a short distance",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is a chip shot in golf?",
+          "options": {
+            "A": "A tee shot on a par-3",
+            "B": "A short shot used to get the ball onto or near the green",
+            "C": "A long shot to reach the green from the fairway",
+            "D": "A high, soft bunker shot from the sand"
+          },
+          "correct_letter": "B",
+          "correct_text": "A short shot used to get the ball onto or near the green",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "How many players typically form a recreational golf group?",
+          "options": {
+            "A": "Between 2 and 6 players",
+            "B": "Exactly 4 players only",
+            "C": "Between 3 and 5 players",
+            "D": "Between 1 and 4 players"
+          },
+          "correct_letter": "D",
+          "correct_text": "Between 1 and 4 players",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What does it mean when a player's score on a hole is exactly the par value?",
+          "options": {
+            "A": "The player made par",
+            "B": "The player improved their lie",
+            "C": "The player took a mulligan",
+            "D": "The player recorded their handicap"
+          },
+          "correct_letter": "A",
+          "correct_text": "The player made par",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term describes the curvature or bend in a golf hole?",
+          "options": {
+            "A": "Dogleg",
+            "B": "Fade",
+            "C": "Draw",
+            "D": "Swale"
+          },
+          "correct_letter": "A",
+          "correct_text": "Dogleg",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What feature on a golf ball helps delay the separation of the boundary layer?",
+          "options": {
+            "A": "Grooves",
+            "B": "Seams",
+            "C": "A matte finish coating",
+            "D": "Dimples"
+          },
+          "correct_letter": "D",
+          "correct_text": "Dimples",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What term describes the process of adding extra strokes for rule infractions?",
+          "options": {
+            "A": "Pace-of-play warning",
+            "B": "Provisional ruling",
+            "C": "Penalty assessment",
+            "D": "Handicap adjustment"
+          },
+          "correct_letter": "C",
+          "correct_text": "Penalty assessment",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which scoring format tallies every stroke taken over the course?",
+          "options": {
+            "A": "Match play",
+            "B": "Stroke play",
+            "C": "Nassau",
+            "D": "Skins"
+          },
+          "correct_letter": "B",
+          "correct_text": "Stroke play",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which scoring system in golf awards points based on a player's score relative to par?",
+          "options": {
+            "A": "Medal play",
+            "B": "Ryder Cup team scoring",
+            "C": "Stableford scoring system",
+            "D": "Match play points"
+          },
+          "correct_letter": "C",
+          "correct_text": "Stableford scoring system",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What does a double bogey signify in golf scoring?",
+          "options": {
+            "A": "Two strokes over par",
+            "B": "Three strokes over par",
+            "C": "One stroke over par",
+            "D": "Two strokes under par"
+          },
+          "correct_letter": "A",
+          "correct_text": "Two strokes over par",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the main purpose of a handicap system in golf?",
+          "options": {
+            "A": "To rank professional players globally",
+            "B": "To allow players of different abilities to compete fairly",
+            "C": "To standardize equipment specifications",
+            "D": "To select tee times for players"
+          },
+          "correct_letter": "B",
+          "correct_text": "To allow players of different abilities to compete fairly",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which Scottish king banned golf in 1457?",
+          "options": {
+            "A": "James V",
+            "B": "James III",
+            "C": "James I",
+            "D": "James II"
+          },
+          "correct_letter": "D",
+          "correct_text": "James II",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which Scottish king later lifted the ban on golf and became a golfer himself?",
+          "options": {
+            "A": "Charles I",
+            "B": "James III",
+            "C": "James IV",
+            "D": "James V"
+          },
+          "correct_letter": "C",
+          "correct_text": "James IV",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "On what type of terrain were early Scottish golf courses primarily laid out?",
+          "options": {
+            "A": "Parkland forests",
+            "B": "Urban parks",
+            "C": "Mountain meadows",
+            "D": "Links land (coastal sand dunes)"
+          },
+          "correct_letter": "D",
+          "correct_text": "Links land (coastal sand dunes)",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What do golfers often use to move their clubs if they choose not to walk?",
+          "options": {
+            "A": "A range basket",
+            "B": "A golf trolley or carrying bag",
+            "C": "A motorized golf cart",
+            "D": "A caddie service"
+          },
+          "correct_letter": "B",
+          "correct_text": "A golf trolley or carrying bag",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is one main advantage of the stroke play format?",
+          "options": {
+            "A": "Bad holes don’t matter because only holes won count",
+            "B": "It encourages skins-style gambling",
+            "C": "Every stroke counts toward the total score",
+            "D": "It allows conceding putts on most holes"
+          },
+          "correct_letter": "C",
+          "correct_text": "Every stroke counts toward the total score",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "In golf scoring, what does a 'bogey' represent?",
+          "options": {
+            "A": "One stroke over par",
+            "B": "Three strokes over par",
+            "C": "One stroke under par",
+            "D": "Two strokes over par"
+          },
+          "correct_letter": "A",
+          "correct_text": "One stroke over par",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which club is specifically designed with a large, low-lofted head to maximize distance?",
+          "options": {
+            "A": "Lob wedge",
+            "B": "3-wood",
+            "C": "Hybrid",
+            "D": "Driver"
+          },
+          "correct_letter": "D",
+          "correct_text": "Driver",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is a putter primarily used for?",
+          "options": {
+            "A": "Rolling the ball into the cup on the green",
+            "B": "High-loft approach shots from 100 yards",
+            "C": "Hitting from the tee on long holes",
+            "D": "Escaping from bunkers"
+          },
+          "correct_letter": "A",
+          "correct_text": "Rolling the ball into the cup on the green",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which club is most associated with long-distance shots?",
+          "options": {
+            "A": "9-iron",
+            "B": "Putter",
+            "C": "Sand wedge",
+            "D": "Driver"
+          },
+          "correct_letter": "D",
+          "correct_text": "Driver",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the purpose of club fitting in golf instruction?",
+          "options": {
+            "A": "To match clubs to a player's physical attributes and swing",
+            "B": "To reduce the cost of clubs",
+            "C": "To meet tournament regulations only",
+            "D": "To customize the shaft color"
+          },
+          "correct_letter": "A",
+          "correct_text": "To match clubs to a player's physical attributes and swing",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is 'anchored putting' in golf?",
+          "options": {
+            "A": "A putting style that involves anchoring the putter to the player's body",
+            "B": "Gripping the putter with the palms only",
+            "C": "Using a mallet-shaped putter head",
+            "D": "Putting while facing the hole (side-saddle)"
+          },
+          "correct_letter": "A",
+          "correct_text": "A putting style that involves anchoring the putter to the player's body",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What does the term 'overlap' refer to in putting grip styles?",
+          "options": {
+            "A": "A baseball grip with all fingers on the club",
+            "B": "A conventional grip where the off-hand finger overlaps the dominant hand's finger",
+            "C": "An interlocking grip where fingers hook together",
+            "D": "A cross-handed grip with the lead hand lower"
+          },
+          "correct_letter": "B",
+          "correct_text": "A conventional grip where the off-hand finger overlaps the dominant hand's finger",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "Which scoring method is most commonly used in professional golf tournaments?",
+          "options": {
+            "A": "Scramble",
+            "B": "Stroke play",
+            "C": "Match play",
+            "D": "Stableford"
+          },
+          "correct_letter": "B",
+          "correct_text": "Stroke play",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is a two-tee start in tournament golf?",
+          "options": {
+            "A": "Alternating between tee and fairway starts",
+            "B": "A format where the field is split between two starting tees",
+            "C": "A shotgun start where all groups start on different holes",
+            "D": "Two practice tee sessions before the round"
+          },
+          "correct_letter": "B",
+          "correct_text": "A format where the field is split between two starting tees",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "What is the term for a bonus given for scoring one stroke under par on a hole?",
+          "options": {
+            "A": "Ace",
+            "B": "Birdie",
+            "C": "Eagle",
+            "D": "Bogey"
+          },
+          "correct_letter": "B",
+          "correct_text": "Birdie",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "QA",
+          "split": "test",
+          "question": "In which country did modern golf originate?",
+          "options": {
+            "A": "England",
+            "B": "Ireland",
+            "C": "Scotland",
+            "D": "United States"
+          },
+          "correct_letter": "C",
+          "correct_text": "Scotland",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.9,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is it called when the score is 40-40 in tennis?",
+          "options": {
+            "A": "Advantage",
+            "B": "Love",
+            "C": "Deuce",
+            "D": "Let"
+          },
+          "correct_letter": "C",
+          "correct_text": "Deuce",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What surface is used in the French Open tournament?",
+          "options": {
+            "A": "Carpet",
+            "B": "Hard court",
+            "C": "Clay",
+            "D": "Grass"
+          },
+          "correct_letter": "C",
+          "correct_text": "Clay",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a softly hit shot that barely clears the net in tennis?",
+          "options": {
+            "A": "Lob",
+            "B": "Slice",
+            "C": "Drop shot",
+            "D": "Volley"
+          },
+          "correct_letter": "C",
+          "correct_text": "Drop shot",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the score of zero in tennis called?",
+          "options": {
+            "A": "Deuce",
+            "B": "Nil",
+            "C": "Love",
+            "D": "Fault"
+          },
+          "correct_letter": "C",
+          "correct_text": "Love",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Which Grand Slam tournament is held in the United States?",
+          "options": {
+            "A": "US Open",
+            "B": "Wimbledon",
+            "C": "Australian Open",
+            "D": "French Open"
+          },
+          "correct_letter": "A",
+          "correct_text": "US Open",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a hit that allows the batter to circle all the bases in baseball?",
+          "options": {
+            "A": "Inside-the-park double",
+            "B": "Home run",
+            "C": "Grand slam",
+            "D": "Triple"
+          },
+          "correct_letter": "B",
+          "correct_text": "Home run",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many bases are on a standard baseball diamond?",
+          "options": {
+            "A": "Three",
+            "B": "Five",
+            "C": "Six",
+            "D": "Four"
+          },
+          "correct_letter": "D",
+          "correct_text": "Four",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is it called when a batter misses a pitch and strikes out in baseball?",
+          "options": {
+            "A": "Swing and miss",
+            "B": "Foul tip",
+            "C": "Strike",
+            "D": "Strikeout"
+          },
+          "correct_letter": "C",
+          "correct_text": "Strike",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a pitch that is outside the strike zone in baseball?",
+          "options": {
+            "A": "Strike",
+            "B": "Wild pitch",
+            "C": "Balk",
+            "D": "Ball"
+          },
+          "correct_letter": "D",
+          "correct_text": "Ball",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is a hit to first base called in baseball?",
+          "options": {
+            "A": "Sacrifice bunt",
+            "B": "Single",
+            "C": "Walk",
+            "D": "Double"
+          },
+          "correct_letter": "B",
+          "correct_text": "Single",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many players are on the field for a team during a baseball game?",
+          "options": {
+            "A": "Eight",
+            "B": "Nine",
+            "C": "Eleven",
+            "D": "Ten"
+          },
+          "correct_letter": "B",
+          "correct_text": "Nine",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a walk in baseball?",
+          "options": {
+            "A": "Base on balls",
+            "B": "Catcher's interference",
+            "C": "Hit by pitch",
+            "D": "Fielder's choice"
+          },
+          "correct_letter": "A",
+          "correct_text": "Base on balls",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the play called when a fielder catches a batted ball in the air in baseball?",
+          "options": {
+            "A": "Fly out",
+            "B": "Ground out",
+            "C": "Force out",
+            "D": "Tag out"
+          },
+          "correct_letter": "A",
+          "correct_text": "Fly out",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a batted ball that rolls slowly along the ground in baseball?",
+          "options": {
+            "A": "Fly ball",
+            "B": "Bunt",
+            "C": "Line drive",
+            "D": "Ground ball"
+          },
+          "correct_letter": "D",
+          "correct_text": "Ground ball",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many players from each team are on the court in a basketball game?",
+          "options": {
+            "A": "Seven",
+            "B": "Four",
+            "C": "Five",
+            "D": "Six"
+          },
+          "correct_letter": "C",
+          "correct_text": "Five",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the name of the major professional basketball league in the United States?",
+          "options": {
+            "A": "NFL",
+            "B": "NHL",
+            "C": "NBA",
+            "D": "MLB"
+          },
+          "correct_letter": "C",
+          "correct_text": "NBA",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a defensive move that stops an opponent's shot in basketball?",
+          "options": {
+            "A": "Charge",
+            "B": "Block",
+            "C": "Screen",
+            "D": "Steal"
+          },
+          "correct_letter": "B",
+          "correct_text": "Block",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for illegal physical contact in basketball?",
+          "options": {
+            "A": "Foul",
+            "B": "Double dribble",
+            "C": "Traveling",
+            "D": "Backcourt violation"
+          },
+          "correct_letter": "A",
+          "correct_text": "Foul",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a rapid offensive move immediately after a defensive rebound in basketball?",
+          "options": {
+            "A": "Fast break",
+            "B": "Full-court press",
+            "C": "Pick and roll",
+            "D": "Isolation"
+          },
+          "correct_letter": "A",
+          "correct_text": "Fast break",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is it called when a player scores by dunking the ball in basketball?",
+          "options": {
+            "A": "Alley-oop",
+            "B": "Layup",
+            "C": "Slam dunk",
+            "D": "Tip-in"
+          },
+          "correct_letter": "C",
+          "correct_text": "Slam dunk",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a defensive strategy where players guard an opponent closely in basketball?",
+          "options": {
+            "A": "Box-and-one",
+            "B": "Triangle-and-two",
+            "C": "Zone defense",
+            "D": "Man-to-man defense"
+          },
+          "correct_letter": "D",
+          "correct_text": "Man-to-man defense",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many players are on the field for one team in a soccer match?",
+          "options": {
+            "A": "Nine",
+            "B": "Eleven",
+            "C": "Twelve",
+            "D": "Ten"
+          },
+          "correct_letter": "B",
+          "correct_text": "Eleven",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is a game that ends with equal scores in soccer called?",
+          "options": {
+            "A": "Shootout",
+            "B": "Extra time",
+            "C": "Replay",
+            "D": "Draw"
+          },
+          "correct_letter": "D",
+          "correct_text": "Draw",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How long is a standard professional soccer match?",
+          "options": {
+            "A": "100 minutes",
+            "B": "80 minutes",
+            "C": "120 minutes",
+            "D": "90 minutes"
+          },
+          "correct_letter": "D",
+          "correct_text": "90 minutes",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for the restart of play after a goal is scored in soccer?",
+          "options": {
+            "A": "Goal kick",
+            "B": "Kickoff",
+            "C": "Throw-in",
+            "D": "Drop ball"
+          },
+          "correct_letter": "B",
+          "correct_text": "Kickoff",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Which country won the 2018 FIFA World Cup?",
+          "options": {
+            "A": "France",
+            "B": "Germany",
+            "C": "Argentina",
+            "D": "Croatia"
+          },
+          "correct_letter": "A",
+          "correct_text": "France",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the top professional soccer league in England called?",
+          "options": {
+            "A": "La Liga",
+            "B": "Premier League",
+            "C": "Bundesliga",
+            "D": "Serie A"
+          },
+          "correct_letter": "B",
+          "correct_text": "Premier League",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many halves are there in a soccer match?",
+          "options": {
+            "A": "Two",
+            "B": "Two plus extra time",
+            "C": "Four",
+            "D": "Three"
+          },
+          "correct_letter": "A",
+          "correct_text": "Two",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the championship game of the NFL called?",
+          "options": {
+            "A": "World Series",
+            "B": "Stanley Cup Final",
+            "C": "Super Bowl",
+            "D": "NBA Finals"
+          },
+          "correct_letter": "C",
+          "correct_text": "Super Bowl",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for when a defensive player catches a pass intended for the opponent in American football?",
+          "options": {
+            "A": "Pass deflection",
+            "B": "Fumble recovery",
+            "C": "Interception",
+            "D": "Sack"
+          },
+          "correct_letter": "C",
+          "correct_text": "Interception",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Which position is primarily responsible for catching passes in American football?",
+          "options": {
+            "A": "Running back",
+            "B": "Tight end",
+            "C": "Linebacker",
+            "D": "Wide receiver"
+          },
+          "correct_letter": "D",
+          "correct_text": "Wide receiver",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many points is a field goal worth in American football?",
+          "options": {
+            "A": "Four",
+            "B": "Three",
+            "C": "Two",
+            "D": "One"
+          },
+          "correct_letter": "B",
+          "correct_text": "Three",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What format of cricket features each team playing 50 overs?",
+          "options": {
+            "A": "Test",
+            "B": "The Hundred",
+            "C": "ODI",
+            "D": "T20"
+          },
+          "correct_letter": "C",
+          "correct_text": "ODI",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is a match that lasts up to five days called in cricket?",
+          "options": {
+            "A": "First-class one-day",
+            "B": "ODI",
+            "C": "Test match",
+            "D": "T20"
+          },
+          "correct_letter": "C",
+          "correct_text": "Test match",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a dismissal in cricket where a fielder catches the ball before it touches the ground?",
+          "options": {
+            "A": "Run out",
+            "B": "LBW",
+            "C": "Caught",
+            "D": "Bowled"
+          },
+          "correct_letter": "C",
+          "correct_text": "Caught",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many players are on the ice for each team in an ice hockey game?",
+          "options": {
+            "A": "Five",
+            "B": "Four",
+            "C": "Six",
+            "D": "Seven"
+          },
+          "correct_letter": "C",
+          "correct_text": "Six",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the name of the championship trophy awarded in the NHL?",
+          "options": {
+            "A": "Lombardi Trophy",
+            "B": "Commissioner's Trophy",
+            "C": "Grey Cup",
+            "D": "Stanley Cup"
+          },
+          "correct_letter": "D",
+          "correct_text": "Stanley Cup",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the method called for restarting play with a puck drop in ice hockey?",
+          "options": {
+            "A": "Scrum",
+            "B": "Kick-off",
+            "C": "Tip-off",
+            "D": "Face-off"
+          },
+          "correct_letter": "D",
+          "correct_text": "Face-off",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the violation called when a player uses their stick to impede an opponent illegally in hockey?",
+          "options": {
+            "A": "Tripping",
+            "B": "Hooking",
+            "C": "Icing",
+            "D": "High-sticking"
+          },
+          "correct_letter": "B",
+          "correct_text": "Hooking",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for the kick taken after scoring a try in rugby union?",
+          "options": {
+            "A": "Conversion",
+            "B": "Drop goal",
+            "C": "Penalty goal",
+            "D": "Free kick"
+          },
+          "correct_letter": "A",
+          "correct_text": "Conversion",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "How many players are on a rugby union team?",
+          "options": {
+            "A": "15",
+            "B": "11",
+            "C": "14",
+            "D": "13"
+          },
+          "correct_letter": "A",
+          "correct_text": "15",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for the formation where players bind together to contest possession in rugby?",
+          "options": {
+            "A": "Scrum",
+            "B": "Maul",
+            "C": "Lineout",
+            "D": "Ruck"
+          },
+          "correct_letter": "A",
+          "correct_text": "Scrum",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is it called when a boxer wins by knocking out the opponent?",
+          "options": {
+            "A": "Knockout",
+            "B": "Split decision",
+            "C": "Technical knockout",
+            "D": "Unanimous decision"
+          },
+          "correct_letter": "A",
+          "correct_text": "Knockout",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the outcome determined by judges in a boxing match called?",
+          "options": {
+            "A": "No contest",
+            "B": "Decision",
+            "C": "Technical knockout",
+            "D": "Knockout"
+          },
+          "correct_letter": "B",
+          "correct_text": "Decision",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Which weight class in boxing is designated for lighter fighters approximately between 56 and 60 kg?",
+          "options": {
+            "A": "Bantamweight",
+            "B": "Featherweight",
+            "C": "Lightweight",
+            "D": "Welterweight"
+          },
+          "correct_letter": "B",
+          "correct_text": "Featherweight",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the series of races in the Formula 1 championship called?",
+          "options": {
+            "A": "Tour de France",
+            "B": "IndyCar Series",
+            "C": "Grand Prix",
+            "D": "World Rally Championship"
+          },
+          "correct_letter": "C",
+          "correct_text": "Grand Prix",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the name of the circuit that hosts the British Grand Prix?",
+          "options": {
+            "A": "Silverstone",
+            "B": "Monza",
+            "C": "Brands Hatch",
+            "D": "Spa-Francorchamps"
+          },
+          "correct_letter": "A",
+          "correct_text": "Silverstone",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a serve in volleyball that results in an immediate point?",
+          "options": {
+            "A": "Kill",
+            "B": "Ace",
+            "C": "Dig",
+            "D": "Block"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ace",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is a multi-day road cycling race called?",
+          "options": {
+            "A": "Classic",
+            "B": "Tour",
+            "C": "Criterium",
+            "D": "Stage"
+          },
+          "correct_letter": "B",
+          "correct_text": "Tour",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        },
+        {
+          "concept": "Golf",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "What is the term for a ski race involving quick turns around obstacles?",
+          "options": {
+            "A": "Slalom",
+            "B": "Giant slalom",
+            "C": "Downhill",
+            "D": "Super-G"
+          },
+          "correct_letter": "A",
+          "correct_text": "Slalom",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "en"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}
