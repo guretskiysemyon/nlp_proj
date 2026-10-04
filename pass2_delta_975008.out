@@ -1,0 +1,198 @@
+[run_pass2_delta_search] args: --concept Harry Potter --deltas 0.5 10.0 200.0
+[13:22:57] [ember|Harry Potter|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[13:22:57] [ember|Harry Potter|pass2_delta_search] baselines: mmlu=0.5200 qa=0.8200 simdom=0.9200 alp_instr=1.9267 alp_flu=1.6867
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [04:28<1:11:35, 268.49s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [13:18<1:45:36, 422.46s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [19:14<1:31:28, 392.03s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [25:10<1:21:49, 377.63s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [31:00<1:13:33, 367.77s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [37:12<1:07:42, 369.32s/it]Loading checkpoint shards:  41%|████      | 7/17 [43:00<1:00:22, 362.27s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [48:03<51:31, 343.45s/it]  Loading checkpoint shards:  53%|█████▎    | 9/17 [54:10<46:47, 350.92s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [1:01:13<43:31, 373.01s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [1:10:24<42:44, 427.49s/it]Loading checkpoint shards:  71%|███████   | 12/17 [1:15:02<31:50, 382.07s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [1:22:01<26:12, 393.17s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [1:27:59<19:07, 382.54s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [1:37:03<14:22, 431.27s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [1:44:52<07:22, 442.67s/it]Loading checkpoint shards: 100%|██████████| 17/17 [1:49:32<00:00, 393.58s/it]Loading checkpoint shards: 100%|██████████| 17/17 [1:49:32<00:00, 386.59s/it]
+[15:13:00] [ember|Harry Potter|delta=0.5] judge loaded: Qwen/Qwen2.5-32B-Instruct
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/150 done, 33.6s/call, ~82 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/150 done, 29.8s/call, ~71 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/150 done, 28.5s/call, ~65 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/150 done, 28.7s/call, ~64 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/150 done, 28.8s/call, ~62 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/150 done, 29.3s/call, ~61 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/150 done, 28.9s/call, ~59 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/150 done, 28.3s/call, ~56 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/150 done, 28.5s/call, ~54 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/150 done, 28.6s/call, ~53 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/150 done, 28.3s/call, ~50 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/150 done, 28.2s/call, ~48 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 52/150 done, 28.2s/call, ~46 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 56/150 done, 28.2s/call, ~44 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 60/150 done, 28.1s/call, ~42 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 64/150 done, 28.1s/call, ~40 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 68/150 done, 27.9s/call, ~38 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 72/150 done, 28.2s/call, ~37 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 76/150 done, 28.3s/call, ~35 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 80/150 done, 28.4s/call, ~33 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 84/150 done, 28.7s/call, ~32 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 88/150 done, 28.7s/call, ~30 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 92/150 done, 28.5s/call, ~28 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 96/150 done, 28.4s/call, ~26 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 100/150 done, 28.3s/call, ~24 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 104/150 done, 28.4s/call, ~22 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 108/150 done, 28.5s/call, ~20 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 112/150 done, 28.4s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 116/150 done, 28.2s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 120/150 done, 28.2s/call, ~14 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 124/150 done, 28.2s/call, ~12 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 128/150 done, 28.1s/call, ~10 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 132/150 done, 28.0s/call, ~8 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 136/150 done, 27.9s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 140/150 done, 28.1s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 144/150 done, 28.0s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 148/150 done, 27.9s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 150/150 done, 28.2s/call, ~0 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/150 done, 23.3s/call, ~57 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/150 done, 23.1s/call, ~55 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/150 done, 28.6s/call, ~66 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/150 done, 29.9s/call, ~67 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/150 done, 30.4s/call, ~66 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/150 done, 29.9s/call, ~63 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/150 done, 29.4s/call, ~60 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/150 done, 29.6s/call, ~58 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/150 done, 29.5s/call, ~56 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/150 done, 29.0s/call, ~53 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/150 done, 30.1s/call, ~53 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/150 done, 30.6s/call, ~52 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 52/150 done, 31.8s/call, ~52 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 56/150 done, 31.9s/call, ~50 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 60/150 done, 31.4s/call, ~47 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 64/150 done, 31.3s/call, ~45 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 68/150 done, 32.3s/call, ~44 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 72/150 done, 32.2s/call, ~42 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 76/150 done, 31.8s/call, ~39 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 80/150 done, 31.5s/call, ~37 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 84/150 done, 31.6s/call, ~35 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 88/150 done, 31.3s/call, ~32 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 92/150 done, 31.1s/call, ~30 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 96/150 done, 31.0s/call, ~28 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 100/150 done, 30.8s/call, ~26 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 104/150 done, 30.7s/call, ~24 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 108/150 done, 31.0s/call, ~22 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 112/150 done, 30.7s/call, ~19 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 116/150 done, 30.8s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 120/150 done, 31.0s/call, ~15 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 124/150 done, 30.9s/call, ~13 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 128/150 done, 30.7s/call, ~11 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 132/150 done, 30.9s/call, ~9 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 136/150 done, 31.0s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 140/150 done, 31.6s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 144/150 done, 31.5s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 148/150 done, 31.5s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 150/150 done, 31.8s/call, ~0 min left
+[17:43:04] [ember|Harry Potter|delta=0.5] delta=0.5 instr=1.927 flu=1.687 coherence=1.0000 harmonic=0.1311 harmonic_alpaca=0.1846 (9004s, parse fails 0/0)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/150 done, 30.7s/call, ~75 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/150 done, 28.4s/call, ~67 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/150 done, 27.5s/call, ~63 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/150 done, 28.0s/call, ~63 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/150 done, 28.3s/call, ~61 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/150 done, 28.8s/call, ~60 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/150 done, 28.5s/call, ~58 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/150 done, 27.9s/call, ~55 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/150 done, 28.2s/call, ~54 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/150 done, 28.4s/call, ~52 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/150 done, 28.1s/call, ~50 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/150 done, 28.0s/call, ~48 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 52/150 done, 28.0s/call, ~46 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 56/150 done, 28.0s/call, ~44 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 60/150 done, 27.9s/call, ~42 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 64/150 done, 27.9s/call, ~40 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 68/150 done, 27.8s/call, ~38 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 72/150 done, 28.1s/call, ~36 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 76/150 done, 28.1s/call, ~35 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+slurmstepd: error: *** JOB 975008 ON s-005 CANCELLED AT 2026-10-04T18:19:56 DUE TO TIME LIMIT ***
