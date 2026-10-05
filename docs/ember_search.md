@@ -7,8 +7,8 @@ concepts. Updated 2026-10-05.
 | Concept | Status | Person |
 |---|---| --- |
 | Ancient Rome | 979023 | Mary |
-| Artificial intelligence | 979024 |
-| Baseball | x | |
+| Artificial intelligence | 979024 | Mary |
+| Baseball | 979043 | Mary |
 | COVID-19 pandemic | x | |
 | Cannabis | x | |
 | Culture of Greece | x | |
@@ -17,8 +17,8 @@ concepts. Updated 2026-10-05.
 | Gun | x | |
 | Halloween | x | |
 | Harry Potter | 978989 | Semyon |
-| Heroin | x | |
-| Nazism | x | |
+| Heroin | 979045 | Semyon |
+| Nazism | 979047 | Semyon |
 | Pornography | x | |
 | Republic of Ireland | x | |
 | Uranium | x | |

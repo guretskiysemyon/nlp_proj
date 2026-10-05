@@ -1,10 +1,12 @@
 # Progress log
 
-**Last updated:** 2026-10-04
+**Last updated:** 2026-10-05
 **Status:** Judge model picked via a rigorous agreement study (Qwen2.5-32B-Instruct
 clears the adoption gate; 14B does not, on fluency). Pass 1 (generation, all 18
 concepts) and the pristine baseline pass are both done. Pass 2 proper (judge the
-8-delta grid, pick the best δ per concept) is not written yet.
+8-delta grid, pick the best δ per concept) is written and rolling out concept by
+concept — 3 of 18 in process as of this update. Live per-concept status:
+[`docs/ember_search.md`](ember_search.md).
 
 This file tracks *where things stand right now* — what's done, what's next, why.
 It is not a results dump: numbers and detailed write-ups live in the files linked
@@ -74,17 +76,22 @@ Full reasoning and the detailed design are in
   study against Gemini's archived scores.
 - The pristine baseline's Alpaca completions are judged (both 14B and 32B, for
   comparison) — `baseline_alpaca_scores__<judge_id>.json` under `.../_baseline/`.
+- **Pass 2 proper** (`judge_rerun/pass2_delta_search.py`): judges all 8 deltas'
+  saved completions for one concept, computes `harmonic_alpaca`, and picks the
+  best δ (`io.pick_best_embed_delta`, same formula the original pipeline uses
+  — see §3.2). Per-delta *and* per-item checkpointing, so a timeout or
+  preemption only loses the one delta in flight — resubmitting the identical
+  `sbatch` command continues from there (see §3.3). Submitted per concept via
+  `judge_rerun/run_pass2_delta_search.sbatch --concept "<Concept>"`; no
+  all-concepts submit script yet (unlike Pass 1's `submit_pass1_all.sh`), so
+  each concept is kicked off by hand. **Rollout status, live:**
+  [`docs/ember_search.md`](ember_search.md).
 
 **Not done yet:**
-- **Pass 2 proper** doesn't exist yet: judge all 8 deltas × 18 concepts'
-  saved completions (not just the baseline), compute `harmonic_alpaca`, and
-  pick the best δ per concept (`io.pick_best_embed_delta`, same formula the
-  original pipeline uses — see §3.2). The building blocks
-  (`judge_rerun/qwen_judge.py`, the batched-generation + OOM-retry + resume
-  logic) are built and proven on the baseline + agreement study; what's left
-  is the per-concept/per-delta orchestration and a concept-level resume
-  checkpoint (the full grid's judging volume exceeds one SLURM job's 24h wall
-  time per node — see §3.3).
+- The other 15 of 18 concepts' Pass 2 runs haven't been started.
+- A `submit_pass2_all.sh` analogous to Pass 1's doesn't exist yet — worth
+  writing once the per-concept workflow (and the multi-user GPU-budget split,
+  §3.3) is confirmed stable.
 - Nothing beyond EMBER's δ search — SNMF, SNMF+EMBER, validate/final-test
   stages, relearning, and the cross-lingual re-evaluation are all later
   steps, once this first piece is proven end-to-end.
@@ -215,6 +222,29 @@ Alpaca completions were judged fresh with Qwen (§3 above).
   pristine baseline is global, not per-concept, so it's not ×18):
   `18 concepts × 8 deltas × 150 items × 2 axes = 43,200 calls` (+300 for the
   baseline, already done).
+- **Running Pass 2 across two cluster accounts to split the GPU budget:**
+  `judge_rerun/run_pass2_delta_search.sbatch` hardcodes `UV_CACHE_DIR` and
+  `HF_HOME` to paths under the original user's home dir, which are
+  read-only for a second user — a collaborator's `sbatch` fails at `uv`
+  cache init (`Permission denied`) before the job even starts. Fix is either
+  (a) the second user exports their own `UV_CACHE_DIR`/`HF_HOME` before
+  calling `sbatch` (Slurm exports the submitting shell's environment by
+  default, so the script's `${VAR:-default}` picks that up) — simplest, but
+  costs that user a fresh ~62GB download of the Qwen2.5-32B-Instruct judge
+  weights; or (b) `chmod -R o+rwX` the original user's `.cache/uv` and
+  `.cache/huggingface` to share the already-downloaded weights — this
+  filesystem has no ACL support (`setfacl` → "Operation not supported"), so
+  there's no tighter-scoped way to share than opening to everyone with
+  filesystem access, same breadth as the repo's own `chmod 777`.
+- **Per-user GPU cap on `studentkillable`:** the partition's QoS
+  (`gpustudentkill`) limits each user to `MaxTRESPerUser=gres/gpu=12`
+  running at once, with no separate cap on job count. Since each Pass 2 job
+  requests 3 GPUs, that's **up to 4 concurrent Pass 2 jobs per user** —
+  submitting more just queues them `PENDING` until GPUs free up, rather than
+  failing. Two users each running near that cap can have ~8 concepts'
+  grids in flight simultaneously. Each concept should go to only one user's
+  job at a time — two jobs judging the same concept would race on the same
+  checkpoint files.
 
 ## 4. Code map (new code only)
 
@@ -226,11 +256,15 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/submit_pass1_all.sh` | submits one Pass 1 job per concept, all 18 |
 | `judge_rerun/qwen_judge.py` | reusable `QwenJudge`: batched generation, OOM-halving retry, resume-from-checkpoint, the Qwen-tuned fluency prompt |
 | `judge_rerun/pass2_judge_baseline.py` | judges the pristine baseline's Alpaca completions with Qwen (any size via `--judge-model`) |
+| `judge_rerun/pass2_delta_search.py` | Pass 2 proper: judges one concept's 8-delta grid, picks the best δ (see §3.2) |
+| `judge_rerun/run_pass2_delta_search.sbatch` | SLURM wrapper for the above, one concept per job, 3 GPUs, 24h |
 | `judge_rerun/agreement_study.py` | the §3.1 agreement study: re-judges Gemini's exact archived completions, item-by-item comparison |
 | `judge_rerun/run_judge_baseline.sbatch`, `run_judge_baseline_32b.sbatch`, `run_agreement_study.sbatch`, `run_agreement_study_32b.sbatch` | SLURM wrappers for the two scripts above, at both judge sizes |
 | `judge_rerun/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
+| `judge_rerun/pass2_outputs/` | Pass 2 output: per-concept `delta_metrics__<judge_id>.csv` and `best_delta__<judge_id>.json` |
 | `judge_rerun/smoke_qwen_judge*.py`, `run_smoke_qwen*.sbatch` | one-off hardware-validation scripts, superseded by `qwen_judge.py` — pending cleanup, see §3 |
 | `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
+| `docs/ember_search.md` | live, hand-updated per-concept Pass 2 status (who's running what job on which concept) |
 
 Everything under `ember/` (the paper's own reference implementation) and
 `crosslingual/` (the original language-leakage experiment code) is untouched —
