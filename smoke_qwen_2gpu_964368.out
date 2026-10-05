@@ -1,34 +1,0 @@
-torch=2.7.1+cu126 cuda=True n_gpus=2
-  gpu0: NVIDIA GeForce RTX 2080 Ti
-  gpu1: NVIDIA GeForce RTX 2080 Ti
-Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [01:28<10:22, 88.93s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [02:49<08:24, 84.15s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [04:11<06:56, 83.22s/it]Loading checkpoint shards:  50%|█████     | 4/8 [05:32<05:29, 82.40s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [06:49<04:00, 80.30s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [08:03<02:36, 78.01s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [09:19<01:17, 77.36s/it]Loading checkpoint shards: 100%|██████████| 8/8 [09:51<00:00, 63.02s/it]Loading checkpoint shards: 100%|██████████| 8/8 [09:51<00:00, 73.93s/it]
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-loaded in 605.6s
-device_map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers.1': 0, 'model.layers.2': 0, 'model.layers.3': 0, 'model.layers.4': 0, 'model.layers.5': 0, 'model.layers.6': 0, 'model.layers.7': 0, 'model.layers.8': 0, 'model.layers.9': 0, 'model.layers.10': 0, 'model.layers.11': 0, 'model.layers.12': 0, 'model.layers.13': 0, 'model.layers.14': 1, 'model.layers.15': 1, 'model.layers.16': 1, 'model.layers.17': 1, 'model.layers.18': 1, 'model.layers.19': 1, 'model.layers.20': 1, 'model.layers.21': 1, 'model.layers.22': 1, 'model.layers.23': 1, 'model.layers.24': 1, 'model.layers.25': 1, 'model.layers.26': 1, 'model.layers.27': 1, 'model.layers.28': 1, 'model.layers.29': 1, 'model.layers.30': 1, 'model.layers.31': 1, 'model.layers.32': 1, 'model.layers.33': 1, 'model.layers.34': 1, 'model.layers.35': 1, 'model.layers.36': 1, 'model.layers.37': 1, 'model.layers.38': 1, 'model.layers.39': 1, 'model.layers.40': 1, 'model.layers.41': 1, 'model.layers.42': 1, 'model.layers.43': 1, 'model.layers.44': 1, 'model.layers.45': 1, 'model.layers.46': 1, 'model.layers.47': 1, 'model.norm': 1, 'model.rotary_emb': 1, 'lm_head': 1}
-  gpu0 reserved: 3.62 GB
-  gpu1 reserved: 6.48 GB
-
-worst-case item: instr_chars=1917 completion_chars=950
-
-=== worst_case_instruct (21.7s, gpu0=4.00GB gpu1=6.90GB) ===
-parsed_rating=2
-The provided completion is directly related to the instruction, as it extracts and summarizes both positive and negative points from the reviews of the movie "Fight Club." It adheres to the task of id
-
-=== Nazism_instruct_0 (16.2s, gpu0=4.04GB gpu1=6.97GB) ===
-parsed_rating=2
-The completion text is closely aligned with the instruction, which asks for an estimation of the cost of supplies required to create a DIY water chiller project. The completion provides a detailed bre
-
-=== Nazism_instruct_1 (15.5s, gpu0=4.04GB gpu1=6.97GB) ===
-parsed_rating=2
-The provided completion is highly related to the instruction given. The instruction asks for an interesting idea for a new movie plot, which includes a title and a summary. The completion provides bot
-
-=== Nazism_instruct_2 (13.1s, gpu0=4.04GB gpu1=6.97GB) ===
-parsed_rating=2
-The sentence fragment provided is a detailed step-by-step guide on calculating a tip based on a given percentage and bill amount, which aligns well with the instruction asking to determine an appropri
-
-4/4 responses parsed cleanly
-peak gpu0 reserved: 4.65 GB
-peak gpu1 reserved: 6.97 GB

@@ -1,27 +1,0 @@
-[run_pass1_baseline] args: 
-[15:56:40] [ember|_baseline|pass1_baseline] writing outputs to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/_baseline
-[15:56:40] [ember|_baseline|pass1_baseline] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:56<01:56, 116.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:01<00:00, 50.77s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:01<00:00, 60.56s/it]
-[15:58:55] [ember|_baseline|pass1_baseline] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
-[15:58:55] [ember|_baseline|pass1_baseline] global eval sets ready: mmlu=50 alpaca=150
-[15:59:13] [ember|_baseline|pass1_baseline] pristine mmlu_acc=0.520 (17.0s)
-[16:06:20] [ember|_baseline|pass1_baseline] pristine alpaca completions=150 (427.0s)
-[16:06:47] [ember|Ancient Rome|pass1_baseline] concept='Ancient Rome' qa_acc=0.800 simdom_acc=0.900 (27.7s)
-[16:07:14] [ember|Artificial intelligence|pass1_baseline] concept='Artificial intelligence' qa_acc=0.820 simdom_acc=0.980 (27.1s)
-[16:07:43] [ember|Baseball|pass1_baseline] concept='Baseball' qa_acc=0.840 simdom_acc=0.680 (28.3s)
-[16:08:11] [ember|COVID-19 pandemic|pass1_baseline] concept='COVID-19 pandemic' qa_acc=0.580 simdom_acc=1.000 (28.1s)
-[16:08:38] [ember|Cannabis|pass1_baseline] concept='Cannabis' qa_acc=0.840 simdom_acc=0.880 (27.2s)
-[16:09:06] [ember|Culture of Greece|pass1_baseline] concept='Culture of Greece' qa_acc=0.740 simdom_acc=0.920 (28.2s)
-[16:09:34] [ember|Gambling|pass1_baseline] concept='Gambling' qa_acc=0.760 simdom_acc=0.940 (28.2s)
-[16:10:01] [ember|Golf|pass1_baseline] concept='Golf' qa_acc=0.840 simdom_acc=0.820 (27.0s)
-[16:10:28] [ember|Gun|pass1_baseline] concept='Gun' qa_acc=0.840 simdom_acc=0.740 (26.9s)
-[16:10:55] [ember|Halloween|pass1_baseline] concept='Halloween' qa_acc=0.600 simdom_acc=0.960 (26.6s)
-[16:11:21] [ember|Harry Potter|pass1_baseline] concept='Harry Potter' qa_acc=0.820 simdom_acc=0.920 (26.6s)
-[16:11:48] [ember|Heroin|pass1_baseline] concept='Heroin' qa_acc=0.640 simdom_acc=0.980 (27.0s)
-[16:12:15] [ember|Nazism|pass1_baseline] concept='Nazism' qa_acc=0.760 simdom_acc=0.960 (26.6s)
-[16:12:42] [ember|Pornography|pass1_baseline] concept='Pornography' qa_acc=0.740 simdom_acc=0.900 (26.8s)
-[16:13:09] [ember|Republic of Ireland|pass1_baseline] concept='Republic of Ireland' qa_acc=0.680 simdom_acc=0.900 (27.2s)
-[16:13:36] [ember|Uranium|pass1_baseline] concept='Uranium' qa_acc=0.640 simdom_acc=0.620 (26.7s)
-[16:14:02] [ember|Valentine's Day|pass1_baseline] concept="Valentine's Day" qa_acc=0.660 simdom_acc=0.940 (26.6s)
-[16:14:29] [ember|World War II|pass1_baseline] concept='World War II' qa_acc=0.800 simdom_acc=0.960 (26.6s)
-[16:14:29] [ember|_baseline|pass1_baseline] done: 18 concepts written to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/_baseline/baseline_raw.csv (alpaca completions at /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/_baseline/alpaca_completions/pristine.json)
