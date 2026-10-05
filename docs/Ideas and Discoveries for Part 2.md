@@ -77,7 +77,7 @@ explanations when we analyse leakage.
 
 1. **Multilingual fit.** Re-run the factorization with concept sentences from several
    languages (see `crosslingual_plan.md` §12). Sanity check: the joint features should align
-   with the foreign-built directions found here.
+   with the foreign-built directions found here. **Done, see below — negative result.**
 2. **Zero-shot extension of the edit.** Add the foreign-built direction as extra edit
    directions and measure leakage on the translated QA sets. Cheap, needs no refit.
 3. **Layer sweep.** Repeat this test on residual-stream activations (e.g. layers 0-12).
@@ -91,6 +91,47 @@ explanations when we analyse leakage.
 6. **Better word lists without translation.** Extract each language's concept words
    from Wikipedia with the same concept-vs-neutral frequency method used for English, or use a
    bilingual dictionary, so results do not depend on hand-drafted translations.
+
+## Multilingual fit result (idea 1, ran 2026-10-04)
+
+*Script: `experiments/multilingual_fit/multilingual_fit.py`. Same factorization as the English
+pipeline (SparseMatrixFactorization on E[V'].T, rank 100, g_sparsity 0.01), refit on English +
+foreign (ru, de, es, fr) concept/neutral sentences fetched from Wikipedia
+(`fetch_wiki_sentences.py`). 5 concepts x 5 variants (`en`, `en+ru`, `en+all`, `en+ru+xn`,
+`en+all+xn`) x 3 seeds. `+xn` = foreign neutral set enlarged with the other concepts' foreign
+articles, as a control for generic inflected words looking concept-specific against a too-small
+neutral set.*
+
+**Negative result: a joint multilingual refit does not produce a better shared concept
+subspace than the English-only fit.**
+
+- **Russian concept words are not separated better.** Mean A_oth (Russian words vs. other
+  concepts'/ordinary Russian words): `stored_en` 0.585 > `en` 0.540 > `en+ru` 0.547 >~
+  `en+all` 0.528. Mixing in foreign sentences does not help, and the English-only (even
+  just refit) baseline is already ahead.
+- **It actively hurts English.** Mean A_oth for English words drops monotonically as more
+  languages are added to the fit: `stored_en` 0.796 -> `en` 0.737 -> `en+ru` 0.709 ->
+  `en+all` 0.668.
+- **qfrac barely moves.** Share of the independently-built Russian concept direction inside
+  the subspace: 0.032 (`en`) -> 0.046 (`en+ru`) -> 0.042 (`en+all`) — still tiny, consistent
+  with the original PoC's 1-7%.
+- **Apparent cross-lingual feature sharing is partly a neutral-set artifact.** Features with
+  balance >= 0.2 (shared across languages) in the top-3 features: 33/45 for `en+all`, but
+  only 25/45 with the enlarged neutral set (`en+all+xn`) and just 6/45 for `en+ru+xn`. A good
+  chunk of the "shared feature" signal in the naive fit is generic inflected foreign words
+  looking concept-specific only because they were compared against too few neutral examples.
+- **One real upside: edit coverage.** The `en+all` edit touches far more actual foreign
+  concept words than the English-only edit (e.g. Spanish `any_concept` coverage 0.184 vs.
+  0.027 for plain `en`), but at ~4x the total edited tokens (419 vs. 108) and a weaker
+  per-token edit magnitude on the foreign side (0.286 vs. 0.323 relative norm) — a much
+  larger, less targeted edit for the gain.
+
+**Takeaway:** joint refitting trades English specificity for a small, partly illusory gain in
+foreign coverage. The zero-shot approach (idea 2: add the independently-built foreign
+direction as an extra edit vector, no refit) remains the more promising next step.
+
+Outputs: `experiments/multilingual_fit/results_report.txt` (full tables) and
+`experiments/multilingual_fit/results/*.csv`. Not yet committed to git.
 
 ## Caveats
 
