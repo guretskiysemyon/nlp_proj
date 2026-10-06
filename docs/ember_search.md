@@ -16,10 +16,10 @@ concepts. Updated 2026-10-05.
 | Golf | x | |
 | Gun | x | |
 | Halloween | x | |
-| Harry Potter | 978989 | Semyon |
-| Heroin | 979045 | Semyon |
-| Nazism | 979047 | Semyon |
-| Pornography | x | |
+| Harry Potter | Finished | Semyon |
+| Heroin | 981330 | Semyon |
+| Nazism | 981331 | Semyon |
+| Pornography | 981347 | Semyon |
 | Republic of Ireland | x | |
 | Uranium | x | |
 | Valentine's Day | x | |

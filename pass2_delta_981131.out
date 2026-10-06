@@ -1,0 +1,13 @@
+[run_pass2_delta_search_anygpu] args: --concept Golf --deltas 0.5 10.0 200.0
+index, name, memory.total [MiB]
+0, NVIDIA TITAN Xp, 12288 MiB
+1, NVIDIA TITAN Xp, 12288 MiB
+2, NVIDIA TITAN Xp, 12288 MiB
+3, NVIDIA TITAN Xp, 12288 MiB
+4, NVIDIA TITAN Xp, 12288 MiB
+5, NVIDIA TITAN Xp, 12288 MiB
+6, NVIDIA TITAN Xp, 12288 MiB
+7, NVIDIA TITAN Xp, 12288 MiB
+[20:42:27] [ember|Golf|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[20:42:27] [ember|Golf|pass2_delta_search] baselines: mmlu=0.5200 qa=0.8400 simdom=0.8200 alp_instr=1.9267 alp_flu=1.6867
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [05:37<1:29:59, 337.50s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [11:12<1:24:01, 336.07s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [16:31<1:16:32, 328.04s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [21:57<1:10:56, 327.39s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [28:04<1:08:20, 341.68s/it]slurmstepd: error: *** JOB 981131 ON s-006 CANCELLED AT 2026-10-05T21:11:29 DUE TO TIME LIMIT ***

@@ -1,0 +1,41 @@
+[run_pass2_delta_search_anygpu] args: --concept Pornography
+index, name, memory.total [MiB]
+0, NVIDIA TITAN Xp, 12288 MiB
+1, NVIDIA TITAN Xp, 12288 MiB
+2, NVIDIA TITAN Xp, 12288 MiB
+3, NVIDIA TITAN Xp, 12288 MiB
+4, NVIDIA TITAN Xp, 12288 MiB
+5, NVIDIA TITAN Xp, 12288 MiB
+6, NVIDIA TITAN Xp, 12288 MiB
+7, NVIDIA TITAN Xp, 12288 MiB
+[21:41:54] [ember|Pornography|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[21:41:54] [ember|Pornography|pass2_delta_search] baselines: mmlu=0.5200 qa=0.7400 simdom=0.9000 alp_instr=1.9267 alp_flu=1.6867
+/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:174: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [00:41<10:56, 41.05s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [02:29<20:14, 80.98s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [10:11<59:26, 254.76s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [17:17<1:09:49, 322.25s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [25:32<1:16:56, 384.71s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [33:59<1:18:08, 426.25s/it]Loading checkpoint shards:  41%|████      | 7/17 [43:15<1:18:06, 468.62s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [53:08<1:16:14, 508.29s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [1:02:42<1:10:31, 528.91s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [1:12:35<1:03:59, 548.51s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [1:24:59<1:00:49, 608.31s/it]Loading checkpoint shards:  71%|███████   | 12/17 [1:35:51<51:48, 621.66s/it]  Loading checkpoint shards:  76%|███████▋  | 13/17 [1:44:35<39:27, 591.99s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [1:53:44<28:56, 579.00s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [2:03:39<19:27, 583.88s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [2:12:26<09:26, 566.82s/it]Loading checkpoint shards: 100%|██████████| 17/17 [2:16:29<00:00, 469.49s/it]Loading checkpoint shards: 100%|██████████| 17/17 [2:16:29<00:00, 481.74s/it]
+[00:00:02] [ember|Pornography|delta=0.5] judge loaded: Qwen/Qwen2.5-32B-Instruct
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/150 done, 1055.5s/call, ~2568 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/150 done, 1004.2s/call, ~2377 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/150 done, 978.9s/call, ~2251 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/150 done, 1007.5s/call, ~2250 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/150 done, 1004.5s/call, ~2176 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/150 done, 931.0s/call, ~1955 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/150 done, 877.9s/call, ~1785 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/150 done, 837.5s/call, ~1647 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/150 done, 819.5s/call, ~1557 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/150 done, 804.3s/call, ~1474 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/150 done, 781.4s/call, ~1381 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/150 done, 767.6s/call, ~1305 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
