@@ -82,7 +82,7 @@ Full reasoning and the detailed design are in
   — see §3.2). Per-delta *and* per-item checkpointing, so a timeout or
   preemption only loses the one delta in flight — resubmitting the identical
   `sbatch` command continues from there (see §3.3). Submitted per concept via
-  `judge_rerun/run_pass2_delta_search.sbatch --concept "<Concept>"`; no
+  `judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "<Concept>"`; no
   all-concepts submit script yet (unlike Pass 1's `submit_pass1_all.sh`), so
   each concept is kicked off by hand. **Rollout status, live:**
   [`docs/ember_search.md`](ember_search.md).
@@ -95,10 +95,14 @@ Full reasoning and the detailed design are in
 - Nothing beyond EMBER's δ search — SNMF, SNMF+EMBER, validate/final-test
   stages, relearning, and the cross-lingual re-evaluation are all later
   steps, once this first piece is proven end-to-end.
-- Cleanup: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch`/`.out` files
+- Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
-  work together) and are no longer needed now that `qwen_judge.py` exists as
-  the real reusable module. Not yet deleted.
+  work together), superseded by `qwen_judge.py` as the real reusable module —
+  deleted 2026-10-06. Also deleted `judge_rerun/run_pass2_delta_search.sbatch`
+  (pinned `--gres=gpu:geforce_rtx_2080:3`, which only exists on 2 of the 5
+  `studentkillable` nodes and queued behind busy 2080 jobs even when titan
+  nodes sat idle); `run_pass2_delta_search_anygpu.sbatch` (`--gres=gpu:3`,
+  no model pinned) replaces it and is confirmed working on titan GPUs.
 
 ### 3.1 Judge model: which one, and why
 
@@ -223,7 +227,7 @@ Alpaca completions were judged fresh with Qwen (§3 above).
   `18 concepts × 8 deltas × 150 items × 2 axes = 43,200 calls` (+300 for the
   baseline, already done).
 - **Running Pass 2 across two cluster accounts to split the GPU budget:**
-  `judge_rerun/run_pass2_delta_search.sbatch` hardcodes `UV_CACHE_DIR` and
+  `judge_rerun/run_pass2_delta_search_anygpu.sbatch` hardcodes `UV_CACHE_DIR` and
   `HF_HOME` to paths under the original user's home dir, which are
   read-only for a second user — a collaborator's `sbatch` fails at `uv`
   cache init (`Permission denied`) before the job even starts. Fix is either
@@ -257,12 +261,11 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/qwen_judge.py` | reusable `QwenJudge`: batched generation, OOM-halving retry, resume-from-checkpoint, the Qwen-tuned fluency prompt |
 | `judge_rerun/pass2_judge_baseline.py` | judges the pristine baseline's Alpaca completions with Qwen (any size via `--judge-model`) |
 | `judge_rerun/pass2_delta_search.py` | Pass 2 proper: judges one concept's 8-delta grid, picks the best δ (see §3.2) |
-| `judge_rerun/run_pass2_delta_search.sbatch` | SLURM wrapper for the above, one concept per job, 3 GPUs, 24h |
+| `judge_rerun/run_pass2_delta_search_anygpu.sbatch` | SLURM wrapper for the above, one concept per job, 3 GPUs (any model), 24h |
 | `judge_rerun/agreement_study.py` | the §3.1 agreement study: re-judges Gemini's exact archived completions, item-by-item comparison |
 | `judge_rerun/run_judge_baseline.sbatch`, `run_judge_baseline_32b.sbatch`, `run_agreement_study.sbatch`, `run_agreement_study_32b.sbatch` | SLURM wrappers for the two scripts above, at both judge sizes |
 | `judge_rerun/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
 | `judge_rerun/pass2_outputs/` | Pass 2 output: per-concept `delta_metrics__<judge_id>.csv` and `best_delta__<judge_id>.json` |
-| `judge_rerun/smoke_qwen_judge*.py`, `run_smoke_qwen*.sbatch` | one-off hardware-validation scripts, superseded by `qwen_judge.py` — pending cleanup, see §3 |
 | `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
 | `docs/ember_search.md` | live, hand-updated per-concept Pass 2 status (who's running what job on which concept) |
 

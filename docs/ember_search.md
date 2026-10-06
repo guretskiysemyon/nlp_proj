@@ -7,11 +7,11 @@ concepts. Updated 2026-10-05.
 | Concept | Status | Person |
 |---|---| --- |
 | Ancient Rome | Finished | Mary |
-| Artificial intelligence | 979024 | Mary |
+| Artificial intelligence | Finished | Mary |
 | Baseball | Finished | Mary |
-| COVID-19 pandemic | x | |
-| Cannabis | x | |
-| Culture of Greece | x | |
+| COVID-19 pandemic | 987355 | Mary |
+| Cannabis | 987356 | Mary |
+| Culture of Greece | 988849 | Mary |
 | Gambling | x | |
 | Golf | x | |
 | Gun | x | |
@@ -40,10 +40,10 @@ e.g.:
 sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "World War II"
 ```
 
-Use `run_pass2_delta_search_anygpu.sbatch`, not `run_pass2_delta_search.sbatch`:
-the latter pins `--gres=gpu:geforce_rtx_2080:3`, which only exists on 2 of the
-5 `studentkillable` nodes (`s-004`, `s-005`) — if both are busy, the job queues
-even when other nodes (titan, on `s-002`/`s-003`/`s-006`) are idle. The `anygpu`
-variant requests `--gres=gpu:3` with no model pinned, so it schedules onto
-whichever node has 3 free GPUs. Confirmed working end-to-end on titan GPUs
-(jobs 981330/981331/981347).
+The original `run_pass2_delta_search.sbatch` pinned `--gres=gpu:geforce_rtx_2080:3`,
+which only exists on 2 of the 5 `studentkillable` nodes (`s-004`, `s-005`) — if
+both are busy, the job queues even when other nodes (titan, on
+`s-002`/`s-003`/`s-006`) are idle. It's been removed; `_anygpu` requests
+`--gres=gpu:3` with no model pinned, so it schedules onto whichever node has 3
+free GPUs. Confirmed working end-to-end on titan GPUs (jobs
+981330/981331/981347).
