@@ -35,8 +35,8 @@ def _find_concept_entry(data: list, concept_name: str, source_path: str) -> dict
 class ConceptDataset:
     """Supervised dataset for one concept: pairs of (sentence, label).
 
-    Loads all concept sentences from ``data/concept_sentences.json`` (key: ``"sentences"``)
-    and all neutral sentences from ``data/neutral_sentences.json``.
+    Loads English sentences from ``data/`` and optional foreign-language
+    sentences from ``experiments/multilingual_fit/data/``.
     """
 
     def __init__(
@@ -45,18 +45,29 @@ class ConceptDataset:
             concept_path: Path | str = DATA_DIR / "concept_sentences.json",
             neutral_path: Path | str = DATA_DIR / "neutral_sentences.json",
             neutral_sample_seed: Optional[int] = None,
+            languages: Optional[List[str]] = None,
+            multilingual_data_dir: Path | str = ROOT_DIR / "experiments" / "multilingual_fit" / "data",
     ) -> None:
         self.concept_name = concept_name
         self.data: List[Tuple[str, str]] = []
+        languages = languages or ["en"]
+        multilingual_data_dir = Path(multilingual_data_dir)
+        neutral_pairs = []
+        for lang in languages:
+            if lang == "en":
+                c_path, n_path = Path(concept_path), Path(neutral_path)
+            else:
+                c_path = multilingual_data_dir / f"concept_sentences_{lang}.json"
+                n_path = multilingual_data_dir / f"neutral_sentences_{lang}.json"
 
-        concept_data = _load_json_list(concept_path)
-        concept_entry = _find_concept_entry(concept_data, concept_name, concept_path)
-        for s in concept_entry.get("sentences", []):
-            if s:
-                self.data.append((s, concept_name))
+            concept_data = _load_json_list(c_path)
+            concept_entry = _find_concept_entry(concept_data, concept_name, str(c_path))
+            self.data.extend((s, concept_name) for s in concept_entry.get("sentences", []) if s)
 
-        neutral_data = _load_json_list(neutral_path)
-        neutral_pairs = [(obj["sentence"], "Neutral") for obj in neutral_data if obj.get("sentence")]
+            neutral_data = _load_json_list(n_path)
+            neutral_pairs.extend((obj["sentence"], "Neutral")
+                                 for obj in neutral_data if obj.get("sentence"))
+
         # When a seed is given, reorder the neutral sentences with a fixed-seed
         # shuffle; otherwise keep file order.
         if neutral_sample_seed is not None:

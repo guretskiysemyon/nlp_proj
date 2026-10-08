@@ -1,0 +1,20 @@
+[run_pass2_delta_search_anygpu] args: --concept Culture of Greece Golf Heroin Nazism Pornography World War II
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] baselines: mmlu=0.5200 qa=0.7400 simdom=0.9200 alp_instr=1.9267 alp_flu=1.6867
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] resume: 5 delta rows already scored in /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/_rows__qwen2.5-32b-instruct.json
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] fast screen: 8/8 deltas pass min_mmlu=0.90; judging top 3 by harmonic=[200.0, 50.0, 100.0]
+[15:24:51] [ember|Culture of Greece|delta=0.5] delta=0.5 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=1.0] delta=1.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=2.0] delta=2.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=5.0] delta=5.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=10.0] delta=10.0 not in fast top-k -> no judge calls
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [00:01<00:26,  1.64s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [00:02<00:22,  1.47s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [00:04<00:20,  1.45s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [02:42<13:44, 63.43s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [10:38<42:23, 211.97s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [23:59<1:15:36, 412.44s/it]

@@ -19,6 +19,22 @@ Usage:
     python -m judge_rerun.pass2_delta_search --concept "Harry Potter" --deltas 0.5 10.0 200.0
     # then the rest; already-judged deltas are skipped via the checkpoint
     python -m judge_rerun.pass2_delta_search --concept "Harry Potter"
+    # several concepts in ONE job/GPU allocation, loading the judge only once
+    # (the model-load itself is only ~20-30s on the rtx_2080 nodes -- the real
+    # win is paying SLURM's queue wait for that node just once, which has been
+    # observed to run 15+ hours when both pinned nodes are busy):
+    python -m judge_rerun.pass2_delta_search --concept "Golf" "Heroin" "Nazism"
+
+Delta-selection policy (default --top-k 3 --alpaca-n 50, see docs/ember_search.md):
+    Before any judge call, every delta's judge-free fast metrics (mmlu/qa/
+    simdom -> efficacy/specificity/harmonic) are computed from grid_raw.csv.
+    Only the --top-k deltas (by that fast `harmonic`, among those passing
+    min_mmlu) get judged at all, and only on their first --alpaca-n saved
+    completions (idx < alpaca-n; the saved order is fixed across deltas/
+    concepts, so "first N" means the same N questions everywhere). Deltas
+    outside the top-k are recorded with gate="not_top_k", harmonic_alpaca=0,
+    no judge calls spent. Pass --top-k 8 --alpaca-n 150 to reproduce the
+    original full-grid, full-question behavior exactly.
 """
 from __future__ import annotations
 
@@ -50,7 +66,9 @@ CHANCE = 0.25  # 4-choice MC floor, as in orchestrator.py
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--concept", required=True, help='e.g. "Harry Potter"')
+    p.add_argument("--concept", required=True, nargs="+",
+                    help='one or more concepts, e.g. --concept "Harry Potter" "Golf"; '
+                         "run back-to-back in this process, sharing one judge load")
     p.add_argument("--model-name", default="google/gemma-2-2b-it",
                     help="the model UNDER ERASURE (selects the pass1_outputs dir)")
     p.add_argument("--rank", type=int, default=100)
@@ -65,6 +83,13 @@ def parse_args() -> argparse.Namespace:
                     help="judge only these deltas (default: every delta in grid_raw.csv)")
     p.add_argument("--min-mmlu", type=float, default=0.90)    # methods/ember.py grid_eval_kwargs
     p.add_argument("--min-alpaca", type=float, default=0.9)   # methods/ember.py grid_eval_kwargs
+    p.add_argument("--top-k", type=int, default=3,
+                    help="of the deltas passing min_mmlu, judge only the top-k by the fast "
+                         "(judge-free) harmonic score; pass a number >= the grid size to judge "
+                         "every non-gated delta (original behavior)")
+    p.add_argument("--alpaca-n", type=int, default=50,
+                    help="judge only the first N saved Alpaca completions (idx < N) per kept "
+                         "delta; pass a number >= 150 to judge all of them (original behavior)")
     p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs"))
     p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass2_outputs"))
     p.add_argument("--overwrite", action="store_true",
@@ -173,6 +198,30 @@ def _judge_one_delta(judge: QwenJudge, items: List[Dict[str, Any]],
     }
 
 
+def _combine_alpaca_metrics(efficacy: float, specificity: float,
+                            alpaca_instr: float, alpaca_flu: float,
+                            bases: Dict[str, float], min_alpaca: float) -> Dict[str, Any]:
+    """The alpaca-dependent half of orchestrator.py's metric block, factored out
+    so a post-hoc re-pick (pass2_recompute_topk.py) can recompute it from a
+    cached judge score without re-deriving the formula."""
+    instr_base, flu_base = bases["alp_instr_base"], bases["alp_flu_base"]
+    alp_instr_frac = min(1.0, alpaca_instr / instr_base) if instr_base > 0 else float("nan")
+    alp_flu_frac = min(1.0, alpaca_flu / flu_base) if flu_base > 0 else float("nan")
+    coherence = harmonic_mean([alp_instr_frac, alp_flu_frac])
+    harmonic_alpaca = harmonic_mean([efficacy, specificity, coherence])
+
+    gate = ""
+    if alp_instr_frac < min_alpaca or alp_flu_frac < min_alpaca:
+        harmonic_alpaca = 0.0
+        gate = "min_alpaca"
+
+    return {
+        "alpaca_instr": alpaca_instr, "alpaca_flu": alpaca_flu,
+        "alp_instr_frac": alp_instr_frac, "alp_flu_frac": alp_flu_frac,
+        "coherence": coherence, "harmonic_alpaca": harmonic_alpaca, "gate": gate,
+    }
+
+
 def _metrics_for_delta(raw: pd.Series, bases: Dict[str, float],
                        alpaca: Optional[Dict[str, Any]],
                        min_mmlu: float, min_alpaca: float) -> Dict[str, Any]:
@@ -215,26 +264,14 @@ def _metrics_for_delta(raw: pd.Series, bases: Dict[str, float],
     if alpaca is None:
         return out
 
-    alpaca_instr, alpaca_flu = alpaca["alpaca_instr"], alpaca["alpaca_flu"]
-    instr_base, flu_base = bases["alp_instr_base"], bases["alp_flu_base"]
-    alp_instr_frac = min(1.0, alpaca_instr / instr_base) if instr_base > 0 else float("nan")
-    alp_flu_frac = min(1.0, alpaca_flu / flu_base) if flu_base > 0 else float("nan")
-    coherence = harmonic_mean([alp_instr_frac, alp_flu_frac])
-    harmonic_alpaca = harmonic_mean([efficacy, specificity, coherence])
-
-    gate = ""
-    if alp_instr_frac < min_alpaca or alp_flu_frac < min_alpaca:
-        harmonic_alpaca = 0.0
-        gate = "min_alpaca"
-
+    combined = _combine_alpaca_metrics(efficacy, specificity,
+                                       alpaca["alpaca_instr"], alpaca["alpaca_flu"],
+                                       bases, min_alpaca)
+    out.update(combined)
     out.update({
-        "alpaca_instr": alpaca_instr, "alpaca_flu": alpaca_flu,
-        "alp_instr_frac": alp_instr_frac, "alp_flu_frac": alp_flu_frac,
-        "coherence": coherence, "harmonic_alpaca": harmonic_alpaca,
         "n_instruct_parse_failed": alpaca["n_instruct_parse_failed"],
         "n_fluency_parse_failed": alpaca["n_fluency_parse_failed"],
         "judge_wall_time_s": alpaca["judge_wall_time_s"],
-        "gate": gate,
     })
     return out
 
@@ -248,27 +285,33 @@ def _gemini_reference(concept: str, model_name: str, rank: int, seed: int) -> Op
     return pd.read_csv(path)
 
 
-def main() -> None:
-    args = parse_args()
-    log.configure()
-    log.set_context(method="ember", concept=args.concept, stage="pass2_delta_search")
+def run_concept(args: argparse.Namespace, concept: str,
+                judge: Optional[QwenJudge]) -> Optional[QwenJudge]:
+    """Run Pass 2 for ONE concept. Returns the (possibly newly-loaded) judge,
+    so a caller looping over several concepts in one process shares it."""
+    log.set_context(method="ember", concept=concept, stage="pass2_delta_search")
 
     judge_id = _judge_id(args.judge_model)
     fluency_template = (GeminiEvaluator.ALPACA_FLUENCY_PROMPT if args.fluency_prompt == "original"
                         else ALPACA_FLUENCY_PROMPT_QWEN)
 
     run_rel = Path(_safe_model_name(args.model_name)) / f"rank{args.rank}" / f"seed{args.seed}"
-    pass1_concept_dir = Path(args.pass1_dir) / run_rel / _safe_concept(args.concept)
+    pass1_concept_dir = Path(args.pass1_dir) / run_rel / _safe_concept(concept)
     baseline_dir = Path(args.pass1_dir) / run_rel / "_baseline"
-    out_dir = Path(args.out_dir) / run_rel / _safe_concept(args.concept)
+    out_dir = Path(args.out_dir) / run_rel / _safe_concept(concept)
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    best_path = out_dir / f"best_delta__{judge_id}.json"
+    if best_path.exists() and not args.overwrite:
+        log.info("%s already finished (%s exists); skipping", concept, best_path)
+        return judge
 
     grid_path = pass1_concept_dir / "grid_raw.csv"
     if not grid_path.exists():
         raise FileNotFoundError(f"{grid_path} missing -- run judge_rerun.pass1_ember_delta first")
     grid = pd.read_csv(grid_path)
 
-    bases = _load_baselines(baseline_dir, args.concept, judge_id, args.fluency_prompt)
+    bases = _load_baselines(baseline_dir, concept, judge_id, args.fluency_prompt)
     log.info("judge=%s fluency_prompt=%s", args.judge_model, args.fluency_prompt)
     log.info("baselines: mmlu=%.4f qa=%.4f simdom=%.4f alp_instr=%.4f alp_flu=%.4f",
              bases["mmlu_base"], bases["qa_base"], bases["simdom_base"],
@@ -288,29 +331,52 @@ def main() -> None:
         if judged_path.exists():
             per_item_by_delta = json.loads(judged_path.read_text())
 
-    judge: Optional[QwenJudge] = None
+    # ------------------------------------------------------------------ #
+    # Fast, judge-free screen: rank by the already-known mmlu/qa/simdom   #
+    # harmonic and keep only the top --top-k for the expensive judge step #
+    # ------------------------------------------------------------------ #
+    fast_metrics: Dict[str, Dict[str, Any]] = {
+        repr(float(raw["delta_embed"])): _metrics_for_delta(raw, bases, None, args.min_mmlu, args.min_alpaca)
+        for _, raw in wanted.iterrows()
+    }
+    non_gated_keys = [k for k, m in fast_metrics.items() if m.get("gate") != "min_mmlu"]
+    non_gated_keys.sort(key=lambda k: fast_metrics[k]["harmonic"], reverse=True)
+    judge_keys = set(non_gated_keys[:args.top_k])
+    log.info("fast screen: %d/%d deltas pass min_mmlu=%.2f; judging top %d by harmonic=%s",
+             len(non_gated_keys), len(fast_metrics), args.min_mmlu, args.top_k,
+             [fast_metrics[k]["delta_embed"] for k in non_gated_keys[:args.top_k]])
+
     for _, raw in wanted.iterrows():
         delta = float(raw["delta_embed"])
         key = repr(delta)
-        if key in rows and not args.overwrite:
-            log.info("delta=%s already scored (harmonic_alpaca=%.4f); skipping",
-                     delta, rows[key].get("harmonic_alpaca", float("nan")))
-            continue
 
-        log.set_context(stage=f"delta={delta}")
-        mmlu_frac = _mc_frac(float(raw["mmlu_acc"]), bases["mmlu_base"])
-        if mmlu_frac < args.min_mmlu:
-            # Gated before any judging -- saves 300 judge calls for this delta.
-            rows[key] = _metrics_for_delta(raw, bases, None, args.min_mmlu, args.min_alpaca)
-            log.info("delta=%s mmlu_frac=%.4f < min_mmlu=%.2f -> gated to 0, no judge calls",
-                     delta, mmlu_frac, args.min_mmlu)
+        if key not in judge_keys:
+            # mmlu-gated, or passed the gate but didn't make the fast top-k:
+            # no judge calls spent on it under the current policy.
+            row = dict(fast_metrics[key])
+            if row.get("gate") != "min_mmlu":
+                row["gate"] = "not_top_k"
+            rows[key] = row
+            log.set_context(stage=f"delta={delta}")
+            log.info("delta=%s %s -> no judge calls", delta,
+                     "mmlu-gated" if row["gate"] == "min_mmlu" else "not in fast top-k")
             ckpt_path.write_text(json.dumps(rows, indent=2))
             continue
 
+        cached = rows.get(key)
+        stale = cached is not None and cached.get("_alpaca_n") != args.alpaca_n
+        if cached is not None and not args.overwrite and not stale:
+            log.info("delta=%s already scored (harmonic_alpaca=%.4f); skipping",
+                     delta, cached.get("harmonic_alpaca", float("nan")))
+            continue
+
+        log.set_context(stage=f"delta={delta}")
         completions_path = pass1_concept_dir / "alpaca_completions" / f"delta_{delta}.json"
         if not completions_path.exists():
             raise FileNotFoundError(f"{completions_path} missing")
         items = json.loads(completions_path.read_text())
+        if args.alpaca_n < len(items):
+            items = items[:args.alpaca_n]
 
         if judge is None:  # load lazily: a fully-resumed run needs no GPU at all
             judge = QwenJudge(model_id=args.judge_model)
@@ -322,15 +388,16 @@ def main() -> None:
                                    instruct_ckpt, fluency_ckpt)
         per_item_by_delta[key] = alpaca.pop("_per_item")
         rows[key] = _metrics_for_delta(raw, bases, alpaca, args.min_mmlu, args.min_alpaca)
+        rows[key]["_alpaca_n"] = args.alpaca_n
 
         r = rows[key]
         log.info("delta=%s instr=%.3f flu=%.3f coherence=%.4f harmonic=%.4f "
-                 "harmonic_alpaca=%.4f%s (%.0fs, parse fails %d/%d)",
+                 "harmonic_alpaca=%.4f%s (%.0fs, parse fails %d/%d, n=%d)",
                  delta, r["alpaca_instr"], r["alpaca_flu"], r["coherence"],
                  r["harmonic"], r["harmonic_alpaca"],
                  f" GATED[{r['gate']}]" if r.get("gate") else "",
                  r["judge_wall_time_s"], r["n_instruct_parse_failed"],
-                 r["n_fluency_parse_failed"])
+                 r["n_fluency_parse_failed"], len(items))
 
         ckpt_path.write_text(json.dumps(rows, indent=2))
         judged_path.write_text(json.dumps(per_item_by_delta, ensure_ascii=False, indent=2))
@@ -355,12 +422,14 @@ def main() -> None:
              best["delta_embed"], float(best.get("harmonic_alpaca") or 0.0), len(df), n_expected)
 
     summary: Dict[str, Any] = {
-        "concept": args.concept,
+        "concept": concept,
         "judge_id": judge_id,
         "judge_model": args.judge_model,
         "fluency_prompt": args.fluency_prompt,
         "min_mmlu": args.min_mmlu,
         "min_alpaca": args.min_alpaca,
+        "top_k": args.top_k,
+        "alpaca_n": args.alpaca_n,
         "n_deltas_scored": len(df),
         "n_deltas_total": n_expected,
         "complete": len(df) == n_expected,
@@ -372,7 +441,7 @@ def main() -> None:
     # ------------------------------------------------------------------ #
     # Side-by-side against the archived Gemini-era grid, when it exists   #
     # ------------------------------------------------------------------ #
-    ref = _gemini_reference(args.concept, args.model_name, args.rank, args.seed)
+    ref = _gemini_reference(concept, args.model_name, args.rank, args.seed)
     if ref is not None:
         ref_best = io.pick_best_embed_delta(ref)
         summary["gemini_best_delta_embed"] = float(ref_best["delta_embed"])
@@ -392,8 +461,17 @@ def main() -> None:
                      r["coherence"],
                      f"{g['coherence']:.4f}" if g is not None else "n/a")
 
-    (out_dir / f"best_delta__{judge_id}.json").write_text(json.dumps(summary, indent=2))
-    log.info("done: wrote %s and %s", metrics_path, out_dir / f"best_delta__{judge_id}.json")
+    best_path.write_text(json.dumps(summary, indent=2))
+    log.info("done: wrote %s and %s", metrics_path, best_path)
+    return judge
+
+
+def main() -> None:
+    args = parse_args()
+    log.configure()
+    judge: Optional[QwenJudge] = None
+    for concept in args.concept:
+        judge = run_concept(args, concept, judge)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+[run_pass2_delta_search_anygpu] args: --concept Golf Heroin Nazism Pornography World War II
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[14:53:56] [ember|Golf|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[14:53:56] [ember|Golf|pass2_delta_search] baselines: mmlu=0.5200 qa=0.8400 simdom=0.8200 alp_instr=1.9267 alp_flu=1.6867
+[14:53:56] [ember|Golf|pass2_delta_search] fast screen: 8/8 deltas pass min_mmlu=0.90; judging top 3 by harmonic=[10.0, 5.0, 50.0]
+[14:53:56] [ember|Golf|delta=0.5] delta=0.5 not in fast top-k -> no judge calls
+[14:53:56] [ember|Golf|delta=1.0] delta=1.0 not in fast top-k -> no judge calls
+[14:53:56] [ember|Golf|delta=2.0] delta=2.0 not in fast top-k -> no judge calls
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]slurmstepd: error: *** JOB 999281 ON s-004 CANCELLED AT 2026-10-08T14:56:17 ***

@@ -1,11 +1,10 @@
 #!/bin/bash
-# Same as run_pass2_delta_search.sbatch, but without pinning the GPU model.
-# run_pass2_delta_search.sbatch requests geforce_rtx_2080 specifically, which
-# only exists on 2 of the 5 studentkillable nodes -- when those are busy, jobs
-# queue even if other nodes (titan, etc.) are idle. This variant requests any
-# 3 GPUs, so it can also land on those other nodes. Test script to confirm
-# pass2_delta_search.py actually runs on a different GPU model before relying
-# on it.
+# Runs pass2_delta_search.py on the GeForce RTX 2080 Ti nodes (s-004, s-005).
+# The filename is historical: this used to request any 3 GPUs, but on the titan
+# nodes (s-002/s-003/s-006) the Qwen-32B judge was ~40x slower (TITAN Xp has no
+# native bf16; 4-bit compute dtype is bf16), and on s-002 CUDA failed to
+# initialize so the job silently ran on CPU. Pinned to rtx_2080 until an fp16
+# variant is validated on titan.
 #
 # Usage (quick validation on a few deltas, on an untried concept):
 #   sbatch --time=05:00:00 judge_rerun/run_pass2_delta_search_anygpu.sbatch \
@@ -13,7 +12,7 @@
 #
 #SBATCH --partition=studentkillable
 #SBATCH --account=gpu-students
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:geforce_rtx_2080:3
 #SBATCH --time=24:00:00
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=6

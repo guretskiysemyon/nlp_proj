@@ -1,41 +1,0 @@
-[run_pass2_delta_search_anygpu] args: --concept Heroin
-index, name, memory.total [MiB]
-0, NVIDIA TITAN Xp, 12288 MiB
-1, NVIDIA TITAN Xp, 12288 MiB
-2, NVIDIA TITAN Xp, 12288 MiB
-3, NVIDIA TITAN Xp, 12288 MiB
-4, NVIDIA TITAN Xp, 12288 MiB
-5, NVIDIA TITAN Xp, 12288 MiB
-6, NVIDIA TITAN Xp, 12288 MiB
-7, NVIDIA TITAN Xp, 12288 MiB
-[21:32:01] [ember|Heroin|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
-[21:32:01] [ember|Heroin|pass2_delta_search] baselines: mmlu=0.5200 qa=0.6400 simdom=0.9800 alp_instr=1.9267 alp_flu=1.6867
-Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [10:10<2:42:40, 610.00s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [22:28<2:51:19, 685.31s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [36:03<2:53:48, 744.86s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [52:16<3:00:50, 834.68s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [1:11:23<3:09:27, 947.26s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [1:33:04<3:15:45, 1067.74s/it]Loading checkpoint shards:  41%|████      | 7/17 [1:52:47<3:04:13, 1105.39s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [2:10:09<2:42:46, 1085.13s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [2:27:25<2:22:38, 1069.76s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [2:40:56<1:55:30, 990.09s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [2:54:58<1:34:27, 944.58s/it]Loading checkpoint shards:  71%|███████   | 12/17 [3:08:58<1:16:03, 912.77s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [3:21:59<58:11, 872.79s/it]  Loading checkpoint shards:  82%|████████▏ | 14/17 [3:35:57<43:06, 862.26s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [3:50:15<28:42, 861.15s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [4:04:15<14:14, 854.61s/it]Loading checkpoint shards: 100%|██████████| 17/17 [4:15:14<00:00, 795.92s/it]Loading checkpoint shards: 100%|██████████| 17/17 [4:15:14<00:00, 900.85s/it]
-[01:47:24] [ember|Heroin|delta=0.5] judge loaded: Qwen/Qwen2.5-32B-Instruct
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 4/150 done, 1193.0s/call, ~2903 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 8/150 done, 1189.6s/call, ~2815 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 12/150 done, 1188.5s/call, ~2734 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 16/150 done, 1188.8s/call, ~2655 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 20/150 done, 1190.1s/call, ~2579 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 24/150 done, 1189.6s/call, ~2498 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 28/150 done, 1189.1s/call, ~2418 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 32/150 done, 1188.8s/call, ~2338 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 36/150 done, 1188.5s/call, ~2258 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 40/150 done, 1188.3s/call, ~2178 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 44/150 done, 1188.0s/call, ~2099 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 48/150 done, 1187.9s/call, ~2019 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-[QwenJudge] 52/150 done, 1187.8s/call, ~1940 min left
-The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
