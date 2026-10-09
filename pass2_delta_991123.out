@@ -1228,3 +1228,23 @@ The following generation flags are not valid and may be ignored: ['temperature',
 The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 [QwenJudge] 136/150 done, 32.1s/call, ~7 min left
 The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 140/150 done, 32.4s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 144/150 done, 32.4s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 148/150 done, 32.4s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 150/150 done, 32.6s/call, ~0 min left
+[16:09:13] [ember|Halloween|delta=200.0] delta=200.0 instr=1.920 flu=1.673 coherence=0.9943 harmonic=0.5055 harmonic_alpaca=0.6045 (9111s, parse fails 0/0)
+[16:09:15] [ember|Halloween|pass2_delta_search] BEST delta_embed=5.0 harmonic_alpaca=0.6600 (of 8/8 deltas scored)
+[16:09:16] [ember|Halloween|pass2_delta_search] Gemini-era pick for this concept: delta=10.0 harmonic_alpaca=0.6263 -> DIFFERS
+[16:09:16] [ember|Halloween|pass2_delta_search] per-delta comparison (qwen vs gemini harmonic_alpaca):
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=0.5    qwen=0.1538  gemini=0.0000  (coherence 0.9960 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=1.0    qwen=0.3828  gemini=0.2927  (coherence 0.9963 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=2.0    qwen=0.5451  gemini=0.4898  (coherence 0.9963 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=5.0    qwen=0.6600  gemini=0.6261  (coherence 0.9946 vs 0.9983)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=10.0   qwen=0.6585  gemini=0.6263  (coherence 0.9846 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=50.0   qwen=0.6043  gemini=0.5614  (coherence 0.9923 vs 0.9966)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=100.0  qwen=0.6043  gemini=0.5618  (coherence 0.9923 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search]   delta=200.0  qwen=0.6045  gemini=0.5618  (coherence 0.9943 vs 1.0000)
+[16:09:16] [ember|Halloween|pass2_delta_search] done: wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween/delta_metrics__qwen2.5-32b-instruct.csv and /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween/best_delta__qwen2.5-32b-instruct.json

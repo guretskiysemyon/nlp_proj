@@ -1,21 +1,20 @@
 #!/bin/bash
-# Runs judge_rerun/pass1_snmf_top3.py: per concept, reuse an archived 144-cell
-# SNMF grid (if one exists) or run it fresh, narrow to the top-3 HP cells by
-# the judge-free `harmonic` score, and generate (never judge) their first 50
-# Alpaca completions.
+# Runs judge_rerun/pass1_snmf_top3.py: for each concept, reuse the archived
+# 144-cell judge-free SNMF grid if it exists, or run it fresh (topk=3, so
+# only 3 rows are ever written); then generate (never judge) the first 50
+# Alpaca completions for those top-3 HP cells.
 #
-# Only needs the small model-under-erasure (gemma-2-2b-it), not the 32B
-# judge, so 1 GPU is enough -- but it still needs bf16 tensor-core support,
-# so it's pinned to the same geforce_rtx_2080 nodes (s-004/s-005) as the
-# Qwen-judge jobs: a Titan X/Xp smoke test on c-009 hit
-# "CUDA error: CUBLAS_STATUS_NOT_SUPPORTED" during generation (no native
-# bf16 matmul), the same root cause already documented in
-# docs/ember_search.md for the titan judge nodes.
+# Pinned to the RTX 2080 nodes (s-004/s-005), same reason as
+# run_pass1.sbatch / run_pass2_delta_search_anygpu.sbatch: the model load
+# defaults to bf16, which the Titan nodes (s-002/s-003/s-006, and the
+# interactive c-009 Titan X node) cannot run -- confirmed directly with a
+# CUBLAS_STATUS_NOT_SUPPORTED error during an interactive smoke test here.
+# Only needs 1 GPU: this is the small model-under-erasure (gemma-2-2b-it),
+# not the Qwen-32B judge.
 #
-# Usage:
-#   sbatch judge_rerun/run_pass1_snmf_top3.sbatch --concept "Golf"
+# Usage (one job, several concepts back-to-back, one model load):
 #   sbatch judge_rerun/run_pass1_snmf_top3.sbatch \
-#       --concept "Culture of Greece" "Golf" "Halloween" ...
+#       --concept "Culture of Greece" "Golf" "Heroin" "Nazism" "Pornography" "World War II"
 #
 #SBATCH --partition=studentkillable
 #SBATCH --account=gpu-students
@@ -26,6 +25,14 @@
 #SBATCH --output=pass1_snmf_top3_%j.out
 
 set -euo pipefail
+
+# semyong/maryarav/oripetel all share `benohayon` as their primary group, but
+# the default umask (022) creates new dirs/files group-READ-ONLY -- exactly
+# what made Culture of Greece's and Golf's earlier EMBER pass2 output dirs
+# unwritable by a teammate. umask 002 makes everything this job creates
+# group-writable from the start, so anyone sharing that group can resume or
+# take over running it.
+umask 002
 
 REPO_DIR="${REPO_DIR:-/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure}"
 cd "$REPO_DIR"

@@ -47,20 +47,45 @@ That's a separate, not-yet-started task.
 | Baseball | Finished | Mary |
 | COVID-19 pandemic | Finished | Mary |
 | Cannabis | Finished | Mary |
-| Culture of Greece | 999298 | Mary |
+| Culture of Greece | Finished | Mary |
 | Gambling | Finished | Ori |
-| Golf | - |  |
+| Golf | Running — job 1001317, out to `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
 | Gun | Finished | Ori |
-| Halloween | in run | Ori |
+| Halloween | Finished | Ori |
 | Harry Potter | Finished | Semyon |
-| Heroin | - |  |
-| Nazism | - |  |
-| Pornography | - |  |
+| Heroin | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
+| Nazism | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
+| Pornography | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
 | Republic of Ireland | Finished | Ori |
 | Uranium | Finished | Ori |
 | Valentine's Day | Finished | Ori |
-| World War II | - | | sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "Culture of Greece" "Golf" "Heroin" "Nazism" "Pornography" "World War II"
-Submitted batch job 999320
+| World War II | Running — job 1001318 | Ori |
+
+**Note — Mary's multi-concept job (999320, 2026-10-08).** Mary submitted
+`sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "Culture of
+Greece" "Golf" "Heroin" "Nazism" "Pornography" "World War II"` to run all six
+of Ori's remaining concepts back-to-back in one job. It finished Culture of
+Greece (hence "Mary" in that row above) and then died at Golf with a
+`PermissionError` before reaching the other four.
+
+**Note — Heroin / Nazism / Pornography / Golf (Ori, 2026-10-08): results are NOT in
+the standard `pass2_outputs/` dir.** Their standard output dirs
+(`judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/{Heroin,Nazism,Pornography,Golf}/`)
+are owned by `semyong` with `drwxr-xr-x`, so nobody else can write there (Golf
+failed this way twice: Mary's job 993617, and Mary's multi-concept job 999320
+above). They hold only old-policy checkpoints (delta=0.5, or Golf's
+not-top-3 rows), which the new top-3 policy doesn't use. These four concepts
+were therefore taken over and rerun under the new top-3/n=50 policy with
+`--out-dir /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs_ori`,
+so their results land in
+`judge_rerun/pass2_outputs_ori/google_gemma-2-2b-it/rank100/seed42/<Concept>/`
+(same layout and file names as `pass2_outputs/`). Heroin, Nazism, and
+Pornography finished this way (jobs 1000902/1000903/1000904). Golf is
+re-running the same way as job 1001317 (still loading the judge model as of
+this writing). Once the standard dirs are made writable (`chmod 777`, or
+removed), copy each concept folder over.
+World War II had no output dir yet, so it runs in the standard `pass2_outputs/`
+as job 1001318 (also still loading the judge model).
 
 ## How to submit
 

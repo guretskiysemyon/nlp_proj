@@ -202,8 +202,11 @@ def run_concept(args: argparse.Namespace, cfg, concept: str,
 
         cell_path = completions_dir / f"cell_{i}.json"
         cell_path.write_text(json.dumps(
-            [{"idx": int(idx), "instruction": instr, "completion": comp}
-             for idx, instr, comp in zip(alpaca_indices, alpaca_instructions, completions)],
+            # "idx" is the LOCAL position (0..alpaca_n-1) within the fixed
+            # 150-question order, matching pass2_delta_search.py's convention
+            # for EMBER -- not the raw alpaca_eval_local() dataset index.
+            [{"idx": pos, "instruction": instr, "completion": comp}
+             for pos, (instr, comp) in enumerate(zip(alpaca_instructions, completions))],
             ensure_ascii=False, indent=2))
 
         cell_row = {**hp, **info, **{k: row[k] for k in
