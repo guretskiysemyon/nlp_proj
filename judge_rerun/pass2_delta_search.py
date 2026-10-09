@@ -90,8 +90,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--alpaca-n", type=int, default=50,
                     help="judge only the first N saved Alpaca completions (idx < N) per kept "
                          "delta; pass a number >= 150 to judge all of them (original behavior)")
-    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs"))
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass2_outputs"))
+    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass2_outputs"))
     p.add_argument("--overwrite", action="store_true",
                     help="re-judge every delta, ignoring the checkpoint")
     return p.parse_args()

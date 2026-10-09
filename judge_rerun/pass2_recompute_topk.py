@@ -21,8 +21,14 @@ It never touches _rows__/alpaca_judged__/best_delta__, and never writes into
 the original concept's output directory at all (many of those are owned by a
 teammate with no group-write bit -- writing there would need their chmod, not
 ours to take). Instead it writes best_delta_topk__{judge}.json and
-delta_metrics_topk__{judge}.csv into a parallel pass2_outputs_topk/ tree
-(same model/rank/seed/concept layout), which this script's invoker owns.
+delta_metrics_topk__{judge}.csv into a parallel tree (same model/rank/seed/
+concept layout), which this script's invoker owns.
+
+Legacy tool (2026-10-09): all 12 concepts that had been judged on the old 8x150
+grid were recomputed with this script and promoted into Ember/pass2_outputs
+(see judge_rerun/Ember/README.md). The defaults below therefore point at the
+archived full-grid originals and the archived recompute tree; only use it
+again for a concept that is later judged with --top-k 8 --alpaca-n 150.
 
 Usage:
     python -m judge_rerun.pass2_recompute_topk --concept "Harry Potter"
@@ -56,10 +62,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--judge-model", default="Qwen/Qwen2.5-32B-Instruct")
     p.add_argument("--top-k", type=int, default=3)
     p.add_argument("--alpaca-n", type=int, default=50)
-    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs"))
-    p.add_argument("--pass2-dir", default=str(ROOT_DIR / "judge_rerun" / "pass2_outputs"),
+    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"))
+    p.add_argument("--pass2-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "archive" / "pass2_outputs_original"),
                     help="where to READ the original full-grid _rows__/alpaca_judged__/best_delta__")
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass2_outputs_topk"),
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "archive" / "pass2_outputs_topk_recompute"),
                     help="where to WRITE the recomputed best_delta_topk__/delta_metrics_topk__ "
                          "(kept separate from --pass2-dir: that tree is often owned by a teammate "
                          "without a group-write bit, and this never needs to modify it)")

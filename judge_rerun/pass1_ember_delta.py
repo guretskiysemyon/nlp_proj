@@ -58,7 +58,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--deltas", type=float, nargs="+", default=DEFAULT_DELTAS)
     p.add_argument("--alpaca-batch-size", type=int, default=8)   # matches configs/ember_gemma.yaml
     p.add_argument("--mmlu-batch-size", type=int, default=8)
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"))
     p.add_argument("--overwrite", action="store_true",
                     help="redo this concept even if grid_raw.csv already exists")
     return p.parse_args()

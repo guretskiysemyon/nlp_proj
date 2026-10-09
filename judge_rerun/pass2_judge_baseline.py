@@ -58,7 +58,7 @@ def parse_args() -> argparse.Namespace:
                          "judge model follows the cutoff instruction unaided); "
                          "'qwen_strengthened' = the Qwen2.5-14B-tuned restatement "
                          "(ALPACA_FLUENCY_PROMPT_QWEN)")
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"))
     p.add_argument("--overwrite", action="store_true",
                     help="redo everything, including the instruct-relevance pass")
     p.add_argument("--redo-fluency-only", action="store_true",

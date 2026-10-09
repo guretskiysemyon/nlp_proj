@@ -1,21 +1,0 @@
-[run_pass1_snmf_top3] args: --concept Golf
-index, name, memory.total [MiB]
-0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-[16:14:34] [snmf|Golf|pass1_snmf_top3] Golf: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Golf/top_hps.csv
-[16:14:34] [snmf|Golf|pass1_snmf_top3] loading model google/gemma-2-2b-it
-[16:14:34] [snmf|Golf|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.03it/s]
-[16:14:44] [snmf|Golf|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
-[16:14:44] [snmf|Golf|pass1_snmf_top3] loading MLP features for concept='Golf' rank=100
-[16:14:45] [snmf|Golf|pass1_snmf_top3] found 35 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
-[16:19:17] [snmf|Golf|pass1_snmf_top3] Golf cell=0 harmonic=0.7316 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs_snmf/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_0.json
-[16:22:27] [snmf|Golf|pass1_snmf_top3] Golf cell=1 harmonic=0.7201 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs_snmf/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_1.json
-[16:25:39] [snmf|Golf|pass1_snmf_top3] Golf cell=2 harmonic=0.7087 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs_snmf/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_2.json
-[16:25:41] [snmf|Golf|pass1_snmf_top3] Golf: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_outputs_snmf/google_gemma-2-2b-it/rank100/seed42/Golf

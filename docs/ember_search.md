@@ -2,7 +2,7 @@
 
 Tracks `judge_rerun/pass2_delta_search.py` progress (judge the candidate
 deltas' saved Alpaca completions, pick the best delta) for each of the 18
-concepts. Updated 2026-10-08.
+concepts. Updated 2026-10-09.
 
 ## Delta-selection policy (updated 2026-10-08)
 
@@ -28,10 +28,12 @@ use by default now. For a concept Pass 2 had **already fully judged** under
 the old (8×150) policy, `judge_rerun/pass2_recompute_topk.py` re-derives the
 new-policy pick from the cached per-item judge scores already on disk — no
 GPU, no judge calls, and it never overwrites the original
-`_rows__`/`alpaca_judged__`/`best_delta__` files (writes
+`_rows__`/`alpaca_judged__`/`best_delta__` files (it writes
 `best_delta_topk__{judge}.json` / `delta_metrics_topk__{judge}.csv`
-alongside them instead). Sanity check so far: Harry Potter's top-3/n=50 pick
-(delta=10.0) matches its original full-grid pick exactly.
+alongside them instead). It has been run for all 12 such concepts (2026-10-09)
+and the results promoted into `judge_rerun/Ember/pass2_outputs/`; 10 of the 12
+picks equal the old full-grid pick (e.g. Harry Potter, delta=10.0), see the
+table below for the two that differ.
 
 **SNMF**: the same top-3-by-fast-metric + 50-question-judge policy should
 apply there too once it gets an analogous decoupled pass1/pass2 judge split
@@ -40,52 +42,45 @@ apply there too once it gets an analogous decoupled pass1/pass2 judge split
 `judge_rerun`, so there's no script to point `--top-k`/`--alpaca-n` at yet.
 That's a separate, not-yet-started task.
 
-| Concept | Status | Person |
-|---|---| --- |
-| Ancient Rome | Finished | Mary |
-| Artificial intelligence | Finished | Mary |
-| Baseball | Finished | Mary |
-| COVID-19 pandemic | Finished | Mary |
-| Cannabis | Finished | Mary |
-| Culture of Greece | Finished | Mary |
-| Gambling | Finished | Ori |
-| Golf | Running — job 1001317, out to `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
-| Gun | Finished | Ori |
-| Halloween | Finished | Ori |
-| Harry Potter | Finished | Semyon |
-| Heroin | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
-| Nazism | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
-| Pornography | Finished — results in `judge_rerun/pass2_outputs_ori/` (see note) | Ori |
-| Republic of Ireland | Finished | Ori |
-| Uranium | Finished | Ori |
-| Valentine's Day | Finished | Ori |
-| World War II | Running — job 1001318 | Ori |
+Final results for all 18 concepts: `judge_rerun/Ember/pass2_outputs/` — start with
+`google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv` (layout and policy: `judge_rerun/Ember/README.md`).
+"Best δ" below is the winner under the top-3 / n=50 policy.
 
-**Note — Mary's multi-concept job (999320, 2026-10-08).** Mary submitted
-`sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "Culture of
-Greece" "Golf" "Heroin" "Nazism" "Pornography" "World War II"` to run all six
-of Ori's remaining concepts back-to-back in one job. It finished Culture of
-Greece (hence "Mary" in that row above) and then died at Golf with a
-`PermissionError` before reaching the other four.
+| Concept | Status | Best δ | Person |
+|---|---|---|---|
+| Ancient Rome | Finished (re-derived from full grid) | 200 | Mary |
+| Artificial intelligence | Finished (re-derived from full grid) | 100 | Mary |
+| Baseball | Finished (re-derived from full grid) | 100 (old full-grid pick: 200) | Mary |
+| COVID-19 pandemic | Finished (re-derived from full grid) | 50 | Mary |
+| Cannabis | Finished (re-derived from full grid) | 200 | Mary |
+| Culture of Greece | Finished | 200 | Mary |
+| Gambling | Finished (re-derived from full grid) | 100 | Ori |
+| Golf | Finished | 10 | Ori |
+| Gun | Finished (re-derived from full grid) | 100 | Ori |
+| Halloween | Finished (re-derived from full grid) | 10 (old full-grid pick: 5) | Ori |
+| Harry Potter | Finished (re-derived from full grid) | 10 | Semyon |
+| Heroin | Finished | 100 | Ori |
+| Nazism | Finished | 100 | Ori |
+| Pornography | Finished | 5 | Ori |
+| Republic of Ireland | Finished (re-derived from full grid) | 100 | Ori |
+| Uranium | Finished (re-derived from full grid) | 100 | Ori |
+| Valentine's Day | Finished (re-derived from full grid) | 200 | Ori |
+| World War II | Finished | 5 | Ori |
 
-**Note — Heroin / Nazism / Pornography / Golf (Ori, 2026-10-08): results are NOT in
-the standard `pass2_outputs/` dir.** Their standard output dirs
-(`judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/{Heroin,Nazism,Pornography,Golf}/`)
-are owned by `semyong` with `drwxr-xr-x`, so nobody else can write there (Golf
-failed this way twice: Mary's job 993617, and Mary's multi-concept job 999320
-above). They hold only old-policy checkpoints (delta=0.5, or Golf's
-not-top-3 rows), which the new top-3 policy doesn't use. These four concepts
-were therefore taken over and rerun under the new top-3/n=50 policy with
-`--out-dir /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs_ori`,
-so their results land in
-`judge_rerun/pass2_outputs_ori/google_gemma-2-2b-it/rank100/seed42/<Concept>/`
-(same layout and file names as `pass2_outputs/`). Heroin, Nazism, and
-Pornography finished this way (jobs 1000902/1000903/1000904). Golf is
-re-running the same way as job 1001317 (still loading the judge model as of
-this writing). Once the standard dirs are made writable (`chmod 777`, or
-removed), copy each concept folder over.
-World War II had no output dir yet, so it runs in the standard `pass2_outputs/`
-as job 1001318 (also still loading the judge model).
+**Provenance (2026-10-09).** Six concepts were judged directly under top-3/n=50: Culture of Greece (Mary, job 999320),
+World War II (job 1001318), and Golf / Heroin / Nazism / Pornography (Ori; jobs 1001317 / 1000902 / 1000903 / 1000904).
+The other twelve had already been judged on the old 8×150 grid, so their top-3/n=50 result was re-derived from the cached
+per-item scores with `pass2_recompute_topk.py` (Halloween's was the last one missing). Ten of those twelve picks equal the old
+full-grid pick; **Baseball (200 → 100)** and **Halloween (5 → 10)** differ, and both are near-ties (identical judge-free
+score, Alpaca term within 0.001).
+
+**Permissions (resolved 2026-10-09).** The standard output dirs for Golf / Heroin / Nazism / Pornography were owned by
+`semyong` with mode 755, so nobody else could write there: Golf failed on this twice (Mary's job 993617, then her multi-concept job 999320, which
+had finished Culture of Greece and died at Golf with a `PermissionError` before reaching the rest), and Ori's four
+concepts had to be run with `--out-dir …/pass2_outputs_ori`. Everything is now consolidated under
+`judge_rerun/Ember/` (a world-writable tree), so that workaround is no longer needed; the old side folders
+(`pass2_outputs_ori`, `pass2_outputs_topk`) and the full-grid originals are kept in `judge_rerun/Ember/archive/`.
+(The original `judge_rerun/pass2_outputs_ori/` is owned by `oripetel`, so only Ori can delete it.)
 
 ## How to submit
 
@@ -106,6 +101,11 @@ sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "World War II"
 To run the original full 8-delta/150-question grid instead, add
 `--top-k 8 --alpaca-n 150`.
 
+Inputs and outputs default to `judge_rerun/Ember/pass1_outputs/` (read) and
+`judge_rerun/Ember/pass2_outputs/` (written); that tree is world-writable, so
+no `--out-dir` is needed. A concept whose `best_delta__*.json` already exists
+there is skipped — add `--overwrite` (or use another `--out-dir`) to redo it.
+
 **Batching several concepts into one job.** `--concept` takes multiple
 values and runs them back-to-back in the same process, loading the Qwen
 judge only once. The judge load itself is cheap (~20-30s on the rtx_2080
@@ -121,9 +121,9 @@ sbatch judge_rerun/run_pass2_delta_search_anygpu.sbatch \
     --concept "Culture of Greece" "Golf" "Heroin" "Nazism" "Pornography" "World War II"
 ```
 
-At ~3h/concept under the default top-3/n=50 policy, all 6 remaining
-concepts fit comfortably inside the sbatch script's existing
-`--time=24:00:00` limit in a single job.
+At ~3h/concept under the default top-3/n=50 policy, about 6 concepts fit
+comfortably inside the sbatch script's existing `--time=24:00:00` limit in a
+single job (the example above is the batch Mary submitted on 2026-10-08).
 
 Despite its name, `run_pass2_delta_search_anygpu.sbatch` is pinned to
 `--gres=gpu:geforce_rtx_2080:3`, i.e. only `s-004`/`s-005`. Jobs may queue
@@ -132,7 +132,9 @@ Unpinned runs on titan (jobs 981330/981331/981347) did not work: on TITAN Xp
 the Qwen-32B judge ran ~1190 s/batch vs ~30 s on 2080 Ti (likely the bf16
 4-bit compute dtype, which Pascal lacks), and on `s-002` CUDA failed to
 initialize so the jobs silently ran on CPU. All three hit the 24h limit without
-finishing a single delta. An fp16 variant for titan is to be tested separately.
+finishing a single delta. An fp16 variant for titan was to be tested separately;
+the Titan diagnostic/benchmark scripts were removed from `judge_rerun/` on 2026-10-09
+(still in git history, commit `7f86c2e`).
 
 
 ## multi language add on

@@ -1,5 +1,10 @@
 # Last step log
 
+> **2026-10-09:** the scripts this log refers to (`smoke_gemma_judge.py`,
+> `run_smoke_gemma.sbatch`, `run_gemma4_judge_eval.sbatch`, `judge_sensitivity.py`)
+> were removed from `judge_rerun/` during cleanup; they are in git history at
+> commit `7f86c2e`. The log below is kept as written.
+
 **Goal:** Smoke-test `google/gemma-4-12B-it` (already cached locally) as a candidate
 judge for Gemma-2-2b-it evaluation, per `judge_rerun/smoke_gemma_judge.py`, and see
 how it compares to the already-adopted Qwen2.5-32B-Instruct judge (`progress.md`

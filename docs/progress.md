@@ -64,7 +64,7 @@ Full reasoning and the detailed design are in
 - **Pass 1** (`judge_rerun/pass1_ember_delta.py`): for all 18 concepts, ran
   EMBER's 8 candidate deltas, scored MMLU/concept-QA/SimDom-QA (letter-graded,
   no judge), and saved the 150 AlpacaEval completions per delta per concept,
-  unscored. Output under `judge_rerun/pass1_outputs/<model>/rank<rank>/seed<seed>/<Concept>/`.
+  unscored. Output under `judge_rerun/Ember/pass1_outputs/<model>/rank<rank>/seed<seed>/<Concept>/`.
 - **Pristine baseline pass** (`judge_rerun/pass1_baseline.py`): the same
   machinery with no edit applied. Computes MMLU (global, 50 items) and the
   150 Alpaca completions once, then loops over all 18 concepts for QA/SimDom
@@ -103,6 +103,17 @@ Full reasoning and the detailed design are in
   `studentkillable` nodes and queued behind busy 2080 jobs even when titan
   nodes sat idle); `run_pass2_delta_search_anygpu.sbatch` (`--gres=gpu:3`,
   no model pinned) replaces it and is confirmed working on titan GPUs.
+- Cleanup 2026-10-09: `judge_rerun/` now holds only the Pass 1 / Pass 2
+  pipeline for EMBER and SNMF. Removed the one-off check scripts and their
+  sbatch wrappers: the §3.1 agreement study (`agreement_study.py`,
+  `run_agreement_study*.sbatch`), the Gemma-4 smoke/sensitivity checks
+  (`smoke_gemma_judge.py`, `judge_sensitivity.py`, `run_smoke_gemma.sbatch`,
+  `run_gemma4_judge_eval.sbatch`), the Titan GPU diagnostics and benchmark
+  (`titan_*.py`, `run_titan_*.sbatch`, `run_rtx_diag4.sbatch`,
+  `titan_bench_results.jsonl`) and `run_judge_baseline.sbatch` (it defaulted to
+  the rejected 14B judge). All are in git history at commit `7f86c2e`, e.g.
+  `git checkout 7f86c2e -- judge_rerun/agreement_study.py`. The agreement-study
+  result files were kept, in `docs/judge_selection/`.
 
 ### 3.1 Judge model: which one, and why
 
@@ -119,7 +130,8 @@ study: re-judge Gemini's *exact* already-scored 150 Alpaca-train completions
 (`archive_gemini/data/baseline_samples/samples_alpaca_train_*.json`) with
 Qwen, same prompts, compare item-by-item. This is more rigorous than
 comparing mean scores across *different* completions (no confound from
-generation nondeterminism) — `judge_rerun/agreement_study.py`.
+generation nondeterminism) — `agreement_study.py` (removed from `judge_rerun/`
+2026-10-09; in git history at `7f86c2e`).
 
 | | Qwen2.5-14B-Instruct | **Qwen2.5-32B-Instruct** | gate (plan §6) |
 |---|---|---|---|
@@ -134,8 +146,9 @@ generation nondeterminism) — `judge_rerun/agreement_study.py`.
 
 **32B passes the gate on both axes, with the original unmodified prompts.
 14B fails on fluency even after a prompt fix**, so 32B is the pick for Pass 2.
-Full per-item confusion matrices: `judge_rerun/agreement_study_train.json`
-(14B) and `judge_rerun/agreement_study_train__qwen2.5-32b-instruct.json` (32B).
+Full per-item confusion matrices: `docs/judge_selection/agreement_study_train.json`
+(14B) and `docs/judge_selection/agreement_study_train__qwen2.5-32b-instruct.json` (32B);
+the rejected Gemma-4-12B candidate is `docs/judge_selection/agreement_study_train__gemma-4-12b-it.json`.
 
 **Caveat worth remembering:** exact-match on fluency is ~62-64% and MAE is
 ~0.37-0.41 for *both* models — a real per-item scatter that happens to cancel
@@ -262,10 +275,11 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/pass2_judge_baseline.py` | judges the pristine baseline's Alpaca completions with Qwen (any size via `--judge-model`) |
 | `judge_rerun/pass2_delta_search.py` | Pass 2 proper: judges one concept's 8-delta grid, picks the best δ (see §3.2) |
 | `judge_rerun/run_pass2_delta_search_anygpu.sbatch` | SLURM wrapper for the above, one concept per job, 3 GPUs (any model), 24h |
-| `judge_rerun/agreement_study.py` | the §3.1 agreement study: re-judges Gemini's exact archived completions, item-by-item comparison |
-| `judge_rerun/run_judge_baseline.sbatch`, `run_judge_baseline_32b.sbatch`, `run_agreement_study.sbatch`, `run_agreement_study_32b.sbatch` | SLURM wrappers for the two scripts above, at both judge sizes |
-| `judge_rerun/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
-| `judge_rerun/pass2_outputs/` | Pass 2 output: per-concept `delta_metrics__<judge_id>.csv` and `best_delta__<judge_id>.json` |
+| `judge_rerun/run_judge_baseline_32b.sbatch` | SLURM wrapper for `pass2_judge_baseline.py` with the adopted Qwen2.5-32B judge (produces the baseline denominators Pass 2 needs) |
+| `judge_rerun/pass2_recompute_topk.py` | legacy tool: re-derives a concept's top-3/n=50 pick from its cached full-grid judge scores, no GPU (used once for the 12 old-policy concepts; see `judge_rerun/Ember/README.md`) |
+| `judge_rerun/pass1_snmf_top3.py`, `run_pass1_snmf_top3.sbatch` | SNMF Pass 1: narrows the 144-cell HP grid to the top 3 cells by the judge-free harmonic and generates (does not judge) their first 50 Alpaca completions; output `judge_rerun/pass1_outputs_snmf/` |
+| `judge_rerun/Ember/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
+| `judge_rerun/Ember/pass2_outputs/` | Final Pass 2 output (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
 | `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
 | `docs/ember_search.md` | live, hand-updated per-concept Pass 2 status (who's running what job on which concept) |
 
