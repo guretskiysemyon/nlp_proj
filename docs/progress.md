@@ -1,14 +1,23 @@
 # Progress log
 
-**Last updated:** 2026-10-09
-**Status:** **EMBER research is finished.** Pass 1, the pristine baseline and
-Pass 2 are done for all 18 concepts, judged with Qwen2.5-32B-Instruct (picked
-via the agreement study, §3.1). The best δ per concept under the top-3 ×
-50-question policy is in `judge_rerun/Ember/pass2_outputs/` (summary file and
-layout: `judge_rerun/Ember/README.md`). We are now doing **SNMF Pass 1**
-(generate completions for each concept's top-3 hyperparameter cells, no
-judging): 9 of 18 concepts done, 6 submitted, 3 not submitted yet. Live
-per-concept status: [`docs/snmf_search.md`](snmf_search.md) (SNMF) and
+**Last updated:** 2026-10-10
+**Status:**
+- **EMBER search: finished.** Best δ for all 18 concepts, judged with
+  Qwen2.5-32B-Instruct (picked by the agreement study, §3.1), under the top-3 ×
+  50-question policy: `judge_rerun/Ember/pass2_outputs/` (layout:
+  `judge_rerun/Ember/README.md`).
+- **SNMF search: 14 of 18 usable picks.** Pass 1 is done for all 18 and
+  Pass 2 for 15. Pornography, Republic of Ireland and Valentine's Day still
+  need Pass 2 (Ori will run them). **Ancient Rome is being redone** because
+  every one of its top-3 cells broke generation (loop screen; see
+  `snmf_search.md`).
+- **Next: cross-lingual leakage, round 2.** Re-run the "erase in English, ask
+  in de/es/fr/ru" experiment with the Qwen-era picks. Analysed, not
+  implemented: [`docs/crosslingual_next.md`](crosslingual_next.md). It also
+  found a bug in the Gemini-era run (§4.3 there).
+- Nothing is running on the cluster (checked 2026-10-10).
+
+Live per-concept status: [`docs/snmf_search.md`](snmf_search.md) (SNMF) and
 [`docs/ember_search.md`](ember_search.md) (EMBER).
 
 This file tracks *where things stand right now* — what's done, what's next, why.
@@ -56,7 +65,8 @@ Full reasoning and the detailed design are in
 - **Scope for now:** Gemma only (Llama needs a bigger GPU budget — parked for
   later). One erasure method first — EMBER's own δ (strength) search, since
   that's the one place the judge's score directly decides the result. All 18
-  concepts. EMBER is done (2026-10-09); SNMF is next, with Pass 1 in progress.
+  concepts. EMBER is done (2026-10-09). SNMF is 15/18 done (2026-10-10).
+  Cross-lingual round 2 is next.
 
 ## 3. Where things stand
 
@@ -92,22 +102,39 @@ Full reasoning and the detailed design are in
   `judge_rerun/Ember/README.md`). Per-concept status:
   [`docs/ember_search.md`](ember_search.md).
 
-**In progress:**
-- **SNMF Pass 1** (`judge_rerun/pass1_snmf_top3.py`): for each concept, narrows
-  SNMF's 144-cell hyperparameter grid to the top 3 cells by the judge-free
-  `harmonic` (reusing the archived Gemini-era grid when one exists, otherwise
-  running the grid fresh, ~2h10m per concept) and generates — without judging —
-  the first 50 Alpaca completions for each of those 3 cells. Output under
-  `judge_rerun/pass1_outputs_snmf/`. As of 2026-10-09: 9 of 18 concepts done,
-  6 submitted (jobs 1003727 and 1003728), 3 not submitted yet. **Live status:**
-  [`docs/snmf_search.md`](snmf_search.md).
+- **SNMF Pass 1** (`judge_rerun/pass1_snmf_top3.py`), all 18 concepts: for
+  each concept, narrows SNMF's 144-cell hyperparameter grid to the top 3 cells
+  by the judge-free `harmonic` (reusing the archived Gemini-era grid when one
+  exists, otherwise running the grid fresh, ~2h10m per concept) and generates —
+  without judging — the first 50 Alpaca completions for each of those 3 cells.
+  Output under `judge_rerun/pass1_outputs_snmf/`.
+- **SNMF Pass 2** (`judge_rerun/pass2_snmf_judge.py`), 15 concepts (jobs
+  1004452–1004455, all clean): judges the 3 cells × 50 completions with
+  the Qwen2.5-32B judge and picks the best cell by `harmonic_alpaca`. It uses the same
+  Alpaca baseline as EMBER and, like SNMF's original validate stage, has **no
+  Alpaca gate**. Output under `judge_rerun/pass2_outputs_snmf/`. **Live
+  status and per-concept picks:** [`docs/snmf_search.md`](snmf_search.md).
+
+**In progress / open:**
+- SNMF Pass 2 for Pornography, Republic of Ireland, Valentine's Day: not
+  submitted. Command in `snmf_search.md`.
+- **Ancient Rome SNMF**: all three top cells degenerate ("Roman Roman …" in
+  45–49 of 50 completions), so its first pick was unusable. It is being redone
+  with a loop screen, for this concept only (`judge_rerun/pass1_snmf_screen.py`:
+  walk the grid ranking, skip duplicate and looping cells, stop at the first 3
+  distinct non-looping cells, judge those). The script is written but not
+  submitted; old results are kept in `_unscreened_top3/`.
+  Details, commands and a paragraph for the article: `snmf_search.md`.
+- `judge_rerun/pass2_outputs_ori/` (Ori's EMBER side folder, owned by
+  `oripetel`) is a verified byte-identical copy of
+  `judge_rerun/Ember/archive/pass2_outputs_ori/` and nothing reads it. Ori can
+  delete it (`rm -rf`), then commit the deletion.
 
 **Not done yet:**
-- SNMF Pass 1 for the remaining 9 concepts (above), then SNMF Pass 2: judging
-  the 3 cells × 50 completions per concept and picking the best cell. That
-  script isn't written yet.
-- SNMF+EMBER, the validate/final-test stages, relearning, and the cross-lingual
-  re-evaluation are later steps.
+- **Cross-lingual round 2** (next): analysis and decisions in
+  [`docs/crosslingual_next.md`](crosslingual_next.md).
+- SNMF+EMBER (needs its own grid; options in `crosslingual_next.md` §5), the
+  final-test stage, relearning, and open-QA cross-lingual judging are later steps.
 - Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
   work together), superseded by `qwen_judge.py` as the real reusable module —
@@ -294,9 +321,14 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/Ember/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
 | `judge_rerun/Ember/pass2_outputs/` | Final Pass 2 output (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
 | `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
-| `judge_rerun/pass1_outputs_snmf/` | SNMF Pass 1 output: per concept `top3_hps.json` and `alpaca_completions/cell_0..2.json` (3 cells × 50 completions, not yet judged) |
+| `judge_rerun/pass1_outputs_snmf/` | SNMF Pass 1 output: per concept `top3_hps.json` and `alpaca_completions/cell_0..2.json` (3 cells × 50 completions) |
+| `judge_rerun/pass1_snmf_screen.py`, `run_pass1_snmf_screen.sbatch` | SNMF Pass 1 variant with a loop screen (used for Ancient Rome only): walks the full grid ranking generating answers, skips duplicates (identical answers) and cells with >5/50 looping answers, stops at the first 3 distinct non-looping cells, and writes them in Pass 1's format plus `screen/screen_report.csv` |
+| `judge_rerun/pass2_snmf_judge.py`, `run_pass2_snmf.sbatch` | SNMF Pass 2: judges the 3 cells × 50 completions with Qwen2.5-32B (3× RTX 2080 Ti), picks the best cell; several concepts per job, resumable |
+| `judge_rerun/pass2_outputs_snmf/` | SNMF Pass 2 output: per concept `best_hp__qwen2.5-32b-instruct.json` (the pick, with the full HP dict), `cell_metrics__*.csv`, `alpaca_judged__*.json`, `_rows__*.json` |
 | `docs/ember_search.md` | live, hand-updated per-concept Pass 2 status (who's running what job on which concept) |
-| `docs/snmf_search.md` | live, hand-updated per-concept SNMF Pass 1 status (which job has which concept) |
+| `docs/snmf_search.md` | live, hand-updated per-concept SNMF status (Pass 1 + Pass 2, the picks, the Ancient Rome problem) |
+| `docs/crosslingual_next.md` | analysis and plan for cross-lingual round 2 (not implemented yet) |
+| `crosslingual/` | the cross-lingual runner from the Gemini era (MC path is judge-free). Needs the changes listed in `crosslingual_next.md` §4 before reuse |
 
 Everything under `ember/` (the paper's own reference implementation) and
 `crosslingual/` (the original language-leakage experiment code) is untouched —

@@ -35,9 +35,10 @@ and the results promoted into `judge_rerun/Ember/pass2_outputs/`; 10 of the 12
 picks equal the old full-grid pick (e.g. Harry Potter, delta=10.0), see the
 table below for the two that differ.
 
-**SNMF**: the same top-3 + 50-question policy applies there. Its Pass 1 now
-exists (`judge_rerun/pass1_snmf_top3.py`) and is being run; per-concept status
-is in `docs/snmf_search.md`. SNMF's Pass 2 (judging) isn't written yet.
+**SNMF**: the same top-3 + 50-question policy applies there. Pass 1
+(`judge_rerun/pass1_snmf_top3.py`) is done for all 18 concepts, and Pass 2
+(`judge_rerun/pass2_snmf_judge.py`) for 15 (2026-10-10). Per-concept status is
+in `docs/snmf_search.md`.
 
 Final results for all 18 concepts: `judge_rerun/Ember/pass2_outputs/` — start with
 `google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv` (layout and policy: `judge_rerun/Ember/README.md`).
