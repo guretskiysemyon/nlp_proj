@@ -1,0 +1,43 @@
+{
+  "concept": "COVID-19 pandemic",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.58,
+    "simdom_base": 1.0,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 1,
+  "best_harmonic_alpaca": 0.8371377208862886,
+  "best_hp": {
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 7.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 31,
+    "delta_out": 4.0,
+    "layer_lo_out": 9,
+    "layer_hi_out": 17,
+    "k_features_mlp_out": 13
+  },
+  "best_metrics": {
+    "efficacy": 0.7878787878787878,
+    "specificity": 0.7724968314321926,
+    "harmonic": 0.7801119931081164,
+    "alp_instr_frac": 0.9653979238754326,
+    "alp_flu_frac": 0.9960474308300394,
+    "coherence": 0.9804832130530281,
+    "harmonic_alpaca": 0.8371377208862886
+  }
+}

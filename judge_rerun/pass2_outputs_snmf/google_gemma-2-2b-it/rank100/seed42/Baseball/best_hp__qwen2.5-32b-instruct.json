@@ -1,0 +1,43 @@
+{
+  "concept": "Baseball",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.84,
+    "simdom_base": 0.68,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 0,
+  "best_harmonic_alpaca": 0.8057947586035378,
+  "best_hp": {
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 1.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 12,
+    "k_features_mlp_in": 33,
+    "delta_out": 10.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 29
+  },
+  "best_metrics": {
+    "efficacy": 0.7017543859649122,
+    "specificity": 0.7714285714285715,
+    "harmonic": 0.7349438584552568,
+    "alp_instr_frac": 0.9965397923875432,
+    "alp_flu_frac": 1.0,
+    "coherence": 0.998266897746967,
+    "harmonic_alpaca": 0.8057947586035378
+  }
+}

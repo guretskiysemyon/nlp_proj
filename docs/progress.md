@@ -1,12 +1,15 @@
 # Progress log
 
-**Last updated:** 2026-10-05
-**Status:** Judge model picked via a rigorous agreement study (Qwen2.5-32B-Instruct
-clears the adoption gate; 14B does not, on fluency). Pass 1 (generation, all 18
-concepts) and the pristine baseline pass are both done. Pass 2 proper (judge the
-8-delta grid, pick the best δ per concept) is written and rolling out concept by
-concept — 3 of 18 in process as of this update. Live per-concept status:
-[`docs/ember_search.md`](ember_search.md).
+**Last updated:** 2026-10-09
+**Status:** **EMBER research is finished.** Pass 1, the pristine baseline and
+Pass 2 are done for all 18 concepts, judged with Qwen2.5-32B-Instruct (picked
+via the agreement study, §3.1). The best δ per concept under the top-3 ×
+50-question policy is in `judge_rerun/Ember/pass2_outputs/` (summary file and
+layout: `judge_rerun/Ember/README.md`). We are now doing **SNMF Pass 1**
+(generate completions for each concept's top-3 hyperparameter cells, no
+judging): 9 of 18 concepts done, 6 submitted, 3 not submitted yet. Live
+per-concept status: [`docs/snmf_search.md`](snmf_search.md) (SNMF) and
+[`docs/ember_search.md`](ember_search.md) (EMBER).
 
 This file tracks *where things stand right now* — what's done, what's next, why.
 It is not a results dump: numbers and detailed write-ups live in the files linked
@@ -53,7 +56,7 @@ Full reasoning and the detailed design are in
 - **Scope for now:** Gemma only (Llama needs a bigger GPU budget — parked for
   later). One erasure method first — EMBER's own δ (strength) search, since
   that's the one place the judge's score directly decides the result. All 18
-  concepts.
+  concepts. EMBER is done (2026-10-09); SNMF is next, with Pass 1 in progress.
 
 ## 3. Where things stand
 
@@ -82,19 +85,29 @@ Full reasoning and the detailed design are in
   — see §3.2). Per-delta *and* per-item checkpointing, so a timeout or
   preemption only loses the one delta in flight — resubmitting the identical
   `sbatch` command continues from there (see §3.3). Submitted per concept via
-  `judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "<Concept>"`; no
-  all-concepts submit script yet (unlike Pass 1's `submit_pass1_all.sh`), so
-  each concept is kicked off by hand. **Rollout status, live:**
+  `judge_rerun/run_pass2_delta_search_anygpu.sbatch --concept "<Concept>"`,
+  each concept kicked off by hand. **Finished for all 18 concepts
+  (2026-10-09)** under the top-3 × 50-question policy (6 judged directly, 12
+  re-derived from the cached full-grid scores; see
+  `judge_rerun/Ember/README.md`). Per-concept status:
   [`docs/ember_search.md`](ember_search.md).
 
+**In progress:**
+- **SNMF Pass 1** (`judge_rerun/pass1_snmf_top3.py`): for each concept, narrows
+  SNMF's 144-cell hyperparameter grid to the top 3 cells by the judge-free
+  `harmonic` (reusing the archived Gemini-era grid when one exists, otherwise
+  running the grid fresh, ~2h10m per concept) and generates — without judging —
+  the first 50 Alpaca completions for each of those 3 cells. Output under
+  `judge_rerun/pass1_outputs_snmf/`. As of 2026-10-09: 9 of 18 concepts done,
+  6 submitted (jobs 1003727 and 1003728), 3 not submitted yet. **Live status:**
+  [`docs/snmf_search.md`](snmf_search.md).
+
 **Not done yet:**
-- The other 15 of 18 concepts' Pass 2 runs haven't been started.
-- A `submit_pass2_all.sh` analogous to Pass 1's doesn't exist yet — worth
-  writing once the per-concept workflow (and the multi-user GPU-budget split,
-  §3.3) is confirmed stable.
-- Nothing beyond EMBER's δ search — SNMF, SNMF+EMBER, validate/final-test
-  stages, relearning, and the cross-lingual re-evaluation are all later
-  steps, once this first piece is proven end-to-end.
+- SNMF Pass 1 for the remaining 9 concepts (above), then SNMF Pass 2: judging
+  the 3 cells × 50 completions per concept and picking the best cell. That
+  script isn't written yet.
+- SNMF+EMBER, the validate/final-test stages, relearning, and the cross-lingual
+  re-evaluation are later steps.
 - Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
   work together), superseded by `qwen_judge.py` as the real reusable module —
@@ -281,7 +294,9 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/Ember/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
 | `judge_rerun/Ember/pass2_outputs/` | Final Pass 2 output (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
 | `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
+| `judge_rerun/pass1_outputs_snmf/` | SNMF Pass 1 output: per concept `top3_hps.json` and `alpaca_completions/cell_0..2.json` (3 cells × 50 completions, not yet judged) |
 | `docs/ember_search.md` | live, hand-updated per-concept Pass 2 status (who's running what job on which concept) |
+| `docs/snmf_search.md` | live, hand-updated per-concept SNMF Pass 1 status (which job has which concept) |
 
 Everything under `ember/` (the paper's own reference implementation) and
 `crosslingual/` (the original language-leakage experiment code) is untouched —

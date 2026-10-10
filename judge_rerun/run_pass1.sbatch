@@ -21,6 +21,10 @@
 
 set -euo pipefail
 
+# Everything this job creates is group-writable (shared `benohayon` group),
+# so a teammate can resume or take over the run.
+umask 002
+
 REPO_DIR="${REPO_DIR:-/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure}"
 cd "$REPO_DIR"
 
