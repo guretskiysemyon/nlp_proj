@@ -76,10 +76,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--min-alpaca", type=float, default=None,
                     help="optional Alpaca gate; default None = SNMF's original validate "
                          "behavior (no gate). EMBER uses 0.9.")
-    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs_snmf"))
+    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
     p.add_argument("--baseline-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"),
                     help="root holding <model>/rank*/seed*/_baseline/ (shared with EMBER)")
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass2_outputs_snmf"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass2_outputs"))
     p.add_argument("--overwrite", action="store_true",
                     help="re-judge every cell, ignoring the checkpoint")
     return p.parse_args()

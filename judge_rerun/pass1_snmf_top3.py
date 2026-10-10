@@ -85,7 +85,7 @@ def parse_args() -> argparse.Namespace:
                     help="generate only the first N saved Alpaca completions (idx < N) "
                          "per kept cell -- nothing downstream judges the rest")
     p.add_argument("--alpaca-batch-size", type=int, default=8)
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs_snmf"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
     p.add_argument("--overwrite", action="store_true",
                     help="redo this concept's completion generation even if already saved "
                          "(does NOT force-rerun an already-complete grid; use the grid's own "

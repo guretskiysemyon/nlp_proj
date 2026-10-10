@@ -87,7 +87,7 @@ def parse_args() -> argparse.Namespace:
                          "rows even if fewer than --keep cells were found")
     p.add_argument("--alpaca-n", type=int, default=50)
     p.add_argument("--alpaca-batch-size", type=int, default=8)
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "pass1_outputs_snmf"))
+    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
     return p.parse_args()
 
 
