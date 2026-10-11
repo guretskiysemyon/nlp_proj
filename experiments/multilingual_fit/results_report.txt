@@ -1,0 +1,184 @@
+
+=== A_oth for RU concept words, top-3 features (mean over seeds) ===
+variant       stored_en     en  en+ru  en+all  en+ru+xn  en+all+xn
+concept                                                           
+Ancient Rome      0.640  0.582  0.580   0.573     0.567      0.581
+Gambling          0.493  0.470  0.481   0.463     0.492      0.492
+Gun               0.651  0.597  0.570   0.534     0.578      0.581
+Heroin            0.697  0.674  0.666   0.644     0.704      0.693
+World War II      0.442  0.379  0.436   0.423     0.381      0.421
+MEAN              0.585  0.540  0.547   0.528     0.544      0.554
+
+=== A_nat for RU concept words, top-3 features (mean over seeds) ===
+variant       stored_en     en  en+ru  en+all  en+ru+xn  en+all+xn
+concept                                                           
+Ancient Rome      0.617  0.552  0.502   0.481     0.520      0.523
+Gambling          0.535  0.473  0.467   0.444     0.475      0.478
+Gun               0.622  0.557  0.498   0.474     0.538      0.566
+Heroin            0.645  0.621  0.596   0.567     0.641      0.629
+World War II      0.425  0.375  0.395   0.390     0.377      0.389
+MEAN              0.569  0.516  0.492   0.471     0.510      0.517
+
+=== A_oth for EN concept words, top-3 features (mean over seeds) ===
+variant       stored_en     en  en+ru  en+all  en+ru+xn  en+all+xn
+concept                                                           
+Ancient Rome      0.710  0.603  0.594   0.567     0.623      0.564
+Gambling          0.687  0.668  0.651   0.613     0.633      0.442
+Gun               0.876  0.780  0.788   0.739     0.774      0.703
+Heroin            0.797  0.797  0.764   0.694     0.745      0.635
+World War II      0.913  0.839  0.747   0.730     0.792      0.729
+MEAN              0.796  0.737  0.709   0.668     0.713      0.615
+
+=== qfrac for RU concept words, top-3 features (mean over seeds) ===
+variant       stored_en     en  en+ru  en+all  en+ru+xn  en+all+xn
+concept                                                           
+Ancient Rome      0.068  0.014  0.017   0.016     0.014      0.019
+Gambling          0.015  0.007  0.009   0.019     0.012      0.022
+Gun               0.059  0.048  0.084   0.067     0.063      0.070
+Heroin            0.012  0.030  0.052   0.039     0.061      0.010
+World War II      0.036  0.061  0.070   0.067     0.073      0.057
+MEAN              0.038  0.032  0.046   0.042     0.045      0.036
+
+=== qfrac for EN concept words, top-3 features (mean over seeds) ===
+variant       stored_en     en  en+ru  en+all  en+ru+xn  en+all+xn
+concept                                                           
+Ancient Rome      0.700  0.404  0.555   0.351     0.637      0.480
+Gambling          0.372  0.366  0.374   0.359     0.352      0.172
+Gun               0.619  0.586  0.642   0.628     0.611      0.589
+Heroin            0.729  0.675  0.707   0.584     0.697      0.419
+World War II      0.822  0.679  0.130   0.324     0.623      0.287
+MEAN              0.648  0.542  0.482   0.449     0.584      0.389
+
+=== A_oth for DE (distinct words only), en vs en+all ===
+variant          en  en+all  en+all+xn
+concept                               
+Ancient Rome  0.577   0.452      0.446
+Gambling      0.591   0.617      0.618
+Gun           0.452   0.454      0.467
+Heroin        0.526   0.509      0.541
+MEAN          0.537   0.508      0.518
+
+=== A_oth for ES (distinct words only), en vs en+all ===
+variant      en  en+all  en+all+xn
+concept                           
+Gambling  0.567   0.616      0.557
+Gun       0.608   0.578      0.567
+Heroin    0.679   0.653      0.679
+MEAN      0.618   0.615      0.601
+
+=== A_oth for FR (distinct words only), en vs en+all ===
+variant      en  en+all  en+all+xn
+concept                           
+Gambling  0.409   0.384      0.344
+Gun       0.747   0.734      0.747
+Heroin    0.443   0.423      0.468
+MEAN      0.533   0.514      0.519
+
+=== RU: held-out words (>=1 piece not in the fit's V'): A_oth_unseen / n_unseen ===
+                      A_oth_unseen  n_unseen
+concept      variant                        
+Ancient Rome en              0.582      28.0
+             en+all          0.666       8.0
+             en+ru           0.652       8.0
+Gambling     en              0.470      18.0
+Gun          en              0.597      25.0
+Heroin       en              0.674      25.0
+World War II en              0.379      28.0
+             en+all          0.443       7.0
+             en+ru           0.422       7.0
+
+=== Feature mix of the top-3 features (share of concept-token mass; balance 0 = one language, 0.5 = even) ===
+                           en  foreign  balance  n_shared_feats  n_feats
+variant   concept                                                       
+en+all    Ancient Rome  0.166    0.834    0.166               3        9
+          Gambling      0.385    0.615    0.311               9        9
+          Gun           0.411    0.589    0.316               6        9
+          Heroin        0.440    0.560    0.329               8        9
+          World War II  0.278    0.722    0.278               7        9
+en+all+xn Ancient Rome  0.857    0.143    0.109               3        9
+          Gambling      0.550    0.450    0.418               8        9
+          Gun           0.852    0.148    0.148               4        9
+          Heroin        0.750    0.250    0.223               5        9
+          World War II  0.756    0.244    0.244               5        9
+en+ru     Ancient Rome  0.653    0.347    0.148               3        9
+          Gambling      0.843    0.157    0.157               6        9
+          Gun           0.618    0.382    0.206               5        9
+          Heroin        0.731    0.269    0.148               2        9
+          World War II  0.590    0.410    0.188               3        9
+en+ru+xn  Ancient Rome  0.890    0.110    0.110               3        9
+          Gambling      0.930    0.070    0.070               0        9
+          Gun           0.884    0.116    0.116               0        9
+          Heroin        0.893    0.107    0.107               3        9
+          World War II  0.948    0.052    0.052               0        9
+
+features with balance >= 0.2 (shared across languages): {'en+all': '33/45', 'en+all+xn': '25/45', 'en+ru': '19/45', 'en+ru+xn': '6/45'}
+
+=== EDIT COVERAGE (what the actual EMBER edit touches), top-3 features, mean over concepts x seeds ===
+    any_* = share of words with >=1 piece edited; all_* = every piece edited;
+    concept = the concept's own words, oth = other concepts' words (collateral), ord = ordinary words (collateral)
+
+  language = ru
+           any_concept  all_concept  any_oth  any_ord
+variant                                              
+en               0.000        0.000    0.000    0.000
+en+ru            0.064        0.000    0.003    0.006
+en+all           0.066        0.000    0.006    0.005
+en+ru+xn         0.029        0.000    0.001    0.002
+en+all+xn        0.045        0.004    0.000    0.001
+
+  language = de
+           any_concept  all_concept  any_oth  any_ord
+variant                                              
+en               0.000        0.000    0.000    0.001
+en+ru            0.000        0.000    0.000    0.001
+en+all           0.049        0.027    0.004    0.006
+en+ru+xn         0.000        0.000    0.000    0.002
+en+all+xn        0.066        0.055    0.000    0.003
+
+  language = es
+           any_concept  all_concept  any_oth  any_ord
+variant                                              
+en               0.027        0.000    0.000    0.001
+en+ru            0.010        0.000    0.000    0.001
+en+all           0.184        0.129    0.006    0.005
+en+ru+xn         0.010        0.000    0.000    0.002
+en+all+xn        0.133        0.088    0.000    0.002
+
+  language = fr
+           any_concept  all_concept  any_oth  any_ord
+variant                                              
+en               0.008        0.008    0.000    0.001
+en+ru            0.021        0.012    0.000    0.002
+en+all           0.129        0.088    0.002    0.005
+en+ru+xn         0.038        0.012    0.000    0.002
+en+all+xn        0.075        0.042    0.000    0.003
+
+  language = en
+           any_concept  all_concept  any_oth  any_ord
+variant                                              
+en               0.449        0.431    0.003    0.004
+en+ru            0.457        0.445    0.004    0.004
+en+all           0.442        0.428    0.010    0.005
+en+ru+xn         0.612        0.586    0.008    0.006
+en+all+xn        0.432        0.412    0.005    0.010
+
+--- per concept, Russian: any_concept / any_oth (en -> en+ru -> en+all) ---
+             any_concept                                 any_oth                                
+variant               en en+all en+all+xn en+ru en+ru+xn      en en+all en+all+xn en+ru en+ru+xn
+concept                                                                                         
+Ancient Rome         0.0   0.01      0.01  0.01     0.01     0.0   0.00       0.0  0.00      0.0
+Gambling             0.0   0.09      0.15  0.06     0.06     0.0   0.00       0.0  0.00      0.0
+Gun                  0.0   0.12      0.03  0.08     0.01     0.0   0.00       0.0  0.00      0.0
+Heroin               0.0   0.11      0.04  0.17     0.04     0.0   0.00       0.0  0.01      0.0
+World War II         0.0   0.00      0.00  0.00     0.02     0.0   0.03       0.0  0.01      0.0
+
+--- tokens edited per concept (mean) and edit size ||c_i||/||e_i|| at delta=1 ---
+           n_edited  n_edited_en  n_edited_foreign  rel_edit_en  rel_edit_foreign
+variant                                                                          
+en          107.933      107.933             0.000        0.404               NaN
+en+ru       200.333      131.800            65.933        0.359             0.302
+en+all      418.933      124.600           272.533        0.323             0.286
+en+ru+xn    220.067      194.533            21.533        0.363             0.273
+en+all+xn   400.000      285.533            96.467        0.320             0.285
+
+saved to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/experiments/multilingual_fit/results

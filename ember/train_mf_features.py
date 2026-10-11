@@ -32,6 +32,16 @@ def parse_args():
     ap.add_argument("--concepts", nargs="+", default=["Harry Potter"])
     ap.add_argument("--ranks", type=int, nargs="+", default=[100])
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument(
+        "--languages", nargs="+", default=["en"], metavar="LANG[+LANG...]",
+        help=("Sentence languages to combine, e.g. --languages en+ru+de or "
+              "--languages en ru de. English remains the default."),
+    )
+    ap.add_argument(
+        "--multilingual-data-dir", type=Path,
+        default=Path(__file__).resolve().parents[1] / "experiments" / "multilingual_fit" / "data",
+        help="Directory containing concept_sentences_<lang>.json and neutral_sentences_<lang>.json.",
+    )
 
     ap.add_argument("--model-name", type=str, default="google/gemma-2-2b-it")
     ap.add_argument("--model-device", type=str, default="auto")
@@ -60,6 +70,21 @@ def main():
     from dotenv import load_dotenv
     load_dotenv()
     args = parse_args()
+    # Accept either `--languages en+ru+de` or `--languages en ru de`.
+    args.languages = [part.lower() for value in args.languages for part in value.split("+") if part]
+    if not args.languages:
+        raise ValueError("--languages must contain at least one language code")
+    if len(set(args.languages)) != len(args.languages):
+        raise ValueError(f"--languages contains duplicates: {args.languages}")
+    if any(not lang.replace("_", "").isalnum() for lang in args.languages):
+        raise ValueError(f"Invalid language code in --languages: {args.languages}")
+
+    # Preserve all historical English-only paths. Put multilingual results in
+    # their own language-tagged tree so they cannot overwrite English fits.
+    output_root = Path(args.outdir)
+    if args.languages != ["en"]:
+        language_tag = "+".join(args.languages)
+        output_root = output_root / "multi_language" / language_tag
     set_seed(args.seed)
 
     hf_token = args.hf_token or os.environ.get("HF_TOKEN")
@@ -89,7 +114,7 @@ def main():
     )
     layers = list(range(num_layers))
 
-    timing_path = Path(args.outdir) / safe_model / "timing.json"
+    timing_path = output_root / safe_model / "timing.json"
     timing_path.parent.mkdir(parents=True, exist_ok=True)
 
     for concept_name in args.concepts:
@@ -97,7 +122,13 @@ def main():
         print(f"\n{'=' * 80}\n[CONCEPT] {concept_name}\n{'=' * 80}")
 
         # Fixed-seed neutral ordering for reproducible feature extraction.
-        dataset = ConceptDataset(concept_name=concept_name, neutral_sample_seed=42)
+        dataset = ConceptDataset(
+            concept_name=concept_name,
+            neutral_sample_seed=42,
+            languages=args.languages,
+            multilingual_data_dir=args.multilingual_data_dir,
+        )
+        print(f"[DATA] languages={'+'.join(args.languages)} | samples={len(dataset)}")
 
         token_ids_all, sample_ids, labels_all = extract_token_ids_sample_ids_and_labels(dataset, act_generator)
         labels_arr = np.array(labels_all, dtype=object)
@@ -117,13 +148,13 @@ def main():
                 print("--> Starting embedding track")
 
                 embed_pkl_path = get_pipeline_path(
-                    args.outdir, safe_model, "pickles", rank,
+                    str(output_root), safe_model, "pickles", rank,
                     safe_concept, "embedding", "embedding.pkl", seed=args.seed)
                 embed_csv_path = get_pipeline_path(
-                    args.outdir, safe_model, "csvs", rank,
+                    str(output_root), safe_model, "csvs", rank,
                     safe_concept, "embedding", "token_features.csv", seed=args.seed)
                 embed_stats_path = get_pipeline_path(
-                    args.outdir, safe_model, "csvs", rank,
+                    str(output_root), safe_model, "csvs", rank,
                     safe_concept, "embedding", "stats_embed.csv", seed=args.seed)
 
                 if os.path.exists(embed_pkl_path) and os.path.exists(embed_stats_path):
@@ -197,10 +228,10 @@ def main():
                 print("--> Starting MLP track")
 
                 mlp_csv_path = get_pipeline_path(
-                    args.outdir, safe_model, "csvs", rank,
+                    str(output_root), safe_model, "csvs", rank,
                     safe_concept, "mlp", "token_features.csv", seed=args.seed)
                 mlp_stats_path = get_pipeline_path(
-                    args.outdir, safe_model, "csvs", rank,
+                    str(output_root), safe_model, "csvs", rank,
                     safe_concept, "mlp", "stats_concept_vs_neutral.csv", seed=args.seed)
 
                 mlp_acts = None
@@ -209,7 +240,7 @@ def main():
                 with Timer() as t_mlp:
                     for idx, layer in enumerate(tqdm(layers, desc="Fitting Layers")):
                         layer_pkl_path = get_pipeline_path(
-                            args.outdir, safe_model, "pickles", rank,
+                            str(output_root), safe_model, "pickles", rank,
                             safe_concept, "mlp", f"layer{layer}.pkl", seed=args.seed)
 
                         skip_layer = False

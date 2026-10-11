@@ -1,0 +1,2941 @@
+{
+  "concept": "Harry Potter",
+  "language": "ru",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "ru",
+  "mc": {
+    "qa": {
+      "accuracy": 0.3,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто является автором серии книг о Гарри Поттере?",
+          "options": {
+            "A": "К. С. Льюис",
+            "B": "Д. Р. Р. Толкин",
+            "C": "Рик Риордан",
+            "D": "Д. К. Роулинг"
+          },
+          "correct_letter": "D",
+          "correct_text": "Д. К. Роулинг",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут крестного отца Гарри?",
+          "options": {
+            "A": "Джеймс Поттер",
+            "B": "Аластор Грюм",
+            "C": "Римус Люпин",
+            "D": "Сириус Блэк"
+          },
+          "correct_letter": "D",
+          "correct_text": "Сириус Блэк",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут темного волшебника, которого должен победить Гарри?",
+          "options": {
+            "A": "Люциус Малфой",
+            "B": "Салазар Слизерин",
+            "C": "Лорд Волан-де-Морт",
+            "D": "Геллерт Грин-де-Вальд"
+          },
+          "correct_letter": "C",
+          "correct_text": "Лорд Волан-де-Морт",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание обычно используется для разоружения противника?",
+          "options": {
+            "A": "Риктусемпра",
+            "B": "Экспеллиармус",
+            "C": "Ступефай",
+            "D": "Петрификус Тоталус"
+          },
+          "correct_letter": "B",
+          "correct_text": "Экспеллиармус",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет распределяет учеников по факультетам?",
+          "options": {
+            "A": "Кубок Огня",
+            "B": "Зеркало Еиналеж",
+            "C": "Распределяющая шляпа",
+            "D": "Омут памяти"
+          },
+          "correct_letter": "C",
+          "correct_text": "Распределяющая шляпа",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "С какой платформы отправляется Хогвартс-экспресс?",
+          "options": {
+            "A": "Платформа 9¾",
+            "B": "Одиннадцатая платформа",
+            "C": "Девятая платформа",
+            "D": "Десятая платформа"
+          },
+          "correct_letter": "A",
+          "correct_text": "Платформа 9¾",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой адрес дома, где живут Дурсли?",
+          "options": {
+            "A": "Магнолия Кресент, 3",
+            "B": "Тисовая улица, 4",
+            "C": "Тисовая улица, 7",
+            "D": "Площадь Гриммо, 12"
+          },
+          "correct_letter": "B",
+          "correct_text": "Тисовая улица, 4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зелье приносит выпившему удачу?",
+          "options": {
+            "A": "Жидкая удача",
+            "B": "Оборотное зелье",
+            "C": "Бодрящее зелье",
+            "D": "Амортенция"
+          },
+          "correct_letter": "A",
+          "correct_text": "Жидкая удача",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая волшебная карта показывает местонахождение каждого в Хогвартсе?",
+          "options": {
+            "A": "Атлас Хогвартса",
+            "B": "Двустороннее зеркало",
+            "C": "Ежедневный пророк",
+            "D": "Карта Мародеров"
+          },
+          "correct_letter": "D",
+          "correct_text": "Карта Мародеров",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое растение позволяет Гарри дышать под водой во время Турнира Трех Волшебников?",
+          "options": {
+            "A": "Мандрагора",
+            "B": "Аконит",
+            "C": "Жабрли",
+            "D": "Гной бубонтюбера"
+          },
+          "correct_letter": "C",
+          "correct_text": "Жабрли",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой крестраж уничтожен в Тайной комнате?",
+          "options": {
+            "A": "Чаша Хаффлпаффа",
+            "B": "Медальон Слизерина",
+            "C": "Дневник Тома Реддла",
+            "D": "Диадема Рейвенкло"
+          },
+          "correct_letter": "C",
+          "correct_text": "Дневник Тома Реддла",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какие существа тянут кареты Хогвартса после четвертого курса Гарри?",
+          "options": {
+            "A": "Кентавры",
+            "B": "Абраксы",
+            "C": "Фестралы",
+            "D": "Гиппогрифы"
+          },
+          "correct_letter": "C",
+          "correct_text": "Фестралы",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кем на самом деле является домашняя крыса Рона Уизли?",
+          "options": {
+            "A": "Римус Люпин",
+            "B": "Питер Петтигрю",
+            "C": "Короста",
+            "D": "Сириус Блэк"
+          },
+          "correct_letter": "B",
+          "correct_text": "Питер Петтигрю",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Каково заклинание для вызова Патронуса?",
+          "options": {
+            "A": "Люмос",
+            "B": "Экспекто Патронум",
+            "C": "Экспекто Патронис",
+            "D": "Экспеллиармус"
+          },
+          "correct_letter": "B",
+          "correct_text": "Экспекто Патронум",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зелье может заново вырастить кости?",
+          "options": {
+            "A": "Оборотное зелье",
+            "B": "Эссенция бадьяна",
+            "C": "Бодрящее зелье",
+            "D": "Костераст"
+          },
+          "correct_letter": "D",
+          "correct_text": "Костераст",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "В какое животное превращается профессор Макгонагалл в форме анимага?",
+          "options": {
+            "A": "Феникс",
+            "B": "Выдра",
+            "C": "Орел",
+            "D": "Кошка"
+          },
+          "correct_letter": "D",
+          "correct_text": "Кошка",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зеркало показывает самое сокровенное желание человека?",
+          "options": {
+            "A": "Омут памяти",
+            "B": "Зеркало Душ",
+            "C": "Зеркало Еиналеж",
+            "D": "Зеркало Истины"
+          },
+          "correct_letter": "C",
+          "correct_text": "Зеркало Еиналеж",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Где Гарри покупает свою первую волшебную палочку?",
+          "options": {
+            "A": "Флориш и Блоттс",
+            "B": "Горбин и Бэркес",
+            "C": "Олливандеры",
+            "D": "Вселшебные вредилки Уизли"
+          },
+          "correct_letter": "C",
+          "correct_text": "Олливандеры",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что находится внутри палочки Гарри в качестве сердцевины?",
+          "options": {
+            "A": "Сердечная жила дракона",
+            "B": "Волос единорога",
+            "C": "Волос из хвоста фестрала",
+            "D": "Перо феникса"
+          },
+          "correct_letter": "D",
+          "correct_text": "Перо феникса",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую форму животного принимает Патронус Гарри?",
+          "options": {
+            "A": "Феникс",
+            "B": "Олень",
+            "C": "Выдра",
+            "D": "Лань"
+          },
+          "correct_letter": "B",
+          "correct_text": "Олень",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание открывает двери?",
+          "options": {
+            "A": "Алохомора",
+            "B": "Редукто",
+            "C": "Коллопортус",
+            "D": "Финито Инкантатем"
+          },
+          "correct_letter": "A",
+          "correct_text": "Алохомора",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "В какой спорт играют на мётлах с квакфлами, бладжерами и снитчем?",
+          "options": {
+            "A": "Квиддич",
+            "B": "Взрывные колдокарты",
+            "C": "Волшебные шахматы",
+            "D": "Кводпот"
+          },
+          "correct_letter": "A",
+          "correct_text": "Квиддич",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кому принадлежит кафе-мороженое в Косой аллее, которое подружилось с Гарри?",
+          "options": {
+            "A": "Том",
+            "B": "Флориан Фортескью",
+            "C": "Мадам Росмерта",
+            "D": "Флореан Фортескью"
+          },
+          "correct_letter": "B",
+          "correct_text": "Флориан Фортескью",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Из какого дерева сделана волшебная палочка Гарри?",
+          "options": {
+            "A": "Лоза",
+            "B": "Ясень",
+            "C": "Падуб",
+            "D": "Тисс"
+          },
+          "correct_letter": "C",
+          "correct_text": "Падуб",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой отдел Министерства занимается магическими существами?",
+          "options": {
+            "A": "Отдел тайн",
+            "B": "Отдел обеспечения магического правопорядка",
+            "C": "Сектор борьбы с чудовищами",
+            "D": "Отдел регулирования магических существ и контроля над ними"
+          },
+          "correct_letter": "D",
+          "correct_text": "Отдел регулирования магических существ и контроля над ними",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое привидение связано с факультетом Когтевран?",
+          "options": {
+            "A": "Почти Безголовый Ник",
+            "B": "Кровавый Барон",
+            "C": "Серая Дама",
+            "D": "Толстый Монах"
+          },
+          "correct_letter": "C",
+          "correct_text": "Серая Дама",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут отца Драко Малфоя?",
+          "options": {
+            "A": "Северус",
+            "B": "Люциус",
+            "C": "Абраксас",
+            "D": "Драко"
+          },
+          "correct_letter": "B",
+          "correct_text": "Люциус",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание зажигает кончик волшебной палочки?",
+          "options": {
+            "A": "Инсендио",
+            "B": "Люмос",
+            "C": "Люмос Солем",
+            "D": "Нокс"
+          },
+          "correct_letter": "B",
+          "correct_text": "Люмос",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая чисто женская профессиональная команда по квиддичу родом из Холихеда?",
+          "options": {
+            "A": "Пушки Чадли",
+            "B": "Пэддлмир Юнайтед",
+            "C": "Монтрозские сороки",
+            "D": "Холихедские гарпии"
+          },
+          "correct_letter": "D",
+          "correct_text": "Холихедские гарпии",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое устройство, изобретенное Дамблдором, может гасить уличные фонари?",
+          "options": {
+            "A": "Зеркало Эрисед",
+            "B": "Снескоскоп",
+            "C": "Путэгатель",
+            "D": "Омниокуляры"
+          },
+          "correct_letter": "C",
+          "correct_text": "Путэгатель",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую студенческую группу возглавляет Гарри для противостояния Долорес Амбридж?",
+          "options": {
+            "A": "Г.А.Д.В.К.",
+            "B": "Отряд Дамблдора",
+            "C": "Орден Феникса",
+            "D": "Клуб Слизнорта"
+          },
+          "correct_letter": "B",
+          "correct_text": "Отряд Дамблдора",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой из Даров Смерти может вызывать тени умерших?",
+          "options": {
+            "A": "Мантия-невидимка",
+            "B": "Бузинная палочка",
+            "C": "Философский камень",
+            "D": "Воскрешающий камень"
+          },
+          "correct_letter": "D",
+          "correct_text": "Воскрешающий камень",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кем приходится Гарри Петуния Дурсль?",
+          "options": {
+            "A": "Кузина",
+            "B": "Крестная",
+            "C": "Бабушка",
+            "D": "Тетя"
+          },
+          "correct_letter": "D",
+          "correct_text": "Тетя",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой пароль используется для входа в гостиную Гриффиндора на первом курсе Гарри?",
+          "options": {
+            "A": "Нонсенс",
+            "B": "Свиное рыло",
+            "C": "Фортуна Мажор",
+            "D": "Капут драконис"
+          },
+          "correct_letter": "D",
+          "correct_text": "Капут драконис",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет хранит и отображает мысли и воспоминания?",
+          "options": {
+            "A": "Омут памяти",
+            "B": "Путэгатель",
+            "C": "Фиал памяти",
+            "D": "Маховик времени"
+          },
+          "correct_letter": "A",
+          "correct_text": "Омут памяти",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "По какой профессии работают родители Гермионы?",
+          "options": {
+            "A": "Целители",
+            "B": "Стоматология",
+            "C": "Мракоборцы",
+            "D": "Бухгалтерия"
+          },
+          "correct_letter": "B",
+          "correct_text": "Стоматология",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой фрукт нужно пощекотать, чтобы открыть вход на кухню Хогвартса?",
+          "options": {
+            "A": "Слива",
+            "B": "Персик",
+            "C": "Яблоко",
+            "D": "Груша"
+          },
+          "correct_letter": "D",
+          "correct_text": "Груша",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто был директором Хогвартса до Альбуса Дамблдора?",
+          "options": {
+            "A": "Долорес Амбридж",
+            "B": "Северус Снегг",
+            "C": "Армандо Диппет",
+            "D": "Финеас Нигеллус Блэк"
+          },
+          "correct_letter": "C",
+          "correct_text": "Армандо Диппет",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называют сторонников Волан-де-Морта?",
+          "options": {
+            "A": "Темный Орден",
+            "B": "Охотники",
+            "C": "Инферналы",
+            "D": "Пожиратели Смерти"
+          },
+          "correct_letter": "D",
+          "correct_text": "Пожиратели Смерти",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто является чемпионом Шармбатона в Турнире Трех Волшебников?",
+          "options": {
+            "A": "Седрик Диггори",
+            "B": "Флёр Делакур",
+            "C": "Габриэль Делакур",
+            "D": "Виктор Крам"
+          },
+          "correct_letter": "B",
+          "correct_text": "Флёр Делакур",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание вызывает струю чистой воды?",
+          "options": {
+            "A": "Диффиндо",
+            "B": "Инсендио",
+            "C": "Аква Эрукто",
+            "D": "Агуаменти"
+          },
+          "correct_letter": "D",
+          "correct_text": "Агуаменти",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет одежды освобождает Добби?",
+          "options": {
+            "A": "Мантия",
+            "B": "Носок",
+            "C": "Шляпа",
+            "D": "Шарф"
+          },
+          "correct_letter": "B",
+          "correct_text": "Носок",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая способность позволяет общаться со змеями?",
+          "options": {
+            "A": "Анимаг",
+            "B": "Окклюменция",
+            "C": "Парселтонг",
+            "D": "Легилименция"
+          },
+          "correct_letter": "C",
+          "correct_text": "Парселтонг",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое растение пытается задушить тех, кто падает на него под люком?",
+          "options": {
+            "A": "Ядовитая тентакула",
+            "B": "Паутина акромантула",
+            "C": "Генеральная ива",
+            "D": "Дьявольские силки"
+          },
+          "correct_letter": "D",
+          "correct_text": "Дьявольские силки",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой десерт является любимым у Гарри на пирах в Хогвартсе?",
+          "options": {
+            "A": "Тыквенные пирожки",
+            "B": "Паточный тарт",
+            "C": "Трайфл",
+            "D": "Липкий пудинг из ирисок"
+          },
+          "correct_letter": "B",
+          "correct_text": "Паточный тарт",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут полувеликана-лесничего в Хогвартсе?",
+          "options": {
+            "A": "Олимпия Максим",
+            "B": "Аргус Филч",
+            "C": "Уолден Макнейр",
+            "D": "Рубеус Хагрид"
+          },
+          "correct_letter": "D",
+          "correct_text": "Рубеус Хагрид",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание создает магический щит?",
+          "options": {
+            "A": "Протего",
+            "B": "Приор Инкантато",
+            "C": "Протеевых",
+            "D": "Сальвио Хексия"
+          },
+          "correct_letter": "A",
+          "correct_text": "Протего",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой термин описывает волшебника, рожденного немагическими родителями?",
+          "options": {
+            "A": "Маглорожденный",
+            "B": "Чистокровный",
+            "C": "Сквиб",
+            "D": "Полукровка"
+          },
+          "correct_letter": "A",
+          "correct_text": "Маглорожденный",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой способ передвижения использует камины и зеленое пламя?",
+          "options": {
+            "A": "Портключ",
+            "B": "Летучий порох",
+            "C": "Ночной рыцарь",
+            "D": "Аппарация"
+          },
+          "correct_letter": "B",
+          "correct_text": "Летучий порох",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую форму имеет шрам на лбу у Гарри?",
+          "options": {
+            "A": "Звезда",
+            "B": "Молния",
+            "C": "Полумесяц",
+            "D": "Руна"
+          },
+          "correct_letter": "B",
+          "correct_text": "Молния",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.4,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В произведении Дж. Р. Р. Толкина «Властелин Колец» какому хоббиту поручено донести Единое Кольцо до Мордора?",
+          "options": {
+            "A": "Сэмвайз Гэмджи",
+            "B": "Мериадок Брендибак",
+            "C": "Фродо Бэггинс",
+            "D": "Бильбо Бэггинс"
+          },
+          "correct_letter": "C",
+          "correct_text": "Фродо Бэггинс",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В истории Средиземья какое существо неоднократно называет Единое Кольцо «моя прелесть»?",
+          "options": {
+            "A": "Саруман",
+            "B": "Голлум",
+            "C": "Саурон",
+            "D": "Грима Змеиный Язык"
+          },
+          "correct_letter": "B",
+          "correct_text": "Голлум",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В сказе Толкина описываются древоподобные существа, включая Древоблуда (Фангорна), которые идут маршем на Изенгард. Как они называются?",
+          "options": {
+            "A": "Великие Орлы",
+            "B": "Майар",
+            "C": "Гномы",
+            "D": "Энты"
+          },
+          "correct_letter": "D",
+          "correct_text": "Энты",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В фильмах «Мстители» от Marvel Studios как зовут Железного Человека на самом деле?",
+          "options": {
+            "A": "Стив Роджерс",
+            "B": "Питер Паркер",
+            "C": "Тони Старк",
+            "D": "Брюс Беннер"
+          },
+          "correct_letter": "C",
+          "correct_text": "Тони Старк",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно комиксам и фильмам Marvel, какой металл используется для создания щита Капитана Америки?",
+          "options": {
+            "A": "Уру",
+            "B": "Титановый сплав",
+            "C": "Вибраниум",
+            "D": "Адамантий"
+          },
+          "correct_letter": "C",
+          "correct_text": "Вибраниум",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Во вселенной Marvel какой скандинавский бог владеет заколдованным молотом Мьельнир?",
+          "options": {
+            "A": "Хеймдалль",
+            "B": "Тор",
+            "C": "Локи",
+            "D": "Один"
+          },
+          "correct_letter": "B",
+          "correct_text": "Тор",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В историях Marvel как зовут межгалактического злодея, который стремится заполучить все шесть Камней Бесконечности?",
+          "options": {
+            "A": "Канг Завоеватель",
+            "B": "Альтрон",
+            "C": "Ронан Обвинитель",
+            "D": "Танос"
+          },
+          "correct_letter": "D",
+          "correct_text": "Танос",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В преданиях Marvel какой врач становится Верховным Магом после того, как автокатастрофа повреждает его руки?",
+          "options": {
+            "A": "Рид Ричардс",
+            "B": "Стивен Грант",
+            "C": "Вонг",
+            "D": "Стивен Стрэндж"
+          },
+          "correct_letter": "D",
+          "correct_text": "Стивен Стрэндж",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В серии фильмов Marvel «Мстители» какой директор Щ.И.Т.а (S.H.I.E.L.D.) собирает команду вместе?",
+          "options": {
+            "A": "Таддеус Росс",
+            "B": "Ник Фьюри",
+            "C": "Мария Хилл",
+            "D": "Фил Колсон"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ник Фьюри",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В саге Джорджа Лукаса «Звёздные войны» кто оказывается отцом Люка Скайуокера?",
+          "options": {
+            "A": "Дарт Вейдер",
+            "B": "Император Палпатин",
+            "C": "Боба Фетт",
+            "D": "Оби-Ван Кеноби"
+          },
+          "correct_letter": "A",
+          "correct_text": "Дарт Вейдер",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно лору «Звёздных войн», из какого энергетического поля джедаи черпают свою силу?",
+          "options": {
+            "A": "Энергия кайбера",
+            "B": "Светлая сторона",
+            "C": "Мидихлорианы",
+            "D": "Сила"
+          },
+          "correct_letter": "D",
+          "correct_text": "Сила",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В оригинальной трилогии «Звёздных войн» какая принцесса возглавляет Альянс повстанцев против Империи?",
+          "options": {
+            "A": "Рей",
+            "B": "Падме Амидала",
+            "C": "Мон Мотма",
+            "D": "Принцесса Лея"
+          },
+          "correct_letter": "D",
+          "correct_text": "Принцесса Лея",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В трилогии сиквелов «Звёздных войн» какая сборщица мусора с Джакку становится ученицей джедая?",
+          "options": {
+            "A": "Сабин Врен",
+            "B": "Джин Эрсо",
+            "C": "Рей",
+            "D": "Кира"
+          },
+          "correct_letter": "C",
+          "correct_text": "Рей",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Во вселенной «Звёздных войн» кто является вуки-вторым пилотом «Тысячелетнего сокола»?",
+          "options": {
+            "A": "Уикет",
+            "B": "Ниен Нунб",
+            "C": "Тарфул",
+            "D": "Чубакка"
+          },
+          "correct_letter": "D",
+          "correct_text": "Чубакка",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Звёздных войнах» какой охотник за головами доставляет замороженного в карбоните Хана Соло Джаббе Хатту?",
+          "options": {
+            "A": "Кад Бэйн",
+            "B": "Босск",
+            "C": "Боба Фетт",
+            "D": "IG-88"
+          },
+          "correct_letter": "C",
+          "correct_text": "Боба Фетт",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно «Хроникам Нарнии», какой великий лев является создателем и королем Нарнии?",
+          "options": {
+            "A": "Аслан",
+            "B": "Каспиан",
+            "C": "Джадис",
+            "D": "Питер Певенси"
+          },
+          "correct_letter": "A",
+          "correct_text": "Аслан",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В серии книг о Нарнии какая ведьма погружает страну в вечную зиму?",
+          "options": {
+            "A": "Зеленая Дама",
+            "B": "Белая Колдунья",
+            "C": "Волшебница Пустоши Фонарного Столба",
+            "D": "Черная Ведьма"
+          },
+          "correct_letter": "B",
+          "correct_text": "Белая Колдунья",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В повести «Принц Каспиан» какой прибрежный замок служит резиденцией нарнийских королей и королев?",
+          "options": {
+            "A": "Ташбаан",
+            "B": "Пустошь Фонарного Столба",
+            "C": "Анвард",
+            "D": "Кэр Паравел"
+          },
+          "correct_letter": "D",
+          "correct_text": "Кэр Паравел",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В нарнийском мире какая доблестная говорящая мышь владеет рапирой и плывет вместе с Каспианом?",
+          "options": {
+            "A": "Нюхлик",
+            "B": "Трюфель",
+            "C": "Трампкин",
+            "D": "Рипичип"
+          },
+          "correct_letter": "D",
+          "correct_text": "Рипичип",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно повести «Серебряное кресло», какое болотное пугало сопровождает Юстаса и Джил под землей?",
+          "options": {
+            "A": "Рипичип",
+            "B": "Шаста",
+            "C": "Кмух",
+            "D": "Хвин"
+          },
+          "correct_letter": "C",
+          "correct_text": "Кмух",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Последней битве» какого осла обманом заставляют выдавать себя за Аслана?",
+          "options": {
+            "A": "Рунвит",
+            "B": "Шифт",
+            "C": "Бри",
+            "D": "Патч"
+          },
+          "correct_letter": "D",
+          "correct_text": "Патч",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в серии книг называется небесно-бронзовый меч Перси, который выглядит как шариковая ручка?",
+          "options": {
+            "A": "Катоптрис",
+            "B": "Анаклузмос (Смерч)",
+            "C": "Водоворот",
+            "D": "Злодей"
+          },
+          "correct_letter": "B",
+          "correct_text": "Анаклузмос (Смерч)",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая дочь Афины в «Перси Джексоне» часто сопровождает Перси в его странствиях?",
+          "options": {
+            "A": "Кларисса Ла Ру",
+            "B": "Пайпер Маклин",
+            "C": "Аннабет Чейз",
+            "D": "Талия Грейс"
+          },
+          "correct_letter": "C",
+          "correct_text": "Аннабет Чейз",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какие крылатые кеды едва не утаскивают Перси в Тартар в первой книге о Перси Джексоне?",
+          "options": {
+            "A": "Таларии Дедала",
+            "B": "Проклятые кроссовки Луки",
+            "C": "Боевые сапоги Ареса",
+            "D": "Крылатые сандалии Гермеса"
+          },
+          "correct_letter": "B",
+          "correct_text": "Проклятые кроссовки Луки",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Кто из козленоногих друзей Перси выступает его защитником во вселенной «Перси Джексона»?",
+          "options": {
+            "A": "Гроувер Андервуд",
+            "B": "Нико ди Анджело",
+            "C": "Хирон",
+            "D": "Тайсон"
+          },
+          "correct_letter": "A",
+          "correct_text": "Гроувер Андервуд",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой повелитель титанов, согласно «Перси Джексону», пытается возродиться, вселившись в Луку Кастеллана?",
+          "options": {
+            "A": "Атлант",
+            "B": "Уран",
+            "C": "Гиперион",
+            "D": "Кронос"
+          },
+          "correct_letter": "D",
+          "correct_text": "Кронос",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой легендарный изобретатель появляется под псевдонимом Квинт в «Битве за Лабиринт»?",
+          "options": {
+            "A": "Гефест",
+            "B": "Икар",
+            "C": "Хирон",
+            "D": "Дедал"
+          },
+          "correct_letter": "D",
+          "correct_text": "Дедал",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как зовут черного пегаса, на котором часто ездит Перси в «Перси Джексоне»?",
+          "options": {
+            "A": "Арион",
+            "B": "Пегас",
+            "C": "Блекджек",
+            "D": "Миссис О'Лири"
+          },
+          "correct_letter": "C",
+          "correct_text": "Блекджек",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каков семейный девиз дома Старков из Винтерфелла в мире Вестероса?",
+          "options": {
+            "A": "Зима близко",
+            "B": "Огонь и Кровь",
+            "C": "Мы не сеем",
+            "D": "Услышь мой рев!"
+          },
+          "correct_letter": "A",
+          "correct_text": "Зима близко",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Которую из героинь «Игры престолов» знаменито называют Матерью Драконов?",
+          "options": {
+            "A": "Деенерис Таргариен",
+            "B": "Мелисандра",
+            "C": "Игритт",
+            "D": "Серсея Ланнистер"
+          },
+          "correct_letter": "A",
+          "correct_text": "Деенерис Таргариен",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая 700-футовая ледяная стена защищает королевство с дальнего севера в телесериале «Игра престолов»?",
+          "options": {
+            "A": "Орлиное Гнездо",
+            "B": "Ров Кайлин",
+            "C": "Ужасный Замок",
+            "D": "Стена"
+          },
+          "correct_letter": "D",
+          "correct_text": "Стена",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как зовут белого лютолка Джона Сноу в «Игре престолов»?",
+          "options": {
+            "A": "Призрак",
+            "B": "Нимерия",
+            "C": "Лето",
+            "D": "Серый Ветер"
+          },
+          "correct_letter": "A",
+          "correct_text": "Призрак",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой из братьев Баратеонов предъявляет права на Железный Трон, последовав за Владыкой Света в «Битве королей»?",
+          "options": {
+            "A": "Ренли Баратеон",
+            "B": "Балон Грейджой",
+            "C": "Роберт Баратеон",
+            "D": "Станнис Баратеон"
+          },
+          "correct_letter": "D",
+          "correct_text": "Станнис Баратеон",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая печально известная бойня Старков в Близнецах получила название «Кровавая свадьба» в «Игре престолов»?",
+          "options": {
+            "A": "Битва Бастардов",
+            "B": "Кровавая свадьба",
+            "C": "Пурпурная свадьба",
+            "D": "Разграбление Королевской Гавани"
+          },
+          "correct_letter": "B",
+          "correct_text": "Кровавая свадьба",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Кто вызывается добровольцем на Жатву вместо своей сестры Примроз в «Голодных играх» Сьюзен Коллинз?",
+          "options": {
+            "A": "Примроз Эвердин",
+            "B": "Рута",
+            "C": "Джоанна Мейсон",
+            "D": "Китнисс Эвердин"
+          },
+          "correct_letter": "D",
+          "correct_text": "Китнисс Эвердин",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой особый выпуск Голодных игр возвращает прошлых победителей обратно на арену в «И вспыхнет пламя»?",
+          "options": {
+            "A": "Квартальная бойня",
+            "B": "Вторая жатва",
+            "C": "Кровавая баня",
+            "D": "Тур победителей"
+          },
+          "correct_letter": "A",
+          "correct_text": "Квартальная бойня",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой харизматичный ведущий берет интервью у трибутов перед началом Игр в серии «Голодные игры»?",
+          "options": {
+            "A": "Клавдий Темплсмит",
+            "B": "Цезарь Фликерман",
+            "C": "Сенека Крэйн",
+            "D": "Плутарх Хэвенсби"
+          },
+          "correct_letter": "B",
+          "correct_text": "Цезарь Фликерман",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "С каким символом революции ассоциируется Китнисс для дистриктов согласно трилогии?",
+          "options": {
+            "A": "Феникс",
+            "B": "Сойка-пересмешница",
+            "C": "Голубая сойка",
+            "D": "Соловей"
+          },
+          "correct_letter": "B",
+          "correct_text": "Сойка-пересмешница",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой модельер из Капитолия становится стилистом и союзником Китнисс в серии книг?",
+          "options": {
+            "A": "Цинна",
+            "B": "Порция",
+            "C": "Эффи Бряк",
+            "D": "Октавия"
+          },
+          "correct_letter": "A",
+          "correct_text": "Цинна",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каково криптонское имя при рождении у Супермена согласно мифологии DC?",
+          "options": {
+            "A": "Вал-Эл",
+            "B": "Джор-Эл",
+            "C": "Кара Зор-Эл",
+            "D": "Кал-Эл"
+          },
+          "correct_letter": "D",
+          "correct_text": "Кал-Эл",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В историях DC какой суперзлодей, похожий на клоуна, является заклятым врагом Бэтмена?",
+          "options": {
+            "A": "Пингвин",
+            "B": "Загадочник",
+            "C": "Джокер",
+            "D": "Двуликий"
+          },
+          "correct_letter": "C",
+          "correct_text": "Джокер",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В комиксах DC какой молодой атлет превращается в кибернетического героя Киборга?",
+          "options": {
+            "A": "Джейсон Тодд",
+            "B": "Виктор Стоун",
+            "C": "Уолли Уэст",
+            "D": "Дик Грейсон"
+          },
+          "correct_letter": "B",
+          "correct_text": "Виктор Стоун",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно историям DC, какой мускулистый злодей ломает спину Бэтмену в сюжетной арке «Падение рыцаря»?",
+          "options": {
+            "A": "Убийца Крок",
+            "B": "Бэйн",
+            "C": "Дезстроук",
+            "D": "Рас аль Гул"
+          },
+          "correct_letter": "B",
+          "correct_text": "Бэйн",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В трилогии Филипа Пулмана «Тёмные начала» как зовут юную героиню Лиру полностью?",
+          "options": {
+            "A": "Мариса Колтер",
+            "B": "Мэри Мэлоун",
+            "C": "Лира Белаква",
+            "D": "Серафина Пеккала"
+          },
+          "correct_letter": "C",
+          "correct_text": "Лира Белаква",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В книге Л. Фрэнка Баума «Удивительный волшебник из страны Оз» какую девочку с фермы в Канзасе уносит в страну Оз торнадо?",
+          "options": {
+            "A": "Алиса Лидделл",
+            "B": "Сара Уильямс",
+            "C": "Дороти Гейл",
+            "D": "Уэнди Дарлинг"
+          },
+          "correct_letter": "C",
+          "correct_text": "Дороти Гейл",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно истории об Оз, как зовут маленькую собачку Дороти, которая путешествует вместе с ней?",
+          "options": {
+            "A": "Клык",
+            "B": "Бенджи",
+            "C": "Тото",
+            "D": "Хедвиг"
+          },
+          "correct_letter": "C",
+          "correct_text": "Тото",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В сказке об Оз какой металлический спутник желает получить сердце от Волшебника?",
+          "options": {
+            "A": "Трусливый Лев",
+            "B": "Тик-Так",
+            "C": "Страшила",
+            "D": "Железный Дровосек"
+          },
+          "correct_letter": "D",
+          "correct_text": "Железный Дровосек",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно книге «Волшебник страны Оз», какой персонаж, ищущий мозги, целиком состоит из соломы?",
+          "options": {
+            "A": "Лоскутница",
+            "B": "Соломенный Человек",
+            "C": "Джек Тыквенная Голова",
+            "D": "Страшила"
+          },
+          "correct_letter": "D",
+          "correct_text": "Страшила",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В книге Баума как называется зловещая правительница западной земли Винки?",
+          "options": {
+            "A": "Королева мигунов",
+            "B": "Злая Ведьма Востока",
+            "C": "Злая Ведьма Запада",
+            "D": "Момби"
+          },
+          "correct_letter": "C",
+          "correct_text": "Злая Ведьма Запада",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Волшебнике страны Оз» какой город, управляемый таинственным Волшебником, славится своей зеленой архитектурой?",
+          "options": {
+            "A": "Шиз",
+            "B": "Страна Жевунов",
+            "C": "Изумрудный город",
+            "D": "Страна Квадлингов"
+          },
+          "correct_letter": "C",
+          "correct_text": "Изумрудный город",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        }
+      ]
+    }
+  },
+  "open": {
+    "qa": {
+      "accuracy": 0.04,
+      "n": 50,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто является автором серии книг о Гарри Поттере?",
+          "gold_answer": "Д. К. Роулинг",
+          "model_answer": "Ответ: **J.K. Rowling**",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут крестного отца Гарри?",
+          "gold_answer": "Сириус Блэк",
+          "model_answer": "Ответ: **Роберт**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут темного волшебника, которого должен победить Гарри?",
+          "gold_answer": "Лорд Волан-де-Морт",
+          "model_answer": "Ответ: **Драко**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "какое заклинание обычно используется для разоружения противника?",
+          "gold_answer": "Экспеллиармус",
+          "model_answer": "Ответ:  \n\nВ зависимости от мира и системы, в которой вы играете, заклинание для разоружения противника может быть разным. \n\n**Вот несколько примеров:**\n\n* **В мире фэнтези:**\n    * **\"Ослепление\" (Blindness):**  Заклинание, которое делает противника слепым, что затрудняет его действия.\n    * **\"Замедление\" (Slow):**  Заклинание, которое замедляет скорость противника, делая его более уязвимым.\n    * **\"Защита\" (Shield):**  Заклинание, которое создает защитный барьер, который может защитить от атак.\n    * **\"Раздражение\" (Disarm):**  Заклинание, которое отнимает у противника оружие.\n    * **\"Уничтожение\" (Destruction):**  Заклинание, которое разру",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет распределяет учеников по факультетам?",
+          "gold_answer": "Распределяющая Шляпа",
+          "model_answer": "Ответ: **Определение предмета распределения** \n\n**Более конкретно:**\n\n* **Определение предмета распределения** - это процесс, который определяет, какие предметы ученики должны изучать в зависимости от их интересов и возможностей. \n* **В большинстве университетов** этот процесс осуществляется с помощью **определенных предметов**, которые могут включать в себя:\n    * **Предметы, связанные с выбранной специальностью:** Например, если ученик хочет стать врачом, он будет распределен по медицинским предметам.\n    * **Предметы, связанные с уровнем подготовки:** Например, ученики с высоким уровнем математики могут быть распределены в более сложные группы.\n    * **Предметы, связанные с личными предпочтениями:** Например, ученики могут быть распределены по группам, которые соответствуют их интересам.\n\nВажно отметить, что **процесс распределения** может варьироваться в зависимости от конкретного университета",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "С какой платформы отправляется Хогвартс-экспресс?",
+          "gold_answer": "Платформа девять и три четверти",
+          "model_answer": "Ответ: Хогвартс-экспресс отправляется с **платформы \"Hogwarts Express Station\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой адрес у дома, где живут Дурсли?",
+          "gold_answer": "Тисовая улица, 4",
+          "model_answer": "Ответ:  В книге \"Гарри Поттер и философский камень\" Дурсли живут в доме на **12 Grimmauld Place**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зелье приносит выпившему удачу?",
+          "gold_answer": "ФЕликс Фелицис",
+          "model_answer": "Ответ: **Зелье удачи** 🪄 \n\nЭто, конечно, шутка! В реальности нет волшебных зелий, которые приносят удачу. \n\nНо, если вы ищете способы улучшить свою жизнь, вот несколько советов:\n\n* **Учитесь на своих ошибках:** Не бойтесь пробовать новое и учиться на своих ошибках.\n* **Будьте терпеливы:** Удача приходит не сразу. Не сдавайтесь, если не получается сразу.\n* **Будьте позитивны:** Позитивный настрой может помочь вам достичь успеха.\n* **Не бойтесь рисковать:** Не бойтесь рисковать, но всегда помните о своих целях.\n* **Будьте благодарны:** Благодарность за все, что у вас есть, поможет вам чувствовать себя счастливым.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая волшебная карта показывает местонахождение каждого в Хогвартсе?",
+          "gold_answer": "Карта Мародеров",
+          "model_answer": "Ответ: **Карта Хогвартса** 🗺️ \n\nЭто карта, которая показывает местонахождение каждого в Хогвартсе, включая учителей, студентов, и даже служащих.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое растение позволяет Гарри дышать под водой во время Турнира Трех Волшебников?",
+          "gold_answer": "Жабрли",
+          "model_answer": "Ответ: **Алоэ**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой крестраж уничтожен в Тайной комнате?",
+          "gold_answer": "Дневник Тома Реддла",
+          "model_answer": "В Тайной комнате в фильме \"Охотники за привидениями\" уничтожен **крестраж с изображением \"Спасителя\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какие существа везут кареты Хогвартса после четвертого курса Гарри?",
+          "gold_answer": "Фестралы",
+          "model_answer": "Ответ:  В книгах о Гарри Поттере не говорится, какие существа везут кареты Хогвартса после четвертого курса.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кем на самом деле является домашняя крыса Рона Уизли?",
+          "gold_answer": "Питер Петтигрю",
+          "model_answer": "Кем на самом деле является домашняя крыса Рона Уизли, - это **неизвестно**. \n\nВ мире \"Гарри Поттера\" нет официальной информации о том, кто именно является домашней крысой Рона Уизли. \n\n**Однако, есть несколько теорий:**\n\n* **Неизвестный:** Возможно, крыса просто не имеет имени и является частью обычной жизни Уизли.\n* **Скрытая личность:**  Возможно, крыса является частью секретной организации или тайного общества, связанного с Уизли.\n* **Символ:**  Крыса может быть символом чего-то большего, чем просто домашняя питомец. \n\n**Важно отметить:**  Это все предположения, и J.K. Rowling не раскрыла эту информацию.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Каково заклинание для вызова Патронуса?",
+          "gold_answer": "Экспекто Патронум",
+          "model_answer": "К сожалению, нет заклинания для вызова Патронуса в традиционных играх и мифологии. \n\n**Патронус** - это персонаж из **\"The Elder Scrolls\"** видеоигр, и его вызов не является частью игрового процесса. \n\n**Важно понимать:**\n\n* **Игры и мифология:** В играх и мифологии часто используются персонажи и заклинания, которые не имеют реальных аналогов. \n* **Традиции:**  Заклинания и заклинатели часто используются в различных культурах и религиях, но их реальные значения и практические применения могут отличаться.\n\n\nЕсли вы ищете информацию о заклинаниях в конкретной игре или мифологии, пожалуйста, уточните ваш вопрос.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зелье может заново вырастить кости?",
+          "gold_answer": "Костерост",
+          "model_answer": "В реальности такого зелья не существует. 🦴 \n\nВ мире фантастики и мифологии существуют различные варианты:\n\n* **Фантастика:** В книгах, фильмах и играх часто встречаются зелья, которые способны восстанавливать поврежденные ткани, включая кости. \n* **Мифология:** В некоторых культурах существуют легенды о зельях, которые могут исцелять и восстанавливать повреждения.\n\n**Важно помнить:** \n\n* В реальности кости не могут быть выращены из ничего. \n* Восстановление костей после травмы или повреждения требует времени и медицинской помощи.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "В какое животное превращается профессор Макгонагалл в форме анимага?",
+          "gold_answer": "Кошка",
+          "model_answer": "В фильме \"Анимага\" профессор Макгонагалл превращается в **кошку**.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое зеркало показывает самое глубокое желание человека?",
+          "gold_answer": "Зеркало Еиналеж",
+          "model_answer": "Это очень интересный вопрос!  \n\nНа самом деле, нет одного зеркала, которое бы точно показывало самое глубокое желание человека. \n\n**Желания человека сложны и многогранные, и их не всегда легко понять.** \n\nВот несколько вариантов, которые можно рассмотреть:\n\n* **Зеркало в зеркале:**  Это метафора, которая подразумевает, что человек может видеть себя в зеркале, но не всегда понимает, что именно он хочет. \n* **Зеркало в глазах:**  Это может быть зеркало, которое отражает наши эмоции и чувства, а не только наши желания. \n* **Зеркало в поступках:**  Наши поступки могут быть отражением наших желаний, но не всегда. \n* **Зеркало в образе:**  Это может быть зеркало, которое отражает наши мечты и aspiraciones. \n\n**Важно помнить, что желания человека - это личный опыт",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Где Гарри покупает свою первую палочку?",
+          "gold_answer": "Олливандер",
+          "model_answer": "Гарри покупает свою первую палочку в **\"Охотничьем магазине\"** в **\"Гарри Поттера и философский камень\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая сердцевина у волшебной палочки Гарри?",
+          "gold_answer": "Перо феникса",
+          "model_answer": "Сердцевина у волшебной палочки Гарри - **дуб**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую форму животного принимает Патронус Гарри?",
+          "gold_answer": "Олень",
+          "model_answer": "Патронус Гарри принимает форму **кошки**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание открывает двери?",
+          "gold_answer": "Алохомора",
+          "model_answer": "Это зависит от контекста! 🧙‍♀️\n\n**В реальном мире:**\n\n* **Не существует одного универсального заклинания, открывающего двери.**  \n* **В зависимости от ситуации, можно использовать ключи, замки, ключи от замка, или даже просто физически открыть дверь.**\n\n**В фэнтези и мифологии:**\n\n* **В разных мифологических системах существуют заклинания, которые могут открывать двери.** \n* **Например:**\n    * **\"Очищение\" или \"Просветление\"**: Заклинание, которое открывает двери в другие измерения или миры.\n    * **\"Ключ\"**: Заклинание, которое открывает дверь, используя ключ.\n    * **\"Волшебная дверь\"**: Заклинание, которое открывает дверь, создавая портал.\n    * **\"Замок\"**: Заклинание, которое открывает дверь,",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "В какой вид спорта играют на мётлах с квоффлами, бладжерами и снитчем?",
+          "gold_answer": "Квиддич",
+          "model_answer": "Ответ: **Боевые искусства** \n\nЭто скорее всего относится к **фестивалям боевых искусств**, где используются различные виды оружия, такие как:\n\n* **Мётлы**\n* **Квоффлы** (определённые виды мечей)\n* **Бладжеры** (определённые виды мечей)\n* **Снитки** (определённые виды мечей)",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кому принадлежит кафе-мороженое в Косой аллее, которое подружилось с Гарри?",
+          "gold_answer": "Флориан Фортескью",
+          "model_answer": "Кафе-мороженое в Косой аллее, которое подружилось с Гарри, принадлежит **Грейнджер**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Из какого дерева сделана палочка Гарри?",
+          "gold_answer": "Остролист",
+          "model_answer": "Ответ:  Из **дуба** 🌳 \n\nЭто секрет, который раскрывается в фильме \"Гарри Поттер и Философский камень\".",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой департамент Министерства магии занимается магическими существами?",
+          "gold_answer": "Отдел регулирования магических существ и контроля над ними",
+          "model_answer": "Ответ: **Департамент Магических Существ** 🧙‍♀️ \n\nВ большинстве фэнтезийных миров, Министерство магии обычно разделено на отделы, отвечающие за разные аспекты магии и магических существ.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое привидение связано с факультетом Когтевран?",
+          "gold_answer": "Серая Дама",
+          "model_answer": "Ответ: **Привидение \"Когтевран\"** \n\nЭто призрачный персонаж, который часто упоминается в контексте факультета Когтевран в мире \"Harry Potter\". \n\nВажно отметить, что это скорее метафора, чем реальный персонаж.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут отца Драко Малфоя?",
+          "gold_answer": "Люциус",
+          "model_answer": "Ответ: **Иоанн Малфой**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание зажигает кончик волшебной палочки?",
+          "gold_answer": "Люмос",
+          "model_answer": "Ответ: **\"Амбиго\"** \n\nЭто заклинание, которое используется в мире \"Гарри Поттер\" для зажигания кончика волшебной палочки.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая чисто женская профессиональная команда по квиддичу родом из Холихеда?",
+          "gold_answer": "Холихедские Гарпии",
+          "model_answer": "К сожалению, у меня нет доступа к информации о конкретных профессиональных командах по квиддичу, особенно если они связаны с определенным местом. \n\nЧтобы найти ответ на ваш вопрос, я рекомендую вам:\n\n* **Поискать информацию в интернете:** Используйте поисковые системы, такие как Google, Bing или Яндекс, и введите запрос \"женская квиддич команда Холихед\".\n* **Проверить сайты квиддич-сообщества:** Существуют сайты, посвященные квиддичу, где можно найти информацию о командах и турнирах.\n* **Посетить форумы и группы по квиддичу:** Возможно, на форумах или в группах по квиддичу есть информация о профессиональных командах из Холихеда.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое устройство, изобретённое Дамблдором, может гасить уличные фонари?",
+          "gold_answer": "Делюминатор",
+          "model_answer": "Ответ: **\"Устройство Дамблдора\"** \n\nВ мире \"Гарри Поттера\" Дамблдор изобрел устройство, которое может гасить уличные фонари. \n\nВажно отметить, что в книгах и фильмах не раскрывается точное описание этого устройства.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую ученическую группу возглавляет Гарри для противостояния Долорес Амбридж?",
+          "gold_answer": "Отряд Дамблдора",
+          "model_answer": "Гарри возглавляет ученическую группу **\"The Marauders\"** (Мародеры) для противостояния Долорес Амбридж.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой из Даров Смерти может вернуть тени мёртвых?",
+          "gold_answer": "Воскрешающий камень",
+          "model_answer": "Ответ: **Дары Смерти, которые могут вернуть тени мёртвых, - это Дары Смерти, которые связаны с воскрешением.** \n\nВажно отметить, что в разных мифологических и литературных контекстах, Дары Смерти могут иметь разные функции. \n\n**Вот некоторые примеры:**\n\n* **В \"Властелине колец\" Дары Смерти, связанные с воскрешением, включают:**\n    * **Дары Смерти, связанные с воскрешением:**  В \"Властелине колец\" Дары Смерти, связанные с воскрешением, не являются прямым способом вернуть тени мёртвых.  Однако, некоторые из них могут быть использованы для восстановления жизни, что может быть истолковано как способ вернуть тени мёртвых. \n* **В других мифологических и литературных контекстах:**  В других мифологических",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кем приходится Гарри Петуния Дурсль?",
+          "gold_answer": "Племянник",
+          "model_answer": "Гарри Петуния Дурсль - **протагонист** романа \"Гарри Поттер и философский камень\" и всей серии книг о Гарри Поттере.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой пароль используется для входа в гостиную Гриффиндора на первом курсе Гарри?",
+          "gold_answer": "Caput Draconis",
+          "model_answer": "Ответ: **\"** **\"** \n\nПароль для входа в гостиную Гриффиндора на первом курсе Гарри - **\"** **\"** .",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет хранит и отображает мысли и воспоминания?",
+          "gold_answer": "Омут памяти",
+          "model_answer": "Ответ: **Мозг** \n\nМозг - это орган, который хранит и отображает мысли и воспоминания.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "По какой профессии работают родители Гермионы?",
+          "gold_answer": "Стоматология",
+          "model_answer": "Ответ: Родители Гермионы - **магги, которые работают в Министерстве magique**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой фрукт нужно пощекотать, чтобы открыть вход на кухню Хогвартса?",
+          "gold_answer": "Груша",
+          "model_answer": "Ответ: **Абрикос** \n\nЭто шутка, основанная на популярной игре \"Harry Potter\".",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто был директором Хогвартса до Альбуса Дамблдора?",
+          "gold_answer": "Армандо Диппет",
+          "model_answer": "Ответ: **Гриффин Грейнджер**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называют последователей Волан-де-Морта?",
+          "gold_answer": "Пожиратели Смерти",
+          "model_answer": "Последователей Волан-де-Морта называют **\"Маги\"** или **\"Маги-де-Морт\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто является чемпионом Шармбатона в Турнире Трёх Волшебников?",
+          "gold_answer": "Флёр Делакур",
+          "model_answer": "В Турнире Трёх Волшебников нет конкретного чемпиона Шармбатона. \n\nЭто скорее всего, игра в жанре фэнтези, где есть персонажи, но нет официального турнира с определенным чемпионом.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание вызывает струю чистой воды?",
+          "gold_answer": "Агуаменти",
+          "model_answer": "В большинстве фэнтезийных вселенных, таких как Dungeons & Dragons, нет конкретного заклинания, которое напрямую вызывает струю чистой воды. \n\n**Однако, существуют заклинания, которые могут быть использованы для создания воды:**\n\n* **\"Вода\" (Water)**: Это заклинание, которое создает небольшую струю воды. \n* **\"Волшебная вода\" (Water Spell)**: Это заклинание, которое создает воду в определенном месте.\n* **\"Волшебный поток\" (Magical Stream)**: Это заклинание, которое создает поток воды.\n\n**Важно отметить:**\n\n* **В зависимости от конкретной вселенной, могут быть другие заклинания, которые могут быть использованы для создания воды.**\n* **Некоторые заклинания могут создавать воду, но не струю.** \n* **В некоторых играх, например, в Magic: The Gathering",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой предмет одежды освобождает Добби?",
+          "gold_answer": "Носок",
+          "model_answer": "Ответ: **Шляпа**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая способность позволяет общаться со змеями?",
+          "gold_answer": "Парселтонг",
+          "model_answer": "Ответ: **Нет такой способности.** \n\nОбщение со змеями невозможно. \n\nХотя некоторые люди могут утверждать, что они могут понимать змей, это чаще всего связано с:\n\n* **Искусством:**  Люди могут научиться понимать язык тела и поведение змей, что может создать впечатление, будто они понимают.\n* **Пониманием животных:**  Люди, которые хорошо знакомы с животными, могут заметить и интерпретировать поведение змей, что может привести к ошибочному предположению о том, что они понимают.\n* **Фольклор и мифы:**  В разных культурах существуют легенды и мифы о змеях, которые могут создавать иллюзию общения.\n\nВажно помнить, что змеи - это дикие животные, и их поведение сложно понять.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "какое растение пытается задушить тех, кто попадает в него под люком?",
+          "gold_answer": "Дьявольские силки",
+          "model_answer": "Ответ: **Акация** \n\nАкация - это растение, которое может быть опасным, если оно застрянет под люком. \n\n**Важно:** \n* Не стоит пытаться заглянуть под люком, если вы не уверены в безопасности. \n* Если вы обнаружили люк, который может быть опасным, немедленно сообщите об этом.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой десерт является любимым у Гарри на пирах в Хогвартсе?",
+          "gold_answer": "Паточный тарт",
+          "model_answer": "Ответ: **Холодный шоколадный торт** 🍫 \n\nГарри любит шоколадный торт, особенно на пирах в Хогвартсе.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как зовут полувеликана-лесничего в Хогвартсе?",
+          "gold_answer": "Рубеус Хагрид",
+          "model_answer": "Ответ: **Гриффин Грейнджер**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое заклинание создает магический щит?",
+          "gold_answer": "Протего",
+          "model_answer": "Ответ:  **\"Защитный шар\"** \n\nЭто заклинание, которое создает магический щит, защищающий от атак. \n\nВажно отметить, что в разных играх и системах заклинаний может быть несколько вариантов, например:\n\n* **\"Защитный барьер\"**\n* **\"Защитный купол\"**\n* **\"Защитный щит\"**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой термин описывает волшебника, рожденного немагическими родителями?",
+          "gold_answer": "Маглорожденный",
+          "model_answer": "Ответ: **Немагический** \n\nТермин \"немагический\" описывает волшебника, рожденного не магическими родителями. \n\nВажно отметить, что в зависимости от конкретной вселенной или произведения, могут быть и другие термины, которые используются для обозначения таких волшебников.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой способ передвижения использует камины и зеленое пламя?",
+          "gold_answer": "Летучий порох",
+          "model_answer": "Камины и зеленое пламя используются для **движения в мире фантастики**. \n\nЭто не реальные способы передвижения, а скорее элементы, используемые в **фантастических произведениях**, чтобы:\n\n* **Создать атмосферу**: Зеленое пламя и камины часто используются для создания атмосферы волшебства, таинственности и мистики.\n* **Обобщить концепции**: Зеленое пламя может символизировать магию, силу, или даже путешествие в другие измерения.\n* **Развить сюжет**: Камины и зеленое пламя могут быть использованы для создания интриги, загадок или даже как способ перемещения в мире фантастики.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую форму имеет шрам на лбу Гарри?",
+          "gold_answer": "Молния",
+          "model_answer": "Шрам на лбу Гарри в \"Гарри Поттере\" имеет форму **прямоугольника**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.12,
+      "n": 50,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В произведении Дж. Р. Р. Толкина «Властелин Колец» какому хоббиту поручено донести Единое Кольцо до Мордора?",
+          "gold_answer": "Фродо Бэггинс",
+          "model_answer": "В произведении Дж. Р. Р. Толкина «Властелин Колец» донести Единое Кольцо до Мордора поручено **\"Странствующему\" хоббиту**. \n\nЭто не просто хобби, а целый **\"Странствующий хобби\"** - это группа людей, которые путешествуют по миру, собирают информацию и помогают другим.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В истории Средиземья какое существо неоднократно называет Единое Кольцо «моя прелесть»?",
+          "gold_answer": "Голлум",
+          "model_answer": "В истории Средиземья, Единое Кольцо неоднократно называет \"моя прелесть\" **Властелин Колец, Саурон**. \n\nЭто происходит в \"Властелине Колец\" Томаса Ф. Смита.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В сказаниях Толкина описываются какие древоподобные существа, включая Древоборода, которые идут войной на Изенгард?",
+          "gold_answer": "Энты",
+          "model_answer": "В сказаниях Толкина описываются следующие древоподобные существа, которые идут войной на Изенгард:\n\n* **Древоборода:**  Это наиболее известный пример. Они являются могущественными и могущественными существами, которые представляют собой огромные деревья с множеством глаз и когтей. \n* **Огненные Древо:**  Это существа, которые обладают огненным дыханием и способны создавать огненные атаки. \n* **Древо-Змей:**  Это существа, которые имеют форму змеи и обладают способностью к левитации. \n* **Другие древоподобные существа:**  В сказаниях Толкина упоминаются и другие древоподобные существа, которые не так подробно описаны, но которые также участвуют в войне на Изенгард.\n\nВажно отметить, что Толкин не",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В фильмах Marvel Studios «Мстители» каково настоящее имя Железного человека?",
+          "gold_answer": "Тони Старк",
+          "model_answer": "Настоящее имя Железного Человека в фильмах Marvel Studios - **Алан Стив** (англ. **Tony Stark**).",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно комиксам и фильмам Marvel, какой металл используется для создания щита Капитана Америки?",
+          "gold_answer": "Вибраниум",
+          "model_answer": "В комиксах и фильмах Marvel, щит Капитана Америки создан из **материала, называемого \"** **Vibranium** **\"**. \n\nЭто редкий и невероятно ценный металл, обладающий уникальными свойствами, такими как:\n\n* **Устойчивость к повреждениям:** Vibranium практически не подвержен деформации и трещинам.\n* **Сверхпрочность:**  Vibranium обладает невероятной прочностью, что делает его идеальным материалом для создания защитного щита.\n* **Способность поглощать энергию:** Vibranium может поглощать энергию, как механическую, так и энергетическую.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В вселенной Marvel какой скандинавский бог владеет заколдованным молотом Мьельнир?",
+          "gold_answer": "Тор",
+          "model_answer": "В вселенной Marvel, заколдованный молот Мьельнир владеет **Odin**,  бог Asgardia.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В историях Marvel как зовут межгалактического злодея, который ищет все шесть Камней Бесконечности?",
+          "gold_answer": "Танос",
+          "model_answer": "Межгалактического злодея, который ищет все шесть Камней Бесконечности в историях Marvel, зовут **\"The Collector\"** (**\"Коллектор\"**).",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В лоре Marvel какой доктор становится Верховным Магом после того, как автомобильная авария повреждает его руки?",
+          "gold_answer": "Стивен Стрэндж",
+          "model_answer": "В лоре Marvel, после автомобильной аварии, которая повреждает его руки, **Доктор Стрэндж** становится Верховным Магом.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В серии фильмов Marvel «Мстители» какой директор Щ.И.Т.а объединяет команду?",
+          "gold_answer": "Ник Фьюри",
+          "model_answer": "Ответ: **Nick Fury**",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В саге Джорджа Лукаса «Звездные войны» кто оказывается отцом Люка Скайуокера?",
+          "gold_answer": "Дарт Вейдер",
+          "model_answer": "Ответ: **Darth Vader** (или **Эйзен, как его называли в оригинале**) \n\nВ саге \"Звездные войны\" отец Люка Скайуокера оказывается **Darth Vader**, который впоследствии становится **Эйзен** (в оригинале).",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно лору «Звездных войн», из какого энергетического поля джедаи черпают силу?",
+          "gold_answer": "Сила",
+          "model_answer": "Согласно лору «Звездных войн», джедаи черпают силу из **\"Энергетического поля\"**, также известного как **\"Сила\"**. \n\nЭто не просто физическое поле, а более глубокое, духовное измерение, которое существует в космосе и связывает все живые существа. \n\nВажно отметить, что:\n\n* **Сила не является чем-то материальным:** Она не может быть извлечена из физических объектов или источников.\n* **Сила - это не просто энергия:** Она включает в себя духовную энергию, эмоции, чувства и сознание.\n* **Джедаи - это не просто \"энергетические\" существа:** Они обладают особым пониманием и контролем над Силой, что позволяет им использовать ее для различных целей.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В оригинальной трилогии «Звездных войн» какая принцесса возглавляет Повстанческий Альянс против Империи?",
+          "gold_answer": "Принцесса Лея",
+          "model_answer": "В оригинальной трилогии «Звездных войн» принцесса, которая возглавляет Повстанческий Альянс против Империи, - **Лея Organa**.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В трилогии сиквелов «Звездных войн» какая сборщица мусора с Джакку становится ученицей джедая?",
+          "gold_answer": "Рей",
+          "model_answer": "В трилогии сиквелов «Звездных войн» сборщица мусора с Джакку, **Ренни**, становится ученицей джедая.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Звездных войнах» кто является вторым пилотом-вуки корабля «Тысячелетний сокол»?",
+          "gold_answer": "Чубакка",
+          "model_answer": "Вторым пилотом-вуки корабля «Тысячелетний сокол» в «Звездных войнах» является **Джедай-астроном,  ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **Джедай-астроном, ** **",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Звездных войнах» какой охотник за головами доставляет замороженного в карбоните Хана Соло Джаббе Хатту?",
+          "gold_answer": "Боба Фетт",
+          "model_answer": "Ответ: **Джаббе Хатту** доставляет замороженного в карбоните Хана Соло **Охотник за головами** **Джаббе Хатту**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно «Хроникам Нарнии», какой великий лев является создателем и королем Нарнии?",
+          "gold_answer": "Аслан",
+          "model_answer": "В «Хрониках Нарнии» великий лев **- это не создатель и король Нарнии, а сам король Нарнии -  ** **Сэр Лорд** **. ** \n\nВажно отметить, что в книгах Сэр Лорд не является левом, а **великим левом** - это его **название**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В серии о Нарнии какая ведьма погружает страну в вечную зиму?",
+          "gold_answer": "Белая Колдунья",
+          "model_answer": "В серии о Нарнии **Ведьма** **Снежная** погружает страну в вечную зиму.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Принце Каспиане» какой прибрежный замок служит резиденцией королей и королев Нарнии?",
+          "gold_answer": "Кэр Паравел",
+          "model_answer": "Ответ: **Замок Каспиан**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В нарнийском лоре какая доблестная говорящая мышь владеет рапирой и плавает вместе с Каспианом?",
+          "gold_answer": "Рипичип",
+          "model_answer": "В нарнийском лоре доблестная говорящая мышь, владеющая рапирой, и плавает вместе с Каспианом - это **Мила**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно «Серебряному креслу», какое болотное квакление сопровождает Юстаса и Джил под землей?",
+          "gold_answer": "Кмух",
+          "model_answer": "В \"Серебряном кресле\" болотное квакление, сопровождающее Юстаса и Джил под землей, **не описано**. \n\nВажно отметить, что \"Серебряное кресло\" - это не просто история, а скорее **повесть о путешествии и испытаниях**, где описаны не только болотное квакление, но и множество других деталей. \n\nВозможно, вы имели в виду что-то другое?",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Последней битве» какого осла обманом заставляют выдавать себя за Аслана?",
+          "gold_answer": "Лоскутик",
+          "model_answer": "В «Последней битве» осла обманом заставляют выдавать себя за Аслана **Абу-л-Хаким**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в серии книг называется небесно-бронзовый меч Перси, который маскируется под шариковую ручку?",
+          "gold_answer": "Анаклузмос",
+          "model_answer": "В серии книг \"Перси\" небесно-бронзовый меч, маскирующийся под шариковую ручку, называется **\"Меч Перси\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Кто из дочерей Афины в «Перси Джексоне» часто сопровождает Перси в его походах?",
+          "gold_answer": "Аннабет Чейз",
+          "model_answer": "В \"Перси Джексоне\" часто сопровождает Перси в его походах **Афина**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какие крылатые кеды чуть не утащили Перси в Тартар в первой книге о Перси Джексоне?",
+          "gold_answer": "Проклятые кеды Луки",
+          "model_answer": "Крылатые кеды, чуть не утащившие Перси в Тартар, были **\"крылатыми кедами\"** (или **\"крылатыми туфлями\"**).",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой друг с козлиными ногами служит защитником Перси во вселенной «Перси Джексона»?",
+          "gold_answer": "Гроувер Андервуд",
+          "model_answer": "Ответ: **Крокодил** 🐊 \n\nКрокодил - это друг Перси Джексона, который служит защитником и помогает ему в различных ситуациях.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой повелитель титанов, согласно «Перси Джексону», пытается возродиться, вселившись в Луку Кастеллана?",
+          "gold_answer": "Кронос",
+          "model_answer": "Повелитель титанов, согласно «Перси Джексону», пытающийся возродиться, вселившись в Луку Кастеллана, - **Титан-Апокалипсис**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой легендарный изобретатель появляется под псевдонимом Квинт в «Лабиринте смерти»?",
+          "gold_answer": "Дедал",
+          "model_answer": "Легендарный изобретатель, появляющийся под псевдонимом Квинт в \"Лабиринте смерти\", - это **Альберт Эйнштейн**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как зовут черного пегаса, на котором часто ездит Перси в «Перси Джексоне»?",
+          "gold_answer": "Блэкджек",
+          "model_answer": "Черного пегаса, на котором часто ездит Перси в \"Перси Джексоне\", зовут **\"Пегас\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каков семейный девиз дома Старков из Винтерфелла в мире Вестероса?",
+          "gold_answer": "Зима близко",
+          "model_answer": "Семейный девиз дома Старков из Винтерфелла в мире Вестероса: **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Кого, согласно «Игре престолов», называют Матерью Драконов?",
+          "gold_answer": "Дейенерис Таргариен",
+          "model_answer": "Согласно «Игре престолов», Матерью Драконов называют **Драконья мать** или **Мать Драконов**. \n\nЭто название относится к **Марии Сэндвич**, матери **Дракона** и **Драконьей Матери**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая 700-футовая ледяная стена защищает королевство от Дальнего Севера в телесериале «Игра престолов»?",
+          "gold_answer": "Стена",
+          "model_answer": "700-футовая ледяная стена, защищающая королевство от Дальнего Севера в телесериале «Игра престолов», называется **Западная стена**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как зовут лютоволка-альбиноса Джона Сноу в «Игре престолов»?",
+          "gold_answer": "Призрак",
+          "model_answer": "В \"Игре престолов\" нет лютоволка-альбиноса, которого зовут Джона Сноу. \n\n**Джон Сноу** - это персонаж из \"Игры престолов\", но он не лютоволка-альбинос. \n\nВозможно, вы путаете персонажа с другим.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой из братьев Баратеонов заявляет права на Железный трон, поклоняясь Владыке Света в «Битве королей»?",
+          "gold_answer": "Станнис Баратеон",
+          "model_answer": "Ответ: **Баратеон** \n\nВ романе \"Битва королей\" Баратеон заявляет права на Железный трон, поклоняясь Владыке Света.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая печально известная бойня Старков в Близнецах получила название «Кровавая свадьба» в «Игре престолов»?",
+          "gold_answer": "Кровавая свадьба",
+          "model_answer": "Ответ: **Битва на Красной Площади** \n \n В \"Игре престолов\" эта бойня называется \"Кровавой свадьбой\" в связи с тем, что это место было выбрано для проведения свадьбы, которая закончилась трагедией.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Кто добровольно вызывается участвовать в Голодных играх, чтобы спасти свою сестру Примроуз в книге Сьюзен Коллинз «Голодные игры»?",
+          "gold_answer": "Китнисс Эвердин",
+          "model_answer": "В книге \"Голодные игры\" добровольно вызывается участвовать в Голодных играх **Прима** **Примроуз**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой специальный выпуск Голодных игр возвращает прошлых победителей на арену в «И и вспыхнет пламя»?",
+          "gold_answer": "Квартальная бойня",
+          "model_answer": "В специальном выпуске Голодных игр \"И и вспыхнет пламя\" возвращается **\"Победители прошлого\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой харизматичный ведущий берет интервью у трибутов перед началом Игр в серии «Голодные игры»?",
+          "gold_answer": "Цезарь Фликерман",
+          "model_answer": "Харизматичным ведущим, который берет интервью у трибутов перед началом Игр в серии «Голодные игры», является **Линн Кейн**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каким символом революции для дистриктов становится Китнисс, согласно трилогии?",
+          "gold_answer": "Сойка-пересмешница",
+          "model_answer": "Символом революции для дистриктов в трилогии \"Китнисс\" становится **\"Китнисс\"**. \n\nЭто не просто название, а **символ новой идеи, новой власти, новой жизни**. \n\n**Вот почему:**\n\n* **Китнисс - это не просто имя, это символ.** Он олицетворяет собой новую эпоху, где дистрикты освобождаются от старого порядка и строят свою собственную жизнь.\n* **Китнисс - это символ борьбы.** Он символизирует борьбу за свободу и независимость, борьбу против старого режима.\n* **Китнисс - это символ будущего.** Он символизирует надежду на лучшее будущее, где дистрикты будут свободны и независимы.\n\nВ трилогии \"Китнисс\" Китнисс становится не просто местом, а символом революции, которая меняет мир.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой модельер из Капитолия становится стилистом и союзником Китнисс в серии книг?",
+          "gold_answer": "Цинна",
+          "model_answer": "Модельер из Капитолия, который становится стилистом и союзником Китнисс в серии книг, - это **Джозеф \"Джо\" Кейн**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каково криптонское имя Супермена при рождении, согласно мифологии DC?",
+          "gold_answer": "Кал-Эл",
+          "model_answer": "В мифологии DC Супермен не имеет криптонского имени при рождении. \n\n**Важно отметить:**\n\n* Супермен - это персонаж комиксов DC Comics, а не мифологический персонаж. \n* В комиксах Супермен не имеет криптонского имени при рождении. \n* Его настоящая личность и история - это часть сюжета комиксов.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В историях DC какой суперзлодей, похожий на клоуна, является главным врагом Бэтмена?",
+          "gold_answer": "Джокер",
+          "model_answer": "Главным врагом Бэтмена в истории DC, похожим на клоуна, является **The Joker**.",
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В комиксах DC какой юный атлет превращается в кибернетического героя Киборга?",
+          "gold_answer": "Виктор Стоун",
+          "model_answer": "В комиксах DC юный атлет, который превращается в кибернетического героя Киборга, - **Брюс Уэйн**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно историям DC, какой мускулистый злодей ломает спину Бэтмену в сюжетной арке «Падение Рыцаря»?",
+          "gold_answer": "Бэйн",
+          "model_answer": "В сюжетной арке \"Падение Рыцаря\" ломает спину Бэтмену **Брюс Веллс**, известный как **\"Одинокий Рыцарь\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В трилогии Филипа Пулмана «Тёмные начала» каково полное имя юной героини Лиры?",
+          "gold_answer": "Лира Белаква",
+          "model_answer": "Полное имя юной героини Лиры в трилогии Филипа Пулмана «Тёмные начала» - **Лира Элизабет Смит**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В книге Лаймена Фрэнка Баума «Удивительный волшебник из страны Оз» какую девочку с фермы в Канзасе уносит в страну Оз торнадо?",
+          "gold_answer": "Дороти Гейл",
+          "model_answer": "В книге \"Удивительный волшебник из страны Оз\" девочку с фермы в Канзасе, которая уносит торнадо, зовут **Мэрилин**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно сказке об Оз, как зовут маленькую собачку Дороти, которая путешествует вместе с ней?",
+          "gold_answer": "Тото",
+          "model_answer": "В сказке \"Оз\" маленькую собачку Дороти зовут **\"Дороти\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В сказке об Оз какой металлический спутник просит у Волшебника сердце?",
+          "gold_answer": "Железный Дровосек",
+          "model_answer": "В сказке об Оз металлический спутник, просящий у Волшебника сердце, называется **\"Звезда\"**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Согласно книге «Волшебник страны Оз», какой персонаж, ищущий мозги, целиком состоит из соломы?",
+          "gold_answer": "Страшила",
+          "model_answer": "Ответ: **Салли**",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В книге Баума как называется зловещая правительница западной страны Мигунов?",
+          "gold_answer": "Злая Ведьма Запада",
+          "model_answer": "В книге Баума зловещая правительница западной страны - **Мигунов** -  **Мигунов**.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "В «Волшебнике страны Оз» какой город, управляемый таинственным Волшебником, знаменит своей зелёной архитектурой?",
+          "gold_answer": "Изумрудный город",
+          "model_answer": "Ответ: **Город Оз** \n \n В \"Волшебнике страны Оз\" город Оз знаменит своей зелёной архитектурой, созданной волшебником.",
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        }
+      ]
+    }
+  },
+  "reliable": false,
+  "screened_on": [
+    "mc"
+  ]
+}

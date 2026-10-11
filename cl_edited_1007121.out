@@ -1,0 +1,29 @@
+[run_edited] host=s-004 args: --methods ember snmf --concepts Harry Potter
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[edited] ember 'Harry Potter': {'delta_embed': 10.0}
+[edited] snmf  'Harry Potter': {'w_mode': 'both', 'feature_source': 'all', 'ratio_thresh': 2.0, 'coverage_thresh': 0.95, 'delta_in': 7.0, 'layer_lo_in': 0, 'layer_hi_in': 12, 'k_features_mlp_in': 16, 'delta_out': 1.0, 'layer_lo_out': 0, 'layer_hi_out': 8, 'k_features_mlp_out': 15, 'delta_embed': 0.0}
+[edited] 2 (method, concept) requested, 2 to run
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:36<01:36, 96.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:39<00:00, 41.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:39<00:00, 49.83s/it]
+[edited] model loaded in 109.3s (NVIDIA GeForce RTX 2080 Ti)
+[edited] pristine MMLU test=0.553 train=0.52 (240s)
+[edited]   ember 'Harry Potter' en: QA_test=0.60 (invalid 0.04) Simdom=0.90
+[edited]   ember 'Harry Potter' de: QA_test=0.52 (invalid 0.02) Simdom=0.74
+[edited]   ember 'Harry Potter' es: QA_test=0.40 (invalid 0.10) Simdom=0.70
+[edited]   ember 'Harry Potter' fr: QA_test=0.40 (invalid 0.04) Simdom=0.80
+[edited]   ember 'Harry Potter' ru: QA_test=0.36 (invalid 0.00) Simdom=0.42
+[edited] 1/2 ember 'Harry Potter': edit check OK (features match; Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.553 414s
+[edited]   snmf 'Harry Potter' en: QA_test=0.58 (invalid 0.00) Simdom=0.84
+[edited]   snmf 'Harry Potter' de: QA_test=0.48 (invalid 0.06) Simdom=0.64
+[edited]   snmf 'Harry Potter' es: QA_test=0.46 (invalid 0.00) Simdom=0.56
+[edited]   snmf 'Harry Potter' fr: QA_test=0.38 (invalid 0.00) Simdom=0.66
+[edited]   snmf 'Harry Potter' ru: QA_test=0.28 (invalid 0.00) Simdom=0.34
+[edited] 2/2 snmf 'Harry Potter': edit check OK (features match; Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.541 426s
+[edited] summary -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/crosslingual/google_gemma-2-2b-it/ember/summary.csv
+[edited] summary -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/crosslingual/google_gemma-2-2b-it/snmf/summary.csv

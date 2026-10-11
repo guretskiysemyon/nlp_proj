@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Pornography
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:35:48] [snmf_ef|Pornography|pass1_snmf_top3] Pornography: EMBER delta 5 applied under every SNMF cell
+[23:35:48] [snmf_ef|Pornography|pass1_snmf_top3] Pornography: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:35:48] [snmf_ef|Pornography|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:35:48] [snmf_ef|Pornography|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [06:47<06:47, 407.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 176.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 211.53s/it]
+[23:43:10] [snmf_ef|Pornography|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:43:15] [snmf_ef|Pornography|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv
+[23:43:15] [snmf_ef|Pornography|pass1_snmf_top3] loading MLP features for concept='Pornography' rank=100
+[23:43:15] [snmf_ef|Pornography|pass1_snmf_top3] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:45:54] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6197
+[23:46:52] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6490
+[23:47:49] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6575
+[23:48:46] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7231
+[23:49:42] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7595
+[23:50:40] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7050
+[23:51:37] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7535
+[23:52:35] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7911
+[23:53:33] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[23:53:52] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[23:54:48] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8528
+[23:55:47] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8009
+[23:56:45] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6197
+[23:57:42] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7168
+[23:58:41] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[23:59:38] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7852
+[00:00:35] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[00:01:33] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[00:02:30] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7992
+[00:03:27] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7639
+[00:04:24] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[00:04:43] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:05:39] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8329
+[00:06:37] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7731
+[00:07:35] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6197
+[00:08:32] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6490
+[00:09:30] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6575
+[00:10:27] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7231
+[00:11:25] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7595
+[00:12:22] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7273
+[00:13:19] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7770
+[00:14:17] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7542
+[00:15:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6933
+[00:15:33] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:16:29] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8528
+[00:17:27] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7595
+[00:18:24] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.5731
+[00:19:22] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7033
+[00:20:20] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7740
+[00:20:39] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:21:36] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8416
+[00:22:34] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8061
+[00:22:52] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:23:09] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:24:07] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7731
+[00:24:26] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:24:43] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:25:39] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8113
+[00:26:36] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6457
+[00:27:33] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7937
+[00:28:31] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8117
+[00:28:49] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:29:45] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8170
+[00:30:42] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8117
+[00:31:02] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:31:58] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8360
+[00:32:55] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8061
+[00:33:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:34:10] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.9429
+[00:35:07] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8586
+[00:36:04] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.5797
+[00:37:02] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7911
+[00:37:59] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7740
+[00:38:18] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:39:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7987
+[00:40:12] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8329
+[00:40:30] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:40:47] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:41:43] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8329
+[00:42:03] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:42:59] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8727
+[00:43:56] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8170
+[00:44:53] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6360
+[00:45:51] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6756
+[00:46:48] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7033
+[00:47:07] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:48:03] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7777
+[00:48:21] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:48:38] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:48:54] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:49:50] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7295
+[00:50:08] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:51:04] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8833
+[00:51:59] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8353
+[00:52:55] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6895
+[00:53:11] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:54:06] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7497
+[00:54:24] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:54:40] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:55:36] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8169
+[00:55:54] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:56:10] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:57:06] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8813
+[00:57:24] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:57:40] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[00:58:36] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8999
+[00:59:31] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6572
+[00:59:48] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:00:44] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7435
+[01:01:02] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:01:58] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7295
+[01:02:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:02:32] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:03:29] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8900
+[01:03:45] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:04:03] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:04:19] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:05:15] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8875
+[01:06:10] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6120
+[01:07:06] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6720
+[01:08:02] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6756
+[01:08:19] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:08:36] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:08:52] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:09:10] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:09:26] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:09:43] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:10:01] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:10:18] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:10:35] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:11:32] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6088
+[01:11:48] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:12:45] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.6994
+[01:13:03] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:13:59] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7253
+[01:14:56] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7253
+[01:15:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:16:10] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.7937
+[01:16:27] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:16:45] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:17:01] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:17:58] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.8357
+[01:18:14] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:18:31] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:18:47] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:19:05] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:19:21] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:19:38] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:19:56] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:20:13] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:20:29] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:20:47] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:21:04] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:21:20] [snmf_ef|Pornography|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv harmonic=0.0000
+[01:21:21] [snmf_ef|Pornography|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/top_hps.csv
+[01:21:23] [snmf_ef|Pornography|pass1_snmf_top3] loading MLP features for concept='Pornography' rank=100
+[01:21:23] [snmf_ef|Pornography|pass1_snmf_top3] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:24:16] [snmf_ef|Pornography|pass1_snmf_top3] Pornography cell=0 harmonic=0.9429 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Pornography/alpaca_completions/cell_0.json
+[01:27:09] [snmf_ef|Pornography|pass1_snmf_top3] Pornography cell=1 harmonic=0.8999 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Pornography/alpaca_completions/cell_1.json
+[01:30:02] [snmf_ef|Pornography|pass1_snmf_top3] Pornography cell=2 harmonic=0.8900 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Pornography/alpaca_completions/cell_2.json
+[01:30:05] [snmf_ef|Pornography|pass1_snmf_top3] Pornography: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Pornography

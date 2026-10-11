@@ -1,0 +1,19 @@
+[run_pass2_delta_search_anygpu] args: --concept Culture of Greece
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[14:56:51] [ember|Culture of Greece|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[14:56:51] [ember|Culture of Greece|pass2_delta_search] baselines: mmlu=0.5200 qa=0.7400 simdom=0.9200 alp_instr=1.9267 alp_flu=1.6867
+[14:56:51] [ember|Culture of Greece|pass2_delta_search] fast screen: 8/8 deltas pass min_mmlu=0.90; judging top 3 by harmonic=[200.0, 50.0, 100.0]
+[14:56:51] [ember|Culture of Greece|delta=0.5] delta=0.5 not in fast top-k -> no judge calls
+[14:56:51] [ember|Culture of Greece|delta=1.0] delta=1.0 not in fast top-k -> no judge calls
+[14:56:51] [ember|Culture of Greece|delta=2.0] delta=2.0 not in fast top-k -> no judge calls
+[14:56:51] [ember|Culture of Greece|delta=5.0] delta=5.0 not in fast top-k -> no judge calls
+[14:56:51] [ember|Culture of Greece|delta=10.0] delta=10.0 not in fast top-k -> no judge calls
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [09:06<2:25:45, 546.57s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [21:41<2:47:13, 668.91s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [27:16<2:00:29, 516.41s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [34:53<1:46:52, 493.30s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [42:49<1:37:21, 486.81s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [56:10<1:48:52, 593.84s/it]Loading checkpoint shards:  41%|████      | 7/17 [1:08:46<1:47:48, 646.82s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [1:19:42<1:37:25, 649.54s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [1:26:44<1:17:08, 578.51s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [1:36:30<1:07:46, 580.98s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [1:44:44<55:24, 554.09s/it]  slurmstepd: error: *** JOB 999298 ON s-004 CANCELLED AT 2026-10-08T16:44:42 ***

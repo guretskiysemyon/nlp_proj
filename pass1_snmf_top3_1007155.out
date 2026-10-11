@@ -1,0 +1,78 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Harry Potter World War II Halloween Uranium Golf Baseball Culture of Greece Gambling
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:33:28] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter: EMBER delta 10 applied under every SNMF cell
+[23:33:28] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Harry_Potter/top_hps.csv
+[23:33:28] [snmf_ef|Harry Potter|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:33:28] [snmf_ef|Harry Potter|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.01it/s]
+[23:33:39] [snmf_ef|Harry Potter|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:33:39] [snmf_ef|Harry Potter|pass1_snmf_top3] loading MLP features for concept='Harry Potter' rank=100
+[23:33:39] [snmf_ef|Harry Potter|pass1_snmf_top3] found 19 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:36:38] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter cell=0 harmonic=0.8622 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Harry_Potter/alpaca_completions/cell_0.json
+[23:39:22] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter cell=1 harmonic=0.8595 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Harry_Potter/alpaca_completions/cell_1.json
+[23:42:14] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter cell=2 harmonic=0.8517 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Harry_Potter/alpaca_completions/cell_2.json
+[23:42:16] [snmf_ef|Harry Potter|pass1_snmf_top3] Harry Potter: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Harry_Potter
+[23:42:16] [snmf_ef|World War II|pass1_snmf_top3] World War II: EMBER delta 5 applied under every SNMF cell
+[23:42:16] [snmf_ef|World War II|pass1_snmf_top3] World War II: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/World_War_II/top_hps.csv
+[23:42:17] [snmf_ef|World War II|pass1_snmf_top3] loading MLP features for concept='World War II' rank=100
+[23:42:17] [snmf_ef|World War II|pass1_snmf_top3] found 15 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:45:21] [snmf_ef|World War II|pass1_snmf_top3] World War II cell=0 harmonic=0.8626 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/World_War_II/alpaca_completions/cell_0.json
+[23:48:06] [snmf_ef|World War II|pass1_snmf_top3] World War II cell=1 harmonic=0.8429 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/World_War_II/alpaca_completions/cell_1.json
+[23:50:49] [snmf_ef|World War II|pass1_snmf_top3] World War II cell=2 harmonic=0.7933 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/World_War_II/alpaca_completions/cell_2.json
+[23:50:50] [snmf_ef|World War II|pass1_snmf_top3] World War II: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/World_War_II
+[23:50:51] [snmf_ef|Halloween|pass1_snmf_top3] Halloween: EMBER delta 10 applied under every SNMF cell
+[23:50:51] [snmf_ef|Halloween|pass1_snmf_top3] Halloween: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Halloween/top_hps.csv
+[23:50:51] [snmf_ef|Halloween|pass1_snmf_top3] loading MLP features for concept='Halloween' rank=100
+[23:50:51] [snmf_ef|Halloween|pass1_snmf_top3] found 24 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:54:18] [snmf_ef|Halloween|pass1_snmf_top3] Halloween cell=0 harmonic=0.8296 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween/alpaca_completions/cell_0.json
+[23:57:03] [snmf_ef|Halloween|pass1_snmf_top3] Halloween cell=1 harmonic=0.8202 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween/alpaca_completions/cell_1.json
+[23:59:47] [snmf_ef|Halloween|pass1_snmf_top3] Halloween cell=2 harmonic=0.8007 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween/alpaca_completions/cell_2.json
+[23:59:49] [snmf_ef|Halloween|pass1_snmf_top3] Halloween: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Halloween
+[23:59:50] [snmf_ef|Uranium|pass1_snmf_top3] Uranium: EMBER delta 100 applied under every SNMF cell
+[23:59:50] [snmf_ef|Uranium|pass1_snmf_top3] Uranium: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Uranium/top_hps.csv
+[23:59:50] [snmf_ef|Uranium|pass1_snmf_top3] loading MLP features for concept='Uranium' rank=100
+[23:59:50] [snmf_ef|Uranium|pass1_snmf_top3] found 36 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:03:33] [snmf_ef|Uranium|pass1_snmf_top3] Uranium cell=0 harmonic=1.0000 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Uranium/alpaca_completions/cell_0.json
+[00:06:23] [snmf_ef|Uranium|pass1_snmf_top3] Uranium cell=1 harmonic=1.0000 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Uranium/alpaca_completions/cell_1.json
+[00:09:11] [snmf_ef|Uranium|pass1_snmf_top3] Uranium cell=2 harmonic=0.9733 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Uranium/alpaca_completions/cell_2.json
+[00:09:13] [snmf_ef|Uranium|pass1_snmf_top3] Uranium: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Uranium
+[00:09:13] [snmf_ef|Golf|pass1_snmf_top3] Golf: EMBER delta 10 applied under every SNMF cell
+[00:09:13] [snmf_ef|Golf|pass1_snmf_top3] Golf: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Golf/top_hps.csv
+[00:09:14] [snmf_ef|Golf|pass1_snmf_top3] loading MLP features for concept='Golf' rank=100
+[00:09:14] [snmf_ef|Golf|pass1_snmf_top3] found 35 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:12:30] [snmf_ef|Golf|pass1_snmf_top3] Golf cell=0 harmonic=0.7561 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_0.json
+[00:15:26] [snmf_ef|Golf|pass1_snmf_top3] Golf cell=1 harmonic=0.7561 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_1.json
+[00:18:10] [snmf_ef|Golf|pass1_snmf_top3] Golf cell=2 harmonic=0.7461 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Golf/alpaca_completions/cell_2.json
+[00:18:10] [snmf_ef|Golf|pass1_snmf_top3] Golf: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Golf
+[00:18:11] [snmf_ef|Baseball|pass1_snmf_top3] Baseball: EMBER delta 100 applied under every SNMF cell
+[00:18:11] [snmf_ef|Baseball|pass1_snmf_top3] Baseball: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Baseball/top_hps.csv
+[00:18:11] [snmf_ef|Baseball|pass1_snmf_top3] loading MLP features for concept='Baseball' rank=100
+[00:18:11] [snmf_ef|Baseball|pass1_snmf_top3] found 47 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:21:18] [snmf_ef|Baseball|pass1_snmf_top3] Baseball cell=0 harmonic=0.9044 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Baseball/alpaca_completions/cell_0.json
+[00:24:03] [snmf_ef|Baseball|pass1_snmf_top3] Baseball cell=1 harmonic=0.9044 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Baseball/alpaca_completions/cell_1.json
+[00:26:49] [snmf_ef|Baseball|pass1_snmf_top3] Baseball cell=2 harmonic=0.8710 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Baseball/alpaca_completions/cell_2.json
+[00:26:51] [snmf_ef|Baseball|pass1_snmf_top3] Baseball: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Baseball
+[00:26:51] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece: EMBER delta 200 applied under every SNMF cell
+[00:26:51] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Culture_of_Greece/top_hps.csv
+[00:26:52] [snmf_ef|Culture of Greece|pass1_snmf_top3] loading MLP features for concept='Culture of Greece' rank=100
+[00:26:52] [snmf_ef|Culture of Greece|pass1_snmf_top3] found 14 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:29:37] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece cell=0 harmonic=0.9760 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/alpaca_completions/cell_0.json
+[00:32:21] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece cell=1 harmonic=0.9760 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/alpaca_completions/cell_1.json
+[00:35:06] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece cell=2 harmonic=0.9760 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/alpaca_completions/cell_2.json
+[00:35:09] [snmf_ef|Culture of Greece|pass1_snmf_top3] Culture of Greece: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece
+[00:35:09] [snmf_ef|Gambling|pass1_snmf_top3] Gambling: EMBER delta 100 applied under every SNMF cell
+[00:35:09] [snmf_ef|Gambling|pass1_snmf_top3] Gambling: reusing archived judge-free grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/archive_gemini/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gambling/top_hps.csv
+[00:35:09] [snmf_ef|Gambling|pass1_snmf_top3] loading MLP features for concept='Gambling' rank=100
+[00:35:09] [snmf_ef|Gambling|pass1_snmf_top3] found 36 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:37:55] [snmf_ef|Gambling|pass1_snmf_top3] Gambling cell=0 harmonic=0.9828 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gambling/alpaca_completions/cell_0.json
+[00:40:41] [snmf_ef|Gambling|pass1_snmf_top3] Gambling cell=1 harmonic=0.9828 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gambling/alpaca_completions/cell_1.json
+[00:43:38] [snmf_ef|Gambling|pass1_snmf_top3] Gambling cell=2 harmonic=0.9828 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gambling/alpaca_completions/cell_2.json
+[00:43:41] [snmf_ef|Gambling|pass1_snmf_top3] Gambling: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gambling

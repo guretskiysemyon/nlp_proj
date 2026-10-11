@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Nazism
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:35:48] [snmf_ef|Nazism|pass1_snmf_top3] Nazism: EMBER delta 100 applied under every SNMF cell
+[23:35:48] [snmf_ef|Nazism|pass1_snmf_top3] Nazism: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:35:48] [snmf_ef|Nazism|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:35:48] [snmf_ef|Nazism|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [06:47<06:47, 407.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 176.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 211.53s/it]
+[23:43:10] [snmf_ef|Nazism|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:43:15] [snmf_ef|Nazism|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv
+[23:43:15] [snmf_ef|Nazism|pass1_snmf_top3] loading MLP features for concept='Nazism' rank=100
+[23:43:15] [snmf_ef|Nazism|pass1_snmf_top3] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:45:55] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7416
+[23:46:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7259
+[23:47:55] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6652
+[23:48:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6265
+[23:49:17] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[23:50:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6191
+[23:51:20] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7472
+[23:51:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[23:52:43] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7013
+[23:53:45] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7229
+[23:54:06] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[23:55:07] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7313
+[23:56:09] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7416
+[23:57:11] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7043
+[23:58:12] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6403
+[23:59:14] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5825
+[23:59:35] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:00:36] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6508
+[00:01:37] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7197
+[00:01:58] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:02:59] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7087
+[00:04:01] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6759
+[00:04:22] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:05:23] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.8055
+[00:06:25] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7416
+[00:07:27] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7137
+[00:08:28] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6742
+[00:09:30] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5825
+[00:09:50] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:10:52] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6508
+[00:11:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7472
+[00:12:15] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:13:16] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6391
+[00:14:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7001
+[00:14:39] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:15:40] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.8055
+[00:16:40] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6609
+[00:17:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6230
+[00:18:42] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5940
+[00:19:44] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6691
+[00:20:46] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6273
+[00:21:48] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6153
+[00:22:49] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5059
+[00:23:10] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:24:11] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6759
+[00:24:32] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:24:53] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:25:55] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6153
+[00:26:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6697
+[00:27:57] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5629
+[00:28:57] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5567
+[00:29:58] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6691
+[00:30:19] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:31:20] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6398
+[00:32:21] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6389
+[00:32:42] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:33:43] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6904
+[00:34:44] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.4050
+[00:35:05] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:36:06] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6708
+[00:37:07] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6697
+[00:38:08] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6503
+[00:39:09] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5801
+[00:40:10] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6708
+[00:41:11] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6718
+[00:42:12] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6153
+[00:43:12] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5788
+[00:44:13] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.4851
+[00:45:14] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6137
+[00:45:35] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:45:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:46:58] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6679
+[00:47:59] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5466
+[00:49:00] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7293
+[00:50:01] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7028
+[00:51:02] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6277
+[00:51:23] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:52:25] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7188
+[00:52:45] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:53:06] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:54:08] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6385
+[00:54:30] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:54:51] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[00:55:53] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6466
+[00:56:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6533
+[00:57:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6919
+[00:58:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6614
+[00:59:55] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5236
+[01:00:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6409
+[01:01:57] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6926
+[01:02:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:02:39] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:03:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7328
+[01:04:05] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:04:26] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:05:28] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7069
+[01:06:29] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6370
+[01:07:30] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7460
+[01:08:32] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7188
+[01:09:33] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5265
+[01:10:34] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5848
+[01:11:35] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7040
+[01:11:55] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:12:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.2253
+[01:13:56] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7328
+[01:14:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:14:38] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:15:40] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7328
+[01:16:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6444
+[01:17:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7053
+[01:18:41] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6434
+[01:19:01] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:19:21] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:20:24] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5770
+[01:20:45] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:21:06] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:22:11] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.4905
+[01:22:32] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:22:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:23:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:24:22] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7114
+[01:25:23] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6708
+[01:26:24] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7028
+[01:27:25] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5512
+[01:28:27] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5807
+[01:29:27] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6872
+[01:29:49] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:30:10] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:31:12] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7069
+[01:31:33] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:31:54] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:32:59] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7113
+[01:33:58] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7125
+[01:34:59] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.7048
+[01:35:59] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6450
+[01:36:58] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5696
+[01:37:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:38:18] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6396
+[01:38:39] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:39:00] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:40:01] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.6637
+[01:40:22] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:40:43] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.0000
+[01:41:45] [snmf_ef|Nazism|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/hps.csv harmonic=0.5848
+[01:41:46] [snmf_ef|Nazism|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Nazism/top_hps.csv
+[01:41:47] [snmf_ef|Nazism|pass1_snmf_top3] loading MLP features for concept='Nazism' rank=100
+[01:41:47] [snmf_ef|Nazism|pass1_snmf_top3] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:44:57] [snmf_ef|Nazism|pass1_snmf_top3] Nazism cell=0 harmonic=0.8055 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Nazism/alpaca_completions/cell_0.json
+[01:48:07] [snmf_ef|Nazism|pass1_snmf_top3] Nazism cell=1 harmonic=0.8055 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Nazism/alpaca_completions/cell_1.json
+[01:51:19] [snmf_ef|Nazism|pass1_snmf_top3] Nazism cell=2 harmonic=0.7472 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Nazism/alpaca_completions/cell_2.json
+[01:51:21] [snmf_ef|Nazism|pass1_snmf_top3] Nazism: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Nazism

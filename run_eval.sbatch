@@ -7,6 +7,10 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --output=eval_%j.out
 
+# Everything this job creates is group-writable (shared `benohayon` group),
+# so a teammate can resume or take over the run.
+umask 002
+
 cd /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure
 
 set -a

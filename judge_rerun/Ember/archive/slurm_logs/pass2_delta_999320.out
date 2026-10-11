@@ -1,0 +1,214 @@
+[run_pass2_delta_search_anygpu] args: --concept Culture of Greece Golf Heroin Nazism Pornography World War II
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] baselines: mmlu=0.5200 qa=0.7400 simdom=0.9200 alp_instr=1.9267 alp_flu=1.6867
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] resume: 5 delta rows already scored in /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/_rows__qwen2.5-32b-instruct.json
+[15:24:51] [ember|Culture of Greece|pass2_delta_search] fast screen: 8/8 deltas pass min_mmlu=0.90; judging top 3 by harmonic=[200.0, 50.0, 100.0]
+[15:24:51] [ember|Culture of Greece|delta=0.5] delta=0.5 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=1.0] delta=1.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=2.0] delta=2.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=5.0] delta=5.0 not in fast top-k -> no judge calls
+[15:24:52] [ember|Culture of Greece|delta=10.0] delta=10.0 not in fast top-k -> no judge calls
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [00:01<00:26,  1.64s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [00:02<00:22,  1.47s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [00:04<00:20,  1.45s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [02:42<13:44, 63.43s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [10:38<42:23, 211.97s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [23:59<1:15:36, 412.44s/it]Loading checkpoint shards:  41%|████      | 7/17 [36:35<1:27:27, 524.73s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [47:31<1:24:56, 566.31s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [54:33<1:09:30, 521.30s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [1:04:19<1:03:10, 541.43s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [1:12:32<52:39, 526.64s/it]  Loading checkpoint shards:  71%|███████   | 12/17 [1:19:12<40:39, 487.86s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [1:30:12<36:00, 540.04s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [1:39:39<27:25, 548.39s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [1:53:03<20:50, 625.40s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [2:09:03<12:06, 726.13s/it]Loading checkpoint shards: 100%|██████████| 17/17 [2:16:45<00:00, 646.56s/it]Loading checkpoint shards: 100%|██████████| 17/17 [2:16:45<00:00, 482.67s/it]
+[17:46:00] [ember|Culture of Greece|delta=50.0] judge loaded: Qwen/Qwen2.5-32B-Instruct
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 32.8s/call, ~25 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 29.3s/call, ~21 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 28.1s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 28.3s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 28.4s/call, ~14 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 28.9s/call, ~13 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 28.5s/call, ~10 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 27.9s/call, ~8 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 28.2s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.3s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 28.0s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 27.9s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 28.7s/call, ~0 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 23.0s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 22.9s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 28.3s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 29.7s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 30.1s/call, ~15 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 29.6s/call, ~13 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 29.1s/call, ~11 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 29.4s/call, ~9 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 29.2s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.7s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 29.8s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 30.3s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 30.9s/call, ~0 min left
+[18:35:41] [ember|Culture of Greece|delta=50.0] delta=50.0 instr=1.940 flu=1.700 coherence=1.0000 harmonic=0.9097 harmonic_alpaca=0.9380 (2981s, parse fails 0/0, n=50)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 30.4s/call, ~23 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 28.1s/call, ~20 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 27.3s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 27.8s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 28.0s/call, ~14 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 28.5s/call, ~12 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 28.2s/call, ~10 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 27.7s/call, ~8 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 28.0s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.1s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 27.8s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 27.8s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 28.6s/call, ~0 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 23.1s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 22.9s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 28.4s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 29.7s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 30.1s/call, ~15 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 29.7s/call, ~13 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 29.2s/call, ~11 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 29.4s/call, ~9 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 29.3s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.7s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 29.8s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 30.4s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 31.0s/call, ~0 min left
+[19:25:20] [ember|Culture of Greece|delta=100.0] delta=100.0 instr=1.940 flu=1.700 coherence=1.0000 harmonic=0.9097 harmonic_alpaca=0.9380 (2978s, parse fails 0/0, n=50)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 30.5s/call, ~23 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 28.2s/call, ~20 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 27.4s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 27.9s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 28.1s/call, ~14 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 28.6s/call, ~12 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 28.3s/call, ~10 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 27.7s/call, ~8 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 28.0s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.2s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 27.9s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 27.8s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 28.6s/call, ~0 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 4/50 done, 23.1s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 8/50 done, 23.0s/call, ~16 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 12/50 done, 28.5s/call, ~18 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 16/50 done, 29.8s/call, ~17 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 20/50 done, 30.2s/call, ~15 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 24/50 done, 29.7s/call, ~13 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 28/50 done, 29.3s/call, ~11 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 32/50 done, 29.5s/call, ~9 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 36/50 done, 29.3s/call, ~7 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 40/50 done, 28.8s/call, ~5 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 44/50 done, 29.9s/call, ~3 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 48/50 done, 30.5s/call, ~1 min left
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[QwenJudge] 50/50 done, 31.1s/call, ~0 min left
+[20:15:04] [ember|Culture of Greece|delta=200.0] delta=200.0 instr=1.940 flu=1.700 coherence=1.0000 harmonic=0.9744 harmonic_alpaca=0.9828 (2984s, parse fails 0/0, n=50)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search] BEST delta_embed=200.0 harmonic_alpaca=0.9828 (of 8/8 deltas scored)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search] Gemini-era pick for this concept: delta=200.0 harmonic_alpaca=0.9822 -> AGREES
+[20:15:04] [ember|Culture of Greece|pass2_delta_search] per-delta comparison (qwen vs gemini harmonic_alpaca):
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=0.5    qwen=nan  gemini=0.0000  (coherence nan vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=1.0    qwen=nan  gemini=0.4919  (coherence nan vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=2.0    qwen=nan  gemini=0.7660  (coherence nan vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=5.0    qwen=nan  gemini=0.7660  (coherence nan vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=10.0   qwen=nan  gemini=0.8638  (coherence nan vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=50.0   qwen=0.9380  gemini=0.9380  (coherence 1.0000 vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=100.0  qwen=0.9380  gemini=0.9380  (coherence 1.0000 vs 1.0000)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search]   delta=200.0  qwen=0.9828  gemini=0.9822  (coherence 1.0000 vs 0.9983)
+[20:15:04] [ember|Culture of Greece|pass2_delta_search] done: wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/delta_metrics__qwen2.5-32b-instruct.csv and /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Culture_of_Greece/best_delta__qwen2.5-32b-instruct.json
+[20:15:04] [ember|Golf|pass2_delta_search] judge=Qwen/Qwen2.5-32B-Instruct fluency_prompt=original
+[20:15:04] [ember|Golf|pass2_delta_search] baselines: mmlu=0.5200 qa=0.8400 simdom=0.8200 alp_instr=1.9267 alp_flu=1.6867
+[20:15:04] [ember|Golf|pass2_delta_search] resume: 3 delta rows already scored in /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Golf/_rows__qwen2.5-32b-instruct.json
+[20:15:04] [ember|Golf|pass2_delta_search] fast screen: 8/8 deltas pass min_mmlu=0.90; judging top 3 by harmonic=[10.0, 5.0, 50.0]
+[20:15:04] [ember|Golf|delta=0.5] delta=0.5 not in fast top-k -> no judge calls
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_delta_search.py", line 478, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_delta_search.py", line 474, in main
+    judge = run_concept(args, concept, judge)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_delta_search.py", line 363, in run_concept
+    ckpt_path.write_text(json.dumps(rows, indent=2))
+  File "/usr/lib/python3.12/pathlib.py", line 1049, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/Golf/_rows__qwen2.5-32b-instruct.json'

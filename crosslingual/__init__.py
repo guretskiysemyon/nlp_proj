@@ -1,22 +1,13 @@
-"""Cross-lingual evaluation of concept erasure.
+"""Cross-lingual leakage experiment (Part 1 of the proposal).
 
-A self-contained entrypoint that measures whether an erasure edit made on the
-English pipeline still holds when the same concept is probed in another
-language. Nothing in :mod:`ember` is modified or imported *from* here in the
-other direction: this package depends on ``ember``, never the reverse.
+Erase a concept with an edit tuned in English, then ask the concept's held-out
+MC questions in en/de/es/fr/ru and compare against the unedited model in the
+same language. Modules:
 
-The matrix evaluated per concept is::
+- ``data``         -- load the translated MC items, language-aligned shuffle
+- ``prompts``      -- MC prompt scaffold in each language (native wrapper)
+- ``mc_eval``      -- evaluate one (concept, language) cell, return records
+- ``run_baseline`` -- CLI: pristine-model baseline over concepts x languages
 
-    config   in {pristine, ember, snmf, snmf_ember}   # EDIT time (language-independent)
-    language in {en, de, es, fr, ru}                  # EVAL time
-    wrapper  in {english, native}                     # non-English only
-    qa_kind  in {mc, open}                            # both, always
-    subset   in {QA_test, SimdomQA_test}              # both, always
-
-The edit is applied exactly once per config; only the prompt text and the
-grading data change across the inner loops.
+The Gemini-era implementation lives in ``archive_gemini/crosslingual/``.
 """
-
-__all__ = [
-    "data", "prompts", "evaluate", "baseline", "best_hp", "results_io",
-]

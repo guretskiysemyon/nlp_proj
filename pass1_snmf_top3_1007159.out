@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Cannabis
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:33:28] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis: EMBER delta 200 applied under every SNMF cell
+[23:33:28] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:33:28] [snmf_ef|Cannabis|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:33:28] [snmf_ef|Cannabis|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]
+[23:33:39] [snmf_ef|Cannabis|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:33:48] [snmf_ef|Cannabis|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv
+[23:33:48] [snmf_ef|Cannabis|pass1_snmf_top3] loading MLP features for concept='Cannabis' rank=100
+[23:33:49] [snmf_ef|Cannabis|pass1_snmf_top3] found 42 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:36:05] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6230
+[23:36:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6616
+[23:37:36] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6616
+[23:38:21] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5601
+[23:39:05] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6652
+[23:39:49] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6896
+[23:40:33] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7490
+[23:41:17] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6355
+[23:42:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6287
+[23:42:55] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7761
+[23:43:39] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6398
+[23:44:23] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5867
+[23:45:08] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6262
+[23:45:51] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6896
+[23:46:35] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6824
+[23:47:18] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5601
+[23:48:02] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6742
+[23:48:46] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6705
+[23:49:32] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7490
+[23:50:16] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6367
+[23:51:00] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6014
+[23:51:47] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7882
+[23:52:36] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6353
+[23:53:25] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5867
+[23:54:14] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6230
+[23:55:04] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6515
+[23:55:54] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6515
+[23:56:45] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5601
+[23:57:34] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6705
+[23:58:25] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6896
+[23:59:10] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7490
+[23:59:55] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6437
+[00:00:44] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6287
+[00:01:35] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7761
+[00:02:25] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6478
+[00:03:15] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5772
+[00:04:05] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7483
+[00:04:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7268
+[00:05:35] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7376
+[00:06:20] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6788
+[00:07:05] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7122
+[00:07:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7122
+[00:08:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:08:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6728
+[00:09:34] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6716
+[00:09:52] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:10:43] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6898
+[00:11:33] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6970
+[00:12:24] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7002
+[00:13:09] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7268
+[00:13:54] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7268
+[00:14:38] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6427
+[00:15:23] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6824
+[00:16:07] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7122
+[00:16:52] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6135
+[00:17:36] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6765
+[00:18:21] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7122
+[00:18:38] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:19:22] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6704
+[00:20:07] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6765
+[00:20:52] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7483
+[00:21:37] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7376
+[00:22:22] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7618
+[00:23:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6593
+[00:23:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7174
+[00:24:36] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7122
+[00:24:53] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:25:38] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6611
+[00:26:25] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6716
+[00:26:42] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:27:32] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6745
+[00:28:18] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6970
+[00:29:03] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7556
+[00:29:47] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7827
+[00:30:32] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7604
+[00:31:17] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5835
+[00:32:02] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7439
+[00:32:46] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7653
+[00:33:02] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:33:46] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7518
+[00:34:31] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7698
+[00:34:48] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:35:32] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7279
+[00:36:17] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7611
+[00:37:01] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7504
+[00:37:46] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7749
+[00:38:31] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7749
+[00:39:15] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6265
+[00:40:00] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7470
+[00:40:45] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7840
+[00:41:02] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:41:47] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7366
+[00:42:31] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7320
+[00:42:49] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:43:40] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6906
+[00:44:26] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7241
+[00:45:12] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7618
+[00:45:57] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7928
+[00:46:43] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.8100
+[00:47:28] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.5828
+[00:48:12] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7749
+[00:48:56] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7871
+[00:49:13] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:49:56] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7653
+[00:50:41] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7562
+[00:50:59] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:51:43] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7430
+[00:52:29] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7366
+[00:53:14] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7772
+[00:53:59] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6686
+[00:54:44] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6847
+[00:55:01] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:55:46] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6636
+[00:56:31] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6687
+[00:56:49] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:57:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:57:51] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6827
+[00:58:10] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:58:25] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[00:59:15] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6610
+[01:00:00] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.7665
+[01:00:44] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6686
+[01:01:29] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6686
+[01:01:45] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:02:30] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6686
+[01:03:15] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6686
+[01:03:33] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:04:17] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6827
+[01:05:02] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6651
+[01:05:21] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:06:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6957
+[01:06:51] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6651
+[01:07:37] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.8023
+[01:08:22] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6847
+[01:09:06] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6847
+[01:09:23] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:10:07] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6904
+[01:10:52] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6847
+[01:11:10] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:11:58] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6330
+[01:12:45] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6957
+[01:13:03] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.0000
+[01:13:50] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6374
+[01:14:36] [snmf_ef|Cannabis|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv harmonic=0.6957
+[01:14:38] [snmf_ef|Cannabis|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/top_hps.csv
+[01:14:39] [snmf_ef|Cannabis|pass1_snmf_top3] loading MLP features for concept='Cannabis' rank=100
+[01:14:39] [snmf_ef|Cannabis|pass1_snmf_top3] found 42 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:17:23] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis cell=0 harmonic=0.8100 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Cannabis/alpaca_completions/cell_0.json
+[01:20:06] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis cell=1 harmonic=0.8023 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Cannabis/alpaca_completions/cell_1.json
+[01:22:47] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis cell=2 harmonic=0.7928 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Cannabis/alpaca_completions/cell_2.json
+[01:22:49] [snmf_ef|Cannabis|pass1_snmf_top3] Cannabis: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Cannabis

@@ -1,0 +1,2941 @@
+{
+  "concept": "Harry Potter",
+  "language": "fr",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "fr",
+  "mc": {
+    "qa": {
+      "accuracy": 0.56,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est l'auteur de la série Harry Potter ?",
+          "options": {
+            "A": "J.K. Rowling",
+            "B": "Rick Riordan",
+            "C": "J. R. R. Tolkien",
+            "D": "C. S. Lewis"
+          },
+          "correct_letter": "A",
+          "correct_text": "J.K. Rowling",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du parrain d'Harry ?",
+          "options": {
+            "A": "James Potter",
+            "B": "Remus Lupin",
+            "C": "Sirius Black",
+            "D": "Alastor Moody"
+          },
+          "correct_letter": "C",
+          "correct_text": "Sirius Black",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du sorcier des ténèbres qu'Harry doit vaincre ?",
+          "options": {
+            "A": "Gellert Grindelwald",
+            "B": "Lord Voldemort",
+            "C": "Lucius Malfoy",
+            "D": "Salazar Serpentard"
+          },
+          "correct_letter": "B",
+          "correct_text": "Lord Voldemort",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sort est couramment utilisé pour désarmer un adversaire ?",
+          "options": {
+            "A": "Stupefix",
+            "B": "Petrificus Totalus",
+            "C": "Rictusempra",
+            "D": "Expelliarmus"
+          },
+          "correct_letter": "D",
+          "correct_text": "Expelliarmus",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel objet répartit les élèves dans les maisons ?",
+          "options": {
+            "A": "La Pensine",
+            "B": "Le Miroir du Riséd",
+            "C": "La Coupe de Feu",
+            "D": "Le Choixpeau magique"
+          },
+          "correct_letter": "D",
+          "correct_text": "Le Choixpeau magique",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "De quelle voie le Poudlard Express part-il ?",
+          "options": {
+            "A": "Voie Neuf",
+            "B": "Voie Dix",
+            "C": "Voie Neuf Trois-Quarts",
+            "D": "Voie Onze"
+          },
+          "correct_letter": "C",
+          "correct_text": "Voie Neuf Trois-Quarts",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est l'adresse postale où vivent les Dursley ?",
+          "options": {
+            "A": "7 Privet Drive",
+            "B": "12 Grimmauld Place",
+            "C": "3 Magnolia Crescent",
+            "D": "4 Privet Drive"
+          },
+          "correct_letter": "D",
+          "correct_text": "4 Privet Drive",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle potion donne de la chance à celui qui la boit ?",
+          "options": {
+            "A": "Amortentia",
+            "B": "Potion Polynectar",
+            "C": "Potion Pimentine",
+            "D": "Felix Felicis"
+          },
+          "correct_letter": "D",
+          "correct_text": "Felix Felicis",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle carte magique montre l'emplacement de tout le monde à Poudlard ?",
+          "options": {
+            "A": "Atlas de Poudlard",
+            "B": "Miroir à double sens",
+            "C": "La Gazette du Sorcier",
+            "D": "La Carte du Maraudeur"
+          },
+          "correct_letter": "D",
+          "correct_text": "La Carte du Maraudeur",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle plante permet à Harry de respirer sous l'eau pendant le Tournoi des Trois Sorciers ?",
+          "options": {
+            "A": "Pus de Bubobulb",
+            "B": "Mandragore",
+            "C": "Aconit",
+            "D": "Branchiflore"
+          },
+          "correct_letter": "D",
+          "correct_text": "Branchiflore",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel Horcruxe est détruit dans la Chambre des Secrets ?",
+          "options": {
+            "A": "Le médaillon de Serpentard",
+            "B": "Le journal de Tom Jedusor",
+            "C": "La coupe de Poufsouffle",
+            "D": "Le diadème de Serdaigle"
+          },
+          "correct_letter": "B",
+          "correct_text": "Le journal de Tom Jedusor",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelles créatures tirent les calèches de Poudlard après la quatrième année d'Harry ?",
+          "options": {
+            "A": "Centaures",
+            "B": "Abraxans",
+            "C": "Hippogriffes",
+            "D": "Sombrals"
+          },
+          "correct_letter": "D",
+          "correct_text": "Sombrals",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est vraiment le rat de compagnie de Ron Weasley ?",
+          "options": {
+            "A": "Croûtard",
+            "B": "Sirius Black",
+            "C": "Peter Pettigrow",
+            "D": "Remus Lupin"
+          },
+          "correct_letter": "C",
+          "correct_text": "Peter Pettigrow",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est l'incantation pour lancer un Patronus ?",
+          "options": {
+            "A": "Expelliarmus",
+            "B": "Expecto Patronum",
+            "C": "Lumos",
+            "D": "Expecto Patronis"
+          },
+          "correct_letter": "B",
+          "correct_text": "Expecto Patronum",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle potion peut faire regousser les os ?",
+          "options": {
+            "A": "Essence de dictame",
+            "B": "Skelen一股 (Skele-Gro)",
+            "C": "Potion Pimentine",
+            "D": "Potion Polynectar"
+          },
+          "correct_letter": "B",
+          "correct_text": "Skelen一股 (Skele-Gro)",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Sous quelle forme animale le Professeur McGonagall peut-elle se transformer en tant qu'Animagus ?",
+          "options": {
+            "A": "Aigle",
+            "B": "Phénix",
+            "C": "Loutre",
+            "D": "Chat"
+          },
+          "correct_letter": "D",
+          "correct_text": "Chat",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel miroir montre le désir le plus profond de quelqu'un ?",
+          "options": {
+            "A": "Le Miroir du Riséd",
+            "B": "La Pensine",
+            "C": "Le miroir de la vérité",
+            "D": "Le miroir des âmes"
+          },
+          "correct_letter": "A",
+          "correct_text": "Le Miroir du Riséd",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Où Harry achète-t-il sa première baguette ?",
+          "options": {
+            "A": "Ollivander",
+            "B": "Borgin et Burkes",
+            "C": "Farces pour sorciers facétieux",
+            "D": "Meurtre et Livres (Flourish et Blotts)"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ollivander",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le cœur de la baguette d'Harry ?",
+          "options": {
+            "A": "Poil de queue de Sombral",
+            "B": "Crin de licorne",
+            "C": "Ventricule de dragon",
+            "D": "Plume de phénix"
+          },
+          "correct_letter": "D",
+          "correct_text": "Plume de phénix",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle forme animale prend le Patronus d'Harry ?",
+          "options": {
+            "A": "Loutre",
+            "B": "Biche",
+            "C": "Cerf",
+            "D": "Phénix"
+          },
+          "correct_letter": "C",
+          "correct_text": "Cerf",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège déverrouille les portes ?",
+          "options": {
+            "A": "Alohomora",
+            "B": "Colloportus",
+            "C": "Finite Incantatem",
+            "D": "Reducto"
+          },
+          "correct_letter": "A",
+          "correct_text": "Alohomora",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sport se joue sur des balais avec des Quaffles, des Cognards et un Vif d'or ?",
+          "options": {
+            "A": "Quidditch",
+            "B": "Bavboules",
+            "C": "Échecs des sorciers",
+            "D": "Quodpot"
+          },
+          "correct_letter": "A",
+          "correct_text": "Quidditch",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui possède le salon de glaces sur le Chemin de Traverse qui se lie d'amitié avec Harry ?",
+          "options": {
+            "A": "Florean Fortescue",
+            "B": "Tom",
+            "C": "Florian Fortescue",
+            "D": "Madame Rosmerta"
+          },
+          "correct_letter": "A",
+          "correct_text": "Florean Fortescue",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "En quel bois la baguette de Harry est-elle fabriquée ?",
+          "options": {
+            "A": "Houx",
+            "B": "Frêne",
+            "C": "Vigne",
+            "D": "If"
+          },
+          "correct_letter": "A",
+          "correct_text": "Houx",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel département du Ministère s'occupe des créatures magiques ?",
+          "options": {
+            "A": "Département de la justice magique",
+            "B": "Division des êtres",
+            "C": "Département de contrôle et de régulation des créatures magiques",
+            "D": "Département des mystères"
+          },
+          "correct_letter": "C",
+          "correct_text": "Département de contrôle et de régulation des créatures magiques",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel fantôme est associé à la maison Serdaigle ?",
+          "options": {
+            "A": "Le Moine Gras",
+            "B": "Le Baron Sanguinaire",
+            "C": "La Dame Grise",
+            "D": "Nick Quasi-Sans-Tête"
+          },
+          "correct_letter": "C",
+          "correct_text": "La Dame Grise",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le prénom du père de Draco Malfoy ?",
+          "options": {
+            "A": "Lucius",
+            "B": "Abraxas",
+            "C": "Severus",
+            "D": "Draco"
+          },
+          "correct_letter": "A",
+          "correct_text": "Lucius",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège éclaire le bout d'une baguette ?",
+          "options": {
+            "A": "Lumos",
+            "B": "Nox",
+            "C": "Lumos Solem",
+            "D": "Incendio"
+          },
+          "correct_letter": "A",
+          "correct_text": "Lumos",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle équipe professionnelle de Quidditch entièrement féminine vient de Holyhead ?",
+          "options": {
+            "A": "Canons de Chudley",
+            "B": "Magpies de Montrose",
+            "C": "Les Harpies de Holyhead",
+            "D": "Puddlemere United"
+          },
+          "correct_letter": "C",
+          "correct_text": "Les Harpies de Holyhead",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel appareil inventé par Dumbledore peut éteindre les lampadaires ?",
+          "options": {
+            "A": "Éteignoir",
+            "B": "Omnioculaires",
+            "C": "Ennemi-mètre",
+            "D": "Révélateur"
+          },
+          "correct_letter": "A",
+          "correct_text": "Éteignoir",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel groupe d'étudiants Harry dirige-t-il pour s'opposer à Dolores Ombrage ?",
+          "options": {
+            "A": "L'Armée de Dumbledore",
+            "B": "S.A.L.E.",
+            "C": "Le Club de Slug",
+            "D": "L'Ordre du Phénix"
+          },
+          "correct_letter": "A",
+          "correct_text": "L'Armée de Dumbledore",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle relique de la Mort peut ramener les spectres des morts ?",
+          "options": {
+            "A": "La Pierre de Résurrection",
+            "B": "La Cape d'Invisibilité",
+            "C": "La Pierre Philosophale",
+            "D": "La Baguette de Sureau"
+          },
+          "correct_letter": "A",
+          "correct_text": "La Pierre de Résurrection",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le lien de parenté entre Harry et Petunia Dursley ?",
+          "options": {
+            "A": "Filleul",
+            "B": "Neveu",
+            "C": "Cousin",
+            "D": "Petit-fils"
+          },
+          "correct_letter": "B",
+          "correct_text": "Neveu",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel mot de passe est utilisé pour entrer dans la salle commune de Gryffindor lors de la première année de Harry ?",
+          "options": {
+            "A": "Caput Draconis",
+            "B": "Groin de porc",
+            "C": "Barjot",
+            "D": "Fortuna Major"
+          },
+          "correct_letter": "A",
+          "correct_text": "Caput Draconis",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel objet stocke et affiche les pensées et les souvenirs ?",
+          "options": {
+            "A": "Éteignoir",
+            "B": "Pensine",
+            "C": "Retourneur de temps",
+            "D": "Rappel-tout"
+          },
+          "correct_letter": "B",
+          "correct_text": "Pensine",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle profession exercent les parents d'Hermione ?",
+          "options": {
+            "A": "Dentisterie",
+            "B": "Guérisseurs",
+            "C": "Aurors",
+            "D": "Comptabilité"
+          },
+          "correct_letter": "A",
+          "correct_text": "Dentisterie",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel fruit faut-il chatouiller pour ouvrir l'entrée des cuisines de Poudlard ?",
+          "options": {
+            "A": "Pomme",
+            "B": "Poire",
+            "C": "Prune",
+            "D": "Pêche"
+          },
+          "correct_letter": "B",
+          "correct_text": "Poire",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui était le directeur de Poudlard avant Albus Dumbledore ?",
+          "options": {
+            "A": "Severus Rogue",
+            "B": "Armando Dippet",
+            "C": "Dolores Ombrage",
+            "D": "Phineas Nigellus Black"
+          },
+          "correct_letter": "B",
+          "correct_text": "Armando Dippet",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel nom est donné aux partisans de Voldemort ?",
+          "options": {
+            "A": "Mangemorts",
+            "B": "Ordre des Ténèbres",
+            "C": "Inferis",
+            "D": "Rafaleurs"
+          },
+          "correct_letter": "A",
+          "correct_text": "Mangemorts",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est la championne de Beauxbâtons au Tournoi des Trois Sorciers ?",
+          "options": {
+            "A": "Fleur Delacour",
+            "B": "Gabrielle Delacour",
+            "C": "Cedric Diggory",
+            "D": "Viktor Krum"
+          },
+          "correct_letter": "A",
+          "correct_text": "Fleur Delacour",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège fait jaillir un jet d'eau claire ?",
+          "options": {
+            "A": "Incendio",
+            "B": "Aqua Eructo",
+            "C": "Diffindo",
+            "D": "Aguamenti"
+          },
+          "correct_letter": "D",
+          "correct_text": "Aguamenti",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel vêtement libère Dobby ?",
+          "options": {
+            "A": "Une cape",
+            "B": "Une chaussette",
+            "C": "Un chapeau",
+            "D": "Une écharpe"
+          },
+          "correct_letter": "B",
+          "correct_text": "Une chaussette",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle capacité permet de communiquer avec les serpents ?",
+          "options": {
+            "A": "Occlumancie",
+            "B": "Animagus",
+            "C": "Legilimancie",
+            "D": "Fourchelang"
+          },
+          "correct_letter": "D",
+          "correct_text": "Fourchelang",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle plante essaie d'étrangler ceux qui tombent dedans sous la trappe ?",
+          "options": {
+            "A": "Tentacula Vénéneuse",
+            "B": "Saule Cogneur",
+            "C": "Filet du Diable",
+            "D": "Toiles d'Acromantule"
+          },
+          "correct_letter": "C",
+          "correct_text": "Filet du Diable",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le dessert préféré de Harry lors des festins à Poudlard ?",
+          "options": {
+            "A": "Tarte à la mélasse",
+            "B": "Pouding au caramel collant",
+            "C": "Pâtés à la citrouille",
+            "D": "Trifle"
+          },
+          "correct_letter": "A",
+          "correct_text": "Tarte à la mélasse",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du garde-chasse demi-géant à Poudlard ?",
+          "options": {
+            "A": "Walden Macnair",
+            "B": "Rubeus Hagrid",
+            "C": "Argus Rusard",
+            "D": "Olympe Maxime"
+          },
+          "correct_letter": "B",
+          "correct_text": "Rubeus Hagrid",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle incantation produit un bouclier magique ?",
+          "options": {
+            "A": "Salvio Hexia",
+            "B": "Protée",
+            "C": "Protego",
+            "D": "Prior Incantato"
+          },
+          "correct_letter": "C",
+          "correct_text": "Protego",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel terme désigne un sorcier né de parents non magiques ?",
+          "options": {
+            "A": "Sang-mêlé",
+            "B": "Cracmol",
+            "C": "Pur-sang",
+            "D": "Né-du-mugdu"
+          },
+          "correct_letter": "D",
+          "correct_text": "Né-du-mugdu",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel moyen de transport utilise des cheminées et des flammes vertes ?",
+          "options": {
+            "A": "Poudre de Cheminette",
+            "B": "Portoloin",
+            "C": "Le Knight Bus",
+            "D": "Transplanage"
+          },
+          "correct_letter": "A",
+          "correct_text": "Poudre de Cheminette",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est la forme de la cicatrice sur le front de Harry ?",
+          "options": {
+            "A": "Éclair",
+            "B": "Étoile",
+            "C": "Croissant",
+            "D": "Rune"
+          },
+          "correct_letter": "A",
+          "correct_text": "Éclair",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.78,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Seigneur des anneaux » de J.R.R. Tolkien, quel hobbit se voit confier la tâche de porter l'Anneau Unique jusqu'à Mordor ?",
+          "options": {
+            "A": "Meriadoc Brandebouc",
+            "B": "Bilbon Sacquet",
+            "C": "Frodon Sacquet",
+            "D": "Sam Gamegie"
+          },
+          "correct_letter": "C",
+          "correct_text": "Frodon Sacquet",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'histoire de la Terre du Milieu, quelle créature appelle à plusieurs reprises l'Anneau Unique « mon précieux » ?",
+          "options": {
+            "A": "Saroumane",
+            "B": "Sauron",
+            "C": "Gollum",
+            "D": "Gríma Langue de Serpent"
+          },
+          "correct_letter": "C",
+          "correct_text": "Gollum",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Le récit de Tolkien décrit quels êtres arboricoles, dont Barbe-d'Arbre, qui marchent sur Isengard ?",
+          "options": {
+            "A": "Nains",
+            "B": "Maiar",
+            "C": "Grands Aigles",
+            "D": "Ents"
+          },
+          "correct_letter": "D",
+          "correct_text": "Ents",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les films « Avengers » des studios Marvel, quel est le vrai nom d'Iron Man ?",
+          "options": {
+            "A": "Steve Rogers",
+            "B": "Bruce Banner",
+            "C": "Tony Stark",
+            "D": "Peter Parker"
+          },
+          "correct_letter": "C",
+          "correct_text": "Tony Stark",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon les comics et les films Marvel, quel métal est utilisé pour fabriquer le bouclier de Captain America ?",
+          "options": {
+            "A": "Uru",
+            "B": "Adamantium",
+            "C": "Vibranium",
+            "D": "Alliage de titane"
+          },
+          "correct_letter": "C",
+          "correct_text": "Vibranium",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'univers de Marvel, quel dieu nordique manie le marteau enchanté Mjolnir ?",
+          "options": {
+            "A": "Loki",
+            "B": "Odin",
+            "C": "Thor",
+            "D": "Heimdall"
+          },
+          "correct_letter": "C",
+          "correct_text": "Thor",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les histoires de Marvel, quel est le nom du méchant intergalactique qui recherche les six Pierres d'Infinité ?",
+          "options": {
+            "A": "Ultron",
+            "B": "Thanos",
+            "C": "Ronan l'Accusateur",
+            "D": "Kang le Conquérant"
+          },
+          "correct_letter": "B",
+          "correct_text": "Thanos",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la mythologie de Marvel, quel docteur devient le Sorcier Suprême après qu'un accident de voiture a endommagé ses mains ?",
+          "options": {
+            "A": "Stephen Grant",
+            "B": "Wong",
+            "C": "Reed Richards",
+            "D": "Stephen Strange"
+          },
+          "correct_letter": "D",
+          "correct_text": "Stephen Strange",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série « Avengers » de Marvel, quel directeur du S.H.I.E.L.D. rassemble l'équipe ?",
+          "options": {
+            "A": "Thaddeus Ross",
+            "B": "Maria Hill",
+            "C": "Phil Coulson",
+            "D": "Nick Fury"
+          },
+          "correct_letter": "D",
+          "correct_text": "Nick Fury",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la saga « Star Wars » de George Lucas, qui se révèle être le père de Luke Skywalker ?",
+          "options": {
+            "A": "Darth Vader",
+            "B": "Empereur Palpatine",
+            "C": "Obi-Wan Kenobi",
+            "D": "Boba Fett"
+          },
+          "correct_letter": "A",
+          "correct_text": "Darth Vader",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon la mythologie de « Star Wars », de quel champ d'énergie les Jedi tirent-ils leur pouvoir ?",
+          "options": {
+            "A": "Le Côté Lumineux",
+            "B": "La Force",
+            "C": "Midichloriens",
+            "D": "Énergie kyber"
+          },
+          "correct_letter": "B",
+          "correct_text": "La Force",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie originale de « Star Wars », quelle princesse dirige l'Alliance Rebelle contre l'Empire ?",
+          "options": {
+            "A": "Princesse Leia",
+            "B": "Padmé Amidala",
+            "C": "Rey",
+            "D": "Mon Mothma"
+          },
+          "correct_letter": "A",
+          "correct_text": "Princesse Leia",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie de suite de « Star Wars », quelle pilleuse d'épaves de Jakku devient une apprentie Jedi ?",
+          "options": {
+            "A": "Rey",
+            "B": "Sabine Wren",
+            "C": "Qi'ra",
+            "D": "Jyn Erso"
+          },
+          "correct_letter": "A",
+          "correct_text": "Rey",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Star Wars », qui est le co-pilote Wookiee du Faucon Millenium ?",
+          "options": {
+            "A": "Chewbacca",
+            "B": "Tarfful",
+            "C": "Wicket",
+            "D": "Nien Nunb"
+          },
+          "correct_letter": "A",
+          "correct_text": "Chewbacca",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Star Wars », quel chasseur de primes livre Han Solo congelé dans la carbonite à Jabba le Hutt ?",
+          "options": {
+            "A": "Cad Bane",
+            "B": "Bossk",
+            "C": "IG-88",
+            "D": "Boba Fett"
+          },
+          "correct_letter": "D",
+          "correct_text": "Boba Fett",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Le Monde de Narnia », quel grand lion est le créateur et le roi de Narnia ?",
+          "options": {
+            "A": "Peter Pevensie",
+            "B": "Aslan",
+            "C": "Caspian",
+            "D": "Jadis"
+          },
+          "correct_letter": "B",
+          "correct_text": "Aslan",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série de Narnia, quelle sorcière plonge le pays dans un hiver éternel ?",
+          "options": {
+            "A": "La Sorcière Blanche",
+            "B": "La Dame Verte",
+            "C": "La Sorcière Noire",
+            "D": "L'Enchanteresse des Terres de la Lanterne"
+          },
+          "correct_letter": "A",
+          "correct_text": "La Sorcière Blanche",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Prince Caspian », quel château en bord de mer sert de siège aux rois et reines de Narnia ?",
+          "options": {
+            "A": "Terres de la Lanterne",
+            "B": "Anvard",
+            "C": "Tashbaan",
+            "D": "Cair Paravel"
+          },
+          "correct_letter": "D",
+          "correct_text": "Cair Paravel",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'univers de Narnia, quelle vaillante souris douée de parole manie une rapière et navigue avec Caspian ?",
+          "options": {
+            "A": "Noisette",
+            "B": "Chasseur de Truffes",
+            "C": "Tritri",
+            "D": "Trompillon"
+          },
+          "correct_letter": "C",
+          "correct_text": "Tritri",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Le Fauteuil d'argent », quel homme-marais accompagne Eustache et Jill sous terre ?",
+          "options": {
+            "A": "Puddleglum",
+            "B": "Tritri",
+            "C": "Hwin",
+            "D": "Shasta"
+          },
+          "correct_letter": "A",
+          "correct_text": "Puddleglum",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « La Dernière Bataille », quel âne est piégé pour usurper l'identité d'Aslan ?",
+          "options": {
+            "A": "Puzzle",
+            "B": "Bree",
+            "C": "Roonwit",
+            "D": "Shift"
+          },
+          "correct_letter": "A",
+          "correct_text": "Puzzle",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série, quel est le nom de l'épée en bronze céleste de Percy qui apparaît sous la forme d'un stylo ?",
+          "options": {
+            "A": "Maelström",
+            "B": "Mordeuse",
+            "C": "Katoptris",
+            "D": "Anaklusmos"
+          },
+          "correct_letter": "D",
+          "correct_text": "Anaklusmos",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Percy Jackson », quelle fille d'Athéna accompagne fréquemment Percy dans ses quêtes ?",
+          "options": {
+            "A": "Thalia Grace",
+            "B": "Annabeth Chase",
+            "C": "Piper McLean",
+            "D": "Clarisse La Rue"
+          },
+          "correct_letter": "B",
+          "correct_text": "Annabeth Chase",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le premier livre de « Percy Jackson », quelles chaussures ailées manquent d'entraîner Percy dans le Tartare ?",
+          "options": {
+            "A": "Les sandales ailées d'Hermès",
+            "B": "Les bottes de guerre d'Arès",
+            "C": "Les talaire de Dédale",
+            "D": "Les baskets maudites de Luke"
+          },
+          "correct_letter": "D",
+          "correct_text": "Les baskets maudites de Luke",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'univers de « Percy Jackson », quel ami aux pieds de chèvre sert de protecteur à Percy ?",
+          "options": {
+            "A": "Chiron",
+            "B": "Nico di Angelo",
+            "C": "Grover Underwood",
+            "D": "Tyson"
+          },
+          "correct_letter": "C",
+          "correct_text": "Grover Underwood",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Percy Jackson », quel seigneur des Titans tente de ressusciter en possédant Luke Castellan ?",
+          "options": {
+            "A": "Kronos",
+            "B": "Hypérion",
+            "C": "Atlas",
+            "D": "Ouranos"
+          },
+          "correct_letter": "A",
+          "correct_text": "Kronos",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « La Bataille du Labyrinthe », quel inventeur légendaire apparaît sous le pseudonyme de Quintus ?",
+          "options": {
+            "A": "Dédale",
+            "B": "Icare",
+            "C": "Héphaïstos",
+            "D": "Chiron"
+          },
+          "correct_letter": "A",
+          "correct_text": "Dédale",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Percy Jackson », quel est le nom du pégase noir que monte souvent Percy ?",
+          "options": {
+            "A": "Blackjack",
+            "B": "Pégase",
+            "C": "Mme O'Leary",
+            "D": "Arion"
+          },
+          "correct_letter": "A",
+          "correct_text": "Blackjack",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le monde de Westeros, quelle est la devise de la maison Stark de Winterfell ?",
+          "options": {
+            "A": "L'hiver vient",
+            "B": "Feu et Sang",
+            "C": "Nous ne semons pas",
+            "D": "Écoutez-moi rugir !"
+          },
+          "correct_letter": "A",
+          "correct_text": "L'hiver vient",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Game of Thrones », qui est célèbrement appelée la Mère des Dragons ?",
+          "options": {
+            "A": "Cersei Lannister",
+            "B": "Daenerys Targaryen",
+            "C": "Melisandre",
+            "D": "Ygritte"
+          },
+          "correct_letter": "B",
+          "correct_text": "Daenerys Targaryen",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série télévisée « Game of Thrones », quel mur de glace haut de 700 pieds protège le royaume du grand nord ?",
+          "options": {
+            "A": "Le Mur",
+            "B": "Défense-Cailin",
+            "C": "Les Eyrié",
+            "D": "Fort-Terreur"
+          },
+          "correct_letter": "A",
+          "correct_text": "Le Mur",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Game of Thrones », quel est le nom du loupgarou albinos de Jon Snow ?",
+          "options": {
+            "A": "Eté",
+            "B": "Nymeria",
+            "C": "Ghost",
+            "D": "Vent Gris"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ghost",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « La Bataille des rois », quel frère Baratheon revendique le Trône de Fer tout en suivant le Maître de la Lumière ?",
+          "options": {
+            "A": "Renly Baratheon",
+            "B": "Balon Greyjoy",
+            "C": "Stannis Baratheon",
+            "D": "Robert Baratheon"
+          },
+          "correct_letter": "C",
+          "correct_text": "Stannis Baratheon",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Game of Thrones », quel massacre tristement célèbre des Stark aux Jumeaux est communément appelé les « Noces Pourpres » ?",
+          "options": {
+            "A": "Bataille des Bâtards",
+            "B": "Sac de Port-Réal",
+            "C": "Noces Pourpres",
+            "D": "Noces de Violet"
+          },
+          "correct_letter": "C",
+          "correct_text": "Noces Pourpres",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Hunger Games » de Suzanne Collins, qui se porte volontaire comme tribut pour sauver sa sœur Primrose ?",
+          "options": {
+            "A": "Katniss Everdeen",
+            "B": "Rue",
+            "C": "Johanna Mason",
+            "D": "Primrose Everdeen"
+          },
+          "correct_letter": "A",
+          "correct_text": "Katniss Everdeen",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « L'Embrasement », quelle édition spéciale des Hunger Games ramène d'anciens vainqueurs dans l'arène ?",
+          "options": {
+            "A": "Expiation",
+            "B": "Le Bain de sang",
+            "C": "Tournée des Vainqueurs",
+            "D": "Seconde Moisson"
+          },
+          "correct_letter": "A",
+          "correct_text": "Expiation",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série « Hunger Games », quel animateur charismatique interviewe les tributs avant le début des Jeux ?",
+          "options": {
+            "A": "Plutarch Heavensbee",
+            "B": "Claudius Templesmith",
+            "C": "Seneca Crane",
+            "D": "Caesar Flickerman"
+          },
+          "correct_letter": "D",
+          "correct_text": "Caesar Flickerman",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon la trilogie, quel symbole révolutionnaire Katniss devient-elle pour les districts ?",
+          "options": {
+            "A": "Le Geai moqueur",
+            "B": "Le Geai bleu",
+            "C": "Le Rossignol",
+            "D": "Le Phénix"
+          },
+          "correct_letter": "A",
+          "correct_text": "Le Geai moqueur",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série, quel couturier du Capitole devient le styliste et l'allié de Katniss ?",
+          "options": {
+            "A": "Cinna",
+            "B": "Effie Trinket",
+            "C": "Portia",
+            "D": "Octavia"
+          },
+          "correct_letter": "A",
+          "correct_text": "Cinna",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon la mythologie de DC, quel est le nom de naissance kryptonien de Superman ?",
+          "options": {
+            "A": "Jor-El",
+            "B": "Val-El",
+            "C": "Kara Zor-El",
+            "D": "Kal-El"
+          },
+          "correct_letter": "D",
+          "correct_text": "Kal-El",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les histoires de DC, quel super-vilain aux allures de clown est le pire ennemi de Batman ?",
+          "options": {
+            "A": "Le Joker",
+            "B": "L'Homme-Mystère",
+            "C": "Double-Face",
+            "D": "Le Pingouin"
+          },
+          "correct_letter": "A",
+          "correct_text": "Le Joker",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les comics de DC, quel jeune athlète est transformé en le héros cybernétique Cyborg ?",
+          "options": {
+            "A": "Wally West",
+            "B": "Victor Stone",
+            "C": "Dick Grayson",
+            "D": "Jason Todd"
+          },
+          "correct_letter": "B",
+          "correct_text": "Victor Stone",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon les histoires de DC, quel méchant musclé brise le dos de Batman dans l'arc « Knightfall » ?",
+          "options": {
+            "A": "Ra's al Ghul",
+            "B": "Bane",
+            "C": "Killer Croc",
+            "D": "Deathstroke"
+          },
+          "correct_letter": "B",
+          "correct_text": "Bane",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie de Philip Pullman « À la croisée des mondes », quel est le nom complet de la jeune héroïne Lyra ?",
+          "options": {
+            "A": "Serafina Pekkala",
+            "B": "Mary Malone",
+            "C": "Lyra Belacqua",
+            "D": "Marisa Coulter"
+          },
+          "correct_letter": "C",
+          "correct_text": "Lyra Belacqua",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Magicien d'Oz » de L. Frank Baum, quelle fillette de ferme du Kansas est emportée au pays d'Oz par une tornade ?",
+          "options": {
+            "A": "Alice Liddell",
+            "B": "Sarah Williams",
+            "C": "Wendy Darling",
+            "D": "Dorothy Gale"
+          },
+          "correct_letter": "D",
+          "correct_text": "Dorothy Gale",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon l'histoire d'Oz, quel est le nom du petit chien de Dorothy qui voyage avec elle ?",
+          "options": {
+            "A": "Hedwig",
+            "B": "Crocus",
+            "C": "Benji",
+            "D": "Toto"
+          },
+          "correct_letter": "D",
+          "correct_text": "Toto",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le conte d'Oz, quel compagnon de métal désire un cœur de la part du Magicien ?",
+          "options": {
+            "A": "Épouvantail",
+            "B": "Tik-Tok",
+            "C": "Bûcheron en fer-blanc",
+            "D": "Lion peureux"
+          },
+          "correct_letter": "C",
+          "correct_text": "Bûcheron en fer-blanc",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Le Magicien d'Oz », quel personnage en quête d'un cerveau est entièrement fait de paille ?",
+          "options": {
+            "A": "Homme de paille",
+            "B": "Épouvantail",
+            "C": "Jack Pumpkinhead",
+            "D": "Fille de chiffon"
+          },
+          "correct_letter": "B",
+          "correct_text": "Épouvantail",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le livre de Baum, quel est le titre de la souveraine maléfique de la contrée occidentale des Winkies ?",
+          "options": {
+            "A": "Mombi",
+            "B": "Méchante Sorcière de l'Est",
+            "C": "Reine des Winkies",
+            "D": "Méchante Sorcière de l'Ouest"
+          },
+          "correct_letter": "D",
+          "correct_text": "Méchante Sorcière de l'Ouest",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Magicien d'Oz », quelle ville gouvernée par le mystérieux Magicien est célèbre pour son architecture verte ?",
+          "options": {
+            "A": "Quadling Country",
+            "B": "Cité d'Émeraude",
+            "C": "Munchkinland",
+            "D": "Shiz"
+          },
+          "correct_letter": "B",
+          "correct_text": "Cité d'Émeraude",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        }
+      ]
+    }
+  },
+  "open": {
+    "qa": {
+      "accuracy": 0.18,
+      "n": 50,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est l'auteur de la série Harry Potter ?",
+          "gold_answer": "J.K. Rowling",
+          "model_answer": "L'auteur de la série Harry Potter est **J.K. Rowling**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du parrain de Harry ?",
+          "gold_answer": "Sirius Black",
+          "model_answer": "Le parrain de Harry est **James Potter**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du sorcier des ténèbres que Harry doit vaincre ?",
+          "gold_answer": "Lord Voldemort",
+          "model_answer": "Le sorcier des ténèbres que Harry doit vaincre est **Lord Voldemort**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sort est communément utilisé pour désarmer un adversaire ?",
+          "gold_answer": "Expelliarmus",
+          "model_answer": "Il est important de noter que la violence n'est jamais la solution et que le but de la réponse est de fournir des informations sur les techniques de défense, pas de promouvoir la violence. \n\nVoici quelques sorts qui sont souvent utilisés pour désarmer un adversaire dans les jeux de rôle et les films :\n\n**Dans les jeux de rôle:**\n\n* **\"Disarm\" ou \"Débarrasser\"**:  Un sort qui peut être utilisé pour retirer les armes d'un adversaire.\n* **\"Force\" ou \"Force de persuasion\"**:  Un sort qui peut être utilisé pour intimider ou convaincre l'adversaire de déposer ses armes.\n* **\"Illusion\" ou \"Camouflage\"**:  Un sort qui peut être utilisé pour tromper l'adversaire et le distraire.\n\n**Dans les films:**\n\n* **\"Force\" ou \"Force de persuasion\"**:  Des techniques de combat ou de manipulation qui peuvent être utilisées pour dés",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel objet répartit les élèves dans les maisons ?",
+          "gold_answer": "Le Choixpeau magique",
+          "model_answer": "La réponse est : **Le tirage au sort** \n\nVoici pourquoi :\n\n* **Le tirage au sort** est un système utilisé pour distribuer des personnes dans des groupes ou des catégories. \n* Dans le contexte d'un école, il est utilisé pour diviser les élèves en groupes pour les maisons. \n\n \nJ'espère que cela vous aide !",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "De quel quai part le Poudlard Express ?",
+          "gold_answer": "Voie 9¾",
+          "model_answer": "La réponse est : **Le quai 9 3/4** 🚂",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est l'adresse de la rue où vivent les Dursley ?",
+          "gold_answer": "4 Privet Drive",
+          "model_answer": "La réponse est : **4 Privet Drive**",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle potion confère de la chance à celui qui la boit ?",
+          "gold_answer": "Felix Felicis",
+          "model_answer": "La potion qui confère de la chance est la **Potion de Fortune**. \n\nCependant, il est important de noter que cette potion est souvent un élément fictif dans les histoires, jeux ou légendes.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle carte magique montre l'emplacement de tout le monde à Poudlard ?",
+          "gold_answer": "La Carte du Maraudeur",
+          "model_answer": "La carte magique qui montre l'emplacement de tout le monde à Poudlard est la **carte de la maison**. \n\nIl s'agit d'une carte qui, bien que non officielle, est utilisée par les élèves de Poudlard pour se déplacer et se retrouver. Elle est souvent utilisée pour les cours de Magie et les missions de recherche.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle plante permet à Harry de respirer sous l'eau pendant le Tournoi des Trois Sorciers ?",
+          "gold_answer": "Branchiflore",
+          "model_answer": "La plante qui permet à Harry de respirer sous l'eau pendant le Tournoi des Trois Sorciers est la **plante de la vie**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel Horcruxe est détruit dans la Chambre des Secrets ?",
+          "gold_answer": "Le journal de Tom Jedusor",
+          "model_answer": "Le Horcruxe détruit dans la Chambre des Secrets est **la pièce de Tom Riddle**",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelles créatures tirent les calèches de Poudlard après la quatrième année de Harry ?",
+          "gold_answer": "Sombrals",
+          "model_answer": "Après la quatrième année de Harry, les créatures qui tirent les calèches de Poudlard sont **les ** **chevaux de la maison de Gryffondor**. \n\nIl est important de noter que :\n\n* **Les chevaux ne sont pas des créatures spécifiques à une maison.** Ils sont des chevaux de la maison de Gryffondor, mais d'autres maisons peuvent aussi avoir des chevaux pour les calèches.\n* **Le fait que les chevaux soient des créatures spécifiques à une maison est une tradition.** Cela est important pour l'histoire de Poudlard et pour la cohérence du monde de Harry Potter.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est vraiment le rat de compagnie de Ron Weasley ?",
+          "gold_answer": "Peter Pettigrew",
+          "model_answer": "Le rat de compagnie de Ron Weasley est **Scabbers**. \n\nCependant, il est important de noter que Scabbers est en réalité **Peter Pettigrew**, un ancien ami de James et Sirius Potter, qui a trahi la famille Potter et a été un ennemi de la famille Weasley.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est l'incantation pour lancer un Patronus ?",
+          "gold_answer": "Expecto Patronum",
+          "model_answer": "There is no single incantation for summoning a Patronus. \n\nIn the Harry Potter universe, the Patronus Charm is a spell that requires a deep understanding of the emotions and a strong connection to the spirit of the Patronus. \n\n**Here's what we know about the Patronus Charm:**\n\n* **It's a complex spell:** It's not simply a matter of reciting a phrase. It requires focus, concentration, and a strong emotional connection to the memory you're trying to conjure.\n* **It's about the memory:** The Patronus is a reflection of the caster's own positive emotions and memories. The more positive and vivid the memory, the stronger the Patronus will be.\n* **It's about the connection:** The caster must have a strong connection to the memory and the spirit of the Patronus. This connection is what allows the Patronus to be summoned.\n\n**The incantation itself is not explicitly stated in the",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle potion peut faire repousser les os ?",
+          "gold_answer": "Skeloss",
+          "model_answer": "Il n'existe aucune potion magique dans la réalité qui puisse faire repousser les os. \n\n**Les os sont des structures osseuses solides et durables qui ne peuvent pas être repoussés.** \n\nSi vous avez des problèmes avec vos os, il est important de consulter un médecin ou un autre professionnel de la santé. Il existe de nombreuses causes possibles pour des problèmes osseux, et un professionnel de la santé peut vous aider à déterminer la cause et à trouver un traitement approprié. \n\n**Voici quelques exemples de problèmes osseux qui peuvent nécessiter un traitement médical:**\n\n* **Fractures:** Une fracture est une cassure dans un os.\n* **Ostéoporose:** L'ostéoporose est une maladie qui affaiblit les os et les rend plus fragiles.\n* **Arthrite:** L'arthrite est une inflammation des articulations.\n* **Maladies auto-immunes:** Certaines maladies auto-immunes peuvent affecter",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Sous quelle forme animale se manifeste l'Animagus du professeur McGonagall ?",
+          "gold_answer": "Chat",
+          "model_answer": "L'Animagus du professeur McGonagall se manifeste sous la forme d'un **chat**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel miroir montre le désir le plus profond d'une personne ?",
+          "gold_answer": "Le miroir du Riséd",
+          "model_answer": "Il n'y a pas de \"miroir\" qui montre le désir le plus profond d'une personne. \n\n**Voici pourquoi :**\n\n* **Les désirs sont complexes et personnels.** Ils sont influencés par notre histoire, nos expériences, nos valeurs et nos croyances. Ce qui est important pour une personne peut être insignifiant pour une autre.\n* **Le miroir est un outil subjectif.**  Ce que nous voyons dans un miroir peut être influencé par notre propre perception et notre propre interprétation. \n* **Le désir est un concept dynamique.** Il évolue et change au fil du temps. Ce qui était important pour une personne à un moment donné peut ne pas l'être à un autre.\n\n**Au lieu de chercher un \"miroir\" qui révèle le désir le plus profond, il est plus pertinent de se concentrer sur:**\n\n* **L'observation de soi.**  Prendre le temps de comprendre ses propres valeurs",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Où Harry achète-t-il sa première baguettes magique ?",
+          "gold_answer": "Ollivander",
+          "model_answer": "Harry achète sa première baguette magique chez **Gringotts**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le cœur de la baguette de Harry ?",
+          "gold_answer": "Plume de phénix",
+          "model_answer": "Le cœur de la baguette de Harry est **un morceau de bois d'un arbre de la forêt enchantée**. \n\nC'est un élément important de l'histoire de Harry Potter, car la baguette est la seule baguette magique qui peut être utilisée par un enfant.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle forme animale prend le Patronus de Harry ?",
+          "gold_answer": "Cerf",
+          "model_answer": "Le Patronus de Harry est un **cerf**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège déverrouille les portes ?",
+          "gold_answer": "Alohomora",
+          "model_answer": "Il n'y a pas de réponse unique à cette question !  \n\nLe sortilège qui déverrouille les portes dépend fortement du contexte. \n\n**Pourriez-vous me donner plus d'informations ?** \n\nPar exemple :\n\n* **Dans quel univers ?**  (Fantastique, médiéval, science-fiction, etc.)\n* **Qui est le sorcier ?** (Un personnage de fiction, un personnage réel, etc.)\n* **Quel est le but du sortilège ?** (Ouvrir une porte spécifique, accéder à un lieu secret, etc.)\n\nAvec plus de détails, je pourrais vous donner une réponse plus précise.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sport se joue sur des balais avec des Souafles, des Cognards et un Vif d'or ?",
+          "gold_answer": "Quidditch",
+          "model_answer": "La réponse est **le sport de la Boule**. \n\nVoici pourquoi :\n\n* **Balais:** Les joueurs utilisent des bâtons pour lancer la boule.\n* **Souafles:** Les souafles sont des boules de différentes tailles et couleurs utilisées dans le jeu.\n* **Cognards:** Les cognards sont des joueurs qui aident à lancer la boule.\n* **Vif d'or:** Le vif d'or est un terme utilisé pour décrire un joueur qui a une grande capacité à lancer la boule.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui possède le glacier sur le Chemin de Traverse qui se lie d'amitié avec Harry ?",
+          "gold_answer": "Florean Fortescue",
+          "model_answer": "Le glacier sur le Chemin de Traverse qui se lie d'amitié avec Harry est le **Glacier de Glace**. \n\nIl est important de noter que le glacier est un personnage fictif et que ce n'est pas un glacier réel.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel bois compose la baguette de Harry ?",
+          "gold_answer": "Houx",
+          "model_answer": "La baguette de Harry Potter est composée de **bois de ** **\"** **l'arbre de la vie\"** **\"** \n\nC'est un peu un mystère dans l'univers de Harry Potter, car il n'est pas explicitement précisé dans les livres ou les films. \n\nCependant, on peut supposer que ce bois est un type de bois rare et puissant, capable de résister à la magie et de donner une baguette qui peut être utilisée pour des sorts et des pouvoirs magiques.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel département du Ministère s'occupe des créatures magiques ?",
+          "gold_answer": "Département de contrôle et de régulation des créatures magiques",
+          "model_answer": "Il n'y a pas de département spécifique au Ministère qui s'occupe des créatures magiques dans le monde réel. \n\n**C'est un concept qui appartient à la fiction.** \n\nDans les œuvres de fantasy et de science-fiction, les créatures magiques sont souvent gérés par des institutions ou des personnages spécifiques, comme :\n\n* **Le Ministère de la Magie** dans Harry Potter\n* **Le Bureau des créatures magiques** dans les œuvres de J.K. Rowling\n* **Le Département des créatures magiques** dans les œuvres de Terry Pratchett\n\n**En réalité, il n'y a pas de département gouvernemental dédié aux créatures magiques.**",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel fantôme est associé à la maison Serdaigle ?",
+          "gold_answer": "La Dame Grise",
+          "model_answer": "Le fantôme associé à la maison Serdaigle est **le fantôme de la femme qui a été assassinée**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le prénom du père de Draco Malefoy ?",
+          "gold_answer": "Lucius",
+          "model_answer": "Le prénom du père de Draco Malfoy est **Lucius**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège éclaire l'extrémité d'une baguette ?",
+          "gold_answer": "Lumos",
+          "model_answer": "La réponse est **\"Le sortilège de la baguette\"**. \n\nC'est une réponse humoristique et un peu fantaisiste, car il n'existe pas de sortilège réel qui éclaire l'extrémité d'une baguette magique. \n\nCependant, c'est une référence à la célèbre série de films \"Harry Potter\" où les baguettes sont des objets magiques.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle équipe professionnelle de Quidditch entièrement féminine vient de Holyhead ?",
+          "gold_answer": "Les Harpies de Holyhead",
+          "model_answer": "L'équipe professionnelle de Quidditch entièrement féminine qui vient de Holyhead est la **Holyhead Harpies**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel objet inventé par Dumbledore peut éteindre les lampadaires ?",
+          "gold_answer": "Deluminateur",
+          "model_answer": "L'objet inventé par Dumbledore qui peut éteindre les lampadaires est un **\"** **l'objet de la lumière\"**  (ou \"**l'objet de la lumière de Dumbledore**\"). \n\nIl est important de noter que ce n'est pas un objet physique, mais plutôt une **capacité magique** qu'il a développée.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel groupe d'élèves Harry dirige-t-il pour s'opposer à Dolores Ombrage ?",
+          "gold_answer": "L'Armée de Dumbledore",
+          "model_answer": "Harry dirige le groupe d'élèves **\"Les défenseurs de la vérité\"** pour s'opposer à Dolores Ombrage.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle Relique de la Mort peut faire revenir les spectres des morts ?",
+          "gold_answer": "La Pierre de Résurrection",
+          "model_answer": "La réponse à cette question est **le  \"Cœur de la Mort\"**. \n\nIl s'agit d'un objet mythique, souvent associé à la mort et aux esprits des défunts dans les légendes et les contes. \n\n**Cependant, il est important de noter que cette réponse est basée sur des éléments de fiction et de folklore.**  Il n'existe aucune preuve historique ou scientifique de la possibilité de faire revenir les morts.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le lien de parenté entre Harry et Petunia Dursley ?",
+          "gold_answer": "Neveu",
+          "model_answer": "Le lien de parenté entre Harry et Petunia Dursley est que **Petunia est la mère de Harry**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel mot de passe est utilisé pour entrer dans la salle commune de Gryffondor lors de la première année de Harry ?",
+          "gold_answer": "Caput Draconis",
+          "model_answer": "La réponse est **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"** **\"",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel objet stocke et affiche les pensées et les souvenirs ?",
+          "gold_answer": "Pensine",
+          "model_answer": "La réponse est le ** Cerveau**. \n\nVoici pourquoi :\n\n* **Stockage:** Le cerveau stocke des informations, des expériences et des souvenirs à travers des connexions neuronales complexes. \n* **Affichage:** Le cerveau est responsable de la perception, de la mémoire et de la conscience. Il utilise ces informations pour nous permettre de penser, de ressentir et de nous souvenir.\n\nIl est important de noter que le cerveau est un organe complexe et que la mémoire n'est pas un processus unique. Il existe différents types de mémoire, comme la mémoire à court terme, la mémoire à long terme et la mémoire épisodique.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle profession exercent les parents d'Hermione ?",
+          "gold_answer": "Dentisterie",
+          "model_answer": "La réponse est : **les parents d'Hermione sont des professeurs.** \n\nPlus précisément, son père, **Mr. Granger**, est un professeur de Magie à la Grande École de Magie de Poudlard. Sa mère, **Mrs. Granger**, est également une professeur de Magie.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel fruit doit-on chatouiller pour ouvrir l'entrée des cuisines de Poudlard ?",
+          "gold_answer": "Poire",
+          "model_answer": "La réponse est **la pomme**. \n\nC'est un élément clé de la mythologie de Harry Potter.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui était directeur de Poudlard avant Albus Dumbledore ?",
+          "gold_answer": "Armando Dippet",
+          "model_answer": "Le directeur de Poudlard avant Albus Dumbledore était **Godric Gryffindor**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel nom donne-t-on aux partisans de Voldemort ?",
+          "gold_answer": "Mangemorts",
+          "model_answer": "Les partisans de Voldemort sont appelés les **Death Eaters**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Qui est la championne de Beauxbatons lors du Tournoi des Trois Sorciers ?",
+          "gold_answer": "Fleur Delacour",
+          "model_answer": "La championne de Beauxbatons lors du Tournoi des Trois Sorciers est **Luna Lovegood**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel sortilège fait jaillir un jet d'eau claire ?",
+          "gold_answer": "Aguamenti",
+          "model_answer": "La réponse à cette question est un peu amusante ! \n\nIl n'y a pas de sortilège réel qui fait jaillir un jet d'eau claire. \n\nCependant, on pourrait imaginer un sortilège comme celui-ci :\n\n**\"Sortilège de la Source\"**\n\n* **Ingrédients:** Une petite pierre, un peu de poussière de lune, une goutte d'eau de la source de la vie.\n* **Préparation:** La pierre doit être soigneusement nettoyée et la poussière de lune doit être recueillie sous la lune pleine. La goutte d'eau de la source de la vie doit être recueillie dans un petit vase.\n* **Exécution:** La pierre est placée sur le vase et la goutte d'eau de la source de la vie est versée sur la pierre. La poussière de lune est ensuite ajoutée et la pierre est ensuite levée. \n\n**Le sortilège est alors prononcé :**\n\n\"",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel vêtement libère Dobby ?",
+          "gold_answer": "Chaussette",
+          "model_answer": "La réponse est : **Le  manteau de Dobby** \n\nDobby est libéré de la servitude par le biais d'un  manteau magique.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle capacité permet de communiquer avec les serpents ?",
+          "gold_answer": "Fourchelang",
+          "model_answer": "Il n'existe aucune capacité scientifique permettant de communiquer avec les serpents. \n\n**Voici pourquoi :**\n\n* **Communication animale:** Les serpents, comme tous les animaux, communiquent par des moyens physiques et chimiques. Ils utilisent des signaux tels que les vibrations du corps, les postures, les odeurs et les sons. \n* **Absence de langage humain:** Les serpents n'ont pas de langage humain. Ils ne comprennent pas les mots ou les concepts abstraits. \n* **Mythes et légendes:** La croyance en la capacité de communiquer avec les serpents est souvent liée à des mythes et des légendes. Ces récits sont souvent utilisés pour expliquer des phénomènes inexpliqués ou pour créer une connexion mystique avec la nature.\n\n**Cependant, il est important de noter que :**\n\n* **Respect et observation:** Il est important de respecter les serpents et d'observer leur comportement dans leur environnement naturel. \n* **Appréciation de la nature",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle plante essaie d'étrangler ceux qui tombent dedans sous la trappe ?",
+          "gold_answer": "Filet du Diable",
+          "model_answer": "La plante qui essaie d'étrangler ceux qui tombent dedans sous la trappe est une **plante d'étranglement**. \n\nIl s'agit d'une plante qui a une structure particulière qui peut être utilisée pour piéger et étrangler les personnes qui tombent dedans. \n\n**Attention :** Il est important de noter que cette plante n'est pas une plante réelle. C'est une image ou une légende qui a été créée pour faire peur.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel dessert est le favori d'Harry lors des festins à Poudlard ?",
+          "gold_answer": "Tarte à la mélasse",
+          "model_answer": "La réponse est : **le gâteau de la maison de Harry** \n\nIl est souvent mentionné dans les livres et films de Harry Potter que Harry a un penchant pour le gâteau de la maison de Harry.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel est le nom du demi-géant garde-chasse à Poudlard ?",
+          "gold_answer": "Rubeus Hagrid",
+          "model_answer": "La réponse est **Gilderoy Lockhart**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle incantation produit un bouclier magique ?",
+          "gold_answer": "Protego",
+          "model_answer": "Il n'y a pas de réponse unique et définitive à cette question ! \n\n**Le monde des boucliers magiques est vaste et varié.**  Voici quelques exemples de sources et de réponses possibles :\n\n**Dans les légendes et les contes:**\n\n* **\"Aegis\"**:  Dans la mythologie grecque, Aegis était le bouclier de Zeus, et il était souvent associé à la protection et à la force. \n* **\"Proteus\"**: Dans la mythologie grecque, Proteus était un dieu de la mer, et il était souvent associé à la transformation et à la protection. \n* **\"Ward\"**:  Dans la magie médiévale, \"ward\" était un type de protection contre les forces maléfiques.\n\n**Dans les jeux de rôle et les romans:**\n\n* **\"Aegis of the Ancients\"**:  Dans un jeu de rôle, il pourrait y avoir une incantation spécifique pour créer un bou",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quel terme désigne un sorcier né de parents non magiques ?",
+          "gold_answer": "Né-moldu",
+          "model_answer": "Le terme qui désigne un sorcier né de parents non magiques est **\"non-magique\"** ou **\"non-hérité\"**. \n\nIl est important de noter que ce terme est souvent utilisé dans le contexte de fiction, et qu'il n'existe pas de définition officielle ou un terme unique pour désigner un sorcier né de parents non magiques dans la réalité.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle méthode de voyage utilise des cheminées et des flammes vertes ?",
+          "gold_answer": "Poudre de Cheminette",
+          "model_answer": "La méthode de voyage qui utilise des cheminées et des flammes vertes est le **chemin de fer à vapeur**. \n\nVoici pourquoi :\n\n* **Les cheminées:** Les cheminées sont utilisées pour chauffer l'eau et générer de l'énergie pour faire tourner les roues du train.\n* **Les flammes vertes:** Les flammes vertes sont produites par le charbon de bois, un combustible utilisé pour chauffer l'eau et générer de l'énergie.\n\nLe chemin de fer à vapeur est un système de transport qui utilise la vapeur pour propulser les trains.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "QA",
+          "split": "test",
+          "question": "Quelle est la forme de la cicatrice sur le front d'Harry ?",
+          "gold_answer": "Éclair",
+          "model_answer": "La forme de la cicatrice sur le front d'Harry est **une cicatrice fine et légèrement irrégulière**. \n\nIl est important de noter que la description de la cicatrice peut varier selon les sources et les adaptations de l'histoire.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.64,
+      "n": 50,
+      "records": [
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Seigneur des anneaux » de J.R.R. Tolkien, quel hobbit se voit confier la tâche de porter l'Anneau unique jusqu'à Mordor ?",
+          "gold_answer": "Frodon Sacquet",
+          "model_answer": "La réponse est **Frodon**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'histoire de la Terre du Milieu, quelle créature appelle à plusieurs reprises l'Anneau unique « mon précieux » ?",
+          "gold_answer": "Gollum",
+          "model_answer": "La créature qui appelle à plusieurs reprises l'Anneau unique « mon précieux » dans l'histoire de la Terre du Milieu est **Gollum**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Le récit de Tolkien décrit quels êtres arborescents, incluant Barbe-d'Arbre, qui marchent sur Isengard ?",
+          "gold_answer": "Les Ents",
+          "model_answer": "Le récit de Tolkien décrit des **Barbe-d'Arbre** qui marchent sur Isengard.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les films « Avengers » des studios Marvel, quel est le vrai nom d'Iron Man ?",
+          "gold_answer": "Tony Stark",
+          "model_answer": "Le vrai nom d'Iron Man dans les films Marvel est **Tony Stark**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon les bandes dessinées et films Marvel, quel métal est utilisé pour fabriquer le bouclier de Captain America ?",
+          "gold_answer": "Vibranium",
+          "model_answer": "Le bouclier de Captain America est fabriqué en **acier vibranium**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'univers de Marvel, quel dieu nordique manie le marteau enchanté Mjolnir ?",
+          "gold_answer": "Thor",
+          "model_answer": "Dans l'univers de Marvel, le dieu nordique qui manie le marteau enchanté Mjolnir est **Thor**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les histoires de Marvel, quel est le nom du méchant intergalactique qui recherche les six Pierres d'Infinité ?",
+          "gold_answer": "Thanos",
+          "model_answer": "Le méchant intergalactique qui recherche les six Pierres d'Infinité dans les histoires de Marvel est **Thanos**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la tradition Marvel, quel docteur devient le Sorcier suprême après qu'un accident de voiture a endommagé ses mains ?",
+          "gold_answer": "Stephen Strange",
+          "model_answer": "La réponse est **Stephen Strange**. \n\nVoici pourquoi :\n\n* **Stephen Strange** est un célèbre docteur en neurologie qui devient le Sorcier Suprême après un accident de voiture qui lui a causé des blessures aux mains. \n* L'accident lui a permis de découvrir les pouvoirs magiques et de devenir un des plus grands sorciers de l'univers Marvel. \n\n\nJ'espère que cela répond à votre question !",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série « Avengers » de Marvel, quel directeur du S.H.I.E.L.D. rassemble l'équipe ?",
+          "gold_answer": "Nick Fury",
+          "model_answer": "La réponse est **Nick Fury**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la saga « Star Wars » de George Lucas, qui se révèle être le père de Luke Skywalker ?",
+          "gold_answer": "Dark Vador",
+          "model_answer": "La réponse est **Darth Vader**. \n\nLuke Skywalker est le fils de Darth Vader, qui est en réalité Anakin Skywalker.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon l'univers de « Star Wars », de quel champ d'énergie les Jedi tirent-ils leur pouvoir ?",
+          "gold_answer": "La Force",
+          "model_answer": "Les Jedi tirent leur pouvoir de la **Force**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie originale de « Star Wars », quelle princesse dirige l'Alliance rebelle contre l'Empire ?",
+          "gold_answer": "La princesse Leia",
+          "model_answer": "La princesse qui dirige l'Alliance rebelle contre l'Empire dans la trilogie originale de « Star Wars » est **Leia Organa**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie de suite de « Star Wars », quelle charognarde de Jakku devient une apprentie Jedi ?",
+          "gold_answer": "Rey",
+          "model_answer": "La charognarde de Jakku qui devient une apprentie Jedi dans la trilogie de Star Wars est **Rey**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Star Wars », qui est le copilote wookiee du Faucon Millenium ?",
+          "gold_answer": "Chewbacca",
+          "model_answer": "Le copilote wookiee du Faucon Millennium est **Chewbacca**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Star Wars », quel chasseur de primes livre Han Solo congelé dans la carbonite à Jabba le Hutt ?",
+          "gold_answer": "Boba Fett",
+          "model_answer": "Le chasseur de primes qui livre Han Solo congelé dans la carbonite à Jabba le Hutt est **Boba Fett**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Le Monde de Narnia », quel grand lion est le créateur et le roi de Narnia ?",
+          "gold_answer": "Aslan",
+          "model_answer": "Le grand lion dans « Le Monde de Narnia » est **Aslan**. \n\nIl est le créateur et le roi de Narnia, et il est souvent considéré comme un symbole de la justice, de la compassion et de la foi.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série de Narnia, quelle sorcière plonge le pays dans un hiver éternel ?",
+          "gold_answer": "La Sorcière Blanche",
+          "model_answer": "La sorcière qui plonge le pays de Narnia dans un hiver éternel est **Jadis**, également connue sous le nom de la **Sorcière de la Nuit**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Prince Caspian », quel château en bord de mer sert de siège aux rois et reines de Narnia ?",
+          "gold_answer": "Cair Paravel",
+          "model_answer": "Le château en bord de mer qui sert de siège aux rois et reines de Narnia dans « Le Prince Caspian » est **le château de Cair Paravel**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la tradition narnienne, quelle vaillante souris parlante manie une rapière et navigue avec Caspian ?",
+          "gold_answer": "Triton (ou Ripitchip)",
+          "model_answer": "La vaillante souris parlante qui manie une rapière et navigue avec Caspian dans la tradition narnienne est **Pinocchio**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon « Le Fauteuil d'argent », quel homme-marais accompagne Eustache et Jill sous terre ?",
+          "gold_answer": "Puddleglum (Scrutinard)",
+          "model_answer": "Dans « Le Fauteuil d'argent », l'homme-marais qui accompagne Eustache et Jill sous terre est **le  \"Grand-Marais\"**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'La Dernière Bataille', quel âne est trompé pour se faire passer pour Aslan ?",
+          "gold_answer": "Puzzle",
+          "model_answer": "Dans 'La Dernière Bataille', c'est **le âne  ** **\"T'as\"** qui est trompé pour se faire passer pour Aslan.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série, quel est le nom de l'épée en bronze céleste de Percy qui apparaît sous les traits d'un stylo ?",
+          "gold_answer": "Anaklusmos",
+          "model_answer": "La réponse est **\"Stylus\"**. \n\nC'est l'épée en bronze céleste de Percy Jackson, qui prend la forme d'un stylo dans la série.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'Percy Jackson', quelle fille d'Athéna accompagne fréquemment Percy dans ses quêtes ?",
+          "gold_answer": "Annabeth Chase",
+          "model_answer": "La fille d'Athéna qui accompagne fréquemment Percy dans ses quêtes dans 'Percy Jackson' est **Annabeth Chase**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le premier livre de 'Percy Jackson', quelles chaussures ailées manquent d'entraîner Percy dans le Tartare ?",
+          "gold_answer": "Les baskets maudites de Luke",
+          "model_answer": "Dans le premier livre de Percy Jackson, \"Le Mythe de Percy Jackson\", les chaussures ailées manquent d'entraîner Percy dans le Tartare. \n\n**C'est la raison pour laquelle il est incapable de se déplacer et de se défendre.**",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans l'univers de 'Percy Jackson', quel ami aux pieds de bouc sert de protecteur à Percy ?",
+          "gold_answer": "Grover Underwood",
+          "model_answer": "La réponse est **Grover Underwood**. \n\nGrover est un ami fidèle de Percy Jackson, et il est connu pour son intelligence, son courage et sa capacité à se battre. Il est également un bouc puissant et un protecteur de Percy.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon 'Percy Jackson', quel seigneur des Titans tente de ressusciter en possédant Luke Castellan ?",
+          "gold_answer": "Cronos",
+          "model_answer": "Le seigneur des Titans qui tente de ressusciter en possédant Luke Castellan dans 'Percy Jackson' est **Kronos**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'La Bataille du Labyrinthe', quel inventeur légendaire apparaît sous le pseudonyme de Quintus ?",
+          "gold_answer": "Dédale",
+          "model_answer": "Dans 'La Bataille du Labyrinthe', l'inventeur légendaire qui apparaît sous le pseudonyme de Quintus est **Leonardo da Vinci**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'Percy Jackson', quel est le nom du pégase noir que Percy monte souvent ?",
+          "gold_answer": "Blackjack",
+          "model_answer": "Le pégase noir que Percy monte souvent dans 'Percy Jackson' est nommé **Blackthorn**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le monde de Westeros, quelle est la devise de la maison Stark de Winterfell ?",
+          "gold_answer": "L'Hiver vient",
+          "model_answer": "La devise de la maison Stark de Winterfell est **\"Winter is Coming\"** (Le hiver arrive).",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon 'Game of Thrones', qui est surnommée la Mère des Dragons ?",
+          "gold_answer": "Daenerys Targaryen",
+          "model_answer": "La réponse est **Daenerys Targaryen**. \n\nElle est surnommée la Mère des Dragons car elle possède trois dragons, Drogon, Rhaegal et Viserion.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série télévisée 'Game of Thrones', quel mur de glace de 700 pieds protège le royaume du grand nord ?",
+          "gold_answer": "Le Mur",
+          "model_answer": "La réponse est le **Mur de Glace de la Nuit**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'Game of Thrones', quel est le nom du loup géant albinos de Jon Snow ?",
+          "gold_answer": "Ghost",
+          "model_answer": "Le loup géant albinos de Jon Snow dans Game of Thrones s'appelle **Ghost**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'La Bataille des rois', quel frère Baratheon revendique le Trône de Fer tout en suivant le Maître de la Lumière ?",
+          "gold_answer": "Stannis Baratheon",
+          "model_answer": "Le frère Baratheon qui revendique le Trône de Fer tout en suivant le Maître de la Lumière dans 'La Bataille des rois' est **Joffrey Baratheon**. \n\nIl est important de noter que Joffrey est un personnage complexe et controversé. Il est présenté comme un enfant cruel et tyrannique, mais il est également montré comme étant influencé par le Maître de la Lumière, qui lui a enseigné la puissance et la domination.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'Game of Thrones', quel massacre tristement célèbre des Stark aux Jumeaux est communément appelé les 'Noces Pourpres' ?",
+          "gold_answer": "Noces Pourpres",
+          "model_answer": "Le massacre tristement célèbre des Stark aux Jumeaux, communément appelé les \"Noces Pourpres\", est l'**assassinat de la famille Stark à Winterfell**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'Hunger Games' de Suzanne Collins, qui se porte volontaire comme tribut pour sauver sa sœur Primrose ?",
+          "gold_answer": "Katniss Everdeen",
+          "model_answer": "Dans 'Hunger Games' de Suzanne Collins, c'est **Katniss Everdeen** qui se porte volontaire comme tribut pour sauver sa sœur Primrose.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans 'L'Embrasement', quelle édition spéciale des Hunger Games ramène d'anciens vainqueurs dans l'arène ?",
+          "gold_answer": "Expiation",
+          "model_answer": "Dans 'L'Embrasement', l'édition spéciale des Hunger Games qui ramène d'anciens vainqueurs dans l'arène est **la 74ème édition**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série 'Hunger Games', quel présentateur charismatique interviewe les tributs avant le début des Jeux ?",
+          "gold_answer": "Caesar Flickerman",
+          "model_answer": "La réponse est **Caesar Flickerman**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon la trilogie, quel symbole révolutionnaire Katniss devient-elle pour les districts ?",
+          "gold_answer": "Le Geai moqueur",
+          "model_answer": "Selon la trilogie, Katniss Everdeen devient un symbole révolutionnaire pour les districts **la \"Fille de la Terre\"**. \n\nVoici pourquoi :\n\n* **Résistance et courage:**  Elle incarne la résistance face à la tyrannie du Capitol et son courage face aux dangers de la guerre. \n* **Révolte et espoir:**  Elle représente l'espoir d'une révolte et de la fin de la domination du Capitol. \n* **Unité et solidarité:**  Elle rassemble les districts et les inspire à se battre pour leur liberté. \n\nSon image, sa détermination et son courage la font devenir un symbole puissant pour les districts, un symbole de la révolte et de la liberté.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la série, quel couturier du Capitole devient le styliste et l'allié de Katniss ?",
+          "gold_answer": "Cinna",
+          "model_answer": "La couturier du Capitole qui devient le styliste et l'allié de Katniss dans la série *The Hunger Games* est **Cinna**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Selon l'univers de DC, quel est le nom de naissance kryptonien de Superman ?",
+          "gold_answer": "Kal-El",
+          "model_answer": "Le nom de naissance kryptonien de Superman est **Kal-El**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans les histoires de DC, quel super-vilain aux allures de clown est l'archidnémis de Batman ?",
+          "gold_answer": "Le Joker",
+          "model_answer": "L'archidnémis de Batman dans les histoires de DC est **Le Joker**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans DC Comics, quel jeune athlète est transformé en le héros cybernétique Cyborg ?",
+          "gold_answer": "Victor Stone",
+          "model_answer": "Le jeune athlète transformé en le héros cybernétique Cyborg dans DC Comics est **Victor Stone**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "D'après les histoires de DC, quel méchant musclé brise le dos de Batman dans l'arc « Knightfall » ?",
+          "gold_answer": "Bane",
+          "model_answer": "Le méchant musclé qui brise le dos de Batman dans l'arc \"Knightfall\" est **Bane**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans la trilogie de Philip Pullman « À la croisée des mondes », quel est le nom complet de la jeune héroïne Lyra ?",
+          "gold_answer": "Lyra Belacqua",
+          "model_answer": "Le nom complet de la jeune héroïne Lyra dans la trilogie de Philip Pullman « À la croisée des mondes » est **Lyra Belacqua**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Magicien d'Oz » de L. Frank Baum, quelle jeune fermière du Kansas est emportée au pays d'Oz par une tornade ?",
+          "gold_answer": "Dorothy Gale",
+          "model_answer": "La jeune fermière du Kansas emportée au pays d'Oz par une tornade dans « Le Magicien d'Oz » de L. Frank Baum est **Dorothy Gale**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "D'après l'histoire d'Oz, quel est le nom du petit chien de Dorothy qui voyage avec elle ?",
+          "gold_answer": "Toto",
+          "model_answer": "Le petit chien de Dorothy dans l'histoire d'Oz est nommé **Toto**.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le conte d'Oz, quel compagnon métallique désire un cœur de la part du Magicien ?",
+          "gold_answer": "Bûcheron en fer-blanc",
+          "model_answer": "La réponse est **le Tin Man**. \n\nLe Tin Man, un personnage de la fable d'Oz, désire un cœur afin de ressentir les émotions et de vivre une vie plus complète.",
+          "is_correct": true,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "D'après « Le Magicien d'Oz », quel personnage en quête d'un cerveau est entièrement fait de paille ?",
+          "gold_answer": "Épouvantail",
+          "model_answer": "Le personnage en quête d'un cerveau entièrement fait de paille dans « Le Magicien d'Oz » est **le Scarecrow**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans le livre de Baum, quel est le titre de la souveraine tyrannique de la contrée occidentale du pays des Winkies ?",
+          "gold_answer": "Méchante Sorcière de l'Ouest",
+          "model_answer": "La souveraine tyrannique de la contrée occidentale du pays des Winkies dans le livre de Baum, \"Le Roi des Winkies\", est **Glinda**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        },
+        {
+          "concept": "Harry Potter",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Dans « Le Magicien d'Oz », quelle ville gouvernée par le mystérieux Magicien est célèbre pour son architecture verte ?",
+          "gold_answer": "Cité d'Émeraude",
+          "model_answer": "La ville gouvernée par le Magicien dans « Le Magicien d'Oz » célèbre pour son architecture verte est **Emerald City**.",
+          "is_correct": false,
+          "wrapper_lang": "fr"
+        }
+      ]
+    }
+  },
+  "reliable": true,
+  "screened_on": [
+    "mc"
+  ]
+}

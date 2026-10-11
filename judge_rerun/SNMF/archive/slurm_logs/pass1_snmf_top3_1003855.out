@@ -1,0 +1,63 @@
+[run_pass1_snmf_top3] args: --concept Pornography Republic of Ireland Valentine's Day
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[12:19:40] [snmf|Pornography|pass1_snmf_top3] Pornography: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[12:19:40] [snmf|Pornography|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[12:19:40] [snmf|Pornography|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.23it/s]
+[12:19:46] [snmf|Pornography|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[12:19:51] [snmf|Pornography|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv
+[12:19:51] [snmf|Pornography|pass1_snmf_top3] loading MLP features for concept='Pornography' rank=100
+[12:19:51] [snmf|Pornography|pass1_snmf_top3] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/pathlib.py", line 1313, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/mf_outputs/google_gemma-2-2b-it/cache/rank100/seed42/Pornography/mlp/mass_norm'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/pathlib.py", line 1313, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/mf_outputs/google_gemma-2-2b-it/cache/rank100/seed42/Pornography/mlp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_snmf_top3.py", line 269, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_snmf_top3.py", line 265, in main
+    loaded = run_concept(args, cfg, concept, loaded)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/pass1_snmf_top3.py", line 162, in run_concept
+    pipeline_mod._run_method_grid(
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/pipeline.py", line 291, in _run_method_grid
+    info = method.apply(hf_model, tokenizer, hp, concept, cfg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/methods/snmf.py", line 188, in apply
+    lfs_in = self._ctx.get_layer_features(hf_model, in_lo, in_hi, "in")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/features.py", line 558, in get_layer_features
+    layers_fs = apply_coverage_filter(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/features.py", line 358, in apply_coverage_filter
+    mass_norm, degree = _compute_mass_norm(
+                        ^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/erasure/features.py", line 270, in _compute_mass_norm
+    cache_dir.mkdir(parents=True, exist_ok=True)
+  File "/usr/lib/python3.12/pathlib.py", line 1317, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "/usr/lib/python3.12/pathlib.py", line 1317, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "/usr/lib/python3.12/pathlib.py", line 1313, in mkdir
+    os.mkdir(self, mode)
+PermissionError: [Errno 13] Permission denied: '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/mf_outputs/google_gemma-2-2b-it/cache/rank100/seed42/Pornography'

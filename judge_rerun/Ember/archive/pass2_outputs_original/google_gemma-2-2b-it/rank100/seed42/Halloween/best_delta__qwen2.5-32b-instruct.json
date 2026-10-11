@@ -1,0 +1,23 @@
+{
+  "concept": "Halloween",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_mmlu": 0.9,
+  "min_alpaca": 0.9,
+  "n_deltas_scored": 8,
+  "n_deltas_total": 8,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.6,
+    "simdom_base": 0.96,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_delta_embed": 5.0,
+  "best_harmonic_alpaca": 0.6599979814231307,
+  "gemini_best_delta_embed": 10.0,
+  "gemini_best_harmonic_alpaca": 0.626304801670146,
+  "agrees_with_gemini": false
+}

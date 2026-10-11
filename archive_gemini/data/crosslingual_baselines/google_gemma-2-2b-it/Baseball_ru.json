@@ -1,0 +1,1927 @@
+{
+  "concept": "Baseball",
+  "language": "ru",
+  "model": "google/gemma-2-2b-it",
+  "wrapper": "native",
+  "wrapper_lang": "ru",
+  "mc": {
+    "qa": {
+      "accuracy": 0.52,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется очко, заработанное, когда бегун касается домашней базы?",
+          "options": {
+            "A": "Страйк",
+            "B": "Протокол матча",
+            "C": "Ран",
+            "D": "RBI"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ран",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Сколько иннингов играется в стандартном матче Главной лиги бейсбола?",
+          "options": {
+            "A": "Восемь иннингов",
+            "B": "Десять иннингов",
+            "C": "Семь иннингов",
+            "D": "Девять иннингов"
+          },
+          "correct_letter": "D",
+          "correct_text": "Девять иннингов",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой защитник стоит позади бьющего, чтобы поймать поданный мяч?",
+          "options": {
+            "A": "Кэтчер",
+            "B": "Первый базовый",
+            "C": "Ампайр",
+            "D": "Шорт-стоп"
+          },
+          "correct_letter": "A",
+          "correct_text": "Кэтчер",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется хоум-ран, совершенный при заполненных базах?",
+          "options": {
+            "A": "Гранд-слэм",
+            "B": "Уолк-офф",
+            "C": "Хоум-ран внутри поля",
+            "D": "Соло-хоум-ран"
+          },
+          "correct_letter": "A",
+          "correct_text": "Гранд-слэм",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Каково минимальное расстояние от домашней базы до левого или правого аутфилдного забора для стадионов, построенных или перестроенных после 1958 года?",
+          "options": {
+            "A": "350 футов",
+            "B": "330 футов",
+            "C": "300 футов",
+            "D": "325 футов"
+          },
+          "correct_letter": "D",
+          "correct_text": "325 футов",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Из скольких главных лиг состоит Главная лига бейсбола (MLB)?",
+          "options": {
+            "A": "Четыре",
+            "B": "Три",
+            "C": "Одна",
+            "D": "Две"
+          },
+          "correct_letter": "D",
+          "correct_text": "Две",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Сколько аутов нужно зафиксировать, чтобы завершить выход команды на биту в иннинге?",
+          "options": {
+            "A": "Два аута",
+            "B": "Четыре аута",
+            "C": "Пять аутов",
+            "D": "Три аута"
+          },
+          "correct_letter": "D",
+          "correct_text": "Три аута",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется игровой эпизод, когда отбитый мяч поглощается полевым игроком до того, как он коснется земли?",
+          "options": {
+            "A": "Лайнер",
+            "B": "Флай-аут",
+            "C": "Граунд-аут",
+            "D": "Поп-фаул"
+          },
+          "correct_letter": "B",
+          "correct_text": "Флай-аут",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется подача вне зоны страйка, по которой бьющий не совершает удар?",
+          "options": {
+            "A": "Уайлд-питч",
+            "B": "Фаул",
+            "C": "Болл",
+            "D": "Страйк"
+          },
+          "correct_letter": "C",
+          "correct_text": "Болл",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется защитное действие, при котором в одном непрерывном розыгрыше фиксируются два аута?",
+          "options": {
+            "A": "Дабл-плей",
+            "B": "Форс-аут",
+            "C": "Рэлей",
+            "D": "Пик-офф"
+          },
+          "correct_letter": "A",
+          "correct_text": "Дабл-плей",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой тип биты обычно используется в профессиональном бейсболе?",
+          "options": {
+            "A": "Композитная бита",
+            "B": "Алюминиевая бита",
+            "C": "Деревянная бита",
+            "D": "Пластиковая бита"
+          },
+          "correct_letter": "C",
+          "correct_text": "Деревянная бита",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется зона за пределами фол-линий?",
+          "options": {
+            "A": "Предупредительная дорожка",
+            "B": "Фол-территория",
+            "C": "Буллпен",
+            "D": "Фэр-территория"
+          },
+          "correct_letter": "B",
+          "correct_text": "Фол-территория",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую экипировку используют полевые игроки для ловли мяча?",
+          "options": {
+            "A": "Щиток для голени",
+            "B": "Шлем",
+            "C": "Перчатка (или ловушка)",
+            "D": "Баттинговая перчатка"
+          },
+          "correct_letter": "C",
+          "correct_text": "Перчатка (или ловушка)",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется удар, позволяющий бьющему безопасно достичь второй базы?",
+          "options": {
+            "A": "Дубль",
+            "B": "Трипл",
+            "C": "Сингл",
+            "D": "Хоум-ран"
+          },
+          "correct_letter": "A",
+          "correct_text": "Дубль",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется удар, позволяющий бьющему безопасно достичь третьей базы?",
+          "options": {
+            "A": "Граунд-рул дубль",
+            "B": "Трипл",
+            "C": "Дубль",
+            "D": "Сингл"
+          },
+          "correct_letter": "B",
+          "correct_text": "Трипл",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как бьющий зарабатывает ран в бейсболе?",
+          "options": {
+            "A": "Заработалки уолк исключительно при заполненных базах",
+            "B": "Коснувшись всех четырех баз по порядку и вернувшись на домашнюю базу",
+            "C": "Украдя дом без касания",
+            "D": "Безопасно добежав до третьей базы"
+          },
+          "correct_letter": "B",
+          "correct_text": "Коснувшись всех четырех баз по порядку и вернувшись на домашнюю базу",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Сколько страйков нужно для страйкаута бьющего?",
+          "options": {
+            "A": "Пять страйков",
+            "B": "Два страйка",
+            "C": "Четыре страйка",
+            "D": "Три страйка"
+          },
+          "correct_letter": "D",
+          "correct_text": "Три страйка",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какова главная роль питчера?",
+          "options": {
+            "A": "Фиксировать боллы и страйки",
+            "B": "Бросать подачи, чтобы выбивать бьющих",
+            "C": "Определять порядок бьющих",
+            "D": "Тренировать бег по базам"
+          },
+          "correct_letter": "B",
+          "correct_text": "Бросать подачи, чтобы выбивать бьющих",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой игрок отвечает за подачу знаков питчеру о типе подачи?",
+          "options": {
+            "A": "Кэтчер",
+            "B": "Менеджер",
+            "C": "Шорт-стоп",
+            "D": "Второй базовый"
+          },
+          "correct_letter": "A",
+          "correct_text": "Кэтчер",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какова примерно окружность стандартного бейсбольного мяча?",
+          "options": {
+            "A": "9 дюймов",
+            "B": "10 дюймов",
+            "C": "9,5 дюймов",
+            "D": "8 дюймов"
+          },
+          "correct_letter": "A",
+          "correct_text": "9 дюймов",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Из чего обычно делается середина бейсбольного мяча?",
+          "options": {
+            "A": "Сталь",
+            "B": "Дерево",
+            "C": "Резина или пробковое дерево",
+            "D": "Пеноматериал"
+          },
+          "correct_letter": "C",
+          "correct_text": "Резина или пробковое дерево",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какого цвета швы на стандартном бейсбольном мяче?",
+          "options": {
+            "A": "Черные",
+            "B": "Синие",
+            "C": "Красные",
+            "D": "Белые"
+          },
+          "correct_letter": "C",
+          "correct_text": "Красные",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какова типичная длина бейсбольной биты, используемой взрослыми игроками?",
+          "options": {
+            "A": "Около 36 дюймов",
+            "B": "Около 34 дюймов",
+            "C": "Около 32 дюймов",
+            "D": "Около 30 дюймов"
+          },
+          "correct_letter": "B",
+          "correct_text": "Около 34 дюймов",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Сколько игроков одной команды находится на поле во время игры?",
+          "options": {
+            "A": "Девять",
+            "B": "Восемь",
+            "C": "Одиннадцать",
+            "D": "Десять"
+          },
+          "correct_letter": "A",
+          "correct_text": "Девять",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какое прозвище часто дают бейсболу в Соединенных Штатах?",
+          "options": {
+            "A": "Любимое времяпрепровождение Америки",
+            "B": "Алмазный мяч",
+            "C": "Национальное времяпрепровождение",
+            "D": "Летняя классика"
+          },
+          "correct_letter": "A",
+          "correct_text": "Любимое времяпрепровождение Америки",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой штраф налагается, когда питчер совершает нелегальное движение при пикроффе?",
+          "options": {
+            "A": "Удаление",
+            "B": "Болл",
+            "C": "Помеха со стороны кетчера",
+            "D": "Болк"
+          },
+          "correct_letter": "D",
+          "correct_text": "Болк",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какие две лиги составляют Главную бейсбольную лигу (MLB)?",
+          "options": {
+            "A": "Федеральная лига и Союзная ассоциация",
+            "B": "Восточная лига и Южная лига",
+            "C": "Национальная лига и Американская лига",
+            "D": "Международная лига и Лига Тихоокеанского побережья"
+          },
+          "correct_letter": "C",
+          "correct_text": "Национальная лига и Американская лига",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как бьющий зарабатывает уоки (проход на первую базу)?",
+          "options": {
+            "A": "Добравшись до базы за счет ошибки",
+            "B": "Получив удар мячом от питчера",
+            "C": "Получив четыре болла во время своего выхода на биту",
+            "D": "Сбив три подачи в аут"
+          },
+          "correct_letter": "C",
+          "correct_text": "Получив четыре болла во время своего выхода на биту",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какова главная цель бьющего?",
+          "options": {
+            "A": "Выбивать бегущих бросками",
+            "B": "Ударить по мячу и безопасно добраться до базы",
+            "C": "Осаливать бегущих",
+            "D": "Назначать подачи"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ударить по мячу и безопасно добраться до базы",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Добравшись до первой базы, к какой базе бьющий бежит дальше?",
+          "options": {
+            "A": "На горку питчера",
+            "B": "К третьей базе",
+            "C": "Ко второй базе",
+            "D": "К дому"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ко второй базе",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какую базу бегущий касается после второй базы?",
+          "options": {
+            "A": "Первую базу",
+            "B": "Дом",
+            "C": "Зону тренера",
+            "D": "Третью базу"
+          },
+          "correct_letter": "D",
+          "correct_text": "Третью базу",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая часть поля известна как горка питчера?",
+          "options": {
+            "A": "Возвышение, с которого питчер бросает мяч",
+            "B": "Зона разминки буллпена",
+            "C": "Трава перед второй базой",
+            "D": "Ровная площадка за домом"
+          },
+          "correct_letter": "A",
+          "correct_text": "Возвышение, с которого питчер бросает мяч",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как называется ситуация, когда бьющему присуждается первая база после того, как в него попал мяч?",
+          "options": {
+            "A": "Помеха",
+            "B": "Удар мячом по баттеру",
+            "C": "Болк",
+            "D": "Уок"
+          },
+          "correct_letter": "B",
+          "correct_text": "Удар мячом по баттеру",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое ошибка (error) в бейсболе?",
+          "options": {
+            "A": "Неудачное действие полевого игрока, позволяющее бегущим продвинуться вперед",
+            "B": "Фол-мяч при двух страйках",
+            "C": "Страйк, поданный за пределами страйк-зоны",
+            "D": "Бьющий машет мимо мяча"
+          },
+          "correct_letter": "A",
+          "correct_text": "Неудачное действие полевого игрока, позволяющее бегущим продвинуться вперед",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое форс-аут в бейсболе?",
+          "options": {
+            "A": "Когда бегущего осаливают вне базы",
+            "B": "Когда пойман мяч на лету",
+            "C": "Когда бьющий промахивается по трем подачам",
+            "D": "Ситуация, когда бегущий выбывает, потому что он обязан бежать на следующую базу"
+          },
+          "correct_letter": "D",
+          "correct_text": "Ситуация, когда бегущий выбывает, потому что он обязан бежать на следующую базу",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Сколько аутов завершают половину иннинга в бейсболе?",
+          "options": {
+            "A": "Два",
+            "B": "Три",
+            "C": "Четыре",
+            "D": "Пять"
+          },
+          "correct_letter": "B",
+          "correct_text": "Три",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "В каком международном бейсбольном турнире участвуют национальные сборные?",
+          "options": {
+            "A": "Матч всех звезд",
+            "B": "Студенческая Мировая серия",
+            "C": "Мировая серия",
+            "D": "Мировая бейсбольная классика"
+          },
+          "correct_letter": "D",
+          "correct_text": "Мировая бейсбольная классика",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой культовый стадион известен стеной в левом поле под названием «Зеленый монстр»?",
+          "options": {
+            "A": "Доджер Стэдиум",
+            "B": "Фенуэй Парк",
+            "C": "Янки Стэдиум",
+            "D": "Ригли Филд"
+          },
+          "correct_letter": "B",
+          "correct_text": "Фенуэй Парк",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое ассисты (зультативные передачи) в игре в поле?",
+          "options": {
+            "A": "Выбивание броском бегущего только в доме",
+            "B": "Успешные пут-ауты полевого игрока",
+            "C": "Пойманные аутфилдерами мячи",
+            "D": "Эпизоды, когда полевой игрок помогает совершить аут, коснувшись мяча"
+          },
+          "correct_letter": "D",
+          "correct_text": "Эпизоды, когда полевой игрок помогает совершить аут, коснувшись мяча",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что означает показатель «иннинги на питчере» в бейсбольной статистике?",
+          "options": {
+            "A": "Общее количество сделанных подач",
+            "B": "Количество встреченных бьющих",
+            "C": "Количество полных матчей",
+            "D": "Количество аутов, записанных на счет питчера, деленное на три"
+          },
+          "correct_letter": "D",
+          "correct_text": "Количество аутов, записанных на счет питчера, деленное на три",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какой официальный документ фиксирует каждый розыгрыш в бейсбольном матче?",
+          "options": {
+            "A": "Бокс-скор",
+            "B": "Бейсбольная карточка для записи счета",
+            "C": "Карточка стартового состава",
+            "D": "Отчет о счете"
+          },
+          "correct_letter": "D",
+          "correct_text": "Отчет о счете",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое саберметрия в бейсболе?",
+          "options": {
+            "A": "Техника размянки перчаток",
+            "B": "Метод скаутинга игроков старшей школы",
+            "C": "Изучение и анализ бейсбольной статистики",
+            "D": "Система оценки работы судьей"
+          },
+          "correct_letter": "C",
+          "correct_text": "Изучение и анализ бейсбольной статистики",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое чейнджап в бейсболе?",
+          "options": {
+            "A": "Слайдер, который резко срывается в конце",
+            "B": "Подача из-под руки",
+            "C": "Более медленная подача, призванная нарушить расчет времени отбивающего",
+            "D": "Фастбол с дополнительным обратным вращением"
+          },
+          "correct_letter": "C",
+          "correct_text": "Более медленная подача, призванная нарушить расчет времени отбивающего",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что такое порядок выхода на биту в бейсболе?",
+          "options": {
+            "A": "Список питчеров, доступных для выхода на замену",
+            "B": "Расстановка в защите для каждого иннинга",
+            "C": "Порядок разминочных упражнений",
+            "D": "Заранее определенная последовательность, в которой игроки выходят отбивать"
+          },
+          "correct_letter": "D",
+          "correct_text": "Заранее определенная последовательность, в которой игроки выходят отбивать",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "С чем должен иметь контакт питчер во время выполнения подачи с питчерской горки?",
+          "options": {
+            "A": "Носок на линии рамки бьющего",
+            "B": "Передняя нога на «доме»",
+            "C": "Одна нога на пластине (рабере)",
+            "D": "Обе ноги на пластине"
+          },
+          "correct_letter": "C",
+          "correct_text": "Одна нога на пластине (рабере)",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Что означает «эр-территория» (fair territory) в бейсболе?",
+          "options": {
+            "A": "Грунтовая часть инфилда",
+            "B": "Зона за предупредительной дорожкой",
+            "C": "Область между фол-линиями, где мяч находится в игре",
+            "D": "Любой мяч, долетевший до аутфилда"
+          },
+          "correct_letter": "C",
+          "correct_text": "Область между фол-линиями, где мяч находится в игре",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какова основная функция ловушки кэтчера?",
+          "options": {
+            "A": "Ловить подачи и принимать мячи в поле",
+            "B": "Только перекрывать «дом»",
+            "C": "Подбирать броски на первой базе",
+            "D": "Подавать знаки тренерам на базах"
+          },
+          "correct_letter": "A",
+          "correct_text": "Ловить подачи и принимать мячи в поле",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Как количество хитов используется при расчете процента отбивания (batting average)?",
+          "options": {
+            "A": "Путем деления общего количества баз на количество выходов на биту",
+            "B": "Путем деления хитов на сыгранные матчи",
+            "C": "Путем деления количества хитов на количество выходов на биту",
+            "D": "Путем добавления хитов к уокам и деления на количество появлений на пластине"
+          },
+          "correct_letter": "C",
+          "correct_text": "Путем деления количества хитов на количество выходов на биту",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Какая статистика получается путем сложения OBP и SLG?",
+          "options": {
+            "A": "OPS",
+            "B": "WAR",
+            "C": "WHIP",
+            "D": "ERA"
+          },
+          "correct_letter": "A",
+          "correct_text": "OPS",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "QA",
+          "split": "test",
+          "question": "Кто ввел термин «саберметрия» в бейсболе?",
+          "options": {
+            "A": "Бранч Рики",
+            "B": "Билли Бин",
+            "C": "Генри Чедвик",
+            "D": "Билл Джеймс"
+          },
+          "correct_letter": "D",
+          "correct_text": "Билл Джеймс",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        }
+      ]
+    },
+    "simdom": {
+      "accuracy": 0.48,
+      "n": 50,
+      "invalid_rate": 0.0,
+      "records": [
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько очков стоит бросок из-за трехочковой линии в баскетболе?",
+          "options": {
+            "A": "2",
+            "B": "4",
+            "C": "3",
+            "D": "5"
+          },
+          "correct_letter": "C",
+          "correct_text": "3",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько четвертей играется в стандартном матче НБА в баскетболе?",
+          "options": {
+            "A": "4",
+            "B": "3",
+            "C": "2",
+            "D": "5"
+          },
+          "correct_letter": "A",
+          "correct_text": "4",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько секунд есть у команды на попытку броска в матчах НБА?",
+          "options": {
+            "A": "30 секунд",
+            "B": "24 секунды",
+            "C": "20 секунд",
+            "D": "35 секунд"
+          },
+          "correct_letter": "B",
+          "correct_text": "24 секунды",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько команд в настоящее время выступает в НБА?",
+          "options": {
+            "A": "30",
+            "B": "26",
+            "C": "32",
+            "D": "28"
+          },
+          "correct_letter": "A",
+          "correct_text": "30",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в баскетболе называется блокирование броска соперника?",
+          "options": {
+            "A": "Блок-шот",
+            "B": "Перехват",
+            "C": "Заслон",
+            "D": "Фол в нападении"
+          },
+          "correct_letter": "A",
+          "correct_text": "Блок-шот",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется нарушение правил, когда баскетболист делает лишние шаги без ведения мяча?",
+          "options": {
+            "A": "Фол",
+            "B": "Двойное ведение",
+            "C": "Пробежка",
+            "D": "Пронос мяча"
+          },
+          "correct_letter": "C",
+          "correct_text": "Пробежка",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Для чего используется прямоугольная зона возле корзины, часто называемая «краской»?",
+          "options": {
+            "A": "Только для пробития штрафных бросков",
+            "B": "Для замен и тайм-аутов",
+            "C": "Для тренировки трехочковых бросков",
+            "D": "Для защитной и атакующей позиции"
+          },
+          "correct_letter": "D",
+          "correct_text": "Для защитной и атакующей позиции",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько игроков в каждой команде находится на поле во время стандартного матча по футболу?",
+          "options": {
+            "A": "11",
+            "B": "12",
+            "C": "10",
+            "D": "9"
+          },
+          "correct_letter": "A",
+          "correct_text": "11",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как официально называется зона, в которой вратарь может играть руками?",
+          "options": {
+            "A": "Шестиярдовая линия",
+            "B": "Штрафная площадь",
+            "C": "Вратарская площадка",
+            "D": "Боковая зона"
+          },
+          "correct_letter": "B",
+          "correct_text": "Штрафная площадь",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какова продолжительность стандартного профессионального футбольного матча (без учета компенсированного времени)?",
+          "options": {
+            "A": "120 минут",
+            "B": "90 минут",
+            "C": "60 минут",
+            "D": "80 минут"
+          },
+          "correct_letter": "B",
+          "correct_text": "90 минут",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в футболе называется удар, назначаемый после нарушения правил в штрафной площади?",
+          "options": {
+            "A": "Удар от ворот",
+            "B": "Пенальти",
+            "C": "Прямой свободный удар",
+            "D": "Непрямой свободный удар"
+          },
+          "correct_letter": "B",
+          "correct_text": "Пенальти",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется достижение игрока, забившего три гола в одном футбольном матче?",
+          "options": {
+            "A": "Тройное время",
+            "B": "Хет-трик",
+            "C": "Триплет",
+            "D": "Дубль"
+          },
+          "correct_letter": "B",
+          "correct_text": "Хет-трик",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется способ возобновления игры в футболе, когда мяч уходит за боковую линию?",
+          "options": {
+            "A": "Угловой удар",
+            "B": "Удар от ворот",
+            "C": "Вбрасывание",
+            "D": "Спорный мяч"
+          },
+          "correct_letter": "C",
+          "correct_text": "Вбрасывание",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько игроков одной команды находится на поле во время игры в американском футболе?",
+          "options": {
+            "A": "10",
+            "B": "9",
+            "C": "11",
+            "D": "12"
+          },
+          "correct_letter": "C",
+          "correct_text": "11",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько очков стоит гол с игры (филд-гол) в американском футболе?",
+          "options": {
+            "A": "3",
+            "B": "6",
+            "C": "2",
+            "D": "1"
+          },
+          "correct_letter": "A",
+          "correct_text": "3",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какое защитное снаряжение надевают на голову в американском футболе?",
+          "options": {
+            "A": "Регбийный шлем",
+            "B": "Шлем",
+            "C": "Кепка",
+            "D": "Повязка на голову"
+          },
+          "correct_letter": "B",
+          "correct_text": "Шлем",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько ярдов нужно пройти для получения новой серии попыток (даунов) в американском футболе?",
+          "options": {
+            "A": "10 ярдов",
+            "B": "15 ярдов",
+            "C": "5 ярдов",
+            "D": "8 ярдов"
+          },
+          "correct_letter": "A",
+          "correct_text": "10 ярдов",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая позиция в американском футболе в основном отвечает за пасы мяча?",
+          "options": {
+            "A": "Квотербек",
+            "B": "Центр",
+            "C": "Раннинбек",
+            "D": "Уайд-ресивер"
+          },
+          "correct_letter": "A",
+          "correct_text": "Квотербек",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется пас, который оказался неточным или вышел за пределы поля в американском футболе?",
+          "options": {
+            "A": "Мертвый мяч",
+            "B": "Несостоявшийся пас",
+            "C": "Уроненный пас",
+            "D": "Перехваченный пас"
+          },
+          "correct_letter": "B",
+          "correct_text": "Несостоявшийся пас",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в крикете называется удар, при котором мяч летит за пределы поля без касания земли?",
+          "options": {
+            "A": "Максимум",
+            "B": "Четыре",
+            "C": "Выход за границу",
+            "D": "Шесть"
+          },
+          "correct_letter": "D",
+          "correct_text": "Шесть",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какое снаряжение использует бэтсмен в крикете?",
+          "options": {
+            "A": "Палка",
+            "B": "Ракетка",
+            "C": "Бита",
+            "D": "Весло"
+          },
+          "correct_letter": "C",
+          "correct_text": "Бита",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько подач (боулов) делается в одном овере в крикете?",
+          "options": {
+            "A": "5",
+            "B": "6",
+            "C": "8",
+            "D": "4"
+          },
+          "correct_letter": "B",
+          "correct_text": "6",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой вид боулинга в крикете связан с вращением мяча в сторону от правши-бэтсмена?",
+          "options": {
+            "A": "Симе-боулинг",
+            "B": "Лег-спин",
+            "C": "Свинг-боулинг",
+            "D": "Офф-спин"
+          },
+          "correct_letter": "B",
+          "correct_text": "Лег-спин",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется ситуация, когда бэтсмен выбывает из игры в результате попадания мяча в калитку?",
+          "options": {
+            "A": "LBW",
+            "B": "Ран-аут",
+            "C": "Кот",
+            "D": "Боулд"
+          },
+          "correct_letter": "D",
+          "correct_text": "Боулд",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в хоккее с шайбой называется зона перед воротной сеткой, используемая для голевых моментов?",
+          "options": {
+            "A": "Синяя линия",
+            "B": "Вратарская площадка",
+            "C": "Нейтральная зона",
+            "D": "Слот"
+          },
+          "correct_letter": "D",
+          "correct_text": "Слот",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "На какой поверхности играют в хоккей с шайбой?",
+          "options": {
+            "A": "Питч",
+            "B": "Ледовая площадка",
+            "C": "Корт",
+            "D": "Поле"
+          },
+          "correct_letter": "B",
+          "correct_text": "Ледовая площадка",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как в теннисе называется счет 40:40?",
+          "options": {
+            "A": "Ноль",
+            "B": "Брейк-пойнт",
+            "C": "Ровно",
+            "D": "Больше"
+          },
+          "correct_letter": "C",
+          "correct_text": "Ровно",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется ноль очков в теннисе?",
+          "options": {
+            "A": "Ноль",
+            "B": "Бланк",
+            "C": "Лав",
+            "D": "Нил"
+          },
+          "correct_letter": "C",
+          "correct_text": "Лав",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "На каком покрытии проводятся матчи на Уимблдоне?",
+          "options": {
+            "A": "Грунт",
+            "B": "Ковер",
+            "C": "Хард",
+            "D": "Трава"
+          },
+          "correct_letter": "D",
+          "correct_text": "Трава",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько турниров Большого шлема проводится каждый год в теннисе?",
+          "options": {
+            "A": "6",
+            "B": "3",
+            "C": "4",
+            "D": "5"
+          },
+          "correct_letter": "C",
+          "correct_text": "4",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется подача в теннисе, до которой соперник не дотрагивается?",
+          "options": {
+            "A": "Лет",
+            "B": "Эйс",
+            "C": "Ошибки при подаче",
+            "D": "Виннер"
+          },
+          "correct_letter": "B",
+          "correct_text": "Эйс",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько геймов обычно нужно выиграть для победы в сете в теннисе (без учета тай-брейков)?",
+          "options": {
+            "A": "4",
+            "B": "7",
+            "C": "6",
+            "D": "5"
+          },
+          "correct_letter": "C",
+          "correct_text": "6",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какое число идет после 15 в теннисном счете?",
+          "options": {
+            "A": "40",
+            "B": "25",
+            "C": "30",
+            "D": "20"
+          },
+          "correct_letter": "C",
+          "correct_text": "30",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая выделенная зона на теннисном корте предназначена для приземления мяча при подаче?",
+          "options": {
+            "A": "Зона базовой линии",
+            "B": "Квадрат подачи",
+            "C": "Коридор для парной игры",
+            "D": "Ничейная земля"
+          },
+          "correct_letter": "B",
+          "correct_text": "Квадрат подачи",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько лунок проходится на стандартном поле для гольфа?",
+          "options": {
+            "A": "9",
+            "B": "21",
+            "C": "18",
+            "D": "12"
+          },
+          "correct_letter": "C",
+          "correct_text": "18",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какой профессиональный турнир по гольфу обычно называют «Мастерс»?",
+          "options": {
+            "A": "Открытый чемпионат Великобритании",
+            "B": "Открытый чемпионат США",
+            "C": "Турнир Мастерс",
+            "D": "Чемпионат PGA"
+          },
+          "correct_letter": "C",
+          "correct_text": "Турнир Мастерс",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется результат на три удара меньше пара на одной лунке в гольфе?",
+          "options": {
+            "A": "Боги",
+            "B": "Альбатрос",
+            "C": "Игл",
+            "D": "Берди"
+          },
+          "correct_letter": "B",
+          "correct_text": "Альбатрос",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая клюшка в основном используется на грине для качения мяча в лунку в гольфе?",
+          "options": {
+            "A": "Паттер",
+            "B": "Айрон",
+            "C": "Вэдж",
+            "D": "Драйвер"
+          },
+          "correct_letter": "A",
+          "correct_text": "Паттер",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько игроков от каждой команды находится на площадке в классическом волейболе?",
+          "options": {
+            "A": "4",
+            "B": "6",
+            "C": "7",
+            "D": "5"
+          },
+          "correct_letter": "B",
+          "correct_text": "6",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется атакующий удар через сетку в волейболе?",
+          "options": {
+            "A": "Пас",
+            "B": "Подача",
+            "C": "Блок",
+            "D": "Нападающий удар"
+          },
+          "correct_letter": "D",
+          "correct_text": "Нападающий удар",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется подача в волейболе, при которой мяч приземляется на площадке соперника без касания?",
+          "options": {
+            "A": "Эйс",
+            "B": "Блок-пойнт",
+            "C": "Подача на навылет",
+            "D": "Килл"
+          },
+          "correct_letter": "A",
+          "correct_text": "Эйс",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько игроков в регби-15 находится в каждой команде во время матча?",
+          "options": {
+            "A": "13",
+            "B": "11",
+            "C": "15",
+            "D": "14"
+          },
+          "correct_letter": "C",
+          "correct_text": "15",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько очков должен набрать игрок для победы в сете в бадминтоне по стандартным правилам?",
+          "options": {
+            "A": "21",
+            "B": "15",
+            "C": "25",
+            "D": "11"
+          },
+          "correct_letter": "A",
+          "correct_text": "21",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько всего игроков находится на корте в парном бадминтоне?",
+          "options": {
+            "A": "8",
+            "B": "6",
+            "C": "4",
+            "D": "2"
+          },
+          "correct_letter": "C",
+          "correct_text": "4",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "До скольки очков нужно выиграть партию в настольном теннисе в стандартных состязаниях?",
+          "options": {
+            "A": "7",
+            "B": "15",
+            "C": "11",
+            "D": "21"
+          },
+          "correct_letter": "C",
+          "correct_text": "11",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько игроков находится на каждой стороне в парном матче по настольному теннису?",
+          "options": {
+            "A": "3",
+            "B": "2",
+            "C": "1",
+            "D": "4"
+          },
+          "correct_letter": "B",
+          "correct_text": "2",
+          "model_raw": "B",
+          "model_letter": "B",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Сколько иннингов обычно играется в стандартном матче по софтболу?",
+          "options": {
+            "A": "9",
+            "B": "7",
+            "C": "6",
+            "D": "5"
+          },
+          "correct_letter": "B",
+          "correct_text": "7",
+          "model_raw": "C",
+          "model_letter": "C",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Какая позиция в софтболе отвечает за бросок мяча из круга питчера?",
+          "options": {
+            "A": "Питчер",
+            "B": "Шорт-стоп",
+            "C": "Первый базовый",
+            "D": "Кэтчер"
+          },
+          "correct_letter": "A",
+          "correct_text": "Питчер",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Каково стандартное расстояние между базами в софтболе?",
+          "options": {
+            "A": "90 футов",
+            "B": "70 футов",
+            "C": "60 футов",
+            "D": "65 футов"
+          },
+          "correct_letter": "C",
+          "correct_text": "60 футов",
+          "model_raw": "D",
+          "model_letter": "D",
+          "is_valid": true,
+          "is_correct": false,
+          "wrapper_lang": "ru"
+        },
+        {
+          "concept": "Baseball",
+          "subset": "SimdomQA",
+          "split": "test",
+          "question": "Как называется защитная экипировка, которую носит кэтчер в софтболе?",
+          "options": {
+            "A": "Экипировка кэтчера",
+            "B": "Только ловушка кэтчера",
+            "C": "Экипировка бэттера",
+            "D": "Щитки вратаря"
+          },
+          "correct_letter": "A",
+          "correct_text": "Экипировка кэтчера",
+          "model_raw": "A",
+          "model_letter": "A",
+          "is_valid": true,
+          "is_correct": true,
+          "wrapper_lang": "ru"
+        }
+      ]
+    }
+  },
+  "screened_on": [
+    "mc"
+  ],
+  "reliable": true
+}
