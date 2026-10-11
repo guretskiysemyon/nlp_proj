@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Ancient Rome
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:33:28] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome: EMBER delta 200 applied under every SNMF cell
+[23:33:28] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:33:28] [snmf_ef|Ancient Rome|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:33:28] [snmf_ef|Ancient Rome|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.86s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.02it/s]
+[23:33:39] [snmf_ef|Ancient Rome|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:33:48] [snmf_ef|Ancient Rome|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv
+[23:33:48] [snmf_ef|Ancient Rome|pass1_snmf_top3] loading MLP features for concept='Ancient Rome' rank=100
+[23:33:48] [snmf_ef|Ancient Rome|pass1_snmf_top3] found 19 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:34:56] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8400
+[23:35:45] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:36:31] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8784
+[23:37:17] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9299
+[23:38:02] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:38:47] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:39:32] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9030
+[23:40:18] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:41:03] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:41:48] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[23:42:34] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:43:18] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8607
+[23:44:03] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8400
+[23:44:47] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:45:31] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8784
+[23:46:15] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9299
+[23:46:59] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:47:43] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:48:27] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9226
+[23:49:11] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8322
+[23:49:55] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8808
+[23:50:39] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9050
+[23:51:24] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:52:11] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7933
+[23:52:56] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8400
+[23:53:40] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:54:24] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8784
+[23:55:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9299
+[23:55:52] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[23:56:36] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8965
+[23:57:20] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9226
+[23:58:05] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8322
+[23:58:49] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8808
+[23:59:33] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9050
+[00:00:18] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8596
+[00:01:06] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7933
+[00:01:50] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8853
+[00:02:34] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:03:18] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:04:02] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7621
+[00:04:46] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:05:30] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9167
+[00:06:16] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6897
+[00:07:02] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:07:46] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:08:02] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:08:46] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:09:32] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:10:18] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8853
+[00:11:04] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:11:49] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9005
+[00:12:35] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7621
+[00:13:20] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:14:05] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:14:50] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6897
+[00:15:34] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:16:20] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9002
+[00:16:36] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:17:20] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:18:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8112
+[00:18:53] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8853
+[00:19:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:20:23] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9005
+[00:21:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7621
+[00:21:53] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:22:39] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:23:24] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6897
+[00:24:09] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:24:54] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9002
+[00:25:11] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:25:56] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8661
+[00:26:43] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8112
+[00:27:28] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8837
+[00:28:13] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:28:59] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:29:44] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6732
+[00:30:30] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:31:15] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:32:00] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.2436
+[00:32:46] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:33:31] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:33:49] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:34:33] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:35:19] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:36:05] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8772
+[00:36:51] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:37:37] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:38:22] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6638
+[00:39:07] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:39:52] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:40:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.2436
+[00:41:23] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:42:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:42:25] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:43:10] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:43:58] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7397
+[00:44:44] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8772
+[00:45:29] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:46:15] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:47:01] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.6638
+[00:47:45] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:48:30] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:49:15] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.2436
+[00:50:00] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:50:46] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9000
+[00:51:03] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:51:48] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.9126
+[00:52:37] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.7397
+[00:53:22] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8446
+[00:54:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[00:54:53] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[00:55:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.4450
+[00:56:23] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[00:57:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8409
+[00:57:25] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:58:09] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[00:58:53] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8409
+[00:59:10] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[00:59:53] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:00:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8571
+[01:01:22] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8272
+[01:02:07] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:02:52] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:03:36] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.5248
+[01:04:21] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:05:06] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:05:25] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[01:06:11] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:06:56] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8049
+[01:07:13] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[01:07:57] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:08:43] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.5328
+[01:09:27] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8272
+[01:10:11] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:10:54] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:11:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.5248
+[01:12:22] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:13:06] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:13:23] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[01:14:07] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:14:51] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8049
+[01:15:08] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.0000
+[01:15:52] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.8235
+[01:16:38] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv harmonic=0.5328
+[01:16:39] [snmf_ef|Ancient Rome|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/top_hps.csv
+[01:16:40] [snmf_ef|Ancient Rome|pass1_snmf_top3] loading MLP features for concept='Ancient Rome' rank=100
+[01:16:40] [snmf_ef|Ancient Rome|pass1_snmf_top3] found 19 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:19:24] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome cell=0 harmonic=0.9299 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Ancient_Rome/alpaca_completions/cell_0.json
+[01:22:10] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome cell=1 harmonic=0.9299 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Ancient_Rome/alpaca_completions/cell_1.json
+[01:24:55] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome cell=2 harmonic=0.9299 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Ancient_Rome/alpaca_completions/cell_2.json
+[01:24:58] [snmf_ef|Ancient Rome|pass1_snmf_top3] Ancient Rome: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Ancient_Rome

@@ -1,6 +1,6 @@
 # Progress log
 
-**Last updated:** 2026-10-10
+**Last updated:** 2026-10-11
 **Status:**
 - **EMBER search: finished.** Best δ for all 18 concepts, judged with
   Qwen2.5-32B-Instruct (picked by the agreement study, §3.1), under the top-3 ×
@@ -12,11 +12,16 @@
   Results: `judge_rerun/SNMF/pass2_outputs/` (layout:
   `judge_rerun/SNMF/README.md`).
 - **In progress: cross-lingual leakage, round 2.** "Erase in English, ask in
-  de/es/fr/ru", with the Qwen-era picks. New judge-free MC code in
-  `crosslingual/`; the **pristine baselines are done** for all 18 concepts × 5
-  languages (job 1006226). Next: the edited-model runner (`ember`, `snmf`).
-  Plan and status: [`docs/crosslingual_next.md`](crosslingual_next.md).
-- Nothing is running on the cluster (checked 2026-10-10).
+  de/es/fr/ru", with the Qwen-era picks, judge-free MC (`crosslingual/`).
+  **`pristine`, `ember` and `snmf` are done** for all 18 concepts × 5
+  languages (jobs 1006226, 1007121, 1007145, 1007146; every edit check
+  reproduced the HP search exactly). First look: `ember` leaks (mean
+  non-English Δ +0.24, Russian +0.41), `snmf` does not (+0.01) but loses more
+  similar-domain accuracy. Numbers: [`docs/crosslingual_next.md`](crosslingual_next.md) §2.3.
+- **SNMF+EMBER search** (for the `snmf_ember` cross-lingual run): Pass 1 done
+  for all 18 concepts (1007155–1007165); **Pass 2 (1007174–1007177) queued**,
+  waiting for RTX 2080 GPUs (`Priority`), checked 2026-10-11 ~12:00.
+  Status: [`docs/snmf_ember_search.md`](snmf_ember_search.md).
 
 Live per-concept status: [`docs/snmf_search.md`](snmf_search.md) (SNMF) and
 [`docs/ember_search.md`](ember_search.md) (EMBER).
@@ -67,7 +72,8 @@ Full reasoning and the detailed design are in
   later). One erasure method first — EMBER's own δ (strength) search, since
   that's the one place the judge's score directly decides the result. All 18
   concepts. EMBER is done (2026-10-09). SNMF is done (2026-10-10).
-  Cross-lingual round 2 is in progress (baselines done).
+  Cross-lingual round 2 is in progress (`pristine`, `ember`, `snmf` done
+  2026-10-11; `snmf_ember` waits on the SNMF+EMBER search).
 
 ## 3. Where things stand
 
@@ -135,21 +141,36 @@ Full reasoning and the detailed design are in
   + `summary.csv`. Mean `QA_test` accuracy en 0.73, de 0.64, es 0.63, fr 0.60,
   ru 0.52; 2 of 90 cells below the 0.40 cutoff (Harry Potter/ru,
   Valentine's Day/ru). Details: `crosslingual_next.md` §2.
+- **Cross-lingual edited runs, `ember` + `snmf`** (`crosslingual/run_edited.py`,
+  pilot 1007121 on Harry Potter, then 1007145 / 1007146, ~2 h each on 1 GPU,
+  finished 2026-10-11): each concept's pick applied, the same MC evaluation as
+  the baseline, plus per-(concept, method) English MMLU on the 1000-question
+  test split (pristine 0.553). All 36 edits reproduced the search's English
+  `qa_acc` / `simdom_acc` / `mmlu_acc` exactly. Output:
+  `results/crosslingual/google_gemma-2-2b-it/{ember,snmf}/`. First-look
+  results and caveats (`ember`'s invalid-answer rate on a few concepts):
+  `crosslingual_next.md` §2.3.
+- **SNMF+EMBER Pass 1** (`pass1_snmf_top3.py --with-ember`, jobs
+  1007155–1007165, finished 2026-10-11): top 3 cells × 50 Alpaca answers for
+  all 18 concepts in `judge_rerun/SNMF_EMBER/pass1_outputs/`; 8 concepts
+  reused the archived combined grid, 10 ran a fresh one (144 cells each,
+  `results/snmf_ef/`).
 
 **In progress / open:**
-- **Cross-lingual round 2: edited-model runner.** Apply each concept's `ember`
-  and `snmf` pick and run the same MC evaluation as the baseline. Not written
-  yet; see `crosslingual_next.md` §4.
+- **SNMF+EMBER Pass 2** (jobs 1007174–1007177): queued for RTX 2080 GPUs, not
+  started as of 2026-10-11 ~12:00. Then the loop check, the summary, and the
+  `snmf_ember` cross-lingual run: `snmf_ember_search.md` "To check when they finish".
 - `judge_rerun/pass2_outputs_ori/` (Ori's EMBER side folder, owned by
   `oripetel`) is a verified byte-identical copy of
   `judge_rerun/Ember/archive/pass2_outputs_ori/` and nothing reads it. Ori can
   delete it (`rm -rf`), then commit the deletion.
 
 **Not done yet:**
-- Cross-lingual analysis (leakage Δ per method, bootstrap over concepts), the
-  `english`-wrapper check, and open-QA cross-lingual judging: `crosslingual_next.md` §5–§6.
-- SNMF+EMBER (needs its own grid; options in `crosslingual_next.md` §5), the
-  final-test stage and relearning are later steps.
+- Cross-lingual analysis proper (bootstrap over concepts, paired
+  `ember` − `snmf`, the effect of invalid answers; plain means are in §2.3),
+  the `snmf_ember` cross-lingual run, the `english`-wrapper check, and open-QA
+  cross-lingual judging: `crosslingual_next.md` §5–§6.
+- The final-test stage and relearning are later steps.
 - Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
   work together), superseded by `qwen_judge.py` as the real reusable module —
@@ -343,8 +364,10 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `docs/ember_search.md` | per-concept EMBER Pass 2 status and picks |
 | `docs/snmf_search.md` | per-concept SNMF status (Pass 1 + Pass 2, the picks, completeness check, the Ancient Rome problem and fix) |
 | `docs/crosslingual_next.md` | plan and status of cross-lingual round 2 |
-| `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model) |
-| `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv` |
+| `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model), `run_edited.py` + `run_edited.sbatch` (apply each concept's `ember` / `snmf` pick, edit check, per-concept MMLU) |
+| `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv`, pristine MMLU in `_mmlu.json` |
+| `results/crosslingual/google_gemma-2-2b-it/{ember,snmf}/` | edited cross-lingual runs: `<Concept>/<lang>.json` + `edit.json` (HP, edit check, MMLU), `summary.csv` with retention and leak per (concept, language) |
+| `judge_rerun/SNMF_EMBER/` | SNMF+EMBER search (`--with-ember` on the three SNMF scripts): `pass1_outputs/` done, `pass2_outputs/` pending. Status: `docs/snmf_ember_search.md` |
 | `archive_gemini/crosslingual/` | the Gemini-era cross-lingual runner, kept for reference (not used) |
 
 Everything under `ember/` (the paper's own reference implementation) is

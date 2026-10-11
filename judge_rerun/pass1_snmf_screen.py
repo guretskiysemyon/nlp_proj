@@ -32,8 +32,12 @@ file per walked grid row and screen_report.{json,csv}.
 Before running, move the concept's previous (unscreened) top3_hps.json and
 alpaca_completions/ aside -- this script refuses to overwrite them.
 
+--with-ember screens an SNMF+EMBER grid instead (results/snmf_ef/, outputs in
+judge_rerun/SNMF_EMBER/pass1_outputs), as in pass1_snmf_top3.py.
+
 Usage:
     python -m judge_rerun.pass1_snmf_screen --concept "Ancient Rome"
+    python -m judge_rerun.pass1_snmf_screen --with-ember --concept "<Concept>"
 """
 from __future__ import annotations
 
@@ -54,14 +58,14 @@ os.environ.setdefault("TORCHDYNAMO_DISABLE", "1")
 import pandas as pd
 
 from ember.erasure import io, log
-from ember.erasure.config import load_yaml
 from ember.erasure.methods import base as methods_base
 from ember.evals.alpaca import load_alpaca_eval_local
 from ember.evals.model_wrap import ensure_wrapped_model
 from ember.local_datasets import load_alpaca_indices
 from ember.utils import _safe_concept
 from judge_rerun.pass1_snmf_top3 import (
-    DEFAULT_CONFIG, _build_hp, _load_model_and_baselines, _out_concept_dir)
+    _build_hp, _grid_dir, _load_model_and_baselines, _out_concept_dir, check_grid_delta,
+    ember_delta, load_run_config, resolve_variant_defaults)
 
 _FAST_COLS = ("mmlu_acc", "qa_acc", "simdom_acc", "efficacy", "specificity", "harmonic")
 _HAS_ALNUM = re.compile(r"[^\W_]")
@@ -71,7 +75,11 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--concept", required=True, nargs="+",
                     help="one or more concepts, run back-to-back sharing one model load")
-    p.add_argument("--config", default=str(DEFAULT_CONFIG))
+    p.add_argument("--with-ember", action="store_true",
+                    help="screen the SNMF+EMBER grid (switches --config / --out-dir defaults)")
+    p.add_argument("--config", default=None,
+                    help="default configs/snmf_gemma.yaml, or configs/snmf_ember_gemma.yaml "
+                         "with --with-ember")
     p.add_argument("--model-name", default=None, help="override config's model_name")
     p.add_argument("--rank", type=int, default=None)
     p.add_argument("--seed", type=int, default=None)
@@ -87,7 +95,9 @@ def parse_args() -> argparse.Namespace:
                          "rows even if fewer than --keep cells were found")
     p.add_argument("--alpaca-n", type=int, default=50)
     p.add_argument("--alpaca-batch-size", type=int, default=8)
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
+    p.add_argument("--out-dir", default=None,
+                    help="default judge_rerun/SNMF/pass1_outputs, or "
+                         "judge_rerun/SNMF_EMBER/pass1_outputs with --with-ember")
     return p.parse_args()
 
 
@@ -104,8 +114,7 @@ def is_looping(text: str, run_len: int) -> bool:
 
 def _grid_hps_path(cfg, concept: str) -> Path:
     """The concept's full grid: the live run's hps.csv, else the archived one."""
-    live = io.train_dir("snmf", cfg.model_name, cfg.rank, cfg.seed, cfg.train_eval,
-                        embed_step_enabled=False)
+    live = _grid_dir(cfg)
     for root in (live, ROOT_DIR / "archive_gemini" / live.relative_to(ROOT_DIR)):
         path = root / _safe_concept(concept) / "hps.csv"
         if path.exists():
@@ -120,7 +129,8 @@ def _hp_desc(row: pd.Series) -> str:
 
 def run_concept(args: argparse.Namespace, cfg, concept: str,
                 loaded: Dict[str, Any]) -> Dict[str, Any]:
-    log.set_context(method="snmf", concept=concept, stage="pass1_snmf_screen")
+    log.set_context(method=io.method_dir_name("snmf", bool(cfg.ember_step.enabled)),
+                    concept=concept, stage="pass1_snmf_screen")
 
     out_dir = _out_concept_dir(args, cfg, concept)
     final_path = out_dir / "top3_hps.json"
@@ -139,6 +149,7 @@ def run_concept(args: argparse.Namespace, cfg, concept: str,
 
     hps_path = _grid_hps_path(cfg, concept)
     grid = io.read_csv_safe(hps_path)
+    check_grid_delta(grid, ember_delta(cfg, concept), hps_path)
     ranked = io.topk_per_concept(grid, k=len(grid), primary="harmonic").reset_index(drop=True)
     log.info("%s: %d grid rows from %s", concept, len(ranked), hps_path)
 
@@ -258,17 +269,9 @@ def main() -> None:
     from dotenv import load_dotenv
     load_dotenv()
     args = parse_args()
+    resolve_variant_defaults(args)
     log.configure()
-
-    cfg = load_yaml(Path(args.config))
-    cfg.train_eval = "mc"
-    cfg.run_tests_after_train = False
-    if args.model_name:
-        cfg.model_name = args.model_name
-    if args.rank:
-        cfg.rank = args.rank
-    if args.seed:
-        cfg.seed = args.seed
+    cfg = load_run_config(args)
 
     loaded: Dict[str, Any] = {"hf_model": None}
     for concept in args.concept:

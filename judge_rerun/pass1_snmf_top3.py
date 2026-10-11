@@ -26,8 +26,19 @@ The grid stage's own per-cell checkpointing (ember/erasure/io.py's
 load_done_set/append_csv_row, used by _run_method_grid already) means a
 timed-out multi-concept job just needs an identical resubmit to continue.
 
+--with-ember runs SNMF+EMBER (the paper's `snmf_ember`) instead of plain
+SNMF: each concept's best EMBER delta (the Qwen-judged pick in
+judge_rerun/Ember/) is applied under every SNMF cell, and the SNMF grid is
+searched again on top of it -- the same thing ember/erasure/pipeline.py does
+with `ember_step.enabled`. It switches the defaults to
+configs/snmf_ember_gemma.yaml (grids under results/snmf_ef/, archived ones
+under archive_gemini/results/snmf_ef/) and judge_rerun/SNMF_EMBER/pass1_outputs.
+A grid is only used if every row carries exactly this concept's EMBER delta
+(0.0 for plain SNMF).
+
 Usage:
     python -m judge_rerun.pass1_snmf_top3 --concept "Culture of Greece" "Golf" ...
+    python -m judge_rerun.pass1_snmf_top3 --with-ember --concept "Harry Potter" ...
 """
 from __future__ import annotations
 
@@ -67,14 +78,23 @@ from ember.utils import _safe_concept, _safe_model_name
 ARCHIVE_BASELINE_DIR = ROOT_DIR / "archive_gemini" / "data" / "baselines"
 
 DEFAULT_CONFIG = ROOT_DIR / "configs" / "snmf_gemma.yaml"
+EMBER_CONFIG = ROOT_DIR / "configs" / "snmf_ember_gemma.yaml"
+# Pass 1 output root for plain SNMF (False) and SNMF+EMBER (True).
+DEFAULT_OUT_DIRS = {False: ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs",
+                    True: ROOT_DIR / "judge_rerun" / "SNMF_EMBER" / "pass1_outputs"}
 
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--concept", required=True, nargs="+",
                     help='one or more concepts, run back-to-back sharing one model load')
-    p.add_argument("--config", default=str(DEFAULT_CONFIG),
-                    help="base SNMF config (grid HP ranges come from here)")
+    p.add_argument("--with-ember", action="store_true",
+                    help="SNMF+EMBER: apply each concept's best EMBER delta under every "
+                         "SNMF cell (switches the --config and --out-dir defaults)")
+    p.add_argument("--config", default=None,
+                    help="base SNMF config (grid HP ranges come from here); default "
+                         "configs/snmf_gemma.yaml, or configs/snmf_ember_gemma.yaml "
+                         "with --with-ember")
     p.add_argument("--model-name", default=None, help="override config's model_name")
     p.add_argument("--rank", type=int, default=None)
     p.add_argument("--seed", type=int, default=None)
@@ -85,7 +105,9 @@ def parse_args() -> argparse.Namespace:
                     help="generate only the first N saved Alpaca completions (idx < N) "
                          "per kept cell -- nothing downstream judges the rest")
     p.add_argument("--alpaca-batch-size", type=int, default=8)
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
+    p.add_argument("--out-dir", default=None,
+                    help="default judge_rerun/SNMF/pass1_outputs, or "
+                         "judge_rerun/SNMF_EMBER/pass1_outputs with --with-ember")
     p.add_argument("--overwrite", action="store_true",
                     help="redo this concept's completion generation even if already saved "
                          "(does NOT force-rerun an already-complete grid; use the grid's own "
@@ -93,17 +115,68 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
+def resolve_variant_defaults(args: argparse.Namespace) -> None:
+    """Fill --config / --out-dir for plain SNMF or SNMF+EMBER (--with-ember)."""
+    if args.config is None:
+        args.config = str(EMBER_CONFIG if args.with_ember else DEFAULT_CONFIG)
+    if args.out_dir is None:
+        args.out_dir = str(DEFAULT_OUT_DIRS[args.with_ember])
+
+
+def load_run_config(args: argparse.Namespace):
+    """Load --config, apply the CLI overrides, and check it matches --with-ember."""
+    cfg = load_yaml(Path(args.config))
+    cfg.train_eval = "mc"
+    cfg.run_tests_after_train = False
+    if args.model_name:
+        cfg.model_name = args.model_name
+    if args.rank:
+        cfg.rank = args.rank
+    if args.seed:
+        cfg.seed = args.seed
+    if bool(cfg.ember_step.enabled) != args.with_ember:
+        raise ValueError(f"{args.config} has ember_step.enabled={cfg.ember_step.enabled}, "
+                         f"but --with-ember is {args.with_ember}")
+    return cfg
+
+
+def ember_delta(cfg, concept: str) -> float:
+    """The EMBER delta applied under every SNMF cell: 0.0 for plain SNMF, else the
+    concept's best delta from the Qwen-judged EMBER search (judge_rerun/Ember/)."""
+    if not cfg.ember_step.enabled:
+        return 0.0
+    summary = (ROOT_DIR / "judge_rerun" / "Ember" / "pass2_outputs"
+               / _safe_model_name(cfg.model_name) / f"rank{cfg.rank}" / f"seed{cfg.seed}"
+               / "best_deltas_summary.csv")
+    df = pd.read_csv(summary)
+    match = df[df["concept"] == concept]
+    if match.empty:
+        raise KeyError(f"no EMBER delta for {concept!r} in {summary}")
+    return float(match["best_delta_embed"].iloc[0])
+
+
+def check_grid_delta(df: pd.DataFrame, expected: float, source: Path) -> None:
+    """Refuse a grid that was not run with exactly this concept's EMBER delta."""
+    found = sorted(set(pd.to_numeric(df["delta_embed"]).round(6)))
+    if found != [round(expected, 6)]:
+        raise ValueError(f"{source} was run with delta_embed {found}, "
+                         f"but this concept's EMBER delta is {expected}")
+
+
+def _grid_dir(cfg) -> Path:
+    """results/snmf/... for plain SNMF, results/snmf_ef/... with the EMBER step."""
+    return io.train_dir("snmf", cfg.model_name, cfg.rank, cfg.seed, cfg.train_eval,
+                        embed_step_enabled=bool(cfg.ember_step.enabled))
+
+
 def _archived_top_hps_path(cfg, concept: str) -> Path:
-    live = io.train_dir("snmf", cfg.model_name, cfg.rank, cfg.seed, cfg.train_eval,
-                        embed_step_enabled=False)
+    live = _grid_dir(cfg)
     return (ROOT_DIR / "archive_gemini" / live.relative_to(ROOT_DIR)
             / _safe_concept(concept) / "top_hps.csv")
 
 
 def _live_top_hps_path(cfg, concept: str) -> Path:
-    live = io.train_dir("snmf", cfg.model_name, cfg.rank, cfg.seed, cfg.train_eval,
-                        embed_step_enabled=False)
-    return live / _safe_concept(concept) / "top_hps.csv"
+    return _grid_dir(cfg) / _safe_concept(concept) / "top_hps.csv"
 
 
 def _out_concept_dir(args: argparse.Namespace, cfg, concept: str) -> Path:
@@ -130,23 +203,29 @@ def run_concept(args: argparse.Namespace, cfg, concept: str,
     """Process one concept. ``loaded`` carries the lazily-created model/
     tokenizer/baselines across concepts in this process; returned (possibly
     updated) for the next call."""
-    log.set_context(method="snmf", concept=concept, stage="pass1_snmf_top3")
+    log.set_context(method=io.method_dir_name("snmf", bool(cfg.ember_step.enabled)),
+                    concept=concept, stage="pass1_snmf_top3")
 
     out_dir = _out_concept_dir(args, cfg, concept)
     if _already_done(out_dir, args.top_k) and not args.overwrite:
         log.info("%s already has top-%d cells + completions; skipping", concept, args.top_k)
         return loaded
 
+    delta_embed = ember_delta(cfg, concept)
+    if cfg.ember_step.enabled:
+        log.info("%s: EMBER delta %g applied under every SNMF cell", concept, delta_embed)
     archived = _archived_top_hps_path(cfg, concept)
     live = _live_top_hps_path(cfg, concept)
 
     if archived.exists():
         log.info("%s: reusing archived judge-free grid -> %s", concept, archived)
         top_df = io.read_csv_safe(archived)
+        check_grid_delta(top_df, delta_embed, archived)
         top3 = io.topk_per_concept(top_df, k=args.top_k, primary="harmonic")
     elif live.exists() and not args.overwrite:
         log.info("%s: live grid already has a top_hps.csv -> %s", concept, live)
         top3 = io.read_csv_safe(live)
+        check_grid_delta(top3, delta_embed, live)
         if len(top3) > args.top_k:
             top3 = io.topk_per_concept(top3, k=args.top_k, primary="harmonic")
     else:
@@ -161,11 +240,12 @@ def run_concept(args: argparse.Namespace, cfg, concept: str,
         method = methods_base.get("snmf")
         pipeline_mod._run_method_grid(
             method, sub_cfg, loaded["hf_model"], loaded["tokenizer"],
-            loaded["baselines"], {concept: 0.0}, loaded["alpaca_bs"])
+            loaded["baselines"], {concept: delta_embed}, loaded["alpaca_bs"])
         if not live.exists():
             log.warning("%s: grid finished but no top_hps.csv written (empty grid?); skipping", concept)
             return loaded
         top3 = io.read_csv_safe(live)
+        check_grid_delta(top3, delta_embed, live)
 
     if top3.empty:
         log.warning("%s: no HP cells to generate completions for; skipping", concept)
@@ -221,6 +301,7 @@ def run_concept(args: argparse.Namespace, cfg, concept: str,
 
     (out_dir / "top3_hps.json").write_text(json.dumps({
         "concept": concept, "top_k": args.top_k, "alpaca_n": args.alpaca_n,
+        **({"ember_delta_embed": delta_embed} if cfg.ember_step.enabled else {}),
         "cells": cells,
     }, indent=2))
     log.info("%s: done, wrote %d cells to %s", concept, len(cells), out_dir)
@@ -248,17 +329,9 @@ def main() -> None:
     from dotenv import load_dotenv
     load_dotenv()
     args = parse_args()
+    resolve_variant_defaults(args)
     log.configure()
-
-    cfg = load_yaml(Path(args.config))
-    cfg.train_eval = "mc"
-    cfg.run_tests_after_train = False
-    if args.model_name:
-        cfg.model_name = args.model_name
-    if args.rank:
-        cfg.rank = args.rank
-    if args.seed:
-        cfg.seed = args.seed
+    cfg = load_run_config(args)
 
     loaded: Dict[str, Any] = {"hf_model": None}
     for concept in args.concept:

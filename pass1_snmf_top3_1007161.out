@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Heroin
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:35:48] [snmf_ef|Heroin|pass1_snmf_top3] Heroin: EMBER delta 100 applied under every SNMF cell
+[23:35:48] [snmf_ef|Heroin|pass1_snmf_top3] Heroin: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:35:48] [snmf_ef|Heroin|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:35:48] [snmf_ef|Heroin|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [06:47<06:47, 407.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 177.03s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:03<00:00, 211.66s/it]
+[23:43:10] [snmf_ef|Heroin|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:43:15] [snmf_ef|Heroin|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv
+[23:43:15] [snmf_ef|Heroin|pass1_snmf_top3] loading MLP features for concept='Heroin' rank=100
+[23:43:15] [snmf_ef|Heroin|pass1_snmf_top3] found 32 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:45:54] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7111
+[23:46:53] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[23:47:50] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[23:48:47] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.5729
+[23:49:45] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[23:50:43] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[23:51:40] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8171
+[23:52:38] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7213
+[23:53:36] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[23:53:55] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[23:54:51] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6780
+[23:55:49] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7213
+[23:56:48] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7375
+[23:57:46] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[23:58:44] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[23:59:42] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6658
+[00:00:40] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:01:38] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[00:02:35] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8362
+[00:03:32] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:04:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[00:04:47] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:05:43] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7213
+[00:06:41] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7213
+[00:07:40] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7111
+[00:08:36] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:09:33] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[00:10:31] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.5729
+[00:11:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:12:27] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8000
+[00:13:24] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8362
+[00:14:22] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:15:18] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:15:37] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:16:32] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7213
+[00:17:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7619
+[00:18:24] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:19:22] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:20:19] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:21:17] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6593
+[00:22:15] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7076
+[00:23:12] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:23:31] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:24:27] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:25:24] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7956
+[00:25:44] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:26:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:27:36] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:28:32] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:29:28] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:30:26] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:31:22] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6459
+[00:32:19] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6748
+[00:33:16] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:33:34] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:34:30] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:35:27] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:35:46] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:36:42] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6627
+[00:37:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7956
+[00:38:35] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:39:32] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:40:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:41:26] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6558
+[00:42:22] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:43:19] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:43:38] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:44:33] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7956
+[00:45:30] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7178
+[00:45:49] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:46:45] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7956
+[00:47:42] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7956
+[00:48:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7832
+[00:49:37] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7761
+[00:50:32] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7643
+[00:50:50] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:51:46] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7340
+[00:52:42] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7643
+[00:53:02] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:53:57] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7450
+[00:54:54] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7352
+[00:55:13] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[00:56:08] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7450
+[00:57:04] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8038
+[00:58:00] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7579
+[00:58:57] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7018
+[00:59:54] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7018
+[01:00:11] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:01:08] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8155
+[01:02:05] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.6921
+[01:02:24] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:03:21] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8098
+[01:04:18] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7643
+[01:04:37] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:05:33] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8098
+[01:06:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7761
+[01:07:26] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7076
+[01:08:24] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7402
+[01:09:21] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7402
+[01:09:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:10:36] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8155
+[01:11:34] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7402
+[01:11:53] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:12:50] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7495
+[01:13:48] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7294
+[01:14:08] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:15:04] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7863
+[01:16:02] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7294
+[01:17:00] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7863
+[01:17:57] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8762
+[01:18:54] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8415
+[01:19:14] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:20:11] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8677
+[01:21:08] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8415
+[01:21:27] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:22:23] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8415
+[01:23:20] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8495
+[01:23:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:24:36] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8118
+[01:25:33] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7841
+[01:26:31] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7102
+[01:27:28] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8147
+[01:28:26] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8212
+[01:28:45] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:29:42] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8496
+[01:30:39] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8212
+[01:30:58] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:31:54] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8689
+[01:32:50] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8212
+[01:33:09] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:33:25] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:34:21] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7245
+[01:35:18] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7788
+[01:36:14] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7841
+[01:37:10] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8212
+[01:37:29] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:38:25] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7768
+[01:39:22] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7841
+[01:39:40] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:40:37] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.8059
+[01:41:34] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7841
+[01:41:53] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.0000
+[01:42:50] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7768
+[01:43:47] [snmf_ef|Heroin|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv harmonic=0.7525
+[01:43:49] [snmf_ef|Heroin|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/top_hps.csv
+[01:43:50] [snmf_ef|Heroin|pass1_snmf_top3] loading MLP features for concept='Heroin' rank=100
+[01:43:50] [snmf_ef|Heroin|pass1_snmf_top3] found 32 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:46:41] [snmf_ef|Heroin|pass1_snmf_top3] Heroin cell=0 harmonic=0.8762 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Heroin/alpaca_completions/cell_0.json
+[01:49:32] [snmf_ef|Heroin|pass1_snmf_top3] Heroin cell=1 harmonic=0.8689 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Heroin/alpaca_completions/cell_1.json
+[01:52:22] [snmf_ef|Heroin|pass1_snmf_top3] Heroin cell=2 harmonic=0.8677 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Heroin/alpaca_completions/cell_2.json
+[01:52:24] [snmf_ef|Heroin|pass1_snmf_top3] Heroin: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Heroin

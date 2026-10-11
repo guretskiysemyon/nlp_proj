@@ -1,0 +1,27 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Republic of Ireland
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[07:27:00] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland: EMBER delta 100 applied under every SNMF cell
+[07:27:01] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[07:27:01] [snmf_ef|Republic of Ireland|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[07:27:01] [snmf_ef|Republic of Ireland|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [10:19<10:19, 619.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [10:38<00:00, 266.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [10:38<00:00, 319.10s/it]
+[07:37:52] [snmf_ef|Republic of Ireland|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[07:37:56] [snmf_ef|Republic of Ireland|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Republic_of_Ireland/hps.csv
+[07:37:56] [snmf_ef|Republic of Ireland|pass1_snmf_top3] loading MLP features for concept='Republic of Ireland' rank=100
+[07:37:56] [snmf_ef|Republic of Ireland|pass1_snmf_top3] found 9 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[07:39:18] [snmf_ef|Republic of Ireland|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Republic_of_Ireland/hps.csv harmonic=0.8391
+[07:39:21] [snmf_ef|Republic of Ireland|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Republic_of_Ireland/top_hps.csv
+[07:39:23] [snmf_ef|Republic of Ireland|pass1_snmf_top3] loading MLP features for concept='Republic of Ireland' rank=100
+[07:39:23] [snmf_ef|Republic of Ireland|pass1_snmf_top3] found 9 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[07:42:15] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland cell=0 harmonic=0.8825 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Republic_of_Ireland/alpaca_completions/cell_0.json
+[07:45:14] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland cell=1 harmonic=0.8646 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Republic_of_Ireland/alpaca_completions/cell_1.json
+[07:48:12] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland cell=2 harmonic=0.8391 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Republic_of_Ireland/alpaca_completions/cell_2.json
+[07:48:15] [snmf_ef|Republic of Ireland|pass1_snmf_top3] Republic of Ireland: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Republic_of_Ireland

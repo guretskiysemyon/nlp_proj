@@ -1,0 +1,170 @@
+[run_pass1_snmf_top3] args: --with-ember --concept Gun
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[23:33:28] [snmf_ef|Gun|pass1_snmf_top3] Gun: EMBER delta 100 applied under every SNMF cell
+[23:33:28] [snmf_ef|Gun|pass1_snmf_top3] Gun: no grid yet -- running the 144-cell judge-free grid (top_k=3 so only 3 rows are ever written)
+[23:33:28] [snmf_ef|Gun|pass1_snmf_top3] loading model google/gemma-2-2b-it
+[23:33:28] [snmf_ef|Gun|pass1_snmf_top3] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.06s/it]
+[23:33:39] [snmf_ef|Gun|pass1_snmf_top3] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[23:33:48] [snmf_ef|Gun|pass1_snmf_top3] method grid -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv
+[23:33:48] [snmf_ef|Gun|pass1_snmf_top3] loading MLP features for concept='Gun' rank=100
+[23:33:48] [snmf_ef|Gun|pass1_snmf_top3] found 55 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[23:36:03] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7548
+[23:36:52] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8010
+[23:37:39] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7591
+[23:38:25] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8537
+[23:39:11] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8348
+[23:39:58] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7806
+[23:40:16] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:41:01] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.9101
+[23:41:45] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7436
+[23:42:04] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:42:49] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8927
+[23:43:36] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7004
+[23:44:22] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6778
+[23:45:08] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8010
+[23:45:54] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7302
+[23:46:39] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8537
+[23:47:25] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.9029
+[23:48:11] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7197
+[23:48:29] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:49:14] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8665
+[23:50:01] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6687
+[23:50:19] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:50:35] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:51:22] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6836
+[23:52:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7548
+[23:52:57] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7548
+[23:53:42] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7591
+[23:54:27] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8537
+[23:55:13] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8348
+[23:55:57] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7591
+[23:56:15] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:57:00] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.9101
+[23:57:45] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6887
+[23:58:02] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[23:58:47] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8927
+[23:59:33] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7046
+[00:00:18] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8691
+[00:01:05] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8529
+[00:01:49] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8540
+[00:02:06] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:02:51] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8699
+[00:03:36] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8540
+[00:03:53] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:04:38] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7577
+[00:05:24] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8405
+[00:05:41] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:06:27] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7686
+[00:07:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8577
+[00:07:57] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7650
+[00:08:41] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8577
+[00:09:27] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8577
+[00:09:43] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:10:28] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8386
+[00:11:13] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8577
+[00:11:30] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:11:45] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:12:30] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8265
+[00:12:48] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:13:04] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:13:49] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8119
+[00:14:34] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8428
+[00:15:19] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8529
+[00:16:04] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8540
+[00:16:21] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:17:06] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8568
+[00:17:51] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8540
+[00:18:08] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:18:54] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7150
+[00:19:39] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8405
+[00:19:56] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:20:41] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7686
+[00:21:27] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7958
+[00:22:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8583
+[00:22:58] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8172
+[00:23:44] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8018
+[00:24:02] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:24:19] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:25:06] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7389
+[00:25:25] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:25:42] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:26:28] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8011
+[00:26:47] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:27:04] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:27:48] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7777
+[00:28:33] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.9086
+[00:29:19] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7750
+[00:30:04] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7538
+[00:30:22] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:31:06] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7389
+[00:31:51] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7407
+[00:32:09] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:32:53] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7205
+[00:33:38] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7407
+[00:33:56] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:34:41] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7205
+[00:35:26] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7271
+[00:36:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8583
+[00:36:58] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8018
+[00:37:43] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8172
+[00:38:00] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:38:15] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:39:01] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8065
+[00:39:18] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:39:34] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:40:20] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7257
+[00:40:37] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:40:54] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:41:40] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.7152
+[00:41:56] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:42:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:42:28] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:42:45] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:43:01] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:43:17] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:43:35] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:43:53] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:44:09] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:44:27] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:44:44] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:45:01] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:45:48] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.8386
+[00:46:34] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6303
+[00:47:20] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6709
+[00:47:37] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:48:21] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6953
+[00:49:05] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6211
+[00:49:22] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:49:38] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:50:23] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6605
+[00:50:41] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:50:57] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:51:43] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.6821
+[00:52:00] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:52:17] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:52:33] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:52:50] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:53:06] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:53:22] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:53:39] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:53:55] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:54:12] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:54:29] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:54:46] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:55:02] [snmf_ef|Gun|pass1_snmf_top3] wrote row -> /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/hps.csv harmonic=0.0000
+[00:55:03] [snmf_ef|Gun|pass1_snmf_top3] wrote top-3 to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Gun/top_hps.csv
+[00:55:04] [snmf_ef|Gun|pass1_snmf_top3] loading MLP features for concept='Gun' rank=100
+[00:55:04] [snmf_ef|Gun|pass1_snmf_top3] found 55 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:57:52] [snmf_ef|Gun|pass1_snmf_top3] Gun cell=0 harmonic=0.9101 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gun/alpaca_completions/cell_0.json
+[01:00:41] [snmf_ef|Gun|pass1_snmf_top3] Gun cell=1 harmonic=0.9101 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gun/alpaca_completions/cell_1.json
+[01:03:30] [snmf_ef|Gun|pass1_snmf_top3] Gun cell=2 harmonic=0.9086 -> wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gun/alpaca_completions/cell_2.json
+[01:03:32] [snmf_ef|Gun|pass1_snmf_top3] Gun: done, wrote 3 cells to /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/judge_rerun/SNMF_EMBER/pass1_outputs/google_gemma-2-2b-it/rank100/seed42/Gun

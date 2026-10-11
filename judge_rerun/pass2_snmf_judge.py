@@ -25,8 +25,14 @@ The Alpaca denominators are the SAME pristine-model Qwen baseline EMBER's
 Pass 2 used (judge_rerun/Ember/pass1_outputs/.../_baseline/), so SNMF and
 EMBER scores are directly comparable.
 
+--with-ember judges SNMF+EMBER instead (pass1_snmf_top3.py --with-ember):
+input judge_rerun/SNMF_EMBER/pass1_outputs, output
+judge_rerun/SNMF_EMBER/pass2_outputs. `best_hp` always includes `delta_embed`
+(the EMBER delta applied under the SNMF cell; 0.0 for plain SNMF).
+
 Usage:
     python -m judge_rerun.pass2_snmf_judge --concept "Golf" "Heroin" "Nazism"
+    python -m judge_rerun.pass2_snmf_judge --with-ember --concept "Harry Potter"
 """
 from __future__ import annotations
 
@@ -54,7 +60,7 @@ from judge_rerun.pass2_judge_baseline import _judge_id
 from judge_rerun.qwen_judge import ALPACA_FLUENCY_PROMPT_QWEN, QwenJudge
 
 # Grid-row columns carried into the output table (HPs + judge-free metrics).
-_HP_COLS = ("w_mode", "feature_source", "ratio_thresh", "coverage_thresh",
+_HP_COLS = ("delta_embed", "w_mode", "feature_source", "ratio_thresh", "coverage_thresh",
             "delta_in", "layer_lo_in", "layer_hi_in", "k_features_mlp_in",
             "delta_out", "layer_lo_out", "layer_hi_out", "k_features_mlp_out")
 _FAST_COLS = ("mmlu_acc", "qa_acc", "simdom_acc", "efficacy", "specificity", "harmonic")
@@ -76,20 +82,32 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--min-alpaca", type=float, default=None,
                     help="optional Alpaca gate; default None = SNMF's original validate "
                          "behavior (no gate). EMBER uses 0.9.")
-    p.add_argument("--pass1-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass1_outputs"))
+    p.add_argument("--with-ember", action="store_true",
+                    help="judge SNMF+EMBER: switches the --pass1-dir / --out-dir defaults "
+                         "to judge_rerun/SNMF_EMBER/")
+    p.add_argument("--pass1-dir", default=None,
+                    help="default judge_rerun/SNMF/pass1_outputs (SNMF_EMBER with --with-ember)")
     p.add_argument("--baseline-dir", default=str(ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"),
                     help="root holding <model>/rank*/seed*/_baseline/ (shared with EMBER)")
-    p.add_argument("--out-dir", default=str(ROOT_DIR / "judge_rerun" / "SNMF" / "pass2_outputs"))
+    p.add_argument("--out-dir", default=None,
+                    help="default judge_rerun/SNMF/pass2_outputs (SNMF_EMBER with --with-ember)")
     p.add_argument("--overwrite", action="store_true",
                     help="re-judge every cell, ignoring the checkpoint")
-    return p.parse_args()
+    args = p.parse_args()
+    variant = ROOT_DIR / "judge_rerun" / ("SNMF_EMBER" if args.with_ember else "SNMF")
+    if args.pass1_dir is None:
+        args.pass1_dir = str(variant / "pass1_outputs")
+    if args.out_dir is None:
+        args.out_dir = str(variant / "pass2_outputs")
+    return args
 
 
 def run_concept(args: argparse.Namespace, concept: str,
                 judge: Optional[QwenJudge]) -> Optional[QwenJudge]:
     """Run Pass 2 for ONE concept. Returns the (possibly newly-loaded) judge,
     so a caller looping over several concepts in one process shares it."""
-    log.set_context(method="snmf", concept=concept, stage="pass2_snmf_judge")
+    log.set_context(method="snmf_ef" if args.with_ember else "snmf",
+                    concept=concept, stage="pass2_snmf_judge")
 
     judge_id = _judge_id(args.judge_model)
     fluency_template = (GeminiEvaluator.ALPACA_FLUENCY_PROMPT if args.fluency_prompt == "original"
