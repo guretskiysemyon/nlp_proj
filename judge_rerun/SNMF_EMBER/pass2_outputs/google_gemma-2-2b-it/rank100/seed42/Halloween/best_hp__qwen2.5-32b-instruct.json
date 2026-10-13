@@ -1,0 +1,44 @@
+{
+  "concept": "Halloween",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.6,
+    "simdom_base": 0.96,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 1,
+  "best_harmonic_alpaca": 0.8706984864006401,
+  "best_hp": {
+    "delta_embed": 10.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 10.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 24,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 14
+  },
+  "best_metrics": {
+    "efficacy": 0.7272727272727272,
+    "specificity": 0.9402985074626866,
+    "harmonic": 0.8201790073230267,
+    "alp_instr_frac": 0.9861591695501729,
+    "alp_flu_frac": 1.0,
+    "coherence": 0.9930313588850174,
+    "harmonic_alpaca": 0.8706984864006401
+  }
+}

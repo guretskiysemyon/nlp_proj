@@ -2,7 +2,8 @@
 
 **Status (2026-10-11):** **`ember` and `snmf` are done** for all 18 concepts ×
 5 languages (`crosslingual/run_edited.py`, jobs 1007121 pilot + 1007145 /
-1007146; every edit check passed). First-look results: §2.3. The pristine
+1007146; every edit check passed). First-look results: §2.3; `snmf` leak
+bootstrap and its collateral damage against the Gemini-era picks: §2.4. The pristine
 baselines were done before (job 1006226). **Still to do:** `snmf_ember`, which
 waits on its own HP search (Pass 1 done, Pass 2 queued:
 [`snmf_ember_search.md`](snmf_ember_search.md)), and the proper analysis (§6).
@@ -133,7 +134,8 @@ pass the screen (same 2 as §2.2). Not yet the §6 analysis (no bootstrap).
 - **SNMF pays in specificity.** Its similar-domain accuracy drops by ~0.15–0.17
   in every language and English MMLU by ~0.05; `ember` loses ~0.01–0.03 on
   similar-domain accuracy and ~0.005 on MMLU.
-  SNMF's even erasure is partly a broader, less targeted edit.
+  SNMF's even erasure is partly a broader, less targeted edit. This is not
+  caused by the new SNMF selection (§2.4).
 - **`ember` produces unparseable answers** on some concepts, which count as
   wrong and so flatter its erasure: Cannabis es 0.36 / fr 0.30 / en 0.22,
   Gun en 0.26, Uranium en 0.26 / de 0.20, Gambling 0.16–0.20, COVID-19 de 0.18.
@@ -145,6 +147,87 @@ pass the screen (same 2 as §2.2). Not yet the §6 analysis (no bootstrap).
 - **Edit check**: all 36 (concept, method) edits reproduced the search's
   English `qa_acc`, `simdom_acc` and `mmlu_acc` exactly (Δ 0.0, features match),
   logged in each `edit.json`.
+
+### 2.4 `snmf`: is the leak zero, and is its damage new? (2026-10-11)
+
+**Leak, bootstrapped over concepts** (10,000 resamples of the concepts, numpy
+seed 0, 95% interval; same cells as §2.3):
+
+| | de | es | fr | ru | mean of the 4 |
+|---|---|---|---|---|---|
+| `snmf` | −0.00 [−0.08, +0.07] | +0.00 [−0.10, +0.11] | −0.02 [−0.12, +0.08] | +0.05 [−0.06, +0.16] | +0.01 [−0.07, +0.09] |
+| `ember` | +0.17 [+0.07, +0.27] | +0.22 [+0.11, +0.33] | +0.19 [+0.09, +0.29] | +0.41 [+0.28, +0.52] | +0.24 [+0.16, +0.32] |
+
+- **`snmf` has no detectable leak.** Every interval contains 0, and about half
+  the concepts go each way (de 9/18, es 9/18, fr 8/18, ru 9/16 positive). A mean
+  leak above ~0.09 is ruled out. Every `ember` interval excludes 0.
+- Per concept, `snmf`'s mean non-English Δ runs from −0.38 (Republic of
+  Ireland: erased *more* outside English) to +0.36 (Halloween); the SD of one
+  cell's Δ is 0.21. The three largest (Halloween +0.36, Uranium +0.27,
+  Valentine's Day +0.24) have low pristine accuracy, so small denominators.
+
+**Collateral damage.** The retention formula applied to `SimdomQA_test`
+(clipped, mean over concepts), next to the concept's own retention:
+
+| | de | en | es | fr | ru |
+|---|---|---|---|---|---|
+| `snmf` `QA_test` retention | 0.44 | 0.45 | 0.45 | 0.43 | 0.51 |
+| `snmf` `SimdomQA_test` retention | 0.62 | 0.73 | 0.65 | 0.68 | 0.59 |
+| `ember` `SimdomQA_test` retention | 0.98 | 0.96 | 0.98 | 0.98 | 1.00 |
+
+`snmf` hits the concept harder than its neighbours in every language, but
+also removes 30–40% of the neighbours. English MMLU (1000-question test split,
+English only, not part of Δ) is the same story: `snmf` 0.506 on average
+(0.442–0.541; worst Valentine's Day 0.44, Gambling 0.45) against pristine
+0.553, `ember` 0.548 (0.537–0.553).
+
+**The damage is not caused by the new SNMF selection.** The 144-cell grid is
+unchanged (the 8 Gemini-era concepts reuse the archived grid); only the pick
+from it changed: old = top 15 by `harmonic`, Alpaca judged by Gemini, max
+`harmonic_alpaca`; new = top 3 × 50 Alpaca answers judged by Qwen2.5-32B, same
+pick rule ([`snmf_search.md`](snmf_search.md)). For the 8 shared concepts, grid
+metrics (`QA_train` etc.) of the two picks:
+
+| Concept | Old pick (grid rank) | New pick (grid rank) | SimDom frac old → new | MMLU (50 q) old → new |
+|---|---|---|---|---|
+| Baseball | 1@0–12 / 10@0–8 (2) | same | 0.63 | 0.54 |
+| Culture of Greece | 1@0–12 / 10@0–8 (2) | 1@0–25 / 10@0–8 (1), same scores = same edit | 0.85 | 0.54 |
+| Gambling | 7@0–12 / 4@0–8 (1) | 10@0–12 / 7@9–17 (2) | 0.94 → 0.77 | 0.46 → 0.48 |
+| Golf | 10@0–12 / 10@9–17 (2) | 4@0–25 / 7@13–25 (3) | 0.49 → 0.80 | 0.48 → 0.56 |
+| Halloween | 10@0–25 / 7@13–25 (1) | 10@0–12 / 7@13–25 (2) | 0.77 → 0.77 | 0.50 → 0.52 |
+| Harry Potter | 7@0–12 / 1@0–8 (1) | same | 0.85 | 0.54 |
+| Uranium | 10@0–25 / 1@0–8 (2) | same | 0.73 | 0.56 |
+| World War II | 10@0–25 / 1@13–25 (2) | same | 0.52 | 0.54 |
+| **Mean** | | | **0.72 → 0.74** | **0.520 → 0.535** |
+
+(HP: `δ_in @ layers / δ_out @ layers`. Pristine MMLU on these 50 questions: 0.52.)
+
+- **5 of 8 picks are the same edit.** Of the 3 that changed, Gambling's new
+  pick is more damaging, Golf's much less, Halloween's about equal. On average
+  the new picks are slightly *less* damaging.
+- **The Gemini-era run had the same damage** on the cross-lingual test (same
+  8 concepts, `SimdomQA_test` retention):
+
+  | | en | de | es | fr | ru |
+  |---|---|---|---|---|---|
+  | Gemini-era `snmf` | 0.65 | 0.60 | 0.58 | 0.58 | 0.59 |
+  | Round 2 `snmf` | 0.71 | 0.64 | 0.66 | 0.68 | 0.55 |
+
+- **Its MMLU damage was hidden, not absent.** The archived summary's "MMLU
+  retained 0.97" for `snmf` comes from the §4.2 bug: `mmlu_acc_en` is 0.541 for
+  all 8 concepts, which is exactly what round 2 measures for Harry Potter's
+  (identical) edit. Edits identical to the old picks score World War II 0.49
+  and Uranium 0.50 on the 1000-question split. The grid's 50-question MMLU
+  (binomial SE ≈ 0.07) cannot see a ~0.05 drop, so neither search could
+  select against it.
+- **Same edit, different harness, different Δ.** For the 5 identical edits the
+  per-concept leak still moved between the runs (Uranium +0.02 → +0.27,
+  Culture of Greece +0.10 → −0.20), from the option shuffle and prompt alone
+  (§2.2). Over the 8 concepts: Gemini-era +0.10, round 2 +0.05. Both small.
+
+Conclusion: the broad damage is a property of SNMF on this grid, not of the
+new selection. Reducing it would take a different selection objective (a
+larger MMLU set, or a SimDom constraint), not a different judge or top-k.
 
 ## 3. Scope (decided)
 
@@ -254,8 +337,9 @@ The paper's headline config. The Gemini run found it leaks about as much as
 - **Analysis**: Δ per method and language, averaged over concepts with a
   bootstrap over concepts (the Gemini summary §5 has the code). Report how many
   cells were screened out, and `invalid_rate` per language next to retention.
-  Plain means for `ember` / `snmf` are in §2.3; the paired `ember` − `snmf`
-  difference per (concept, language) and the bootstrap are still to do. Also
+  Plain means for `ember` / `snmf` are in §2.3, the per-language bootstrap of Δ
+  in §2.4; the paired `ember` − `snmf` difference per (concept, language) is
+  still to do, and so is a "targeted leak" that discounts the SimDom drop. Also
   check whether `ember`'s high-invalid cells (§2.3) change its Δ, e.g. by
   re-scoring with invalid answers dropped.
 - **Open QA** with the decoupled design: generate answers (Gemma, 1 GPU), then

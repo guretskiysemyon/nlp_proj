@@ -16,8 +16,10 @@
   **`pristine`, `ember` and `snmf` are done** for all 18 concepts × 5
   languages (jobs 1006226, 1007121, 1007145, 1007146; every edit check
   reproduced the HP search exactly). First look: `ember` leaks (mean
-  non-English Δ +0.24, Russian +0.41), `snmf` does not (+0.01) but loses more
-  similar-domain accuracy. Numbers: [`docs/crosslingual_next.md`](crosslingual_next.md) §2.3.
+  non-English Δ +0.24, Russian +0.41), `snmf` does not (+0.01, 95% CI
+  [−0.07, +0.09]) but loses more similar-domain accuracy and MMLU. That damage
+  is not from the new SNMF selection: the Gemini-era picks had it too.
+  Numbers: [`docs/crosslingual_next.md`](crosslingual_next.md) §2.3–§2.4.
 - **SNMF+EMBER search** (for the `snmf_ember` cross-lingual run): Pass 1 done
   for all 18 concepts (1007155–1007165); **Pass 2 (1007174–1007177) queued**,
   waiting for RTX 2080 GPUs (`Priority`), checked 2026-10-11 ~12:00.

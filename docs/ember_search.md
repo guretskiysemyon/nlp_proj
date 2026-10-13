@@ -137,4 +137,7 @@ the Titan diagnostic/benchmark scripts were removed from `judge_rerun/` on 2026-
 
 ## multi language add on
 run eg.
-python -m ember.train_mf_features --concepts "World War II" --languages en+ru+de+es+fr
+sbatch run_train_mf_features.sbatch --concepts "World War II" --languages en+ru+de+es+fr
+
+
+batch job 1010008
