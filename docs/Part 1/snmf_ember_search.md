@@ -10,7 +10,7 @@ Nothing is running. Next step: the `snmf_ember` cross-lingual run
 ([`crosslingual_next.md`](crosslingual_next.md) §5).
 
 **Where the results are:** `judge_rerun/SNMF_EMBER/` (layout and policy:
-[`judge_rerun/SNMF_EMBER/README.md`](../judge_rerun/SNMF_EMBER/README.md)).
+[`judge_rerun/SNMF_EMBER/README.md`](../../judge_rerun/SNMF_EMBER/README.md)).
 Start with
 `judge_rerun/SNMF_EMBER/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`,
 one row per concept with the full HP set to apply (EMBER δ + SNMF cell).

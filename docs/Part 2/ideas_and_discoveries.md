@@ -1,4 +1,4 @@
-# Ideas for Ideas and Discoveries for Part 2
+# Ideas and Discoveries for Part 2
 
 *Status: preliminary proof of concept, 2026-10-04. Gemma-2-2b-it, input-embedding level only, 5 concepts, 1 seed.*
 

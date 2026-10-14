@@ -25,7 +25,7 @@ Usage:
     # observed to run 15+ hours when both pinned nodes are busy):
     python -m judge_rerun.pass2_delta_search --concept "Golf" "Heroin" "Nazism"
 
-Delta-selection policy (default --top-k 3 --alpaca-n 50, see docs/ember_search.md):
+Delta-selection policy (default --top-k 3 --alpaca-n 50, see docs/Part 1/ember_search.md):
     Before any judge call, every delta's judge-free fast metrics (mmlu/qa/
     simdom -> efficacy/specificity/harmonic) are computed from grid_raw.csv.
     Only the --top-k deltas (by that fast `harmonic`, among those passing

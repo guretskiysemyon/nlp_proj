@@ -5,7 +5,7 @@
 # whose answers loop ("Roman Roman Roman ..."), and stop at the first 3
 # distinct non-looping cells, which go to Pass 2
 # (judge_rerun/run_pass2_snmf.sbatch). Used for Ancient Rome only, whose plain
-# top-3 cells all broke generation -- see docs/snmf_search.md.
+# top-3 cells all broke generation -- see docs/Part 1/snmf_search.md.
 #
 # Same node pinning as run_pass1_snmf_top3.sbatch: RTX 2080 only, because the
 # model loads in bf16, which the Titan nodes cannot run. 1 GPU (gemma-2-2b-it

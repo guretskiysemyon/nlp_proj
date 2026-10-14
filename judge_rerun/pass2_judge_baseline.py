@@ -9,7 +9,7 @@ directly comparable to the archived Gemini-era numbers.
 This produces alp_instr_base / alp_flu_base -- the denominators every delta's
 harmonic_alpaca needs -- judged by the SAME instrument (Qwen) that will judge
 the delta grid in Pass 2 proper. Reusing the archived Gemini-scored baseline
-here would silently mix instruments (docs/judge_swap_plan.md SS2.3).
+here would silently mix instruments (docs/judge/judge_swap_plan.md SS2.3).
 
 Usage:
     python -m judge_rerun.pass2_judge_baseline

@@ -25,7 +25,7 @@ From the proposal, via `docs/crosslingual_plan.md`:
 > Does concept information re-emerge when prompts are translated into other languages,
 > and does this differ between embedding-based and MLP-based erasure?
 
-The paper ([`docs/Main Article.pdf`](Main%20Article.pdf)) predicts the answer in its own
+The paper ([`docs/references/Main Article.pdf`](../../docs/references/Main%20Article.pdf)) predicts the answer in its own
 Limitations section: EMBER edits *English* token embeddings, so "erasure applied to
 English tokens would not suppress the same concept when accessed through tokens in other
 languages." This experiment measures how much.

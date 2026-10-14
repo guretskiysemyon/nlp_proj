@@ -9,7 +9,7 @@ first pick was a broken model; it was redone with a loop screen (see "Ancient
 Rome" below) and now has a healthy pick. Nothing is running.
 
 **Where the results are:** `judge_rerun/SNMF/` (layout, policy and archive:
-[`judge_rerun/SNMF/README.md`](../judge_rerun/SNMF/README.md)). Start with
+[`judge_rerun/SNMF/README.md`](../../judge_rerun/SNMF/README.md)). Start with
 `judge_rerun/SNMF/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`,
 one row per concept with the full HP set to apply.
 

@@ -38,7 +38,7 @@ table below for the two that differ.
 **SNMF**: the same top-3 + 50-question policy applies there. Pass 1
 (`judge_rerun/pass1_snmf_top3.py`) is done for all 18 concepts, and Pass 2
 (`judge_rerun/pass2_snmf_judge.py`) for 15 (2026-10-10). Per-concept status is
-in `docs/snmf_search.md`.
+in `docs/Part 1/snmf_search.md`.
 
 Final results for all 18 concepts: `judge_rerun/Ember/pass2_outputs/` — start with
 `google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv` (layout and policy: `judge_rerun/Ember/README.md`).

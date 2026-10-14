@@ -8,9 +8,9 @@ baselines were done before (job 1006226). **Still to do:** `snmf_ember`, which
 waits on its own HP search (Pass 1 done, Pass 2 queued:
 [`snmf_ember_search.md`](snmf_ember_search.md)), and the proper analysis (§6).
 
-[`crosslingual_plan.md`](../archive_gemini/docs/crosslingual_plan.md) is still the
+[`crosslingual_plan.md`](../../archive_gemini/docs/crosslingual_plan.md) is still the
 design reference (metric, screening rule, F1–F6 principles), and
-[`archive_gemini/docs/crosslingual_results_summary.md`](../archive_gemini/docs/crosslingual_results_summary.md)
+[`archive_gemini/docs/crosslingual_results_summary.md`](../../archive_gemini/docs/crosslingual_results_summary.md)
 holds the Gemini-era results that this round redoes.
 
 ## 1. The experiment
@@ -352,7 +352,7 @@ The paper's headline config. The Gemini run found it leaks about as much as
   can actually be tested.
 - **Cross-lingual relearning** (`crosslingual_plan.md` §10).
 - Part 2 ideas (zero-shot foreign edit directions, layer sweep):
-  [`Ideas and Discoveries for Part 2.md`](Ideas%20and%20Discoveries%20for%20Part%202.md).
+  [`Part 2/ideas_and_discoveries.md`](../Part%202/ideas_and_discoveries.md).
 
 ## 7. Risks to watch
 

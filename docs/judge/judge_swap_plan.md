@@ -1,8 +1,8 @@
 # Plan — replace the Gemini judge with a free open-weight judge
 
 **Status:** design, no code written.
-**Companion docs:** [`architecture/ARCHITECTURE.md`](architecture/ARCHITECTURE.md) (§10 evaluation
-subsystem, §13 invariants), [`progress.md`](progress.md) (what has already been run).
+**Companion docs:** [`architecture/ARCHITECTURE.md`](../architecture/ARCHITECTURE.md) (§10 evaluation
+subsystem, §13 invariants), [`progress.md`](../progress.md) (what has already been run).
 
 ---
 

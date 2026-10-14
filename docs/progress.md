@@ -1,6 +1,6 @@
 # Progress log
 
-**Last updated:** 2026-10-11
+**Last updated:** 2026-10-14
 **Status:**
 - **EMBER search: finished.** Best δ for all 18 concepts, judged with
   Qwen2.5-32B-Instruct (picked by the agreement study, §3.1), under the top-3 ×
@@ -19,14 +19,29 @@
   non-English Δ +0.24, Russian +0.41), `snmf` does not (+0.01, 95% CI
   [−0.07, +0.09]) but loses more similar-domain accuracy and MMLU. That damage
   is not from the new SNMF selection: the Gemini-era picks had it too.
-  Numbers: [`docs/crosslingual_next.md`](crosslingual_next.md) §2.3–§2.4.
-- **SNMF+EMBER search** (for the `snmf_ember` cross-lingual run): Pass 1 done
-  for all 18 concepts (1007155–1007165); **Pass 2 (1007174–1007177) queued**,
-  waiting for RTX 2080 GPUs (`Priority`), checked 2026-10-11 ~12:00.
-  Status: [`docs/snmf_ember_search.md`](snmf_ember_search.md).
+  Numbers: [`docs/Part 1/crosslingual_next.md`](Part%201/crosslingual_next.md) §2.3–§2.4.
+- **SNMF+EMBER search: finished (2026-10-13).** Best cell for all 18
+  concepts (EMBER δ fixed, SNMF grid searched again on top), same judge and
+  policy as SNMF. All grids complete, no pick loops. Mean `harmonic_alpaca`
+  **0.909**, against 0.821 for SNMF and 0.735 for EMBER; highest of the three
+  for 17 of 18 concepts (Harry Potter is the exception). These are selection
+  scores on `QA_train`, so they are optimistic.
+  Results: `judge_rerun/SNMF_EMBER/pass2_outputs/` (layout:
+  `judge_rerun/SNMF_EMBER/README.md`), numbers and notes:
+  [`docs/Part 1/snmf_ember_search.md`](Part%201/snmf_ember_search.md).
+- **Next:** add `snmf_ember` to `crosslingual/run_edited.py` and run its
+  18 × 5 cross-lingual test ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §5).
+- **Part 2, multilingual feature search (step 1, World War II): done, result too
+  weak.** Features fit on en+ru+de+es+fr together, then filtered with the same
+  Gemini judge as the English features: 0 embedding + 2 MLP features kept
+  (English: 1 + 15). Causes found: rank 100 too small for 5 languages, foreign
+  neutral sentences are definitions (unlike English), some broken by the
+  sentence splitter. Write-up:
+  [`docs/Part 2/multilingual_features.md`](Part%202/multilingual_features.md).
 
-Live per-concept status: [`docs/snmf_search.md`](snmf_search.md) (SNMF) and
-[`docs/ember_search.md`](ember_search.md) (EMBER).
+Per-concept status: [`docs/Part 1/snmf_search.md`](Part%201/snmf_search.md) (SNMF),
+[`docs/Part 1/ember_search.md`](Part%201/ember_search.md) (EMBER) and
+[`docs/Part 1/snmf_ember_search.md`](Part%201/snmf_ember_search.md) (SNMF+EMBER).
 
 This file tracks *where things stand right now* — what's done, what's next, why.
 It is not a results dump: numbers and detailed write-ups live in the files linked
@@ -61,7 +76,7 @@ family as whatever we're erasing (currently Gemma-2-2b-it, later Llama), so it
 stays an independent measuring instrument.
 
 Full reasoning and the detailed design are in
-[`docs/judge_swap_plan.md`](judge_swap_plan.md). In short:
+[`docs/judge/judge_swap_plan.md`](judge/judge_swap_plan.md). In short:
 
 - **Why decoupled generation + judging ("Pass 1" / "Pass 2"):** the model
   being erased and the judge can't both sit in GPU memory at once on this
@@ -74,8 +89,9 @@ Full reasoning and the detailed design are in
   later). One erasure method first — EMBER's own δ (strength) search, since
   that's the one place the judge's score directly decides the result. All 18
   concepts. EMBER is done (2026-10-09). SNMF is done (2026-10-10).
+  SNMF+EMBER is done (2026-10-13).
   Cross-lingual round 2 is in progress (`pristine`, `ember`, `snmf` done
-  2026-10-11; `snmf_ember` waits on the SNMF+EMBER search).
+  2026-10-11; `snmf_ember` is next, its picks are ready).
 
 ## 3. Where things stand
 
@@ -109,7 +125,7 @@ Full reasoning and the detailed design are in
   (2026-10-09)** under the top-3 × 50-question policy (6 judged directly, 12
   re-derived from the cached full-grid scores; see
   `judge_rerun/Ember/README.md`). Per-concept status:
-  [`docs/ember_search.md`](ember_search.md).
+  [`docs/Part 1/ember_search.md`](Part%201/ember_search.md).
 
 - **SNMF Pass 1** (`judge_rerun/pass1_snmf_top3.py`), all 18 concepts: for
   each concept, narrows SNMF's 144-cell hyperparameter grid to the top 3 cells
@@ -124,7 +140,7 @@ Full reasoning and the detailed design are in
   uses the same Alpaca baseline as EMBER and, like SNMF's original validate
   stage, has **no Alpaca gate**. Output under `judge_rerun/SNMF/pass2_outputs/`,
   one-row-per-concept `best_hps_summary.csv`. Every grid was checked complete
-  (144 distinct, fully scored cells). Per-concept picks: [`docs/snmf_search.md`](snmf_search.md).
+  (144 distinct, fully scored cells). Per-concept picks: [`docs/Part 1/snmf_search.md`](Part%201/snmf_search.md).
 - **Ancient Rome SNMF, redone with a loop screen** (jobs 1006121 + 1006227):
   all three original top cells degenerated ("Roman Roman …" in 45–49 of 50
   completions). `judge_rerun/pass1_snmf_screen.py` walked the grid ranking,
@@ -157,11 +173,31 @@ Full reasoning and the detailed design are in
   all 18 concepts in `judge_rerun/SNMF_EMBER/pass1_outputs/`; 8 concepts
   reused the archived combined grid, 10 ran a fresh one (144 cells each,
   `results/snmf_ef/`).
+- **SNMF+EMBER Pass 2** (`pass2_snmf_judge.py --with-ember`, jobs
+  1007174–1007177, 2026-10-11 → 2026-10-13): all 18 concepts judged and
+  picked, `complete: true`, 3 of 3 cells each. The 4 jobs were preempted 28
+  times in total and resumed from their checkpoints every time (no
+  tracebacks; 43 h of judging over 54 cells). Loop check: at most 3 looping
+  answers of 50 in any cell, at most 1 in a picked cell, so no concept needed
+  the loop screen (Ancient Rome, which broke under plain SNMF, has 0). Four
+  picks have an Alpaca fraction below 0.9 (Pornography 0.85, Valentine's Day
+  0.87, Baseball 0.88, Uranium 0.89; no gate, by design). Summary:
+  `judge_rerun/SNMF_EMBER/pass2_outputs/.../best_hps_summary.csv` (with
+  `delta_embed`). Slurm logs moved to `judge_rerun/SNMF_EMBER/archive/slurm_logs/`.
+
+  | Method (mean of 18) | efficacy | specificity | coherence | harmonic_alpaca |
+  |---|---|---|---|---|
+  | EMBER | 0.520 | 0.968 | 0.992 | 0.735 |
+  | SNMF | 0.724 | 0.848 | 0.959 | 0.821 |
+  | SNMF+EMBER | 0.877 | 0.909 | 0.960 | 0.909 |
+
+  Per concept and caveats: [`snmf_ember_search.md`](Part%201/snmf_ember_search.md).
 
 **In progress / open:**
-- **SNMF+EMBER Pass 2** (jobs 1007174–1007177): queued for RTX 2080 GPUs, not
-  started as of 2026-10-11 ~12:00. Then the loop check, the summary, and the
-  `snmf_ember` cross-lingual run: `snmf_ember_search.md` "To check when they finish".
+- **`snmf_ember` cross-lingual run**: add the method to
+  `crosslingual/run_edited.py` (`METHODS`, picks from `judge_rerun/SNMF_EMBER/`,
+  config `configs/snmf_ember_gemma.yaml`), then run 18 × 5
+  (`crosslingual_next.md` §5, §9 step 5).
 - `judge_rerun/pass2_outputs_ori/` (Ori's EMBER side folder, owned by
   `oripetel`) is a verified byte-identical copy of
   `judge_rerun/Ember/archive/pass2_outputs_ori/` and nothing reads it. Ori can
@@ -191,7 +227,7 @@ Full reasoning and the detailed design are in
   `titan_bench_results.jsonl`) and `run_judge_baseline.sbatch` (it defaulted to
   the rejected 14B judge). All are in git history at commit `7f86c2e`, e.g.
   `git checkout 7f86c2e -- judge_rerun/agreement_study.py`. The agreement-study
-  result files were kept, in `docs/judge_selection/`.
+  result files were kept, in `docs/judge/judge_selection/`.
 
 ### 3.1 Judge model: which one, and why
 
@@ -224,9 +260,15 @@ generation nondeterminism) — `agreement_study.py` (removed from `judge_rerun/`
 
 **32B passes the gate on both axes, with the original unmodified prompts.
 14B fails on fluency even after a prompt fix**, so 32B is the pick for Pass 2.
-Full per-item confusion matrices: `docs/judge_selection/agreement_study_train.json`
-(14B) and `docs/judge_selection/agreement_study_train__qwen2.5-32b-instruct.json` (32B);
-the rejected Gemma-4-12B candidate is `docs/judge_selection/agreement_study_train__gemma-4-12b-it.json`.
+Full per-item confusion matrices: `docs/judge/judge_selection/agreement_study_train.json`
+(14B) and `docs/judge/judge_selection/agreement_study_train__qwen2.5-32b-instruct.json` (32B);
+the rejected Gemma-4-12B candidate is `docs/judge/judge_selection/agreement_study_train__gemma-4-12b-it.json`.
+Gemma-4-12B-it was rejected on two counts: it is the same family as the erasure
+target, and on the same 150 items its fluency mean_delta is **+0.367** (fails the
+±0.15 gate; instruct is fine, +0.013). It gave the ceiling score almost
+regardless of quality. It also needed its own venv (`transformers==4.53.3` can't
+load its tokenizer). The smoke-test log is in git history (`docs/last_step.md`,
+deleted 2026-10-14).
 
 **Caveat worth remembering:** exact-match on fluency is ~62-64% and MAE is
 ~0.37-0.41 for *both* models — a real per-item scatter that happens to cancel
@@ -358,18 +400,19 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/pass1_snmf_top3.py`, `run_pass1_snmf_top3.sbatch` | SNMF Pass 1: narrows the 144-cell HP grid to the top 3 cells by the judge-free harmonic and generates (does not judge) their first 50 Alpaca completions; output `judge_rerun/SNMF/pass1_outputs/` |
 | `judge_rerun/Ember/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
 | `judge_rerun/Ember/pass2_outputs/` | Final Pass 2 output (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
-| `docs/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
+| `docs/judge/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
 | `judge_rerun/SNMF/pass1_outputs/` | SNMF Pass 1 output: per concept `top3_hps.json` and `alpaca_completions/cell_0..2.json` (3 cells × 50 completions); Ancient Rome also `screen/` |
 | `judge_rerun/pass1_snmf_screen.py`, `run_pass1_snmf_screen.sbatch` | SNMF Pass 1 variant with a loop screen (used for Ancient Rome only): walks the full grid ranking generating answers, skips duplicates (identical answers) and cells with >5/50 looping answers, stops at the first 3 distinct non-looping cells, and writes them in Pass 1's format plus `screen/screen_report.csv` |
 | `judge_rerun/pass2_snmf_judge.py`, `run_pass2_snmf.sbatch` | SNMF Pass 2: judges the 3 cells × 50 completions with Qwen2.5-32B (3× RTX 2080 Ti), picks the best cell; several concepts per job, resumable |
 | `judge_rerun/SNMF/pass2_outputs/` | **Final** SNMF Pass 2 output (all 18 concepts): per concept `best_hp__qwen2.5-32b-instruct.json` (the pick, with the full HP dict), `cell_metrics__*.csv`, `alpaca_judged__*.json`, `_rows__*.json`, plus `best_hps_summary.csv`. Layout and `archive/`: `judge_rerun/SNMF/README.md` |
-| `docs/ember_search.md` | per-concept EMBER Pass 2 status and picks |
-| `docs/snmf_search.md` | per-concept SNMF status (Pass 1 + Pass 2, the picks, completeness check, the Ancient Rome problem and fix) |
-| `docs/crosslingual_next.md` | plan and status of cross-lingual round 2 |
+| `docs/Part 1/ember_search.md` | per-concept EMBER Pass 2 status and picks |
+| `docs/Part 1/snmf_search.md` | per-concept SNMF status (Pass 1 + Pass 2, the picks, completeness check, the Ancient Rome problem and fix) |
+| `docs/Part 1/crosslingual_next.md` | plan and status of cross-lingual round 2 |
 | `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model), `run_edited.py` + `run_edited.sbatch` (apply each concept's `ember` / `snmf` pick, edit check, per-concept MMLU) |
 | `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv`, pristine MMLU in `_mmlu.json` |
 | `results/crosslingual/google_gemma-2-2b-it/{ember,snmf}/` | edited cross-lingual runs: `<Concept>/<lang>.json` + `edit.json` (HP, edit check, MMLU), `summary.csv` with retention and leak per (concept, language) |
-| `judge_rerun/SNMF_EMBER/` | SNMF+EMBER search (`--with-ember` on the three SNMF scripts): `pass1_outputs/` done, `pass2_outputs/` pending. Status: `docs/snmf_ember_search.md` |
+| `judge_rerun/SNMF_EMBER/` | **Final** SNMF+EMBER search (`--with-ember` on the three SNMF scripts), all 18 concepts: `pass1_outputs/`, `pass2_outputs/` (same files as SNMF, plus `best_hps_summary.csv` with `delta_embed`), `archive/slurm_logs/`. Layout: `judge_rerun/SNMF_EMBER/README.md` |
+| `docs/Part 1/snmf_ember_search.md` | SNMF+EMBER status, per-concept picks, completeness and loop check, comparison with EMBER / SNMF alone |
 | `archive_gemini/crosslingual/` | the Gemini-era cross-lingual runner, kept for reference (not used) |
 
 Everything under `ember/` (the paper's own reference implementation) is

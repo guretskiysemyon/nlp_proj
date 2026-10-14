@@ -25,7 +25,7 @@ Two things live here at once:
 2. **A course project (`nlp_proj`) extending EMBER cross-lingually.** The research
    question: *does erased concept knowledge re-emerge when prompts are translated
    into other languages, and does that differ between embedding-based and MLP-based
-   erasure?* The plan lives in `docs/crosslingual_plan.md`; translated evaluation
+   erasure?* The plan lives in `archive_gemini/docs/crosslingual_plan.md`; translated evaluation
    data already sits in `data/qa_lang/`. **The code changes for this are not written
    yet** — see §16.
 
@@ -100,8 +100,12 @@ nlp_proj/
 ├── configs/                      ← 18 YAML files: <method>[_ember]_<model>.yaml
 ├── data/                         ← all inputs that are not model weights (§11)
 ├── docs/
-│   ├── crosslingual_plan.md      ← the course-project plan (Part 1)
-│   └── architecture/ARCHITECTURE.md  ← this file
+│   ├── progress.md               ← main progress log (start here)
+│   ├── architecture/ARCHITECTURE.md  ← this file
+│   ├── references/               ← EMBER paper, project proposal (PDFs)
+│   ├── judge/                    ← Gemini → Qwen judge swap: plan + agreement-study results
+│   ├── Part 1/                   ← cross-lingual leakage: per-method HP searches, leakage runs
+│   └── Part 2/                   ← multilingual extension: ideas and early findings
 ├── external/                     ← git submodules: snmf, CRISP, wmdp, PISCES
 ├── *.sbatch                      ← SLURM job scripts for the university cluster
 ├── demo.ipynb                    ← walkthrough: erasing Harry Potter from Gemma
@@ -621,7 +625,7 @@ relevant list in `io.py` (`TRAIN_MC_METRICS` / `TRAIN_OPEN_METRICS` / `ALPACA_ME
 
 ### Add a language axis (the current project) **[planned]**
 
-`docs/crosslingual_plan.md` is the authoritative spec. In short: thread a `lang="en"`
+`archive_gemini/docs/crosslingual_plan.md` is the authoritative spec. In short: thread a `lang="en"`
 parameter through four files — `local_datasets.py` (two loaders → `data/qa_lang/
 translated/<lang>/`), `evals/baselines.py` (cache key becomes
 `baseline_<set>__<lang>.json` for non-English, and MMLU/Alpaca stay `lang="en"`),
@@ -663,7 +667,7 @@ Everything defaults to `"en"` so existing results and caches stay valid.
   before changing run eval to divide between nodes` → `translated files`.
 - **Untracked:** `docs/` (both `crosslingual_plan.md` and this file).
 - `external/*` submodules **not initialised** here.
-- `Main Article.pdf` at the repo root is the EMBER paper.
+- `docs/references/Main Article.pdf` is the EMBER paper.
 - `baseline_mgpu_871643.out` is a leftover SLURM log.
 - Cluster working directory (from the `.sbatch` files):
   `/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure`, partition
@@ -706,5 +710,5 @@ Environment variables that matter: `HF_TOKEN`, `GEMINI_API_KEY` (or `GOOGLE_API_
 | understand the EMBER edit itself | `ember/erasure/embed_edit.py` |
 | debug "why did this cell score 0" | early-stop gates in `orchestrator.py`; `skip_eval_for_hp` |
 | debug "why did it re-run everything" | `io.load_done_set` + `Method.hp_key_columns` |
-| work on the cross-lingual extension | `docs/crosslingual_plan.md`, then §14 above |
+| work on the cross-lingual extension | `archive_gemini/docs/crosslingual_plan.md`, then §14 above |
 | see a worked example | `demo.ipynb` (Harry Potter, Gemma, EMBER + SNMF) |
