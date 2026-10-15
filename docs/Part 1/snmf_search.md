@@ -8,6 +8,15 @@ Tracks the two-pass SNMF hyperparameter search for each of the 18 concepts
 first pick was a broken model; it was redone with a loop screen (see "Ancient
 Rome" below) and now has a healthy pick. Nothing is running.
 
+> **⚠ To check (2026-10-15).** The MC scoring cut answers off after 4 tokens
+> (MMLU: 6) and counted them as wrong ([`ember_search.md`](ember_search.md),
+> "MC scoring repair"). The 18 SNMF picks themselves have **0 invalid answers**
+> on QA, SimDom and MMLU, so their own scores are right. But 328 of the 2,592
+> grid cells have some invalid answers, 280 of them on MMLU. Those cells got a
+> lower specificity, and some may have been zeroed by the `min_mmlu` gate, so
+> they could belong in the top 3. They will be re-scored with the fixed scoring;
+> cells new to the top 3 get their first 50 Alpaca answers generated and judged.
+
 **Where the results are:** `judge_rerun/SNMF/` (layout, policy and archive:
 [`judge_rerun/SNMF/README.md`](../../judge_rerun/SNMF/README.md)). Start with
 `judge_rerun/SNMF/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`,

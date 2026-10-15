@@ -184,17 +184,137 @@ every language. Worst: Culture of Greece de (7) and ru (61), Gambling es (53), U
 (55), Gun de (63). To match English, the foreign sets need related articles too, or the
 design must accept fewer sentences for some (concept, language) pairs.
 
+## What the paper says about the data
+
+From `docs/references/Main Article.pdf`. It is brief:
+
+- **Concept sentences (S_C):** "we sample n = 300 sentences from concept-related Wikipedia
+  pages"; appendix: "we scrape the corresponding Wikipedia pages". It does not say how
+  related pages were chosen, and describes no filtering of off-topic sentences.
+- **Neutral sentences (S_N):** "another n sentences from English Wikipedia", "a general
+  distribution unrelated to C". Random sentences, nothing more.
+- **Rank and size:** chosen by inspecting features on 11 concepts, k ∈ {100, 200, 300}
+  and |S| ∈ {100, 200, 300}: k = 100 with 300 sentences gave "semantically coherent,
+  concept-specific features without over-fragmenting the vocabulary". Tuned for English
+  (600 sentences per fit), not for a 5-language fit.
+- **Multilingual:** only in Limitations: English-token edits "would not suppress the same
+  concept when accessed through tokens in other languages"; "extending EMBER to
+  multilingual settings, for example by drawing S_C from Wikipedia pages in multiple
+  languages, is a natural direction for future work." So native Wikipedia, not translation.
+- **Check:** the paper's Table 3 (features kept after the LLM filter) gives World War II on
+  Gemma 1 embedding + 15 MLP-activation + 0 MLP-projection features, the same as the
+  English features we compare against.
+
+## Trial: adding related articles (2026-10-14)
+
+Goal: bring every (concept, language) pair to ≥ 300 usable sentences with native
+Wikipedia text, as the English sets did with "concept-related pages".
+
+**Method** (`experiments/multilingual_fit/fetch_related_articles.py`). For each pair whose
+main article has < 450 usable sentences (450 = room to sample 300): take Wikipedia's own
+similarity search (`morelike:<main article>`, top 50) in that language, keep the
+articles the main article also links to, and download them in similarity order until
+main + related reach 450 (max 15 related). Hand exclusions are read from
+`experiments/multilingual_fit/related_exclude.json` (title → reason). Output:
+`wiki_raw/<lang>/related/<Concept>/`, details in `wiki_raw/related_report.json`.
+
+**Round 1 (no exclusions).** 57 of 72 pairs needed related articles; 190 downloaded;
+every pair reached ≥ 454 sentences. Most are on topic (Gambling: casino, betting,
+gambling addiction; Cannabis: THC, health effects; Uranium es: enrichment, U-235/238).
+About 35 drifted, mostly into **neighbour topics the SimDom questions test** (other
+holidays for Halloween / Valentine's Day, other sports for Golf / Baseball, other
+elements for Uranium, other countries' cultures for Culture of Greece, other weapons for
+Gun) or off topic (film plots, biographies, a town, "love" in general).
+
+To decide the borderline ones we measured the **concept-mention rate**: the share of an
+article's sentences that name the concept in that language (main articles: median 0.43,
+min 0.09):
+
+| Article (concept, lang) | Mention | Decision |
+|---|---|---|
+| Sóftbol (Baseball, es) | 0.04 | drop (English Baseball: softball in 4/300) |
+| Halloween films ×2 (ru), Valentinstag (Film) (de) | 0.03–0.24 | drop (film plots) |
+| Morfina, Codeína (es), Morphine (fr) | 0.01–0.04 | drop (other drugs, 81–357 sentences each) |
+| Opioide (es), Opioïde, Opiacé, Buprénorphine (fr) | 0.00–0.12 | keep (English Heroin mentions opioids in 108/300) |
+| Amor, Amigo invisible, Día del Amigo (Valentine's, es) | 0.00–0.02 | drop |
+| Roquemaure (Gard), Othon III de Grandson (Valentine's, fr) | 0.02–0.03 | drop (town, poet) |
+| Terry Gander (Gun, de) | 0.14 | drop (historian biography) |
+| COVID-19 country pages (ru) | 0.14–0.35 | keep |
+| 5 Greek-language articles (Culture of Greece, ru) | high | drop (language, not culture) |
+
+**Rounds 2 and 3 (refill after exclusions).** Each refill takes the next candidates, and
+brought in new drift: Easter, Palm Sunday, Lent, Christmas, Epiphany, Candlemas, All
+Souls', Day of the Dead, International Kissing Day (holiday concepts); fentanyl,
+oxycodone, codeine, "drugs" (Heroin); hurling, field hockey (Golf); Montenegrin culture
+and the whole "Greece" country article (Culture of Greece); Michael Myers, a
+disambiguation page, the given name "Valentin". After round 2 the exclusion list has 53
+entries. The round-3 drift is **downloaded but not yet excluded**. Round 3 widened the
+candidate list to the top 150 for Gun de and Valentine's Day; Gun de (267) and
+Valentine's Day es (248) still fell short of 300.
+
+**Conclusion: hand curation does not converge.** For holidays and drugs the next most
+similar articles *are* other holidays and drugs; short main articles run out of good
+candidates.
+
+**Article-level threshold does not separate them either.** Drifted articles score
+0.00–0.03, but so do legitimate ones that rarely name the concept: Samhain and Lupercalia
+(origins of Halloween / Valentine's Day, 0.00–0.09), baseball terminology (0.04), golf
+clubs (0.05).
+
+**Sentence-level filter (estimate).** Keep all main-article sentences, and from related
+articles only sentences that mention the concept. Drift then contributes ~0 sentences.
+With the articles downloaded so far, 16 of 72 pairs stay under 300 (Valentine's Day es 102,
+Halloween es 132, Gun de 150, Halloween de 156, Valentine's Day ru 165 / fr 174, Heroin es
+196, Culture of Greece ru 200, 8 more at 227–293). Bias: related sentences all name the
+concept. The English sets name it in 31–77% of sentences (Halloween 0.31 … Gambling
+0.77); foreign sets built this way would be ~0.4–0.75, inside that range.
+
+## Options for the foreign sentence sets
+
+Why the concept set must be *about* the concept: the factorization and the filter keep
+features that fire more on concept than on neutral sentences. A Christmas sentence in the
+Valentine's set teaches "holidays in general", and those features then get erased.
+Sentences from the concept's own article are fine even when they do not name it; sentences
+from related articles have no such guarantee.
+
+**Why not drop sentences that match the SimDom questions?** (1) It contaminates the
+evaluation: SimDom questions measure specificity, and using them to pick training data
+removes exactly what is tested (true for `SimdomQA_train` too, since train and test cover
+the same neighbour topics). (2) It only covers what the questions happen to cover; much
+drift is not in SimDom ("love", hurling, biographies, the Greece country article).
+(3) Matching sentences to questions across 4 languages needs its own judge. It is useful
+as an after-the-fact check of finished sets, not as the filter.
+
+| # | Approach | Pros | Cons |
+|---|---|---|---|
+| 1 | Main article only, accept fewer sentences | simple, no drift | thin pairs get very little (Culture of Greece de: 7) |
+| 2 | Hand-curate related articles (tried) | transparent | did not converge; subjective; 72 pairs |
+| 3 | Article-level mention threshold | automatic | misjudges Samhain, Lupercalia, terminology pages |
+| 4 | Sentence-level keyword filter | automatic, drift → ~0 | names-the-concept bias; 16 pairs < 300 |
+| 5 | Sentence-level LLM / embedding judge ("is this sentence about X?") | keeps relevant sentences that do not name the concept | a judge in the data step; a few dollars with Gemini |
+| 6 | Translate the English sets (concept **and** neutral) into ru/de/es/fr | same content in every language, only language differs; no drift; fixes the neutral-style problem; matches the cross-lingual test (translated questions) | translated, not native text (the paper suggests native); needs spot checks. ~22,800 sentences, ~1,100 Gemini calls, a few dollars |
+
+Option 6 is the cleanest test of "does a joint fit find language-independent concept
+features". Native Wikipedia (options 4–5 on the downloaded articles) follows the paper's
+suggestion and can serve as the main result or as a robustness check. Not decided yet.
+
 ## Open
 
-- **Pipeline check:** the English features were downloaded (fit by the paper's authors),
-  not fit with our code. A rerun with `--languages en` (to a separate `--outdir`) would
-  show whether our pipeline reproduces 1 + 15 kept features. If it does not, part of the
-  problem is the pipeline, not the languages.
-- **Neutral sentences:** fix problems 2–3 (random sentence from random articles, as in
-  English; a splitter that handles dates), then refit World War II. To be decided.
-- **Rank:** refit at a higher rank (e.g. 300) to give the fit room for specific features.
+- **Data for the foreign sets:** native (option 4 or 5), translation (option 6), or both.
+  Then the neutral sets: random sentences from random articles (as in English and the
+  paper), not article opening lines, with a splitter that handles dates.
+- **Pipeline check:** the English features we compare against match the paper's Table 3,
+  but they were downloaded, not fit with our code. A rerun with `--languages en` (to a
+  separate `--outdir`) would show whether our pipeline reproduces 1 + 15 kept features.
+- **Rank:** refit at a higher rank (e.g. 300) once the data is fixed.
 
 ## Reproduce
+
+```
+# data (no GPU, Wikipedia API, a few minutes each; never touch data/)
+.venv/bin/python -I experiments/multilingual_fit/fetch_wiki_articles.py      # main articles, 18 x 5 languages
+.venv/bin/python -I experiments/multilingual_fit/fetch_related_articles.py   # related articles (+ related_exclude.json)
+```
 
 ```
 # 1. factorization (4× RTX 2080 Ti, ~2.5 h)

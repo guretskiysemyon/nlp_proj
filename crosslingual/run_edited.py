@@ -2,10 +2,12 @@
 """Edited-model runs for the cross-lingual experiment.
 
     python -m crosslingual.run_edited --methods ember snmf --concepts "Harry Potter"
-    python -m crosslingual.run_edited                    # ember + snmf, all 18 concepts
+    python -m crosslingual.run_edited --methods snmf_ember
+    python -m crosslingual.run_edited                    # all methods, all 18 concepts
 
 For each (method, concept): apply the edit picked by the English HP search
-(EMBER: best δ, SNMF: best HP cell, both Qwen-judged), then ask the same
+(EMBER: best δ, SNMF: best HP cell, SNMF+EMBER: best SNMF cell searched on top
+of the concept's EMBER δ; all Qwen-judged), then ask the same
 ``QA_test`` / ``SimdomQA_test`` MC questions in every language with exactly
 the baseline's items, shuffle, prompts and decoding (``mc_eval.evaluate_cell``).
 Writes::
@@ -49,16 +51,22 @@ from crosslingual.data import CONCEPTS, LANGUAGES, REPO_ROOT, SETS
 from crosslingual.run_baseline import (DEFAULT_OUT_DIR, MIN_RELIABLE_QA_ACC,
                                        _git_commit, cell_path)
 
-METHODS: tuple[str, ...] = ("ember", "snmf")
+METHODS: tuple[str, ...] = ("ember", "snmf", "snmf_ember")
 RUN_REL = Path("google_gemma-2-2b-it") / "rank100" / "seed42"
 EMBER_SUMMARY = (REPO_ROOT / "judge_rerun" / "Ember" / "pass2_outputs" / RUN_REL
                  / "best_deltas_summary.csv")
 EMBER_PASS1 = REPO_ROOT / "judge_rerun" / "Ember" / "pass1_outputs" / RUN_REL
 SNMF_PASS1 = REPO_ROOT / "judge_rerun" / "SNMF" / "pass1_outputs" / RUN_REL
 SNMF_PASS2 = REPO_ROOT / "judge_rerun" / "SNMF" / "pass2_outputs" / RUN_REL
+SNMF_EMBER_PASS1 = REPO_ROOT / "judge_rerun" / "SNMF_EMBER" / "pass1_outputs" / RUN_REL
+SNMF_EMBER_PASS2 = REPO_ROOT / "judge_rerun" / "SNMF_EMBER" / "pass2_outputs" / RUN_REL
 JUDGE_ID = "qwen2.5-32b-instruct"
 CONFIGS = {"ember": REPO_ROOT / "configs" / "ember_gemma.yaml",
-           "snmf": REPO_ROOT / "configs" / "snmf_gemma.yaml"}
+           "snmf": REPO_ROOT / "configs" / "snmf_gemma.yaml",
+           "snmf_ember": REPO_ROOT / "configs" / "snmf_ember_gemma.yaml"}
+# snmf_ember is the snmf method with the EMBER step: SNMFMethod.apply edits the
+# embeddings when the HP has delta_embed != 0, and snapshot/restore covers both.
+REGISTRY_NAME = {"ember": "ember", "snmf": "snmf", "snmf_ember": "snmf"}
 MMLU_BATCH_SIZE = 8  # as in the HP search
 
 
@@ -103,6 +111,23 @@ def resolve_pick(method: str, concept: str) -> Dict[str, Any]:
         # delta_embed = 0: plain SNMF, no EMBER step (as pass1_snmf_top3._build_hp).
         return {"hp": {**best["best_hp"], "delta_embed": 0.0}, "search": search}
 
+    if method == "snmf_ember":
+        best = json.loads((SNMF_EMBER_PASS2 / _safe(concept) / f"best_hp__{JUDGE_ID}.json")
+                          .read_text(encoding="utf-8"))
+        top3 = json.loads((SNMF_EMBER_PASS1 / _safe(concept) / "top3_hps.json")
+                          .read_text(encoding="utf-8"))
+        cell = top3["cells"][best["best_cell"]]
+        hp = dict(best["best_hp"])
+        delta = float(hp.get("delta_embed", 0.0))
+        if delta == 0.0 or delta != float(top3["ember_delta_embed"]):
+            raise ValueError(f"{concept!r}: snmf_ember pick has delta_embed {delta}, "
+                             f"Pass 1 ran with {top3['ember_delta_embed']}")
+        search = {k: float(cell[k]) for k in ("qa_acc", "simdom_acc", "mmlu_acc",
+                                              "k_features_embed", "n_tokens_edited",
+                                              "k_features_mlp_in", "k_features_mlp_out")}
+        search["harmonic_alpaca"] = float(best["best_harmonic_alpaca"])
+        return {"hp": hp, "search": search}
+
     raise ValueError(f"unknown method {method!r}")
 
 
@@ -113,7 +138,9 @@ def load_config(method: str, model_name: str, hp: Dict[str, Any]):
     cfg.run_tests_after_train = False
     if cfg.model_name != model_name:
         raise ValueError(f"{CONFIGS[method]} is for {cfg.model_name}, not {model_name}")
-    if method == "snmf":
+    if bool(cfg.ember_step.enabled) != (method == "snmf_ember"):
+        raise ValueError(f"{CONFIGS[method]} has ember_step.enabled={cfg.ember_step.enabled}")
+    if method in ("snmf", "snmf_ember"):
         # SNMFMethod.apply selects features from the CONFIG, not from the HP dict,
         # so the config must match what the grid ran with.
         for key, have in (("feature_source", cfg.snmf.feature_source),
@@ -267,7 +294,7 @@ def main(argv: List[str] | None = None) -> int:
     picks = {(m, c): resolve_pick(m, c) for m, c in jobs}
     for (m, c), pick in picks.items():
         load_config(m, args.model, pick["hp"])  # fail early on a config mismatch
-        print(f"[edited] {m:5s} {c!r}: {pick['hp']}")
+        print(f"[edited] {m:10s} {c!r}: {pick['hp']}")
     if args.dry_run:
         return 0
 
@@ -310,7 +337,7 @@ def main(argv: List[str] | None = None) -> int:
             t_job = time.time()
             pick = picks[(method_name, concept)]
             cfg = load_config(method_name, args.model, pick["hp"])
-            method = methods_base.get(method_name)
+            method = methods_base.get(REGISTRY_NAME[method_name])
             snap = method.snapshot(hf_model)
             try:
                 method.on_concept_start(hf_model, concept, cfg)

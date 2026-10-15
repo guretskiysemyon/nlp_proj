@@ -1,0 +1,80 @@
+"""Sentence splitting for Wikipedia plain text in en/ru/de/es/fr.
+
+Replaces the splitter in fetch_wiki_sentences.py, which split after every
+". " + capital, so German ordinal dates ("* 1. Juni 1954") and abbreviations
+("род. 28 июля", "лат. errare") produced fragments. A period does NOT end a
+sentence when the word before it is:
+  - a 1-2 digit number, German only (ordinals: "1. Juni", "20. Jahrhundert"),
+  - a single letter (initials: "A. Hitler", "И. В. Сталин"),
+  - a Roman numeral, German only ("Pius XII. verurteilte"),
+  - a known abbreviation of that language.
+"!" and "?" always end a sentence.
+"""
+import re
+
+ABBREV = {  # lower-case, without the final period
+    "en": {"mr", "mrs", "ms", "dr", "prof", "st", "jr", "sr", "vs", "etc", "e.g", "i.e", "no", "vol",
+           "approx", "ca", "c", "u.s", "u.k"},
+    "de": {"z", "b", "bzw", "ca", "vgl", "usw", "etc", "nr", "st", "dr", "prof", "geb", "gest", "jh",
+           "jhd", "u", "a", "d", "h", "v", "chr", "n", "s", "abs", "mio", "mrd", "sog", "evtl", "inkl",
+           "hrsg", "bd", "ggf", "insb", "z.b", "u.a", "d.h", "v.chr", "n.chr", "o", "ä", "dt", "engl",
+           "lat", "griech", "franz", "span", "russ", "frz", "ital", "ehem", "max", "min", "mind", "gegr"},
+    "ru": {"г", "гг", "т", "е", "д", "н", "э", "до", "род", "ок", "см", "им", "др", "пр", "т.е", "т.к",
+           "т.п", "т.д", "с", "стр", "руб", "тыс", "млн", "млрд", "в", "вв", "ул", "проф", "акад", "св",
+           "лат", "греч", "англ", "нем", "франц", "фр", "исп", "итал", "н.э", "до н.э", "р", "ум", "гл",
+           "т.н", "ср", "напр", "англ", "кв", "км", "м", "чел", "ч"},
+    "es": {"sr", "sra", "srta", "dr", "dra", "etc", "p", "pp", "núm", "n", "art", "aprox", "a", "c",
+           "d", "j", "s", "av", "ej", "vol", "ed", "cap", "col", "sig", "ss", "a.c", "d.c", "lat", "gr",
+           "ing", "fr", "al", "ca", "aprox", "op", "cit", "págs", "pág", "mill", "km"},
+    "fr": {"m", "mme", "mlle", "mm", "dr", "st", "ste", "av", "apr", "j.-c", "c", "p", "pp", "etc",
+           "env", "cf", "n°", "vol", "éd", "chap", "ex", "op", "cit", "lat", "gr", "angl", "all", "esp",
+           "ca", "vers", "km", "hab", "mgr", "pr", "s"},
+}
+_BOUNDARY = re.compile(r"[.!?…]+[\"»”)\]]*(?=\s+[\"«„“(\[]?[A-ZÀ-ÖØ-ÞА-ЯЁ0-9])")
+_PREV_WORD = re.compile(r"(\S+)$")
+_ROMAN = re.compile(r"^[IVXLCDM]+$")
+_CITATION = re.compile(r"\[\d+\]|\[citation needed\]|\[править[^\]]*\]")
+
+
+def _no_break(prev: str, lang: str) -> bool:
+    word = prev.lstrip("([«„\"“'").rstrip(".")
+    if lang == "de" and re.fullmatch(r"\d{1,2}", word):
+        return True
+    if re.fullmatch(r"[^\W\d_]", word):  # single letter: an initial
+        return True
+    if lang == "de" and _ROMAN.match(word) and len(word) <= 6:
+        return True
+    low = word.lower()
+    abbr = ABBREV.get(lang, set())
+    return low in abbr or low.split("-")[-1] in abbr or low.split(".")[-1] in abbr
+
+
+def split_sentences(text: str, lang: str) -> list:
+    """Split one paragraph-structured plain-text article into sentences."""
+    out = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("="):
+            continue
+        start = 0
+        for m in _BOUNDARY.finditer(line):
+            punct = m.group(0)
+            if punct.startswith(".") and not punct.startswith("..."):
+                prev = _PREV_WORD.search(line[start:m.start()])
+                if prev and _no_break(prev.group(1), lang):
+                    continue
+            out.append(line[start:m.end()].strip())
+            start = m.end()
+        if line[start:].strip():
+            out.append(line[start:].strip())
+    return out
+
+
+def usable_sentences(text: str, lang: str) -> list:
+    """Sentences kept for the concept / neutral sets: 6-60 words, ending in . ! ? » or "."""
+    keep = []
+    for s in split_sentences(text, lang):
+        s = re.sub(r"\s+", " ", _CITATION.sub("", s)).strip()
+        if 6 <= len(s.split()) <= 60 and s[-1] in ".!?»\"":
+            keep.append(s)
+    return keep

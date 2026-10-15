@@ -6,8 +6,22 @@ with the Qwen judge (Gemma-2-2b-it, rank 100, seed 42). Started 2026-10-10.
 **Finished for all 18 concepts (2026-10-13).** Every concept has a complete
 144-cell grid (run with exactly its EMBER δ), a Pass 1 shortlist and a
 Qwen-judged Pass 2 pick. No pick loops, so no concept needed the loop screen.
-Nothing is running. Next step: the `snmf_ember` cross-lingual run
-([`crosslingual_next.md`](crosslingual_next.md) §5).
+**The `snmf_ember` cross-lingual run is done too (2026-10-14)**, job 1040077,
+all 18 concepts × 5 languages, every edit check exact. It erases English the
+most of the three methods, but it leaks (mean non-English Δ +0.17, Russian
++0.37). See "Cross-lingual run" below and
+[`crosslingual_next.md`](crosslingual_next.md) §2.5.
+
+> **⚠ The picks and the cross-lingual numbers below are provisional
+> (2026-10-15).** The MC scoring cut answers off after 4 tokens. Under the
+> EMBER embedding edit, "The answer is **C**" was cut before the letter and
+> counted as wrong. This method is the worst affected: 1,955 of the 2,592 grid
+> cells have at least one invalid answer, and the picks average 15% invalid on
+> `QA_train` (Uranium 48%, Gambling 40%, Culture of Greece 30%, Gun 30%). So
+> efficacy and `harmonic_alpaca` are inflated, and so is the cross-lingual
+> erasure (English `QA_test` invalid 0.16). Problem, fix and plan:
+> [`ember_search.md`](ember_search.md), "MC scoring repair". See "Repair" below
+> for what this method needs.
 
 **Where the results are:** `judge_rerun/SNMF_EMBER/` (layout and policy:
 [`judge_rerun/SNMF_EMBER/README.md`](../../judge_rerun/SNMF_EMBER/README.md)).
@@ -136,6 +150,71 @@ The SNMF scripts take `--with-ember` (2026-10-10):
   (not needed in this search).
 - `judge_rerun/pass2_snmf_judge.py --with-ember`: reads/writes `judge_rerun/SNMF_EMBER/`.
   `best_hp` now always includes `delta_embed` (0.0 for plain SNMF).
+
+## Cross-lingual run (2026-10-14, done)
+
+The picks above go into the same judge-free cross-lingual MC test as `ember` and
+`snmf` ([`crosslingual_next.md`](crosslingual_next.md) §1–§4). Each pick is
+applied once and never re-tuned per language. Gemma alone then answers
+`QA_test` and `SimdomQA_test` (50 MC questions each) in en/de/es/fr/ru, plus
+English MMLU on the 1000-question test split. No judge is used.
+
+- **Code:** `crosslingual/run_edited.py` takes `--methods snmf_ember`. It reads
+  the picks from `judge_rerun/SNMF_EMBER/`, loads `configs/snmf_ember_gemma.yaml`
+  and applies the pick through the `snmf` method with `delta_embed` set. That is
+  how Pass 1 applied it, and snapshot/restore resets both the embeddings and the
+  MLP. Before running, it refuses a pick whose `delta_embed` differs from the
+  δ Pass 1 ran with. The edit check compares English `QA_train`, `SimdomQA_train`,
+  50-question MMLU and the feature counts (`k_features_embed`, `n_tokens_edited`,
+  `k_features_mlp_in/out`) against the search. A dry run resolved all 18 picks,
+  and they match the Results table.
+- **Job:** 1040077, all 18 concepts, 1× RTX 2080 Ti on `s-004`, 16G.
+  `COMPLETED` 2026-10-14 20:28 after 2h22m, no preemption, no errors
+  (7–10 min per concept). Command:
+  `sbatch crosslingual/run_edited.sbatch --methods snmf_ember`. Finished concepts
+  are skipped, so after a preemption resubmit the same command.
+- **Output:** `results/crosslingual/google_gemma-2-2b-it/snmf_ember/<Concept>/<lang>.json`,
+  `edit.json` (HP, edit check, MMLU) and `summary.csv` (90 rows = 18 × 5). Log:
+  `cl_edited_1040077.out` in the repo root.
+- **Edit check:** all 18 passed (`features_match` and `reproduces_search`
+  true, Δ 0.0 on `QA_train`, `SimdomQA_train` and 50-q MMLU).
+- **Results** (mean over concepts, 88 of 90 cells pass the screen, same 2
+  dropped as for `ember` / `snmf`; full table and caveats in
+  [`crosslingual_next.md`](crosslingual_next.md) §2.5):
+
+  | | `ember` | `snmf` | `snmf_ember` |
+  |---|---|---|---|
+  | English `QA_test` acc (pristine 0.73) | 0.50 | 0.47 | **0.38** |
+  | Retention r_en | 0.52 | 0.45 | **0.27** |
+  | Mean leak Δ over de/es/fr/ru | +0.24 [+0.16, +0.32] | +0.01 [−0.07, +0.09] | +0.17 [+0.08, +0.27] |
+  | Leak Δ ru | +0.41 | +0.05 | +0.37 |
+  | `SimdomQA_test` retention, en / mean non-en | 0.96 / 0.98 | 0.73 / 0.64 | 0.81 / 0.74 |
+  | English MMLU, 1000-q test (pristine 0.553) | 0.548 | 0.506 | 0.511 |
+  | `QA_test` invalid rate, en / mean non-en | 0.09 / 0.05 | 0.00 / 0.00 | **0.16 / 0.08** |
+
+  In short: it erases English best, but adding the EMBER embedding edit brings
+  the leak back (most of it into Russian). It also has the most invalid
+  answers, so part of its erasure is broken output.
+
+## Repair (2026-10-15, waits on the EMBER rescore)
+
+What this method needs depends on the EMBER rescore
+([`ember_search.md`](ember_search.md), "MC scoring repair"), because every
+grid here was run with the concept's EMBER δ:
+
+- **EMBER δ changes for a concept:** its grid is no longer the right one. It
+  needs a fresh 144-cell grid at the new δ, Pass 1 (first 50 Alpaca answers for
+  the new top 3) and Pass 2 (Qwen). Last time a fresh grid took 1.5–2.3 h on 1
+  GPU and judging ~48 min per cell on 3 GPUs.
+- **EMBER δ stays:** re-score only the cells with an invalid answer, with the
+  fixed scoring, and re-rank. Cells that enter the top 3 need their first 50
+  Alpaca answers generated (Pass 1 stored only the old top 3, by rank as
+  `cell_0..2`, so new cells go to a separate folder) and judged. If the top 3
+  stays, the pick is recomputed on the CPU.
+- Then the cross-lingual `snmf_ember` run again, with the fixed scoring.
+
+The grids saved only per-cell totals, not per-question answers, so a cell is
+re-scored in full; a cell with no invalid answer cannot change and is skipped.
 
 ## Grids
 

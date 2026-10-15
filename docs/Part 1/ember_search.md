@@ -2,7 +2,131 @@
 
 Tracks `judge_rerun/pass2_delta_search.py` progress (judge the candidate
 deltas' saved Alpaca completions, pick the best delta) for each of the 18
-concepts. Updated 2026-10-09.
+concepts. Updated 2026-10-15.
+
+> **⚠ The picks below are provisional (2026-10-15).** The multiple-choice
+> scoring used by the grid cut answers off after 4 tokens. Under the EMBER edit
+> that counted many real answers as wrong and inflated efficacy at large δ.
+> Repair in progress: see "MC scoring repair" below.
+
+## MC scoring repair (2026-10-15, in progress)
+
+### The problem
+
+The paper's MC evaluators (`ember/evals/mc.py`, `ember/evals/mmlu.py`) generate
+only **4 new tokens** (MMLU: 6) and take the first capital A–D in the output.
+The pristine model answers with a bare letter, so that works. Under the EMBER
+embedding edit, Gemma often answers in a sentence instead: "The answer is
+**C**", "La respuesta correcta es …", "Die richtige Antwort ist …". The 4-token
+cut ends at `"The answer is **"`, no letter is found, and the answer is counted
+as **wrong** ("invalid"). An invalid answer looks like successful erasure.
+
+- **Size in the EMBER grid:** invalid `QA_train` answers are 0 at δ ≤ 5, 1.6%
+  at δ = 10, 8.7% at δ = 50, 11.3% at δ = 100, 12.0% at δ = 200 (mean over 18
+  concepts). At the chosen δ the mean is 10%, up to 28% (Culture of Greece,
+  Uranium). SimDom and MMLU are almost unaffected (≤ 1%), so the format change
+  is specific to questions about the erased concept.
+- **Effect:** efficacy at large δ is inflated, so the fast screen and the final
+  pick may have favoured large δ partly for this reason.
+- **Not garbage:** in the saved cross-lingual records, about 90% of invalid
+  answers are a cut-off answer phrase (`"The answer is **"` alone is 404 of
+  ~650). Real nonsense (`"##  verw"`, `"Bitte,"`) is about 15 answers.
+- **Two smaller bugs found along the way:**
+  - the parser rejects lowercase letters (`"c"`); this happens even for the
+    pristine model, about 12 answers per method;
+  - `WrappedHFModel._extract_response` cuts the decoded text at the first
+    `"model\n"`. When an option ends with the word "model", the "answer" is
+    the rest of the prompt (seen 4 times: `'B. Bellman equation\nC. …model\nD'`
+    parsed as B, the real answer is D).
+- **Why it was not caught:** the high invalid rates were reported in the
+  cross-lingual docs (2026-10-11) but read as "broken generation". Nobody
+  opened the raw outputs, so the truncation was not seen.
+
+### What is affected
+
+| Result | Affected? | Evidence |
+|---|---|---|
+| EMBER δ search (this file) | **yes** | 60 of 144 grid cells have an invalid answer; 10% at the picks |
+| SNMF+EMBER search | **yes, most** | 1,955 of 2,592 cells; 15% at the picks (Uranium 48%, Gambling 40%) |
+| SNMF search | **possibly** | picks have 0 invalid, but 328 of 2,592 cells have some (mostly MMLU, 280), which lowered their specificity, so they could enter the top 3 |
+| Cross-lingual `ember`, `snmf_ember` | **yes** | `QA_test` invalid 6% / 10%; also depends on the picks above |
+| Cross-lingual `snmf`, pristine baseline | no (0.3%, lowercase letters, re-scorable on CPU) | |
+| Qwen Alpaca judging, judge study | no | open-ended text, not MC |
+
+**The grids saved only totals per cell**, not the per-question answers
+(`pass1_ember_delta.py` and `ember/erasure/pipeline.py` drop the records as
+`_`). So a cell cannot be fixed question by question: every cell with at least
+one invalid answer is re-scored in full. A cell with no invalid answer cannot
+change (see determinism below) and is skipped.
+
+### The fix (`judge_rerun/mc_fixed.py`, `ember/` untouched)
+
+- **Budget:** 32 new tokens for MC and MMLU (`MC_MAX_NEW_TOKENS`,
+  `MMLU_MAX_NEW_TOKENS`). Generation stops at end-of-turn, so bare-letter
+  answers cost nothing extra.
+- **Decode only the new tokens:** no `"model\n"` search, so the extraction bug
+  is gone.
+- **Parser** `parse_letter_fixed`, three rules in order:
+  1. the whole output is one letter, any case, any wrapping: `c`, `C.`,
+     `**B**`, `(D)`;
+  2. it starts with a capital letter plus a delimiter: `C. Hadrian`, `D)`,
+     `**B** …` (the delimiter is required, so "A fire lance is …" is not read
+     as A);
+  3. an answer phrase (answer / Antwort / respuesta / réponse / ответ / option)
+     followed by a capital letter on the same line.
+  No "first capital anywhere" fallback.
+- **Checked on the CPU:** 21 unit cases pass. On all 35,232 saved cross-lingual
+  answers the old parser read as valid, the new parser gives the same letter;
+  the only newly valid answers are 58 lowercase letters.
+- **Unchanged:** prompts, option shuffle, one-question-at-a-time MC, batch-8
+  MMLU, bf16, RTX 2080 Ti. These keep the generated tokens identical.
+
+**Determinism control.** Greedy decoding means the first 4 (MMLU: 6) tokens of
+a 32-token run are exactly the old run's output. Every record therefore also
+stores `old_raw` / `old_letter` (the first 4/6 tokens, parsed with the old
+parser). Their totals must reproduce `grid_raw.csv` exactly. If they do not,
+the δ is flagged `CONTROL FAILED` and the rescore is not comparable.
+
+### The rescore (`judge_rerun/rescore_ember_grid.py`)
+
+For each δ: re-apply the edit exactly as Pass 1 did (feature counts checked
+against the grid), re-score MMLU / `QA_train` / `SimdomQA_train` with the fixed
+evaluator, and save every per-question record. Then, on the CPU, Pass 2's
+policy runs on the old and the new grid (min_mmlu gate, top 3 by fast
+harmonic, `harmonic_alpaca` from the cached Qwen scores) and the two are
+compared. Run on the old grid, this reproduces the current Uranium pick
+exactly (δ = 100, 0.9200).
+
+- **Output:** `judge_rerun/Ember/rescore_mc/<model>/rank100/seed42/<Concept>/`
+  with `records/delta_<δ>.json`, `grid_rescored.csv` (new metrics under
+  `grid_raw.csv`'s column names, plus `grid_*` = old grid and `old_*` =
+  old-equivalent, `control_ok`, `features_match`) and `compare.json`.
+  `pass1_outputs/` and `pass2_outputs/` are never written to.
+- **Run:** `sbatch judge_rerun/run_rescore_ember.sbatch --concept <C> [--all-deltas]`
+  (1× RTX 2080 Ti). The default re-scores only δ with an invalid answer;
+  `--all-deltas` re-scores all 8. `--compare-only` redoes the CPU comparison.
+- **If a new δ enters the top 3:** Pass 1 already saved 150 Alpaca completions
+  for all 8 δ of all 18 concepts, so nothing is generated. Only the first 50
+  are judged with Qwen (`pass2_delta_search.py --deltas <δ>`). If the top 3
+  stays the same, the pick is recomputed on the CPU.
+
+### Plan and status
+
+1. ~~Fix the scoring and check it on saved outputs~~ (done 2026-10-15).
+2. **Pilot: Uranium, all 8 δ** (most invalid answers in the EMBER grid; δ = 50 /
+   100 / 200 had 24 / 28 / 30% invalid). Job **1041943**, submitted 2026-10-15,
+   `s-005`. Result: pending.
+3. The other 17 concepts (only δ with invalid answers: 60 cells in total).
+   Judge new top-3 δ, if any.
+4. SNMF+EMBER: concepts whose δ changes need a fresh grid at the new δ plus
+   Pass 1 + Pass 2. The others need their invalid cells re-scored
+   ([`snmf_ember_search.md`](snmf_ember_search.md)).
+5. SNMF: re-score the 328 cells with invalid answers, with the `min_mmlu` gate
+   applied again to the corrected MMLU. Needs its own script: Pass 1 generated
+   Alpaca answers only for the old top 3, and stores them by rank (`cell_0..2`),
+   so new cells are generated separately (first 50 only).
+6. Cross-lingual `ember` / `snmf_ember` (and `snmf` if its picks change) with
+   the fixed scoring, then the docs.
 
 ## Delta-selection policy (updated 2026-10-08)
 

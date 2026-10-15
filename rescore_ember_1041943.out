@@ -1,0 +1,7 @@
+[run_rescore_ember] args: --concept Uranium --all-deltas
+[13:04:09] [ember|-|rescore_mc] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [04:59<04:59, 299.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [05:22<00:00, 136.60s/it]Loading checkpoint shards: 100%|██████████| 2/2 [05:22<00:00, 161.04s/it]
+[13:09:55] [ember|-|rescore_mc] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[13:09:58] [ember|Uranium|rescore_mc] Uranium: re-scoring 8/8 deltas: [0.5, 1.0, 2.0, 5.0, 10.0, 50.0, 100.0, 200.0]
+[13:11:12] [ember|Uranium|rescore delta=0.5] delta=0.5 qa 0.66->0.66 (inv 0.00->0.00) simdom 0.60->0.60 mmlu 0.52->0.52 control_ok=True (74s)
+[13:12:10] [ember|Uranium|rescore delta=1.0] delta=1.0 qa 0.64->0.64 (inv 0.00->0.00) simdom 0.60->0.60 mmlu 0.52->0.52 control_ok=True (58s)
