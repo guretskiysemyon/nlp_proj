@@ -5,7 +5,7 @@
 
 This file condenses the raw results into a small number of tables, explains every table and every column, and
 contains the code that produced all of them (§5). Every number below is recomputed from the raw files by that code;
-none is typed in by hand. It complements [`progress.md`](progress.md), which is the narrative execution record (what
+none is typed in by hand. It complements [`progress_gemini.md`](progress_gemini.md), which is the narrative execution record (what
 was run, what broke, design rationale). Where the two overlap, the numbers agree (§4 of `progress.md` was checked
 against this file); the one deliberate difference is noted under Table 3.
 

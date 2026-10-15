@@ -37,7 +37,7 @@ writes it, same as EMBER's `best_deltas_summary.csv`). Rebuild it by hand if a p
 3. Pick the max `harmonic_alpaca`. **No Alpaca gate** (EMBER zeroes cells below 0.9; SNMF's original validate stage never did).
 
 The Alpaca denominators are the same Qwen-judged pristine baseline EMBER used,
-so SNMF and EMBER scores are directly comparable. Details: `docs/snmf_search.md`.
+so SNMF and EMBER scores are directly comparable. Details: `docs/Part 1/snmf_search.md`.
 
 **One exception, Ancient Rome (`selection = loop_screen` in the summary).** Its
 top 3 cells all broke generation ("Roman Roman Roman …" in 45–49 of 50 answers).

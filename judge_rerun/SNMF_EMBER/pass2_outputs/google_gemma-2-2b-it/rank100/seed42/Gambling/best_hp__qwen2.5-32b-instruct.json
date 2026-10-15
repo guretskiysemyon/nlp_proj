@@ -1,0 +1,44 @@
+{
+  "concept": "Gambling",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.76,
+    "simdom_base": 0.94,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 2,
+  "best_harmonic_alpaca": 0.987846361533982,
+  "best_hp": {
+    "delta_embed": 100.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 1.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 36,
+    "delta_out": 7.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 23
+  },
+  "best_metrics": {
+    "efficacy": 0.9803921568627452,
+    "specificity": 0.985294117647059,
+    "harmonic": 0.982837025084348,
+    "alp_instr_frac": 1.0,
+    "alp_flu_frac": 0.9960474308300394,
+    "coherence": 0.998019801980198,
+    "harmonic_alpaca": 0.987846361533982
+  }
+}

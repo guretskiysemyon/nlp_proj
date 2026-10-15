@@ -1,0 +1,165 @@
+{
+  "concept": "Cannabis",
+  "control_ok_all": true,
+  "features_match_all": true,
+  "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    50.0,
+    100.0,
+    200.0
+  ],
+  "old": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.84,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.76,
+        "efficacy": 0.13559322033898302,
+        "specificity": 1.0,
+        "harmonic": 0.23880597014925367,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.74,
+        "efficacy": 0.1694915254237288,
+        "specificity": 1.0,
+        "harmonic": 0.2898550724637681,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.68,
+        "efficacy": 0.27118644067796593,
+        "specificity": 1.0,
+        "harmonic": 0.4266666666666665,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.66,
+        "efficacy": 0.30508474576271183,
+        "specificity": 1.0,
+        "harmonic": 0.46753246753246747,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 1.0,
+        "harmonic": 0.5783132530120483,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 1.0,
+        "harmonic": 0.5783132530120483,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.58,
+        "efficacy": 0.44067796610169496,
+        "specificity": 1.0,
+        "harmonic": 0.611764705882353,
+        "gate": null
+      }
+    },
+    "top_k": [
+      200.0,
+      50.0,
+      100.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "200.0": 0.7013831208695966,
+      "50.0": 0.6716870855344499,
+      "100.0": 0.6725978647686832
+    },
+    "needs_judging": [],
+    "best_delta_embed": 200.0,
+    "best_harmonic_alpaca": 0.7013831208695966
+  },
+  "new": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.84,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.76,
+        "efficacy": 0.13559322033898302,
+        "specificity": 1.0,
+        "harmonic": 0.23880597014925367,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.74,
+        "efficacy": 0.1694915254237288,
+        "specificity": 1.0,
+        "harmonic": 0.2898550724637681,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.68,
+        "efficacy": 0.27118644067796593,
+        "specificity": 1.0,
+        "harmonic": 0.4266666666666665,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.23728813559322037,
+        "specificity": 1.0,
+        "harmonic": 0.3835616438356165,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.23728813559322037,
+        "specificity": 1.0,
+        "harmonic": 0.3835616438356165,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.68,
+        "efficacy": 0.27118644067796593,
+        "specificity": 1.0,
+        "harmonic": 0.4266666666666665,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.66,
+        "efficacy": 0.30508474576271183,
+        "specificity": 1.0,
+        "harmonic": 0.46753246753246747,
+        "gate": null
+      }
+    },
+    "top_k": [
+      200.0,
+      5.0,
+      100.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "200.0": 0.5675573002405976,
+      "5.0": NaN,
+      "100.0": 0.527288578901482
+    },
+    "needs_judging": [
+      5.0
+    ],
+    "best_delta_embed": null,
+    "best_harmonic_alpaca": null
+  },
+  "top_k_changed": true,
+  "pick_changed": true
+}

@@ -5,7 +5,7 @@ their first 50 Alpaca completions.
 
 For each concept:
   - If an archived 144-cell grid already exists (judge-free, so Gemini vs
-    Qwen doesn't matter -- see docs/ember_search.md), reuse it as-is: no
+    Qwen doesn't matter -- see docs/Part 1/ember_search.md), reuse it as-is: no
     grid is re-run. Its top_hps.csv has 15 rows; we take the top 3 of those
     by `harmonic` ourselves (never generating completions for the other 12).
   - Otherwise, run SNMF's 144-cell grid fresh via the SAME pipeline code

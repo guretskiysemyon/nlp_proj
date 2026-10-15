@@ -1,0 +1,126 @@
+[run_train_mf_features] args: --concepts World War II --languages en+ru+de+es+fr
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [06:46<06:46, 406.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:10<00:00, 181.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:10<00:00, 215.21s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] World War II
+================================================================================
+[DATA] languages=en+ru+de+es+fr | samples=3000
+Extracting token IDs:   0%|          | 0/600 [00:00<?, ?it/s]Extracting token IDs:   0%|          | 1/600 [00:00<01:41,  5.91it/s]Extracting token IDs:   4%|▎         | 22/600 [00:00<00:05, 98.96it/s]Extracting token IDs:   9%|▊         | 52/600 [00:00<00:03, 174.60it/s]Extracting token IDs:  13%|█▎        | 79/600 [00:00<00:02, 206.45it/s]Extracting token IDs:  18%|█▊        | 109/600 [00:00<00:02, 237.10it/s]Extracting token IDs:  22%|██▎       | 135/600 [00:00<00:01, 239.09it/s]Extracting token IDs:  27%|██▋       | 161/600 [00:00<00:01, 241.52it/s]Extracting token IDs:  32%|███▏      | 189/600 [00:00<00:01, 252.07it/s]Extracting token IDs:  36%|███▋      | 219/600 [00:00<00:01, 265.12it/s]Extracting token IDs:  42%|████▏     | 253/600 [00:01<00:01, 285.63it/s]Extracting token IDs:  47%|████▋     | 282/600 [00:01<00:01, 275.90it/s]Extracting token IDs:  52%|█████▏    | 310/600 [00:01<00:01, 261.32it/s]Extracting token IDs:  57%|█████▊    | 345/600 [00:01<00:00, 282.62it/s]Extracting token IDs:  62%|██████▏   | 374/600 [00:01<00:00, 268.08it/s]Extracting token IDs:  68%|██████▊   | 408/600 [00:01<00:00, 283.80it/s]Extracting token IDs:  73%|███████▎  | 437/600 [00:01<00:00, 276.01it/s]Extracting token IDs:  78%|███████▊  | 465/600 [00:01<00:00, 275.67it/s]Extracting token IDs:  83%|████████▎ | 497/600 [00:01<00:00, 287.23it/s]Extracting token IDs:  88%|████████▊ | 526/600 [00:02<00:00, 282.61it/s]Extracting token IDs:  92%|█████████▎| 555/600 [00:02<00:00, 265.34it/s]Extracting token IDs:  98%|█████████▊| 586/600 [00:02<00:00, 276.12it/s]Extracting token IDs: 100%|██████████| 600/600 [00:02<00:00, 254.19it/s]
+
+[RUN] concept='World War II' | rank=100
+--> Starting embedding track
+Iter    0: loss=148026736.000000  (best=148026736.000000, no_improve=0)
+Iter   50: loss=133228472.000000  (best=133226760.000000, no_improve=1)
+Iter   57: loss=133225632.000000  (best=133225224.000000, no_improve=1)
+Iter   59: loss=133225024.000000  (best=133223696.000000, no_improve=1)
+Iter   65: loss=133220112.000000  (best=133218776.000000, no_improve=1)
+Iter  100: loss=133218800.000000  (best=133218776.000000, no_improve=36)
+Iter  102: loss=133218376.000000  (best=133218328.000000, no_improve=1)
+Iter  106: loss=133218192.000000  (best=133218168.000000, no_improve=1)
+Iter  123: loss=133218032.000000  (best=133217944.000000, no_improve=1)
+Iter  129: loss=133217672.000000  (best=133217672.000000, no_improve=1)
+Iter  150: loss=133217672.000000  (best=133217672.000000, no_improve=22)
+Iter  200: loss=133217672.000000  (best=133217672.000000, no_improve=72)
+Iter  250: loss=133217672.000000  (best=133217672.000000, no_improve=122)
+Iter  300: loss=133217672.000000  (best=133217672.000000, no_improve=172)
+Iter  350: loss=133217672.000000  (best=133217672.000000, no_improve=222)
+Iter  400: loss=133217672.000000  (best=133217672.000000, no_improve=272)
+Iter  450: loss=133217672.000000  (best=133217672.000000, no_improve=322)
+Iter  500: loss=133217672.000000  (best=133217672.000000, no_improve=372)
+Iter  550: loss=133217672.000000  (best=133217672.000000, no_improve=422)
+Iter  600: loss=133217672.000000  (best=133217672.000000, no_improve=472)
+Stopping early at iter 628 (no improvement in 500 iters)
+[TIMING] Embedding track: 21.0s
+--> Starting MLP track
+Fitting Layers:   0%|          | 0/26 [00:00<?, ?it/s]
+Building vocab frequency:   0%|          | 0/600 [00:00<?, ?it/s][A
+Building vocab frequency: 100%|█████████▉| 599/600 [00:00<00:00, 5982.09it/s][ABuilding vocab frequency: 100%|██████████| 600/600 [00:00<00:00, 5952.38it/s]
+
+Generating multi-layer activations with freq:   0%|          | 0/600 [00:00<?, ?it/s][A
+Generating multi-layer activations with freq:   0%|          | 1/600 [00:02<25:36,  2.56s/it][A
+Generating multi-layer activations with freq:   0%|          | 2/600 [00:02<12:44,  1.28s/it][A
+Generating multi-layer activations with freq:   0%|          | 3/600 [00:03<08:57,  1.11it/s][A
+Generating multi-layer activations with freq:   1%|          | 4/600 [00:03<07:00,  1.42it/s][A
+Generating multi-layer activations with freq:   1%|          | 5/600 [00:04<06:22,  1.56it/s][A
+Generating multi-layer activations with freq:   1%|          | 6/600 [00:04<05:30,  1.80it/s][A
+Generating multi-layer activations with freq:   1%|          | 7/600 [00:05<05:21,  1.84it/s][A
+Generating multi-layer activations with freq:   1%|▏         | 8/600 [00:05<04:47,  2.06it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 9/600 [00:05<04:16,  2.31it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 10/600 [00:06<04:01,  2.44it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 11/600 [00:06<03:50,  2.55it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 12/600 [00:07<03:51,  2.54it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 13/600 [00:07<03:42,  2.64it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 14/600 [00:07<03:48,  2.57it/s][A
+Generating multi-layer activations with freq:   2%|▎         | 15/600 [00:08<04:39,  2.09it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 16/600 [00:09<05:07,  1.90it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 17/600 [00:09<05:04,  1.91it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 18/600 [00:10<04:59,  1.94it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 19/600 [00:10<04:53,  1.98it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 20/600 [00:11<04:54,  1.97it/s][A
+Generating multi-layer activations with freq:   4%|▎         | 21/600 [00:12<06:49,  1.41it/s][A
+Generating multi-layer activations with freq:   4%|▎         | 22/600 [00:12<05:59,  1.61it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 23/600 [00:13<05:46,  1.66it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 24/600 [00:13<05:23,  1.78it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 25/600 [00:14<05:05,  1.88it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 26/600 [00:14<04:54,  1.95it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 27/600 [00:15<04:57,  1.92it/s][A
+Generating multi-layer activations with freq:   5%|▍         | 28/600 [00:15<04:50,  1.97it/s][A
+Generating multi-layer activations with freq:   5%|▍         | 29/600 [00:16<04:52,  1.95it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 30/600 [00:16<04:49,  1.97it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 31/600 [00:17<04:41,  2.02it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 32/600 [00:17<04:44,  2.00it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 33/600 [00:18<04:38,  2.04it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 34/600 [00:18<04:52,  1.94it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 35/600 [00:19<04:18,  2.19it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 36/600 [00:19<04:26,  2.11it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 37/600 [00:20<04:31,  2.07it/s][A
+Generating multi-layer activations with freq:   6%|▋         | 38/600 [00:20<04:39,  2.01it/s][A
+Generating multi-layer activations with freq:   6%|▋         | 39/600 [00:21<05:02,  1.86it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 40/600 [00:22<06:07,  1.52it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 41/600 [00:22<05:46,  1.61it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 42/600 [00:23<05:37,  1.65it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 43/600 [00:23<05:09,  1.80it/s][AGenerating multi-layer activations with freq:   7%|▋         | 43/600 [00:24<05:15,  1.76it/s]
+Fitting Layers:   0%|          | 0/26 [00:27<?, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 308, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 262, in main
+    mlp_acts, _ = act_generator.generate_multiple_layer_activations_and_freq(dataset, layers)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 177, in generate_multiple_layer_activations_and_freq
+    _, cache = self.model.run_with_cache(input_ids)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/transformer_lens/HookedTransformer.py", line 702, in run_with_cache
+    out, cache_dict = super().run_with_cache(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/transformer_lens/hook_points.py", line 560, in run_with_cache
+    model_out = self(*model_args, **model_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/transformer_lens/HookedTransformer.py", line 640, in forward
+    logits = self.cfg.output_logits_soft_cap * F.tanh(
+                                               ^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/functional.py", line 2274, in tanh
+    return input.tanh()
+           ^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 548.00 MiB. GPU 1 has a total capacity of 10.57 GiB of which 466.06 MiB is free. Including non-PyTorch memory, this process has 10.11 GiB memory in use. Of the allocated memory 9.88 GiB is allocated by PyTorch, and 48.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

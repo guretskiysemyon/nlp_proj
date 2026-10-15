@@ -1,12 +1,13 @@
 #!/bin/bash
 # Edited-model cross-lingual MC runs (crosslingual/run_edited.py).
 # Arguments are forwarded to the python script; with none, it runs all
-# methods (ember, snmf) x 18 concepts x 5 languages. Finished (method,
+# methods (ember, snmf, snmf_ember) x 18 concepts x 5 languages. Finished (method,
 # concept) pairs are skipped, so a killed (preempted) job can simply be
 # resubmitted. Needs the pristine baseline (run_baseline.sbatch) first.
 #
 # Usage:
 #   sbatch crosslingual/run_edited.sbatch --methods ember snmf --concepts "Harry Potter"
+#   sbatch crosslingual/run_edited.sbatch --methods snmf_ember
 #   sbatch crosslingual/run_edited.sbatch
 #
 #SBATCH --partition=studentkillable

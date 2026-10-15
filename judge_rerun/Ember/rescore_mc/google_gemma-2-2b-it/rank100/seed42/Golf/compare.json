@@ -1,0 +1,163 @@
+{
+  "concept": "Golf",
+  "control_ok_all": true,
+  "features_match_all": true,
+  "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    50.0,
+    100.0,
+    200.0
+  ],
+  "old": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.82,
+        "efficacy": 0.03389830508474578,
+        "specificity": 1.0,
+        "harmonic": 0.06557377049180332,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.8,
+        "efficacy": 0.06779661016949146,
+        "specificity": 1.0,
+        "harmonic": 0.12698412698412687,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.23728813559322037,
+        "specificity": 1.0,
+        "harmonic": 0.3835616438356165,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.62,
+        "efficacy": 0.3728813559322034,
+        "specificity": 1.0,
+        "harmonic": 0.5432098765432098,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 1.0,
+        "harmonic": 0.5783132530120483,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.62,
+        "efficacy": 0.3728813559322034,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.5405405405405406,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.5040091638029782,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.5040091638029782,
+        "gate": null
+      }
+    },
+    "top_k": [
+      10.0,
+      5.0,
+      50.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "10.0": 0.6716870855344499,
+      "5.0": 0.6396792651122961,
+      "50.0": 0.6372089055702466
+    },
+    "needs_judging": [],
+    "best_delta_embed": 10.0,
+    "best_harmonic_alpaca": 0.6716870855344499
+  },
+  "new": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.82,
+        "efficacy": 0.03389830508474578,
+        "specificity": 1.0,
+        "harmonic": 0.06557377049180332,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.8,
+        "efficacy": 0.06779661016949146,
+        "specificity": 1.0,
+        "harmonic": 0.12698412698412687,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.23728813559322037,
+        "specificity": 1.0,
+        "harmonic": 0.3835616438356165,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.62,
+        "efficacy": 0.3728813559322034,
+        "specificity": 1.0,
+        "harmonic": 0.5432098765432098,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 1.0,
+        "harmonic": 0.5783132530120483,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.5040091638029782,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.66,
+        "efficacy": 0.30508474576271183,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.4655537267810957,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.66,
+        "efficacy": 0.30508474576271183,
+        "specificity": 0.9821428571428572,
+        "harmonic": 0.4655537267810957,
+        "gate": null
+      }
+    },
+    "top_k": [
+      10.0,
+      5.0,
+      50.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "10.0": 0.6716870855344499,
+      "5.0": 0.6396792651122961,
+      "50.0": 0.6028679699336382
+    },
+    "needs_judging": [],
+    "best_delta_embed": 10.0,
+    "best_harmonic_alpaca": 0.6716870855344499
+  },
+  "top_k_changed": false,
+  "pick_changed": false
+}

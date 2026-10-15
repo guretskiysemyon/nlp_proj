@@ -1,0 +1,165 @@
+{
+  "concept": "Gun",
+  "control_ok_all": true,
+  "features_match_all": true,
+  "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    50.0,
+    100.0,
+    200.0
+  ],
+  "old": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.86,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.78,
+        "efficacy": 0.10169491525423724,
+        "specificity": 1.0,
+        "harmonic": 0.18461538461538454,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.72,
+        "efficacy": 0.2033898305084746,
+        "specificity": 0.9791666666666665,
+        "harmonic": 0.33681696028665276,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 0.9347826086956522,
+        "harmonic": 0.5668772315297995,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9347826086956522,
+        "harmonic": 0.4975412207115996,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.58,
+        "efficacy": 0.44067796610169496,
+        "specificity": 0.9791666666666665,
+        "harmonic": 0.6078090027356379,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.5,
+        "efficacy": 0.576271186440678,
+        "specificity": 0.9574468085106382,
+        "harmonic": 0.719492123207148,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.5423728813559321,
+        "specificity": 0.9347826086956522,
+        "harmonic": 0.686455475180843,
+        "gate": null
+      }
+    },
+    "top_k": [
+      100.0,
+      200.0,
+      50.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "100.0": 0.7933412912320879,
+      "200.0": 0.7662339001577757,
+      "50.0": 0.6989351877902416
+    },
+    "needs_judging": [],
+    "best_delta_embed": 100.0,
+    "best_harmonic_alpaca": 0.7933412912320879
+  },
+  "new": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.86,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.78,
+        "efficacy": 0.10169491525423724,
+        "specificity": 1.0,
+        "harmonic": 0.18461538461538454,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.72,
+        "efficacy": 0.2033898305084746,
+        "specificity": 0.9791666666666665,
+        "harmonic": 0.33681696028665276,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.4067796610169492,
+        "specificity": 0.9347826086956522,
+        "harmonic": 0.5668772315297995,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9347826086956522,
+        "harmonic": 0.4975412207115996,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9791666666666665,
+        "harmonic": 0.5036163943209214,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9791666666666665,
+        "harmonic": 0.5036163943209214,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.3389830508474576,
+        "specificity": 0.9574468085106382,
+        "harmonic": 0.5006954102920723,
+        "gate": null
+      }
+    },
+    "top_k": [
+      5.0,
+      50.0,
+      100.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "5.0": NaN,
+      "50.0": 0.6032560495701533,
+      "100.0": 0.6032560495701533
+    },
+    "needs_judging": [
+      5.0
+    ],
+    "best_delta_embed": null,
+    "best_harmonic_alpaca": null
+  },
+  "top_k_changed": true,
+  "pick_changed": true
+}

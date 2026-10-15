@@ -3,7 +3,7 @@
 applying the new top-k / first-N-questions policy -- no GPU, no judge calls.
 
 Pass 2 originally judged all 8 (non-mmlu-gated) deltas on their full 150
-saved Alpaca completions. The updated policy (see docs/ember_search.md and
+saved Alpaca completions. The updated policy (see docs/Part 1/ember_search.md and
 pass2_delta_search.py's module docstring) only judges the top --top-k deltas
 by the fast (judge-free) harmonic score, and only their first --alpaca-n
 completions. For a concept Pass 2 already finished, every number that policy

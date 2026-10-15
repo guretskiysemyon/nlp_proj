@@ -1,0 +1,163 @@
+{
+  "concept": "Ancient Rome",
+  "control_ok_all": true,
+  "features_match_all": true,
+  "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    50.0,
+    100.0,
+    200.0
+  ],
+  "old": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.8,
+        "efficacy": 0.0,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.181818181818182,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.3058103975535171,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.2909090909090909,
+        "specificity": 0.947083583884546,
+        "harmonic": 0.4450999266998137,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.509090909090909,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.6657156443176414,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.509090909090909,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.6657156443176414,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.44,
+        "efficacy": 0.6545454545454545,
+        "specificity": 0.8842443729903537,
+        "harmonic": 0.7522510542912504,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.42,
+        "efficacy": 0.6909090909090909,
+        "specificity": 0.8842443729903537,
+        "harmonic": 0.7757116876368629,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.38,
+        "efficacy": 0.7636363636363637,
+        "specificity": 0.8842443729903537,
+        "harmonic": 0.8195267321815022,
+        "gate": null
+      }
+    },
+    "top_k": [
+      200.0,
+      100.0,
+      50.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "200.0": 0.8714806997834921,
+      "100.0": 0.8379275881310456,
+      "50.0": 0.8195218864376815
+    },
+    "needs_judging": [],
+    "best_delta_embed": 200.0,
+    "best_harmonic_alpaca": 0.8714806997834921
+  },
+  "new": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.8,
+        "efficacy": 0.0,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.7,
+        "efficacy": 0.181818181818182,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.3058103975535171,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.64,
+        "efficacy": 0.2909090909090909,
+        "specificity": 0.947083583884546,
+        "harmonic": 0.4450999266998137,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.509090909090909,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.6657156443176414,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.509090909090909,
+        "specificity": 0.9615384615384615,
+        "harmonic": 0.6657156443176414,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.5,
+        "efficacy": 0.5454545454545454,
+        "specificity": 0.947083583884546,
+        "harmonic": 0.6922316228985825,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.5,
+        "efficacy": 0.5454545454545454,
+        "specificity": 0.947083583884546,
+        "harmonic": 0.6922316228985825,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.46,
+        "efficacy": 0.6181818181818182,
+        "specificity": 0.947083583884546,
+        "harmonic": 0.7480774200758554,
+        "gate": null
+      }
+    },
+    "top_k": [
+      200.0,
+      50.0,
+      100.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "200.0": 0.8162145478239995,
+      "50.0": 0.7709722817108242,
+      "100.0": 0.7709722817108242
+    },
+    "needs_judging": [],
+    "best_delta_embed": 200.0,
+    "best_harmonic_alpaca": 0.8162145478239995
+  },
+  "top_k_changed": false,
+  "pick_changed": false
+}

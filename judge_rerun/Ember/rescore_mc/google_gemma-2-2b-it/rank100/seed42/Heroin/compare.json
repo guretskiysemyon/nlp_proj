@@ -1,0 +1,165 @@
+{
+  "concept": "Heroin",
+  "control_ok_all": true,
+  "features_match_all": true,
+  "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    50.0,
+    100.0,
+    200.0
+  ],
+  "old": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.66,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.10256410256410264,
+        "specificity": 1.0,
+        "harmonic": 0.1860465116279071,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.5,
+        "efficacy": 0.35897435897435903,
+        "specificity": 1.0,
+        "harmonic": 0.5283018867924529,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.3076923076923077,
+        "specificity": 1.0,
+        "harmonic": 0.47058823529411764,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.44,
+        "efficacy": 0.5128205128205128,
+        "specificity": 1.0,
+        "harmonic": 0.6779661016949152,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.42,
+        "efficacy": 0.5641025641025641,
+        "specificity": 1.0,
+        "harmonic": 0.7213114754098361,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.4,
+        "efficacy": 0.6153846153846154,
+        "specificity": 1.0,
+        "harmonic": 0.7619047619047619,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.42,
+        "efficacy": 0.5641025641025641,
+        "specificity": 1.0,
+        "harmonic": 0.7213114754098361,
+        "gate": null
+      }
+    },
+    "top_k": [
+      100.0,
+      50.0,
+      200.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "100.0": 0.8271334792122539,
+      "50.0": 0.7947627466908778,
+      "200.0": 0.7947627466908778
+    },
+    "needs_judging": [],
+    "best_delta_embed": 100.0,
+    "best_harmonic_alpaca": 0.8271334792122539
+  },
+  "new": {
+    "fast": {
+      "0.5": {
+        "qa_acc": 0.66,
+        "efficacy": 0.0,
+        "specificity": 1.0,
+        "harmonic": 0.0,
+        "gate": null
+      },
+      "1.0": {
+        "qa_acc": 0.6,
+        "efficacy": 0.10256410256410264,
+        "specificity": 1.0,
+        "harmonic": 0.1860465116279071,
+        "gate": null
+      },
+      "2.0": {
+        "qa_acc": 0.5,
+        "efficacy": 0.35897435897435903,
+        "specificity": 1.0,
+        "harmonic": 0.5283018867924529,
+        "gate": null
+      },
+      "5.0": {
+        "qa_acc": 0.52,
+        "efficacy": 0.3076923076923077,
+        "specificity": 1.0,
+        "harmonic": 0.47058823529411764,
+        "gate": null
+      },
+      "10.0": {
+        "qa_acc": 0.44,
+        "efficacy": 0.5128205128205128,
+        "specificity": 1.0,
+        "harmonic": 0.6779661016949152,
+        "gate": null
+      },
+      "50.0": {
+        "qa_acc": 0.44,
+        "efficacy": 0.5128205128205128,
+        "specificity": 1.0,
+        "harmonic": 0.6779661016949152,
+        "gate": null
+      },
+      "100.0": {
+        "qa_acc": 0.42,
+        "efficacy": 0.5641025641025641,
+        "specificity": 1.0,
+        "harmonic": 0.7213114754098361,
+        "gate": null
+      },
+      "200.0": {
+        "qa_acc": 0.46,
+        "efficacy": 0.46153846153846145,
+        "specificity": 1.0,
+        "harmonic": 0.631578947368421,
+        "gate": null
+      }
+    },
+    "top_k": [
+      100.0,
+      10.0,
+      50.0
+    ],
+    "top_k_harmonic_alpaca": {
+      "100.0": 0.7947627466908778,
+      "10.0": NaN,
+      "50.0": 0.759112360678783
+    },
+    "needs_judging": [
+      10.0
+    ],
+    "best_delta_embed": null,
+    "best_harmonic_alpaca": null
+  },
+  "top_k_changed": true,
+  "pick_changed": true
+}

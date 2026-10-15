@@ -1,0 +1,10 @@
+[run_rescore_snmf] args: --concept World War II Baseball Halloween Nazism Harry Potter Cannabis
+[15:55:58] [snmf|-|rescore_mc] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.07it/s]
+[15:56:07] [snmf|-|rescore_mc] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[15:56:14] [snmf|World War II|rescore_mc] World War II: re-scoring 24/144 cells
+[15:56:14] [snmf|World War II|rescore_mc] loading MLP features for concept='World War II' rank=100
+[15:56:14] [snmf|World War II|rescore_mc] found 15 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[16:00:09] [snmf|World War II|rescore cell=42] [1/24] cell=42 qa 0.00->0.54 (inv 0.00->0.00) simdom 0.00->0.52 mmlu 0.30->0.30 control_ok=True (236s)
+[16:03:27] [snmf|World War II|rescore cell=45] [2/24] cell=45 qa 0.00->0.44 (inv 0.00->0.02) simdom 0.00->0.34 mmlu 0.30->0.30 control_ok=True (198s)
+slurmstepd: error: *** JOB 1042301 ON s-004 CANCELLED AT 2026-10-15T16:06:43 ***

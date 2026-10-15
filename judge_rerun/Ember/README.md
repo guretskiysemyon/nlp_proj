@@ -24,7 +24,7 @@ Each concept folder next to it (`<Concept>/`) holds exactly three files, judge =
 2. Judge only those 3, and only on the first 50 saved Alpaca questions (`idx` 0-49; identical questions for every delta and concept).
 3. Pick the max `harmonic_alpaca` (`ember.erasure.io.pick_best_embed_delta`, ties to the smaller delta).
 
-Details and formulas: `docs/ember_search.md`, `docs/progress.md` §3.2.
+Details and formulas: `docs/Part 1/ember_search.md`, `docs/progress.md` §3.2.
 
 ## How the 18 results were produced (`method` column in the summary)
 

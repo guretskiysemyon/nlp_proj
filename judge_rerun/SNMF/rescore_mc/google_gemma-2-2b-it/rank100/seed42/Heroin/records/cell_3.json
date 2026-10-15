@@ -1,0 +1,3003 @@
+{
+ "concept": "Heroin",
+ "row": 3,
+ "hp": {
+  "delta_embed": 0.0,
+  "k_features_embed": 0,
+  "n_tokens_edited": 0,
+  "w_mode": "both",
+  "feature_source": "all",
+  "ratio_thresh": 2.0,
+  "coverage_thresh": 0.95,
+  "neurons_thresh": NaN,
+  "delta_in": 1.0,
+  "layer_lo_in": 0,
+  "layer_hi_in": 25,
+  "k_features_mlp_in": 32,
+  "delta_out": 4.0,
+  "layer_lo_out": 0,
+  "layer_hi_out": 8,
+  "k_features_mlp_out": 22
+ },
+ "k_features_mlp_in": 32,
+ "k_features_mlp_out": 22,
+ "mc_max_new_tokens": 32,
+ "mmlu_max_new_tokens": 32,
+ "mmlu": {
+  "acc": 0.48,
+  "invalid_rate": 0.0,
+  "old_acc": 0.48,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.54,
+  "invalid_rate": 0.0,
+  "old_acc": 0.54,
+  "old_invalid_rate": 0.020000000000000018,
+  "n": 50,
+  "records": [
+   {
+    "question": "What event in the late 1940s effectively ended large-scale international heroin production in China?",
+    "options": {
+     "A": "the signing of the Treaty of Nanking",
+     "B": "the victory of the communists in the civil war",
+     "C": "the start of the Cultural Revolution",
+     "D": "the Japanese occupation of Manchuria"
+    },
+    "correct_letter": "B",
+    "correct_text": "the victory of the communists in the civil war",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What was the name of the official inquiry that followed the discovery of Harold Shipman's murders?",
+    "options": {
+     "A": "The Laming Inquiry",
+     "B": "Shipman Inquiry",
+     "C": "The Smith Investigation",
+     "D": "The Bristol Report"
+    },
+    "correct_letter": "B",
+    "correct_text": "Shipman Inquiry",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term describes the physiological adaptation to a drug that causes withdrawal symptoms upon abrupt cessation?",
+    "options": {
+     "A": "psychological craving",
+     "B": "physical dependence",
+     "C": "metabolic acceleration",
+     "D": "tachyphylaxis"
+    },
+    "correct_letter": "B",
+    "correct_text": "physical dependence",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What war led to increased opium production in the Pakistani-Afghan border regions to fund US-backed mujaheddin militants?",
+    "options": {
+     "A": "The Soviet-Afghan war",
+     "B": "The Iran-Iraq War",
+     "C": "The Six-Day War",
+     "D": "The Gulf War"
+    },
+    "correct_letter": "A",
+    "correct_text": "The Soviet-Afghan war",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What 1964 UK committee recommended that only approved doctors at specialized centres prescribe diamorphine to users?",
+    "options": {
+     "A": "Orange Card Committee",
+     "B": "Wootton Report",
+     "C": "Brain Committee",
+     "D": "Rolleston Committee"
+    },
+    "correct_letter": "C",
+    "correct_text": "Brain Committee",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What potentially fatal respiratory condition is a common side effect of heroin use?",
+    "options": {
+     "A": "alveolar hemorrhage",
+     "B": "bronchospasm",
+     "C": "pulmonary embolism",
+     "D": "respiratory depression"
+    },
+    "correct_letter": "D",
+    "correct_text": "respiratory depression",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What microorganism are researchers genetically engineering to reproduce the biosynthetic pathway that produces morphine?",
+    "options": {
+     "A": "cyanobacteria",
+     "B": "yeast",
+     "C": "E. coli",
+     "D": "penicillium"
+    },
+    "correct_letter": "B",
+    "correct_text": "yeast",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does the acronym HAT stand for in the context of Swiss addiction treatment?",
+    "options": {
+     "A": "health-access technology",
+     "B": "heroin-alternatives track",
+     "C": "heroin-assisted treatment",
+     "D": "high-abstinence therapy"
+    },
+    "correct_letter": "C",
+    "correct_text": "heroin-assisted treatment",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What country's Bundestag passed a law in July 2009 allowing diamorphine prescription as a standard treatment?",
+    "options": {
+     "A": "Switzerland",
+     "B": "Austria",
+     "C": "Germany",
+     "D": "Netherlands"
+    },
+    "correct_letter": "C",
+    "correct_text": "Germany",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the medical term used in the text for snorting heroin?",
+    "options": {
+     "A": "insufflation",
+     "B": "intravasation",
+     "C": "aspiration",
+     "D": "sublingual administration"
+    },
+    "correct_letter": "A",
+    "correct_text": "insufflation",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the estimated median lethal dose of heroin for an opiate-naive 75 kg individual?",
+    "options": {
+     "A": "between 10 and 50 mg",
+     "B": "exactly 150 mg",
+     "C": "between 75 and 600 mg",
+     "D": "over 1000 mg"
+    },
+    "correct_letter": "C",
+    "correct_text": "between 75 and 600 mg",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For what pharmaceutical company did Felix Hoffmann work when he synthesized heroin?",
+    "options": {
+     "A": "Merck",
+     "B": "Bayer",
+     "C": "Pfizer",
+     "D": "Sandoz"
+    },
+    "correct_letter": "B",
+    "correct_text": "Bayer",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What Canadian program allows doctors emergency access to prescription heroin for patients with severe opioid addiction?",
+    "options": {
+     "A": "Special Access Programme (SAP)",
+     "B": "Safe Supply Initiative",
+     "C": "The NAOMI Project",
+     "D": "Emergency Narcotic Grant"
+    },
+    "correct_letter": "A",
+    "correct_text": "Special Access Programme (SAP)",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What schedule classification does diamorphine hold in Australia under the Poisons Standard?",
+    "options": {
+     "A": "schedule 9",
+     "B": "schedule 8",
+     "C": "schedule 2",
+     "D": "schedule 4"
+    },
+    "correct_letter": "A",
+    "correct_text": "schedule 9",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of heroin is characterized as a variable admixture of morphine derivatives predominantly containing 6-MAM?",
+    "options": {
+     "A": "Brown sugar heroin",
+     "B": "White powder heroin",
+     "C": "China White",
+     "D": "Black tar heroin"
+    },
+    "correct_letter": "D",
+    "correct_text": "Black tar heroin",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the physiological cause of death in a typical heroin overdose?",
+    "options": {
+     "A": "rupture of cerebral blood vessels",
+     "B": "sudden cardiac arrest",
+     "C": "irreversible kidney failure",
+     "D": "lack of oxygen resulting from the lack of breathing"
+    },
+    "correct_letter": "D",
+    "correct_text": "lack of oxygen resulting from the lack of breathing",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What specific route of diamorphine administration is recommended by the UK's NICE for caesarean section post-operative pain relief?",
+    "options": {
+     "A": "intrathecal or epidural",
+     "B": "transdermal patch",
+     "C": "intramuscular injection",
+     "D": "intravenous bolus"
+    },
+    "correct_letter": "A",
+    "correct_text": "intrathecal or epidural",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What grade number classifies the purest form of white powder heroin?",
+    "options": {
+     "A": "No.4",
+     "B": "No.10",
+     "C": "No.1",
+     "D": "No.3"
+    },
+    "correct_letter": "A",
+    "correct_text": "No.4",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was Bayer's original intended medical use for heroin when marketing it?",
+    "options": {
+     "A": "as a local anesthetic for dental surgery",
+     "B": "as a stimulant for respiratory distress",
+     "C": "as a non-addictive morphine substitute and cough suppressant",
+     "D": "as a treatment for chronic insomnia"
+    },
+    "correct_letter": "C",
+    "correct_text": "as a non-addictive morphine substitute and cough suppressant",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What uncomfortable skin sensation do intravenous heroin users sometimes experience when they first start using?",
+    "options": {
+     "A": "pruritus (itching)",
+     "B": "petechiae",
+     "C": "urticaria",
+     "D": "dermatitis"
+    },
+    "correct_letter": "A",
+    "correct_text": "pruritus (itching)",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What serious condition do medical professionals suspect can result from injecting heroin into the femoral vein?",
+    "options": {
+     "A": "aortic aneurysm",
+     "B": "deep vein thrombosis",
+     "C": "varicose veins",
+     "D": "pulmonary edema"
+    },
+    "correct_letter": "B",
+    "correct_text": "deep vein thrombosis",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What European country began a trial diamorphine maintenance program in 1994 for users who failed multiple withdrawal programs?",
+    "options": {
+     "A": "Portugal",
+     "B": "Switzerland",
+     "C": "Norway",
+     "D": "Denmark"
+    },
+    "correct_letter": "B",
+    "correct_text": "Switzerland",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In what year did Denmark start prescribing diamorphine to addicts who failed methadone and buprenorphine treatments?",
+    "options": {
+     "A": "1994",
+     "B": "2015",
+     "C": "2001",
+     "D": "2009"
+    },
+    "correct_letter": "D",
+    "correct_text": "2009",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many tons of heroin were estimated to be made worldwide in 2016?",
+    "options": {
+     "A": "448 tons",
+     "B": "120 tons",
+     "C": "300 tons",
+     "D": "850 tons"
+    },
+    "correct_letter": "A",
+    "correct_text": "448 tons",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What famous medication did Felix Hoffmann synthesize just eleven days before he synthesized heroin?",
+    "options": {
+     "A": "paracetamol",
+     "B": "ibuprofen",
+     "C": "aspirin",
+     "D": "penicillin"
+    },
+    "correct_letter": "C",
+    "correct_text": "aspirin",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What synthetic opioid became a more common cause of drug-related deaths than heroin in the US after 2015?",
+    "options": {
+     "A": "methadone",
+     "B": "carfentanil",
+     "C": "oxycodone",
+     "D": "fentanyl"
+    },
+    "correct_letter": "D",
+    "correct_text": "fentanyl",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What was the name of the heroin trafficking route that started in the 1930s and was disrupted during World War II?",
+    "options": {
+     "A": "The Sicilian Pipeline",
+     "B": "The French Connection",
+     "C": "The Balkan Trail",
+     "D": "The Silk Road"
+    },
+    "correct_letter": "B",
+    "correct_text": "The French Connection",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What minimum mandatory sentence is required in a US federal prison for possessing more than 100 grams of diamorphine?",
+    "options": {
+     "A": "five years",
+     "B": "ten years",
+     "C": "twenty years",
+     "D": "one year"
+    },
+    "correct_letter": "A",
+    "correct_text": "five years",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What slang term refers to the method of anal insertion of heroin?",
+    "options": {
+     "A": "parachuting",
+     "B": "plugging",
+     "C": "snow-looping",
+     "D": "skin-popping"
+    },
+    "correct_letter": "B",
+    "correct_text": "plugging",
+    "model_raw": "d",
+    "model_letter": "D",
+    "old_raw": "d",
+    "old_letter": "",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Under the US Controlled Substances Act of 1970, what schedule classification makes diamorphine illegal to possess without a DEA license?",
+    "options": {
+     "A": "Schedule I",
+     "B": "Schedule IV",
+     "C": "Schedule II",
+     "D": "Schedule V"
+    },
+    "correct_letter": "A",
+    "correct_text": "Schedule I",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "To what substance is heroin entirely converted via first-pass metabolism when ingested orally?",
+    "options": {
+     "A": "fentanyl",
+     "B": "codeine",
+     "C": "morphine",
+     "D": "thebaine"
+    },
+    "correct_letter": "C",
+    "correct_text": "morphine",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In what ancient geographic region was the opium poppy cultivated as long ago as 3400 BC?",
+    "options": {
+     "A": "The Yangtze Basin",
+     "B": "The Nile Delta",
+     "C": "The Indus Valley",
+     "D": "lower Mesopotamia"
+    },
+    "correct_letter": "D",
+    "correct_text": "lower Mesopotamia",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What modern opium production region was heavily influenced by the Soviet-Afghan war?",
+    "options": {
+     "A": "the Golden Triangle",
+     "B": "The Sierra Madre",
+     "C": "the Golden Crescent",
+     "D": "The Bekaa Valley"
+    },
+    "correct_letter": "C",
+    "correct_text": "the Golden Crescent",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What country produced about 66% of the world's opium in 2015?",
+    "options": {
+     "A": "Myanmar",
+     "B": "Mexico",
+     "C": "Afghanistan",
+     "D": "Laos"
+    },
+    "correct_letter": "C",
+    "correct_text": "Afghanistan",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Under what 1919 treaty did Bayer lose some of its trademark rights to heroin?",
+    "options": {
+     "A": "Treaty of Trianon",
+     "B": "Treaty of Versailles",
+     "C": "Geneva Protocol",
+     "D": "Treaty of Saint-Germain"
+    },
+    "correct_letter": "B",
+    "correct_text": "Treaty of Versailles",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What state monopoly handles the commercialization of coca leaves in Peru, an exclusivity not seen globally for opium?",
+    "options": {
+     "A": "Andean Flora Monopoly",
+     "B": "Peruvian Leaf Authority",
+     "C": "National Coca Company (ENACO)",
+     "D": "National Drug Control Agency"
+    },
+    "correct_letter": "C",
+    "correct_text": "National Coca Company (ENACO)",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What happens to the required dosage of heroin as tolerance develops?",
+    "options": {
+     "A": "the dosage must be decreased to prevent toxicity",
+     "B": "the dosage remains constant while the frequency increases",
+     "C": "increased doses are needed to achieve the same effects",
+     "D": "no dosage change is required as receptors become more sensitive"
+    },
+    "correct_letter": "C",
+    "correct_text": "increased doses are needed to achieve the same effects",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What chemist independently re-synthesized heroin 23 years after its first discovery?",
+    "options": {
+     "A": "Louis Pasteur",
+     "B": "Felix Hoffmann",
+     "C": "Friedrich Sertürner",
+     "D": "Alexander Fleming"
+    },
+    "correct_letter": "B",
+    "correct_text": "Felix Hoffmann",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the brand name of the diamorphine nasal spray used in pediatric care in the UK?",
+    "options": {
+     "A": "Dilaudid",
+     "B": "Ayendi",
+     "C": "Suboxone",
+     "D": "Narcan"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ayendi",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Who was the individual convicted in 2012 by a US District Court for narco-terrorism and whose activities accounted for 20% of world heroin production in 2006?",
+    "options": {
+     "A": "Pablo Escobar",
+     "B": "Khun Sa",
+     "C": "Haji Bagcho",
+     "D": "Joaquín Guzmán"
+    },
+    "correct_letter": "C",
+    "correct_text": "Haji Bagcho",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What chemical feature makes injected heroin cross the blood-brain barrier much faster than morphine?",
+    "options": {
+     "A": "the absence of nitrogen atoms",
+     "B": "a lower lipid solubility",
+     "C": "a high molecular weight",
+     "D": "the presence of acetyl groups"
+    },
+    "correct_letter": "D",
+    "correct_text": "the presence of acetyl groups",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What League of Nations body banned diacetylmorphine in 1925?",
+    "options": {
+     "A": "Opium Advisory Board",
+     "B": "Economic Committee",
+     "C": "Security Council",
+     "D": "Health Committee"
+    },
+    "correct_letter": "D",
+    "correct_text": "Health Committee",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What grade number is assigned to \"brown sugar\" heroin base meant for smoking?",
+    "options": {
+     "A": "No.5",
+     "B": "No.3",
+     "C": "No.2",
+     "D": "No.1"
+    },
+    "correct_letter": "B",
+    "correct_text": "No.3",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What fatal brain condition can rarely result from inhaling heroin?",
+    "options": {
+     "A": "toxic leukoencephalopathy",
+     "B": "meningitis",
+     "C": "hydrocephalus",
+     "D": "cerebral malaria"
+    },
+    "correct_letter": "A",
+    "correct_text": "toxic leukoencephalopathy",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What percentage of Swiss voters supported the November 2008 national referendum introducing diamorphine prescription into federal law?",
+    "options": {
+     "A": "68%",
+     "B": "75%",
+     "C": "42%",
+     "D": "51%"
+    },
+    "correct_letter": "A",
+    "correct_text": "68%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What US act passed in 1914 controlled the sale and distribution of diacetylmorphine?",
+    "options": {
+     "A": "Marihuana Tax Act",
+     "B": "Pure Food and Drug Act",
+     "C": "Harrison Narcotics Tax Act",
+     "D": "Controlled Substances Act"
+    },
+    "correct_letter": "C",
+    "correct_text": "Harrison Narcotics Tax Act",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "According to a 2015 estimate, how many people worldwide use opiates non-medically?",
+    "options": {
+     "A": "100 million",
+     "B": "17 million",
+     "C": "5 million",
+     "D": "50 million"
+    },
+    "correct_letter": "B",
+    "correct_text": "17 million",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What 1926 UK report established the approach of allowing doctors to prescribe diamorphine to users when withdrawing?",
+    "options": {
+     "A": "The Misuse of Drugs Report",
+     "B": "Brain Report",
+     "C": "Rolleston Committee Report",
+     "D": "Beveridge Report"
+    },
+    "correct_letter": "C",
+    "correct_text": "Rolleston Committee Report",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Under what brand name is heroin produced in injectable or tablet form in Switzerland?",
+    "options": {
+     "A": "OxyContin",
+     "B": "Vilan",
+     "C": "Dolophine",
+     "D": "Diaphin"
+    },
+    "correct_letter": "D",
+    "correct_text": "Diaphin",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What chemical is reacted with solid morphine base to form heroin?",
+    "options": {
+     "A": "sulfuric acid",
+     "B": "hydrochloric acid",
+     "C": "acetone",
+     "D": "acetic anhydride"
+    },
+    "correct_letter": "D",
+    "correct_text": "acetic anhydride",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.98,
+  "invalid_rate": 0.0,
+  "old_acc": 0.98,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What trace mineral is important for insulin function and blood sugar regulation?",
+    "options": {
+     "A": "Selenium",
+     "B": "Manganese",
+     "C": "Chromium",
+     "D": "Zinc"
+    },
+    "correct_letter": "C",
+    "correct_text": "Chromium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What are the body's natural pain-relieving and mood-boosting chemicals called?",
+    "options": {
+     "A": "Endorphins",
+     "B": "Cytokines",
+     "C": "Antigens",
+     "D": "Pheromones"
+    },
+    "correct_letter": "A",
+    "correct_text": "Endorphins",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Pellagra is a disease caused by a lack of which specific vitamin?",
+    "options": {
+     "A": "Niacin",
+     "B": "Riboflavin",
+     "C": "Biotin",
+     "D": "Thiamine"
+    },
+    "correct_letter": "A",
+    "correct_text": "Niacin",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is characterized by the body's inability to produce or properly use insulin?",
+    "options": {
+     "A": "Diabetes",
+     "B": "Arthritis",
+     "C": "Lupus",
+     "D": "Psoriasis"
+    },
+    "correct_letter": "A",
+    "correct_text": "Diabetes",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the largest overall organ of the human body?",
+    "options": {
+     "A": "Skin",
+     "B": "Liver",
+     "C": "Brain",
+     "D": "Lungs"
+    },
+    "correct_letter": "A",
+    "correct_text": "Skin",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Olive oil is a primary source of what type of heart-healthy dietary fat?",
+    "options": {
+     "A": "Trans fat",
+     "B": "Polyunsaturated fat",
+     "C": "Saturated fat",
+     "D": "Monounsaturated fat"
+    },
+    "correct_letter": "D",
+    "correct_text": "Monounsaturated fat",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of carbohydrate cannot be digested by the body but is crucial for healthy digestion?",
+    "options": {
+     "A": "Glycogen",
+     "B": "Starch",
+     "C": "Glucose",
+     "D": "Fiber"
+    },
+    "correct_letter": "D",
+    "correct_text": "Fiber",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What specific simple sugar is the main source of energy for the human brain?",
+    "options": {
+     "A": "Lactose",
+     "B": "Sucrose",
+     "C": "Glucose",
+     "D": "Fructose"
+    },
+    "correct_letter": "C",
+    "correct_text": "Glucose",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the longest, heaviest, and strongest bone in the human body?",
+    "options": {
+     "A": "Tibia",
+     "B": "Femur",
+     "C": "Humerus",
+     "D": "Scapula"
+    },
+    "correct_letter": "B",
+    "correct_text": "Femur",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What common medical device is used to measure human body temperature?",
+    "options": {
+     "A": "Thermometer",
+     "B": "Sphygmomanometer",
+     "C": "Stethoscope",
+     "D": "Otoscope"
+    },
+    "correct_letter": "A",
+    "correct_text": "Thermometer",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Oysters are known to be an extremely rich source of which immune-supporting mineral?",
+    "options": {
+     "A": "Calcium",
+     "B": "Magnesium",
+     "C": "Iron",
+     "D": "Zinc"
+    },
+    "correct_letter": "D",
+    "correct_text": "Zinc",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What emergency electrical device is used to restart a heart that has stopped beating?",
+    "options": {
+     "A": "Defibrillator",
+     "B": "Ventilator",
+     "C": "Pacemaker",
+     "D": "Electrocardiogram"
+    },
+    "correct_letter": "A",
+    "correct_text": "Defibrillator",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of fibrous tissue connects bone to bone at a joint?",
+    "options": {
+     "A": "Tendon",
+     "B": "Cartilage",
+     "C": "Fascia",
+     "D": "Ligament"
+    },
+    "correct_letter": "D",
+    "correct_text": "Ligament",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Brazil nuts are an exceptionally high natural source of which antioxidant mineral?",
+    "options": {
+     "A": "Iodine",
+     "B": "Boron",
+     "C": "Copper",
+     "D": "Selenium"
+    },
+    "correct_letter": "D",
+    "correct_text": "Selenium",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the three macronutrients contains the highest number of calories per gram?",
+    "options": {
+     "A": "Protein",
+     "B": "Alcohol",
+     "C": "Fat",
+     "D": "Carbohydrates"
+    },
+    "correct_letter": "C",
+    "correct_text": "Fat",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the medical condition caused by an extreme lack of dietary protein, often characterized by a swollen belly?",
+    "options": {
+     "A": "Rickets",
+     "B": "Anemia",
+     "C": "Marasmus",
+     "D": "Kwashiorkor"
+    },
+    "correct_letter": "D",
+    "correct_text": "Kwashiorkor",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the standard emergency dispatch phone number used in the United States?",
+    "options": {
+     "A": "000",
+     "B": "112",
+     "C": "999",
+     "D": "911"
+    },
+    "correct_letter": "D",
+    "correct_text": "911",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of diet involves completely eliminating all animal products and byproducts?",
+    "options": {
+     "A": "Veganism",
+     "B": "Keto",
+     "C": "Paleo",
+     "D": "Vegetarianism"
+    },
+    "correct_letter": "A",
+    "correct_text": "Veganism",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What tiny cell fragments in the blood help it to clot and stop bleeding?",
+    "options": {
+     "A": "Platelets",
+     "B": "Erythrocytes",
+     "C": "Neutrophils",
+     "D": "Lymphocytes"
+    },
+    "correct_letter": "A",
+    "correct_text": "Platelets",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which vitamin is primarily known to boost the immune system and is famously found in citrus fruits?",
+    "options": {
+     "A": "Vitamin C",
+     "B": "Vitamin A",
+     "C": "Vitamin E",
+     "D": "Vitamin K"
+    },
+    "correct_letter": "A",
+    "correct_text": "Vitamin C",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the formal medical term for chronically high blood pressure?",
+    "options": {
+     "A": "Hyperglycemia",
+     "B": "Hypoxia",
+     "C": "Hypotension",
+     "D": "Hypertension"
+    },
+    "correct_letter": "D",
+    "correct_text": "Hypertension",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the anatomical name for the human voice box?",
+    "options": {
+     "A": "Larynx",
+     "B": "Pharynx",
+     "C": "Esophagus",
+     "D": "Trachea"
+    },
+    "correct_letter": "A",
+    "correct_text": "Larynx",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A deficiency in which mineral is the most common cause of anemia?",
+    "options": {
+     "A": "Zinc",
+     "B": "Iron",
+     "C": "Copper",
+     "D": "Calcium"
+    },
+    "correct_letter": "B",
+    "correct_text": "Iron",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What specific mineral does the human body require to make thyroid hormones?",
+    "options": {
+     "A": "Potassium",
+     "B": "Sodium",
+     "C": "Phosphorus",
+     "D": "Iodine"
+    },
+    "correct_letter": "D",
+    "correct_text": "Iodine",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What pink topical lotion is famously used to soothe itchy skin from bug bites or poison ivy?",
+    "options": {
+     "A": "Calamine lotion",
+     "B": "Hydrocortisone",
+     "C": "Aloe vera",
+     "D": "Witch hazel"
+    },
+    "correct_letter": "A",
+    "correct_text": "Calamine lotion",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bananas are famous for containing high amounts of which crucial mineral?",
+    "options": {
+     "A": "Potassium",
+     "B": "Calcium",
+     "C": "Sodium",
+     "D": "Magnesium"
+    },
+    "correct_letter": "A",
+    "correct_text": "Potassium",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What liquid antiseptic is commonly used to disinfect a wound and uniquely bubbles upon contact?",
+    "options": {
+     "A": "Hydrogen peroxide",
+     "B": "Rubbing alcohol",
+     "C": "Saline",
+     "D": "Iodine"
+    },
+    "correct_letter": "A",
+    "correct_text": "Hydrogen peroxide",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What small organ stores and concentrates bile produced by the liver?",
+    "options": {
+     "A": "Spleen",
+     "B": "Gallbladder",
+     "C": "Appendix",
+     "D": "Pancreas"
+    },
+    "correct_letter": "B",
+    "correct_text": "Gallbladder",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of fat is generally solid at room temperature?",
+    "options": {
+     "A": "Unsaturated fat",
+     "B": "Omega-3",
+     "C": "Saturated fat",
+     "D": "Essential fatty acid"
+    },
+    "correct_letter": "C",
+    "correct_text": "Saturated fat",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What medical device is wrapped tightly around a limb to stop severe, life-threatening bleeding?",
+    "options": {
+     "A": "Tourniquet",
+     "B": "Gauze",
+     "C": "Sling",
+     "D": "Splint"
+    },
+    "correct_letter": "A",
+    "correct_text": "Tourniquet",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which vitamin is necessary for the body to properly absorb calcium?",
+    "options": {
+     "A": "Vitamin K",
+     "B": "Vitamin D",
+     "C": "Vitamin B12",
+     "D": "Folic Acid"
+    },
+    "correct_letter": "B",
+    "correct_text": "Vitamin D",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the anatomical name for the colored part of the human eye?",
+    "options": {
+     "A": "Pupil",
+     "B": "Cornea",
+     "C": "Retina",
+     "D": "Iris"
+    },
+    "correct_letter": "D",
+    "correct_text": "Iris",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which paired organs are responsible for extracting oxygen from the air you breathe?",
+    "options": {
+     "A": "Gills",
+     "B": "Bronchi",
+     "C": "Lungs",
+     "D": "Kidneys"
+    },
+    "correct_letter": "C",
+    "correct_text": "Lungs",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What common over-the-counter medication is the active ingredient in Tylenol?",
+    "options": {
+     "A": "Naproxen",
+     "B": "Aspirin",
+     "C": "Acetaminophen",
+     "D": "Ibuprofen"
+    },
+    "correct_letter": "C",
+    "correct_text": "Acetaminophen",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What specific organ in the human body produces the hormone insulin?",
+    "options": {
+     "A": "Thyroid",
+     "B": "Adrenal gland",
+     "C": "Pancreas",
+     "D": "Pituitary gland"
+    },
+    "correct_letter": "C",
+    "correct_text": "Pancreas",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of liquid medicine is specifically formulated to stop a person from coughing?",
+    "options": {
+     "A": "Expectorant",
+     "B": "Antibiotic",
+     "C": "Cough suppressant",
+     "D": "Antihistamine"
+    },
+    "correct_letter": "C",
+    "correct_text": "Cough suppressant",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which mineral is essential for red blood cells to carry oxygen throughout the body?",
+    "options": {
+     "A": "Iron",
+     "B": "Chromium",
+     "C": "Zinc",
+     "D": "Magnesium"
+    },
+    "correct_letter": "A",
+    "correct_text": "Iron",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What hormone, produced by the pineal gland, helps regulate the sleep-wake cycle?",
+    "options": {
+     "A": "Serotonin",
+     "B": "Melatonin",
+     "C": "Dopamine",
+     "D": "Cortisol"
+    },
+    "correct_letter": "B",
+    "correct_text": "Melatonin",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In which part of the digestive tract does most of the absorption of nutrients take place?",
+    "options": {
+     "A": "Large intestine",
+     "B": "Stomach",
+     "C": "Small intestine",
+     "D": "Esophagus"
+    },
+    "correct_letter": "C",
+    "correct_text": "Small intestine",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the specific medical term for a resting heart rate that is abnormally fast?",
+    "options": {
+     "A": "Fibrillation",
+     "B": "Bradycardia",
+     "C": "Arrhythmia",
+     "D": "Tachycardia"
+    },
+    "correct_letter": "D",
+    "correct_text": "Tachycardia",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the single most abundant substance in the human body by volume?",
+    "options": {
+     "A": "Water",
+     "B": "Oxygen",
+     "C": "Carbon",
+     "D": "Blood"
+    },
+    "correct_letter": "A",
+    "correct_text": "Water",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of over-the-counter medicine is specifically designed to help clear a stuffy nose?",
+    "options": {
+     "A": "Laxative",
+     "B": "Decongestant",
+     "C": "Analgesic",
+     "D": "Antacid"
+    },
+    "correct_letter": "B",
+    "correct_text": "Decongestant",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In emergency first aid, what does the acronym CPR stand for?",
+    "options": {
+     "A": "Cardiopulmonary Resuscitation",
+     "B": "Cardio-Pressure Recovery",
+     "C": "Central Pulmonary Revival",
+     "D": "Cardiac Patient Response"
+    },
+    "correct_letter": "A",
+    "correct_text": "Cardiopulmonary Resuscitation",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What bodily system is responsible for recognizing and defending against harmful pathogens and disease?",
+    "options": {
+     "A": "Circulatory system",
+     "B": "Endocrine system",
+     "C": "Nervous system",
+     "D": "Immune system"
+    },
+    "correct_letter": "D",
+    "correct_text": "Immune system",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What class of medication is commonly used to treat sneezing and allergic reactions?",
+    "options": {
+     "A": "Antibiotic",
+     "B": "Antifungal",
+     "C": "Antiviral",
+     "D": "Antihistamine"
+    },
+    "correct_letter": "D",
+    "correct_text": "Antihistamine",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What historical disease is caused by a severe lack of Vitamin C?",
+    "options": {
+     "A": "Scurvy",
+     "B": "Gout",
+     "C": "Rickets",
+     "D": "Beri-beri"
+    },
+    "correct_letter": "A",
+    "correct_text": "Scurvy",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Fructose is a naturally occurring sugar found primarily in what type of food?",
+    "options": {
+     "A": "Fruit",
+     "B": "Meat",
+     "C": "Grains",
+     "D": "Milk"
+    },
+    "correct_letter": "A",
+    "correct_text": "Fruit",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which vitamin is naturally synthesized by the skin when exposed to sunlight?",
+    "options": {
+     "A": "Vitamin E",
+     "B": "Vitamin D",
+     "C": "Vitamin B6",
+     "D": "Vitamin A"
+    },
+    "correct_letter": "B",
+    "correct_text": "Vitamin D",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Rickets is a bone-softening disease caused by a severe deficiency in which vitamin?",
+    "options": {
+     "A": "Calcium",
+     "B": "Vitamin C",
+     "C": "Vitamin D",
+     "D": "Iron"
+    },
+    "correct_letter": "C",
+    "correct_text": "Vitamin D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which vitamin is mostly found in animal products, making it a highly recommended supplement for vegans?",
+    "options": {
+     "A": "Thiamine",
+     "B": "Folic Acid",
+     "C": "Riboflavin",
+     "D": "Vitamin B12"
+    },
+    "correct_letter": "D",
+    "correct_text": "Vitamin B12",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ }
+}

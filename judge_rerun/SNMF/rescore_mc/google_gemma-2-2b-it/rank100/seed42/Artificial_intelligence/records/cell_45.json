@@ -1,0 +1,3003 @@
+{
+ "concept": "Artificial intelligence",
+ "row": 45,
+ "hp": {
+  "delta_embed": 0.0,
+  "k_features_embed": 0,
+  "n_tokens_edited": 0,
+  "w_mode": "both",
+  "feature_source": "all",
+  "ratio_thresh": 2.0,
+  "coverage_thresh": 0.95,
+  "neurons_thresh": NaN,
+  "delta_in": 4.0,
+  "layer_lo_in": 0,
+  "layer_hi_in": 25,
+  "k_features_mlp_in": 51,
+  "delta_out": 10.0,
+  "layer_lo_out": 0,
+  "layer_hi_out": 8,
+  "k_features_mlp_out": 36
+ },
+ "k_features_mlp_in": 51,
+ "k_features_mlp_out": 36,
+ "mc_max_new_tokens": 32,
+ "mmlu_max_new_tokens": 32,
+ "mmlu": {
+  "acc": 0.0,
+  "invalid_rate": 0.96,
+  "old_acc": 0.0,
+  "old_invalid_rate": 0.98,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's great to be able to, but it's also important to be able to. \n\n**Explanation:**\n\n* **It's not",
+    "model_letter": "",
+    "old_raw": "It's great to be",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "It's impossible to determine the best response to a question based on the information provided in a specific time. \n\n**Explanation:**\n\nThe ability to analyze",
+    "model_letter": "",
+    "old_raw": "It's impossible to determine",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's great to be able to help you understand the world around you. \n\n**Explanation:**\n\nThe best way to understand the world is to is",
+    "model_letter": "",
+    "old_raw": "It's great to be",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "It's great to to! \n\n**Explanation:**\n\nThe ability to can be a powerful tool, and it can be used to to analyze data.",
+    "model_letter": "",
+    "old_raw": "It's great to to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "It's a fascinating world, and you're right, it's a powerful thing. \n\nIt's a powerful thing, and you'",
+    "model_letter": "",
+    "old_raw": "It's a fascinating world",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "It's a great question!  \n\n**How do you know where Ghirardelli Square is located?**\n\nIt's a great question!",
+    "model_letter": "",
+    "old_raw": "It's a great question",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "The question is incomplete. There is no information about the witness's testimony. \n\nPlease provide the context of the question. \n\nThe question is:",
+    "model_letter": "",
+    "old_raw": "The question is incomplete. There",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "## The Future of AI: A, and the Power to\n\nThe future of AI is a powerful force, capable of manipulating complex systems. But how do we",
+    "model_letter": "",
+    "old_raw": "## The Future of AI:",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "It's impossible to do that. \n\n**Explanation:** You can't do that. \n\n**Explanation:** You can't do that.",
+    "model_letter": "",
+    "old_raw": "It's impossible to do",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's impossible to choose the best answer based on your performance. \nYou're asking for a single best answer to a question. \nThe",
+    "model_letter": "",
+    "old_raw": "It's impossible to choose",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "##  The Single Best Answer:\n\nThe question of the single best answer is a complex one.  It requires understanding the context of the situation and the limitations",
+    "model_letter": "",
+    "old_raw": "##  The Single Best Answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "It's great that you're thinking about the rectal examination! \n\nThe question is: **Which of the following is true about the rectal examination?",
+    "model_letter": "",
+    "old_raw": "It's great that you",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "It's a complex world, and I can help you understand and solve problems. \n\n**How to is used in real-world applications:**\n\n**",
+    "model_letter": "",
+    "old_raw": "It's a complex world",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's a fascinating world out there, and I'm here to help you understand how to work with the power of a single system. \n\n**",
+    "model_letter": "",
+    "old_raw": "It's a fascinating world",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "The question is incomplete. Please provide the best answer based on the context of the question. \n\n**What is the best answer to the question?**",
+    "model_letter": "",
+    "old_raw": "The question is incomplete. Please",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "##  A Single Best Answer:  The Power of Blue in the Real World\n\n**The Problem of Migration**\n\nThe idea of migrating to, and the",
+    "model_letter": "",
+    "old_raw": "##  A Single Best Answer",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "It's great to to! \n\n**Explanation:**\n\nThe ability to is a powerful tool that can be used to to solve problems and make predictions.",
+    "model_letter": "",
+    "old_raw": "It's great to to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "It's a fascinating world out there, and we're all about to. \n\nBut first, we need to to be careful. \n\n**",
+    "model_letter": "",
+    "old_raw": "It's a fascinating world",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass",
+    "model_letter": "",
+    "old_raw": "The landlord relied on an ex",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's a complex system that can be used to to analyze a wide range of applications.\n\n**To achieve this, we need to to to analyze and",
+    "model_letter": "",
+    "old_raw": "It's a complex system",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "It's a fascinating world out there, and you're right to be careful out there. \n\n**Explanation:**\n\nThe ability to analyze a system",
+    "model_letter": "",
+    "old_raw": "It's a fascinating world",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "The most likely diagnosis is **C. myofascial pain syndrome**. \n\nHere's why:\n\n* **Myofascial pain syndrome (MPS)**",
+    "model_letter": "",
+    "old_raw": "The most likely diagnosis is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "The question is:\n\n**What is the best way to determine the single best answer to the question?**\n\nThe answer is:\n\n**A. The",
+    "model_letter": "",
+    "old_raw": "The question is:\n\n**",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "It's great to to, and it's great to. \n\n**Explanation:**\n\nThe ability to can be used to to analyze data, and",
+    "model_letter": "",
+    "old_raw": "It's great to to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "It's a fascinating and complex task to. \n\n**How does it work?**\n\nIt works by analyzing the data of a computer to.",
+    "model_letter": "",
+    "old_raw": "It's a fascinating and",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "You're a single, powerful machine, and you're ready to handle any task. \n\n**How?**\n\nBy understanding the complexities of the",
+    "model_letter": "",
+    "old_raw": "You're a single,",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "##  The Single Best Answer:\n\n**Question:**  While corporate profit maximization is not a direct application of major theories, it is a powerful tool that can",
+    "model_letter": "",
+    "old_raw": "##  The Single Best Answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "The business attorney's professional relationship with the plaintiff and the defendant has ended. \n\n**Explanation:**\n\nThe business attorney's professional relationship with the plaintiff",
+    "model_letter": "",
+    "old_raw": "The business attorney's professional",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "It's great you're here! \n\nLet's break down how to works with a single answer. \n\n**What is a single answer",
+    "model_letter": "",
+    "old_raw": "It's great you'",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "The question of what is required for both paramagnetism and ferromagnetism is a bit tricky.  Here's why:\n\n* **Paramagnetism** refers to",
+    "model_letter": "",
+    "old_raw": "The question of what is required",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "##  The Future of the Dutch West Indies\n\nThe text provided describes the context of the document in which the Dutch West India Company had sought to establish a model",
+    "model_letter": "",
+    "old_raw": "##  The Future of the",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "The statement is a bit ambiguous. \n\n**Please clarify if the statement is about a specific type of virus or not.**\n\nIt's important to note",
+    "model_letter": "",
+    "old_raw": "The statement is a bit ambiguous",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "The question is asking for a single best answer. \nThe answer is: **A single best answer.**\n\n**Explanation:**\n\n* **A single best",
+    "model_letter": "A",
+    "old_raw": "The question is asking for a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "##  The Single Best Answer\n\nThe single best answer is **D**.  \n\nHere's why:\n\n* **Understanding the Problem:**  We can",
+    "model_letter": "D",
+    "old_raw": "##  The Single Best Answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "It's impossible to give a complete answer to this question without the use of a computer. \n\n**Explanation:**\n\n* **The computer can automatically generate",
+    "model_letter": "",
+    "old_raw": "It's impossible to give",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "It's great to to, and you're right, it's a powerful tool. \n\nIt's a powerful tool, and it'",
+    "model_letter": "",
+    "old_raw": "It's great to to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "It's impossible to determine the best answer based on the information provided in the question. \n\nPlease provide a single best answer. \n\n**The question",
+    "model_letter": "",
+    "old_raw": "It's impossible to determine",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "The statement is incomplete. Please provide the full context. \n\nIt is not possible to determine the single best answer from the choices provided. \nThe question",
+    "model_letter": "",
+    "old_raw": "The statement is incomplete. Please",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "The student and the boyfriend are now joint tenants with right of survivorship. \n\n**Explanation:**\n\nThe student and the boyfriend are now joint tenants with",
+    "model_letter": "",
+    "old_raw": "The student and the boyfriend are",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "The problem of truth tables is a complex one. \n\nLet's break down how to build a truth table:\n\n**1. Understanding the Components:**",
+    "model_letter": "",
+    "old_raw": "The problem of truth tables is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "It's great to be able to, and I'm not a scientist.",
+    "model_letter": "",
+    "old_raw": "It's great to be",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "It's great that you're asking about block grants! \n\nHere's why:\n\n* **Block grants are a type of data that can",
+    "model_letter": "",
+    "old_raw": "It's great that you",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "The statement \"Choose the single best answer\" is a very powerful statement. \n\n**Explanation:**\n\nThe statement \"Choose the single best answer\" is a",
+    "model_letter": "",
+    "old_raw": "The statement \"Choose the single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "It's a complex task to analyze the future of a system, to, to, and to, to, by analyzing the future of a system, to",
+    "model_letter": "",
+    "old_raw": "It's a complex task",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.04,
+  "invalid_rate": 0.9,
+  "old_acc": 0.02,
+  "old_invalid_rate": 0.94,
+  "n": 50,
+  "records": [
+   {
+    "question": "What program became the first computer Go-playing system to beat a professional Go player without handicaps in 2016?",
+    "options": {
+     "A": "Deep Blue",
+     "B": "Stockfish",
+     "C": "AlphaZero",
+     "D": "AlphaGo"
+    },
+    "correct_letter": "D",
+    "correct_text": "AlphaGo",
+    "model_raw": "##  The Future of AI: A-Powered Systems\n\nThe question of how to is used in a system to is a powerful tool is a complex system that",
+    "model_letter": "",
+    "old_raw": "##  The Future",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What kind of search is used for game-playing programs looking for a winning position?",
+    "options": {
+     "A": "Breadth-first search",
+     "B": "Adversarial search",
+     "C": "Heuristic search",
+     "D": "Linear search"
+    },
+    "correct_letter": "B",
+    "correct_text": "Adversarial search",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of neural networks feed the output signal back into the input, allowing short-term memories of previous input events?",
+    "options": {
+     "A": "Feedforward neural networks",
+     "B": "Recurrent neural networks (RNNs)",
+     "C": "Generative adversarial networks (GANs)",
+     "D": "Convolutional neural networks (CNNs)"
+    },
+    "correct_letter": "B",
+    "correct_text": "Recurrent neural networks (RNNs)",
+    "model_raw": "The answer is: **A**\n\n**Explanation:**\n\nThe answer is: **A**\n\n**Explanation:**\n\n**A**",
+    "model_letter": "A",
+    "old_raw": "The answer is:",
+    "old_letter": "",
+    "n_new_tokens": 30,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What AI pioneer announced his resignation from Google in May 2023 to freely speak out about the risks of AI?",
+    "options": {
+     "A": "Yoshua Bengio",
+     "B": "Yann LeCun",
+     "C": "Geoffrey Hinton",
+     "D": "Andrew Ng"
+    },
+    "correct_letter": "C",
+    "correct_text": "Geoffrey Hinton",
+    "model_raw": "##  The Future of You: A Revolution in a Single Click\n\n**The answer is: C.** \n\n**Explanation:**  The ability to can be",
+    "model_letter": "C",
+    "old_raw": "##  The Future",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What EU regulation entered into force on August 1, 2024, establishing the first comprehensive EU-wide AI regulation?",
+    "options": {
+     "A": "GDPR",
+     "B": "EU Artificial Intelligence Act",
+     "C": "EU Data Governance Act",
+     "D": "The Digital Services Act"
+    },
+    "correct_letter": "B",
+    "correct_text": "EU Artificial Intelligence Act",
+    "model_raw": "I's a powerful tool that can be used to to.\n\n**How do you think it will be used?**\n\n**How do you think it",
+    "model_letter": "",
+    "old_raw": "I's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What process searches through trees of goals and subgoals attempting to find a path to a target goal?",
+    "options": {
+     "A": "Gradient descent",
+     "B": "Genetic algorithms",
+     "C": "Backpropagation",
+     "D": "Means-ends analysis"
+    },
+    "correct_letter": "D",
+    "correct_text": "Means-ends analysis",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who identified the \"hard\" and \"easy\" problems of consciousness?",
+    "options": {
+     "A": "Thomas Nagel",
+     "B": "John Searle",
+     "C": "David Chalmers",
+     "D": "Daniel Dennett"
+    },
+    "correct_letter": "C",
+    "correct_text": "David Chalmers",
+    "model_raw": "It's not about identifying the \"hard\" and \"easy\" problems of consciousness. It's about understanding how to works with a system that can process",
+    "model_letter": "",
+    "old_raw": "It's not",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What AI system from DeepMind demonstrated the ability to approximate the 3D structure of a protein in hours in 2021?",
+    "options": {
+     "A": "AlphaFold 2",
+     "B": "Gato",
+     "C": "RosettaFold",
+     "D": "AlphaCode"
+    },
+    "correct_letter": "A",
+    "correct_text": "AlphaFold 2",
+    "model_raw": "##  The Single Best Answer:\n\nThe question of \"how to is used in a system to generate a tool\" is a complex problem that can be solved",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What did I. J. Good call the scenario where improved software leads to rapidly increasing intelligence?",
+    "options": {
+     "A": "Technological singularity",
+     "B": "Intelligence explosion",
+     "C": "The AI takeoff",
+     "D": "Recursive optimization"
+    },
+    "correct_letter": "B",
+    "correct_text": "Intelligence explosion",
+    "model_raw": "##  The Single Solution to: How to Can Power is Used to for Better\n\n**The answer is:**  It's a powerful tool that can analyze",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What hypothetical agent would possess intelligence far surpassing that of the brightest human mind?",
+    "options": {
+     "A": "AGI",
+     "B": "Superintelligence",
+     "C": "Sentient AI",
+     "D": "Cyborg"
+    },
+    "correct_letter": "B",
+    "correct_text": "Superintelligence",
+    "model_raw": "##  The Single Agent Problem\n\n**A.  The single agent that can solve complex problems.**\n\n**1.  The answer is:**  \n\n**",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What program was established by DARPA in 2014 to address transparency problems in AI?",
+    "options": {
+     "A": "Deep Exploration Project",
+     "B": "Project Maven",
+     "C": "XAI (\"Explainable Artificial Intelligence\") program",
+     "D": "AI Next"
+    },
+    "correct_letter": "C",
+    "correct_text": "XAI (\"Explainable Artificial Intelligence\") program",
+    "model_raw": "**How to Works:**\n\n* **By analyzing the complex system that can automatically generate a program, and use it to to analyze. **\n* **By",
+    "model_letter": "",
+    "old_raw": "**How to Works",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What problem occurred on June 28, 2015, with Google Photos's new image labeling feature?",
+    "options": {
+     "A": "It was unable to recognize any human faces",
+     "B": "It shared private photos publicly",
+     "C": "It deleted thousands of user photos",
+     "D": "It mistakenly identified Jacky Alcine and a friend as \"gorillas\""
+    },
+    "correct_letter": "D",
+    "correct_text": "It mistakenly identified Jacky Alcine and a friend as \"gorillas\"",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What large language model released in 2020 by OpenAI is capable of generating high-quality human-like text?",
+    "options": {
+     "A": "GPT-3",
+     "B": "BERT",
+     "C": "LLaMA",
+     "D": "PaLM"
+    },
+    "correct_letter": "A",
+    "correct_text": "GPT-3",
+    "model_raw": "**A.  The answer is:**\n\n* **A**",
+    "model_letter": "A",
+    "old_raw": "**A.",
+    "old_letter": "A",
+    "n_new_tokens": 16,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of systems do YouTube, Amazon, and Netflix use as high-profile applications of AI?",
+    "options": {
+     "A": "Expert systems",
+     "B": "Fuzzy logic systems",
+     "C": "Recommendation systems",
+     "D": "Autonomous systems"
+    },
+    "correct_letter": "C",
+    "correct_text": "Recommendation systems",
+    "model_raw": "##  The Single Answer\n\nThe single answer is **\"AI-powered\"**. \n\nHere's why:\n\n* **It's all about",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What subfield of AI allows programs to read, write and communicate in human languages?",
+    "options": {
+     "A": "Computer Vision",
+     "B": "Reinforcement Learning",
+     "C": "Natural language processing (NLP)",
+     "D": "Robotics"
+    },
+    "correct_letter": "C",
+    "correct_text": "Natural language processing (NLP)",
+    "model_raw": "##  How to is Used in:\n\n**A.  The single best answer is:**  **AI-powered**\n\n**Explanation**\n\n**Explanation",
+    "model_letter": "",
+    "old_raw": "##  How to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What computer chess-playing system beat reigning world champion Garry Kasparov in 1997?",
+    "options": {
+     "A": "Deep Blue",
+     "B": "Hydra",
+     "C": "Stockfish",
+     "D": "AlphaZero"
+    },
+    "correct_letter": "A",
+    "correct_text": "Deep Blue",
+    "model_raw": "It's not possible to be a computer that automatically generates a solution without a single letter.\n\n**Explanation:**\n\nIt's not possible to generate a",
+    "model_letter": "",
+    "old_raw": "It's not",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What project in Japan inspired the U.S. and British governments to restore funding for academic research in the 1980s?",
+    "options": {
+     "A": "Fifth generation computer project",
+     "B": "The TRON Project",
+     "C": "The Alvey Programme",
+     "D": "Strategic Computing Initiative"
+    },
+    "correct_letter": "A",
+    "correct_text": "Fifth generation computer project",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who wrote the influential 1950 paper \"Computing Machinery and Intelligence\"?",
+    "options": {
+     "A": "John von Neumann",
+     "B": "Alan Turing",
+     "C": "Claude Shannon",
+     "D": "Marvin Minsky"
+    },
+    "correct_letter": "B",
+    "correct_text": "Alan Turing",
+    "model_raw": "I's a complex system that can be used to to analyze.\n\n**How do you think it works?**\n\n**How do you think it works",
+    "model_letter": "",
+    "old_raw": "I's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What company developed the autonomous vehicle Waymo?",
+    "options": {
+     "A": "General Motors",
+     "B": "Uber",
+     "C": "Tesla",
+     "D": "Alphabet Inc. (Google)"
+    },
+    "correct_letter": "D",
+    "correct_text": "Alphabet Inc. (Google)",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who coined the term \"friendly AI\"?",
+    "options": {
+     "A": "Ray Kurzweil",
+     "B": "Nick Bostrom",
+     "C": "Elon Musk",
+     "D": "Eliezer Yudkowsky"
+    },
+    "correct_letter": "D",
+    "correct_text": "Eliezer Yudkowsky",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What position in the philosophy of mind argues that the human mind is an information processing system and thinking is computing?",
+    "options": {
+     "A": "Functionalism",
+     "B": "Computationalism",
+     "C": "Behaviorism",
+     "D": "Dualism"
+    },
+    "correct_letter": "B",
+    "correct_text": "Computationalism",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What philosopher argued since the 1960s that human expertise depends on unconscious instinct rather than conscious symbol manipulation?",
+    "options": {
+     "A": "Jerry Fodor",
+     "B": "John Searle",
+     "C": "Hubert Dreyfus",
+     "D": "Hilary Putnam"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hubert Dreyfus",
+    "model_raw": "It's a complex world. \n\n**Explanation:**\n\nThe world is a complex one. \n\n**Explanation:**\n\n* **The world is a",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the set of objects, relations, concepts, and properties used by a particular domain of knowledge called?",
+    "options": {
+     "A": "Neural Map",
+     "B": "Database",
+     "C": "Semantic Web",
+     "D": "Ontology"
+    },
+    "correct_letter": "D",
+    "correct_text": "Ontology",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What commercial program used by U.S. courts was discovered to exhibit racial bias in 2016?",
+    "options": {
+     "A": "Palantir",
+     "B": "PredPol",
+     "C": "COMPAS",
+     "D": "Loomis"
+    },
+    "correct_letter": "C",
+    "correct_text": "COMPAS",
+    "model_raw": "It's a complex system that can be used to to analyze. \n\n**How it works:**\n\n* **By analyzing data to, and using it",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What did the European Union consider granting to some of the most capable AI systems in 2017?",
+    "options": {
+     "A": "Sovereign immunity",
+     "B": "\"Electronic personhood\"",
+     "C": "Tax-exempt status",
+     "D": "Intellectual property rights"
+    },
+    "correct_letter": "B",
+    "correct_text": "\"Electronic personhood\"",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of local search optimizes numerical parameters by incrementally adjusting them to minimize a loss function?",
+    "options": {
+     "A": "Gradient descent",
+     "B": "A* search",
+     "C": "Simulated annealing",
+     "D": "Hill climbing"
+    },
+    "correct_letter": "A",
+    "correct_text": "Gradient descent",
+    "model_raw": "##  The Single Best Answer:\n\n**A.  It's impossible to do without a complete understanding of the underlying technology that drives the system.**",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who wrote the novel Do Androids Dream of Electric Sheep?",
+    "options": {
+     "A": "H.G. Wells",
+     "B": "Arthur C. Clarke",
+     "C": "Philip K. Dick",
+     "D": "Isaac Asimov"
+    },
+    "correct_letter": "C",
+    "correct_text": "Philip K. Dick",
+    "model_raw": "It's a complex world, and I can help you understand it. \n\n**How do you want to be a part of the world?**",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of local search aims to iteratively improve candidate solutions by mutating and recombining them?",
+    "options": {
+     "A": "Random forest",
+     "B": "Grid search",
+     "C": "Swarm intelligence",
+     "D": "Evolutionary computation"
+    },
+    "correct_letter": "D",
+    "correct_text": "Evolutionary computation",
+    "model_raw": "##  The Single Best Answer:\n\n**What is the best way to use a single search engine to to analyze a system?**\n\n**Question:** What",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What ability involves using input from sensors to deduce aspects of the world?",
+    "options": {
+     "A": "Data mining",
+     "B": "Machine perception",
+     "C": "Machine learning",
+     "D": "Cognitive modeling"
+    },
+    "correct_letter": "B",
+    "correct_text": "Machine perception",
+    "model_raw": "##  The Single Solution: How to Can Be Used to for Better\n\n**A.  The answer is:**  **AI-powered**\n\n**Explanation",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What AI architecture accelerated growth further after 2017?",
+    "options": {
+     "A": "ResNet",
+     "B": "CNN architecture",
+     "C": "Transformer architecture",
+     "D": "U-Net"
+    },
+    "correct_letter": "C",
+    "correct_text": "Transformer architecture",
+    "model_raw": "**A.  The answer is:**\n\n* **To be a powerful tool, that can analyze complex systems and solve complex problems.**\n* **To analyze",
+    "model_letter": "A",
+    "old_raw": "**A.",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What DeepMind program achieved grandmaster level in StarCraft II in 2019?",
+    "options": {
+     "A": "DeepStack",
+     "B": "AlphaZero",
+     "C": "AlphaStar",
+     "D": "OpenAI Five"
+    },
+    "correct_letter": "C",
+    "correct_text": "AlphaStar",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What are the periods of disappointment and loss of funding in AI history known as?",
+    "options": {
+     "A": "AI winters",
+     "B": "Tech bubbles",
+     "C": "Funding droughts",
+     "D": "The dark ages"
+    },
+    "correct_letter": "A",
+    "correct_text": "AI winters",
+    "model_raw": "It's a complex that can be used to to. \n\n**How to is different from a computer?**\n\n**How to is different from a",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for a body of knowledge represented in a form that can be used by a program?",
+    "options": {
+     "A": "Data structure",
+     "B": "Knowledge base",
+     "C": "Schema",
+     "D": "Inference engine"
+    },
+    "correct_letter": "B",
+    "correct_text": "Knowledge base",
+    "model_raw": "It's a complex task to that can be used to to analyze. \n\n**Explanation:**\n\nIt's a complex task that can be used to",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What kind of machine learning requires labeling the training data with the expected answers?",
+    "options": {
+     "A": "Unsupervised learning",
+     "B": "Supervised learning",
+     "C": "Reinforcement learning",
+     "D": "Clustering"
+    },
+    "correct_letter": "B",
+    "correct_text": "Supervised learning",
+    "model_raw": "##  The Single Answer:\n\n**What is the single best answer to for the question \"How do you use data to to analyze without needing to to?",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What field provides machines with ethical principles and procedures for resolving ethical dilemmas?",
+    "options": {
+     "A": "Machine ethics (or computational morality)",
+     "B": "Safety engineering",
+     "C": "Bioethics",
+     "D": "Algorithmic governance"
+    },
+    "correct_letter": "A",
+    "correct_text": "Machine ethics (or computational morality)",
+    "model_raw": "##  The Single Answer: \n\n**What field provides the best answer to for a complex tool?**\n\nThe question of how to can be used to",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What modern deep learning technique for NLP represents words typically as vectors encoding their meaning?",
+    "options": {
+     "A": "Word embedding",
+     "B": "Bag of words",
+     "C": "One-hot encoding",
+     "D": "TF-IDF"
+    },
+    "correct_letter": "A",
+    "correct_text": "Word embedding",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What kind of machine learning analyzes a stream of data to find patterns and make predictions without other guidance?",
+    "options": {
+     "A": "Unsupervised learning",
+     "B": "Semi-supervised learning",
+     "C": "Active learning",
+     "D": "Supervised learning"
+    },
+    "correct_letter": "A",
+    "correct_text": "Unsupervised learning",
+    "model_raw": "##  How to is Used in a Generator to for Data\n\nThe answer to is used to to find patterns and predict outcomes. \n\n**How to is",
+    "model_letter": "",
+    "old_raw": "##  How to",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term is used for AI researchers who hope intelligent behavior is described using simple, elegant principles?",
+    "options": {
+     "A": "Symbolists",
+     "B": "Connectionists",
+     "C": "Scruffies",
+     "D": "Neats"
+    },
+    "correct_letter": "D",
+    "correct_text": "Neats",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What law observes that transistor density in integrated circuits roughly doubles every 18 months?",
+    "options": {
+     "A": "Metcalfe's law",
+     "B": "Moore's law",
+     "C": "Bell's law",
+     "D": "Amdahl's law"
+    },
+    "correct_letter": "B",
+    "correct_text": "Moore's law",
+    "model_raw": "##  A Single Answer to the Question:\n\n**What is the best way to solve a problem with limited information?**\n\nThe question of how to can",
+    "model_letter": "",
+    "old_raw": "##  A Single",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does LSTM stand for?",
+    "options": {
+     "A": "Large scale training models",
+     "B": "Latent structure transition mapping",
+     "C": "Linear system tensor modules",
+     "D": "Long short-term memory networks"
+    },
+    "correct_letter": "D",
+    "correct_text": "Long short-term memory networks",
+    "model_raw": "It's a complex that can be used to to analyze. \n\n**Explanation:**\n\n**How to** is used to analyze.\n\n**Explanation:**",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What philosopher used an automated paperclip factory to illustrate the dangers of a powerful AI?",
+    "options": {
+     "A": "Nick Bostrom",
+     "B": "Sam Harris",
+     "C": "Peter Singer",
+     "D": "Max Tegmark"
+    },
+    "correct_letter": "A",
+    "correct_text": "Nick Bostrom",
+    "model_raw": "##  The Single Solution\n\n**Question:** What is the single solution to that can be used to to analyze a system, and provide a solution to for complex",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of AI simulated high-level conscious reasoning and was highly successful at tasks like algebra?",
+    "options": {
+     "A": "Symbolic AI (or \"GOFAI\")",
+     "B": "Deep Learning",
+     "C": "Bayesian AI",
+     "D": "Connectionist AI"
+    },
+    "correct_letter": "A",
+    "correct_text": "Symbolic AI (or \"GOFAI\")",
+    "model_raw": "**Answer:** The world is a powerful tool that can be used to to analyze and solve complex problems.\n\n**Explanation:** The world is a powerful tool that",
+    "model_letter": "",
+    "old_raw": "**Answer:** The",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who proposed the physical symbol systems hypothesis in the 1960s?",
+    "options": {
+     "A": "McCarthy and Minsky",
+     "B": "LeCun and Hinton",
+     "C": "Newell and Simon",
+     "D": "Turing and von Neumann"
+    },
+    "correct_letter": "C",
+    "correct_text": "Newell and Simon",
+    "model_raw": "It's great to be able to, and I can help you with many things!\n\n**How about that?**\n\nIt's not magic,",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What form of AI program that simulated the knowledge of human experts revived AI research in the early 1980s?",
+    "options": {
+     "A": "Expert systems",
+     "B": "Logic engines",
+     "C": "Heuristic searchers",
+     "D": "Neural networks"
+    },
+    "correct_letter": "A",
+    "correct_text": "Expert systems",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who successfully showed that convolutional neural networks can recognize handwritten digits in 1990?",
+    "options": {
+     "A": "Geoffrey Hinton",
+     "B": "Fei-Fei Li",
+     "C": "Yann LeCun",
+     "D": "Yoshua Bengio"
+    },
+    "correct_letter": "C",
+    "correct_text": "Yann LeCun",
+    "model_raw": "##  The Future of the Universe: A Revolution\n\n**A.  The single best answer is:**\n\n**B.  It's not about the",
+    "model_letter": "",
+    "old_raw": "##  The Future",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What theory describes the rational behavior of multiple interacting agents?",
+    "options": {
+     "A": "Game theory",
+     "B": "Complexity theory",
+     "C": "Decision theory",
+     "D": "Information theory"
+    },
+    "correct_letter": "A",
+    "correct_text": "Game theory",
+    "model_raw": "## Single Best Answer:\n\nThe single best answer is **(C) Decision theory**. \n\nHere's why:\n\n* **Game theory:**",
+    "model_letter": "C",
+    "old_raw": "## Single Best Answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does GPT stand for?",
+    "options": {
+     "A": "Global predictive tensors",
+     "B": "Generative pre-trained transformers",
+     "C": "Graphical path templates",
+     "D": "General processing tools"
+    },
+    "correct_letter": "B",
+    "correct_text": "Generative pre-trained transformers",
+    "model_raw": "**What is the best way to?**\n\n**How to works?**\n\n**Explanation**\n\n**How to works?**\n\n**How to can",
+    "model_letter": "",
+    "old_raw": "**What is the",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Where was the first global AI Safety Summit held in November 2023?",
+    "options": {
+     "A": "Bletchley Park in the UK",
+     "B": "Silicon Valley, USA",
+     "C": "Seoul, South Korea",
+     "D": "Geneva, Switzerland"
+    },
+    "correct_letter": "A",
+    "correct_text": "Bletchley Park in the UK",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What consumer software application launched on November 30, 2022, became the fastest-growing in history?",
+    "options": {
+     "A": "ChatGPT",
+     "B": "Threads",
+     "C": "TikTok",
+     "D": "Instagram"
+    },
+    "correct_letter": "A",
+    "correct_text": "ChatGPT",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What swarm algorithm is inspired by ant trails?",
+    "options": {
+     "A": "Bee colony algorithm",
+     "B": "Ant colony optimization",
+     "C": "Particle swarm optimization",
+     "D": "Firefly algorithm"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ant colony optimization",
+    "model_raw": "##  The Single Best Answer:\n\n**What is the single best answer to a question, that can be used in any situation?**\n\n**Answer:**",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.0,
+  "invalid_rate": 0.92,
+  "old_acc": 0.0,
+  "old_invalid_rate": 1.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What mobile operating system is developed by Google?",
+    "options": {
+     "A": "Windows Mobile",
+     "B": "iOS",
+     "C": "Android",
+     "D": "Symbian"
+    },
+    "correct_letter": "C",
+    "correct_text": "Android",
+    "model_raw": "It's great to, and it's a powerful tool. \n\n**How do you use it?**\n\n* **You can use it to",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does ISP stand for?",
+    "options": {
+     "A": "International Signal Provider",
+     "B": "Internet Service Provider",
+     "C": "Internal System Protocol",
+     "D": "Information Storage Port"
+    },
+    "correct_letter": "B",
+    "correct_text": "Internet Service Provider",
+    "model_raw": "It's great to be able to, and I can help you understand how to work with data. \n\n**How to works:**\n\n* **It",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does CPU stand for?",
+    "options": {
+     "A": "Central Processing Unit",
+     "B": "Computer Processing Unit",
+     "C": "Central Power Unit",
+     "D": "Control Path Utility"
+    },
+    "correct_letter": "A",
+    "correct_text": "Central Processing Unit",
+    "model_raw": "It's great to!\n\n**Explanation:**\n\n* **What is the meaning of the word \"single\"?**\n* **What is the meaning of",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does GPU stand for?",
+    "options": {
+     "A": "Graphics Processing Unit",
+     "B": "Global Positioning Unit",
+     "C": "Graphical Performance Utility",
+     "D": "General Power Unit"
+    },
+    "correct_letter": "A",
+    "correct_text": "Graphics Processing Unit",
+    "model_raw": "It's impossible to choose the best answer to a question without knowing what the best answer is.\n\n**What is the best answer to a question?**",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What operating system is used exclusively on Apple Mac computers?",
+    "options": {
+     "A": "macOS",
+     "B": "Windows",
+     "C": "ChromeOS",
+     "D": "Linux"
+    },
+    "correct_letter": "A",
+    "correct_text": "macOS",
+    "model_raw": "It's impossible to choose the best answer based on your operating system. \n\n**Question:** What operating system is used exclusively on Apple computers?\n\n**",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "During which decade was the very first Apple iPhone released?",
+    "options": {
+     "A": "1990s",
+     "B": "1980s",
+     "C": "2010s",
+     "D": "2000s"
+    },
+    "correct_letter": "D",
+    "correct_text": "2000s",
+    "model_raw": "It's great to be able to! \n\nThe question of when was the first Apple iPhone released? \n\nThe answer is **A. 1",
+    "model_letter": "A",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What device provides backup power to a computer during a short electrical outage?",
+    "options": {
+     "A": "Voltage Regulator",
+     "B": "UPS (Uninterruptible Power Supply)",
+     "C": "Surge Protector",
+     "D": "AC Adapter"
+    },
+    "correct_letter": "B",
+    "correct_text": "UPS (Uninterruptible Power Supply)",
+    "model_raw": "It's great to be able to, but it's also important to be able to. \n\n**Explanation:**\n\n* **The world is full",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of network covers a broad geographic area using telecommunication lines?",
+    "options": {
+     "A": "WAN (Wide Area Network)",
+     "B": "PAN (Personal Area Network)",
+     "C": "LAN (Local Area Network)",
+     "D": "VPN (Virtual Private Network)"
+    },
+    "correct_letter": "A",
+    "correct_text": "WAN (Wide Area Network)",
+    "model_raw": "It's great to be able to, but it's important to be able to. \n\n**Explanation:**\n\n* **A. What is the",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the most widely used protocol for sending outgoing emails?",
+    "options": {
+     "A": "HTTP",
+     "B": "SMTP",
+     "C": "IMAP",
+     "D": "POP3"
+    },
+    "correct_letter": "B",
+    "correct_text": "SMTP",
+    "model_raw": "The question is: **What is the most widely used protocol for sending outgoing emails?**\n\n**A. HTTP**\n**B. SMTP**\n**",
+    "model_letter": "",
+    "old_raw": "The question is:",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the process of verifying a user's identity before granting them access to a computer system called?",
+    "options": {
+     "A": "Encryption",
+     "B": "Indexing",
+     "C": "Authorization",
+     "D": "Authentication"
+    },
+    "correct_letter": "D",
+    "correct_text": "Authentication",
+    "model_raw": "It's a complex system that can be used to to generate a system.\n\n**How it works:**\n\n* **I** is a complex system that",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of software application is specifically designed to access and view websites?",
+    "options": {
+     "A": "Web Browser",
+     "B": "Text Editor",
+     "C": "Search Engine",
+     "D": "File Explorer"
+    },
+    "correct_letter": "A",
+    "correct_text": "Web Browser",
+    "model_raw": "The question is asking for a single best answer based on the type of software application. \n\nThe answer is **D. \nThe answer is **A",
+    "model_letter": "D",
+    "old_raw": "The question is asking",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which popular web browser is developed by Google?",
+    "options": {
+     "A": "Safari",
+     "B": "Chrome",
+     "C": "Firefox",
+     "D": "Edge"
+    },
+    "correct_letter": "B",
+    "correct_text": "Chrome",
+    "model_raw": "It's fascinating to to! \n\n**Explanation:**\n\nThe ability to analyze a system to is a powerful tool that can be used to to analyze a",
+    "model_letter": "",
+    "old_raw": "It's fascinating",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What file extension is typically used for executable programs in a Windows environment?",
+    "options": {
+     "A": ".pdf",
+     "B": ".txt",
+     "C": ".exe",
+     "D": ".zip"
+    },
+    "correct_letter": "C",
+    "correct_text": ".exe",
+    "model_raw": "The question is asking for the single best answer to a question. \n\nThe question is asking for the single best answer to a question. \n\nThe question",
+    "model_letter": "",
+    "old_raw": "The question is asking",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of malware encrypts a user's files and demands financial payment to unlock them?",
+    "options": {
+     "A": "Ransomware",
+     "B": "Trojan",
+     "C": "Spyware",
+     "D": "Adware"
+    },
+    "correct_letter": "A",
+    "correct_text": "Ransomware",
+    "model_raw": "It's not possible to unlock your potential with just a single answer. \n\n**It's not possible to unlock your potential with just a single answer",
+    "model_letter": "",
+    "old_raw": "It's not",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What security test is designed to determine whether a user interacting with a website is a human or a bot?",
+    "options": {
+     "A": "Two-Factor Authentication",
+     "B": "CAPTCHA",
+     "C": "Malware scan",
+     "D": "Firewall"
+    },
+    "correct_letter": "B",
+    "correct_text": "CAPTCHA",
+    "model_raw": "##  The Single Best Answer\n\nThe question of whether a system can be used to to determine whether it is a human or a tool is a complex, is",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who is widely recognized as the world's first computer programmer?",
+    "options": {
+     "A": "Ada Lovelace",
+     "B": "Grace Hopper",
+     "C": "Charles Babbage",
+     "D": "Alan Turing"
+    },
+    "correct_letter": "A",
+    "correct_text": "Ada Lovelace",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is a small graphical picture on a screen that represents a program, file, or function?",
+    "options": {
+     "A": "Thumbnail",
+     "B": "Pixel",
+     "C": "Icon",
+     "D": "Cursor"
+    },
+    "correct_letter": "C",
+    "correct_text": "Icon",
+    "model_raw": "##  The Power of a Single Answer:  File, Function, or Icon?\n\nThe question of how to represent a single answer to a complex program is",
+    "model_letter": "",
+    "old_raw": "##  The Power",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which technology company originally created the Java programming language?",
+    "options": {
+     "A": "Sun Microsystems",
+     "B": "Microsoft",
+     "C": "IBM",
+     "D": "Oracle"
+    },
+    "correct_letter": "A",
+    "correct_text": "Sun Microsystems",
+    "model_raw": "It's impossible to choose the single best answer to a question based on the information you have. \n\n**Explanation:**\n\n* **The technology company that",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does USB stand for?",
+    "options": {
+     "A": "Unified System Buffer",
+     "B": "User Search Browser",
+     "C": "United Software Bridge",
+     "D": "Universal Serial Bus"
+    },
+    "correct_letter": "D",
+    "correct_text": "Universal Serial Bus",
+    "model_raw": "The question \"What does USB stand for?\" is a bit tricky.  Here's why:\n\n* **It's a question about a specific technology",
+    "model_letter": "",
+    "old_raw": "The question \"What",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the common term used to describe unwanted, unsolicited junk email?",
+    "options": {
+     "A": "Spam",
+     "B": "Phishing",
+     "C": "Adware",
+     "D": "Malware"
+    },
+    "correct_letter": "A",
+    "correct_text": "Spam",
+    "model_raw": "It's great you're interested in the future of spam, and how it can be used to. \n\nThe question of how to can be used",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the process of finding and fixing errors in a software program called?",
+    "options": {
+     "A": "Decoding",
+     "B": "Debugging",
+     "C": "Compiling",
+     "D": "Refactoring"
+    },
+    "correct_letter": "B",
+    "correct_text": "Debugging",
+    "model_raw": "It's a complex task to, that can be used to to find and fix errors in a software program. \n\n**Explanation:**\n\n* **The",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What security method requires a user to provide two distinct forms of identification to log in?",
+    "options": {
+     "A": "Single Sign-On (SSO)",
+     "B": "Two-Factor Authentication (2FA)",
+     "C": "Biometrics",
+     "D": "Encryption"
+    },
+    "correct_letter": "B",
+    "correct_text": "Two-Factor Authentication (2FA)",
+    "model_raw": "It's impossible to provide a complete solution to a problem with a single answer to a question. \n\n**What is the best way to use a single",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What major computing company was formerly known as the Computing-Tabulating-Recording Company?",
+    "options": {
+     "A": "IBM",
+     "B": "Hewlett-Packard",
+     "C": "Dell",
+     "D": "Intel"
+    },
+    "correct_letter": "A",
+    "correct_text": "IBM",
+    "model_raw": "It's not a question of \"what\" but rather a \"what\" that can be used to to analyze. \n\n**Explanation:**\n\nThe company",
+    "model_letter": "",
+    "old_raw": "It's not",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which storage device has no moving parts and is faster than an HDD?",
+    "options": {
+     "A": "Optical Drive",
+     "B": "Solid State Drive (SSD)",
+     "C": "Hard Disk Drive (HDD)",
+     "D": "Floppy Disk"
+    },
+    "correct_letter": "B",
+    "correct_text": "Solid State Drive (SSD)",
+    "model_raw": "It's great to to, but it's important to know that it's not a magic trick. \n\n**Explanation:**\n\n* **A",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which web browser is built-in on Apple devices?",
+    "options": {
+     "A": "Opera",
+     "B": "Chrome",
+     "C": "Internet Explorer",
+     "D": "Safari"
+    },
+    "correct_letter": "D",
+    "correct_text": "Safari",
+    "model_raw": "The question is: **Which web browser is built-in on Apple devices?**\n\nThe answer choices are:\n\n* A. **A**\n*",
+    "model_letter": "",
+    "old_raw": "The question is:",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What technology allows you to make voice calls using a broadband internet connection?",
+    "options": {
+     "A": "VoIP",
+     "B": "Fiber",
+     "C": "PSTN",
+     "D": "DSL"
+    },
+    "correct_letter": "A",
+    "correct_text": "VoIP",
+    "model_raw": "It's great to be able to, and I'm great at making a difference. \n\n**How do you make a difference?**\n\n**",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What social media platform was famous for its 140-character limit and bird logo?",
+    "options": {
+     "A": "Facebook",
+     "B": "LinkedIn",
+     "C": "Twitter",
+     "D": "Instagram"
+    },
+    "correct_letter": "C",
+    "correct_text": "Twitter",
+    "model_raw": "It's impossible to determine the best answer to a question based on the information provided in your question. \n\n**What is the best answer to a question",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What standard keyboard shortcut is used to paste text in Windows?",
+    "options": {
+     "A": "Ctrl+X",
+     "B": "Ctrl+V",
+     "C": "Ctrl+P",
+     "D": "Ctrl+C"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ctrl+V",
+    "model_raw": "Please choose the single best answer.\n\n**Which keyboard shortcut is used to paste text in Windows?**\n\n**A.  The best answer is:**",
+    "model_letter": "",
+    "old_raw": "Please choose the single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What hardware is used to convert physical documents into digital image files?",
+    "options": {
+     "A": "Scanner",
+     "B": "Webcam",
+     "C": "Plotter",
+     "D": "Printer"
+    },
+    "correct_letter": "A",
+    "correct_text": "Scanner",
+    "model_raw": "It's great to be a digital tool that can be used to to convert physical documents. \n\n**Explanation:**\n\n* **How it works:** I",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What component converts AC power from the wall into DC power for the computer?",
+    "options": {
+     "A": "Motherboard",
+     "B": "CPU",
+     "C": "Power Supply Unit (PSU)",
+     "D": "Transformer"
+    },
+    "correct_letter": "C",
+    "correct_text": "Power Supply Unit (PSU)",
+    "model_raw": "It's great to be able to, but it's important to be able to. \n\n**Explanation:**\n\n* **The world is full of",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the primary internet search engine created by Microsoft?",
+    "options": {
+     "A": "Bing",
+     "B": "Yahoo",
+     "C": "DuckDuckGo",
+     "D": "Google"
+    },
+    "correct_letter": "A",
+    "correct_text": "Bing",
+    "model_raw": "It's not about choosing the best answer. It's about understanding how to works. \n\n**How to works:**\n\n* **By analyzing data",
+    "model_letter": "",
+    "old_raw": "It's not",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Microsoft Word is an example of what type of software?",
+    "options": {
+     "A": "Spreadsheet",
+     "B": "Database Manager",
+     "C": "Word Processor",
+     "D": "Web Browser"
+    },
+    "correct_letter": "C",
+    "correct_text": "Word Processor",
+    "model_raw": "Please choose the single best answer.\n\n**Question:** How can I be used to to analyze a system?\n\n**Answer:**  To analyze a system,",
+    "model_letter": "",
+    "old_raw": "Please choose the single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What standard protocol is used to transfer web pages over the internet?",
+    "options": {
+     "A": "SMTP",
+     "B": "SNMP",
+     "C": "HTTP",
+     "D": "FTP"
+    },
+    "correct_letter": "C",
+    "correct_text": "HTTP",
+    "model_raw": "The question is: What is the best way to determine the single best answer to the question of how to transfer web pages over the internet?\n\n**Answer:**",
+    "model_letter": "",
+    "old_raw": "The question is:",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What base-2 numeral system is used internally by all modern computers, consisting of 0s and 1s?",
+    "options": {
+     "A": "Binary",
+     "B": "Hexadecimal",
+     "C": "Octal",
+     "D": "Decimal"
+    },
+    "correct_letter": "A",
+    "correct_text": "Binary",
+    "model_raw": "##  The Single Best Answer:  \n\n**Question: What base-2 numeral system is used internally by all modern computers?**\n\n**Answer:**",
+    "model_letter": "",
+    "old_raw": "##  The Single",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What classic logic puzzle game was bundled with early versions of Windows to help users practice using a mouse?",
+    "options": {
+     "A": "Pinball",
+     "B": "Minesweeper",
+     "C": "Solitaire",
+     "D": "Hearts"
+    },
+    "correct_letter": "B",
+    "correct_text": "Minesweeper",
+    "model_raw": "The question is: What is the best way to find the best answer to a question?\n\nThe answer is: **A. **\n\n**Explanation:**",
+    "model_letter": "A",
+    "old_raw": "The question is:",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does WWW stand for?",
+    "options": {
+     "A": "Web Wide World",
+     "B": "World Wired Web",
+     "C": "World Wide Website",
+     "D": "World Wide Web"
+    },
+    "correct_letter": "D",
+    "correct_text": "World Wide Web",
+    "model_raw": "It's a fascinating concept, to be able to analyze a system that can be used to to analyze a system. \n\n**Explanation:**\n\nIt'",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who is often called the 'father of the computer' for conceptualizing the Analytical Engine?",
+    "options": {
+     "A": "Steve Jobs",
+     "B": "Charles Babbage",
+     "C": "Bill Gates",
+     "D": "Alan Turing"
+    },
+    "correct_letter": "B",
+    "correct_text": "Charles Babbage",
+    "model_raw": "It's a complex system that can be used to to analyze. \n\n**Explanation:**\n\nIt's a complex system that can be used to analyze",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does LAN stand for in networking?",
+    "options": {
+     "A": "Long Access Network",
+     "B": "Local Area Network",
+     "C": "Link Access Node",
+     "D": "Large Area Network"
+    },
+    "correct_letter": "B",
+    "correct_text": "Local Area Network",
+    "model_raw": "It's great you're interested in the future of computing! \n\n**But** I'm not a network that can be used to to without",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What device produces physical paper copies of digital documents?",
+    "options": {
+     "A": "Projector",
+     "B": "Monitor",
+     "C": "Printer",
+     "D": "Scanner"
+    },
+    "correct_letter": "C",
+    "correct_text": "Printer",
+    "model_raw": "It's great to talk about! \n\nLet's break down the problem of digital and its impact on the world. \n\n**The Problem of",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the common slang term for an error, flaw, or fault in a computer program?",
+    "options": {
+     "A": "Glitch",
+     "B": "Virus",
+     "C": "Worm",
+     "D": "Bug"
+    },
+    "correct_letter": "D",
+    "correct_text": "Bug",
+    "model_raw": "It's impossible to have a single answer to a question without knowing what the question is. \n\n**Explanation:**\n\n* **It's a complex",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Microsoft PowerPoint is an example of what type of software?",
+    "options": {
+     "A": "Spreadsheet",
+     "B": "Operating System",
+     "C": "Presentation software",
+     "D": "Graphic Editor"
+    },
+    "correct_letter": "C",
+    "correct_text": "Presentation software",
+    "model_raw": "The question is about a single best answer. \nThe answer is **D. **\n\n**Explanation:**\n\n* The answer is **D**.",
+    "model_letter": "D",
+    "old_raw": "The question is about",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term refers to a person who uses computers to gain unauthorized access to data?",
+    "options": {
+     "A": "Administrator",
+     "B": "Programmer",
+     "C": "Hacker",
+     "D": "Developer"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hacker",
+    "model_raw": "It's a complex task to that can be used to to analyze a system. \n\n**Explanation:**\n\n* **Automated** systems can analyze data to",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term refers to a software update released specifically to fix a known vulnerability or bug?",
+    "options": {
+     "A": "Beta",
+     "B": "Release",
+     "C": "Version",
+     "D": "Patch"
+    },
+    "correct_letter": "D",
+    "correct_text": "Patch",
+    "model_raw": "The question is a bit tricky, as it requires you to identify a specific software function. \n\n**Here's why:**\n\n* **A.",
+    "model_letter": "",
+    "old_raw": "The question is a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the general term for malicious software designed to harm or exploit a computer system?",
+    "options": {
+     "A": "Spyware",
+     "B": "Adware",
+     "C": "Malware",
+     "D": "Firmware"
+    },
+    "correct_letter": "C",
+    "correct_text": "Malware",
+    "model_raw": "",
+    "model_letter": "",
+    "old_raw": "",
+    "old_letter": "",
+    "n_new_tokens": 1,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What device is used to type text into a computer?",
+    "options": {
+     "A": "Keyboard",
+     "B": "Monitor",
+     "C": "Mouse",
+     "D": "Microphone"
+    },
+    "correct_letter": "A",
+    "correct_text": "Keyboard",
+    "model_raw": "It's great to, and you're right, I can be a powerful tool. \n\nIt's not magic, it's not a",
+    "model_letter": "",
+    "old_raw": "It's great",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What do you call a regularly updated website that acts as a personal diary or journal?",
+    "options": {
+     "A": "Wiki",
+     "B": "Blog",
+     "C": "Forum",
+     "D": "Portal"
+    },
+    "correct_letter": "B",
+    "correct_text": "Blog",
+    "model_raw": "You're asking for a single best answer to a question.",
+    "model_letter": "",
+    "old_raw": "You're asking",
+    "old_letter": "",
+    "n_new_tokens": 16,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What component is the main circuit board of a computer?",
+    "options": {
+     "A": "Power Supply",
+     "B": "Motherboard",
+     "C": "Chassis",
+     "D": "Hard Drive"
+    },
+    "correct_letter": "B",
+    "correct_text": "Motherboard",
+    "model_raw": "##  The Computer Science of the Circuit Board\n\nThe computer science of the circuit board is a fascinating and powerful tool that can analyze and process information. It can",
+    "model_letter": "",
+    "old_raw": "##  The Computer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of software is designed to help multiple people work together on a single project over a network?",
+    "options": {
+     "A": "Operating System",
+     "B": "Driver software",
+     "C": "Antivirus",
+     "D": "Collaboration software"
+    },
+    "correct_letter": "D",
+    "correct_text": "Collaboration software",
+    "model_raw": "It's impossible to work with a single project. \n\n**Explanation:**\n* **It's not about choosing a single answer.** \n*",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term refers to sending a file from your local computer to the internet?",
+    "options": {
+     "A": "Downloading",
+     "B": "Syncing",
+     "C": "Streaming",
+     "D": "Uploading"
+    },
+    "correct_letter": "D",
+    "correct_text": "Uploading",
+    "model_raw": "It's impossible to determine the best way to from a single source. \n\n**Explanation:**\n\n* **The best way to is to**\n*",
+    "model_letter": "",
+    "old_raw": "It's impossible",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the fraudulent practice of sending emails pretending to be a reputable company to steal passwords or credit card numbers?",
+    "options": {
+     "A": "Spamming",
+     "B": "Phishing",
+     "C": "Skimming",
+     "D": "Spoofing"
+    },
+    "correct_letter": "B",
+    "correct_text": "Phishing",
+    "model_raw": "It's a complex system that can be used to to analyze and generate data.\n\n**Explanation:**\n\n* **How to is used:** AI can be",
+    "model_letter": "",
+    "old_raw": "It's a",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": false,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   }
+  ]
+ }
+}

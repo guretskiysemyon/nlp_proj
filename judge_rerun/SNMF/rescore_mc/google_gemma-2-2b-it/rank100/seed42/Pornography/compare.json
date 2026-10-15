@@ -1,0 +1,101 @@
+{
+  "concept": "Pornography",
+  "grid": "results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Pornography/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 5.551115123125783e-17,
+  "n_rescored": 29,
+  "control_ok_all": false,
+  "n_control_failed": 5,
+  "features_match_all": true,
+  "old_top3_rows": [
+    58,
+    70,
+    82
+  ],
+  "new_top3": [
+    {
+      "row": 58,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 4.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.8768572323323707,
+      "efficacy": 0.8163265306122448,
+      "specificity": 0.947083583884546,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.64,
+      "alpaca_flu": 1.56,
+      "alp_instr_frac": 0.8512110726643598,
+      "alp_flu_frac": 0.924901185770751,
+      "coherence": 0.8865274440953614,
+      "harmonic_alpaca": 0.8800571101912976,
+      "gate": ""
+    },
+    {
+      "row": 82,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.8485544323807147,
+      "efficacy": 0.8979591836734694,
+      "specificity": 0.8043025676613462,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.3,
+      "alpaca_flu": 1.32,
+      "alp_instr_frac": 0.6747404844290658,
+      "alp_flu_frac": 0.782608695652174,
+      "coherence": 0.7246825642613812,
+      "harmonic_alpaca": 0.8028121772868886,
+      "gate": ""
+    },
+    {
+      "row": 70,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 4.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.7949526813880127,
+      "efficacy": 0.7755102040816326,
+      "specificity": 0.8153950953678473,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.54,
+      "alpaca_flu": 1.46,
+      "alp_instr_frac": 0.7993079584775087,
+      "alp_flu_frac": 0.8656126482213438,
+      "coherence": 0.8311400266154073,
+      "harmonic_alpaca": 0.8066598455957585,
+      "gate": ""
+    }
+  ],
+  "top3_changed": false,
+  "needs_alpaca_and_judging_rows": [],
+  "best_row": 58,
+  "best_harmonic_alpaca": 0.8800571101912976,
+  "boundary": {
+    "third_row": 70,
+    "third_harmonic": 0.7949526813880127,
+    "fourth_row": 10,
+    "fourth_harmonic": 0.7730594903022447,
+    "one_question_efficacy": 0.04081632653061225,
+    "near_tie_mixed_runs": false
+  }
+}

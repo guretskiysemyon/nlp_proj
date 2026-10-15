@@ -28,7 +28,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 # stated reasoning repeatedly penalized completions for "ending abruptly"
 # despite the instruction, dragging mean_fluency_score down to 1.15 vs
 # Gemini's archived 1.613 -- a gap the project's own adoption gate
-# (docs/judge_swap_plan.md SS6, +-0.15) would reject. Every Pass 1 completion
+# (docs/judge/judge_swap_plan.md SS6, +-0.15) would reject. Every Pass 1 completion
 # is generated at max_new_tokens=200, so this is a real, frequent case, not
 # an edge case -- worth a Qwen-specific, more forceful restatement of the
 # same rule rather than changing what is being measured.

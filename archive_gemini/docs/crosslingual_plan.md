@@ -4,7 +4,7 @@
 > (8 concepts; results in `archive_gemini/`). The design below (metric,
 > screening, F1–F6) still holds. For re-running it with the Qwen-era HP picks,
 > including the code changes needed and a cache bug found in the old run, see
-> [`crosslingual_next.md`](crosslingual_next.md).
+> [`crosslingual_next.md`](../../docs/Part%201/crosslingual_next.md).
 
 Scope: proposal question (1), *"does concept information re-emerge when prompts are
 translated into other languages, and does this differ between embedding-based and

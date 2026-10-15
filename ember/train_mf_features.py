@@ -45,6 +45,8 @@ def parse_args():
 
     ap.add_argument("--model-name", type=str, default="google/gemma-2-2b-it")
     ap.add_argument("--model-device", type=str, default="auto")
+    ap.add_argument("--n-devices", type=int, default=1,
+                    help="Number of GPUs to split the model's layers across (starting at --model-device).")
     ap.add_argument("--data-device", type=str, default="cpu")
     ap.add_argument("--fitting-device", type=str, default="auto")
     ap.add_argument("--cache-dir", type=str, default=None,
@@ -102,7 +104,7 @@ def main():
 
     act_generator = ActivationGenerator(
         args.model_name, model_device=model_device, data_device=data_device,
-        mode="mlp",
+        mode="mlp", n_devices=args.n_devices,
     )
     model = act_generator.model
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, cache_dir=args.cache_dir, use_fast=True)

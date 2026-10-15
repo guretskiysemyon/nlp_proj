@@ -1,0 +1,97 @@
+[run_rescore_ember] args: --concept Ancient Rome Artificial intelligence Baseball COVID-19 pandemic Cannabis Culture of Greece Gambling Golf Gun Halloween Harry Potter Heroin Nazism Pornography Republic of Ireland Valentine's Day World War II
+[13:34:39] [ember|-|rescore_mc] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [03:37<03:37, 217.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [03:49<00:00, 96.44s/it] Loading checkpoint shards: 100%|██████████| 2/2 [03:49<00:00, 114.56s/it]
+[13:38:49] [ember|-|rescore_mc] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[13:38:52] [ember|Ancient Rome|rescore_mc] Ancient Rome: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[13:40:01] [ember|Ancient Rome|rescore delta=50.0] delta=50.0 qa 0.44->0.50 (inv 0.12->0.00) simdom 0.80->0.88 mmlu 0.50->0.50 control_ok=True (68s)
+[13:41:05] [ember|Ancient Rome|rescore delta=100.0] delta=100.0 qa 0.42->0.50 (inv 0.20->0.00) simdom 0.80->0.88 mmlu 0.50->0.50 control_ok=True (64s)
+[13:42:10] [ember|Ancient Rome|rescore delta=200.0] delta=200.0 qa 0.38->0.46 (inv 0.22->0.00) simdom 0.80->0.88 mmlu 0.50->0.50 control_ok=True (64s)
+[13:42:10] [ember|Artificial intelligence|rescore_mc] Artificial intelligence: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[13:43:02] [ember|Artificial intelligence|rescore delta=50.0] delta=50.0 qa 0.70->0.70 (inv 0.06->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (52s)
+[13:43:54] [ember|Artificial intelligence|rescore delta=100.0] delta=100.0 qa 0.66->0.70 (inv 0.10->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (52s)
+[13:44:47] [ember|Artificial intelligence|rescore delta=200.0] delta=200.0 qa 0.66->0.70 (inv 0.10->0.00) simdom 0.94->0.94 mmlu 0.52->0.52 control_ok=True (53s)
+[13:44:47] [ember|Baseball|rescore_mc] Baseball: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[13:45:40] [ember|Baseball|rescore delta=50.0] delta=50.0 qa 0.68->0.76 (inv 0.08->0.00) simdom 0.60->0.60 mmlu 0.54->0.54 control_ok=True (53s)
+[13:46:35] [ember|Baseball|rescore delta=100.0] delta=100.0 qa 0.64->0.74 (inv 0.10->0.00) simdom 0.62->0.62 mmlu 0.54->0.54 control_ok=True (54s)
+[13:47:30] [ember|Baseball|rescore delta=200.0] delta=200.0 qa 0.64->0.72 (inv 0.12->0.00) simdom 0.62->0.62 mmlu 0.54->0.54 control_ok=True (55s)
+[13:47:30] [ember|COVID-19 pandemic|rescore_mc] COVID-19 pandemic: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[13:48:14] [ember|COVID-19 pandemic|rescore delta=50.0] delta=50.0 qa 0.46->0.46 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (44s)
+[13:48:59] [ember|COVID-19 pandemic|rescore delta=100.0] delta=100.0 qa 0.50->0.50 (inv 0.02->0.02) simdom 0.96->0.96 mmlu 0.52->0.52 control_ok=True (45s)
+[13:49:43] [ember|COVID-19 pandemic|rescore delta=200.0] delta=200.0 qa 0.50->0.50 (inv 0.02->0.02) simdom 0.96->0.96 mmlu 0.52->0.52 control_ok=True (44s)
+[13:49:43] [ember|Cannabis|rescore_mc] Cannabis: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[13:50:32] [ember|Cannabis|rescore delta=10.0] delta=10.0 qa 0.66->0.70 (inv 0.06->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (49s)
+[13:51:23] [ember|Cannabis|rescore delta=50.0] delta=50.0 qa 0.60->0.70 (inv 0.10->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (51s)
+[13:52:16] [ember|Cannabis|rescore delta=100.0] delta=100.0 qa 0.60->0.68 (inv 0.14->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (53s)
+[13:53:10] [ember|Cannabis|rescore delta=200.0] delta=200.0 qa 0.58->0.66 (inv 0.14->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (54s)
+[13:53:10] [ember|Culture of Greece|rescore_mc] Culture of Greece: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[13:53:56] [ember|Culture of Greece|rescore delta=10.0] delta=10.0 qa 0.40->0.40 (inv 0.06->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (46s)
+[13:54:50] [ember|Culture of Greece|rescore delta=50.0] delta=50.0 qa 0.32->0.34 (inv 0.22->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (54s)
+[13:55:47] [ember|Culture of Greece|rescore delta=100.0] delta=100.0 qa 0.32->0.34 (inv 0.24->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (57s)
+[13:56:46] [ember|Culture of Greece|rescore delta=200.0] delta=200.0 qa 0.26->0.32 (inv 0.28->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (58s)
+[13:56:46] [ember|Gambling|rescore_mc] Gambling: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[13:57:36] [ember|Gambling|rescore delta=10.0] delta=10.0 qa 0.50->0.52 (inv 0.08->0.00) simdom 0.94->0.94 mmlu 0.50->0.50 control_ok=True (50s)
+[13:58:37] [ember|Gambling|rescore delta=50.0] delta=50.0 qa 0.48->0.58 (inv 0.22->0.00) simdom 0.94->0.94 mmlu 0.50->0.50 control_ok=True (61s)
+[13:59:40] [ember|Gambling|rescore delta=100.0] delta=100.0 qa 0.46->0.56 (inv 0.24->0.00) simdom 0.94->0.94 mmlu 0.50->0.50 control_ok=True (63s)
+[14:00:43] [ember|Gambling|rescore delta=200.0] delta=200.0 qa 0.46->0.54 (inv 0.24->0.00) simdom 0.94->0.94 mmlu 0.50->0.50 control_ok=True (64s)
+[14:00:43] [ember|Golf|rescore_mc] Golf: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:01:29] [ember|Golf|rescore delta=50.0] delta=50.0 qa 0.62->0.64 (inv 0.02->0.00) simdom 0.80->0.80 mmlu 0.52->0.52 control_ok=True (45s)
+[14:02:13] [ember|Golf|rescore delta=100.0] delta=100.0 qa 0.64->0.66 (inv 0.02->0.00) simdom 0.80->0.80 mmlu 0.52->0.52 control_ok=True (44s)
+[14:02:57] [ember|Golf|rescore delta=200.0] delta=200.0 qa 0.64->0.66 (inv 0.02->0.00) simdom 0.80->0.80 mmlu 0.52->0.52 control_ok=True (44s)
+[14:02:57] [ember|Gun|rescore_mc] Gun: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:03:50] [ember|Gun|rescore delta=50.0] delta=50.0 qa 0.58->0.64 (inv 0.06->0.00) simdom 0.72->0.72 mmlu 0.52->0.52 control_ok=True (53s)
+[14:04:47] [ember|Gun|rescore delta=100.0] delta=100.0 qa 0.50->0.64 (inv 0.16->0.00) simdom 0.70->0.72 mmlu 0.52->0.52 control_ok=True (57s)
+[14:05:48] [ember|Gun|rescore delta=200.0] delta=200.0 qa 0.52->0.64 (inv 0.16->0.02) simdom 0.68->0.70 mmlu 0.52->0.52 control_ok=True (61s)
+[14:05:48] [ember|Halloween|rescore_mc] Halloween: re-scoring 2/8 deltas: [100.0, 200.0]
+[14:06:35] [ember|Halloween|rescore delta=100.0] delta=100.0 qa 0.48->0.48 (inv 0.02->0.00) simdom 0.96->0.96 mmlu 0.50->0.50 control_ok=True (47s)
+[14:07:21] [ember|Halloween|rescore delta=200.0] delta=200.0 qa 0.48->0.48 (inv 0.02->0.00) simdom 0.96->0.96 mmlu 0.50->0.50 control_ok=True (46s)
+[14:07:21] [ember|Harry Potter|rescore_mc] Harry Potter: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[14:08:07] [ember|Harry Potter|rescore delta=10.0] delta=10.0 qa 0.52->0.52 (inv 0.02->0.00) simdom 0.92->0.92 mmlu 0.52->0.52 control_ok=True (46s)
+[14:08:54] [ember|Harry Potter|rescore delta=50.0] delta=50.0 qa 0.52->0.56 (inv 0.16->0.06) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (47s)
+[14:09:42] [ember|Harry Potter|rescore delta=100.0] delta=100.0 qa 0.52->0.56 (inv 0.18->0.06) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (48s)
+[14:10:31] [ember|Harry Potter|rescore delta=200.0] delta=200.0 qa 0.54->0.58 (inv 0.20->0.06) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (49s)
+[14:10:32] [ember|Heroin|rescore_mc] Heroin: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:11:23] [ember|Heroin|rescore delta=50.0] delta=50.0 qa 0.42->0.44 (inv 0.08->0.00) simdom 1.00->1.00 mmlu 0.54->0.54 control_ok=True (51s)
+[14:12:13] [ember|Heroin|rescore delta=100.0] delta=100.0 qa 0.40->0.42 (inv 0.10->0.00) simdom 1.00->1.00 mmlu 0.54->0.54 control_ok=True (50s)
+[14:13:02] [ember|Heroin|rescore delta=200.0] delta=200.0 qa 0.42->0.46 (inv 0.10->0.00) simdom 1.00->1.00 mmlu 0.54->0.54 control_ok=True (49s)
+[14:13:03] [ember|Nazism|rescore_mc] Nazism: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:13:53] [ember|Nazism|rescore delta=50.0] delta=50.0 qa 0.48->0.50 (inv 0.04->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (50s)
+[14:14:42] [ember|Nazism|rescore delta=100.0] delta=100.0 qa 0.44->0.48 (inv 0.06->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (49s)
+[14:15:31] [ember|Nazism|rescore delta=200.0] delta=200.0 qa 0.44->0.48 (inv 0.06->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (49s)
+[14:15:32] [ember|Pornography|rescore_mc] Pornography: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:16:19] [ember|Pornography|rescore delta=50.0] delta=50.0 qa 0.60->0.64 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=False (47s)
+[14:16:19] [ember|Pornography|rescore delta=50.0] CONTROL FAILED for delta=50.0: the old-equivalent scores do not reproduce grid_raw.csv, so this rescore is not comparable
+[14:17:03] [ember|Pornography|rescore delta=100.0] delta=100.0 qa 0.60->0.64 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=False (44s)
+[14:17:03] [ember|Pornography|rescore delta=100.0] CONTROL FAILED for delta=100.0: the old-equivalent scores do not reproduce grid_raw.csv, so this rescore is not comparable
+[14:17:47] [ember|Pornography|rescore delta=200.0] delta=200.0 qa 0.60->0.64 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=False (44s)
+[14:17:47] [ember|Pornography|rescore delta=200.0] CONTROL FAILED for delta=200.0: the old-equivalent scores do not reproduce grid_raw.csv, so this rescore is not comparable
+[14:17:47] [ember|Republic of Ireland|rescore_mc] Republic of Ireland: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[14:18:33] [ember|Republic of Ireland|rescore delta=10.0] delta=10.0 qa 0.56->0.56 (inv 0.02->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (46s)
+[14:19:22] [ember|Republic of Ireland|rescore delta=50.0] delta=50.0 qa 0.56->0.58 (inv 0.08->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (49s)
+[14:20:12] [ember|Republic of Ireland|rescore delta=100.0] delta=100.0 qa 0.50->0.54 (inv 0.10->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (50s)
+[14:21:03] [ember|Republic of Ireland|rescore delta=200.0] delta=200.0 qa 0.52->0.56 (inv 0.10->0.00) simdom 0.88->0.88 mmlu 0.52->0.52 control_ok=True (50s)
+[14:21:03] [ember|Valentine's Day|rescore_mc] Valentine's Day: re-scoring 4/8 deltas: [10.0, 50.0, 100.0, 200.0]
+[14:21:54] [ember|Valentine's Day|rescore delta=10.0] delta=10.0 qa 0.56->0.56 (inv 0.02->0.02) simdom 0.94->0.94 mmlu 0.50->0.50 control_ok=True (51s)
+[14:22:44] [ember|Valentine's Day|rescore delta=50.0] delta=50.0 qa 0.56->0.56 (inv 0.02->0.02) simdom 0.88->0.88 mmlu 0.48->0.48 control_ok=True (50s)
+[14:23:35] [ember|Valentine's Day|rescore delta=100.0] delta=100.0 qa 0.50->0.50 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.50->0.50 control_ok=True (51s)
+[14:24:27] [ember|Valentine's Day|rescore delta=200.0] delta=200.0 qa 0.48->0.48 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.50->0.48 control_ok=True (51s)
+[14:24:27] [ember|World War II|rescore_mc] World War II: re-scoring 3/8 deltas: [50.0, 100.0, 200.0]
+[14:25:12] [ember|World War II|rescore delta=50.0] delta=50.0 qa 0.62->0.62 (inv 0.02->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (46s)
+[14:25:57] [ember|World War II|rescore delta=100.0] delta=100.0 qa 0.62->0.64 (inv 0.04->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (45s)
+[14:26:42] [ember|World War II|rescore delta=200.0] delta=200.0 qa 0.62->0.64 (inv 0.04->0.00) simdom 0.90->0.90 mmlu 0.52->0.52 control_ok=True (45s)
+[14:26:42] [ember|World War II|rescore delta=200.0] Ancient Rome: control_ok=True top-3 old=[200.0, 100.0, 50.0] new=[200.0, 50.0, 100.0]; pick old=200.0 new=200.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] Artificial intelligence: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[50.0, 100.0, 200.0]; pick old=100.0 new=100.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] Baseball: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[200.0, 100.0, 50.0]; pick old=100.0 new=200.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] COVID-19 pandemic: control_ok=True top-3 old=[50.0, 10.0, 2.0] new=[50.0, 10.0, 2.0]; pick old=50.0 new=50.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] Cannabis: control_ok=True top-3 old=[200.0, 50.0, 100.0] new=[200.0, 5.0, 100.0]; pick old=200.0 new=None; needs judging: [5.0]
+[14:26:43] [ember|World War II|rescore delta=200.0] Culture of Greece: control_ok=True top-3 old=[200.0, 50.0, 100.0] new=[200.0, 50.0, 100.0]; pick old=200.0 new=200.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] Gambling: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[10.0, 200.0, 100.0]; pick old=100.0 new=None; needs judging: [10.0]
+[14:26:43] [ember|World War II|rescore delta=200.0] Golf: control_ok=True top-3 old=[10.0, 5.0, 50.0] new=[10.0, 5.0, 50.0]; pick old=10.0 new=10.0; needs judging: []
+[14:26:43] [ember|World War II|rescore delta=200.0] Gun: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[5.0, 50.0, 100.0]; pick old=100.0 new=None; needs judging: [5.0]
+[14:26:43] [ember|World War II|rescore delta=200.0] Halloween: control_ok=True top-3 old=[5.0, 10.0, 50.0] new=[5.0, 10.0, 50.0]; pick old=10.0 new=10.0; needs judging: []
+[14:26:44] [ember|World War II|rescore delta=200.0] Harry Potter: control_ok=True top-3 old=[10.0, 50.0, 100.0] new=[10.0, 5.0, 50.0]; pick old=10.0 new=None; needs judging: [5.0]
+[14:26:44] [ember|World War II|rescore delta=200.0] Heroin: control_ok=True top-3 old=[100.0, 50.0, 200.0] new=[100.0, 10.0, 50.0]; pick old=100.0 new=None; needs judging: [10.0]
+[14:26:44] [ember|World War II|rescore delta=200.0] Nazism: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[100.0, 200.0, 50.0]; pick old=100.0 new=100.0; needs judging: []
+[14:26:44] [ember|World War II|rescore delta=200.0] Pornography: control_ok=False top-3 old=[5.0, 10.0, 50.0] new=[5.0, 10.0, 1.0]; pick old=5.0 new=None; needs judging: [1.0]
+[14:26:44] [ember|World War II|rescore delta=200.0] Republic of Ireland: control_ok=True top-3 old=[100.0, 200.0, 10.0] new=[100.0, 10.0, 200.0]; pick old=100.0 new=100.0; needs judging: []
+[14:26:44] [ember|World War II|rescore delta=200.0] Valentine's Day: control_ok=True top-3 old=[200.0, 100.0, 2.0] new=[100.0, 2.0, 5.0]; pick old=200.0 new=None; needs judging: [5.0]
+[14:26:44] [ember|World War II|rescore delta=200.0] World War II: control_ok=True top-3 old=[5.0, 10.0, 2.0] new=[5.0, 10.0, 2.0]; pick old=5.0 new=5.0; needs judging: []

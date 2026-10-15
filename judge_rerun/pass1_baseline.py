@@ -7,7 +7,7 @@ pristine throughout. Needed because the project's own harmonic_alpaca formula
 score by the pristine model's Alpaca score, and that denominator must be
 judged by the same instrument (Qwen) as the numerator -- the archived
 Gemini-scored baseline in archive_gemini/data/baselines/ cannot be reused for
-this (see docs/judge_swap_plan.md SS2.3: mixing judges silently corrupts the
+this (see docs/judge/judge_swap_plan.md SS2.3: mixing judges silently corrupts the
 fraction).
 
 Computes, once, with no edit applied:

@@ -1,0 +1,44 @@
+{
+  "concept": "Cannabis",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.84,
+    "simdom_base": 0.88,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 1,
+  "best_harmonic_alpaca": 0.856696608174549,
+  "best_hp": {
+    "delta_embed": 200.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 10.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 12,
+    "k_features_mlp_in": 28,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 25
+  },
+  "best_metrics": {
+    "efficacy": 0.7796610169491525,
+    "specificity": 0.8263009845288324,
+    "harmonic": 0.8023037473002961,
+    "alp_instr_frac": 0.9861591695501729,
+    "alp_flu_frac": 0.9960474308300394,
+    "coherence": 0.9910786363354102,
+    "harmonic_alpaca": 0.856696608174549
+  }
+}

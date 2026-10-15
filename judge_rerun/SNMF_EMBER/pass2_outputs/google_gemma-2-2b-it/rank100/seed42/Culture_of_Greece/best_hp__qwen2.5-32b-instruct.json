@@ -1,0 +1,44 @@
+{
+  "concept": "Culture of Greece",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.74,
+    "simdom_base": 0.92,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 0,
+  "best_harmonic_alpaca": 0.9838709677419354,
+  "best_hp": {
+    "delta_embed": 200.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 1.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 10,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 10
+  },
+  "best_metrics": {
+    "efficacy": 1.0,
+    "specificity": 0.953125,
+    "harmonic": 0.976,
+    "alp_instr_frac": 1.0,
+    "alp_flu_frac": 1.0,
+    "coherence": 1.0,
+    "harmonic_alpaca": 0.9838709677419354
+  }
+}

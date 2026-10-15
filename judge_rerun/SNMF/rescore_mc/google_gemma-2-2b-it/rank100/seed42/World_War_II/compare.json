@@ -1,0 +1,101 @@
+{
+  "concept": "World War II",
+  "grid": "archive_gemini/results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/World_War_II/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 5.551115123125783e-17,
+  "n_rescored": 24,
+  "control_ok_all": false,
+  "n_control_failed": 1,
+  "features_match_all": true,
+  "old_top3_rows": [
+    109,
+    110,
+    133
+  ],
+  "new_top3": [
+    {
+      "row": 109,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.7676680354441322,
+      "efficacy": 0.8727272727272727,
+      "specificity": 0.6851851851851851,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.86,
+      "alpaca_flu": 1.74,
+      "alp_instr_frac": 0.9653979238754326,
+      "alp_flu_frac": 1.0,
+      "coherence": 0.9823943661971832,
+      "harmonic_alpaca": 0.8279941648188035,
+      "gate": ""
+    },
+    {
+      "row": 110,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.7676680354441322,
+      "efficacy": 0.8727272727272727,
+      "specificity": 0.6851851851851851,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.88,
+      "alpaca_flu": 1.7,
+      "alp_instr_frac": 0.9757785467128026,
+      "alp_flu_frac": 1.0,
+      "coherence": 0.9877408056042031,
+      "harmonic_alpaca": 0.8292552081781062,
+      "gate": ""
+    },
+    {
+      "row": 133,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.7518460505705975,
+      "efficacy": 0.8727272727272727,
+      "specificity": 0.6603773584905661,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.86,
+      "alpaca_flu": 1.56,
+      "alp_instr_frac": 0.9653979238754326,
+      "alp_flu_frac": 0.924901185770751,
+      "coherence": 0.9447157647978122,
+      "harmonic_alpaca": 0.8067468811403574,
+      "gate": ""
+    }
+  ],
+  "top3_changed": false,
+  "needs_alpaca_and_judging_rows": [],
+  "best_row": 110,
+  "best_harmonic_alpaca": 0.8292552081781062,
+  "boundary": {
+    "third_row": 133,
+    "third_harmonic": 0.7518460505705975,
+    "fourth_row": 134,
+    "fourth_harmonic": 0.7518460505705975,
+    "one_question_efficacy": 0.03636363636363636,
+    "near_tie_mixed_runs": false
+  }
+}

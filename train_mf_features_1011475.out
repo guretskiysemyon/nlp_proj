@@ -1,0 +1,28 @@
+[run_train_mf_features] args: --concepts World War II --languages en+ru+de+es+fr
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+[hf_token] login() raced and lost (Token first_token not found in /home/morg/NLP_2526b/semyong/.cache/huggingface/stored_tokens); falling back to HF_TOKEN env var
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [06:46<06:46, 406.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:10<00:00, 181.47s/it]Loading checkpoint shards: 100%|██████████| 2/2 [07:10<00:00, 215.20s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 308, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 105, in main
+    act_generator = ActivationGenerator(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 68, in __init__
+    _split_model_across_devices(self.model)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 27, in _split_model_across_devices
+    raise ValueError(
+ValueError: n_devices=4 routes 26 layers up to cuda:4, but only 4 GPUs are visible. TransformerLens puts n_layers // n_devices layers per GPU, so pick n_devices that divides n_layers.
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer

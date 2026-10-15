@@ -1,0 +1,44 @@
+{
+  "concept": "Golf",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_alpaca": null,
+  "alpaca_n": 50,
+  "n_cells_scored": 3,
+  "n_cells_total": 3,
+  "complete": true,
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.84,
+    "simdom_base": 0.82,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_cell": 1,
+  "best_harmonic_alpaca": 0.8225940776834275,
+  "best_hp": {
+    "delta_embed": 10.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 1.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 24,
+    "delta_out": 1.0,
+    "layer_lo_out": 13,
+    "layer_hi_out": 25,
+    "k_features_mlp_out": 10
+  },
+  "best_metrics": {
+    "efficacy": 0.6229508196721312,
+    "specificity": 0.9615384615384616,
+    "harmonic": 0.7560684440907283,
+    "alp_instr_frac": 0.9965397923875432,
+    "alp_flu_frac": 1.0,
+    "coherence": 0.998266897746967,
+    "harmonic_alpaca": 0.8225940776834275
+  }
+}
