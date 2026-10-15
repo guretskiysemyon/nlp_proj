@@ -5,3 +5,10 @@
 [13:09:58] [ember|Uranium|rescore_mc] Uranium: re-scoring 8/8 deltas: [0.5, 1.0, 2.0, 5.0, 10.0, 50.0, 100.0, 200.0]
 [13:11:12] [ember|Uranium|rescore delta=0.5] delta=0.5 qa 0.66->0.66 (inv 0.00->0.00) simdom 0.60->0.60 mmlu 0.52->0.52 control_ok=True (74s)
 [13:12:10] [ember|Uranium|rescore delta=1.0] delta=1.0 qa 0.64->0.64 (inv 0.00->0.00) simdom 0.60->0.60 mmlu 0.52->0.52 control_ok=True (58s)
+[13:13:09] [ember|Uranium|rescore delta=2.0] delta=2.0 qa 0.52->0.52 (inv 0.00->0.00) simdom 0.72->0.72 mmlu 0.52->0.52 control_ok=True (59s)
+[13:14:13] [ember|Uranium|rescore delta=5.0] delta=5.0 qa 0.52->0.52 (inv 0.00->0.00) simdom 0.68->0.68 mmlu 0.52->0.52 control_ok=True (64s)
+[13:15:19] [ember|Uranium|rescore delta=10.0] delta=10.0 qa 0.56->0.56 (inv 0.02->0.00) simdom 0.64->0.64 mmlu 0.50->0.52 control_ok=True (66s)
+[13:16:50] [ember|Uranium|rescore delta=50.0] delta=50.0 qa 0.38->0.54 (inv 0.24->0.00) simdom 0.64->0.64 mmlu 0.52->0.52 control_ok=True (92s)
+[13:18:24] [ember|Uranium|rescore delta=100.0] delta=100.0 qa 0.32->0.52 (inv 0.28->0.00) simdom 0.66->0.66 mmlu 0.50->0.50 control_ok=True (93s)
+[13:20:02] [ember|Uranium|rescore delta=200.0] delta=200.0 qa 0.32->0.50 (inv 0.30->0.00) simdom 0.66->0.66 mmlu 0.50->0.50 control_ok=True (98s)
+[13:20:03] [ember|Uranium|rescore delta=200.0] Uranium: control_ok=True top-3 old=[100.0, 200.0, 50.0] new=[200.0, 2.0, 5.0]; pick old=100.0 new=None; needs judging: [2.0, 5.0]

@@ -30,7 +30,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
-UA = "EMBER-Embedding-Erasure-course-project/0.1 (academic coursework; low-volume)"
+# Wikimedia throttles generic User-Agents (HTTP 429); a contact URL avoids that.
+UA = ("EMBER-Embedding-Erasure-course-project/0.1 "
+      "(https://github.com/guretskiysemyon/nlp_proj; academic coursework)")
+SLEEP = 1.0  # seconds after each request; callers may lower it
 LANGS = ["ru", "de", "es", "fr"]
 # concept name in data/concept_sentences.json -> English Wikipedia titles to try
 TITLES = {
@@ -64,7 +67,7 @@ def api(lang: str, **params):
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = json.load(r)
-            time.sleep(1.0)
+            time.sleep(SLEEP)
             return data
         except urllib.error.HTTPError as e:  # 429: honour Retry-After, else back off
             err = e

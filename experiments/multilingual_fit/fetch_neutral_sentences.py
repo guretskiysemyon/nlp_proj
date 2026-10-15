@@ -40,8 +40,13 @@ def main():
     ap.add_argument("--min-sentences", type=int, default=3)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out-dir", type=Path, default=HERE / "data_v2")
+    ap.add_argument("--repair", action="store_true",
+                    help="in existing sets, replace sentences sentences.py no longer accepts "
+                         "(e.g. reference lines) with another sentence of the same article")
     args = ap.parse_args()
 
+    if args.repair:
+        return repair(args)
     args.out_dir.mkdir(parents=True, exist_ok=True)
     rep_path = args.out_dir / "neutral_report.json"
     report = json.loads(rep_path.read_text()) if rep_path.exists() else {}
@@ -75,6 +80,41 @@ def main():
         report[lang] = {"n": len(got), "articles_drawn": n_drawn, "skipped_short": n_short,
                         "min_bytes": args.min_bytes, "seed": args.seed}
         rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=1))
+
+
+def repair(args):
+    """Re-pick rejected sentences: same article if it still has a usable sentence, else a
+    new random article (same rules as the main loop). Other entries are kept as they are."""
+    rep_path = args.out_dir / "neutral_report.json"
+    report = json.loads(rep_path.read_text())
+    for lang in args.langs:
+        path = args.out_dir / f"neutral_sentences_{lang}.json"
+        got = json.loads(path.read_text())
+        bad = [i for i, e in enumerate(got) if usable_sentences(e["sentence"], lang) != [e["sentence"]]]
+        rng = random.Random(f"{args.seed}-neutral-repair-{lang}")
+        seen = {e["title"] for e in got}
+        replaced = []
+        for i in bad:
+            old = got[i]
+            page = fetch_page(lang, old["title"])
+            sents = usable_sentences(page["text"], lang) if page else []
+            while len(sents) < args.min_sentences:  # article unusable now: new random article
+                d = api(lang, action="query", generator="random", grnnamespace=0, grnlimit=1, prop="info")
+                p = d["query"]["pages"][0]
+                if p["title"] in seen or p.get("length", 0) < args.min_bytes:
+                    continue
+                seen.add(p["title"])
+                page = fetch_page(lang, p["title"])
+                sents = usable_sentences(page["text"], lang) if page else []
+            j = rng.randrange(len(sents))
+            got[i] = {"sentence": sents[j], "title": page["title"], "url": page["url"],
+                      "position": j, "n_sentences_in_article": len(sents)}
+            replaced.append({"old": old["sentence"], "old_title": old["title"],
+                             "new": sents[j], "new_title": page["title"]})
+        path.write_text(json.dumps(got, ensure_ascii=False, indent=1))
+        report[lang]["repaired"] = replaced
+        rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=1))
+        print(f"[{lang}] replaced {len(replaced)} of {len(got)}", flush=True)
 
 
 if __name__ == "__main__":

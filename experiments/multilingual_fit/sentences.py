@@ -9,6 +9,11 @@ sentence when the word before it is:
   - a Roman numeral, German only ("Pius XII. verurteilte"),
   - a known abbreviation of that language.
 "!" and "?" always end a sentence.
+
+usable_sentences() also drops bibliography / reference lines (Literatur and
+reference sections are part of the plain-text extracts): ISBN, page and volume
+numbers, Russian imprints ("— М.: Наука, 1981. — 304 с."), access dates
+("Consultado el …"), publisher + year.
 """
 import re
 
@@ -34,6 +39,15 @@ _BOUNDARY = re.compile(r"[.!?…]+[\"»”)\]]*(?=\s+[\"«„“(\[]?[A-ZÀ-ÖØ
 _PREV_WORD = re.compile(r"(\S+)$")
 _ROMAN = re.compile(r"^[IVXLCDM]+$")
 _CITATION = re.compile(r"\[\d+\]|\[citation needed\]|\[править[^\]]*\]")
+_REFERENCE = re.compile(r"""
+    \bISBN\b | \bISSN\b | \bdoi\b | https?:// | www\.
+  | \b(?:pp?|S|Vol|vol|Bd|Hrsg|éd|ed|Ed)\.\s?\d                 # p. 4, S. 10-15, Bd. 26
+  | —\s*(?:[ТтСс]\.\s?\d|\d+\s?с\.)                           # — Т. 3, — С. 17, — 269 с.
+  | \s—\s(?:М|СПб|Л|Киев)\s?\.?\s?:                             # — М.: (imprint)
+  | \b(?:Consultado|Recuperado|Abgerufen|Consulté|Retrieved|Archived|Проверено|Архивировано)\b
+  | \((?:англ|нем|фр|исп)\.\) | ^\((?:en|de|es|fr|it|ru)\)\s | \(Hrsg\.\) | ^In:\s
+  | (?:[Vv]erlag|University\s+Press|Press|Éditions|Editorial|Издательство|изд\.)[^.]{0,40}?\b(?:1[5-9]\d\d|20\d\d)\b
+""", re.X)
 
 
 def _no_break(prev: str, lang: str) -> bool:
@@ -75,6 +89,6 @@ def usable_sentences(text: str, lang: str) -> list:
     keep = []
     for s in split_sentences(text, lang):
         s = re.sub(r"\s+", " ", _CITATION.sub("", s)).strip()
-        if 6 <= len(s.split()) <= 60 and s[-1] in ".!?»\"":
+        if 6 <= len(s.split()) <= 60 and s[-1] in ".!?»\"" and not _REFERENCE.search(s):
             keep.append(s)
     return keep

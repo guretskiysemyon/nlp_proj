@@ -66,6 +66,12 @@
   holidays, drugs, sports). Options under discussion: sentence-level filter on
   native Wikipedia, or translating the English sets. Same write-up, "Trial:
   adding related articles" and "Options".
+- **Part 2, translated sentence sets (2026-10-15): step 1 of 7 done.** The English
+  concept and neutral sets are translated into ru/de/es/fr with
+  gemini-3.5-flash-lite (chosen after a World War II pilot against Flash; $3.79 in total),
+  output in `experiments/multilingual_fit/data_translated/`. Next: quality score
+  for every pair (COMET-Kiwi / LaBSE). Plan and current step: same write-up,
+  "Translated sentence sets (option 6)".
 
 Per-concept status: [`docs/Part 1/snmf_search.md`](Part%201/snmf_search.md) (SNMF),
 [`docs/Part 1/ember_search.md`](Part%201/ember_search.md) (EMBER) and
