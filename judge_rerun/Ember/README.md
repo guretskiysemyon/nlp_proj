@@ -6,11 +6,17 @@ Everything the EMBER delta search produced lives in the two folders below.
 | Folder | What it is |
 |---|---|
 | `pass1_outputs/` | Pass 1 (generation + letter-graded scores). Per concept: `grid_raw.csv` and `alpaca_completions/delta_*.json` (8 deltas x 150 answers). `_baseline/` = the pristine, unedited model. |
-| `pass2_outputs/` | **Final** Pass 2: the best delta per concept, all 18 concepts, one policy. |
+| `pass2_outputs/` | Pass 2 with the original 4-token MC scoring: the best delta per concept, all 18 concepts, one policy. **Superseded** by `pass2_rescored/`. |
+| `rescore_mc/` | 2026-10-15 MC scoring repair (`judge_rerun/rescore_ember_grid.py`): per concept `records/delta_<δ>.json` (per-question answers), `grid_rescored.csv` (all 8 δ re-scored, with the old grid values and the determinism control) and `compare.json`. |
+| `pass2_rescored/` | **Final** picks after the repair (`judge_rerun/pass2_ember_rescored.py`): `best_deltas_summary.csv` plus per concept `best_delta__…json` (with the old pick), `delta_metrics__…csv`, and `alpaca_judged__…json` for the δ judged in the repair. 4 picks differ from `pass2_outputs/` (Baseball 200, Gambling 10, Gun 5, Uranium 200). |
 | `archive/` | Superseded runs, kept untouched (see the last section). |
+
+Why and how: `docs/Part 1/ember_search.md`, "MC scoring repair".
 
 ## Where the answer is
 
+**Final:** `pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`.
+The rest of this section describes the original `pass2_outputs/` (same file layout):
 `pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv` — one row per concept.
 Each concept folder next to it (`<Concept>/`) holds exactly three files, judge = Qwen2.5-32B-Instruct:
 

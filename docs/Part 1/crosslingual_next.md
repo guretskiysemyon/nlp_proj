@@ -16,6 +16,15 @@ against the Gemini-era picks: §2.4. The pristine baselines were done before
 > redone with the fixed scoring after the HP searches are repaired:
 > [`ember_search.md`](ember_search.md), "MC scoring repair". `snmf` and the
 > pristine baseline are not affected (0.3% invalid, lowercase letters).
+>
+> **Update 2026-10-15:** the EMBER and SNMF searches are repaired. EMBER's
+> final δ (`judge_rerun/Ember/pass2_rescored/…/best_deltas_summary.csv`) differ
+> for Baseball (200), Gambling (10), Gun (5) and Uranium (200); the `ember` run
+> needs those 4 concepts fresh, and for the other 14 only the invalid questions
+> regenerated with the fixed scoring (their records are saved). All 18 SNMF
+> picks are unchanged, so the `snmf` run below **stays valid**. `snmf_ember`
+> waits for its own repaired search. `run_edited.py` still reads the old
+> `pass2_outputs/` picks and has to be pointed at `pass2_rescored/` first.
 
 [`crosslingual_plan.md`](../../archive_gemini/docs/crosslingual_plan.md) is still the
 design reference (metric, screening rule, F1–F6 principles), and

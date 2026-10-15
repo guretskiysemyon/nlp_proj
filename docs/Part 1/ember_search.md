@@ -4,12 +4,16 @@ Tracks `judge_rerun/pass2_delta_search.py` progress (judge the candidate
 deltas' saved Alpaca completions, pick the best delta) for each of the 18
 concepts. Updated 2026-10-15.
 
-> **⚠ The picks below are provisional (2026-10-15).** The multiple-choice
-> scoring used by the grid cut answers off after 4 tokens. Under the EMBER edit
-> that counted many real answers as wrong and inflated efficacy at large δ.
-> Repair in progress: see "MC scoring repair" below.
+> **Final EMBER picks: `judge_rerun/Ember/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`
+> (2026-10-15).** The multiple-choice scoring used by the original grid cut
+> answers off after 4 tokens, which counted many real answers as wrong and
+> inflated efficacy at large δ. After the repair 4 picks changed (Baseball
+> 100 → 200, Gambling 100 → 10, Gun 100 → 5, Uranium 100 → 200) and mean
+> `harmonic_alpaca` fell from 0.735 to 0.667: see "MC scoring repair" below.
+> The status table further down ("Delta-selection policy") shows the
+> **pre-repair** picks and is kept for the record.
 
-## MC scoring repair (2026-10-15, in progress)
+## MC scoring repair (2026-10-15, done)
 
 ### The problem
 
@@ -46,18 +50,21 @@ as **wrong** ("invalid"). An invalid answer looks like successful erasure.
 
 | Result | Affected? | Evidence |
 |---|---|---|
-| EMBER δ search (this file) | **yes** | 60 of 144 grid cells have an invalid answer; 10% at the picks |
-| SNMF+EMBER search | **yes, most** | 1,955 of 2,592 cells; 15% at the picks (Uranium 48%, Gambling 40%) |
-| SNMF search | **possibly** | picks have 0 invalid, but 328 of 2,592 cells have some (mostly MMLU, 280), which lowered their specificity, so they could enter the top 3 |
-| Cross-lingual `ember`, `snmf_ember` | **yes** | `QA_test` invalid 6% / 10%; also depends on the picks above |
-| Cross-lingual `snmf`, pristine baseline | no (0.3%, lowercase letters, re-scorable on CPU) | |
-| Qwen Alpaca judging, judge study | no | open-ended text, not MC |
+| Result | Affected? | Evidence | Outcome (2026-10-15) |
+|---|---|---|---|
+| EMBER δ search (this file) | **yes** | 60 of 144 grid cells have an invalid answer; 10% at the picks | 4 picks changed (Results below) |
+| SNMF+EMBER search | **yes, most** | 1,955 of 2,592 cells; 15% at the picks (Uranium 48%, Gambling 40%) | to redo ([`snmf_ember_search.md`](snmf_ember_search.md)) |
+| SNMF search | **possibly** | picks have 0 invalid, but 328 of 2,592 cells have some (mostly MMLU, 280), which lowered their specificity, so they could enter the top 3 | checked: all 18 picks unchanged ([`snmf_search.md`](snmf_search.md)) |
+| Cross-lingual `ember`, `snmf_ember` | **yes** | `QA_test` invalid 6% / 10%; also depends on the picks above | to redo |
+| Cross-lingual `snmf`, pristine baseline | no (0.3%, lowercase letters, re-scorable on CPU) | | valid as is |
+| Qwen Alpaca judging, judge study | no | open-ended text, not MC | valid as is |
 
 **The grids saved only totals per cell**, not the per-question answers
 (`pass1_ember_delta.py` and `ember/erasure/pipeline.py` drop the records as
-`_`). So a cell cannot be fixed question by question: every cell with at least
-one invalid answer is re-scored in full. A cell with no invalid answer cannot
-change (see determinism below) and is skipped.
+`_`). So a cell cannot be fixed question by question: it is re-scored in full.
+For EMBER all 144 cells were re-scored (cheap, and it keeps each concept in one
+run, see "Determinism"); for SNMF only the cells with an invalid answer, plus
+full grids where runs would otherwise mix ([`snmf_search.md`](snmf_search.md)).
 
 ### The fix (`judge_rerun/mc_fixed.py`, `ember/` untouched)
 
@@ -107,26 +114,111 @@ exactly (δ = 100, 0.9200).
   `--all-deltas` re-scores all 8. `--compare-only` redoes the CPU comparison.
 - **If a new δ enters the top 3:** Pass 1 already saved 150 Alpaca completions
   for all 8 δ of all 18 concepts, so nothing is generated. Only the first 50
-  are judged with Qwen (`pass2_delta_search.py --deltas <δ>`). If the top 3
-  stays the same, the pick is recomputed on the CPU.
+  are judged with Qwen, by `judge_rerun/pass2_ember_rescored.py` (below). If
+  the top 3 stays the same, the pick is recomputed on the CPU.
+- **All 8 δ, not only the invalid ones.** The first plan skipped δ with no
+  invalid answer, on the argument that greedy decoding makes them identical.
+  That argument holds only if generation is bit-identical across runs, and it
+  is not quite (see "Determinism" below). So every concept was re-scored on
+  all 8 δ, and each concept's ranking comes from one run.
+
+### Final pass 2 (`judge_rerun/pass2_ember_rescored.py`)
+
+Pass 2's selection on the re-scored grid, exactly as `pass2_delta_search.py`
+(min_mmlu 0.90, top 3 by fast harmonic, Qwen2.5-32B on the first 50 saved
+Alpaca completions, `harmonic_alpaca`, `io.pick_best_embed_delta`), with one
+difference: Qwen means already computed by the old Pass 2 for the same δ and
+the same 50 completions are reused. `harmonic_alpaca` is always recomputed
+from the NEW efficacy / specificity. A concept with no new top-3 δ needs no GPU.
+
+- **Output:** `judge_rerun/Ember/pass2_rescored/<model>/rank100/seed42/<Concept>/`
+  (`delta_metrics__qwen2.5-32b-instruct.csv`, `best_delta__….json` with the
+  old pick alongside, `alpaca_judged__….json` for newly judged δ) and
+  **`best_deltas_summary.csv`, the final EMBER picks.**
+- **Run:** `sbatch judge_rerun/run_pass2_ember_rescored.sbatch --concept <C> …`
+  (3× RTX 2080 Ti); resumable per δ.
+
+### Results (2026-10-15, final)
+
+**Jobs.** Rescore: 1041943 (Uranium pilot, all 8 δ, 20 min), 1042045 (the δ
+with invalid answers of the other 17 concepts, 56 min), 1042275 (their 80
+clean δ, 1 h 02). Judging: 1042338 (Uranium, Cannabis, Gambling, 4 h 03) and
+1042339 (Gun, Harry Potter, Heroin, Pornography, 4 h 14). No errors.
+
+**What the fix changes in the grid.** At δ = 50 / 100 / 200 the recovered
+answers were mostly correct, so `QA_train` accuracy rises and efficacy falls,
+e.g. Uranium δ = 100: QA 0.32 → 0.52, invalid 0.28 → 0, efficacy 0.82 → 0.31
+(pristine 0.64; 10 of the 14 cut-off answers were right). δ ≤ 5 did not change
+at all. A few answers stay invalid after the fix, and they are real
+non-answers: empty output (Harry Potter, Gun, Valentine's Day), "I need to know
+the answer to this question." (COVID-19), broken MMLU output (Valentine's Day).
+
+**Top 3 and picks.** 10 concepts keep their top 3; 8 got a new δ in it (judged
+now: Cannabis 5, Gambling 10, Gun 5, Harry Potter 5, Heroin 10, Pornography 1,
+Uranium 2 and 5). **4 picks change:**
+
+| Concept | δ old → new | efficacy old → new | harmonic_alpaca old → new |
+|---|---|---|---|
+| Ancient Rome | 200 | 0.764 → 0.618 | 0.871 → 0.816 |
+| Artificial intelligence | 100 | 0.281 → 0.211 | 0.536 → 0.442 |
+| **Baseball** | **100 → 200** | 0.339 → 0.203 | 0.596 → 0.428 |
+| COVID-19 pandemic | 50 | 0.364 | 0.630 |
+| Cannabis | 200 | 0.441 → 0.305 | 0.701 → 0.568 |
+| Culture of Greece | 200 | 0.980 → 0.857 | 0.983 → 0.938 |
+| **Gambling** | **100 → 10** | 0.588 → 0.471 | 0.800 → 0.720 |
+| Golf | 10 | 0.407 | 0.672 |
+| **Gun** | **100 → 5** | 0.576 → 0.407 | 0.793 → 0.663 |
+| Halloween | 10 | 0.400 | 0.659 |
+| Harry Potter | 10 | 0.526 | 0.767 |
+| Heroin | 100 | 0.615 → 0.564 | 0.827 → 0.795 |
+| Nazism | 100 | 0.627 → 0.549 | 0.820 → 0.772 |
+| Pornography | 5 | 0.367 → 0.327 | 0.635 → 0.592 |
+| Republic of Ireland | 100 | 0.419 → 0.326 | 0.681 → 0.589 |
+| **Uranium** | **100 → 200** | 0.821 → 0.359 | 0.920 → 0.621 |
+| Valentine's Day | 200 | 0.439 | 0.684 |
+| World War II | 5 | 0.400 | 0.659 |
+| **Mean** | | **0.520 → 0.430** | **0.735 → 0.667** |
+
+Specificity (0.968 → 0.970) and coherence (0.992) barely move. **EMBER erases
+less than reported before**: mean efficacy 0.43, not 0.52. Where a value is
+unchanged, the chosen δ had no cut-off answers.
+
+**Determinism.** The old-scoring control reproduced the October grid exactly
+for 136 of 144 cells. All 8 failures are Pornography: every δ gets exactly one
+more `QA_train` question right than on 2026-10-02 (SimDom and MMLU match).
+`data/mc_questions.json` has not changed since September, so this is one
+near-tie question answered differently on today's node. Comparing a re-scored
+δ with an old one would therefore mix two runs; with all 8 δ from one run it
+does not matter. The same Pornography question also shows up in the SNMF
+rescore ([`snmf_search.md`](snmf_search.md)).
+
+**EMBER's Alpaca answers barely depend on δ.** For Uranium, 49 of the first 50
+answers are identical to the unedited model's at every δ; for every newly judged
+δ, 48–50 of 50 answers were identical to an already-judged δ of the same
+concept, and Qwen gave them the same scores (e.g. Uranium δ = 2 / 5 / 50 / 100 /
+200 all 1.94 / 1.68). The EMBER edit only changes the concept tokens'
+embeddings, and the general Alpaca questions rarely contain them. So for EMBER
+coherence is almost constant across δ, and the pick is decided by efficacy and
+specificity. Practical consequence for later judging: per-item Qwen scores can
+be copied for identical answers instead of re-judged (not done here; the jobs
+were already running).
 
 ### Plan and status
 
 1. ~~Fix the scoring and check it on saved outputs~~ (done 2026-10-15).
-2. **Pilot: Uranium, all 8 δ** (most invalid answers in the EMBER grid; δ = 50 /
-   100 / 200 had 24 / 28 / 30% invalid). Job **1041943**, submitted 2026-10-15,
-   `s-005`. Result: pending.
-3. The other 17 concepts (only δ with invalid answers: 60 cells in total).
-   Judge new top-3 δ, if any.
-4. SNMF+EMBER: concepts whose δ changes need a fresh grid at the new δ plus
-   Pass 1 + Pass 2. The others need their invalid cells re-scored
-   ([`snmf_ember_search.md`](snmf_ember_search.md)).
-5. SNMF: re-score the 328 cells with invalid answers, with the `min_mmlu` gate
-   applied again to the corrected MMLU. Needs its own script: Pass 1 generated
-   Alpaca answers only for the old top 3, and stores them by rank (`cell_0..2`),
-   so new cells are generated separately (first 50 only).
-6. Cross-lingual `ember` / `snmf_ember` (and `snmf` if its picks change) with
-   the fixed scoring, then the docs.
+2. ~~Pilot: Uranium, all 8 δ~~ (job 1041943; control exact, top 3 changed).
+3. ~~The other 17 concepts, all 8 δ; judge new top-3 δ~~ (done; final picks in
+   `judge_rerun/Ember/pass2_rescored/…/best_deltas_summary.csv`).
+4. ~~SNMF: re-score the cells with invalid answers~~ (done 2026-10-15: all 18
+   picks unchanged, see [`snmf_search.md`](snmf_search.md)).
+5. **SNMF+EMBER** (next): Baseball, Gambling, Gun and Uranium need a fresh grid
+   at their new δ plus Pass 1 + Pass 2; the other 14 need their grids
+   re-scored ([`snmf_ember_search.md`](snmf_ember_search.md)). Point
+   `pass1_snmf_top3.py --with-ember` at the new EMBER picks first.
+6. **Cross-lingual** `ember` (all 18; the 4 changed δ fresh, the rest by
+   regenerating only the invalid questions, whose records are saved) and
+   `snmf_ember` after its search. Point `crosslingual/run_edited.py` at the new
+   picks first. `snmf` stays as it is.
 
 ## Delta-selection policy (updated 2026-10-08)
 
@@ -164,9 +256,10 @@ table below for the two that differ.
 (`judge_rerun/pass2_snmf_judge.py`) for 15 (2026-10-10). Per-concept status is
 in `docs/Part 1/snmf_search.md`.
 
-Final results for all 18 concepts: `judge_rerun/Ember/pass2_outputs/` — start with
+Pre-repair results for all 18 concepts: `judge_rerun/Ember/pass2_outputs/` —
 `google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv` (layout and policy: `judge_rerun/Ember/README.md`).
-"Best δ" below is the winner under the top-3 / n=50 policy.
+"Best δ" below is the winner under the top-3 / n=50 policy **with the old 4-token
+scoring**; the final picks are in "MC scoring repair → Results" above.
 
 | Concept | Status | Best δ | Person |
 |---|---|---|---|

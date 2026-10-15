@@ -82,3 +82,24 @@
 [17:53:18] [snmf|Uranium|rescore_mc] Uranium: re-scoring 7/144 cells
 [17:53:18] [snmf|Uranium|rescore_mc] loading MLP features for concept='Uranium' rank=100
 [17:53:18] [snmf|Uranium|rescore_mc] found 36 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[17:54:33] [snmf|Uranium|rescore cell=47] [1/7] cell=47 qa 0.58->0.58 (inv 0.02->0.02) simdom 0.58->0.58 mmlu 0.56->0.56 control_ok=True (74s)
+[17:55:27] [snmf|Uranium|rescore cell=80] [2/7] cell=80 qa 0.44->0.44 (inv 0.02->0.02) simdom 0.52->0.52 mmlu 0.52->0.52 control_ok=True (55s)
+[17:56:21] [snmf|Uranium|rescore cell=113] [3/7] cell=113 qa 0.42->0.42 (inv 0.02->0.02) simdom 0.44->0.44 mmlu 0.48->0.48 control_ok=True (54s)
+[17:56:58] [snmf|Uranium|rescore cell=117] [4/7] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.10->0.08 control_ok=False (37s)
+[17:56:58] [snmf|Uranium|rescore cell=117] CONTROL FAILED for Uranium cell=117 (measured sets ['mmlu'])
+[17:57:37] [snmf|Uranium|rescore cell=119] [5/7] cell=119 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.28->0.28 control_ok=True (38s)
+[17:58:12] [snmf|Uranium|rescore cell=129] [6/7] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.10->0.10 control_ok=True (36s)
+[17:58:48] [snmf|Uranium|rescore cell=141] [7/7] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.12 control_ok=True (36s)
+[17:58:48] [snmf|Uranium|rescore cell=141] Uranium: done, 1 control failures this run
+[17:58:48] [snmf|Culture of Greece|rescore_mc] Culture of Greece: re-scoring 3/144 cells
+[17:58:48] [snmf|Culture of Greece|rescore_mc] loading MLP features for concept='Culture of Greece' rank=100
+[17:58:48] [snmf|Culture of Greece|rescore_mc] found 14 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[17:59:32] [snmf|Culture of Greece|rescore cell=117] [1/3] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.20->0.22 control_ok=False (44s)
+[17:59:32] [snmf|Culture of Greece|rescore cell=117] CONTROL FAILED for Culture of Greece cell=117 (measured sets ['mmlu'])
+[18:00:10] [snmf|Culture of Greece|rescore cell=129] [2/3] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.24->0.26 control_ok=True (38s)
+[18:00:49] [snmf|Culture of Greece|rescore cell=141] [3/3] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.24->0.26 control_ok=True (38s)
+[18:00:49] [snmf|Culture of Greece|rescore cell=141] Culture of Greece: done, 1 control failures this run
+[18:00:49] [snmf|COVID-19 pandemic|compare] COVID-19 pandemic: control_ok=False (1 failed) top3_changed=True needs judging rows=[128] near_tie=True
+[18:00:49] [snmf|Ancient Rome|compare] Ancient Rome: control_ok=True (0 failed) top3_changed=True needs judging rows=[92, 104, 128] near_tie=False [loop-screen concept: check by hand]
+[18:00:50] [snmf|Uranium|compare] Uranium: control_ok=False (1 failed) top3_changed=False needs judging rows=[] near_tie=False
+[18:00:50] [snmf|Culture of Greece|compare] Culture of Greece: control_ok=False (1 failed) top3_changed=False needs judging rows=[] near_tie=False

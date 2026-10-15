@@ -1,26 +1,87 @@
 # SNMF HP search — status by concept
 
 Tracks the two-pass SNMF hyperparameter search for each of the 18 concepts
-(Gemma-2-2b-it, rank 100, seed 42). Updated 2026-10-10.
+(Gemma-2-2b-it, rank 100, seed 42). Updated 2026-10-15.
 
 **Finished for all 18 concepts (2026-10-10).** Every concept has a complete
 144-cell grid, a Pass 1 shortlist and a Qwen-judged Pass 2 pick. Ancient Rome's
 first pick was a broken model; it was redone with a loop screen (see "Ancient
 Rome" below) and now has a healthy pick. Nothing is running.
 
-> **⚠ To check (2026-10-15).** The MC scoring cut answers off after 4 tokens
-> (MMLU: 6) and counted them as wrong ([`ember_search.md`](ember_search.md),
-> "MC scoring repair"). The 18 SNMF picks themselves have **0 invalid answers**
-> on QA, SimDom and MMLU, so their own scores are right. But 328 of the 2,592
-> grid cells have some invalid answers, 280 of them on MMLU. Those cells got a
-> lower specificity, and some may have been zeroed by the `min_mmlu` gate, so
-> they could belong in the top 3. They will be re-scored with the fixed scoring;
-> cells new to the top 3 get their first 50 Alpaca answers generated and judged.
+**Checked after the MC scoring fix (2026-10-15): all 18 picks unchanged.**
+The grid's MC scoring cut answers off after 4 tokens (MMLU: 6) and counted them
+as wrong ([`ember_search.md`](ember_search.md), "MC scoring repair"). The SNMF
+picks had no invalid answers, but other cells did, so the grid was re-scored and
+re-ranked; see "MC scoring repair check" below. Final file (same cells as
+before; only Pornography's score moved, 0.880 → 0.864):
+`judge_rerun/SNMF/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`.
 
 **Where the results are:** `judge_rerun/SNMF/` (layout, policy and archive:
-[`judge_rerun/SNMF/README.md`](../../judge_rerun/SNMF/README.md)). Start with
-`judge_rerun/SNMF/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`,
-one row per concept with the full HP set to apply.
+[`judge_rerun/SNMF/README.md`](../../judge_rerun/SNMF/README.md)). The final
+picks are in `pass2_rescored/` (above); the original Pass 2 in
+`judge_rerun/SNMF/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`
+holds the same cells, one row per concept with the full HP set to apply.
+
+## MC scoring repair check (2026-10-15)
+
+**Which cells.** 328 of the 2,592 grid cells had an invalid answer in a set the
+grid measured: 280 on MMLU, mostly strong edits that the `min_mmlu` gate (0.7 of
+pristine) had zeroed. The 18 picks had none. A fixed QA answer can only lower a
+cell (higher QA accuracy, less efficacy); a fixed MMLU / SimDom answer can only
+raise it. So a cell outside the top 3 could only enter it through MMLU / SimDom,
+and a top-3 cell could only leave it through QA.
+
+**How** (`judge_rerun/rescore_snmf_grid.py`, `judge_rerun/mc_fixed.py`):
+re-apply each cell with Pass 1's edit code (`SNMFMethod`, `_build_hp`), re-score
+with the fixed evaluator (32 tokens, fixed parser), save per-question records,
+replace those cells in the grid and re-rank exactly as Pass 1 did. Checked first
+on the CPU: this reproduces every grid row's `harmonic` (all 2,592) and Pass 1's
+top 3 for all concepts except Ancient Rome (loop screen, handled separately).
+Like the grid, a cell still below the MMLU gate after the fix is not scored on
+QA / SimDom (its harmonic is 0 whatever they are). Denominators: the grid's own
+(`archive_gemini/data/baselines`, MMLU 0.52), so only the scoring changes.
+
+- **Found while checking:** the config's `max_qa_acc` (0.6) is never applied to
+  MC grids. `ember/evals/orchestrator.py` checks it only in the open-QA branch,
+  so in `train_mc` only `min_mmlu` gates. Nothing in the old results changes.
+- **Pristine baselines disagree slightly:** `archive_gemini/data/baselines` and
+  the Qwen-era `judge_rerun/Ember/pass1_outputs/_baseline/baseline_raw.csv`
+  differ by one question (0.02) for 8 concepts, with 0 invalid answers in both:
+  run-to-run differences, probably different hardware or library versions.
+
+**Jobs.** 1042306–1042309 (the 328 cells, 47 min – 1 h 54 each; restarted once
+from 1042298–1042301 to skip QA / SimDom for still-gated cells), 1042373
+(Pornography, all 144), 1042489 (COVID-19, all 144), 1042615 (COVID-19 row 128:
+50 Alpaca answers + loop check), 1042618 (its Qwen judging). Output:
+`judge_rerun/SNMF/rescore_mc/` (re-scored cells, `compare.json` per concept) and
+`judge_rerun/SNMF/pass2_rescored/` (final picks).
+
+**Control.** Of the fully measured cells, all reproduced the grid except
+Pornography's: there every cell gets exactly one more `QA_train` question right,
+the same systematic one-question difference as in the EMBER rescore. Mixing
+re-scored and old Pornography cells would compare two runs, so Pornography was
+re-scored on all 144 cells. The other failures were single answers in broken,
+MMLU-gated cells (MMLU 0.06–0.34, up to 74% invalid), which stay gated and
+cannot enter a top 3, and one invalid-count flip with unchanged accuracy
+(Nazism cell 83).
+
+**Outcome per concept.**
+
+- **16 concepts: top 3 unchanged**, so the pick and score are unchanged
+  (Pornography's score moves 0.880 → 0.864 because all its cells shift by its
+  one question; same pick).
+- **Ancient Rome:** the plain ranking puts the cells the loop screen had
+  rejected (45–49 looping answers of 50) on top; their QA invalid answers
+  (30–32%) are real garbage and did not change. With the screen re-applied, the
+  same 3 cells are selected.
+- **COVID-19:** row 128 (`in 10@0-8 / out 7@13-25`) enters the top 3 (its
+  SimDom rises 0.54 → 0.66, efficacy 1.0) and row 132 drops out. Its margin over
+  the 4th cell was below one question, so the whole grid was re-scored in one
+  run; the change held. Row 128 passed the loop check (1 of 50 looping) and was
+  judged: harmonic_alpaca 0.810 (coherence 0.929), against row 88's 0.837. **The
+  pick stays row 88.**
+
+So the cross-lingual `snmf` run, made with these same cells, stays valid.
 
 ## What the two passes do
 

@@ -5,8 +5,9 @@ languages en+ru+de+es+fr. Feature search only; erasure comes later.*
 
 *Where things stand:* the first fit (2026-10-14) gave too few features (0 + 2), mostly
 because of the data. The foreign sentence sets are now being rebuilt along two tracks:
-**native Wikipedia** (`data_v2/` usable, 54 of 72 pairs complete; extra pool for all 18
-short pairs collected, LLM judge next; see "Native sentence sets") and **translation**
+**native Wikipedia** (`data_v2/` usable, 54 of 72 pairs complete; extra pool and 3,000
+link sentences for the 18 short pairs collected, LLM judge next; see "Native sentence
+sets") and **translation**
 of the English sets (complete for all 18 concepts, quality checks next; see "Translated
 sentence sets"). No new fit yet.
 
@@ -481,11 +482,11 @@ zero-width fix (problem 7). Baseball es, COVID-19 pandemic es and Halloween es n
 
 **Expected outcome:** 18 pairs still need the pool, and all 18 have one. Most can reach
 300 after the judge.
-The bold 3 (Valentine's Day fr / ru / es) probably stay short (~150–250): native
-Wikipedia in these languages has little text about the holiday beyond film and
-pop-culture pages. For them: accept fewer sentences, or top up with translated sentences
-(not decided). Halloween es was in this group before the zero-width fix; its main
-article alone now gives 299 sentences.
+The bold 3 (Valentine's Day fr / ru / es) probably stay short (~150–250) from this pool
+alone: native Wikipedia in these languages has little text about the holiday beyond film
+and pop-culture pages. The link sentences (next section) give them 350–370 candidates
+each. Halloween es was in this group before the zero-width fix; its main article alone
+now gives 299 sentences.
 
 **Problems seen in the pool** (for the judge design):
 - Wrong senses that still name the concept: the *Halloween* films and their actors, a
@@ -509,7 +510,7 @@ A third source, `fetch_link_sentences.py`: Wikipedia articles that **link to the
 article**, and in each the sentence that holds the link. The link fixes the sense, which
 the stems cannot: a link to "Héroïne" is the drug, not a heroine; a link to
 "Saint-Valentin" is the holiday, not Valentino or a commune. Every short pair has
-hundreds of linking articles (Valentine's Day fr 501, es 409, ru 458; Gun de 383;
+hundreds of linking articles (Valentine's Day fr 501, es 408, ru 441; Gun de 383;
 Halloween de 642), except Culture of Greece de (60) and fr (147), which need only 6 and
 31 sentences.
 
@@ -529,7 +530,41 @@ Saint-Valentin"), a few about the holiday itself ("Fête des amoureux, elle est 
 comparée à la Saint-Valentin"). So the judge's question for these is not the sense but
 "about the concept, or only a date / name?".
 
-Result: the run is in progress.
+**Result (done 2026-10-15):** 3,712 articles fetched (no errors, no throttling), **3,000
+link sentences**. Every pair has more than it is missing; the 5 shortest have 1.8–2.5×:
+
+| Pair | Have | Need | Linking articles | Sampled | With a sentence | Link sentences |
+|---|---|---|---|---|---|---|
+| Gun de | 108 | 192 | 383 | 383 | 350 | 356 |
+| Valentine's Day es | 121 | 179 | 408 | 408 | 327 | 352 |
+| Halloween de | 127 | 173 | 642 | 500 | 413 | 432 |
+| Valentine's Day fr | 146 | 154 | 501 | 500 | 356 | 369 |
+| Valentine's Day ru | 154 | 146 | 441 | 441 | 336 | 353 |
+| Harry Potter ru | 232 | 68 | 309 | 272 | 150 | 170 |
+| Culture of Greece fr | 269 | 31 | 147 | 124 | 53 | 58 |
+| Baseball ru | 272 | 28 | 2,583 | 112 | 88 | 92 |
+| Heroin es | 272 | 28 | 1,057 | 112 | 102 | 116 |
+| Heroin fr | 278 | 22 | 1,176 | 100 | 75 | 92 |
+| Gun fr | 282 | 18 | 1,336 | 100 | 66 | 70 |
+| Gambling fr | 287 | 13 | 365 | 100 | 64 | 69 |
+| Gambling ru | 291 | 9 | 497 | 100 | 69 | 74 |
+| Halloween ru | 292 | 8 | 752 | 100 | 83 | 91 |
+| Culture of Greece de | 294 | 6 | 60 | 60 | 54 | 54 |
+| Halloween fr | 296 | 4 | 983 | 100 | 66 | 77 |
+| Nazism fr | 296 | 4 | 10,208 | 100 | 79 | 84 |
+| Gambling de | 299 | 1 | 913 | 100 | 84 | 91 |
+
+Read 8 random link sentences in each of the 6 shortest pairs:
+- Gun de 8/8 and Harry Potter ru 8/8 on topic (firearms in sport, law, fortification
+  history; characters, books, films).
+- Halloween de mostly about Halloween events (parties, costumes, the 2022 Itaewon crowd
+  crush). Culture of Greece fr on topic, mostly ancient Greek culture.
+- Valentine's Day es / ru: about half passing mentions ("Se casaron el día de San
+  Valentín de 2009"), and skewed to pop culture (TV episodes, songs, celebrities), while
+  the main articles are history and customs. The judge should drop pure dates; even
+  then, a set topped up from these is more pop-culture than the English one.
+
+So with a judge acceptance of ~50% or more, every pair can reach 300.
 
 ## Translated sentence sets (option 6): plan and status
 
@@ -735,14 +770,39 @@ Log with old and new text: `data_translated/fix4b/replacements.csv`.
 - Integrity check: all 4 languages have 18 × 300 concept + 300 neutral sentences, none empty.
 
 **Where the translated data stands.** The automatic checks (Kiwi, term check plus judge) estimate
-term accuracy at ~98–99.7%. ~21 known term errors and ~120 sentences without their
-parenthetical remain. Not checked by a human (none available). Data:
+term accuracy at ~98–99.7%. Not checked by a human (none available). Data:
 `experiments/multilingual_fit/data_translated/`, ready for step 7 with
 `--multilingual-data-dir experiments/multilingual_fit/data_translated`.
+
+**Known remaining errors** (2026-10-15). The data is not error-free. Three groups:
+
+1. **21 known term errors:** sentences the step-4 judge marked ERROR whose step-4b
+   re-translation was rejected (Kiwi drop > 0.02). They are listed in
+   `data_translated/fix4b/replacements.csv` (rows with term hints and `replaced = 0`); the old and the new
+   text are both there. Some new versions were correct (ru "Дол" → "Дойл" ×4) and some worse.
+2. **~120 translations without the English parenthetical** (39 ru, 42 de, 23 es, 19 fr; English
+   has "(" and the translation does not). Some are fine: the content is rewritten with commas or dashes. Others
+   really lost it.
+3. **Errors no check can see.** The checks cover terms that have their own Wikipedia article
+   (term check) and overall adequacy (Kiwi). A wrong word that is not a linked term, a
+   grammar error, or a subtle meaning shift in a sentence Kiwi scores well can remain.
+   Their rate cannot be measured without a human reader; the checks above suggest it is low.
+
+**Why they hardly matter for step 7:** the factorization works on token statistics over 300
+sentences per (concept, language); ~20 wrong terms in 22,800 sentences (~0.1%) will not change
+which features it finds. The native Wikipedia sets and even the English set contain more
+noise than that (e.g. "Cite error" junk, coordinates, LaTeX).
+
+**Optional clean-up (not done yet):** go through groups 1 and 2 one by one: for each
+of the 21 choose the old version, the new one, or a small manual correction (e.g. accept
+"Дойл", fix "Тишек"), and check the ~120 parentheticals, logging every decision. This costs no Gemini
+calls and takes a few minutes. Caveat: the reviewer would be Claude (also a language model),
+so this is one more careful automated review, not a human check.
 
 ## Open
 
 - **Translated sets:** ready; next is step 7 (refit World War II on the translated sets).
+  Optional before it: the clean-up of the known remaining errors (see "Known remaining errors").
 - **Native sets, judge for the extra pool** (all 18 short pairs have a pool):
   - prompt per concept that names the wrong senses (films, namesakes, "heroine");
   - which sentences go to it (proposed: all sentences of category articles, only
@@ -752,8 +812,9 @@ parenthetical remain. Not checked by a human (none available). Data:
   - hand-check ~50 decisions per language;
   - then rebuild the short pairs: main article → related sentences that name the concept
     → judged extras (category / search pool and link sentences).
-- **Native sets, pairs still short after the judge** (likely Valentine's Day es/ru/fr):
-  accept fewer sentences, or top up with translated sentences.
+- **Native sets, pairs still short after the judge** (unlikely now: every pair has 1.8×
+  or more of what it needs in link sentences alone): accept fewer sentences, or top up
+  with translated sentences.
 - **Neutral sets:** done in `data_v2/` (random sentence from random articles, new
   splitter, reference lines and zero-width spaces removed).
 - **Pipeline check:** the English features we compare against match the paper's Table 3,

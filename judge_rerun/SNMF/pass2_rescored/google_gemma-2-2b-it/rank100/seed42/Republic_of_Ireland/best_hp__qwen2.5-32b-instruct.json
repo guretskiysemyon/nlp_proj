@@ -1,0 +1,40 @@
+{
+  "concept": "Republic of Ireland",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    21,
+    33,
+    9
+  ],
+  "new_rows": [],
+  "best_row": 9,
+  "best_hp": {
+    "delta_embed": 0.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 1.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 9,
+    "delta_out": 10.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 5
+  },
+  "best_harmonic_alpaca": 0.7402007637966059,
+  "best_metrics": {
+    "efficacy": 0.558139534883721,
+    "specificity": 0.8260000000000001,
+    "harmonic": 0.6661514163782386,
+    "alp_instr_frac": 0.9550173010380623,
+    "alp_flu_frac": 0.9486166007905138,
+    "coherence": 0.9518061901888094,
+    "harmonic_alpaca": 0.7402007637966059
+  },
+  "old_best_harmonic_alpaca": 0.7402007637966059,
+  "pick_changed": false
+}

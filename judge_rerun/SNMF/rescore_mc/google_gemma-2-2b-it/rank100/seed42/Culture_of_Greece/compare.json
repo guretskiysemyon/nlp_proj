@@ -1,0 +1,101 @@
+{
+  "concept": "Culture of Greece",
+  "grid": "archive_gemini/results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Culture_of_Greece/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 5.551115123125783e-17,
+  "n_rescored": 3,
+  "control_ok_all": false,
+  "n_control_failed": 1,
+  "features_match_all": true,
+  "old_top3_rows": [
+    9,
+    21,
+    33
+  ],
+  "new_top3": [
+    {
+      "row": 21,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.7908590083656396,
+      "efficacy": 0.693877551020408,
+      "specificity": 0.9193548387096774,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.8,
+      "alpaca_flu": 1.68,
+      "alp_instr_frac": 0.9342560553633218,
+      "alp_flu_frac": 0.9960474308300394,
+      "coherence": 0.964162734345109,
+      "harmonic_alpaca": 0.8412633902789225,
+      "gate": ""
+    },
+    {
+      "row": 33,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.7908590083656396,
+      "efficacy": 0.693877551020408,
+      "specificity": 0.9193548387096774,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.8,
+      "alpaca_flu": 1.68,
+      "alp_instr_frac": 0.9342560553633218,
+      "alp_flu_frac": 0.9960474308300394,
+      "coherence": 0.964162734345109,
+      "harmonic_alpaca": 0.8412633902789225,
+      "gate": ""
+    },
+    {
+      "row": 9,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.7908590083656396,
+      "efficacy": 0.693877551020408,
+      "specificity": 0.9193548387096774,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.86,
+      "alpaca_flu": 1.66,
+      "alp_instr_frac": 0.9653979238754326,
+      "alp_flu_frac": 0.984189723320158,
+      "coherence": 0.9747032578499875,
+      "harmonic_alpaca": 0.84391769175381,
+      "gate": ""
+    }
+  ],
+  "top3_changed": false,
+  "needs_alpaca_and_judging_rows": [],
+  "best_row": 9,
+  "best_harmonic_alpaca": 0.84391769175381,
+  "boundary": {
+    "third_row": 9,
+    "third_harmonic": 0.7908590083656396,
+    "fourth_row": 119,
+    "fourth_harmonic": 0.6750448833034111,
+    "one_question_efficacy": 0.04081632653061225,
+    "near_tie_mixed_runs": false
+  }
+}

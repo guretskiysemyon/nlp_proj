@@ -21,7 +21,10 @@ most of the three methods, but it leaks (mean non-English Δ +0.17, Russian
 > efficacy and `harmonic_alpaca` are inflated, and so is the cross-lingual
 > erasure (English `QA_test` invalid 0.16). Problem, fix and plan:
 > [`ember_search.md`](ember_search.md), "MC scoring repair". See "Repair" below
-> for what this method needs.
+> for what this method needs. **Update (2026-10-15):** the EMBER and SNMF
+> searches are repaired. EMBER δ changed for Baseball (100 → 200), Gambling
+> (100 → 10), Gun (100 → 5) and Uranium (100 → 200), so those 4 grids here were
+> run with the wrong δ. Nothing has been re-run for this method yet.
 
 **Where the results are:** `judge_rerun/SNMF_EMBER/` (layout and policy:
 [`judge_rerun/SNMF_EMBER/README.md`](../../judge_rerun/SNMF_EMBER/README.md)).
@@ -196,25 +199,34 @@ English MMLU on the 1000-question test split. No judge is used.
   the leak back (most of it into Russian). It also has the most invalid
   answers, so part of its erasure is broken output.
 
-## Repair (2026-10-15, waits on the EMBER rescore)
+## Repair (2026-10-15, next: EMBER and SNMF are done)
 
-What this method needs depends on the EMBER rescore
-([`ember_search.md`](ember_search.md), "MC scoring repair"), because every
-grid here was run with the concept's EMBER δ:
+The final EMBER δ are in
+`judge_rerun/Ember/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`
+([`ember_search.md`](ember_search.md), "MC scoring repair → Results"). Every
+grid here was run with the concept's old EMBER δ, so:
 
-- **EMBER δ changes for a concept:** its grid is no longer the right one. It
-  needs a fresh 144-cell grid at the new δ, Pass 1 (first 50 Alpaca answers for
-  the new top 3) and Pass 2 (Qwen). Last time a fresh grid took 1.5–2.3 h on 1
-  GPU and judging ~48 min per cell on 3 GPUs.
-- **EMBER δ stays:** re-score only the cells with an invalid answer, with the
-  fixed scoring, and re-rank. Cells that enter the top 3 need their first 50
-  Alpaca answers generated (Pass 1 stored only the old top 3, by rank as
-  `cell_0..2`, so new cells go to a separate folder) and judged. If the top 3
-  stays, the pick is recomputed on the CPU.
+- **EMBER δ changed: Baseball (100 → 200), Gambling (100 → 10), Gun (100 → 5),
+  Uranium (100 → 200).** Their grids are the wrong ones. Each needs a fresh
+  144-cell grid at the new δ with the fixed scoring, then Pass 1 (first 50
+  Alpaca answers for the top 3) and Pass 2 (Qwen). Last time a fresh grid took
+  1.5–2.3 h on 1 GPU and judging ~48 min per cell on 3 GPUs.
+- **EMBER δ unchanged: the other 14.** Re-score the grid with the fixed scoring
+  and re-rank. 75% of the cells have an invalid answer and nearly every top-3
+  cell does, so re-score all 144 cells (each concept in one run, as for EMBER).
+  Cells new to the top 3 need their first 50 Alpaca answers (a separate folder:
+  Pass 1 stored only the old top 3, by rank as `cell_0..2`), the loop check and
+  Qwen judging. Cells staying in the top 3 reuse their Alpaca answers and Qwen
+  scores; `harmonic_alpaca` is recomputed.
+- **Code to adapt first:** `pass1_snmf_top3.py --with-ember` reads the EMBER δ
+  from the old `judge_rerun/Ember/pass2_outputs/`; it must read
+  `pass2_rescored/`. `rescore_snmf_grid.py` / `pass2_snmf_rescored.py` (the SNMF
+  repair) do plain SNMF only; they need the `--with-ember` variant
+  (`results/snmf_ef/` grids, `configs/snmf_ember_gemma.yaml`, `delta_embed`).
 - Then the cross-lingual `snmf_ember` run again, with the fixed scoring.
 
 The grids saved only per-cell totals, not per-question answers, so a cell is
-re-scored in full; a cell with no invalid answer cannot change and is skipped.
+re-scored in full.
 
 ## Grids
 

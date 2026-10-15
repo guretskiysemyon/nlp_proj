@@ -1,0 +1,40 @@
+{
+  "concept": "Gun",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    52,
+    97,
+    44
+  ],
+  "new_rows": [],
+  "best_row": 52,
+  "best_hp": {
+    "delta_embed": 0.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 4.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 36,
+    "delta_out": 4.0,
+    "layer_lo_out": 9,
+    "layer_hi_out": 17,
+    "k_features_mlp_out": 4
+  },
+  "best_harmonic_alpaca": 0.8669454319486569,
+  "best_metrics": {
+    "efficacy": 0.8524590163934426,
+    "specificity": 0.8064516129032259,
+    "harmonic": 0.8288173414089894,
+    "alp_instr_frac": 0.9134948096885813,
+    "alp_flu_frac": 1.0,
+    "coherence": 0.9547920433996383,
+    "harmonic_alpaca": 0.8669454319486569
+  },
+  "old_best_harmonic_alpaca": 0.8669454319486569,
+  "pick_changed": false
+}

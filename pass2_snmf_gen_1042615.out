@@ -1,0 +1,8 @@
+[run_pass2_snmf_rescored_gen] args: --concept COVID-19 pandemic
+[19:32:44] [snmf|COVID-19 pandemic|pass2_rescored:generate] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.18it/s]
+[19:32:53] [snmf|COVID-19 pandemic|pass2_rescored:generate] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[19:32:57] [snmf|COVID-19 pandemic|pass2_rescored:generate] loading MLP features for concept='COVID-19 pandemic' rank=100
+[19:32:57] [snmf|COVID-19 pandemic|pass2_rescored:generate] found 54 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[19:35:41] [snmf|COVID-19 pandemic|pass2_rescored:generate] row 128 (in 10@0-8 / out 7@13-25) harmonic=0.7619 loops=1/50 ok
+[19:35:41] [snmf|COVID-19 pandemic|pass2_rescored:generate] COVID-19 pandemic: final top 3 rows [88, 91, 128] (new: [128])

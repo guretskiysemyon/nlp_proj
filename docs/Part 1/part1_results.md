@@ -10,11 +10,12 @@ Detailed write-ups (how each number was made, job IDs, re-running):
 [`crosslingual_next.md`](crosslingual_next.md), and
 [`../progress.md`](../progress.md) §3.1 for the judge.
 
-> **⚠ Provisional (2026-10-15).** The MC scoring cut answers off after 4
-> tokens and counted "The answer is **C**" as wrong. All EMBER and SNMF+EMBER
-> numbers below (HP-search efficacy and picks, cross-lingual erasure, leak and
-> invalid rates) are inflated by this, SNMF+EMBER most. SNMF's picks are clean,
-> but its grid ranking is being checked too. Repair:
+> **⚠ Partly provisional (2026-10-15).** The MC scoring cut answers off after
+> 4 tokens and counted "The answer is **C**" as wrong. **Repaired:** the EMBER
+> and SNMF HP searches (§4 shows the repaired numbers; EMBER: 4 picks changed,
+> SNMF: none). **Not yet repaired:** everything SNMF+EMBER, and the
+> cross-lingual `ember` / `snmf_ember` numbers (§1, §5), which still use the old
+> picks and the old scoring and are inflated by it, SNMF+EMBER most. Repair:
 > [`ember_search.md`](ember_search.md), "MC scoring repair".
 
 **Not done yet in Part 1:** the paired method differences (and re-scoring
@@ -27,17 +28,23 @@ stage and relearning.
 
 | | EMBER | SNMF | SNMF+EMBER |
 |---|---|---|---|
-| Selection score `harmonic_alpaca` (mean of 18, `QA_train`) | 0.735 | 0.821 | **0.909** |
-| Efficacy | 0.520 | 0.724 | **0.877** |
-| Specificity | **0.968** | 0.848 | 0.909 |
-| Coherence | **0.992** | 0.959 | 0.960 |
-| English `QA_test` retention r_en (held out; lower = stronger erasure) | 0.52 | 0.45 | **0.27** |
-| Cross-lingual leak, mean Δ over de/es/fr/ru (`QA_test`) | +0.24 [+0.16, +0.32] | **+0.01** [−0.07, +0.09] | +0.17 [+0.08, +0.27] |
-| English MMLU, 1000-q test (pristine 0.553) | **0.548** | 0.506 | 0.511 |
+| Selection score `harmonic_alpaca` (mean of 18, `QA_train`) | 0.667 | 0.820 | **0.909** ² |
+| Efficacy | 0.430 | 0.721 | **0.877** ² |
+| Specificity | **0.970** | 0.848 | 0.909 ² |
+| Coherence | **0.992** | 0.959 | 0.960 ² |
+| English `QA_test` retention r_en (held out; lower = stronger erasure) | 0.52 ² | 0.45 | **0.27** ² |
+| Cross-lingual leak, mean Δ over de/es/fr/ru (`QA_test`) | +0.24 [+0.16, +0.32] ² | **+0.01** [−0.07, +0.09] | +0.17 [+0.08, +0.27] ² |
+| English MMLU, 1000-q test (pristine 0.553) | **0.548** ² | 0.506 | 0.511 ² |
+
+² Not yet repaired: old 4-token scoring and/or old picks. EMBER's HP-search rows
+are repaired; its cross-lingual rows still use the old picks (4 differ) and scoring.
 
 1. **SNMF+EMBER is the best edit on the English selection score** for 17 of 18
    concepts (Harry Potter is the exception, within noise). These scores are
-   measured on the items used for selection, so they are optimistic.
+   measured on the items used for selection, so they are optimistic, and they
+   are not yet repaired (SNMF+EMBER is the method most inflated by the cut-off
+   answers). After the repair, **EMBER erases less than first reported**: mean
+   efficacy 0.43, not 0.52 (§4.2).
 2. **EMBER leaks across languages.** Tuned in English, it erases English but
    much less in other languages, and almost not at all in Russian (retention
    0.94). All four per-language bootstrap intervals exclude 0.
@@ -112,27 +119,29 @@ harmonic_alpaca = hmean(efficacy, specificity, coherence)      # final pick
 
 ### 4.1 Per concept, `harmonic_alpaca`
 
+EMBER and SNMF after the MC scoring repair; SNMF+EMBER not yet repaired (²).
+
 | Concept | EMBER δ | EMBER | SNMF | SNMF+EMBER |
 |---|---|---|---|---|
-| Ancient Rome | 200 | 0.871 | 0.802 ¹ | **0.952** |
-| Artificial intelligence | 100 | 0.536 | 0.857 | **0.892** |
-| Baseball | 100 | 0.596 | 0.806 | **0.908** |
+| Ancient Rome | 200 | 0.816 | 0.802 ¹ | **0.952** |
+| Artificial intelligence | 100 | 0.442 | 0.857 | **0.892** |
+| Baseball | **200** | 0.428 | 0.806 | **0.908** |
 | COVID-19 pandemic | 50 | 0.630 | 0.837 | **0.908** |
-| Cannabis | 200 | 0.701 | 0.703 | **0.857** |
-| Culture of Greece | 200 | 0.983 | 0.844 | **0.984** |
-| Gambling | 100 | 0.800 | 0.867 | **0.988** |
+| Cannabis | 200 | 0.568 | 0.703 | **0.857** |
+| Culture of Greece | 200 | 0.938 | 0.844 | **0.984** |
+| Gambling | **10** | 0.720 | 0.867 | **0.988** |
 | Golf | 10 | 0.672 | 0.758 | **0.823** |
-| Gun | 100 | 0.793 | 0.867 | **0.926** |
+| Gun | **5** | 0.663 | 0.867 | **0.926** |
 | Halloween | 10 | 0.659 | 0.787 | **0.871** |
 | Harry Potter | 10 | 0.767 | **0.929** | 0.903 |
-| Heroin | 100 | 0.827 | 0.840 | **0.905** |
-| Nazism | 100 | 0.820 | 0.805 | **0.837** |
-| Pornography | 5 | 0.635 | 0.880 | **0.921** |
-| Republic of Ireland | 100 | 0.681 | 0.740 | **0.911** |
-| Uranium | 100 | 0.920 | 0.716 | **0.967** |
+| Heroin | 100 | 0.795 | 0.840 | **0.905** |
+| Nazism | 100 | 0.772 | 0.805 | **0.837** |
+| Pornography | 5 | 0.592 | 0.864 | **0.921** |
+| Republic of Ireland | 100 | 0.589 | 0.740 | **0.911** |
+| Uranium | **200** | 0.621 | 0.716 | **0.967** |
 | Valentine's Day | 200 | 0.684 | 0.909 | **0.923** |
 | World War II | 5 | 0.659 | 0.829 | **0.897** |
-| **Mean** | | **0.735** | **0.821** | **0.909** |
+| **Mean** | | **0.667** | **0.820** | **0.909** ² |
 
 ¹ After the loop screen (§4.4).
 
@@ -140,41 +149,51 @@ Mean over the 18 concepts (median in brackets):
 
 | Method | efficacy | specificity | coherence | harmonic_alpaca |
 |---|---|---|---|---|
-| EMBER | 0.520 (0.440) | 0.968 (0.965) | 0.992 (0.998) | 0.735 (0.693) |
-| SNMF | 0.724 (0.698) | 0.848 (0.858) | 0.959 (0.962) | 0.821 (0.833) |
-| SNMF+EMBER | **0.877** (0.890) | 0.909 (0.906) | 0.960 (0.974) | **0.909** (0.908) |
+| EMBER | 0.430 (0.403) | 0.970 (0.965) | 0.992 (0.998) | 0.667 (0.661) |
+| SNMF | 0.721 (0.698) | 0.848 (0.858) | 0.959 (0.962) | 0.820 (0.833) |
+| SNMF+EMBER ² | **0.877** (0.890) | 0.909 (0.906) | 0.960 (0.974) | **0.909** (0.908) |
 
 ### 4.2 EMBER
 
+After the MC scoring repair (final). Pre-repair values: [`ember_search.md`](ember_search.md), "MC scoring repair → Results".
+
 | Concept | δ | efficacy | specificity | coherence | harmonic_alpaca |
 |---|---|---|---|---|---|
-| Ancient Rome | 200 | 0.764 | 0.884 | 0.998 | 0.871 |
-| Artificial intelligence | 100 | 0.281 | 1.000 | 0.966 | 0.536 |
-| Baseball | 100 | 0.339 | 0.925 | 0.998 | 0.596 |
+| Ancient Rome | 200 | 0.618 | 0.947 | 0.998 | 0.816 |
+| Artificial intelligence | 100 | 0.211 | 1.000 | 0.966 | 0.442 |
+| Baseball | **200** (was 100) | 0.203 | 0.925 | 0.992 | 0.428 |
 | COVID-19 pandemic | 50 | 0.364 | 0.986 | 0.998 | 0.630 |
-| Cannabis | 200 | 0.441 | 1.000 | 0.992 | 0.701 |
-| Culture of Greece | 200 | 0.980 | 0.969 | 1.000 | 0.983 |
-| Gambling | 100 | 0.588 | 0.962 | 0.992 | 0.800 |
+| Cannabis | 200 | 0.305 | 1.000 | 0.992 | 0.568 |
+| Culture of Greece | 200 | 0.857 | 0.969 | 1.000 | 0.938 |
+| Gambling | **10** (was 100) | 0.471 | 0.962 | 0.998 | 0.720 |
 | Golf | 10 | 0.407 | 1.000 | 0.992 | 0.672 |
-| Gun | 100 | 0.576 | 0.957 | 0.998 | 0.793 |
+| Gun | **5** (was 100) | 0.407 | 0.935 | 1.000 | 0.663 |
 | Halloween | 10 | 0.400 | 0.962 | 0.990 | 0.659 |
 | Harry Potter | 10 | 0.526 | 1.000 | 0.990 | 0.767 |
-| Heroin | 100 | 0.615 | 1.000 | 0.998 | 0.827 |
-| Nazism | 100 | 0.627 | 0.940 | 0.998 | 0.820 |
-| Pornography | 5 | 0.367 | 1.000 | 0.998 | 0.635 |
-| Republic of Ireland | 100 | 0.419 | 0.984 | 0.998 | 0.681 |
-| Uranium | 100 | 0.821 | 0.962 | 0.998 | 0.920 |
+| Heroin | 100 | 0.564 | 1.000 | 0.998 | 0.795 |
+| Nazism | 100 | 0.549 | 0.940 | 0.998 | 0.772 |
+| Pornography | 5 | 0.327 | 1.000 | 0.998 | 0.592 |
+| Republic of Ireland | 100 | 0.326 | 0.984 | 0.998 | 0.589 |
+| Uranium | **200** (was 100) | 0.359 | 0.962 | 0.998 | 0.621 |
 | Valentine's Day | 200 | 0.439 | 0.934 | 0.962 | 0.684 |
 | World War II | 5 | 0.400 | 0.956 | 0.992 | 0.659 |
 
 - Six concepts were judged directly with the top-3 × 50 policy. For the other
   12, the pick was re-derived from cached full-grid judge scores (8 δ × 150).
-  Ten of those 12 match the old full-grid pick. The two that changed,
-  Baseball (200 → 100) and Halloween (5 → 10), are near-ties.
+  Ten of those 12 match the old full-grid pick. The two that changed then,
+  Baseball (200 → 100) and Halloween (5 → 10), are near-ties. (Both before the
+  MC scoring repair; the repair moved Baseball back to 200.)
 - EMBER barely hurts the model (specificity 0.97, coherence 0.99) but erases
-  only about half the concept on average (efficacy 0.52).
+  well under half the concept on average (efficacy 0.43; 0.52 before the
+  repair, when cut-off "The answer is **C**" answers counted as erased).
+- The repair changed 4 picks: Baseball 100 → 200, Gambling 100 → 10, Gun
+  100 → 5, Uranium 100 → 200. Uranium fell most (efficacy 0.82 → 0.36): most
+  of its "erasure" at δ = 100 was cut-off answers, 10 of 14 of them correct.
+- EMBER's Alpaca answers hardly depend on δ (48–50 of 50 identical across δ),
+  so coherence is nearly constant and the pick is decided by efficacy and
+  specificity.
 
-Files: `judge_rerun/Ember/pass2_outputs/.../best_deltas_summary.csv`.
+Files: `judge_rerun/Ember/pass2_rescored/.../best_deltas_summary.csv` (final); pre-repair `judge_rerun/Ember/pass2_outputs/`.
 
 ### 4.3 SNMF
 
@@ -196,13 +215,13 @@ HP notation: `δ @ layers lo–hi (k features)`. `in` is MLP `up_proj`, `out` is
 | Harry Potter | 7 @ 0–12 (k=16) | 1 @ 0–8 (k=15) | 0.877 | 0.919 | 0.998 | 0.929 | 1.00 |
 | Heroin | 7 @ 0–25 (k=32) | 10 @ 9–17 (k=3) | 0.667 | 0.958 | 0.972 | 0.840 | 0.94 |
 | Nazism | 10 @ 0–12 (k=25) | 1 @ 9–17 (k=9) | 0.980 | 0.608 | 0.942 | 0.805 | 0.91 |
-| Pornography | 4 @ 0–8 (k=23) | 10 @ 9–17 (k=7) | 0.816 | 0.947 | 0.887 | 0.880 | **0.85** |
+| Pornography | 4 @ 0–8 (k=23) | 10 @ 9–17 (k=7) | 0.776 | 0.947 | 0.887 | 0.864 | **0.85** |
 | Republic of Ireland | 1 @ 0–25 (k=9) | 10 @ 0–8 (k=5) | 0.558 | 0.826 | 0.952 | 0.740 | 0.95 |
 | Uranium | 10 @ 0–25 (k=36) | 1 @ 0–8 (k=17) | 0.513 | 0.844 | 0.948 | 0.716 | 0.90 |
 | Valentine's Day | 1 @ 0–12 (k=14) | 10 @ 0–8 (k=13) | 0.829 | 0.955 | 0.955 | 0.909 | 0.91 |
 | World War II | 10 @ 0–25 (k=15) | 1 @ 13–25 (k=3) | 0.873 | 0.685 | 0.988 | 0.829 | 0.98 |
 
-Files: `judge_rerun/SNMF/pass2_outputs/.../best_hps_summary.csv`.
+Files: `judge_rerun/SNMF/pass2_rescored/.../best_hps_summary.csv` (after the MC scoring repair: same 18 cells as `judge_rerun/SNMF/pass2_outputs/`; only Pornography's numbers moved, by one `QA_train` question that answers differently on today's nodes, see [`snmf_search.md`](snmf_search.md)).
 
 ### 4.4 Ancient Rome: broken SNMF picks and the loop screen
 
@@ -224,6 +243,10 @@ Files: `judge_rerun/SNMF/pass2_outputs/.../best_hps_summary.csv`.
   other 17 concepts would change no pick.
 
 ### 4.5 SNMF+EMBER
+
+> **Not yet repaired.** These numbers use the old 4-token scoring (this method
+> has the most cut-off answers: 15% at the picks) and, for Baseball, Gambling,
+> Gun and Uranium, the old EMBER δ. Plan: [`snmf_ember_search.md`](snmf_ember_search.md), "Repair".
 
 | Concept | δ_emb | δ_in | δ_out | efficacy | specificity | coherence | harmonic_alpaca | min frac |
 |---|---|---|---|---|---|---|---|---|
@@ -489,6 +512,11 @@ constraint), not a different judge or top-k.
 - **Valentine's Day** is near chance in every language (English pristine 0.46),
   so its numbers are unreliable.
 - **The specificity measure is mixed**: English MMLU plus in-language SimDom.
-- **Invalid answers count as wrong**, so they look like erasure. This matters
-  most for `snmf_ember` (English 0.16) and some `ember` cells; `snmf` is
-  near 0.
+- **Invalid answers count as wrong**, so they look like erasure. Most of them
+  were not broken output but "The answer is **C**" cut off by the 4-token
+  budget. Fixed for the EMBER and SNMF HP searches (§4); still in the
+  SNMF+EMBER search and the cross-lingual `ember` / `snmf_ember` numbers
+  (English invalid 0.09 / 0.16); `snmf` is near 0.
+- **Runs are not bit-identical.** Re-running an edit weeks later changed single
+  answers, and one Pornography `QA_train` question systematically. Cells are
+  compared only within one run where it matters ([`ember_search.md`](ember_search.md), "Determinism").

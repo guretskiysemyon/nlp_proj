@@ -7,7 +7,9 @@ Finished for all 18 concepts on 2026-10-10.
 | Folder | What it is |
 |---|---|
 | `pass1_outputs/` | Pass 1 (no judge). Per concept: `top3_hps.json` (the 3 shortlisted grid cells with their judge-free scores) and `alpaca_completions/cell_0..2.json` (50 Alpaca answers each). Ancient Rome also has `screen/` (the loop screen, see below). |
-| `pass2_outputs/` | **Final** Pass 2: the best HP cell per concept, all 18 concepts, judged by Qwen2.5-32B-Instruct. |
+| `pass2_outputs/` | Pass 2 with the original 4-token MC scoring: the best HP cell per concept, all 18 concepts, judged by Qwen2.5-32B-Instruct. |
+| `rescore_mc/` | 2026-10-15 MC scoring repair (`judge_rerun/rescore_snmf_grid.py`): per concept `records/cell_<row>.json` (per-question answers), `grid_rescored.csv` (re-scored cells, with the old grid values and the determinism control) and `compare.json` (old vs new top 3). |
+| `pass2_rescored/` | **Final** picks after the repair (`judge_rerun/pass2_snmf_rescored.py`): `best_hps_summary.csv` plus per concept `best_hp__…json`, `cell_metrics__…csv`; COVID-19 also `alpaca_completions/row_128.json` and its Qwen scores. Same cells as `pass2_outputs/` for all 18 concepts. |
 | `archive/` | Superseded runs and Slurm logs (see the last section). |
 
 The 144-cell grid each pick comes from is not in this folder:

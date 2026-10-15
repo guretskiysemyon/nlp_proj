@@ -1,0 +1,42 @@
+{
+  "concept": "COVID-19 pandemic",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    88,
+    91,
+    128
+  ],
+  "new_rows": [
+    128
+  ],
+  "best_row": 88,
+  "best_hp": {
+    "delta_embed": 0.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 7.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 31,
+    "delta_out": 4.0,
+    "layer_lo_out": 9,
+    "layer_hi_out": 17,
+    "k_features_mlp_out": 13
+  },
+  "best_harmonic_alpaca": 0.8371377208862886,
+  "best_metrics": {
+    "efficacy": 0.7878787878787878,
+    "specificity": 0.7724968314321926,
+    "harmonic": 0.7801119931081164,
+    "alp_instr_frac": 0.9653979238754326,
+    "alp_flu_frac": 0.9960474308300394,
+    "coherence": 0.9804832130530281,
+    "harmonic_alpaca": 0.8371377208862886
+  },
+  "old_best_harmonic_alpaca": 0.8371377208862886,
+  "pick_changed": false
+}

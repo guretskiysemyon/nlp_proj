@@ -1,0 +1,31 @@
+{
+  "concept": "Heroin",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_mmlu": 0.9,
+  "min_alpaca": 0.9,
+  "top_k": 3,
+  "alpaca_n": 50,
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/Ember/rescore_mc",
+  "top_k_deltas": [
+    100.0,
+    10.0,
+    50.0
+  ],
+  "judged_now": [
+    10.0
+  ],
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.64,
+    "simdom_base": 0.98,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_delta_embed": 100.0,
+  "best_harmonic_alpaca": 0.7947627466908778,
+  "old_best_delta_embed": 100.0,
+  "old_best_harmonic_alpaca": 0.8271334792122539,
+  "pick_changed": false
+}
