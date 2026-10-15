@@ -1,0 +1,101 @@
+{
+  "concept": "Republic of Ireland",
+  "grid": "results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Republic_of_Ireland/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 8.326672684688674e-17,
+  "n_rescored": 6,
+  "control_ok_all": true,
+  "n_control_failed": 0,
+  "features_match_all": true,
+  "old_top3_rows": [
+    9,
+    21,
+    33
+  ],
+  "new_top3": [
+    {
+      "row": 21,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.6661514163782386,
+      "efficacy": 0.558139534883721,
+      "specificity": 0.8260000000000001,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.86,
+      "alpaca_flu": 1.58,
+      "alp_instr_frac": 0.9653979238754326,
+      "alp_flu_frac": 0.9367588932806324,
+      "coherence": 0.9508628127696291,
+      "harmonic_alpaca": 0.7400104434535874,
+      "gate": ""
+    },
+    {
+      "row": 33,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.6661514163782386,
+      "efficacy": 0.558139534883721,
+      "specificity": 0.8260000000000001,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.86,
+      "alpaca_flu": 1.58,
+      "alp_instr_frac": 0.9653979238754326,
+      "alp_flu_frac": 0.9367588932806324,
+      "coherence": 0.9508628127696291,
+      "harmonic_alpaca": 0.7400104434535874,
+      "gate": ""
+    },
+    {
+      "row": 9,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.6661514163782386,
+      "efficacy": 0.558139534883721,
+      "specificity": 0.8260000000000001,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.84,
+      "alpaca_flu": 1.6,
+      "alp_instr_frac": 0.9550173010380623,
+      "alp_flu_frac": 0.9486166007905138,
+      "coherence": 0.9518061901888094,
+      "harmonic_alpaca": 0.7402007637966059,
+      "gate": ""
+    }
+  ],
+  "top3_changed": false,
+  "needs_alpaca_and_judging_rows": [],
+  "best_row": 9,
+  "best_harmonic_alpaca": 0.7402007637966059,
+  "boundary": {
+    "third_row": 9,
+    "third_harmonic": 0.6661514163782386,
+    "fourth_row": 123,
+    "fourth_harmonic": 0.5476703947038467,
+    "one_question_efficacy": 0.04651162790697674,
+    "near_tie_mixed_runs": false
+  }
+}

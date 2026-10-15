@@ -64,6 +64,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--ratio-thresh", type=float, default=2.0)       # pass1_ember_delta.py default
     p.add_argument("--all-deltas", action="store_true",
                    help="re-score every delta, not only those with an invalid answer")
+    p.add_argument("--reparse", action="store_true",
+                   help="no GPU: re-apply the current parse_letter_fixed to the saved records, "
+                        "rewrite grid_rescored.csv, then compare")
     p.add_argument("--compare-only", action="store_true",
                    help="skip the GPU part, recompute compare.json from grid_rescored.csv")
     p.add_argument("--overwrite", action="store_true", help="re-score deltas already on disk")
@@ -239,6 +242,34 @@ def _select(grid: pd.DataFrame, bases: Dict[str, float], judged: pd.DataFrame,
     }
 
 
+def reparse_concept(args: argparse.Namespace, concept: str) -> None:
+    """Re-parse every saved records/delta_*.json with the current parser (no generation)."""
+    from judge_rerun.mc_fixed import reparse
+    rel = _rel(args)
+    grid = pd.read_csv(Path(args.pass1_dir) / rel / _safe_concept(concept) / "grid_raw.csv")
+    out_dir = Path(args.out_dir) / rel / _safe_concept(concept)
+    csv_path = out_dir / "grid_rescored.csv"
+    old_rows = {float(r["delta_embed"]): r for _, r in pd.read_csv(csv_path).iterrows()}
+    rows = []
+    for delta, old in sorted(old_rows.items()):
+        rec_path = out_dir / "records" / f"delta_{delta}.json"
+        saved = json.loads(rec_path.read_text(encoding="utf-8"))
+        sets = {s: reparse(saved[s]) for s in SETS}
+        saved.update(sets)
+        rec_path.write_text(json.dumps(saved, ensure_ascii=False, indent=1), encoding="utf-8")
+        g = grid[grid["delta_embed"].astype(float) == delta].iloc[0]
+        res = {"edit_info": {"k_features_embed": int(saved["k_features_embed"]),
+                             "n_tokens_edited": int(saved["n_tokens_edited"])}, "sets": sets}
+        row = _row(concept, g, res, float(old["wall_time_s"]))
+        changed = [s for s in SETS if abs(row[f"{s}_acc"] - float(old[f"{s}_acc"])) > 1e-9
+                   or abs(row[f"{s}_invalid_rate"] - float(old[f"{s}_invalid_rate"])) > 1e-9]
+        if changed:
+            log.info("%s delta=%s re-parse changed %s", concept, delta,
+                     {s: (float(old[f"{s}_acc"]), row[f"{s}_acc"]) for s in changed})
+        rows.append(row)
+    pd.DataFrame(rows).to_csv(csv_path, index=False)
+
+
 def compare_concept(args: argparse.Namespace, concept: str) -> Dict[str, Any]:
     rel = _rel(args)
     grid = pd.read_csv(Path(args.pass1_dir) / rel / _safe_concept(concept) / "grid_raw.csv")
@@ -280,7 +311,10 @@ def main() -> None:
     args = parse_args()
     log.configure()
     log.set_context(method="ember", stage="rescore_mc")
-    if not args.compare_only:
+    if args.reparse:
+        for c in args.concept:
+            reparse_concept(args, c)
+    elif not args.compare_only:
         scorer = _Scorer(args)
         for c in args.concept:
             log.set_context(method="ember", concept=c, stage="rescore_mc")

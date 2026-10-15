@@ -3,6 +3,10 @@
   "control_ok_all": true,
   "features_match_all": true,
   "rescored_deltas": [
+    0.5,
+    1.0,
+    2.0,
+    5.0,
     10.0,
     50.0,
     100.0,
@@ -133,29 +137,27 @@
         "gate": null
       },
       "200.0": {
-        "qa_acc": 0.0,
-        "efficacy": 0.0,
-        "specificity": 0.0,
-        "harmonic": 0.0,
-        "gate": "min_mmlu"
+        "qa_acc": 0.48,
+        "efficacy": 0.4390243902439025,
+        "specificity": 0.9339080459770116,
+        "harmonic": 0.5972739802950636,
+        "gate": null
       }
     },
     "top_k": [
+      200.0,
       100.0,
-      2.0,
-      5.0
+      2.0
     ],
     "top_k_harmonic_alpaca": {
+      "200.0": 0.6836762757401067,
       "100.0": 0.6421553804021233,
-      "2.0": 0.6013051255281894,
-      "5.0": NaN
+      "2.0": 0.6013051255281894
     },
-    "needs_judging": [
-      5.0
-    ],
-    "best_delta_embed": null,
-    "best_harmonic_alpaca": null
+    "needs_judging": [],
+    "best_delta_embed": 200.0,
+    "best_harmonic_alpaca": 0.6836762757401067
   },
-  "top_k_changed": true,
-  "pick_changed": true
+  "top_k_changed": false,
+  "pick_changed": false
 }

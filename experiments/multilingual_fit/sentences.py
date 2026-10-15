@@ -10,6 +10,9 @@ sentence when the word before it is:
   - a known abbreviation of that language.
 "!" and "?" always end a sentence.
 
+Zero-width spaces (U+200B) are removed first: the es extracts keep one where each
+footnote marker was ("santos.<U+200B> Algunas"), which hid the sentence boundary.
+
 usable_sentences() also drops bibliography / reference lines (Literatur and
 reference sections are part of the plain-text extracts): ISBN, page and volume
 numbers, Russian imprints ("— М.: Наука, 1981. — 304 с."), access dates
@@ -38,6 +41,7 @@ ABBREV = {  # lower-case, without the final period
 _BOUNDARY = re.compile(r"[.!?…]+[\"»”)\]]*(?=\s+[\"«„“(\[]?[A-ZÀ-ÖØ-ÞА-ЯЁ0-9])")
 _PREV_WORD = re.compile(r"(\S+)$")
 _ROMAN = re.compile(r"^[IVXLCDM]+$")
+_ZERO_WIDTH = re.compile("[​⁠﻿]+")
 _CITATION = re.compile(r"\[\d+\]|\[citation needed\]|\[править[^\]]*\]")
 _REFERENCE = re.compile(r"""
     \bISBN\b | \bISSN\b | \bdoi\b | https?:// | www\.
@@ -65,6 +69,10 @@ def _no_break(prev: str, lang: str) -> bool:
 
 def split_sentences(text: str, lang: str) -> list:
     """Split one paragraph-structured plain-text article into sentences."""
+    # a space where the footnote stood between words ("expertos<ZW>en", "fin.<ZW>Según");
+    # word joiners (U+2060, e.g. in IPA "[⁠i⁠]") are just dropped
+    text = _ZERO_WIDTH.sub(lambda m: " " if "​" in m.group() and m.end() < len(text)
+                           and text[m.end()].isalnum() else "", text)
     out = []
     for line in text.splitlines():
         line = line.strip()

@@ -40,11 +40,13 @@ STEMS = {
     "COVID-19 pandemic": r"covid|коронавирус|sars-cov|pandemi|пандеми|coronavirus",
     "Cannabis": r"каннабис|марихуан|конопл|гашиш|cannabis|marihuana|marijuana|haschisch|hachís|thc|тгк",
     "Culture of Greece": r"грец|греч|эллин|griech|hellen|grieg|helén|grec|hellén",
-    "Gambling": r"азарт|казино|ставк|букмекер|glücksspiel|casino|spielbank|wett|apuesta|azar|jeux? d.argent|pari|hasard",
+    # whole words for azar / pari: not "rechazar", "aparición", or fr "paris"
+    "Gambling": r"азарт|казино|ставк|букмекер|glücksspiel|casino|spielbank|wett|apuesta|\bazar\b|jeux? d.argent|"
+                r"\bpari(?:er|eurs?|euses?|é|ons|ez|ant)?\b|hasard",
     "Golf": r"гольф|golf",
     "Gun": r"оружи|ружь|пистолет|винтовк|револьвер|waffe|gewehr|pistole|revolver|schuss|\barmas?\b|fusil|pistol|\barmes?\b",
     "Halloween": r"х[эе]лл?оуин|halloween",
-    "Harry Potter": r"поттер|potter|хогвартс|hogwarts|poudlard|роулинг|rowling",
+    "Harry Potter": r"поттер|potter|хогвартс|hogwarts|poudlard",  # not Rowling: the author, not the books
     "Heroin": r"героин|heroin|hero[ií]na|héroïne",
     "Nazism": r"нацис|национал-социал|nationalsozial|nazi|hitler|гитлер|nsdap|нсдап",
     "Pornography": r"порн|porn",

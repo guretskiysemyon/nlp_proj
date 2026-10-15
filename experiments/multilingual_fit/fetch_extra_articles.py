@@ -77,8 +77,10 @@ QUERIES = {
     ("Culture of Greece", "de"): ['"griechische Kultur"', '"Kultur Griechenlands"'],
     ("Culture of Greece", "fr"): ['"culture grecque"', '"culture de la Grèce"'],
     ("Gambling", "ru"): ['"азартные игры"', '"азартная игра"'],
+    ("Gambling", "fr"): ['"jeu d\'argent"', '"jeux d\'argent"', '"jeux de hasard"'],
     ("Gun", "de"): ['"Schusswaffe"', '"Feuerwaffe"'],
     ("Gun", "fr"): ['"arme à feu"'],
+    ("Harry Potter", "ru"): ['"Гарри Поттер"', '"Гарри Поттера"', '"Хогвартс"'],  # main title is the novel series
     ("Halloween", "ru"): ['"Хэллоуин" ' + NOFILM["ru"]],
     ("Halloween", "de"): ['"Halloween" ' + NOFILM["de"]],
     ("Halloween", "es"): ['"Halloween" ' + NOFILM["es"], '"Noche de Brujas"', '"truco o trato"'],

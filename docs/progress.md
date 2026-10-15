@@ -66,12 +66,20 @@
   holidays, drugs, sports). Options under discussion: sentence-level filter on
   native Wikipedia, or translating the English sets. Same write-up, "Trial:
   adding related articles" and "Options".
-- **Part 2, translated sentence sets (2026-10-15): step 1 of 7 done.** The English
+- **Part 2, translated sentence sets (2026-10-15): ready (steps 1–4b done; next: step 7, refit
+  World War II on them).** The English
   concept and neutral sets are translated into ru/de/es/fr with
   gemini-3.5-flash-lite (chosen after a World War II pilot against Flash; $3.79 in total),
-  output in `experiments/multilingual_fit/data_translated/`. Next: quality score
-  for every pair (COMET-Kiwi / LaBSE). Plan and current step: same write-up,
-  "Translated sentence sets (option 6)".
+  output in `experiments/multilingual_fit/data_translated/`. Quality scores
+  (COMET-Kiwi median 0.86–0.88 per language): the ~3% that scored low, mostly sports and
+  weapons jargon, were re-translated with Flash; 483 of 684 replaced where the new version
+  scored higher ($0.19). Term check against Wikipedia's interlanguage titles plus a
+  gemini-3.8-flash judge ($0.82): terms 97.7–99.2% and names 99.2–99.7% correct; 117 errors
+  in 111 sentences. Also found: ~890 translations drop parenthesised text. Step 4b fixed 90 of
+  the 111 and restored the parentheses (missing now in 2–5% instead of 19–35%), $0.50. No human
+  reviewer, so the human spot-check is replaced by the automatic judges. Total Gemini
+  cost for the translated data: ~$5.90, including the Flash pilot and the judge comparison tests.
+  Plan and current step: same write-up, "Translated sentence sets (option 6)".
 
 Per-concept status: [`docs/Part 1/snmf_search.md`](Part%201/snmf_search.md) (SNMF),
 [`docs/Part 1/ember_search.md`](Part%201/ember_search.md) (EMBER) and

@@ -1,0 +1,12 @@
+[run_rescore_snmf] args: --concept COVID-19 pandemic Ancient Rome Uranium Culture of Greece
+[15:55:58] [snmf|-|rescore_mc] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.65s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.15it/s]
+[15:56:06] [snmf|-|rescore_mc] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[15:56:13] [snmf|COVID-19 pandemic|rescore_mc] COVID-19 pandemic: re-scoring 44/144 cells
+[15:56:13] [snmf|COVID-19 pandemic|rescore_mc] loading MLP features for concept='COVID-19 pandemic' rank=100
+[15:56:13] [snmf|COVID-19 pandemic|rescore_mc] found 54 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[15:57:41] [snmf|COVID-19 pandemic|rescore cell=36] [1/44] cell=36 qa 0.44->0.46 (inv 0.04->0.00) simdom 0.96->0.96 mmlu 0.52->0.52 control_ok=True (88s)
+[15:58:25] [snmf|COVID-19 pandemic|rescore cell=38] [2/44] cell=38 qa 0.46->0.46 (inv 0.02->0.00) simdom 0.92->0.92 mmlu 0.52->0.52 control_ok=True (44s)
+[16:01:54] [snmf|COVID-19 pandemic|rescore cell=42] [3/44] cell=42 qa 0.00->0.26 (inv 0.00->0.04) simdom 0.00->0.58 mmlu 0.32->0.34 control_ok=True (209s)
+[16:05:19] [snmf|COVID-19 pandemic|rescore cell=45] [4/44] cell=45 qa 0.00->0.20 (inv 0.00->0.32) simdom 0.00->0.42 mmlu 0.18->0.18 control_ok=True (205s)
+slurmstepd: error: *** JOB 1042298 ON s-004 CANCELLED AT 2026-10-15T16:06:43 ***

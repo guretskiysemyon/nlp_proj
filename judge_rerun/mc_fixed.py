@@ -46,9 +46,10 @@ MMLU_BATCH_SIZE = 8           # what every grid used; keep it so padding is iden
 
 # 1. The whole output is one letter, any case, any wrapping: "c", "C.", "**B**", "(D)".
 _LONE = re.compile(r"[\W_]*([A-Da-d])[\W_]*")
-# 2. Starts with a capital letter plus a delimiter: "C. Hadrian", "D) x", "**B** x", "A:".
+# 2. Starts with a capital letter plus a delimiter: "C. Hadrian", "D) x", "**B** x", "A:",
+#    or a line break ("C \n\nAnswer Explanation: ...").
 #    Needs the delimiter, so "A fire lance ..." (article) does not match.
-_LEAD = re.compile(r"[\s*_#>(\[]*([A-D])(?:[.):\]]|\*\*|\s*$)")
+_LEAD = re.compile(r"[\s*_#>(\[]*([A-D])(?:[.):\]]|\*\*|[ \t]*\n|\s*$)")
 # 3. An answer phrase, then the letter within the same line:
 #    "The answer is **C**", "Die richtige Antwort ist B", "La réponse est : **D**",
 #    "Ответ: A". Keywords are case-insensitive, the letter must be a capital.
@@ -99,6 +100,13 @@ def _record(tm: Any, ids: List[int], n_old: int) -> Dict[str, Any]:
         "old_letter": parse_letter(old_raw),
         "n_new_tokens": len(ids),
     }
+
+
+def reparse(result: Dict[str, Any]) -> Dict[str, Any]:
+    """Re-apply parse_letter_fixed to a saved evaluate_*_fixed result (CPU, no generation)."""
+    for r in result["records"]:
+        r["model_letter"] = parse_letter_fixed(r["model_raw"])
+    return _tally(result["records"], "correct_letter")
 
 
 def _tally(records: List[Dict[str, Any]], correct_key: str) -> Dict[str, Any]:

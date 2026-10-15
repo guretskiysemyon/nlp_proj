@@ -1,0 +1,29 @@
+{
+  "concept": "Baseball",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "fluency_prompt": "original",
+  "min_mmlu": 0.9,
+  "min_alpaca": 0.9,
+  "top_k": 3,
+  "alpaca_n": 50,
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/Ember/rescore_mc",
+  "top_k_deltas": [
+    200.0,
+    100.0,
+    50.0
+  ],
+  "judged_now": [],
+  "baselines": {
+    "mmlu_base": 0.52,
+    "qa_base": 0.84,
+    "simdom_base": 0.68,
+    "alp_instr_base": 1.9266666666666667,
+    "alp_flu_base": 1.6866666666666668
+  },
+  "best_delta_embed": 200.0,
+  "best_harmonic_alpaca": 0.42821785054439404,
+  "old_best_delta_embed": 100.0,
+  "old_best_harmonic_alpaca": 0.5960582420415825,
+  "pick_changed": true
+}

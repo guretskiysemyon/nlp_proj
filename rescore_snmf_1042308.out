@@ -1,0 +1,104 @@
+[run_rescore_snmf] args: --concept Artificial intelligence Heroin Golf Republic of Ireland
+[16:07:43] [snmf|-|rescore_mc] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.75s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.09it/s]
+[16:07:51] [snmf|-|rescore_mc] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[16:07:56] [snmf|Artificial intelligence|rescore_mc] Artificial intelligence: re-scoring 27/144 cells
+[16:07:56] [snmf|Artificial intelligence|rescore_mc] loading MLP features for concept='Artificial intelligence' rank=100
+[16:07:56] [snmf|Artificial intelligence|rescore_mc] found 51 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[16:08:36] [snmf|Artificial intelligence|rescore cell=57] [4/27] cell=57 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (40s)
+[16:09:13] [snmf|Artificial intelligence|rescore cell=66] [5/27] cell=66 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.34->0.34 control_ok=True (37s)
+[16:09:49] [snmf|Artificial intelligence|rescore cell=69] [6/27] cell=69 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.02 control_ok=True (36s)
+[16:10:27] [snmf|Artificial intelligence|rescore cell=75] [7/27] cell=75 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.02 control_ok=True (38s)
+[16:11:04] [snmf|Artificial intelligence|rescore cell=78] [8/27] cell=78 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.02 control_ok=True (37s)
+[16:11:40] [snmf|Artificial intelligence|rescore cell=81] [9/27] cell=81 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.04->0.04 control_ok=True (36s)
+[16:12:16] [snmf|Artificial intelligence|rescore cell=87] [10/27] cell=87 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.02 control_ok=True (36s)
+[16:12:53] [snmf|Artificial intelligence|rescore cell=90] [11/27] cell=90 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:13:29] [snmf|Artificial intelligence|rescore cell=93] [12/27] cell=93 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.04->0.04 control_ok=True (36s)
+[16:14:06] [snmf|Artificial intelligence|rescore cell=99] [13/27] cell=99 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.06 control_ok=True (37s)
+[16:14:42] [snmf|Artificial intelligence|rescore cell=102] [14/27] cell=102 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:15:19] [snmf|Artificial intelligence|rescore cell=105] [15/27] cell=105 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.08->0.06 control_ok=True (36s)
+[16:15:55] [snmf|Artificial intelligence|rescore cell=111] [16/27] cell=111 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:16:27] [snmf|Artificial intelligence|rescore cell=112] [17/27] cell=112 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.36->0.36 control_ok=True (31s)
+[16:17:03] [snmf|Artificial intelligence|rescore cell=114] [18/27] cell=114 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.02 control_ok=True (37s)
+[16:17:39] [snmf|Artificial intelligence|rescore cell=115] [19/27] cell=115 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.38->0.38 control_ok=True (36s)
+[16:18:16] [snmf|Artificial intelligence|rescore cell=117] [20/27] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:18:51] [snmf|Artificial intelligence|rescore cell=118] [21/27] cell=118 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.24->0.24 control_ok=True (35s)
+[16:19:27] [snmf|Artificial intelligence|rescore cell=123] [22/27] cell=123 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:20:04] [snmf|Artificial intelligence|rescore cell=126] [23/27] cell=126 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.10->0.08 control_ok=True (37s)
+[16:20:40] [snmf|Artificial intelligence|rescore cell=129] [24/27] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.04->0.02 control_ok=True (36s)
+[16:21:17] [snmf|Artificial intelligence|rescore cell=135] [25/27] cell=135 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:21:53] [snmf|Artificial intelligence|rescore cell=138] [26/27] cell=138 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.06 control_ok=True (36s)
+[16:22:29] [snmf|Artificial intelligence|rescore cell=141] [27/27] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:22:29] [snmf|Artificial intelligence|rescore cell=141] Artificial intelligence: done, 0 control failures this run
+[16:22:29] [snmf|Heroin|rescore_mc] Heroin: re-scoring 28/144 cells
+[16:22:29] [snmf|Heroin|rescore_mc] loading MLP features for concept='Heroin' rank=100
+[16:22:30] [snmf|Heroin|rescore_mc] found 32 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[16:23:30] [snmf|Heroin|rescore cell=3] [1/28] cell=3 qa 0.54->0.54 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.48->0.48 control_ok=True (61s)
+[16:23:58] [snmf|Heroin|rescore cell=9] [2/28] cell=9 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.38->0.38 control_ok=True (28s)
+[16:24:26] [snmf|Heroin|rescore cell=21] [3/28] cell=21 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.38->0.38 control_ok=True (28s)
+[16:24:54] [snmf|Heroin|rescore cell=33] [4/28] cell=33 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.38->0.38 control_ok=True (28s)
+[16:25:36] [snmf|Heroin|rescore cell=36] [5/28] cell=36 qa 0.64->0.66 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (42s)
+[16:26:12] [snmf|Heroin|rescore cell=45] [6/28] cell=45 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:26:54] [snmf|Heroin|rescore cell=48] [7/28] cell=48 qa 0.58->0.60 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (42s)
+[16:27:30] [snmf|Heroin|rescore cell=57] [8/28] cell=57 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:28:13] [snmf|Heroin|rescore cell=60] [9/28] cell=60 qa 0.60->0.62 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.52->0.52 control_ok=True (42s)
+[16:28:49] [snmf|Heroin|rescore cell=69] [10/28] cell=69 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:29:31] [snmf|Heroin|rescore cell=72] [11/28] cell=72 qa 0.52->0.54 (inv 0.02->0.00) simdom 0.98->0.98 mmlu 0.50->0.50 control_ok=True (42s)
+[16:29:46] [snmf|Heroin|rescore cell=75] [12/28] cell=75 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.38->0.40 control_ok=True (15s)
+[16:30:22] [snmf|Heroin|rescore cell=78] [13/28] cell=78 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.12 control_ok=False (36s)
+[16:30:22] [snmf|Heroin|rescore cell=78] CONTROL FAILED for Heroin cell=78 (measured sets ['mmlu'])
+[16:30:59] [snmf|Heroin|rescore cell=81] [14/28] cell=81 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:31:35] [snmf|Heroin|rescore cell=90] [15/28] cell=90 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.12 control_ok=True (36s)
+[16:32:11] [snmf|Heroin|rescore cell=93] [16/28] cell=93 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (37s)
+[16:32:26] [snmf|Heroin|rescore cell=99] [17/28] cell=99 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.40->0.42 control_ok=True (15s)
+[16:33:03] [snmf|Heroin|rescore cell=102] [18/28] cell=102 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.12 control_ok=False (36s)
+[16:33:03] [snmf|Heroin|rescore cell=102] CONTROL FAILED for Heroin cell=102 (measured sets ['mmlu'])
+[16:33:39] [snmf|Heroin|rescore cell=105] [19/28] cell=105 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:34:16] [snmf|Heroin|rescore cell=111] [20/28] cell=111 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.30->0.30 control_ok=True (37s)
+[16:34:52] [snmf|Heroin|rescore cell=114] [21/28] cell=114 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:35:28] [snmf|Heroin|rescore cell=117] [22/28] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:36:05] [snmf|Heroin|rescore cell=123] [23/28] cell=123 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.36->0.36 control_ok=True (36s)
+[16:36:41] [snmf|Heroin|rescore cell=126] [24/28] cell=126 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:37:18] [snmf|Heroin|rescore cell=129] [25/28] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=False (37s)
+[16:37:18] [snmf|Heroin|rescore cell=129] CONTROL FAILED for Heroin cell=129 (measured sets ['mmlu'])
+[16:37:54] [snmf|Heroin|rescore cell=135] [26/28] cell=135 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.28->0.28 control_ok=True (36s)
+[16:38:31] [snmf|Heroin|rescore cell=138] [27/28] cell=138 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:39:07] [snmf|Heroin|rescore cell=141] [28/28] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:39:07] [snmf|Heroin|rescore cell=141] Heroin: done, 3 control failures this run
+[16:39:07] [snmf|Golf|rescore_mc] Golf: re-scoring 16/144 cells
+[16:39:07] [snmf|Golf|rescore_mc] loading MLP features for concept='Golf' rank=100
+[16:39:07] [snmf|Golf|rescore_mc] found 35 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[16:40:18] [snmf|Golf|rescore cell=45] [1/16] cell=45 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.16->0.18 control_ok=True (70s)
+[16:40:56] [snmf|Golf|rescore cell=57] [2/16] cell=57 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.18->0.18 control_ok=True (39s)
+[16:41:34] [snmf|Golf|rescore cell=69] [3/16] cell=69 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.16->0.18 control_ok=False (38s)
+[16:41:34] [snmf|Golf|rescore cell=69] CONTROL FAILED for Golf cell=69 (measured sets ['mmlu'])
+[16:42:11] [snmf|Golf|rescore cell=78] [4/16] cell=78 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.10->0.12 control_ok=False (36s)
+[16:42:11] [snmf|Golf|rescore cell=78] CONTROL FAILED for Golf cell=78 (measured sets ['mmlu'])
+[16:42:47] [snmf|Golf|rescore cell=81] [5/16] cell=81 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:43:23] [snmf|Golf|rescore cell=90] [6/16] cell=90 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.18->0.20 control_ok=False (36s)
+[16:43:23] [snmf|Golf|rescore cell=90] CONTROL FAILED for Golf cell=90 (measured sets ['mmlu'])
+[16:44:00] [snmf|Golf|rescore cell=93] [7/16] cell=93 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.02 control_ok=True (37s)
+[16:44:36] [snmf|Golf|rescore cell=102] [8/16] cell=102 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.12->0.16 control_ok=True (36s)
+[16:45:13] [snmf|Golf|rescore cell=105] [9/16] cell=105 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:45:49] [snmf|Golf|rescore cell=111] [10/16] cell=111 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.22->0.24 control_ok=True (36s)
+[16:46:25] [snmf|Golf|rescore cell=114] [11/16] cell=114 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.02 control_ok=True (36s)
+[16:47:03] [snmf|Golf|rescore cell=117] [12/16] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.02 control_ok=True (37s)
+[16:47:39] [snmf|Golf|rescore cell=126] [13/16] cell=126 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.00 control_ok=True (36s)
+[16:48:16] [snmf|Golf|rescore cell=129] [14/16] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.04 control_ok=True (37s)
+[16:48:52] [snmf|Golf|rescore cell=138] [15/16] cell=138 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.00->0.02 control_ok=True (36s)
+[16:49:28] [snmf|Golf|rescore cell=141] [16/16] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.02->0.02 control_ok=True (36s)
+[16:49:28] [snmf|Golf|rescore cell=141] Golf: done, 3 control failures this run
+[16:49:29] [snmf|Republic of Ireland|rescore_mc] Republic of Ireland: re-scoring 6/144 cells
+[16:49:29] [snmf|Republic of Ireland|rescore_mc] loading MLP features for concept='Republic of Ireland' rank=100
+[16:49:29] [snmf|Republic of Ireland|rescore_mc] found 9 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[16:50:16] [snmf|Republic of Ireland|rescore cell=114] [1/6] cell=114 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.32->0.32 control_ok=True (47s)
+[16:50:52] [snmf|Republic of Ireland|rescore cell=117] [2/6] cell=117 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.18->0.22 control_ok=True (36s)
+[16:51:30] [snmf|Republic of Ireland|rescore cell=126] [3/6] cell=126 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.30->0.30 control_ok=True (37s)
+[16:52:06] [snmf|Republic of Ireland|rescore cell=129] [4/6] cell=129 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.20->0.22 control_ok=True (36s)
+[16:52:43] [snmf|Republic of Ireland|rescore cell=138] [5/6] cell=138 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.30->0.30 control_ok=True (37s)
+[16:53:20] [snmf|Republic of Ireland|rescore cell=141] [6/6] cell=141 qa 0.00->0.00 (inv 0.00->0.00) simdom 0.00->0.00 mmlu 0.20->0.22 control_ok=True (36s)
+[16:53:20] [snmf|Republic of Ireland|rescore cell=141] Republic of Ireland: done, 0 control failures this run
+[16:53:21] [snmf|Artificial intelligence|compare] Artificial intelligence: control_ok=True (0 failed) top3_changed=False needs judging rows=[] near_tie=False
+[16:53:22] [snmf|Heroin|compare] Heroin: control_ok=False (3 failed) top3_changed=False needs judging rows=[] near_tie=False
+[16:53:23] [snmf|Golf|compare] Golf: control_ok=False (3 failed) top3_changed=False needs judging rows=[] near_tie=False
+[16:53:24] [snmf|Republic of Ireland|compare] Republic of Ireland: control_ok=True (0 failed) top3_changed=False needs judging rows=[] near_tie=False
