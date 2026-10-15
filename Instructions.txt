@@ -1,0 +1,163 @@
+The full flow: whiten with the background, sharpen with the target
+
+Notation follows your convention: tokens are columns. d is the embedding dimension, so Gemma’s full matrix is d × 256k.
+
+Inputs
+Symbol	Shape	What
+E_B	d × N_B	Background embeddings: general-English tokens, or a random 30–50k subset of the vocabulary
+E_V	d × n	Embeddings of the paper’s token set V* (concept + neutral tokens)
+T_C	m indices	The target: concept-only tokens in V*
+ε, η, γ	scalars	Whitening regularisation, target shrinkage, sharpening strength
+Step 1: background statistics (once per model)
+μ_B = (1/N_B) · E_B · 1                              # d-vector
+Σ_B = (1/N_B) · (E_B − μ_B1ᵀ)(E_B − μ_B1ᵀ)ᵀ          # d × d
+Σ_B = Q Λ Qᵀ                                         # eigendecomposition
+W   = Q (Λ + εI)^(−1/2) Qᵀ                           # whitening
+W⁻¹ = Q (Λ + εI)^(+1/2) Qᵀ                           # unwhitening, needed in step 7
+ε ≈ 10⁻³ to 10⁻² × mean(Λ). It stops the tiny, noisy eigenvalues from blowing up.
+Check: W Σ_B W ≈ I.
+Step 2: whiten V* against the background
+U = W · (E_V − μ_B1ᵀ)                                # d × n
+
+Centre on μ_B, so the concept’s shift Δ = μC − μB stays in the data.
+
+After this step, the background has variance 1 in every direction. So any variance you measure next is already relative to the background.
+
+Step 3: the target’s second moment (around 0, not the target mean)
+U_C = U[:, T_C]                                      # d × m
+S   = (1/m) · U_C U_Cᵀ                               # includes the shift: Cov_C + m̃m̃ᵀ
+S_η = (1 − η) S + η I                                # shrink towards the background (= I here)
+S_η = P Γ Pᵀ                                         # eigendecomposition
+
+What Γ means. Each eigenvalue γ_j is an enrichment ratio along its direction p_j:
+
+γ_j > 1: the concept tokens vary more there than the background does.
+γ_j < 1: they vary less.
+
+Why shrink. With m (tens to hundreds) much smaller than d, S has rank ≤ m, so most of its eigenvalues are zero. Without shrinkage, step 4 would delete every direction the concept doesn’t use, including the generic structure the neutral tokens need for explaining away. Shrinkage puts a floor of η under those directions. Start with η ≈ 0.1–0.3.
+
+Free diagnostic. The top eigenvectors p_1, p_2, … are the contrastive-PCA directions. Project the whitened full vocabulary onto p_1 and look at the top tokens. If they’re Harry Potter tokens, the signal is there before any factorisation.
+
+Step 4: sharpen
+X = S_η^(γ/2) · U = P Γ^(γ/2) Pᵀ · U                 # d × n, applied to ALL of V*
+Directions where the concept is enriched (γ_j > 1) get stretched; depleted ones shrink towards η^(γ/2).
+Apply it to every column of V*, concept and neutral alike. The transform is one fixed map; only its statistics came from the target.
+The combined map is T = S_η^(γ/2) · W, so X = T(E_V − μ_B1ᵀ).
+Setting	Meaning
+γ = 0	background whitening only
+γ = 0 and large ε	essentially raw centred embeddings, i.e. the paper’s setup apart from centring
+γ ≈ 0.5–2	the range to sweep
+Step 5: sparse factorisation
+X ≈ Z̃ Y              # Z̃: d × k,   Y: k × n,   top 1% per row of Y
+
+This is the paper’s method unchanged, optionally initialised with SVD + varimax. Retune the ridge λ, since the data’s scale changed.
+
+Step 6: select concept features
+Compute the mass ratio ρ directly from Y. No undoing is needed: the columns weren’t scaled, only transformed by a shared T.
+Run the LLM judge as before, with your fragment-expansion format.
+Optional extra check: cosine of each factor with m̃ (the whitened Δ). Low values flag factors that may be generic.
+Step 7: map the directions back to the original space
+z_i = T⁻¹ z̃_i = W⁻¹ · S_η^(−γ/2) · z̃_i,      with   S_η^(−γ/2) = P Γ^(−γ/2) Pᵀ
+
+Why this is exact. x_t = T(e_t − μ_B) ≈ Σ_i Y_{i,t} z̃_i implies e_t − μ_B ≈ Σ_i Y_{i,t} T⁻¹z̃_i. The mean cancels, because only directions are mapped back.
+
+Step 8: edit the original embeddings
+for t in T_C with Y_{i,t} ≠ 0 for some i ∈ F_C:
+    e_t ← e_t − δ · Σ_{i ∈ F_C} Y_{i,t} · z_i
+
+Retune δ: the magnitudes differ from the paper’s.
+
+Minimal code
+import numpy as np
+
+def fit_background(E_B, eps_rel=1e-3):
+    mu = E_B.mean(1, keepdims=True)
+    C = (E_B - mu) @ (E_B - mu).T / E_B.shape[1]
+    lam, Q = np.linalg.eigh(C)
+    lam = lam + eps_rel * lam.mean()
+    W    = Q @ np.diag(lam**-0.5) @ Q.T
+    Winv = Q @ np.diag(lam**+0.5) @ Q.T
+    return mu, W, Winv
+
+def fit_sharpen(U, target_idx, eta=0.2, gamma=1.0):
+    Uc = U[:, target_idx]
+    S = (1 - eta) * (Uc @ Uc.T / Uc.shape[1]) + eta * np.eye(U.shape[0])
+    g, P = np.linalg.eigh(S)
+    Sp = P @ np.diag(g**(gamma / 2)) @ P.T
+    Sm = P @ np.diag(g**(-gamma / 2)) @ P.T
+    return Sp, Sm, g, P            # g, P: enrichment ratios and cPCA directions
+
+mu_B, W, Winv = fit_background(E_B)          # once per model
+U = W @ (E_V - mu_B)                         # step 2
+Sp, Sm, g, P = fit_sharpen(U, T_C)           # step 3
+X = Sp @ U                                   # step 4
+# Z_t, Y = sparse_mf(X, k, s=0.01)           # step 5 (paper's method)
+# Z_orig = Winv @ Sm @ Z_t                   # step 7: one column per feature
+# E_V[:, t] -= delta * Z_orig[:, F_C] @ Y[F_C, t]   # step 8
+Hyperparameters and their order
+ε (step 1): set once per model. Pick the smallest value where the whitened background’s top tokens don’t turn into noise.
+η (step 3): shrinkage. Too small erases generic structure; too large makes γ do nothing.
+γ (step 4): the main sweep, {0, 0.5, 1, 2}.
+k, τ, δ: retune after fixing γ.
+Cost
+
+Step 1 is the only real computation: seconds to about a minute, once per model. Steps 2–4 are a few d × d multiplications and one d × d eigendecomposition per concept, which takes seconds and is negligible next to the factorisation.
+
+Ok, should I background against generic wikipedia vocabulary (which is unrealistic to scan all so please suggest a sampling method) or against all tokens?
+Please debate over that and asses if I should see much difference
+
+Background: generic Wikipedia tokens or the full vocabulary?
+
+Recommendation (moderate–high confidence): use a Wikipedia token-type background: the unique tokens that appear in a large random sample of Wikipedia sentences, each counted once. Avoid the raw full vocabulary.
+
+How much difference to expect (low–moderate confidence): whitening alone (γ = 0) probably changes the factors only moderately. Whitening plus sharpening (γ > 0) is where the choice probably matters most, because there the background defines what counts as “enriched”. The difference is cheap to measure; the test is at the end.
+
+The case for the full vocabulary
+No sampling decisions. It’s deterministic, reproducible, and the same for every concept and corpus.
+A well-estimated covariance. 256k tokens in 2304 dimensions is about 110 samples per dimension, plenty.
+It describes the model’s whole embedding geometry, not one corpus’s slice of it.
+The case for Wikipedia types
+The background should match what you factorise. V* consists of tokens that appear in English Wikipedia sentences. The background’s job is to define “generic variation among tokens like these”, so that only the concept stands out.
+The full vocabulary is mostly not like V*. Gemma’s 256k vocabulary is heavily multilingual and also includes code, whitespace runs, byte tokens, <unused…> slots and under-trained tokens. So:
+Its top directions are likely things like script or language, code vs. text, byte tokens. Whitening flattens directions that are irrelevant to V*.
+Directions that vary a lot among English words but little across the whole vocabulary are underestimated. Whitening barely touches them, and relative to that background they look unusual.
+This becomes a real confound once you sharpen. Enrichment ratios are measured relative to the background. Against the full vocabulary, Harry Potter tokens will look “enriched” in generic English directions: capitalised word, word-initial ▁, proper noun. Those differences come from domain mismatch, not from the concept. Sharpening then amplifies them, which is exactly the explaining-away failure from before. (moderate confidence that this happens noticeably)
+It’s the paper’s own design, scaled up. The paper’s neutral set is 300 random Wikipedia sentences. A Wikipedia background is that same distribution with far more samples, so the contrast is consistent with the paper’s.
+The full vocabulary’s advantages are cheap to get anyway
+
+A sample of 100k–200k sentences gives tens of thousands of unique tokens: enough for a stable covariance in 2304 dimensions. Llama’s 4096 dimensions need more, so aim for 40k or more types. Fixing the sample once with a seed gives you determinism and reproducibility. So the full vocabulary’s main advantages don’t really favour it.
+
+Sampling recipe
+Source: a Hugging Face English Wikipedia dump (e.g. wikimedia/wikipedia, config 20231101.en). Use streaming, or a random subset of the parquet shards; you never need the whole thing.
+Sample articles, then sentences:
+Pick random articles uniformly, by random index or reservoir sampling over the stream.
+Take at most 3–5 sentences per article, so no single topic dominates.
+Use the same sentence-splitting and filtering as the paper’s neutral set: skip infoboxes, references and very short lines.
+Tokenise with the model’s own tokenizer and collect unique token IDs. Drop special and unused tokens.
+Count types, not occurrences. V* has each token once, so the background must too. Weighting by occurrences would make the and , dominate, the earlier counts problem again.
+Stop when it stabilises. Collect in chunks of, say, 20k sentences. After each chunk, split the types randomly in half and compute the whitening from each half. Stop when the two agree, for example when the top-100 eigenvectors of the two halves span nearly the same subspace (principal angles near zero). Expect roughly 100k–300k sentences and 30k–80k types.
+Concept-agnostic and shared. Build it once per model and reuse it for every concept. Don’t remove concept articles: Harry Potter tokens are a negligible fraction of a random sample. Optionally drop T_C from the background for a strict separation; I’d expect almost no effect.
+
+Bonus: this reproduces the paper’s own rule for which tokens enter V. A token is included if it appears in the sampled sentences, so common tokens are almost always in and rare ones sometimes. The background’s mix of common and rare tokens therefore resembles V’s.
+
+A cheaper fallback
+
+If you’d rather not touch Wikipedia: filter the full vocabulary to tokens made of Latin letters, digits and basic punctuation, optionally with a leading ▁, and drop special, unused and byte tokens. This fixes most of the domain mismatch (scripts, code, bytes) for free. It still includes English tokens that never occur in Wikipedia text, so it’s a reasonable but not a perfect match.
+
+How much difference should you expect?
+Quantity	Expected difference	Confidence
+Background mean μ_B	Small: the dominant shared direction appears in both	moderate
+Top background directions	Clearly different: language/script/code vs. frequency/capitalisation/part of speech	moderate
+Factors after whitening only (γ = 0)	Moderate: the shared structure is partly the same; ε hides differences in the smallest directions	low–moderate
+Enrichment directions and factors after sharpening (γ > 0)	Largest: the full-vocabulary background lets generic English structure look enriched	moderate
+A quick test to decide
+
+Build both backgrounds (the filtered full vocabulary also makes a useful third), then for 2–3 concepts:
+
+Compare backgrounds: principal angles between the top-50 eigenvector subspaces of the two background covariances.
+Compare enrichment directions: take the top 5 eigenvectors of S (step 3) under each background, project the whitened vocabulary onto them, and inspect the top tokens.
+Wikipedia background: you should see concept tokens (Hogwarts, Dumbledore).
+Full-vocabulary background: the confound would show as generic capitalised English words.
+Compare factors: match the selected concept features across the two runs by token-set overlap.
+
+If step 2 already looks the same under both, the choice doesn’t matter for your concepts, and you can use the simpler full-vocabulary or filtered version. My expectation is that it differs. The test takes minutes once you have the embeddings, so it’s worth running before committing.
