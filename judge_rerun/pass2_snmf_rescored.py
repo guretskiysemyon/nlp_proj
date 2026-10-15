@@ -25,8 +25,13 @@ Output: judge_rerun/SNMF/pass2_rescored/<model>/rank<r>/seed<s>/<Concept>/
     cell_metrics__<judge>.csv, best_hp__<judge>.json, alpaca_judged__<judge>.json (judge)
 and best_hps_summary.csv.
 
+--with-ember: the same for SNMF+EMBER (judge_rerun/SNMF_EMBER/). For a concept
+whose EMBER delta changed, every top-3 cell is new (different edit), so all
+three get answers generated and judged.
+
 Usage:
     python -m judge_rerun.pass2_snmf_rescored --stage generate --concept "COVID-19 pandemic"
+    python -m judge_rerun.pass2_snmf_rescored --with-ember --stage generate --concept Gun
     python -m judge_rerun.pass2_snmf_rescored --stage judge --concept <all 18>
 """
 from __future__ import annotations
@@ -52,8 +57,8 @@ from ember.utils import _safe_concept
 from judge_rerun.pass1_snmf_screen import _hp_desc, is_looping
 from judge_rerun.pass2_delta_search import _combine_alpaca_metrics, _judge_one_delta, _load_baselines
 from judge_rerun.pass2_judge_baseline import _judge_id
-from judge_rerun.rescore_snmf_grid import (EMBER_BASELINE_PARENT, KEY, SETS, SNMF_DIR, _key, _rank,
-                                           _rel, grid_path, load_cfg, mc_bases)
+from judge_rerun.rescore_snmf_grid import (EMBER_BASELINE_PARENT, KEY, SETS, VARIANT_DIRS, _key, _rank,
+                                           _rel, load_cfg, load_grid, mc_bases)
 
 HP_COLS = ("delta_embed", "w_mode", "feature_source", "ratio_thresh", "coverage_thresh",
            "delta_in", "layer_lo_in", "layer_hi_in", "k_features_mlp_in",
@@ -64,6 +69,8 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--stage", choices=("generate", "judge"), required=True)
     p.add_argument("--concept", required=True, nargs="+")
+    p.add_argument("--with-ember", action="store_true",
+                   help="SNMF+EMBER: judge_rerun/SNMF_EMBER/, results/snmf_ef grids, repaired EMBER delta")
     p.add_argument("--top-k", type=int, default=3)
     p.add_argument("--alpaca-n", type=int, default=50)
     p.add_argument("--alpaca-batch-size", type=int, default=8)   # pass1_snmf_top3.py default
@@ -72,11 +79,17 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--judge-model", default="Qwen/Qwen2.5-32B-Instruct")
     p.add_argument("--judge-batch-size", type=int, default=4)
     p.add_argument("--fluency-prompt", default="original")
-    p.add_argument("--pass1-dir", default=str(SNMF_DIR / "pass1_outputs"))
-    p.add_argument("--pass2-dir", default=str(SNMF_DIR / "pass2_outputs"))
-    p.add_argument("--rescore-dir", default=str(SNMF_DIR / "rescore_mc"))
-    p.add_argument("--out-dir", default=str(SNMF_DIR / "pass2_rescored"))
-    return p.parse_args()
+    p.add_argument("--pass1-dir", default=None)
+    p.add_argument("--pass2-dir", default=None)
+    p.add_argument("--rescore-dir", default=None)
+    p.add_argument("--out-dir", default=None)
+    args = p.parse_args()
+    base = VARIANT_DIRS[args.with_ember]
+    for attr, sub in (("pass1_dir", "pass1_outputs"), ("pass2_dir", "pass2_outputs"),
+                      ("rescore_dir", "rescore_mc"), ("out_dir", "pass2_rescored")):
+        if getattr(args, attr) is None:
+            setattr(args, attr, str(base / sub))
+    return args
 
 
 class Concept:
@@ -89,7 +102,9 @@ class Concept:
         (self.out_dir / "alpaca_completions").mkdir(parents=True, exist_ok=True)
         self.pass1_dir = Path(args.pass1_dir) / rel / _safe_concept(concept)
 
-        grid = pd.read_csv(grid_path(cfg, concept))
+        # SNMF+EMBER with a changed EMBER delta: delta_embed is the new one, and every
+        # cell is re-scored, so no old Alpaca answers match (KEY includes delta_embed).
+        grid, _, _, self.fresh = load_grid(cfg, concept)
         resc = pd.read_csv(Path(args.rescore_dir) / rel / _safe_concept(concept) / "grid_rescored.csv")
         for _, r in resc.iterrows():
             for s in SETS:
@@ -151,7 +166,7 @@ def stage_generate(args: argparse.Namespace, cfg, concepts: List[str]) -> None:
     method = methods_base.get("snmf")
 
     for concept in concepts:
-        log.set_context(method="snmf", concept=concept, stage="pass2_rescored:generate")
+        log.set_context(method="snmf_ef" if cfg.ember_step.enabled else "snmf", concept=concept, stage="pass2_rescored:generate")
         c = Concept(args, cfg, concept)
         started = False
         while True:
@@ -208,7 +223,7 @@ def stage_judge(args: argparse.Namespace, cfg, concepts: List[str]) -> None:
     judge = None
     summaries = []
     for concept in concepts:
-        log.set_context(method="snmf", concept=concept, stage="pass2_rescored:judge")
+        log.set_context(method="snmf_ef" if cfg.ember_step.enabled else "snmf", concept=concept, stage="pass2_rescored:judge")
         c = Concept(args, cfg, concept)
         top, need = c.walk()
         if need is not None:
@@ -294,7 +309,7 @@ def main() -> None:
     load_dotenv()
     args = parse_args()
     log.configure()
-    cfg = load_cfg()
+    cfg = load_cfg(args.with_ember)
     (stage_generate if args.stage == "generate" else stage_judge)(args, cfg, args.concept)
 
 

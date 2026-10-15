@@ -199,31 +199,65 @@ English MMLU on the 1000-question test split. No judge is used.
   the leak back (most of it into Russian). It also has the most invalid
   answers, so part of its erasure is broken output.
 
-## Repair (2026-10-15, next: EMBER and SNMF are done)
+## Repair (2026-10-15, running)
+
+**Status (2026-10-15, 22:00): all jobs submitted, rescore running.** Expected
+done around 05:00–09:00 on 2026-10-16 (rescore ~4 h, then generation, then
+Qwen judging 2.5–6.5 h per group).
 
 The final EMBER δ are in
 `judge_rerun/Ember/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`
 ([`ember_search.md`](ember_search.md), "MC scoring repair → Results"). Every
-grid here was run with the concept's old EMBER δ, so:
+grid here was run with the concept's old EMBER δ. Same procedure as the SNMF
+repair ([`snmf_search.md`](snmf_search.md), "MC scoring repair check"), with
+three modes:
 
-- **EMBER δ changed: Baseball (100 → 200), Gambling (100 → 10), Gun (100 → 5),
-  Uranium (100 → 200).** Their grids are the wrong ones. Each needs a fresh
-  144-cell grid at the new δ with the fixed scoring, then Pass 1 (first 50
-  Alpaca answers for the top 3) and Pass 2 (Qwen). Last time a fresh grid took
-  1.5–2.3 h on 1 GPU and judging ~48 min per cell on 3 GPUs.
-- **EMBER δ unchanged: the other 14.** Re-score the grid with the fixed scoring
-  and re-rank. 75% of the cells have an invalid answer and nearly every top-3
-  cell does, so re-score all 144 cells (each concept in one run, as for EMBER).
-  Cells new to the top 3 need their first 50 Alpaca answers (a separate folder:
-  Pass 1 stored only the old top 3, by rank as `cell_0..2`), the loop check and
-  Qwen judging. Cells staying in the top 3 reuse their Alpaca answers and Qwen
-  scores; `harmonic_alpaca` is recomputed.
-- **Code to adapt first:** `pass1_snmf_top3.py --with-ember` reads the EMBER δ
-  from the old `judge_rerun/Ember/pass2_outputs/`; it must read
-  `pass2_rescored/`. `rescore_snmf_grid.py` / `pass2_snmf_rescored.py` (the SNMF
-  repair) do plain SNMF only; they need the `--with-ember` variant
-  (`results/snmf_ef/` grids, `configs/snmf_ember_gemma.yaml`, `delta_embed`).
-- Then the cross-lingual `snmf_ember` run again, with the fixed scoring.
+| Mode | Concepts | Cells re-scored |
+|---|---|---|
+| **Fresh grid** (EMBER δ changed: the old grid is a different edit) | Baseball (100 → 200), Gambling (100 → 10), Gun (100 → 5), Uranium (100 → 200) | all 144 at the new δ |
+| **Partial** (δ unchanged: only cells with an invalid answer) | Ancient Rome 135, Artificial intelligence 141, COVID-19 130, Cannabis 125, Culture of Greece 135, Harry Potter 124, Heroin 138, Nazism 110, Republic of Ireland 138, Valentine's Day 144, Golf 19, Halloween 18, World War II 26 | as listed |
+| **Full** (δ unchanged, but the systematic one-question Pornography difference would mix runs) | Pornography | all 144 |
+
+- **Selection, unchanged:** all cells scored on the closed questions only
+  (QA / SimDom / MMLU, no judge), `min_mmlu` gate, top 3 by the judge-free
+  `harmonic`; then the first 50 Alpaca answers of the top 3, Qwen2.5-32B,
+  pick by `harmonic_alpaca`. A cell still in the old top 3 (same δ, same SNMF
+  cell) reuses its saved Alpaca answers (`pass1_outputs/…/cell_*.json`) and its
+  Qwen scores; only cells new to the top 3 get answers generated (plus the loop
+  check) and judged. The 4 fresh concepts reuse nothing (old answers are at the
+  old δ), so at least 12 cells are judged.
+- **Code:** `--with-ember` on `judge_rerun/rescore_snmf_grid.py` and
+  `judge_rerun/pass2_snmf_rescored.py`: `configs/snmf_ember_gemma.yaml`,
+  `results/snmf_ef/` grids, `judge_rerun/SNMF_EMBER/` folders, EMBER δ from the
+  repaired picks. A concept whose grid δ differs from the repaired δ becomes a
+  fresh grid automatically (`control_applicable = False`: no old run at that δ).
+  As in the grid, a cell is scored on MMLU first and on QA / SimDom only if it
+  passes the MMLU gate. **CPU check before submitting:** the scoring formula
+  reproduces every row of all 18 SNMF+EMBER grids (max error 1e-16) and the
+  ranking reproduces Pass 1's top 3 for all 18.
+- **Output:** `judge_rerun/SNMF_EMBER/rescore_mc/` (re-scored cells,
+  `compare.json`) and `judge_rerun/SNMF_EMBER/pass2_rescored/` (new Alpaca
+  answers, Qwen scores, final picks).
+
+**Jobs (24, chained with SLURM dependencies):**
+
+| Stage | Jobs | Notes |
+|---|---|---|
+| Re-score (Gemma, 1 GPU each) | 1042781–1042796: one per concept, except Golf + Halloween + World War II together (1042796) | 12 run at once (per-user GPU cap) |
+| Alpaca generation (Gemma, 1 GPU) | 1042797 (group 1), 1042799 (2), 1042801 (3), 1042803 (4) | each starts after all re-score jobs of its group succeed (`afterok`) |
+| Qwen judging (3 GPUs) | 1042798 (1), 1042800 (2), 1042802 (3), 1042804 (4) | after its group's generation; Qwen loaded once per job, only if a concept needs it |
+
+Groups (one fresh concept each, to spread the judging): 1 = Baseball, Ancient
+Rome, Artificial intelligence, Golf, Halloween; 2 = Gambling, COVID-19,
+Cannabis, World War II; 3 = Gun, Culture of Greece, Harry Potter, Heroin;
+4 = Uranium, Nazism, Pornography, Republic of Ireland, Valentine's Day.
+
+**To check by hand after the re-score:** near-ties at the 3rd place between a
+re-scored and an old cell in a partial concept (re-score that concept in full if
+so), and `best_hps_summary.csv`, which the 4 judging jobs write concurrently
+(rebuild it from the per-concept `best_hp__*.json`). Then the cross-lingual
+`snmf_ember` run again, with the fixed scoring (`crosslingual/run_edited.py`
+must first read the repaired picks).
 
 The grids saved only per-cell totals, not per-question answers, so a cell is
 re-scored in full.

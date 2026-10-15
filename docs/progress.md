@@ -52,14 +52,17 @@
   Results: `judge_rerun/SNMF_EMBER/pass2_outputs/` (layout:
   `judge_rerun/SNMF_EMBER/README.md`), numbers and notes:
   [`docs/Part 1/snmf_ember_search.md`](Part%201/snmf_ember_search.md).
-- **Next:** finish the MC scoring repair. (1) SNMF+EMBER: fresh grids at the
-  new δ for Baseball, Gambling, Gun and Uranium, full re-score for the other 14,
-  then Alpaca + Qwen for cells new to a top 3
-  ([`snmf_ember_search.md`](Part%201/snmf_ember_search.md), "Repair"). (2)
-  Cross-lingual `ember` (4 changed δ fresh; for the rest regenerate only the
-  invalid questions) and `snmf_ember`; `snmf` stays. First point
-  `pass1_snmf_top3.py --with-ember` and `crosslingual/run_edited.py` at the new
-  EMBER picks. The cross-lingual analysis proper
+- **Running (submitted 2026-10-15 22:00): SNMF+EMBER repair**, 24 chained
+  jobs (1042781–1042804): fresh grids at the new δ for Baseball, Gambling, Gun
+  and Uranium; re-score of the cells with invalid answers for the other 14
+  (Pornography in full); then Alpaca answers + Qwen judging only for cells new
+  to a top 3, old answers and scores reused for the rest. Expected done
+  2026-10-16 morning. Details:
+  [`snmf_ember_search.md`](Part%201/snmf_ember_search.md), "Repair".
+- **Next:** cross-lingual `ember` (4 changed δ fresh; for the rest regenerate
+  only the invalid questions) and `snmf_ember` (after its repair); `snmf`
+  stays. First point `crosslingual/run_edited.py` at the repaired picks
+  (`pass2_rescored/`). The cross-lingual analysis proper
   ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) waits for it.
 - **Part 2, multilingual feature search (step 1, World War II): done, result too
   weak.** Features fit on en+ru+de+es+fr together, then filtered with the same
@@ -519,8 +522,8 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/mc_fixed.py` | **fixed MC / MMLU scoring** (2026-10-15): 32-token budget, `parse_letter_fixed`, decodes only the new tokens; each record also keeps the old-equivalent (`old_raw`, `old_letter`) as a determinism control. Same prompts, shuffle and batching as `ember/evals` |
 | `judge_rerun/rescore_ember_grid.py`, `run_rescore_ember.sbatch` | re-scores the EMBER δ grid with `mc_fixed.py` (only δ with an invalid answer, or `--all-deltas`; `--reparse` re-applies the parser to saved records on the CPU), saves per-question records, checks the control, and compares old vs new top 3 / pick on the CPU. Output `judge_rerun/Ember/rescore_mc/`; never writes into `pass1_outputs/` / `pass2_outputs/` |
 | `judge_rerun/pass2_ember_rescored.py`, `run_pass2_ember_rescored.sbatch` | EMBER Pass 2 on the re-scored grid: same policy as `pass2_delta_search.py`, reuses old Qwen means for top-3 δ already judged, judges the rest (first 50 saved completions), recomputes `harmonic_alpaca`. Output and **final EMBER picks**: `judge_rerun/Ember/pass2_rescored/` |
-| `judge_rerun/rescore_snmf_grid.py`, `run_rescore_snmf.sbatch` | the same for the plain-SNMF grid: re-scores cells with an invalid answer (`--cells all` for the whole grid) with Pass 1's edit code, skips QA / SimDom for cells still MMLU-gated, checks the control, re-ranks as Pass 1 (only `min_mmlu` gates). Output `judge_rerun/SNMF/rescore_mc/` |
-| `judge_rerun/pass2_snmf_rescored.py`, `run_pass2_snmf_rescored_gen.sbatch`, `run_pass2_snmf_rescored_judge.sbatch` | SNMF Pass 1 + 2 on the re-scored grid. `--stage generate`: first 50 Alpaca answers + loop check (from `pass1_snmf_screen.py`) for cells new to the top 3, next cell moves up if one loops; Ancient Rome keeps its screen. `--stage judge`: Qwen for new cells only, old Qwen means for the rest, pick by `harmonic_alpaca`. Output and **final SNMF picks**: `judge_rerun/SNMF/pass2_rescored/` |
+| `judge_rerun/rescore_snmf_grid.py`, `run_rescore_snmf.sbatch` | the same for the SNMF grid (`--with-ember`: the SNMF+EMBER grid, EMBER δ from the repaired picks; a concept whose δ changed gets a fresh 144-cell grid): re-scores cells with an invalid answer (`--cells all` for the whole grid) with Pass 1's edit code, skips QA / SimDom for cells still MMLU-gated, checks the control, re-ranks as Pass 1 (only `min_mmlu` gates). Output `judge_rerun/SNMF/rescore_mc/` |
+| `judge_rerun/pass2_snmf_rescored.py`, `run_pass2_snmf_rescored_gen.sbatch`, `run_pass2_snmf_rescored_judge.sbatch` | SNMF (and with `--with-ember` SNMF+EMBER, output `judge_rerun/SNMF_EMBER/pass2_rescored/`) Pass 1 + 2 on the re-scored grid. `--stage generate`: first 50 Alpaca answers + loop check (from `pass1_snmf_screen.py`) for cells new to the top 3, next cell moves up if one loops; Ancient Rome keeps its screen. `--stage judge`: Qwen for new cells only, old Qwen means for the rest, pick by `harmonic_alpaca`. Output and **final SNMF picks**: `judge_rerun/SNMF/pass2_rescored/` |
 | `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model), `run_edited.py` + `run_edited.sbatch` (apply each concept's `ember` / `snmf` / `snmf_ember` pick, edit check, per-concept MMLU) |
 | `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv`, pristine MMLU in `_mmlu.json` |
 | `results/crosslingual/google_gemma-2-2b-it/{ember,snmf,snmf_ember}/` | edited cross-lingual runs: `<Concept>/<lang>.json` + `edit.json` (HP, edit check, MMLU), `summary.csv` with retention and leak per (concept, language) |

@@ -8,7 +8,7 @@
 #SBATCH --partition=studentkillable
 #SBATCH --account=gpu-students
 #SBATCH --gres=gpu:geforce_rtx_2080:1
-#SBATCH --time=02:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=16G
 #SBATCH --cpus-per-task=2
 #SBATCH --output=pass2_snmf_gen_%j.out

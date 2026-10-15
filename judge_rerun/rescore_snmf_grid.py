@@ -33,8 +33,16 @@ Determinism control: the first 4 (6) generated tokens equal the old run, so
 old_* must reproduce the grid row for every set the grid measured (a gated cell
 never measured QA / SimDom). Mismatches are logged as CONTROL FAILED.
 
+--with-ember (SNMF+EMBER): the same on results/snmf_ef grids with
+configs/snmf_ember_gemma.yaml, under judge_rerun/SNMF_EMBER/. The EMBER delta
+comes from the repaired EMBER picks (judge_rerun/Ember/pass2_rescored). A concept
+whose delta changed gets a FRESH grid: all 144 cells at the new delta, MMLU first
+and QA / SimDom only for cells that pass the MMLU gate, as the grid did; there is
+no old run at that delta, so no control (control_applicable = False).
+
 Usage:
     python -m judge_rerun.rescore_snmf_grid --concept Uranium "Culture of Greece"
+    python -m judge_rerun.rescore_snmf_grid --with-ember --concept Heroin Gun
     python -m judge_rerun.rescore_snmf_grid --concept Uranium --compare-only
 """
 from __future__ import annotations
@@ -67,15 +75,24 @@ from judge_rerun.pass2_judge_baseline import _judge_id
 
 SETS = ("mmlu", "qa", "simdom")
 CHANCE = 0.25
-CONFIG = ROOT_DIR / "configs" / "snmf_gemma.yaml"
+CONFIGS = {False: ROOT_DIR / "configs" / "snmf_gemma.yaml",
+           True: ROOT_DIR / "configs" / "snmf_ember_gemma.yaml"}
 ARCHIVE_BASELINE_DIR = ROOT_DIR / "archive_gemini" / "data" / "baselines"
 SNMF_DIR = ROOT_DIR / "judge_rerun" / "SNMF"
+SNMF_EMBER_DIR = ROOT_DIR / "judge_rerun" / "SNMF_EMBER"
+VARIANT_DIRS = {False: SNMF_DIR, True: SNMF_EMBER_DIR}
+# Final EMBER deltas after the MC scoring repair: SNMF+EMBER applies these under every cell.
+EMBER_PICKS = (ROOT_DIR / "judge_rerun" / "Ember" / "pass2_rescored" / "google_gemma-2-2b-it"
+               / "rank100" / "seed42" / "best_deltas_summary.csv")
 EMBER_BASELINE_PARENT = ROOT_DIR / "judge_rerun" / "Ember" / "pass1_outputs"  # Qwen Alpaca baseline
 
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--concept", required=True, nargs="+")
+    p.add_argument("--with-ember", action="store_true",
+                   help="SNMF+EMBER: configs/snmf_ember_gemma.yaml, results/snmf_ef grids, "
+                        "judge_rerun/SNMF_EMBER, EMBER delta from the repaired EMBER picks")
     p.add_argument("--cells", choices=("invalid", "all"), default="invalid")
     p.add_argument("--compare-only", action="store_true",
                    help="skip the GPU part, recompute compare.json from grid_rescored.csv")
@@ -83,19 +100,46 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--judge-model", default="Qwen/Qwen2.5-32B-Instruct")
     p.add_argument("--fluency-prompt", default="original")
     p.add_argument("--top-k", type=int, default=3)
-    p.add_argument("--pass1-dir", default=str(SNMF_DIR / "pass1_outputs"))
-    p.add_argument("--pass2-dir", default=str(SNMF_DIR / "pass2_outputs"))
-    p.add_argument("--out-dir", default=str(SNMF_DIR / "rescore_mc"))
-    return p.parse_args()
+    p.add_argument("--pass1-dir", default=None)
+    p.add_argument("--pass2-dir", default=None)
+    p.add_argument("--out-dir", default=None)
+    return resolve_dirs(p.parse_args())
 
 
-def load_cfg():
-    cfg = load_yaml(CONFIG)
+def resolve_dirs(args: argparse.Namespace) -> argparse.Namespace:
+    base = VARIANT_DIRS[bool(getattr(args, "with_ember", False))]
+    for attr, sub in (("pass1_dir", "pass1_outputs"), ("pass2_dir", "pass2_outputs"), ("out_dir", "rescore_mc")):
+        if getattr(args, attr, None) is None:
+            setattr(args, attr, str(base / sub))
+    return args
+
+
+def load_cfg(with_ember: bool = False):
+    cfg = load_yaml(CONFIGS[with_ember])
     cfg.train_eval = "mc"
     cfg.run_tests_after_train = False
-    if cfg.ember_step.enabled:
-        raise ValueError(f"{CONFIG} has the EMBER step enabled; this script is plain SNMF")
+    if bool(cfg.ember_step.enabled) != with_ember:
+        raise ValueError(f"{CONFIGS[with_ember]} has ember_step.enabled={cfg.ember_step.enabled}, "
+                         f"expected {with_ember}")
     return cfg
+
+
+def target_delta(cfg, concept: str) -> float:
+    """EMBER delta under every cell: 0 for plain SNMF, else the repaired EMBER pick."""
+    if not cfg.ember_step.enabled:
+        return 0.0
+    df = pd.read_csv(EMBER_PICKS)
+    row = df[df["concept"] == concept]
+    if row.empty:
+        raise KeyError(f"no repaired EMBER delta for {concept!r} in {EMBER_PICKS}")
+    return float(row["best_delta_embed"].iloc[0])
+
+
+def grid_delta(grid: pd.DataFrame) -> float:
+    found = sorted(set(pd.to_numeric(grid["delta_embed"]).round(6)))
+    if len(found) != 1:
+        raise ValueError(f"grid mixes delta_embed values {found}")
+    return float(found[0])
 
 
 def _rel(cfg) -> Path:
@@ -105,12 +149,25 @@ def _rel(cfg) -> Path:
 def grid_path(cfg, concept: str) -> Path:
     """The grid Pass 1 used: results/snmf/... if it ran fresh, else the archived one."""
     live = io.train_dir("snmf", cfg.model_name, cfg.rank, cfg.seed, cfg.train_eval,
-                        embed_step_enabled=False)
+                        embed_step_enabled=bool(cfg.ember_step.enabled))
     for root in (live, ROOT_DIR / "archive_gemini" / live.relative_to(ROOT_DIR)):
         path = root / _safe_concept(concept) / "hps.csv"
         if path.exists():
             return path
     raise FileNotFoundError(f"no SNMF grid for {concept!r}")
+
+
+def load_grid(cfg, concept: str):
+    """(grid, old_delta, new_delta, fresh). For SNMF+EMBER, a concept whose repaired
+    EMBER delta differs from the one its grid was run with is 'fresh': the same 144
+    SNMF cells must be scored again at the new delta, so delta_embed is replaced."""
+    grid = pd.read_csv(grid_path(cfg, concept))
+    old, new = grid_delta(grid), target_delta(cfg, concept)
+    fresh = abs(old - new) > 1e-9
+    if fresh:
+        grid = grid.copy()
+        grid["delta_embed"] = new
+    return grid, old, new, fresh
 
 
 def mc_bases(concept: str, model_name: str) -> Dict[str, float]:
@@ -203,7 +260,7 @@ class _Scorer:
 
 
 def _row(idx: int, grid_row: pd.Series, res: Dict[str, Any], measured: List[str],
-         seconds: float) -> Dict[str, Any]:
+         seconds: float, fresh: bool = False) -> Dict[str, Any]:
     row: Dict[str, Any] = {"row": idx}
     row.update({c: grid_row[c] for c in io.SNMF_HP_COLUMNS + ["delta_embed"] if c in grid_row.index})
     row.update(res["edit_info"])
@@ -214,10 +271,13 @@ def _row(idx: int, grid_row: pd.Series, res: Dict[str, Any], measured: List[str]
         row[f"{s}_acc"], row[f"{s}_invalid"] = r["acc"], r["invalid_rate"]
         row[f"old_{s}_acc"], row[f"old_{s}_invalid"] = r["old_acc"], r["old_invalid_rate"]
         row[f"grid_{s}_acc"], row[f"grid_{s}_invalid"] = float(grid_row[f"{s}_acc"]), float(grid_row[f"{s}_invalid"])
-        if s in measured:
+        if s in measured and not fresh:
             control &= (abs(r["old_acc"] - row[f"grid_{s}_acc"]) < 1e-9
                         and abs(r["old_invalid_rate"] - row[f"grid_{s}_invalid"]) < 1e-9)
     row["measured_sets"] = ",".join(measured)
+    # Fresh delta: grid_* are the old run at another delta, nothing to reproduce;
+    # only the SNMF feature counts (independent of delta) are checked.
+    row["control_applicable"] = not fresh
     row["control_ok"] = control
     row["mc_max_new_tokens"], row["mmlu_max_new_tokens"] = MC_MAX_NEW_TOKENS, MMLU_MAX_NEW_TOKENS
     row["wall_time_s"] = round(seconds, 1)
@@ -226,7 +286,7 @@ def _row(idx: int, grid_row: pd.Series, res: Dict[str, Any], measured: List[str]
 
 def rescore_concept(scorer: _Scorer, args: argparse.Namespace, concept: str) -> None:
     cfg = scorer.cfg
-    grid = pd.read_csv(grid_path(cfg, concept))
+    grid, old_delta, new_delta, fresh = load_grid(cfg, concept)
     bases = mc_bases(concept, cfg.model_name)
     min_mmlu, max_qa = float(cfg.eval.min_mmlu), float(cfg.eval.max_qa_acc)
     out_dir = Path(args.out_dir) / _rel(cfg) / _safe_concept(concept)
@@ -238,10 +298,16 @@ def rescore_concept(scorer: _Scorer, args: argparse.Namespace, concept: str) -> 
 
     todo = []
     for idx, g in grid.iterrows():
+        if fresh:
+            # every cell, MMLU first; QA / SimDom skipped while MMLU-gated (as the grid did)
+            todo.append((idx, g, ["mmlu"]))
+            continue
         measured = measured_sets(g, bases, min_mmlu, max_qa)
         if args.cells == "all" or any(float(g[f"{s}_invalid"]) > 0 for s in measured):
             todo.append((idx, g, measured))
-    log.info("%s: re-scoring %d/%d cells", concept, len(todo), len(grid))
+    log.info("%s: re-scoring %d/%d cells%s", concept, len(todo), len(grid),
+             f" (FRESH grid: delta_embed {old_delta:g} -> {new_delta:g})" if fresh
+             else (f" (delta_embed {new_delta:g})" if cfg.ember_step.enabled else ""))
 
     scorer.method.on_concept_start(scorer.model, concept, cfg)
     qa_items, sim_items = scorer.concept_items(concept)
@@ -252,7 +318,7 @@ def rescore_concept(scorer: _Scorer, args: argparse.Namespace, concept: str) -> 
         log.set_context(stage=f"rescore cell={idx}")
         t0 = time.time()
         res = scorer.score_cell(concept, g, qa_items, sim_items, measured, bases, min_mmlu)
-        row = _row(idx, g, res, measured, time.time() - t0)
+        row = _row(idx, g, res, measured, time.time() - t0, fresh=fresh)
         (rec_dir / f"cell_{idx}.json").write_text(json.dumps(
             {"concept": concept, "row": idx, "hp": res["hp"], **res["edit_info"],
              "mc_max_new_tokens": MC_MAX_NEW_TOKENS, "mmlu_max_new_tokens": MMLU_MAX_NEW_TOKENS,
@@ -299,13 +365,17 @@ def compare_concept(args: argparse.Namespace, cfg, concept: str) -> Dict[str, An
     min_mmlu, max_qa = float(cfg.eval.min_mmlu), float(cfg.eval.max_qa_acc)
     out_dir = Path(args.out_dir) / rel / _safe_concept(concept)
     resc = pd.read_csv(out_dir / "grid_rescored.csv")
+    fresh_grid, old_delta, new_delta, fresh = load_grid(cfg, concept)
+    if fresh and len(resc) < len(grid):
+        log.warning("%s: fresh grid only %d/%d cells scored; comparison is partial",
+                    concept, len(resc), len(grid))
 
     # Sanity: our formula reproduces the grid's own harmonic on the old scores.
     old_ranked = _rank(grid, bases, min_mmlu, max_qa, args.top_k)
     formula_err = float(np.max(np.abs(old_ranked["harmonic"].values
                                       - grid.loc[old_ranked.index, "harmonic"].values)))
 
-    new_grid = grid.copy()
+    new_grid = fresh_grid.copy()
     new_grid["rescored"] = False
     for _, r in resc.iterrows():
         i = int(r["row"])
@@ -357,6 +427,7 @@ def compare_concept(args: argparse.Namespace, cfg, concept: str) -> Dict[str, An
         "n_rescored": int(len(resc)),
         "control_ok_all": bool(resc["control_ok"].all()),
         "n_control_failed": int((~resc["control_ok"].astype(bool)).sum()),
+        "delta_embed_old": old_delta, "delta_embed_new": new_delta, "fresh_grid": fresh,
         "features_match_all": bool(resc["features_match"].all()),
         "old_top3_rows": [int(i) for i in grid.index if _key(grid.loc[i]) in old_top],
         "new_top3": top_rows,
@@ -380,15 +451,16 @@ def main() -> None:
     load_dotenv()
     args = parse_args()
     log.configure()
-    log.set_context(method="snmf", stage="rescore_mc")
-    cfg = load_cfg()
+    method = "snmf_ef" if args.with_ember else "snmf"
+    log.set_context(method=method, stage="rescore_mc")
+    cfg = load_cfg(args.with_ember)
     if not args.compare_only:
         scorer = _Scorer(cfg)
         for c in args.concept:
-            log.set_context(method="snmf", concept=c, stage="rescore_mc")
+            log.set_context(method=method, concept=c, stage="rescore_mc")
             rescore_concept(scorer, args, c)
     for c in args.concept:
-        log.set_context(method="snmf", concept=c, stage="compare")
+        log.set_context(method=method, concept=c, stage="compare")
         compare_concept(args, cfg, c)
 
 
