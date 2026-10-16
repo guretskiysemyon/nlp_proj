@@ -1,0 +1,16 @@
+[run_crosslingual_fixed] args: --method ember --concepts Gun Uranium
+[fixed] ember 'Gun': full (old hp {'delta_embed': 100.0} -> {'delta_embed': 5.0})
+[fixed] ember 'Uranium': full (old hp {'delta_embed': 100.0} -> {'delta_embed': 200.0})
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [04:20<04:20, 260.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 111.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 133.59s/it]
+[fixed]   'Gun' en: QA_test=0.56 (invalid 0.00) Simdom=0.74 (invalid 0.00)
+[fixed]   'Gun' de: QA_test=0.66 (invalid 0.00) Simdom=0.60 (invalid 0.00)
+[fixed]   'Gun' es: QA_test=0.62 (invalid 0.00) Simdom=0.54 (invalid 0.00)
+[fixed]   'Gun' fr: QA_test=0.58 (invalid 0.00) Simdom=0.66 (invalid 0.00)
+[fixed]   'Gun' ru: QA_test=0.66 (invalid 0.00) Simdom=0.48 (invalid 0.00)
+[fixed] 1/2 'Gun' [full]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.553 (was 0.545)  428s
+[fixed]   'Uranium' en: QA_test=0.48 (invalid 0.04) Simdom=0.74 (invalid 0.00)
+[fixed]   'Uranium' de: QA_test=0.38 (invalid 0.10) Simdom=0.68 (invalid 0.00)
+[fixed]   'Uranium' es: QA_test=0.42 (invalid 0.02) Simdom=0.68 (invalid 0.00)
+[fixed]   'Uranium' fr: QA_test=0.48 (invalid 0.08) Simdom=0.66 (invalid 0.00)
+[fixed]   'Uranium' ru: QA_test=0.46 (invalid 0.00) Simdom=0.56 (invalid 0.00)
+[fixed] 2/2 'Uranium' [full]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.546 (was 0.549)  531s

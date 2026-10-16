@@ -1,0 +1,44 @@
+{
+  "concept": "Ancient Rome",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    83,
+    79,
+    82
+  ],
+  "new_rows": [
+    83,
+    79,
+    82
+  ],
+  "best_row": 79,
+  "best_hp": {
+    "delta_embed": 200.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 7.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 19,
+    "delta_out": 7.0,
+    "layer_lo_out": 9,
+    "layer_hi_out": 17,
+    "k_features_mlp_out": 4
+  },
+  "best_harmonic_alpaca": 0.9390961991653728,
+  "best_metrics": {
+    "efficacy": 1.0,
+    "specificity": 0.8793103448275862,
+    "harmonic": 0.9357798165137615,
+    "alp_instr_frac": 0.9550173010380623,
+    "alp_flu_frac": 0.9367588932806324,
+    "coherence": 0.9457999869867916,
+    "harmonic_alpaca": 0.9390961991653728
+  },
+  "old_best_harmonic_alpaca": 0.9515256110230543,
+  "pick_changed": true
+}

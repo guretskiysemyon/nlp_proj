@@ -25,6 +25,11 @@ against the Gemini-era picks: §2.4. The pristine baselines were done before
 > picks are unchanged, so the `snmf` run below **stays valid**. `snmf_ember`
 > waits for its own repaired search. `run_edited.py` still reads the old
 > `pass2_outputs/` picks and has to be pointed at `pass2_rescored/` first.
+>
+> **Update 2026-10-16: the repair is done for the baseline, `ember` and `snmf`**
+> (§2.6); `snmf_ember` is running with its repaired picks. The fixed results
+> are in `results/crosslingual/google_gemma-2-2b-it/<method>_fixed/`; the
+> original folders are untouched. §2.3–§2.5 below are the **pre-repair** numbers.
 
 [`crosslingual_plan.md`](../../archive_gemini/docs/crosslingual_plan.md) is still the
 design reference (metric, screening rule, F1–F6 principles), and
@@ -300,6 +305,80 @@ brackets are the 95% bootstrap over concepts (10,000 resamples,
   from −0.18 (Pornography) to +0.57 (Gun); one cell's SD is 0.29.
 
 Per-concept table: [`part1_results.md`](part1_results.md) §5.3.
+
+### 2.6 Cross-lingual repair (2026-10-16)
+
+The cross-lingual runner had the same scoring problems as the HP searches
+([`ember_search.md`](ember_search.md), "MC scoring repair"): a 4-token budget
+("The answer is **" counted wrong), lowercase letters rejected, and the
+response cut at the first `"model\n"` (one question, Artificial intelligence /
+en, was read as B in every method; the model's answer D is correct). Unlike the
+grids, these runs saved every answer, so the repair works per question. Four
+stages:
+
+| Stage | What | Code |
+|---|---|---|
+| A (CPU) | Re-read every saved answer with `parse_letter_fixed`, from the text after the last `"model\n"` when the prompt leaked in. Fixes lowercase letters and the extraction bug. | `crosslingual/reparse_saved.py` |
+| B (GPU) | Same pick as the original run, so the same edit: regenerate **only** the answers still invalid after A (same prompt, 32 tokens, new tokens only). Control: the first 4 new tokens must equal the saved answer. | `crosslingual/rerun_fixed.py` (mode `regen`) |
+| C (GPU) | Pick changed: run every cell again with the new pick and the fixed scoring. | same, mode `full` |
+| D (CPU) | Retention / leak against the fixed baseline; old vs new headline. | `crosslingual/summary_fixed.py` |
+
+B and C also re-score English MMLU (1000-q test) with the fixed scoring, saving
+every answer (`mmlu_test.json`), and run the edit check against the repaired
+search grid. Each concept's mode follows from the picks (same EMBER δ and SNMF
+cell → `regen`).
+
+**Pristine baseline** (`baseline_fixed/`, stage A only): 16 of 9,000 answers
+change. 15 lowercase letters, all in **German** prompts (COVID-19 de
+`QA_test` 0.48 → 0.54, World War II de 0.62 → 0.64, Nazism de 0.68 → 0.70,
+Pornography de 0.84 → 0.86, two SimDom cells +0.02), and the extraction-bug
+answer (Artificial intelligence en 0.78 → 0.80). No cell changes its
+"reliable" status; English MMLU stays 0.553 (no invalid answers). One answer
+stays invalid, a real non-answer ("U"). Every method's retention and leak use
+these values.
+
+**`ember`** (`ember_fixed/`; jobs 1044045–1044048, 23–56 min, all 18 edit checks
+exact): 4 concepts `full` (Baseball 200, Gambling 10, Gun 5, Uranium 200), 14
+`regen`. Stage A re-read 14 answers; stage B regenerated 207 (175 now valid, 1
+control mismatch: Culture of Greece en, a near-tie flip). 30 answers remain
+invalid, nearly all real non-answers (21 empty, "Die primäre-primäre-…"); one
+is a parser miss ("**Réponse :**\n\n**D. …**", letter on the next line).
+
+| `ember` (mean over concepts) | original | **fixed** |
+|---|---|---|
+| English `QA_test` acc (pristine 0.73) | 0.50 | **0.55** |
+| Retention r_en | 0.52 | **0.61** |
+| Retention de / es / fr / ru | 0.69 / 0.74 / 0.71 / 0.94 | 0.71 / 0.81 / 0.76 / 0.96 |
+| Leak de | +0.17 [+0.07, +0.27] | +0.10 [+0.01, +0.20] |
+| Leak es | +0.22 [+0.11, +0.33] | +0.19 [+0.10, +0.29] |
+| Leak fr | +0.19 [+0.09, +0.29] | +0.15 [+0.06, +0.24] |
+| Leak ru | +0.41 [+0.28, +0.52] | +0.33 [+0.22, +0.42] |
+| **Mean leak de/es/fr/ru** | +0.24 [+0.16, +0.33] | **+0.19 [+0.12, +0.27]** |
+| Concepts with mean leak > 0 | 16 / 18 | 16 / 18 |
+| SimDom acc en / mean other | 0.87 / 0.72 | 0.87 / 0.73 |
+| English MMLU (1000-q test) | 0.548 | 0.547 |
+| `QA_test` invalid en / de / es / fr / ru | 0.093 / 0.053 / 0.067 / 0.062 / 0.009 | 0.006 / 0.008 / 0.003 / 0.013 / 0.001 |
+
+EMBER erases English less than reported (retention 0.61, not 0.52) and still
+leaks, less (+0.19, Russian +0.33); every interval still excludes 0. The cut-off
+answers were mostly in English, so they had inflated both the English erasure
+and the leak.
+
+**`snmf`** (`snmf_fixed/`, stage A only: all 18 picks unchanged, and its 19
+invalid answers were lowercase letters; no GPU): 0 invalid answers left. English
+MMLU not re-run (≤ 0.1% invalid). The numbers barely move, only through the
+fixed baseline: mean leak +0.01 → +0.00 [−0.07, +0.08], r_en 0.45, SimDom 0.73 /
+0.57, MMLU 0.506. Conclusion unchanged: no detectable leak, more collateral
+damage.
+
+**`snmf_ember`** (running, 2026-10-16): 7 concepts `full` (the picks that
+changed: Ancient Rome, Baseball, Culture of Greece, Gambling, Gun, Uranium,
+Valentine's Day), 11 `regen` (457 answers still invalid after stage A). Jobs
+1044649–1044652, then the summary job 1044653 (`afterok`), whose log
+`cl_summary_fixed_1044653.out` holds the old-vs-new table.
+
+The bootstrap here uses `np.random.default_rng(0)` for both columns, so the
+"original" bounds can differ by 0.01 from §2.4.
 
 ## 3. Scope (decided)
 

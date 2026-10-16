@@ -1,0 +1,40 @@
+{
+  "concept": "World War II",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    108,
+    132,
+    77
+  ],
+  "new_rows": [],
+  "best_row": 108,
+  "best_hp": {
+    "delta_embed": 5.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 10.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 15,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 11
+  },
+  "best_harmonic_alpaca": 0.8970185435168235,
+  "best_metrics": {
+    "efficacy": 0.8363636363636363,
+    "specificity": 0.890625,
+    "harmonic": 0.8626418818884686,
+    "alp_instr_frac": 0.9653979238754326,
+    "alp_flu_frac": 0.984189723320158,
+    "coherence": 0.9747032578499875,
+    "harmonic_alpaca": 0.8970185435168235
+  },
+  "old_best_harmonic_alpaca": 0.8970185435168235,
+  "pick_changed": false
+}

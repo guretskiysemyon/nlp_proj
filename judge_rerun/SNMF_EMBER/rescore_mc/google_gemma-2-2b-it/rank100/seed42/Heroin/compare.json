@@ -1,0 +1,100 @@
+{
+  "concept": "Heroin",
+  "grid": "results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Heroin/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 0.0,
+  "n_rescored": 138,
+  "control_ok_all": false,
+  "n_control_failed": 3,
+  "delta_embed_old": 100.0,
+  "delta_embed_new": 100.0,
+  "fresh_grid": false,
+  "features_match_all": true,
+  "old_top3_rows": [
+    109,
+    112,
+    127
+  ],
+  "new_top3": [
+    {
+      "row": 127,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 7.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.8426360002417399,
+      "efficacy": 0.8205128205128205,
+      "specificity": 0.8659852356615559,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.88,
+      "alpaca_flu": 1.6,
+      "alp_instr_frac": 0.9757785467128026,
+      "alp_flu_frac": 0.9486166007905138,
+      "coherence": 0.9620058846104643,
+      "harmonic_alpaca": 0.8789924034760108,
+      "gate": ""
+    },
+    {
+      "row": 112,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 4.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.841522491349481,
+      "efficacy": 0.8205128205128205,
+      "specificity": 0.8636363636363636,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.92,
+      "alpaca_flu": 1.66,
+      "alp_instr_frac": 0.9965397923875432,
+      "alp_flu_frac": 0.984189723320158,
+      "coherence": 0.9903262558259968,
+      "harmonic_alpaca": 0.8858931326000348,
+      "gate": ""
+    },
+    {
+      "row": 18,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 1.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 7.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.8361518331973326,
+      "efficacy": 0.8717948717948718,
+      "specificity": 0.8033088235294118,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    }
+  ],
+  "top3_changed": true,
+  "needs_alpaca_and_judging_rows": [
+    18
+  ],
+  "best_row": null,
+  "best_harmonic_alpaca": null,
+  "boundary": {
+    "third_row": 18,
+    "third_harmonic": 0.8361518331973326,
+    "fourth_row": 30,
+    "fourth_harmonic": 0.8361518331973326,
+    "one_question_efficacy": 0.05128205128205128,
+    "near_tie_mixed_runs": false
+  }
+}

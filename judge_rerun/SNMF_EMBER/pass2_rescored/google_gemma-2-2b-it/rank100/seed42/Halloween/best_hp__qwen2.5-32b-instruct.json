@@ -1,0 +1,40 @@
+{
+  "concept": "Halloween",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    107,
+    108,
+    101
+  ],
+  "new_rows": [],
+  "best_row": 108,
+  "best_hp": {
+    "delta_embed": 10.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 10.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 24,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 14
+  },
+  "best_harmonic_alpaca": 0.8706984864006401,
+  "best_metrics": {
+    "efficacy": 0.7272727272727272,
+    "specificity": 0.9402985074626866,
+    "harmonic": 0.8201790073230267,
+    "alp_instr_frac": 0.9861591695501729,
+    "alp_flu_frac": 1.0,
+    "coherence": 0.9930313588850174,
+    "harmonic_alpaca": 0.8706984864006401
+  },
+  "old_best_harmonic_alpaca": 0.8706984864006401,
+  "pick_changed": false
+}

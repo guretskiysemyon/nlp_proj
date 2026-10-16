@@ -1,0 +1,100 @@
+{
+  "concept": "COVID-19 pandemic",
+  "grid": "results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/COVID-19_pandemic/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 0.0,
+  "n_rescored": 130,
+  "control_ok_all": false,
+  "n_control_failed": 1,
+  "delta_embed_old": 50.0,
+  "delta_embed_new": 50.0,
+  "fresh_grid": false,
+  "features_match_all": true,
+  "old_top3_rows": [
+    39,
+    120,
+    132
+  ],
+  "new_top3": [
+    {
+      "row": 39,
+      "hp": {
+        "delta_embed": 50.0,
+        "delta_in": 4.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 4.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.8876784183184547,
+      "efficacy": 0.9696969696969696,
+      "specificity": 0.818452380952381,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.8,
+      "alpaca_flu": 1.64,
+      "alp_instr_frac": 0.9342560553633218,
+      "alp_flu_frac": 0.9723320158102766,
+      "coherence": 0.9529138331755187,
+      "harmonic_alpaca": 0.9084079489239046,
+      "gate": ""
+    },
+    {
+      "row": 120,
+      "hp": {
+        "delta_embed": 50.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.8408836404357121,
+      "efficacy": 0.909090909090909,
+      "specificity": 0.7821969696969697,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.78,
+      "alpaca_flu": 1.68,
+      "alp_instr_frac": 0.9238754325259515,
+      "alp_flu_frac": 0.9960474308300394,
+      "coherence": 0.9586049195392474,
+      "harmonic_alpaca": 0.8767743375656603,
+      "gate": ""
+    },
+    {
+      "row": 85,
+      "hp": {
+        "delta_embed": 50.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.8390977093730732,
+      "efficacy": 0.9696969696969696,
+      "specificity": 0.739501312335958,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    }
+  ],
+  "top3_changed": true,
+  "needs_alpaca_and_judging_rows": [
+    85
+  ],
+  "best_row": null,
+  "best_harmonic_alpaca": null,
+  "boundary": {
+    "third_row": 85,
+    "third_harmonic": 0.8390977093730732,
+    "fourth_row": 63,
+    "fourth_harmonic": 0.8331980739057512,
+    "one_question_efficacy": 0.060606060606060615,
+    "near_tie_mixed_runs": false
+  }
+}

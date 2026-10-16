@@ -1,0 +1,90 @@
+{
+  "concept": "Ancient Rome",
+  "grid": "results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Ancient_Rome/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 1.1102230246251565e-16,
+  "n_rescored": 135,
+  "control_ok_all": true,
+  "n_control_failed": 0,
+  "delta_embed_old": 200.0,
+  "delta_embed_new": 200.0,
+  "fresh_grid": false,
+  "features_match_all": true,
+  "old_top3_rows": [
+    3,
+    15,
+    27
+  ],
+  "new_top3": [
+    {
+      "row": 83,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.9382068513358466,
+      "efficacy": 0.9818181818181818,
+      "specificity": 0.8983050847457628,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    },
+    {
+      "row": 79,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 7.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.9357798165137615,
+      "efficacy": 1.0,
+      "specificity": 0.8793103448275862,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    },
+    {
+      "row": 82,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 9.0,
+        "layer_hi_out": 17.0
+      },
+      "harmonic": 0.9357798165137615,
+      "efficacy": 1.0,
+      "specificity": 0.8793103448275862,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    }
+  ],
+  "top3_changed": true,
+  "needs_alpaca_and_judging_rows": [
+    83,
+    79,
+    82
+  ],
+  "best_row": null,
+  "best_harmonic_alpaca": null,
+  "boundary": {
+    "third_row": 82,
+    "third_harmonic": 0.9357798165137615,
+    "fourth_row": 76,
+    "fourth_harmonic": 0.9277412834765033,
+    "one_question_efficacy": 0.03636363636363636,
+    "near_tie_mixed_runs": false
+  }
+}

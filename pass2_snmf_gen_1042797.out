@@ -1,0 +1,23 @@
+[run_pass2_snmf_rescored_gen] args: --with-ember --concept Baseball Ancient Rome Artificial intelligence Golf Halloween
+[00:53:26] [snmf_ef|Baseball|pass2_rescored:generate] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]
+[00:53:32] [snmf_ef|Baseball|pass2_rescored:generate] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[00:53:36] [snmf_ef|Baseball|pass2_rescored:generate] loading MLP features for concept='Baseball' rank=100
+[00:53:36] [snmf_ef|Baseball|pass2_rescored:generate] found 47 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[00:56:21] [snmf_ef|Baseball|pass2_rescored:generate] row 44 (in 4@0-25 / out 7@13-25) harmonic=0.8400 loops=0/50 ok
+[00:59:03] [snmf_ef|Baseball|pass2_rescored:generate] row 47 (in 4@0-25 / out 10@13-25) harmonic=0.8400 loops=0/50 ok
+[01:01:46] [snmf_ef|Baseball|pass2_rescored:generate] row 21 (in 1@0-8 / out 10@0-8) harmonic=0.8360 loops=0/50 ok
+[01:01:46] [snmf_ef|Baseball|pass2_rescored:generate] Baseball: final top 3 rows [44, 47, 21] (new: [44, 47, 21])
+[01:01:47] [snmf_ef|Ancient Rome|pass2_rescored:generate] loading MLP features for concept='Ancient Rome' rank=100
+[01:01:47] [snmf_ef|Ancient Rome|pass2_rescored:generate] found 19 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:04:30] [snmf_ef|Ancient Rome|pass2_rescored:generate] row 83 (in 7@0-25 / out 10@13-25) harmonic=0.9382 loops=2/50 ok
+[01:07:13] [snmf_ef|Ancient Rome|pass2_rescored:generate] row 79 (in 7@0-25 / out 7@9-17) harmonic=0.9358 loops=0/50 ok
+[01:09:56] [snmf_ef|Ancient Rome|pass2_rescored:generate] row 82 (in 7@0-25 / out 10@9-17) harmonic=0.9358 loops=0/50 ok
+[01:09:56] [snmf_ef|Ancient Rome|pass2_rescored:generate] Ancient Rome: final top 3 rows [83, 79, 82] (new: [83, 79, 82])
+[01:09:58] [snmf_ef|Artificial intelligence|pass2_rescored:generate] loading MLP features for concept='Artificial intelligence' rank=100
+[01:09:58] [snmf_ef|Artificial intelligence|pass2_rescored:generate] found 51 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[01:12:51] [snmf_ef|Artificial intelligence|pass2_rescored:generate] row 83 (in 7@0-25 / out 10@13-25) harmonic=0.8409 loops=8/50 LOOPING -> rejected, next cell moves up
+[01:15:40] [snmf_ef|Artificial intelligence|pass2_rescored:generate] row 63 (in 4@0-12 / out 4@0-8) harmonic=0.8208 loops=1/50 ok
+[01:15:40] [snmf_ef|Artificial intelligence|pass2_rescored:generate] Artificial intelligence: final top 3 rows [39, 51, 63] (new: [63])
+[01:15:43] [snmf_ef|Golf|pass2_rescored:generate] Golf: final top 3 rows [13, 14, 62] (new: [])
+[01:15:44] [snmf_ef|Halloween|pass2_rescored:generate] Halloween: final top 3 rows [107, 108, 101] (new: [])

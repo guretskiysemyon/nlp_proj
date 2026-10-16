@@ -1,0 +1,25 @@
+[run_pass2_snmf_rescored_gen] args: --with-ember --concept Uranium Nazism Pornography Republic of Ireland Valentine's Day
+[03:06:06] [snmf_ef|Uranium|pass2_rescored:generate] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [02:08<02:08, 128.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:14<00:00, 56.28s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:14<00:00, 67.12s/it]
+[03:08:27] [snmf_ef|Uranium|pass2_rescored:generate] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[03:08:31] [snmf_ef|Uranium|pass2_rescored:generate] loading MLP features for concept='Uranium' rank=100
+[03:08:31] [snmf_ef|Uranium|pass2_rescored:generate] found 36 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[03:11:35] [snmf_ef|Uranium|pass2_rescored:generate] row 54 (in 4@0-8 / out 7@0-8) harmonic=0.8033 loops=0/50 ok
+[03:11:35] [snmf_ef|Uranium|pass2_rescored:generate] Uranium: final top 3 rows [75, 45, 54] (new: [75, 45, 54])
+[03:11:36] [snmf_ef|Nazism|pass2_rescored:generate] loading MLP features for concept='Nazism' rank=100
+[03:11:36] [snmf_ef|Nazism|pass2_rescored:generate] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[03:14:50] [snmf_ef|Nazism|pass2_rescored:generate] row 104 (in 7@0-12 / out 7@13-25) harmonic=0.7328 loops=0/50 ok
+[03:14:50] [snmf_ef|Nazism|pass2_rescored:generate] Nazism: final top 3 rows [23, 35, 104] (new: [104])
+[03:14:50] [snmf_ef|Pornography|pass2_rescored:generate] loading MLP features for concept='Pornography' rank=100
+[03:14:50] [snmf_ef|Pornography|pass2_rescored:generate] found 38 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[03:18:01] [snmf_ef|Pornography|pass2_rescored:generate] row 82 (in 7@0-25 / out 10@9-17) harmonic=0.8833 loops=0/50 ok
+[03:18:01] [snmf_ef|Pornography|pass2_rescored:generate] Pornography: final top 3 rows [58, 82, 95] (new: [82])
+[03:18:02] [snmf_ef|Republic of Ireland|pass2_rescored:generate] loading MLP features for concept='Republic of Ireland' rank=100
+[03:18:02] [snmf_ef|Republic of Ireland|pass2_rescored:generate] found 9 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[03:21:04] [snmf_ef|Republic of Ireland|pass2_rescored:generate] row 121 (in 10@0-8 / out 1@9-17) harmonic=0.8122 loops=0/50 ok
+[03:21:04] [snmf_ef|Republic of Ireland|pass2_rescored:generate] Republic of Ireland: final top 3 rows [118, 116, 121] (new: [121])
+[03:21:05] [snmf_ef|Valentine's Day|pass2_rescored:generate] loading MLP features for concept="Valentine's Day" rank=100
+[03:21:05] [snmf_ef|Valentine's Day|pass2_rescored:generate] found 17 (layer, feature) specs (feature_source=all, ratio_thresh=2.0)
+[03:24:19] [snmf_ef|Valentine's Day|pass2_rescored:generate] row 18 (in 1@0-8 / out 7@0-8) harmonic=0.9073 loops=0/50 ok
+[03:27:21] [snmf_ef|Valentine's Day|pass2_rescored:generate] row 30 (in 1@0-12 / out 7@0-8) harmonic=0.9073 loops=0/50 ok
+[03:27:21] [snmf_ef|Valentine's Day|pass2_rescored:generate] Valentine's Day: final top 3 rows [9, 18, 30] (new: [18, 30])

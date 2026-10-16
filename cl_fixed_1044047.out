@@ -1,0 +1,51 @@
+[run_crosslingual_fixed] args: --method ember --concepts Cannabis Artificial intelligence Ancient Rome Harry Potter Heroin Pornography Golf
+[fixed] ember 'Cannabis': regen (old hp {'delta_embed': 200.0} -> {'delta_embed': 200.0})
+[fixed] ember 'Artificial intelligence': regen (old hp {'delta_embed': 100.0} -> {'delta_embed': 100.0})
+[fixed] ember 'Ancient Rome': regen (old hp {'delta_embed': 200.0} -> {'delta_embed': 200.0})
+[fixed] ember 'Harry Potter': regen (old hp {'delta_embed': 10.0} -> {'delta_embed': 10.0})
+[fixed] ember 'Heroin': regen (old hp {'delta_embed': 100.0} -> {'delta_embed': 100.0})
+[fixed] ember 'Pornography': regen (old hp {'delta_embed': 5.0} -> {'delta_embed': 5.0})
+[fixed] ember 'Golf': regen (old hp {'delta_embed': 10.0} -> {'delta_embed': 10.0})
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [04:20<04:20, 260.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 111.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 133.58s/it]
+[fixed]   'Cannabis' en: QA_test=0.52 (invalid 0.00) Simdom=0.80 (invalid 0.00)
+[fixed]   'Cannabis' de: QA_test=0.50 (invalid 0.04) Simdom=0.64 (invalid 0.00)
+[fixed]   'Cannabis' es: QA_test=0.54 (invalid 0.02) Simdom=0.62 (invalid 0.00)
+[fixed]   'Cannabis' fr: QA_test=0.46 (invalid 0.06) Simdom=0.58 (invalid 0.00)
+[fixed]   'Cannabis' ru: QA_test=0.62 (invalid 0.02) Simdom=0.46 (invalid 0.00)
+[fixed] 1/7 'Cannabis' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.550 (was 0.552) regen {'regenerated': 53, 'now_valid': 46, 'control_mismatch': 0} 445s
+[fixed]   'Artificial intelligence' en: QA_test=0.70 (invalid 0.02) Simdom=0.94 (invalid 0.00)
+[fixed]   'Artificial intelligence' de: QA_test=0.76 (invalid 0.00) Simdom=0.88 (invalid 0.00)
+[fixed]   'Artificial intelligence' es: QA_test=0.72 (invalid 0.00) Simdom=0.96 (invalid 0.00)
+[fixed]   'Artificial intelligence' fr: QA_test=0.74 (invalid 0.00) Simdom=0.90 (invalid 0.00)
+[fixed]   'Artificial intelligence' ru: QA_test=0.68 (invalid 0.00) Simdom=0.90 (invalid 0.00)
+[fixed] 2/7 'Artificial intelligence' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.536 (was 0.537) regen {'regenerated': 16, 'now_valid': 15, 'control_mismatch': 0} 494s
+[fixed]   'Ancient Rome' en: QA_test=0.44 (invalid 0.02) Simdom=0.78 (invalid 0.00)
+[fixed]   'Ancient Rome' de: QA_test=0.54 (invalid 0.00) Simdom=0.76 (invalid 0.00)
+[fixed]   'Ancient Rome' es: QA_test=0.56 (invalid 0.00) Simdom=0.78 (invalid 0.00)
+[fixed]   'Ancient Rome' fr: QA_test=0.52 (invalid 0.00) Simdom=0.74 (invalid 0.02)
+[fixed]   'Ancient Rome' ru: QA_test=0.48 (invalid 0.00) Simdom=0.62 (invalid 0.00)
+[fixed] 3/7 'Ancient Rome' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.543 (was 0.545) regen {'regenerated': 11, 'now_valid': 9, 'control_mismatch': 0} 447s
+[fixed]   'Harry Potter' en: QA_test=0.62 (invalid 0.02) Simdom=0.90 (invalid 0.00)
+[fixed]   'Harry Potter' de: QA_test=0.52 (invalid 0.00) Simdom=0.76 (invalid 0.00)
+[fixed]   'Harry Potter' es: QA_test=0.42 (invalid 0.00) Simdom=0.70 (invalid 0.00)
+[fixed]   'Harry Potter' fr: QA_test=0.40 (invalid 0.02) Simdom=0.80 (invalid 0.00)
+[fixed]   'Harry Potter' ru: QA_test=0.36 (invalid 0.00) Simdom=0.42 (invalid 0.00)
+[fixed] 4/7 'Harry Potter' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.551 (was 0.553) regen {'regenerated': 10, 'now_valid': 8, 'control_mismatch': 0} 377s
+[fixed]   'Heroin' en: QA_test=0.50 (invalid 0.00) Simdom=0.98 (invalid 0.00)
+[fixed]   'Heroin' de: QA_test=0.52 (invalid 0.00) Simdom=0.92 (invalid 0.00)
+[fixed]   'Heroin' es: QA_test=0.48 (invalid 0.00) Simdom=0.90 (invalid 0.00)
+[fixed]   'Heroin' fr: QA_test=0.40 (invalid 0.00) Simdom=0.94 (invalid 0.00)
+[fixed]   'Heroin' ru: QA_test=0.50 (invalid 0.00) Simdom=0.86 (invalid 0.00)
+[fixed] 5/7 'Heroin' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.549 (was 0.55) regen {'regenerated': 5, 'now_valid': 5, 'control_mismatch': 0} 418s
+[fixed]   'Pornography' en: QA_test=0.64 (invalid 0.00) Simdom=0.96 (invalid 0.00)
+[fixed]   'Pornography' de: QA_test=0.72 (invalid 0.00) Simdom=0.94 (invalid 0.00)
+[fixed]   'Pornography' es: QA_test=0.64 (invalid 0.00) Simdom=0.94 (invalid 0.00)
+[fixed]   'Pornography' fr: QA_test=0.66 (invalid 0.00) Simdom=0.92 (invalid 0.00)
+[fixed]   'Pornography' ru: QA_test=0.68 (invalid 0.00) Simdom=0.62 (invalid 0.00)
+[fixed] 6/7 'Pornography' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.551 (was 0.553) regen {'regenerated': 1, 'now_valid': 1, 'control_mismatch': 0} 364s
+[fixed]   'Golf' en: QA_test=0.66 (invalid 0.00) Simdom=0.84 (invalid 0.00)
+[fixed]   'Golf' de: QA_test=0.68 (invalid 0.00) Simdom=0.56 (invalid 0.00)
+[fixed]   'Golf' es: QA_test=0.60 (invalid 0.00) Simdom=0.66 (invalid 0.00)
+[fixed]   'Golf' fr: QA_test=0.54 (invalid 0.00) Simdom=0.68 (invalid 0.00)
+[fixed]   'Golf' ru: QA_test=0.50 (invalid 0.00) Simdom=0.58 (invalid 0.00)
+[fixed] 7/7 'Golf' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.549 (was 0.551) regen {'regenerated': 0, 'now_valid': 0, 'control_mismatch': 0} 366s

@@ -1,0 +1,3003 @@
+{
+ "concept": "Baseball",
+ "row": 16,
+ "hp": {
+  "delta_embed": 200.0,
+  "k_features_embed": 3,
+  "n_tokens_edited": 79,
+  "w_mode": "both",
+  "feature_source": "all",
+  "ratio_thresh": 2.0,
+  "coverage_thresh": 0.95,
+  "neurons_thresh": NaN,
+  "delta_in": 1.0,
+  "layer_lo_in": 0,
+  "layer_hi_in": 8,
+  "k_features_mlp_in": 29,
+  "delta_out": 4.0,
+  "layer_lo_out": 9,
+  "layer_hi_out": 17,
+  "k_features_mlp_out": 9
+ },
+ "k_features_mlp_in": 29,
+ "k_features_mlp_out": 9,
+ "mc_max_new_tokens": 32,
+ "mmlu_max_new_tokens": 32,
+ "mmlu": {
+  "acc": 0.56,
+  "invalid_rate": 0.0,
+  "old_acc": 0.56,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "The best answer is **B**. \n\nHere's why:\n\n* **The passage explicitly states that slaves were \"not considered as merchandise\" because they",
+    "model_letter": "B",
+    "old_raw": "The best answer is **B",
+    "old_letter": "B",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.58,
+  "invalid_rate": 0.0,
+  "old_acc": 0.46,
+  "old_invalid_rate": 0.16000000000000003,
+  "n": 50,
+  "records": [
+   {
+    "question": "How many players are on the field for one team in a standard baseball game?",
+    "options": {
+     "A": "Ten",
+     "B": "Eight",
+     "C": "Nine",
+     "D": "Eleven"
+    },
+    "correct_letter": "C",
+    "correct_text": "Nine",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for when a batter safely reaches first base after hitting the ball?",
+    "options": {
+     "A": "Fielder's choice",
+     "B": "Walk",
+     "C": "Single",
+     "D": "Double"
+    },
+    "correct_letter": "C",
+    "correct_text": "Single",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What equipment does a baseball player use to hit the ball?",
+    "options": {
+     "A": "Glove",
+     "B": "Cleats",
+     "C": "Bat",
+     "D": "Helmet"
+    },
+    "correct_letter": "C",
+    "correct_text": "Bat",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What object does the pitcher throw toward the batter?",
+    "options": {
+     "A": "Baseball",
+     "B": "Tennis ball",
+     "C": "Wiffle ball",
+     "D": "Softball"
+    },
+    "correct_letter": "A",
+    "correct_text": "Baseball",
+    "model_raw": "The answer is **A**. \n\nHere's why:\n\n* **A. Tennis ball** is the most likely answer. \n* **B",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the main objective of the offensive team in baseball?",
+    "options": {
+     "A": "To execute pickoffs",
+     "B": "To turn double plays",
+     "C": "To score runs",
+     "D": "To record strikeouts"
+    },
+    "correct_letter": "C",
+    "correct_text": "To score runs",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is it called when a batter is struck out after receiving three strikes?",
+    "options": {
+     "A": "Strikeout",
+     "B": "Putout",
+     "C": "Force out",
+     "D": "Groundout"
+    },
+    "correct_letter": "A",
+    "correct_text": "Strikeout",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the raised area called from where the pitcher delivers the ball?",
+    "options": {
+     "A": "Home plate",
+     "B": "Bullpen",
+     "C": "Infield grass",
+     "D": "Pitcher's mound"
+    },
+    "correct_letter": "D",
+    "correct_text": "Pitcher's mound",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is it called when a batter hits the ball out of the park for an automatic score?",
+    "options": {
+     "A": "Inside-the-park single",
+     "B": "Home run",
+     "C": "Ground-rule double",
+     "D": "Triple"
+    },
+    "correct_letter": "B",
+    "correct_text": "Home run",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the traditional material used to make a baseball bat?",
+    "options": {
+     "A": "Aluminum",
+     "B": "Carbon fiber",
+     "C": "Plastic",
+     "D": "Wood"
+    },
+    "correct_letter": "D",
+    "correct_text": "Wood",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What material is used to cover a baseball?",
+    "options": {
+     "A": "Cowhide",
+     "B": "Synthetic leather",
+     "C": "Pigskin",
+     "D": "Horsehide"
+    },
+    "correct_letter": "A",
+    "correct_text": "Cowhide",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which organization is responsible for organizing the World Baseball Classic?",
+    "options": {
+     "A": "NCAA",
+     "B": "World Baseball Softball Confederation",
+     "C": "International Olympic Committee",
+     "D": "Major League Baseball"
+    },
+    "correct_letter": "B",
+    "correct_text": "World Baseball Softball Confederation",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is awarded to a batter after receiving four balls in an at-bat?",
+    "options": {
+     "A": "Intentional walk signal only",
+     "B": "Hit by pitch",
+     "C": "Walk",
+     "D": "Balk"
+    },
+    "correct_letter": "C",
+    "correct_text": "Walk",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is defined as a hit in baseball?",
+    "options": {
+     "A": "A fair ball that is fielded cleanly for an out",
+     "B": "When the batter successfully reaches a base after hitting the ball",
+     "C": "A sacrifice bunt advancing a runner",
+     "D": "Any ball put in play regardless of the result"
+    },
+    "correct_letter": "B",
+    "correct_text": "When the batter successfully reaches a base after hitting the ball",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which position is responsible for covering first base?",
+    "options": {
+     "A": "First baseman",
+     "B": "Catcher",
+     "C": "Center fielder",
+     "D": "Shortstop"
+    },
+    "correct_letter": "A",
+    "correct_text": "First baseman",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What do you call the area of the field that lies between the foul lines?",
+    "options": {
+     "A": "Fair territory",
+     "B": "Infield",
+     "C": "Outfield",
+     "D": "Foul territory"
+    },
+    "correct_letter": "A",
+    "correct_text": "Fair territory",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What protective gear do batters wear for safety?",
+    "options": {
+     "A": "Catcher's mask",
+     "B": "Shin guards",
+     "C": "Chest protector",
+     "D": "Protective helmet"
+    },
+    "correct_letter": "D",
+    "correct_text": "Protective helmet",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What role does the designated hitter (DH) serve on a baseball team?",
+    "options": {
+     "A": "Warms up pitchers in the bullpen",
+     "B": "Bats in place of the pitcher without fielding",
+     "C": "Acts as a pinch-runner for the catcher",
+     "D": "Plays first base only in late innings"
+    },
+    "correct_letter": "B",
+    "correct_text": "Bats in place of the pitcher without fielding",
+    "model_raw": "C.",
+    "model_letter": "C",
+    "old_raw": "C.",
+    "old_letter": "C",
+    "n_new_tokens": 5,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the main objective of the defensive team in baseball?",
+    "options": {
+     "A": "To increase pitch counts",
+     "B": "To record outs and prevent runs",
+     "C": "To bat around the lineup",
+     "D": "To steal bases"
+    },
+    "correct_letter": "B",
+    "correct_text": "To record outs and prevent runs",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does it mean to steal a base in baseball?",
+    "options": {
+     "A": "To be awarded a base on a balk",
+     "B": "To successfully advance to the next base during a pitch",
+     "C": "To move up on a sacrifice fly",
+     "D": "To advance on a walk"
+    },
+    "correct_letter": "B",
+    "correct_text": "To successfully advance to the next base during a pitch",
+    "model_raw": "The best answer is **D. To advance on a walk**\n\nHere's why:\n\n* **Base** in a military context usually refers to a",
+    "model_letter": "D",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is a pitchout in baseball?",
+    "options": {
+     "A": "A pickoff throw to first base",
+     "B": "An intentional walk under old rules",
+     "C": "A pitch thrown deliberately to counter a stolen base attempt",
+     "D": "A changeup thrown outside"
+    },
+    "correct_letter": "C",
+    "correct_text": "A pitch thrown deliberately to counter a stolen base attempt",
+    "model_raw": "The best answer is **C. A changeup to counter a base** \n\nHere's explanation:\n\nThe phrase \"change up\" is a common",
+    "model_letter": "C",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What are the three basic tools used in baseball?",
+    "options": {
+     "A": "Bat, puck, and net",
+     "B": "Helmet, net, and racket",
+     "C": "Ball, stick, and pads",
+     "D": "Ball, bat, and glove"
+    },
+    "correct_letter": "D",
+    "correct_text": "Ball, bat, and glove",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a balk in baseball?",
+    "options": {
+     "A": "A passed ball by the catcher",
+     "B": "A wild pitch that goes to the backstop",
+     "C": "An illegal pitching motion that allows runners to advance one base",
+     "D": "A foul tip caught by the catcher"
+    },
+    "correct_letter": "C",
+    "correct_text": "An illegal pitching motion that allows runners to advance one base",
+    "model_raw": "The best answer is **C. An illegal pitching motion that allows runners to advance one base**\n\nHere's why?\n\n* **Balk** is a",
+    "model_letter": "C",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does a complete inning in baseball consist of?",
+    "options": {
+     "A": "Both teams taking a turn to bat",
+     "B": "Both teams recording 27 outs total",
+     "C": "One team recording three outs",
+     "D": "Nine batters making plate appearances"
+    },
+    "correct_letter": "A",
+    "correct_text": "Both teams taking a turn to bat",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is home plate in baseball?",
+    "options": {
+     "A": "The base the batter starts from and must touch to score",
+     "B": "The location of the on-deck circle",
+     "C": "The spot where the pitcher stands",
+     "D": "A safety bag used at first base"
+    },
+    "correct_letter": "A",
+    "correct_text": "The base the batter starts from and must touch to score",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What must a runner do after touching third base to score?",
+    "options": {
+     "A": "Reach home plate",
+     "B": "Tag up at second base",
+     "C": "Touch the pitcher's mound",
+     "D": "Call time"
+    },
+    "correct_letter": "A",
+    "correct_text": "Reach home plate",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is a tag out in baseball?",
+    "options": {
+     "A": "When a runner leaves early on a fly ball",
+     "B": "When a batter misses three pitches",
+     "C": "When a fielder catches a fly ball",
+     "D": "When a runner is touched with the ball while off base"
+    },
+    "correct_letter": "D",
+    "correct_text": "When a runner is touched with the ball while off base",
+    "model_raw": "The best answer is **D. When a runner is touched with the ball while off base**\n\nHere's why?\n\n* **Explanation:**\n\nLet",
+    "model_letter": "D",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the function of an umpire in a baseball game?",
+    "options": {
+     "A": "To officiate and make decisions on plays",
+     "B": "To manage the grounds crew",
+     "C": "To coach base running",
+     "D": "To set the batting order"
+    },
+    "correct_letter": "A",
+    "correct_text": "To officiate and make decisions on plays",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How are the foul lines on a baseball field defined?",
+    "options": {
+     "A": "They extend from home plate at 45-degree angles",
+     "B": "They curve to match the outfield wall",
+     "C": "They run from first base to second base",
+     "D": "They are parallel lines from the mound to home plate"
+    },
+    "correct_letter": "A",
+    "correct_text": "They extend from home plate at 45-degree angles",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How many innings make up a standard professional baseball game?",
+    "options": {
+     "A": "Nine",
+     "B": "Eight",
+     "C": "Ten",
+     "D": "Seven"
+    },
+    "correct_letter": "A",
+    "correct_text": "Nine",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is a triple play in baseball?",
+    "options": {
+     "A": "Three consecutive strikeouts by a pitcher",
+     "B": "A batter hitting three triples in a game",
+     "C": "Turning two outs on one play",
+     "D": "Recording three outs in a single continuous play"
+    },
+    "correct_letter": "D",
+    "correct_text": "Recording three outs in a single continuous play",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a batting average in baseball?",
+    "options": {
+     "A": "Slugging percentage",
+     "B": "The number of hits divided by at bats",
+     "C": "On-base percentage",
+     "D": "Hits plus walks divided by plate appearances"
+    },
+    "correct_letter": "B",
+    "correct_text": "The number of hits divided by at bats",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does the abbreviation RBI stand for?",
+    "options": {
+     "A": "Rallies Brought In",
+     "B": "Runner Beats Infield",
+     "C": "Runs Before Inning",
+     "D": "Runs Batted In"
+    },
+    "correct_letter": "D",
+    "correct_text": "Runs Batted In",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does ERA measure in baseball pitching statistics?",
+    "options": {
+     "A": "Earned Run Average",
+     "B": "Estimated Run Ability",
+     "C": "Earned Runs Against",
+     "D": "Extra Runs Allowed"
+    },
+    "correct_letter": "A",
+    "correct_text": "Earned Run Average",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does WHIP stand for in baseball?",
+    "options": {
+     "A": "Wins, Hits, and IP ratio",
+     "B": "Walks and Homers per Inning Pitched",
+     "C": "Walks plus Hits per Inning Pitched",
+     "D": "Wins and Hits per Inning Pitched"
+    },
+    "correct_letter": "C",
+    "correct_text": "Walks plus Hits per Inning Pitched",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does OPS measure in a batter's performance?",
+    "options": {
+     "A": "Home run rate per at-bat",
+     "B": "Fielding percentage at first base",
+     "C": "Overall batting ability by combining on-base and slugging percentages",
+     "D": "Only on-base percentage"
+    },
+    "correct_letter": "C",
+    "correct_text": "Overall batting ability by combining on-base and slugging percentages",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does WAR stand for in baseball analytics?",
+    "options": {
+     "A": "Walks And Runs",
+     "B": "Wins Against Runs",
+     "C": "Wins Above Replacement",
+     "D": "Weighted Average Rating"
+    },
+    "correct_letter": "C",
+    "correct_text": "Wins Above Replacement",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which era in baseball is known for low scoring and dominant pitching?",
+    "options": {
+     "A": "The steroid era",
+     "B": "The dead-ball era",
+     "C": "The modern era",
+     "D": "The live-ball era"
+    },
+    "correct_letter": "B",
+    "correct_text": "The dead-ball era",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who is known as the 'Father of Baseball' for his contributions to statistical recording?",
+    "options": {
+     "A": "Henry Chadwick",
+     "B": "Alexander Cartwright",
+     "C": "Abner Doubleday",
+     "D": "Branch Rickey"
+    },
+    "correct_letter": "A",
+    "correct_text": "Henry Chadwick",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Approximately how thick is the hitting end of a typical baseball bat?",
+    "options": {
+     "A": "About 2.5 inches in diameter",
+     "B": "About 1.5 inches in diameter",
+     "C": "About 4 inches in diameter",
+     "D": "About 3 inches in diameter"
+    },
+    "correct_letter": "A",
+    "correct_text": "About 2.5 inches in diameter",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Name one basic breaking ball pitch thrown by pitchers.",
+    "options": {
+     "A": "Knuckleball",
+     "B": "Changeup",
+     "C": "Fastball",
+     "D": "Curveball"
+    },
+    "correct_letter": "D",
+    "correct_text": "Curveball",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the role of a utility player on a baseball team?",
+    "options": {
+     "A": "To play multiple positions as needed",
+     "B": "To finish games as the closer",
+     "C": "To serve only as designated hitter",
+     "D": "To catch bullpens exclusively"
+    },
+    "correct_letter": "A",
+    "correct_text": "To play multiple positions as needed",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the primary function of the bullpen in baseball?",
+    "options": {
+     "A": "It is where managers meet the media",
+     "B": "It is where relief pitchers warm up",
+     "C": "It is where umpires review plays",
+     "D": "It is where batters practice bunting"
+    },
+    "correct_letter": "B",
+    "correct_text": "It is where relief pitchers warm up",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does it mean when a runner is stranded in baseball?",
+    "options": {
+     "A": "They are thrown out at home plate",
+     "B": "They remain on base after three outs are recorded",
+     "C": "They are caught stealing",
+     "D": "They score on a sacrifice fly"
+    },
+    "correct_letter": "B",
+    "correct_text": "They remain on base after three outs are recorded",
+    "model_raw": "The best answer is **B. They remain on base after three outs are recorded**\n\nHere's why?\n\n* **B. They remain on base",
+    "model_letter": "B",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What rule was introduced in 2023 to help shorten game times in MLB?",
+    "options": {
+     "A": "Reducing games to seven innings",
+     "B": "A pitch clock rule that penalizes delays",
+     "C": "Eliminating mound visits entirely",
+     "D": "Starting every inning with a runner on second"
+    },
+    "correct_letter": "B",
+    "correct_text": "A pitch clock rule that penalizes delays",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a dugout in baseball?",
+    "options": {
+     "A": "The bullpen mound",
+     "B": "The area where players sit when they are not on the field",
+     "C": "The batting cages under the stands",
+     "D": "The coach's office behind home plate"
+    },
+    "correct_letter": "B",
+    "correct_text": "The area where players sit when they are not on the field",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "With which team did Jackie Robinson break baseball’s color barrier?",
+    "options": {
+     "A": "Kansas City Monarchs",
+     "B": "San Francisco Giants",
+     "C": "Brooklyn Dodgers",
+     "D": "New York Yankees"
+    },
+    "correct_letter": "C",
+    "correct_text": "Brooklyn Dodgers",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the 'strike zone' in baseball?",
+    "options": {
+     "A": "Any pitch that crosses the plate at any height",
+     "B": "The space between first and second base",
+     "C": "The catcher's glove location",
+     "D": "The area over home plate between the batter's shoulders and knees"
+    },
+    "correct_letter": "D",
+    "correct_text": "The area over home plate between the batter's shoulders and knees",
+    "model_raw": "The answer is **D**. \n\nHere's why:\n\nThe \"strike zone\" in the context of a baseball \nis the area of a",
+    "model_letter": "D",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What does on-base percentage (OBP) measure?",
+    "options": {
+     "A": "A batter's power hitting ability",
+     "B": "A batter's ability to reach base",
+     "C": "A pitcher's walk rate",
+     "D": "A fielder's error rate"
+    },
+    "correct_letter": "B",
+    "correct_text": "A batter's ability to reach base",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What does slugging percentage (SLG) evaluate in a batter?",
+    "options": {
+     "A": "Defensive range at shortstop",
+     "B": "The batter's power hitting ability",
+     "C": "How often the batter reaches base",
+     "D": "Baserunning speed"
+    },
+    "correct_letter": "B",
+    "correct_text": "The batter's power hitting ability",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is Baseball5?",
+    "options": {
+     "A": "A five-inning tiebreaker used in MLB",
+     "B": "A variation of baseball played with simplified rules and without traditional equipment",
+     "C": "A youth league with five fielders",
+     "D": "A training drill for pitchers"
+    },
+    "correct_letter": "B",
+    "correct_text": "A variation of baseball played with simplified rules and without traditional equipment",
+    "model_raw": "The answer is **A**. \n\nHere's why:\n\n* **A. A five-tiebreaker used in:** This is the most likely the",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.6,
+  "invalid_rate": 0.0,
+  "old_acc": 0.6,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "In basketball, how many players from one team are allowed on the court during play?",
+    "options": {
+     "A": "7",
+     "B": "4",
+     "C": "5",
+     "D": "6"
+    },
+    "correct_letter": "C",
+    "correct_text": "5",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for collecting the ball after a missed shot in basketball?",
+    "options": {
+     "A": "Block",
+     "B": "Assist",
+     "C": "Steal",
+     "D": "Rebound"
+    },
+    "correct_letter": "D",
+    "correct_text": "Rebound",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which basketball position is primarily responsible for scoring from distance?",
+    "options": {
+     "A": "Center",
+     "B": "Point guard",
+     "C": "Power forward",
+     "D": "Shooting guard"
+    },
+    "correct_letter": "D",
+    "correct_text": "Shooting guard",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the standard height of a basketball hoop from the ground?",
+    "options": {
+     "A": "8 feet",
+     "B": "10 feet",
+     "C": "9 feet",
+     "D": "12 feet"
+    },
+    "correct_letter": "B",
+    "correct_text": "10 feet",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the maximum number of personal fouls a player can commit in the NBA before fouling out?",
+    "options": {
+     "A": "7",
+     "B": "6",
+     "C": "5",
+     "D": "4"
+    },
+    "correct_letter": "B",
+    "correct_text": "6",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the main governing body of soccer in Europe?",
+    "options": {
+     "A": "FIFA",
+     "B": "AFC",
+     "C": "CONMEBOL",
+     "D": "UEFA"
+    },
+    "correct_letter": "D",
+    "correct_text": "UEFA",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for a soccer game that ends with both teams having the same score?",
+    "options": {
+     "A": "Extra time",
+     "B": "Tie-break",
+     "C": "Draw",
+     "D": "Deadlock"
+    },
+    "correct_letter": "C",
+    "correct_text": "Draw",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which country won the FIFA World Cup in 2018?",
+    "options": {
+     "A": "France",
+     "B": "Argentina",
+     "C": "Germany",
+     "D": "Brazil"
+    },
+    "correct_letter": "A",
+    "correct_text": "France",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the side boundary of a soccer pitch called?",
+    "options": {
+     "A": "End line",
+     "B": "Byline",
+     "C": "Touchline",
+     "D": "Sideline"
+    },
+    "correct_letter": "C",
+    "correct_text": "Touchline",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many points is a touchdown worth in American football?",
+    "options": {
+     "A": "7",
+     "B": "6",
+     "C": "3",
+     "D": "2"
+    },
+    "correct_letter": "B",
+    "correct_text": "6",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the area called in American football where teams score touchdowns?",
+    "options": {
+     "A": "Goal box",
+     "B": "End zone",
+     "C": "Red zone",
+     "D": "Touch area"
+    },
+    "correct_letter": "B",
+    "correct_text": "End zone",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How many quarters are in a professional American football game?",
+    "options": {
+     "A": "3",
+     "B": "5",
+     "C": "2",
+     "D": "4"
+    },
+    "correct_letter": "D",
+    "correct_text": "4",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for the kick that starts or resumes play in American football?",
+    "options": {
+     "A": "Kickoff",
+     "B": "Punt",
+     "C": "Snap",
+     "D": "Drop kick"
+    },
+    "correct_letter": "A",
+    "correct_text": "Kickoff",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is it called when a bowler takes three wickets in three consecutive deliveries?",
+    "options": {
+     "A": "Beamer",
+     "B": "Five-for",
+     "C": "Maiden",
+     "D": "Hat-trick"
+    },
+    "correct_letter": "D",
+    "correct_text": "Hat-trick",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In cricket, what is the term for the area where the batsman stands?",
+    "options": {
+     "A": "Square",
+     "B": "Wicket",
+     "C": "Crease",
+     "D": "Pitch"
+    },
+    "correct_letter": "C",
+    "correct_text": "Crease",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What protective gear do cricket batsmen wear on their legs?",
+    "options": {
+     "A": "Thigh boards",
+     "B": "Shin guards",
+     "C": "Leg guards",
+     "D": "Pads"
+    },
+    "correct_letter": "D",
+    "correct_text": "Pads",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many players are on the field for the bowling team in a cricket match?",
+    "options": {
+     "A": "9",
+     "B": "10",
+     "C": "11",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "correct_text": "11",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the maximum number of runs that can be scored from a single legal delivery in cricket?",
+    "options": {
+     "A": "6",
+     "B": "3",
+     "C": "4",
+     "D": "5"
+    },
+    "correct_letter": "A",
+    "correct_text": "6",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In ice hockey, how many players, including the goalie, are on the ice for one team?",
+    "options": {
+     "A": "6",
+     "B": "4",
+     "C": "7",
+     "D": "5"
+    },
+    "correct_letter": "A",
+    "correct_text": "6",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is it called when a player scores three goals in a single ice hockey game?",
+    "options": {
+     "A": "Triple",
+     "B": "Natural",
+     "C": "Brace",
+     "D": "Hat-trick"
+    },
+    "correct_letter": "D",
+    "correct_text": "Hat-trick",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the position called that guards the goal in ice hockey?",
+    "options": {
+     "A": "Goaltender",
+     "B": "Winger",
+     "C": "Center",
+     "D": "Defenseman"
+    },
+    "correct_letter": "A",
+    "correct_text": "Goaltender",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How long is a professional ice hockey game in regulation time (excluding overtime)?",
+    "options": {
+     "A": "48 minutes",
+     "B": "45 minutes",
+     "C": "60 minutes",
+     "D": "90 minutes"
+    },
+    "correct_letter": "C",
+    "correct_text": "60 minutes",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many periods are in a standard professional ice hockey game?",
+    "options": {
+     "A": "3",
+     "B": "4",
+     "C": "2",
+     "D": "5"
+    },
+    "correct_letter": "A",
+    "correct_text": "3",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the name of the penalty given for high-sticking in ice hockey?",
+    "options": {
+     "A": "High-sticking penalty",
+     "B": "Tripping penalty",
+     "C": "Slashing penalty",
+     "D": "Hooking penalty"
+    },
+    "correct_letter": "A",
+    "correct_text": "High-sticking penalty",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the name of the shot in tennis where a player hits the ball before it bounces?",
+    "options": {
+     "A": "Half-volley",
+     "B": "Volley",
+     "C": "Smash",
+     "D": "Drop shot"
+    },
+    "correct_letter": "B",
+    "correct_text": "Volley",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What piece of equipment is used to hit the ball in tennis?",
+    "options": {
+     "A": "Stick",
+     "B": "Paddle",
+     "C": "Bat",
+     "D": "Racket"
+    },
+    "correct_letter": "D",
+    "correct_text": "Racket",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for a score of one under par on a golf hole?",
+    "options": {
+     "A": "Par",
+     "B": "Bogey",
+     "C": "Birdie",
+     "D": "Eagle"
+    },
+    "correct_letter": "C",
+    "correct_text": "Birdie",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many points are needed to win a standard volleyball set (excluding the final set)?",
+    "options": {
+     "A": "30",
+     "B": "15",
+     "C": "21",
+     "D": "25"
+    },
+    "correct_letter": "D",
+    "correct_text": "25",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the defensive move called that prevents the ball from hitting the court in volleyball?",
+    "options": {
+     "A": "Block",
+     "B": "Dig",
+     "C": "Set",
+     "D": "Spike"
+    },
+    "correct_letter": "B",
+    "correct_text": "Dig",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for scoring points by grounding the ball in the opponent's in-goal area in rugby?",
+    "options": {
+     "A": "Penalty goal",
+     "B": "Conversion",
+     "C": "Drop goal",
+     "D": "Try"
+    },
+    "correct_letter": "D",
+    "correct_text": "Try",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many points is a conversion kick worth after scoring a try in rugby?",
+    "options": {
+     "A": "3",
+     "B": "5",
+     "C": "2",
+     "D": "1"
+    },
+    "correct_letter": "C",
+    "correct_text": "2",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the method of restarting play after a minor infringement in rugby called?",
+    "options": {
+     "A": "Scrum",
+     "B": "Lineout",
+     "C": "Kickoff",
+     "D": "Maul"
+    },
+    "correct_letter": "A",
+    "correct_text": "Scrum",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In Rugby League, how many players are on the field for one team?",
+    "options": {
+     "A": "12",
+     "B": "11",
+     "C": "15",
+     "D": "13"
+    },
+    "correct_letter": "D",
+    "correct_text": "13",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In professional boxing, how many rounds are typically fought in a championship match?",
+    "options": {
+     "A": "10",
+     "B": "12",
+     "C": "8",
+     "D": "15"
+    },
+    "correct_letter": "B",
+    "correct_text": "12",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term is used in boxing for a decisive knockout?",
+    "options": {
+     "A": "TKO",
+     "B": "UD",
+     "C": "RTD",
+     "D": "KO"
+    },
+    "correct_letter": "D",
+    "correct_text": "KO",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What protective equipment do boxers wear on their hands?",
+    "options": {
+     "A": "Mitts",
+     "B": "Pads",
+     "C": "Gloves",
+     "D": "Wraps only"
+    },
+    "correct_letter": "C",
+    "correct_text": "Gloves",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the area called where a boxing match takes place?",
+    "options": {
+     "A": "Octagon",
+     "B": "Ring",
+     "C": "Mat",
+     "D": "Court"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ring",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is it called when a boxer wins because the opponent's team stops the fight?",
+    "options": {
+     "A": "Retirement",
+     "B": "Technical decision",
+     "C": "Disqualification",
+     "D": "No contest"
+    },
+    "correct_letter": "A",
+    "correct_text": "Retirement",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for a high, deep shot in badminton that pushes the opponent to the back of the court?",
+    "options": {
+     "A": "Drive",
+     "B": "Drop",
+     "C": "Clear",
+     "D": "Smash"
+    },
+    "correct_letter": "C",
+    "correct_text": "Clear",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the name of the feathered projectile used in badminton?",
+    "options": {
+     "A": "Birdie",
+     "B": "Shuttlecock",
+     "C": "Feather dart",
+     "D": "Ball"
+    },
+    "correct_letter": "B",
+    "correct_text": "Shuttlecock",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many games must a player win to secure a match in standard badminton scoring?",
+    "options": {
+     "A": "3",
+     "B": "1",
+     "C": "2",
+     "D": "4"
+    },
+    "correct_letter": "C",
+    "correct_text": "2",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is another common name for table tennis?",
+    "options": {
+     "A": "Mini tennis",
+     "B": "Paddle ball",
+     "C": "Table squash",
+     "D": "Ping pong"
+    },
+    "correct_letter": "D",
+    "correct_text": "Ping pong",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What common term describes the rotation given to the ball in table tennis?",
+    "options": {
+     "A": "Curve",
+     "B": "Spin",
+     "C": "Slice",
+     "D": "English"
+    },
+    "correct_letter": "B",
+    "correct_text": "Spin",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What piece of equipment is used by players to hit the ball in table tennis?",
+    "options": {
+     "A": "Bat",
+     "B": "Paddle",
+     "C": "Racquet",
+     "D": "Stick"
+    },
+    "correct_letter": "B",
+    "correct_text": "Paddle",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In softball, how many bases are on the field besides home plate?",
+    "options": {
+     "A": "4",
+     "B": "2",
+     "C": "3",
+     "D": "5"
+    },
+    "correct_letter": "C",
+    "correct_text": "3",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for a hit in softball that allows the batter to reach first base safely?",
+    "options": {
+     "A": "Fielder's choice",
+     "B": "Walk",
+     "C": "Single",
+     "D": "Double"
+    },
+    "correct_letter": "C",
+    "correct_text": "Single",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How many players from one team are typically on the field in softball?",
+    "options": {
+     "A": "7",
+     "B": "8",
+     "C": "9",
+     "D": "10"
+    },
+    "correct_letter": "C",
+    "correct_text": "9",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What piece of equipment do softball fielders use to catch the ball?",
+    "options": {
+     "A": "Mitt",
+     "B": "Glove",
+     "C": "Pads",
+     "D": "Bare hands"
+    },
+    "correct_letter": "B",
+    "correct_text": "Glove",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for an out in softball when a runner is forced out due to missing a base?",
+    "options": {
+     "A": "Strikeout",
+     "B": "Fly out",
+     "C": "Tag out",
+     "D": "Force out"
+    },
+    "correct_letter": "D",
+    "correct_text": "Force out",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the pitching style used in softball?",
+    "options": {
+     "A": "Underhand",
+     "B": "Submarine",
+     "C": "Sidearm",
+     "D": "Overhand"
+    },
+    "correct_letter": "A",
+    "correct_text": "Underhand",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   }
+  ]
+ }
+}

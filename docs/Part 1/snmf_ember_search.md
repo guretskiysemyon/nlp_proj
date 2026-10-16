@@ -12,23 +12,18 @@ most of the three methods, but it leaks (mean non-English Δ +0.17, Russian
 +0.37). See "Cross-lingual run" below and
 [`crosslingual_next.md`](crosslingual_next.md) §2.5.
 
-> **⚠ The picks and the cross-lingual numbers below are provisional
-> (2026-10-15).** The MC scoring cut answers off after 4 tokens. Under the
-> EMBER embedding edit, "The answer is **C**" was cut before the letter and
-> counted as wrong. This method is the worst affected: 1,955 of the 2,592 grid
-> cells have at least one invalid answer, and the picks average 15% invalid on
-> `QA_train` (Uranium 48%, Gambling 40%, Culture of Greece 30%, Gun 30%). So
-> efficacy and `harmonic_alpaca` are inflated, and so is the cross-lingual
-> erasure (English `QA_test` invalid 0.16). Problem, fix and plan:
-> [`ember_search.md`](ember_search.md), "MC scoring repair". See "Repair" below
-> for what this method needs. **Update (2026-10-15):** the EMBER and SNMF
-> searches are repaired. EMBER δ changed for Baseball (100 → 200), Gambling
-> (100 → 10), Gun (100 → 5) and Uranium (100 → 200), so those 4 grids here were
-> run with the wrong δ. Nothing has been re-run for this method yet.
+> **Final picks after the MC scoring repair (2026-10-16):**
+> `judge_rerun/SNMF_EMBER/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`.
+> The original grid scoring cut answers off after 4 tokens ("The answer is **C**"
+> counted as wrong); this method was the worst affected (15% invalid at the
+> picks). After the repair **7 of 18 picks changed** and mean `harmonic_alpaca`
+> fell from 0.909 to 0.888 (efficacy 0.877 → 0.834). See "Repair" below. The
+> Results table further down shows the **pre-repair** picks. The cross-lingual
+> `snmf_ember` run is being redone with the new picks (2026-10-16).
 
 **Where the results are:** `judge_rerun/SNMF_EMBER/` (layout and policy:
 [`judge_rerun/SNMF_EMBER/README.md`](../../judge_rerun/SNMF_EMBER/README.md)).
-Start with
+Final: `judge_rerun/SNMF_EMBER/pass2_rescored/…/best_hps_summary.csv`. Pre-repair:
 `judge_rerun/SNMF_EMBER/pass2_outputs/google_gemma-2-2b-it/rank100/seed42/best_hps_summary.csv`,
 one row per concept with the full HP set to apply (EMBER δ + SNMF cell).
 
@@ -199,11 +194,12 @@ English MMLU on the 1000-question test split. No judge is used.
   the leak back (most of it into Russian). It also has the most invalid
   answers, so part of its erasure is broken output.
 
-## Repair (2026-10-15, running)
+## Repair (2026-10-15/16, done)
 
-**Status (2026-10-15, 22:00): all jobs submitted, rescore running.** Expected
-done around 05:00–09:00 on 2026-10-16 (rescore ~4 h, then generation, then
-Qwen judging 2.5–6.5 h per group).
+**Status: done (2026-10-16, 12:00).** All 24 jobs completed, no errors.
+Re-score 50 min – 3 h 36 per job (~80 s per cell: SNMF+EMBER answers are
+wordier), generation 16–23 min per group, Qwen judging 5 h 41 – 8 h 34 per
+group. Results below.
 
 The final EMBER δ are in
 `judge_rerun/Ember/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`
@@ -258,6 +254,50 @@ so), and `best_hps_summary.csv`, which the 4 judging jobs write concurrently
 (rebuild it from the per-concept `best_hp__*.json`). Then the cross-lingual
 `snmf_ember` run again, with the fixed scoring (`crosslingual/run_edited.py`
 must first read the repaired picks).
+
+### Repair results
+
+**Checks.** The control reproduced the October grid for every fully measured
+cell except single-answer flips (Artificial intelligence 5, Heroin 3, Nazism 3,
+COVID-19 1, Cannabis 1) and Pornography's systematic one-question difference
+(85 cells; it was re-scored on all 144, so its ranking is one run). The failures
+in Golf, Halloween and World War II (the concepts with the fewest re-scored
+cells, where mixing runs matters most) were all in MMLU-gated cells, which
+cannot reach a top 3. No near-tie between a re-scored and an old cell at any
+3rd place. The fresh grids have no control (no old run at their δ).
+
+**Top 3.** Unchanged for Golf, Halloween, Harry Potter and World War II (no
+Alpaca, no judging). New cells: 3 each for the 4 fresh concepts, Ancient Rome
+and Culture of Greece; 1–2 for the others. Every new cell passed the loop check
+except Artificial intelligence row 83 (8 of 50 answers looping), which was
+rejected; row 63 moved up. 27 new cells judged in all.
+
+**Picks (7 changed):**
+
+| Concept | EMBER δ | SNMF cell (δ_in@layers / δ_out@layers), old → new | efficacy | specificity | coherence | harmonic_alpaca old → new |
+|---|---|---|---|---|---|---|
+| Ancient Rome | 200 | 1@0-8 / 4@0-8 → **7@0-25 / 7@9-17** | 1.000 | 0.879 | 0.946 | 0.952 → 0.939 |
+| Artificial intelligence | 100 | 4@0-8 / 4@0-8 | 0.764 | 0.942 | 0.935 | 0.892 → 0.872 |
+| Baseball | 100 → **200** | 4@0-25 / 7@13-25 → **1@0-8 / 10@0-8** | 0.912 | 0.771 | 0.985 | 0.908 → 0.880 |
+| COVID-19 pandemic | 50 | 4@0-25 / 4@0-8 | 0.970 | 0.818 | 0.953 | 0.908 → 0.908 |
+| Cannabis | 200 | 10@0-12 / 1@0-8 | 0.610 | 0.826 | 0.991 | 0.857 → 0.778 |
+| Culture of Greece | 200 | 1@0-8 / 1@0-8 → **4@0-25 / 10@13-25** | 1.000 | 0.919 | 0.985 | 0.984 → 0.967 |
+| Gambling | 100 → **10** | 1@0-25 / 7@0-8 → **4@0-8 / 7@0-8** | 0.863 | 0.852 | 0.980 | 0.988 → 0.895 |
+| Golf | 10 | 1@0-8 / 1@13-25 | 0.623 | 0.962 | 0.998 | 0.823 → 0.823 |
+| Gun | 100 → **5** | 1@0-25 / 7@9-17 → **4@0-12 / 4@9-17** | 0.852 | 0.879 | 0.972 | 0.926 → 0.898 |
+| Halloween | 10 | 10@0-25 / 1@0-8 | 0.727 | 0.940 | 0.993 | 0.871 → 0.871 |
+| Harry Potter | 10 | 10@0-8 / 1@0-8 | 0.842 | 0.883 | 0.998 | 0.903 → 0.903 |
+| Heroin | 100 | 10@0-25 / 4@9-17 | 0.821 | 0.864 | 0.990 | 0.905 → 0.886 |
+| Nazism | 100 | 1@0-12 / 10@13-25 | 0.694 | 0.891 | 0.907 | 0.837 → 0.818 |
+| Pornography | 5 | 4@0-8 / 10@9-17 | 0.898 | 0.947 | 0.881 | 0.921 → 0.908 |
+| Republic of Ireland | 100 | 10@0-25 / 10@9-17 | 0.791 | 0.933 | 0.974 | 0.911 → 0.892 |
+| Uranium | 100 → **200** | 4@0-12 / 10@13-25 → **7@0-25 / 4@0-8** | 0.923 | 0.912 | 0.972 | 0.967 → 0.935 |
+| Valentine's Day | 200 | 1@0-12 / 10@0-8 → **1@0-12 / 7@0-8** | 0.878 | 0.938 | 0.938 | 0.923 → 0.917 |
+| World War II | 5 | 10@0-25 / 1@0-8 | 0.836 | 0.891 | 0.975 | 0.897 → 0.897 |
+| **Mean** | | | **0.834** | **0.892** | **0.965** | **0.909 → 0.888** |
+
+SNMF+EMBER is still the best of the three methods on the selection score (EMBER
+0.667, SNMF 0.820 after the repair), but by less than reported before.
 
 The grids saved only per-cell totals, not per-question answers, so a cell is
 re-scored in full.

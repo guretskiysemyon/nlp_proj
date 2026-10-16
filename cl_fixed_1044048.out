@@ -1,0 +1,51 @@
+[run_crosslingual_fixed] args: --method ember --concepts COVID-19 pandemic Nazism Republic of Ireland Culture of Greece Valentine's Day Halloween World War II
+[fixed] ember 'COVID-19 pandemic': regen (old hp {'delta_embed': 50.0} -> {'delta_embed': 50.0})
+[fixed] ember 'Nazism': regen (old hp {'delta_embed': 100.0} -> {'delta_embed': 100.0})
+[fixed] ember 'Republic of Ireland': regen (old hp {'delta_embed': 100.0} -> {'delta_embed': 100.0})
+[fixed] ember 'Culture of Greece': regen (old hp {'delta_embed': 200.0} -> {'delta_embed': 200.0})
+[fixed] ember "Valentine's Day": regen (old hp {'delta_embed': 200.0} -> {'delta_embed': 200.0})
+[fixed] ember 'Halloween': regen (old hp {'delta_embed': 10.0} -> {'delta_embed': 10.0})
+[fixed] ember 'World War II': regen (old hp {'delta_embed': 5.0} -> {'delta_embed': 5.0})
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.22it/s]
+[fixed]   'COVID-19 pandemic' en: QA_test=0.52 (invalid 0.00) Simdom=0.80 (invalid 0.00)
+[fixed]   'COVID-19 pandemic' de: QA_test=0.36 (invalid 0.00) Simdom=0.80 (invalid 0.00)
+[fixed]   'COVID-19 pandemic' es: QA_test=0.46 (invalid 0.02) Simdom=0.74 (invalid 0.00)
+[fixed]   'COVID-19 pandemic' fr: QA_test=0.46 (invalid 0.04) Simdom=0.86 (invalid 0.00)
+[fixed]   'COVID-19 pandemic' ru: QA_test=0.34 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed] 1/7 'COVID-19 pandemic' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.546 (was 0.548) regen {'regenerated': 21, 'now_valid': 18, 'control_mismatch': 0} 302s
+[fixed]   'Nazism' en: QA_test=0.56 (invalid 0.00) Simdom=0.90 (invalid 0.00)
+[fixed]   'Nazism' de: QA_test=0.52 (invalid 0.00) Simdom=0.82 (invalid 0.00)
+[fixed]   'Nazism' es: QA_test=0.62 (invalid 0.00) Simdom=0.84 (invalid 0.00)
+[fixed]   'Nazism' fr: QA_test=0.54 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed]   'Nazism' ru: QA_test=0.50 (invalid 0.00) Simdom=0.76 (invalid 0.00)
+[fixed] 2/7 'Nazism' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.549 (was 0.551) regen {'regenerated': 20, 'now_valid': 20, 'control_mismatch': 0} 313s
+[fixed]   'Republic of Ireland' en: QA_test=0.58 (invalid 0.00) Simdom=0.94 (invalid 0.00)
+[fixed]   'Republic of Ireland' de: QA_test=0.60 (invalid 0.00) Simdom=0.92 (invalid 0.00)
+[fixed]   'Republic of Ireland' es: QA_test=0.50 (invalid 0.00) Simdom=0.84 (invalid 0.00)
+[fixed]   'Republic of Ireland' fr: QA_test=0.54 (invalid 0.00) Simdom=0.92 (invalid 0.00)
+[fixed]   'Republic of Ireland' ru: QA_test=0.48 (invalid 0.00) Simdom=0.80 (invalid 0.00)
+[fixed] 3/7 'Republic of Ireland' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.551 (was 0.553) regen {'regenerated': 13, 'now_valid': 13, 'control_mismatch': 0} 296s
+[fixed]   'Culture of Greece' en: QA_test=0.52 (invalid 0.00) Simdom=0.84 (invalid 0.00)
+[fixed]   'Culture of Greece' de: QA_test=0.42 (invalid 0.00) Simdom=0.66 (invalid 0.00)
+[fixed]   'Culture of Greece' es: QA_test=0.60 (invalid 0.00) Simdom=0.74 (invalid 0.00)
+[fixed]   'Culture of Greece' fr: QA_test=0.50 (invalid 0.00) Simdom=0.78 (invalid 0.00)
+[fixed]   'Culture of Greece' ru: QA_test=0.52 (invalid 0.00) Simdom=0.52 (invalid 0.00)
+[fixed] 4/7 'Culture of Greece' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.545 (was 0.547) regen {'regenerated': 6, 'now_valid': 6, 'control_mismatch': 1} 299s
+[fixed]   "Valentine's Day" en: QA_test=0.30 (invalid 0.00) Simdom=0.82 (invalid 0.00)
+[fixed]   "Valentine's Day" de: QA_test=0.32 (invalid 0.00) Simdom=0.68 (invalid 0.00)
+[fixed]   "Valentine's Day" es: QA_test=0.50 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed]   "Valentine's Day" fr: QA_test=0.40 (invalid 0.04) Simdom=0.62 (invalid 0.00)
+[fixed]   "Valentine's Day" ru: QA_test=0.32 (invalid 0.00) Simdom=0.64 (invalid 0.00)
+[fixed] 5/7 "Valentine's Day" [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.544 (was 0.546) regen {'regenerated': 5, 'now_valid': 3, 'control_mismatch': 0} 339s
+[fixed]   'Halloween' en: QA_test=0.38 (invalid 0.00) Simdom=0.94 (invalid 0.02)
+[fixed]   'Halloween' de: QA_test=0.36 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed]   'Halloween' es: QA_test=0.44 (invalid 0.00) Simdom=0.68 (invalid 0.00)
+[fixed]   'Halloween' fr: QA_test=0.44 (invalid 0.00) Simdom=0.64 (invalid 0.00)
+[fixed]   'Halloween' ru: QA_test=0.48 (invalid 0.00) Simdom=0.58 (invalid 0.00)
+[fixed] 6/7 'Halloween' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.544 (was 0.546) regen {'regenerated': 1, 'now_valid': 0, 'control_mismatch': 0} 298s
+[fixed]   'World War II' en: QA_test=0.68 (invalid 0.00) Simdom=0.90 (invalid 0.00)
+[fixed]   'World War II' de: QA_test=0.58 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed]   'World War II' es: QA_test=0.58 (invalid 0.00) Simdom=0.68 (invalid 0.00)
+[fixed]   'World War II' fr: QA_test=0.58 (invalid 0.00) Simdom=0.72 (invalid 0.00)
+[fixed]   'World War II' ru: QA_test=0.48 (invalid 0.00) Simdom=0.50 (invalid 0.00)
+[fixed] 7/7 'World War II' [regen]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.550 (was 0.552) regen {'regenerated': 0, 'now_valid': 0, 'control_mismatch': 0} 273s

@@ -1,0 +1,33 @@
+{
+  "108": {
+    "row": 108,
+    "hp_desc": "in 10@0-25 / out 1@0-8",
+    "hp": {
+      "delta_embed": 200.0,
+      "w_mode": "both",
+      "feature_source": "all",
+      "ratio_thresh": 2.0,
+      "coverage_thresh": 0.95,
+      "delta_in": 10.0,
+      "layer_lo_in": 0,
+      "layer_hi_in": 25,
+      "k_features_mlp_in": 42,
+      "delta_out": 1.0,
+      "layer_lo_out": 0,
+      "layer_hi_out": 8,
+      "k_features_mlp_out": 25
+    },
+    "edit_info": {
+      "k_features_mlp_in": 42,
+      "k_features_mlp_out": 25
+    },
+    "mmlu_acc": 0.54,
+    "qa_acc": 0.48,
+    "simdom_acc": 0.68,
+    "efficacy": 0.6101694915254237,
+    "specificity": 0.8113207547169812,
+    "harmonic": 0.6965129358830147,
+    "n_loop_answers": 4,
+    "looping": false
+  }
+}

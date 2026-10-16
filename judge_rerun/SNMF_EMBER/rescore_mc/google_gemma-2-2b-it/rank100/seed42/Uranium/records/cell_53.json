@@ -1,0 +1,3003 @@
+{
+ "concept": "Uranium",
+ "row": 53,
+ "hp": {
+  "delta_embed": 200.0,
+  "k_features_embed": 2,
+  "n_tokens_edited": 70,
+  "w_mode": "both",
+  "feature_source": "all",
+  "ratio_thresh": 2.0,
+  "coverage_thresh": 0.95,
+  "neurons_thresh": NaN,
+  "delta_in": 4.0,
+  "layer_lo_in": 0,
+  "layer_hi_in": 8,
+  "k_features_mlp_in": 17,
+  "delta_out": 4.0,
+  "layer_lo_out": 13,
+  "layer_hi_out": 25,
+  "k_features_mlp_out": 16
+ },
+ "k_features_mlp_in": 17,
+ "k_features_mlp_out": 16,
+ "mc_max_new_tokens": 32,
+ "mmlu_max_new_tokens": 32,
+ "mmlu": {
+  "acc": 0.52,
+  "invalid_rate": 0.0,
+  "old_acc": 0.52,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "The answer is **A. and proteins** \n\nHere's why:\n\n* **Viruses:** Viruses are essentially genetic material that is enclosed in a",
+    "model_letter": "A",
+    "old_raw": "The answer is **A.",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "The answer is **B. \n\n**Explanation:**\n\nThe correct answer is **B. \n\n**Explanation:**\n\nThe correct answer is **B.",
+    "model_letter": "B",
+    "old_raw": "The answer is **B.",
+    "old_letter": "B",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.42,
+  "invalid_rate": 0.0,
+  "old_acc": 0.24,
+  "old_invalid_rate": 0.33999999999999997,
+  "n": 50,
+  "records": [
+   {
+    "question": "What is the chemical symbol for uranium?",
+    "options": {
+     "A": "Un",
+     "B": "Ur",
+     "C": "U",
+     "D": "Rn"
+    },
+    "correct_letter": "C",
+    "correct_text": "U",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of uranium?",
+    "options": {
+     "A": "90",
+     "B": "91",
+     "C": "94",
+     "D": "92"
+    },
+    "correct_letter": "D",
+    "correct_text": "92",
+    "model_raw": "B. 91",
+    "model_letter": "B",
+    "old_raw": "B. 9",
+    "old_letter": "B",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which series of the periodic table is uranium classified?",
+    "options": {
+     "A": "Alkali metals",
+     "B": "Transition metals",
+     "C": "Actinide series",
+     "D": "Lanthanide series"
+    },
+    "correct_letter": "C",
+    "correct_text": "Actinide series",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the color of uranium metal?",
+    "options": {
+     "A": "Dull black",
+     "B": "Bluish-silver",
+     "C": "Silvery-grey",
+     "D": "Golden-yellow"
+    },
+    "correct_letter": "C",
+    "correct_text": "Silvery-grey",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many protons does a uranium atom have?",
+    "options": {
+     "A": "92",
+     "B": "91",
+     "C": "93",
+     "D": "90"
+    },
+    "correct_letter": "A",
+    "correct_text": "92",
+    "model_raw": "The answer is **A. 92**",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 13,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who discovered uranium in 1789?",
+    "options": {
+     "A": "Martin Heinrich Klaproth",
+     "B": "Antoine Lavoisier",
+     "C": "Henri Becquerel",
+     "D": "Dmitri Mendeleev"
+    },
+    "correct_letter": "A",
+    "correct_text": "Martin Heinrich Klaproth",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Is uranium denser than lead?",
+    "options": {
+     "A": "Only at very low temperatures",
+     "B": "Yes",
+     "C": "No",
+     "D": "Only when enriched"
+    },
+    "correct_letter": "B",
+    "correct_text": "Yes",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which acid dissolves uranium?",
+    "options": {
+     "A": "Acetic acid",
+     "B": "Sulfuric acid",
+     "C": "Hydrochloric acid",
+     "D": "Phosphoric acid"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hydrochloric acid",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What property of uranium isotopes makes them useful for dating the age of the Earth?",
+    "options": {
+     "A": "High conductivity",
+     "B": "High electronegativity",
+     "C": "Long half-life",
+     "D": "Strong magnetism"
+    },
+    "correct_letter": "C",
+    "correct_text": "Long half-life",
+    "model_raw": "C.",
+    "model_letter": "C",
+    "old_raw": "C.",
+    "old_letter": "C",
+    "n_new_tokens": 5,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What crystalline structure does uranium have between 668 °C and 775 °C?",
+    "options": {
+     "A": "Orthorhombic (alpha)",
+     "B": "Hexagonal close-packed",
+     "C": "Cubic (gamma)",
+     "D": "Tetragonal (beta)"
+    },
+    "correct_letter": "D",
+    "correct_text": "Tetragonal (beta)",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What process converts uranium-238 into plutonium-239 in a reactor?",
+    "options": {
+     "A": "Fission",
+     "B": "Transmutation",
+     "C": "Enrichment",
+     "D": "Fusion"
+    },
+    "correct_letter": "B",
+    "correct_text": "Transmutation",
+    "model_raw": "The answer is **B. Transmutation**. \n\nHere's why?\n\n* **Transmutation** refers to a change in a genetic sequence.",
+    "model_letter": "B",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for uranium that has had most of its U-235 removed?",
+    "options": {
+     "A": "Natural uranium",
+     "B": "Low-enriched uranium",
+     "C": "Reprocessed uranium",
+     "D": "Depleted uranium"
+    },
+    "correct_letter": "D",
+    "correct_text": "Depleted uranium",
+    "model_raw": "The answer is **D. Depleted**",
+    "model_letter": "D",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 12,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the half-life of uranium-235?",
+    "options": {
+     "A": "704 million years",
+     "B": "4.5 billion years",
+     "C": "1.2 million years",
+     "D": "159,200 years"
+    },
+    "correct_letter": "A",
+    "correct_text": "704 million years",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "From which element is uranium-233 produced?",
+    "options": {
+     "A": "Plutonium",
+     "B": "Protactinium",
+     "C": "Thorium",
+     "D": "Neptunium"
+    },
+    "correct_letter": "C",
+    "correct_text": "Thorium",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which type of neutron induces fission in uranium-235 most effectively?",
+    "options": {
+     "A": "Epithermal neutrons",
+     "B": "Cold neutrons only",
+     "C": "Slow (thermal) neutrons",
+     "D": "Fast neutrons"
+    },
+    "correct_letter": "C",
+    "correct_text": "Slow (thermal) neutrons",
+    "model_raw": "The answer is **C. Slow (thermal)",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 13,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical formula of the uranium compound used as nuclear reactor fuel?",
+    "options": {
+     "A": "U₃O₈",
+     "B": "UO₃",
+     "C": "UF₆",
+     "D": "UO2"
+    },
+    "correct_letter": "D",
+    "correct_text": "UO2",
+    "model_raw": "The answer is **A. U₃O** \n\n**Explanation:**\n\n* **U₃O** is the correct chemical formula for the fuel.",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What chemical compound of uranium is used in the enrichment process?",
+    "options": {
+     "A": "U₃O₈",
+     "B": "UCl₄",
+     "C": "UO2",
+     "D": "UF₆"
+    },
+    "correct_letter": "D",
+    "correct_text": "UF₆",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which method was used during the Manhattan Project to enrich uranium?",
+    "options": {
+     "A": "Plasma separation",
+     "B": "Laser isotope separation",
+     "C": "Gaseous diffusion process",
+     "D": "Gas centrifuge"
+    },
+    "correct_letter": "C",
+    "correct_text": "Gaseous diffusion process",
+    "model_raw": "The answer is **D. Gas**. \n\nHere's why:\n\n* **The Manhattan Project** was a massive project that was used to develop the",
+    "model_letter": "D",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "In what year was the first self-sustained nuclear chain reaction achieved?",
+    "options": {
+     "A": "1942",
+     "B": "1938",
+     "C": "1952",
+     "D": "1945"
+    },
+    "correct_letter": "A",
+    "correct_text": "1942",
+    "model_raw": "C. 1952",
+    "model_letter": "C",
+    "old_raw": "C. 1",
+    "old_letter": "C",
+    "n_new_tokens": 10,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Who led the team that achieved the first artificial self-sustained nuclear chain reaction?",
+    "options": {
+     "A": "Enrico Fermi",
+     "B": "Leo Szilard",
+     "C": "Niels Bohr",
+     "D": "J. Robert Oppenheimer"
+    },
+    "correct_letter": "A",
+    "correct_text": "Enrico Fermi",
+    "model_raw": "The answer is **A. Enrico Fermi** \n\nHere's why:\n\n* Enrico Fermi was a renowned-renownedesque scientist who led the team that",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the code name of the first nuclear bomb dropped on Hiroshima?",
+    "options": {
+     "A": "Fat Man",
+     "B": "Able",
+     "C": "Little Boy",
+     "D": "Trinity"
+    },
+    "correct_letter": "C",
+    "correct_text": "Little Boy",
+    "model_raw": "The answer is **D. Trinity**. \n\nHere's the explanation:\n\n* **D. Trinity** was the code name for the first bomb dropped",
+    "model_letter": "D",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Between what pH values do uranium carbonates increase uranium solubility?",
+    "options": {
+     "A": "6 to 8",
+     "B": "3 to 5",
+     "C": "8 to 10",
+     "D": "2 to 4"
+    },
+    "correct_letter": "A",
+    "correct_text": "6 to 8",
+    "model_raw": "C. 8 to 10",
+    "model_letter": "C",
+    "old_raw": "C. 8",
+    "old_letter": "C",
+    "n_new_tokens": 11,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which bacterium is known to reduce uranium and is used in bioremediation?",
+    "options": {
+     "A": "Shewanella oneidensis",
+     "B": "Escherichia coli",
+     "C": "Geobacter metallireducens",
+     "D": "Pseudomonas putida"
+    },
+    "correct_letter": "C",
+    "correct_text": "Geobacter metallireducens",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of radiation does uranium primarily emit?",
+    "options": {
+     "A": "Beta radiation",
+     "B": "Gamma radiation",
+     "C": "Neutron radiation",
+     "D": "Alpha radiation"
+    },
+    "correct_letter": "D",
+    "correct_text": "Alpha radiation",
+    "model_raw": "The answer is **C.",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 11,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What permissible exposure limit for uranium in air over an 8-hour workday is set by OSHA?",
+    "options": {
+     "A": "1.0 mg/m³",
+     "B": "0.05 mg/m³",
+     "C": "0.25 mg/m³",
+     "D": "0.10 mg/m³"
+    },
+    "correct_letter": "C",
+    "correct_text": "0.25 mg/m³",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the primary uranium oxide in yellowcake?",
+    "options": {
+     "A": "UO2",
+     "B": "UO₃",
+     "C": "U₃O₈",
+     "D": "UF₆"
+    },
+    "correct_letter": "C",
+    "correct_text": "U₃O₈",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which country produced the most uranium in 2021?",
+    "options": {
+     "A": "Australia",
+     "B": "Canada",
+     "C": "Kazakhstan",
+     "D": "Namibia"
+    },
+    "correct_letter": "C",
+    "correct_text": "Kazakhstan",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the world's largest single uranium deposit?",
+    "options": {
+     "A": "Cigar Lake",
+     "B": "Ranger Mine",
+     "C": "McArthur River",
+     "D": "Olympic Dam Mine"
+    },
+    "correct_letter": "D",
+    "correct_text": "Olympic Dam Mine",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which reactor design can use unenriched uranium fuel?",
+    "options": {
+     "A": "BWR",
+     "B": "VVER",
+     "C": "CANDU",
+     "D": "PWR"
+    },
+    "correct_letter": "C",
+    "correct_text": "CANDU",
+    "model_raw": "The answer is **C. CANDU**\n\nHere's why:\n\n* **CANDU** is a design that uses unenriched fuel.",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which nuclear power station began generation on 17 October 1956?",
+    "options": {
+     "A": "Sizewell A",
+     "B": "Calder Hall",
+     "C": "Obninsk",
+     "D": "Shippingport"
+    },
+    "correct_letter": "B",
+    "correct_text": "Calder Hall",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which uranium ore besides uraninite is commonly mined?",
+    "options": {
+     "A": "Galena",
+     "B": "Cassiterite",
+     "C": "Hematite",
+     "D": "Carnotite"
+    },
+    "correct_letter": "D",
+    "correct_text": "Carnotite",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What crystal system does alpha uranium have?",
+    "options": {
+     "A": "Tetragonal",
+     "B": "Orthorhombic",
+     "C": "Trigonal",
+     "D": "Cubic"
+    },
+    "correct_letter": "B",
+    "correct_text": "Orthorhombic",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In what year did Henri Becquerel discover the radioactivity of uranium?",
+    "options": {
+     "A": "1879",
+     "B": "1905",
+     "C": "1896",
+     "D": "1911"
+    },
+    "correct_letter": "C",
+    "correct_text": "1896",
+    "model_raw": "The answer is **C**. \n\nPlease provide the context for your answer.",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 19,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term describes the self-sustaining sequence of fission reactions in uranium-235?",
+    "options": {
+     "A": "Thermal runaway",
+     "B": "Nuclear chain reaction",
+     "C": "Photoelectric effect",
+     "D": "Bremsstrahlung cascade"
+    },
+    "correct_letter": "B",
+    "correct_text": "Nuclear chain reaction",
+    "model_raw": "The answer is **D. Bremsstrahlung cascade**\n\nHere's why:\n\n* **Bremsstrahlung cascade** refers to the self-sustaining sequence of",
+    "model_letter": "D",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which fissile material is produced from the decay of neptunium-239?",
+    "options": {
+     "A": "Plutonium-239",
+     "B": "Plutonium-238",
+     "C": "Uranium-235",
+     "D": "Uranium-233"
+    },
+    "correct_letter": "A",
+    "correct_text": "Plutonium-239",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Between which two values does the half-life of uranium isotopes vary?",
+    "options": {
+     "A": "500,000 and 10 billion years",
+     "B": "10,000 and 1 billion years",
+     "C": "159,200 and 4.5 billion years",
+     "D": "1,000 and 2 million years"
+    },
+    "correct_letter": "C",
+    "correct_text": "159,200 and 4.5 billion years",
+    "model_raw": "The answer is **B. 10,000 and 1 billion years**\n\nHere's why:\n\n* **Half-life**",
+    "model_letter": "B",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What term describes uranium's ability to be hammered or shaped?",
+    "options": {
+     "A": "Ductility",
+     "B": "Malleability",
+     "C": "Brittleness",
+     "D": "Viscosity"
+    },
+    "correct_letter": "B",
+    "correct_text": "Malleability",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which acid besides hydrochloric acid can dissolve uranium?",
+    "options": {
+     "A": "Acetic acid",
+     "B": "Carbonic acid",
+     "C": "Nitric acid",
+     "D": "Boric acid"
+    },
+    "correct_letter": "C",
+    "correct_text": "Nitric acid",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What forms on uranium metal when it oxidizes in air?",
+    "options": {
+     "A": "Uranium carbide",
+     "B": "Uranium oxide",
+     "C": "Uranium nitride",
+     "D": "Uranium fluoride"
+    },
+    "correct_letter": "B",
+    "correct_text": "Uranium oxide",
+    "model_raw": "The answer is **B. \n\n**Explanation:**\n\n* **Oxide** is the correct answer.",
+    "model_letter": "B",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 25,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is uranium called in its unenriched form with about 0.71% U-235?",
+    "options": {
+     "A": "Raw uranium",
+     "B": "Standard uranium",
+     "C": "Natural uranium",
+     "D": "Base uranium"
+    },
+    "correct_letter": "C",
+    "correct_text": "Natural uranium",
+    "model_raw": "The answer is **A**. \n\n**Explanation:**\n\n* **Raw** refers to the unprocessed or natural form of a substance.\n* **Standard",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which U.S. law provided compensation to uranium miners with cancers?",
+    "options": {
+     "A": "Radiation Exposure Compensation Act",
+     "B": "Clean Air Act",
+     "C": "Atomic Energy Act",
+     "D": "Comprehensive Environmental Response, Compensation, and Liability Act"
+    },
+    "correct_letter": "A",
+    "correct_text": "Radiation Exposure Compensation Act",
+    "model_raw": "The answer is **A. Exposure Compensation Act** \n\n**Explanation:**\n\nThe **Exposure Compensation Act** is the law that provides compensation to miners with cancers",
+    "model_letter": "A",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which part of the human body does uranium tend to accumulate due to its affinity for phosphates?",
+    "options": {
+     "A": "Lungs",
+     "B": "Kidneys",
+     "C": "Bones",
+     "D": "Liver"
+    },
+    "correct_letter": "C",
+    "correct_text": "Bones",
+    "model_raw": "D.",
+    "model_letter": "D",
+    "old_raw": "D.",
+    "old_letter": "D",
+    "n_new_tokens": 5,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which country are the Oklo natural reactors located?",
+    "options": {
+     "A": "Gabon",
+     "B": "Australia",
+     "C": "Canada",
+     "D": "Niger"
+    },
+    "correct_letter": "A",
+    "correct_text": "Gabon",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In what year did the Obninsk nuclear power station begin generation?",
+    "options": {
+     "A": "1956",
+     "B": "1952",
+     "C": "1954",
+     "D": "1961"
+    },
+    "correct_letter": "C",
+    "correct_text": "1954",
+    "model_raw": "C. 1954",
+    "model_letter": "C",
+    "old_raw": "C. 1",
+    "old_letter": "C",
+    "n_new_tokens": 10,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What use did uranium salts have in the leather and wood industries?",
+    "options": {
+     "A": "Fuel additives",
+     "B": "Fertilizers",
+     "C": "Pesticides",
+     "D": "Stains and dyes"
+    },
+    "correct_letter": "D",
+    "correct_text": "Stains and dyes",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element directly precedes uranium (element 92) in the periodic table?",
+    "options": {
+     "A": "Actinium",
+     "B": "Protactinium",
+     "C": "Thorium",
+     "D": "Neptunium"
+    },
+    "correct_letter": "B",
+    "correct_text": "Protactinium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element directly follows uranium in the periodic table?",
+    "options": {
+     "A": "Thorium",
+     "B": "Neptunium",
+     "C": "Plutonium",
+     "D": "Protactinium"
+    },
+    "correct_letter": "B",
+    "correct_text": "Neptunium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What magnetic property does uranium exhibit?",
+    "options": {
+     "A": "Antiferromagnetism",
+     "B": "Ferromagnetism",
+     "C": "Paramagnetism",
+     "D": "Diamagnetism"
+    },
+    "correct_letter": "C",
+    "correct_text": "Paramagnetism",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What enrichment technique uses lasers to separate uranium isotopes?",
+    "options": {
+     "A": "Gas centrifuge enrichment",
+     "B": "Molecular diffusion",
+     "C": "Electromagnetic isotope separation",
+     "D": "Atomic vapor laser isotope separation (AVLIS)"
+    },
+    "correct_letter": "D",
+    "correct_text": "Atomic vapor laser isotope separation (AVLIS)",
+    "model_raw": "The answer is **C. Electromagnetic separation** \n\n\n**Explanation:**\n\n* **Electromagnetic separation** is the process of separating different types of elements.",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Uranium was historically used in the filaments of what type of lamps?",
+    "options": {
+     "A": "Neon sign tubes",
+     "B": "Stage lighting bulbs",
+     "C": "Fluorescent starters",
+     "D": "LED lamps"
+    },
+    "correct_letter": "B",
+    "correct_text": "Stage lighting bulbs",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.56,
+  "invalid_rate": 0.0,
+  "old_acc": 0.56,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What is the chemical symbol for Hydrogen?",
+    "options": {
+     "A": "He",
+     "B": "Hg",
+     "C": "Hy",
+     "D": "H"
+    },
+    "correct_letter": "D",
+    "correct_text": "H",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has atomic number 2?",
+    "options": {
+     "A": "Neon",
+     "B": "Lithium",
+     "C": "Helium",
+     "D": "Hydrogen"
+    },
+    "correct_letter": "C",
+    "correct_text": "Helium",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Lithium?",
+    "options": {
+     "A": "4",
+     "B": "5",
+     "C": "3",
+     "D": "2"
+    },
+    "correct_letter": "C",
+    "correct_text": "3",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Boron?",
+    "options": {
+     "A": "Bo",
+     "B": "B",
+     "C": "Br",
+     "D": "Be"
+    },
+    "correct_letter": "B",
+    "correct_text": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has atomic number 6?",
+    "options": {
+     "A": "Boron",
+     "B": "Carbon",
+     "C": "Nitrogen",
+     "D": "Oxygen"
+    },
+    "correct_letter": "B",
+    "correct_text": "Carbon",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Sodium?",
+    "options": {
+     "A": "Ne",
+     "B": "K",
+     "C": "Na",
+     "D": "S"
+    },
+    "correct_letter": "C",
+    "correct_text": "Na",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Aluminum?",
+    "options": {
+     "A": "11",
+     "B": "13",
+     "C": "12",
+     "D": "14"
+    },
+    "correct_letter": "B",
+    "correct_text": "13",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element has the symbol 'Si'?",
+    "options": {
+     "A": "Silicon",
+     "B": "Sodium",
+     "C": "Sulfur",
+     "D": "Tin"
+    },
+    "correct_letter": "A",
+    "correct_text": "Silicon",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Chlorine?",
+    "options": {
+     "A": "19",
+     "B": "18",
+     "C": "17",
+     "D": "16"
+    },
+    "correct_letter": "C",
+    "correct_text": "17",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has the symbol 'Ar'?",
+    "options": {
+     "A": "Astatine",
+     "B": "Argon",
+     "C": "Arsenic",
+     "D": "Silver"
+    },
+    "correct_letter": "B",
+    "correct_text": "Argon",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Potassium?",
+    "options": {
+     "A": "K",
+     "B": "Pt",
+     "C": "Po",
+     "D": "P"
+    },
+    "correct_letter": "A",
+    "correct_text": "K",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has atomic number 20?",
+    "options": {
+     "A": "Scandium",
+     "B": "Potassium",
+     "C": "Calcium",
+     "D": "Argon"
+    },
+    "correct_letter": "C",
+    "correct_text": "Calcium",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element is a lanthanide with symbol 'Ce'?",
+    "options": {
+     "A": "Calcium",
+     "B": "Cerium",
+     "C": "Cesium",
+     "D": "Cobalt"
+    },
+    "correct_letter": "B",
+    "correct_text": "Cerium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element is an actinide with symbol 'Pu'?",
+    "options": {
+     "A": "Promethium",
+     "B": "Polonium",
+     "C": "Plutonium",
+     "D": "Protactinium"
+    },
+    "correct_letter": "C",
+    "correct_text": "Plutonium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element is a halogen with symbol 'I'?",
+    "options": {
+     "A": "Indium",
+     "B": "Bromine",
+     "C": "Iodine",
+     "D": "Iridium"
+    },
+    "correct_letter": "C",
+    "correct_text": "Iodine",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element is a transition metal with symbol 'Ni'?",
+    "options": {
+     "A": "Nitrogen",
+     "B": "Nickel",
+     "C": "Niobium",
+     "D": "Neon"
+    },
+    "correct_letter": "B",
+    "correct_text": "Nickel",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Platinum?",
+    "options": {
+     "A": "82",
+     "B": "79",
+     "C": "78",
+     "D": "74"
+    },
+    "correct_letter": "C",
+    "correct_text": "78",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has the symbol 'Hg'?",
+    "options": {
+     "A": "Mercury",
+     "B": "Hafnium",
+     "C": "Hassium",
+     "D": "Hydrogen"
+    },
+    "correct_letter": "A",
+    "correct_text": "Mercury",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Mercury?",
+    "options": {
+     "A": "78",
+     "B": "79",
+     "C": "82",
+     "D": "80"
+    },
+    "correct_letter": "D",
+    "correct_text": "80",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Lead?",
+    "options": {
+     "A": "Pb",
+     "B": "Pd",
+     "C": "Le",
+     "D": "Ld"
+    },
+    "correct_letter": "A",
+    "correct_text": "Pb",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which element has atomic number 31?",
+    "options": {
+     "A": "Zinc",
+     "B": "Gallium",
+     "C": "Arsenic",
+     "D": "Germanium"
+    },
+    "correct_letter": "B",
+    "correct_text": "Gallium",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Arsenic?",
+    "options": {
+     "A": "Ac",
+     "B": "As",
+     "C": "Ag",
+     "D": "Ar"
+    },
+    "correct_letter": "B",
+    "correct_text": "As",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Arsenic?",
+    "options": {
+     "A": "34",
+     "B": "32",
+     "C": "35",
+     "D": "33"
+    },
+    "correct_letter": "D",
+    "correct_text": "33",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element has the symbol 'Se'?",
+    "options": {
+     "A": "Silicon",
+     "B": "Selenium",
+     "C": "Seaborgium",
+     "D": "Sulfur"
+    },
+    "correct_letter": "B",
+    "correct_text": "Selenium",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Selenium?",
+    "options": {
+     "A": "36",
+     "B": "35",
+     "C": "34",
+     "D": "33"
+    },
+    "correct_letter": "C",
+    "correct_text": "34",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Krypton?",
+    "options": {
+     "A": "38",
+     "B": "54",
+     "C": "34",
+     "D": "36"
+    },
+    "correct_letter": "D",
+    "correct_text": "36",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element has the symbol 'Rb'?",
+    "options": {
+     "A": "Radon",
+     "B": "Rhodium",
+     "C": "Rhenium",
+     "D": "Rubidium"
+    },
+    "correct_letter": "D",
+    "correct_text": "Rubidium",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Zirconium?",
+    "options": {
+     "A": "Zn",
+     "B": "Zr",
+     "C": "Zi",
+     "D": "Z"
+    },
+    "correct_letter": "B",
+    "correct_text": "Zr",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Niobium?",
+    "options": {
+     "A": "41",
+     "B": "39",
+     "C": "42",
+     "D": "40"
+    },
+    "correct_letter": "A",
+    "correct_text": "41",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Molybdenum?",
+    "options": {
+     "A": "42",
+     "B": "41",
+     "C": "43",
+     "D": "40"
+    },
+    "correct_letter": "A",
+    "correct_text": "42",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element has the symbol 'Tc'?",
+    "options": {
+     "A": "Thallium",
+     "B": "Technetium",
+     "C": "Tellurium",
+     "D": "Thorium"
+    },
+    "correct_letter": "B",
+    "correct_text": "Technetium",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Ruthenium?",
+    "options": {
+     "A": "Ru",
+     "B": "Rb",
+     "C": "Rh",
+     "D": "Re"
+    },
+    "correct_letter": "A",
+    "correct_text": "Ru",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Ruthenium?",
+    "options": {
+     "A": "44",
+     "B": "43",
+     "C": "45",
+     "D": "46"
+    },
+    "correct_letter": "A",
+    "correct_text": "44",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Palladium?",
+    "options": {
+     "A": "Pa",
+     "B": "Pt",
+     "C": "Pd",
+     "D": "Pb"
+    },
+    "correct_letter": "C",
+    "correct_text": "Pd",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Palladium?",
+    "options": {
+     "A": "45",
+     "B": "48",
+     "C": "46",
+     "D": "47"
+    },
+    "correct_letter": "C",
+    "correct_text": "46",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Cadmium?",
+    "options": {
+     "A": "46",
+     "B": "50",
+     "C": "48",
+     "D": "47"
+    },
+    "correct_letter": "C",
+    "correct_text": "48",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Indium?",
+    "options": {
+     "A": "I",
+     "B": "Id",
+     "C": "In",
+     "D": "Ir"
+    },
+    "correct_letter": "C",
+    "correct_text": "In",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Indium?",
+    "options": {
+     "A": "51",
+     "B": "48",
+     "C": "50",
+     "D": "49"
+    },
+    "correct_letter": "D",
+    "correct_text": "49",
+    "model_raw": "C.",
+    "model_letter": "C",
+    "old_raw": "C.",
+    "old_letter": "C",
+    "n_new_tokens": 5,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Tin?",
+    "options": {
+     "A": "51",
+     "B": "50",
+     "C": "52",
+     "D": "49"
+    },
+    "correct_letter": "B",
+    "correct_text": "50",
+    "model_raw": "D. 49",
+    "model_letter": "D",
+    "old_raw": "D. 4",
+    "old_letter": "D",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Antimony?",
+    "options": {
+     "A": "51",
+     "B": "53",
+     "C": "52",
+     "D": "50"
+    },
+    "correct_letter": "A",
+    "correct_text": "51",
+    "model_raw": "C. 52",
+    "model_letter": "C",
+    "old_raw": "C. 5",
+    "old_letter": "C",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Tellurium?",
+    "options": {
+     "A": "Tm",
+     "B": "Tl",
+     "C": "Tb",
+     "D": "Te"
+    },
+    "correct_letter": "D",
+    "correct_text": "Te",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Tellurium?",
+    "options": {
+     "A": "50",
+     "B": "51",
+     "C": "53",
+     "D": "52"
+    },
+    "correct_letter": "D",
+    "correct_text": "52",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Iodine?",
+    "options": {
+     "A": "52",
+     "B": "53",
+     "C": "54",
+     "D": "55"
+    },
+    "correct_letter": "B",
+    "correct_text": "53",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Lanthanum?",
+    "options": {
+     "A": "59",
+     "B": "56",
+     "C": "58",
+     "D": "57"
+    },
+    "correct_letter": "D",
+    "correct_text": "57",
+    "model_raw": "C. 58",
+    "model_letter": "C",
+    "old_raw": "C. 5",
+    "old_letter": "C",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Cerium?",
+    "options": {
+     "A": "Cs",
+     "B": "Ce",
+     "C": "Cr",
+     "D": "Co"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ce",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Cerium?",
+    "options": {
+     "A": "59",
+     "B": "60",
+     "C": "57",
+     "D": "58"
+    },
+    "correct_letter": "D",
+    "correct_text": "58",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the atomic number of Praseodymium?",
+    "options": {
+     "A": "58",
+     "B": "61",
+     "C": "59",
+     "D": "60"
+    },
+    "correct_letter": "C",
+    "correct_text": "59",
+    "model_raw": "C.",
+    "model_letter": "C",
+    "old_raw": "C.",
+    "old_letter": "C",
+    "n_new_tokens": 5,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the chemical symbol for Neodymium?",
+    "options": {
+     "A": "No",
+     "B": "Np",
+     "C": "Nd",
+     "D": "Ne"
+    },
+    "correct_letter": "C",
+    "correct_text": "Nd",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the atomic number of Neodymium?",
+    "options": {
+     "A": "62",
+     "B": "60",
+     "C": "61",
+     "D": "59"
+    },
+    "correct_letter": "B",
+    "correct_text": "60",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the chemical symbol for Samarium?",
+    "options": {
+     "A": "Sr",
+     "B": "Sa",
+     "C": "Se",
+     "D": "Sm"
+    },
+    "correct_letter": "D",
+    "correct_text": "Sm",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ }
+}
