@@ -15,16 +15,23 @@ import numpy as np
 import pandas as pd
 import torch
 
-from experiments.varwidth.common import RESULTS, slug
+from experiments.varwidth.common import RESULTS, VWConfig, slug
 
 CONCEPTS = ["Ancient Rome", "Harry Potter", "Valentine's Day"]
 MATRICES = ["whitened", "plain"]
 ONLY_WHITENED = {"Valentine's Day"}
 SEEDS = range(42, 47)
-CONFIGS = [("fixed 1%", "fixed_refit-False"), ("fixed 2%", "fixed_sparsity-0.02_refit-False"),
-           ("m1 contribution", "m1_refit-False"), ("m2 noise-normalized", "m2_refit-False"),
-           ("m3 entropy", "m3_refit-False"), ("m4 L1 ALS", "m4_refit-False"),
-           ("rn row-normalized", "rn_refit-False"), ("rnn row-normalized − noise", "rnn_refit-False")]
+CONFIG_SPECS = [("fixed 1%", "fixed", {}), ("fixed 2%", "fixed", {"sparsity": 0.02}),
+                ("m1 contribution", "m1", {}), ("m2 noise-normalized", "m2", {}), ("m3 entropy", "m3", {}),
+                ("m4 L1 ALS", "m4", {}), ("rn row-normalized", "rn", {}), ("rnn row-normalized − noise", "rnn", {})]
+
+
+def configs(cap: float) -> list:
+    """(name, run tag) for the no-refit configs at row cap `cap` (fixed ignores the cap)."""
+    return [(name, VWConfig(method=m, refit=False, cap=cap, **kw).tag()) for name, m, kw in CONFIG_SPECS]
+
+
+CONFIGS = configs(VWConfig().cap)
 
 
 def load(concept, tag, matrix, seed):
@@ -112,7 +119,13 @@ def md(header, rows):
 
 
 def main():
-    L = ["# Focused comparison: all methods without refit (seeds 42–46)", "",
+    import argparse
+    global CONFIGS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--cap", type=float, default=VWConfig().cap, help="row cap of the variable-width configs (default: VWConfig default)")
+    cap = ap.parse_args().cap
+    CONFIGS = configs(cap)
+    L = [f"# Focused comparison: all methods without refit (seeds 42–46, row cap {cap:.0%})", "",
          "Configs: fixed 1% (the paper), fixed 2%, m1 contribution, m2 noise-normalized, m3 entropy, m4 L1 ALS — all "
          "without the refit step, 1% total budget unless noted. Whitened and non-whitened (plain) are separate tables.", "",
          "- **Judged** (after τ = 2 and the Gemini judge): |F_C| per run (count:runs), concept width = tokens of the "
@@ -135,7 +148,7 @@ def main():
             L += ["**Judge-free (tracked concept direction)**", ""]
             L += md(["Config", "Runs", "Width", "Width CV", "Typical deviation (tokens)", "Range (tokens)", "C", "N", "Neutral share", "Pure", "Direction mean / worst",
                      "Jaccard (in all)"], free) + [""]
-    out = RESULTS / "focus_report.md"
+    out = RESULTS / ("focus_report.md" if cap == VWConfig().cap else f"focus_report_cap{cap:g}.md")
     out.write_text("\n".join(L))
     print("\n".join(L))
     print(f"\nwritten {out}")

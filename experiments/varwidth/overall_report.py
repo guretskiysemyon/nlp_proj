@@ -14,11 +14,19 @@ import numpy as np
 import pandas as pd
 import torch
 
-from experiments.varwidth.common import RESULTS, ROOT, slug
+from experiments.varwidth.common import RESULTS, ROOT, VWConfig, slug
 
 SEEDS = range(42, 47)
-CONFIGS = [("fixed 1%", "fixed_refit-False"), ("fixed 2%", "fixed_sparsity-0.02_refit-False"),
-           ("m1", "m1_refit-False"), ("m3", "m3_refit-False"), ("rn", "rn_refit-False")]
+CONFIG_SPECS = [("fixed 1%", "fixed", {}), ("fixed 2%", "fixed", {"sparsity": 0.02}), ("m1", "m1", {}), ("m3", "m3", {}),
+                ("rn", "rn", {})]
+
+
+def configs(cap: float) -> list:
+    """(name, run tag) for the no-refit configs at row cap `cap` (fixed ignores the cap)."""
+    return [(name, VWConfig(method=m, refit=False, cap=cap, **kw).tag()) for name, m, kw in CONFIG_SPECS]
+
+
+CONFIGS = configs(VWConfig().cap)
 PURE_N = 5
 
 
@@ -82,12 +90,18 @@ def md(df: pd.DataFrame) -> list:
 
 
 def main():
+    import argparse
+    global CONFIGS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--cap", type=float, default=VWConfig().cap, help="row cap of the variable-width configs (default: VWConfig default)")
+    cap = ap.parse_args().cap
+    CONFIGS = configs(cap)
     concepts = [e["concept"] for e in json.loads((ROOT / "data" / "concept_sentences.json").read_text())]
     df = pd.DataFrame([r for c in concepts for r in concept_rows(c)])
-    df.to_csv(RESULTS / "overall_runs.csv", index=False)
+    df.to_csv(RESULTS / ("overall_runs.csv" if cap == VWConfig().cap else f"overall_runs_cap{cap:g}.csv"), index=False)
     names = [n for n, _ in CONFIGS]
     have = df[df["runs"] > 0]
-    L = ["# Overall comparison: all concepts, whitened, no refit (seeds 42–46)", "",
+    L = [f"# Overall comparison: all concepts, whitened, no refit (seeds 42–46, row cap {cap:.0%})", "",
          f"Concepts with runs: {have['concept'].nunique()} of {len(concepts)}. Configs: fixed 1% (the paper), fixed 2%, "
          "m1 contribution pooling, m3 entropy widths, rn row-normalized pooling.", "",
          "- **Judge kept**: seeds whose F_C (after τ = 2 + Gemini judge) is non-empty. **Share**: C / distinct F_C tokens.",
@@ -134,7 +148,7 @@ def main():
         else:
             t = pivot(*spec)
         L += md(t) + [""]
-    out = RESULTS / "overall_report.md"
+    out = RESULTS / ("overall_report.md" if cap == VWConfig().cap else f"overall_report_cap{cap:g}.md")
     out.write_text("\n".join(L))
     print("\n".join(L))
     print(f"\nwritten {out}")

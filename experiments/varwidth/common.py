@@ -47,7 +47,7 @@ class VWConfig:
     rank: int = 100                 # k
     sparsity: float = 0.01          # total budget K = ceil(sparsity * n) * k
     floor: float = 0.002            # m_min = ceil(floor * n)
-    cap: float = 0.05               # m_max = ceil(cap * n)
+    cap: float = 0.03               # m_max = ceil(cap * n); was 0.05 (spec default) until Oct 17 2026
     ridge: float = 1e-4             # lambda_r
     max_iter: int = 20_000          # T
     tol: float = 1e-4               # rel_err improvement threshold
@@ -74,9 +74,10 @@ class VWConfig:
     def tag(self) -> str:
         """Directory name: method plus every switch that differs from the default."""
         d, base = self.to_dict(), asdict(VWConfig(method=self.method))
+        unused = {"floor", "cap", "floorcap"} if self.method == "fixed" else set()   # fixed ignores the bounds
         parts = [self.method]
         for k, v in d.items():
-            if k != "method" and v != base[k]:
+            if k != "method" and k not in unused and v != base[k]:
                 parts.append(f"{k}-{v}")
         return "_".join(str(p) for p in parts)
 
