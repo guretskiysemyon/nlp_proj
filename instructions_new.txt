@@ -1,0 +1,143 @@
+# Variable-width Sparse MF: implementation spec
+
+Oct 17, 2026 · @Ori
+
+Five allocation methods share one modified EMBER loop and keep exactly 1% nonzeros overall; only the allocation step differs. Run them all on the whitened matrix.
+
+## Shared loop
+
+Every method is the paper's alternating least squares with the WTA line replaced by `Allocate` and followed by a support refit.
+
+**Notation.** A = whitened Eᵀ restricted to V\* (d × n). Z is d × k, Y is k × n, k = 100. Total budget K = ⌈0.01·n⌉·k. Floor m\_min = ⌈0.002·n⌉, cap m\_max = ⌈0.05·n⌉ tokens per feature. Ridge λ\_r = 1e-4.
+
+**One iteration**
+
+1. Z ← A Yᵀ (Y Yᵀ + λ\_r I)⁻¹ (paper's Z-update).
+2. Y\_dense ← (Zᵀ Z + λ\_r I)⁻¹ Zᵀ A (paper's dense Y-solve).
+3. S ← Allocate(Y\_dense, Z): a k × n boolean mask with exactly K ones, each row within \[m\_min, m\_max\]. Method-specific.
+4. Refit: for each token j with support S\_j = {i : S\_ij}, solve y\_{S\_j, j} = (Z\_{S\_j}ᵀ Z\_{S\_j} + λ\_r I)⁻¹ Z\_{S\_j}ᵀ a\_j; zero elsewhere. Each solve is tiny (|S\_j| is usually 0–3).
+5. Rescale rows of Y to unit ℓ₂ and absorb the scale into Z's columns (paper's step; all scores below are invariant to it).
+
+**Stopping.** Stop when rel\_err improves by less than 1e-4 for 200 iterations *and* support churn (fraction of the K entries that changed since the last iteration) stays under 0.5%. Cap at T = 20,000. Log churn every iteration; it is the lock-in diagnostic.
+
+**Allocation with floor and cap (used by methods 1, 2 and 4).** Given a score s\_ij ≥ 0:
+
+1. For each row i, take its top m\_min entries by s.
+2. Sort all remaining entries by s, descending.
+3. Add them in order, skipping any whose row has reached m\_max, until the mask has K ones. Break ties by index.
+
+This gives exactly K whenever k·m\_min ≤ K ≤ k·m\_max (true at 0.2% / 1% / 5%).
+
+**Defaults and switches**
+
+| Switch | Default | Ablation |
+| --- | --- | --- |
+| Matrix | Whitened (your current defaults) | Plain, for the best method only |
+| Init | Paper's N(0,1) | Truncated-SVD init |
+| Refit (step 4) | On | Off: Y = Y\_dense ⊙ S, as in the paper |
+| Floor / cap | 0.2% / 5% | Off |
+| Continuation (method 1 only) | Off | Budget K\_t falls from 5% to 1% linearly over the first 2,000 iterations |
+
+## The five methods
+
+Methods 1–4 are alternative `Allocate` steps; method 5 is a post-processing step applied to the winner.
+
+| # | Name | Score or rule | What it tests | Prior |
+| --- | --- | --- | --- | --- |
+| 1 | Contribution pooling | s\_ij = \|y\_ij\| · ‖z\_i‖, then floor/cap pooling | Features that explain more get more tokens | Medium-high |
+| 2 | Noise-normalized pooling | s\_ij = \|y\_ij\| / σ\_i, then floor/cap pooling | Keep every token clearly above the feature's own noise floor | Medium |
+| 3 | Entropy-allocated budgets | Per-row width m\_i from floor-subtracted entropy, then each row's top m\_i | Row shape above noise predicts natural width | Low-medium |
+| 4 | L1 ALS at 1% | Lasso Y-step with λ bisected to K nonzeros | Whether 1–2 are artifacts of hard thresholding | Medium (robustness check) |
+| 5 | Merge step | Merge concept features with high cos(z), refit | Whether the Rome split is real | Medium |
+
+**Method 1: contribution pooling.** Compute s on Y\_dense with the current Z (before step 5's rescale, or equivalently after; the product is invariant). Optional continuation switch from the table above.
+
+**Method 2: noise-normalized pooling.** σ\_i = 1.4826 · median\_j |y\_dense,ij − median\_j y\_dense,ij| (MAD over all n entries of the dense row). Guard: σ\_i ← max(σ\_i, 1e-8). Do not use ‖row‖ here; that is `pooled_rownorm`.
+
+**Method 3: entropy-allocated budgets.**
+
+1. Every R = 20 iterations, for each row: take its top W = 2% of |y\_dense,ij| (switch: 4% if Rome hits the cap), set w\_ij = max(|y\_ij| − c·σ\_i, 0)² with c = 2, p = w / Σw, H\_i = −Σ p log p.
+2. Raw width r\_i = exp(H\_i); if Σw = 0, r\_i = m\_min.
+3. Scale so Σ m\_i = K, round by largest remainder, clip to \[m\_min, m\_max\], and redistribute the clipped excess proportionally; repeat until stable.
+4. Between updates, keep m\_i fixed; each iteration take row i's top m\_i entries by |y\_dense,ij|.
+
+**Method 4: L1 ALS at 1%.**
+
+1. Before the Y-step, normalize Z's columns to unit norm (move the scale into Y). The L1 penalty is not scale-invariant, so this step matters.
+2. Per token j: y\_j = argmin ½‖a\_j − Z y‖² + λ‖y‖₁ by coordinate descent, warm-started from the previous iteration. One λ for all tokens.
+3. Bisect λ until the total nonzeros are within ±0.5% of K, then trim or fill to exactly K by |y|·‖z‖ under the floor/cap rule.
+4. Refit on the support (step 4 of the loop) to remove shrinkage.
+
+To save compute, run the lasso step every R = 10 iterations and plain refit-on-fixed-support in between.
+
+**Method 5: merge step (on the best of 1–4).**
+
+1. After convergence and ρ/judge selection, list pairs of concept features (a, b) with |cos(z\_a, z\_b)| ≥ 0.4 in the whitened space.
+2. For each pair: merged support = union, trimmed to m\_max by score; merged z = top left singular vector of z\_a y\_a + z\_b y\_b; free the other slot with a fresh random feature.
+3. Run 300 more iterations of the same loop.
+4. Accept if rel\_err rises by less than 0.002 (about twice the seed std) and the merged feature still passes ρ and the judge; otherwise keep the split.
+
+The 0.4 threshold is a starting guess; log the cosine of every concept pair so you can set it from data.
+
+## Experiments to add beyond the seed sweep
+
+Keep everything from your sweep (|F\_C|, distinct tokens, C/N/B, concept share, Jaccard, core tokens, rel\_err). Add these, grouped by the question they answer.
+
+**Are the widths real, or noise?**
+
+| Measure | How | Pass bar |
+| --- | --- | --- |
+| Width stability | Match the concept feature across seeds by \|cos z\| (Hungarian over all pairs); coefficient of variation of its width | CV well below 0.29 (your random budget's CV) |
+| Direction stability | Mean pairwise \|cos z\| of the matched concept feature | At least as high as the fixed baseline |
+| Inclusion curve | Per token: fraction of seeds in which it is selected, plotted against its mean rank | A visible drop, not a smooth decline |
+| Width distribution | Histogram of all k widths; Gini; count of rows at floor and at cap | Few rows pinned at floor or cap |
+
+**Does it fix your two cases?**
+
+| Measure | How |
+| --- | --- |
+| Rome split | Number of concept features per seed, width of their union, cos between them when there are two |
+| Rome tail | Whether Cleopatra, gladiator and Constantine (and your other expected tokens) enter the concept support |
+| Harry Potter noise | Neutral and unrelated tokens in F\_C; width of the HP feature against the fixed baseline |
+| Noise pull on z | Refit z on only the top half of its support; report cos(z\_full, z\_half). Lower means the tail moved z |
+
+**Is the budget going to the right features?**
+
+| Measure | How |
+| --- | --- |
+| Generic absorption | Share of the K entries held by the 10 widest features, and what they are (judge description) |
+| Lock-in | Support churn by iteration; the iteration after which churn stays under 0.5% |
+
+**Is it the method, or something else?**
+
+- **Judge noise.** Freeze one fit and rerun only the judge 3 times; report how often F\_C changes.
+- **V\* dependence.** For the best method, rerun Rome with |S| = 200 instead of 300 and compare the concept width.
+- **Resolution.** For the best method, fit at 0.5%, 1%, 2% and 4% total. Track the concept feature across levels: a broad concept keeps gaining concept tokens, a narrow one starts gaining neutral tokens past its edge.
+- **Breadth order.** Before running, rank 4–6 concepts by expected breadth (for example Harry Potter, Golf, Ancient Rome, COVID-19). Check whether learned widths follow your order.
+
+**Does it help erasure?** For the best one or two methods, run the 2×2: direction from {fixed, variable} × edited tokens from {fixed support, variable support}. Report H-score, efficacy, specificity and coherence over the full δ sweep, not at a single δ.
+
+## Run plan and decision rules
+
+Run in stages; each stage decides whether the next is worth running. Your runs take 3–5 minutes each on CPU, so stage 1 (80 runs) is roughly 4–7 CPU-hours.
+
+| Stage | Runs | Configs | Decide |
+| --- | --- | --- | --- |
+| 0. Sanity | Your synthetic planted-size data | Methods 1–3 | Exactly K nonzeros every iteration; planted sizes recovered |
+| 1. Main | Rome and Harry Potter × 10 seeds, whitened | Fixed 1% + refit, methods 1 and 2 (plus fixed without refit from your sweep) | Which of 1 and 2 to carry forward |
+| 2. Entropy | Same | Method 3 | Whether it agrees with method 2 on widths |
+| 3. Robustness | Same | Method 4 | Whether the winner's widths survive a different optimizer |
+| 4. Merge | Rome only | Method 5 on the winner | Whether the split is real |
+| 5. Validity | Resolution sweep, breadth order, \|S\| change, judge reruns | Winner | Whether the widths mean anything |
+| 6. Erasure | 2×2 over the full δ sweep | Winner vs fixed | Whether it helps the paper's metric |
+
+The **fixed 1% + refit** run in stage 1 matters: it separates the effect of the refit from the effect of variable widths. Without it, any gain could come from the refit alone.
+
+**Decision rules**
+
+- **Carry a method forward** if, against fixed + refit, its concept-feature width CV is below about 0.15, its concept share is at least as high, and it moves in the right direction on at least one of your two cases (Rome tail tokens enter, or HP noise tokens leave).
+- **Prefer method 2 over 1** if both pass and method 1 shows generic absorption (the 10 widest features hold over 25% of K and are not concept features).
+- **Treat widths as real** only if methods 2 and 3 agree (Spearman above 0.6 on the k widths) and the method 4 widths are close to the winner's.
+- **Stop and reframe** if no method beats fixed + refit on stage 1. Then width is a tuned quantity, and the resolution sweep becomes the contribution.
+
+These thresholds are starting points I picked, not established values. Adjust them once you see the stage 1 spread.
