@@ -19,7 +19,7 @@ from experiments.varwidth.common import RESULTS, VWConfig, slug
 
 CONCEPTS = ["Ancient Rome", "Harry Potter", "Valentine's Day"]
 MATRICES = ["whitened", "plain"]
-ONLY_WHITENED = {"Valentine's Day"}
+ONLY_WHITENED = set()
 SEEDS = range(42, 47)
 CONFIG_SPECS = [("fixed 1%", "fixed", {}), ("fixed 2%", "fixed", {"sparsity": 0.02}),
                 ("m1 contribution", "m1", {}), ("m2 noise-normalized", "m2", {}), ("m3 entropy", "m3", {}),
