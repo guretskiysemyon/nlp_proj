@@ -434,6 +434,45 @@ def test_fit_best_of_picks_min_rel_err():
 
 # ---------------------------------------------------------------------------
 
+def test_resume_interrupted_matches_uninterrupted():
+    # Interrupt inside the noise phase and after it (best tracking running, 2nd restart not started yet);
+    # resuming from the traceback must give the uninterrupted result, including the remaining restarts.
+    A = _low_rank(d=16, n=300, seed=3)
+    cfg = _cfg(mode="per_row", dist="uniform", anneal=False, noise_sigma0=0.5, noise_iters=20)
+    orig = vs.VariableSparsityMF._sparsify
+    for stop_at, n_restarts in [(10, 1), (35, 2)]:
+        fired = []
+
+        def boom(self, it, _orig=orig, _stop=stop_at):
+            if it == _stop and not fired:
+                fired.append(it)
+                raise KeyboardInterrupt
+            return _orig(self, it)
+
+        vs.VariableSparsityMF._sparsify = boom
+        tb = None
+        try:
+            fit_best_of(A, cfg, 4, n_restarts, 0, 120, 20, 1e-6, verbose=False)
+        except KeyboardInterrupt:
+            tb = sys.exc_info()[2]
+        finally:
+            vs.VariableSparsityMF._sparsify = orig
+        assert tb is not None and fired == [stop_at]
+        out = vs.resume_interrupted(tb)
+        ref = fit_best_of(A, cfg, 4, n_restarts, 0, 120, 20, 1e-6, verbose=False)
+        assert len(out["restarts"]) == n_restarts
+        assert math.isclose(out["rel_err"], ref["rel_err"], rel_tol=1e-4), (out["rel_err"], ref["rel_err"])
+        assert int(out["nnz_per_row"].sum()) == int(ref["nnz_per_row"].sum())
+
+
+def test_resume_interrupted_without_fit_traceback_raises():
+    try:
+        raise ValueError("not a fit")
+    except ValueError:
+        tb = sys.exc_info()[2]
+    _raises(RuntimeError, vs.resume_interrupted, tb)
+
+
 if __name__ == "__main__":
     import time
     import traceback

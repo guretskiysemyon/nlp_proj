@@ -334,23 +334,26 @@ class VariableSparsityMF(SparseMatrixFactorization):
         self.G_ = nn.Parameter(G0.to(self.fitting_device))
         self.F_ = nn.Parameter(F0.to(self.fitting_device))
 
-        t_free = c.t_free
-        best_loss = float("inf")
-        best_F = best_G = None
-        num_no_improve = 0
         self.loss_history = []
+        best_F, best_G = self._loop(A, 0, max_iter, tol, reg, patience, verbose, float("inf"), None, None, 0)
+        self._finish(best_F, best_G)
+        return self
+
+    def _loop(self, A, it0, max_iter, tol, reg, patience, verbose, best_loss, best_F, best_G, num_no_improve):
+        """ALS iterations it0..max_iter-1 from the current F_, G_; returns the best post-t_free (F, G) or (None, None).
+
+        The loop state lives in this frame's locals, so resume_interrupted() can pick it up from a traceback.
+        """
+        K = self.rank
+        t_free = self.cfg.t_free
         eye_K = torch.eye(K, device=self.fitting_device)
-        bar = tqdm(total=max_iter, desc=self.desc, leave=True, mininterval=1.0) if self.progress else None
+        bar = tqdm(total=max_iter, initial=it0, desc=getattr(self, "desc", "fit"), mininterval=1.0) \
+            if getattr(self, "progress", False) else None
 
         with torch.no_grad():
-            for it in range(max_iter):
+            for it in range(it0, max_iter):
                 if bar is not None:
                     bar.update(1)
-                    if it % 25 == 0 and self.loss_history:
-                        bar.set_postfix_str(
-                            f"early phase until {t_free}, loss={self.loss_history[-1]:.4g}" if it < t_free else
-                            f"loss={self.loss_history[-1]:.4g} best={best_loss:.4g} no_improve={num_no_improve}/{patience}",
-                            refresh=False)
                 GtG = self.G_.T @ self.G_
                 inv_G = torch.linalg.inv(GtG + eye_K * reg)
                 self.F_.data.copy_(A @ self.G_ @ inv_G)
@@ -391,17 +394,18 @@ class VariableSparsityMF(SparseMatrixFactorization):
 
         if bar is not None:
             bar.close()
+        return best_F, best_G
+
+    def _finish(self, best_F, best_G) -> None:
         if best_F is not None:
             with torch.no_grad():
                 self.F_.data.copy_(best_F)
                 self.G_.data.copy_(best_G)
-
         self.n_iter = len(self.loss_history)
-        self.t_free = t_free
+        self.t_free = self.cfg.t_free
         self.nnz_per_row = (self.G_.data != 0).sum(0).cpu()     # (k,) final tokens per feature
         self.W = self.G_.detach().clone()
         self.H = self.F_.T
-        return self
 
 
 # ---------------------------------------------------------------------------
@@ -424,27 +428,38 @@ def _fit_with_ridge(nmf, A: torch.Tensor, max_iter: int, patience: int = 500, ba
 
 def fit_best_of(A: torch.Tensor, cfg: SparsityConfig, rank: int, n_restarts: int, seed: int, max_iter: int,
                 patience: int, base_reg: float, device: str = "cpu", concept_metrics_fn=None,
-                verbose: bool = True, progress: bool = False) -> dict:
+                verbose: bool = True, progress: bool = False, _resume: dict | None = None) -> dict:
     """Fits `n_restarts` times (seed + r) and keeps the lowest relative error ||A - ZY||_F / ||A||_F.
 
     concept_metrics_fn(Y) -> dict, optional: extra per-restart columns (e.g. top rho), computed on the (k, n) Y.
     Returns {"Z", "Y", "ridge_used", "budgets", "nnz_per_row", "loss_history", "t_free", "best_restart",
              "restarts" (DataFrame), "elapsed"}.
+    `_resume` is internal (see resume_interrupted): finish an interrupted restart, then run the remaining ones.
     """
     if max_iter <= cfg.t_free:
         raise ValueError(f"max_iter={max_iter} <= t_free={cfg.t_free}: the fit would end inside the anneal/noise phase "
                          f"and return a non-final (denser) support; raise max_iter or shorten anneal_iters/noise_iters")
     A_cpu = A.detach().float().cpu()
     A_norm = torch.norm(A_cpu).item()
-    rows, best = [], None
-    t0 = time.perf_counter()
-    for r in range(n_restarts):
+    rows, best, t0, r0 = [], None, time.perf_counter(), 0
+    if _resume is not None:
+        rows, best, t0, r0 = list(_resume["rows"]), _resume["best"], _resume["t0"], _resume["r"]
+    for r in range(r0, n_restarts):
         s = seed + r
-        set_seed(s)
-        smf = VariableSparsityMF(rank, fitting_device=device, cfg=cfg, seed=s, verbose=verbose, progress=progress,
-                                 desc=f"restart {r} (seed {s}) of {n_restarts}")
-        t_r = time.perf_counter()
-        ridge = _fit_with_ridge(smf, A, max_iter, patience=patience, base_reg=base_reg)
+        if _resume is not None and r == r0:
+            smf, t_r, ridge, st = _resume["smf"], _resume["t_r"], _resume["reg"], _resume["loop"]
+            it0 = len(smf.loss_history)
+            print(f"resuming restart {r} (seed {s}) at iter {it0} (early phase until iter {cfg.t_free})")
+            best_F, best_G = VariableSparsityMF._loop(
+                smf, A.to(smf.fitting_device), it0, max_iter, st["tol"], ridge, patience, verbose,
+                st["best_loss"], st["best_F"], st["best_G"], st["num_no_improve"])
+            VariableSparsityMF._finish(smf, best_F, best_G)
+        else:
+            set_seed(s)
+            smf = VariableSparsityMF(rank, fitting_device=device, cfg=cfg, seed=s, verbose=verbose, progress=progress,
+                                     desc=f"restart {r} (seed {s}) of {n_restarts}")
+            t_r = time.perf_counter()
+            ridge = _fit_with_ridge(smf, A, max_iter, patience=patience, base_reg=base_reg)
         Z = smf.F_.detach().float().cpu()       # (d, k)
         Y = smf.G_.detach().float().cpu().T     # (k, n)
         err = (torch.norm(A_cpu - Z @ Y) / A_norm).item()
@@ -463,5 +478,36 @@ def fit_best_of(A: torch.Tensor, cfg: SparsityConfig, rank: int, n_restarts: int
                     "nnz_per_row": nnz.clone(), "loss_history": list(smf.loss_history), "t_free": smf.t_free}
         del smf
     best["restarts"] = pd.DataFrame(rows)
-    best["elapsed"] = time.perf_counter() - t0
+    best["elapsed"] = time.perf_counter() - t0   # wall time, including any pause before a resume
     return best
+
+
+def resume_interrupted(tb=None) -> dict:
+    """Finish a fit_best_of call that was stopped (KeyboardInterrupt) and return what fit_best_of would have returned.
+
+    Reads the interrupted frames from the last traceback (IPython keeps it in sys.last_traceback): the model with its
+    current F_/G_, loss history and budgets, the loop state (best loss, best F/G, patience counter) and the finished
+    restarts. Call it before another error replaces that traceback. Works on models built by an older version of
+    this module too (same attributes).
+    """
+    import sys
+    tb = tb or getattr(sys, "last_traceback", None)
+    if tb is None:
+        raise RuntimeError("no traceback found: resume_interrupted() must run right after the interrupted cell")
+    outer = loop = None
+    while tb is not None:
+        f = tb.tb_frame
+        if f.f_code.co_name == "fit_best_of":
+            outer = dict(f.f_locals)
+        elif "best_loss" in f.f_locals and "self" in f.f_locals and hasattr(f.f_locals["self"], "loss_history"):
+            loop = dict(f.f_locals)       # VariableSparsityMF._loop (or fit, in older versions of this module)
+        tb = tb.tb_next
+    if outer is None or loop is None:
+        raise RuntimeError("the last traceback is not an interrupted fit_best_of fit (was it stopped inside a fit?)")
+    smf = loop["self"]
+    kw = {k: outer[k] for k in ("A", "cfg", "rank", "n_restarts", "seed", "max_iter", "patience", "base_reg",
+                                 "device", "concept_metrics_fn", "verbose")}
+    state = {"smf": smf, "rows": outer["rows"], "best": outer["best"], "t0": outer["t0"], "r": outer["r"],
+             "t_r": outer.get("t_r", time.perf_counter()), "reg": loop["reg"],
+             "loop": {k: loop[k] for k in ("tol", "best_loss", "best_F", "best_G", "num_no_improve")}}
+    return fit_best_of(**kw, _resume=state)
