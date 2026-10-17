@@ -211,15 +211,14 @@ were already running).
    `judge_rerun/Ember/pass2_rescored/…/best_deltas_summary.csv`).
 4. ~~SNMF: re-score the cells with invalid answers~~ (done 2026-10-15: all 18
    picks unchanged, see [`snmf_search.md`](snmf_search.md)).
-5. **SNMF+EMBER** (running since 2026-10-15 22:00, jobs 1042781–1042804):
+5. ~~**SNMF+EMBER**~~ (done 2026-10-16, jobs 1042781–1042804):
    fresh grids at the new δ for Baseball, Gambling, Gun and Uranium, re-score of
    the cells with invalid answers for the other 14 (Pornography in full), then
    Alpaca + Qwen for cells new to a top 3
    ([`snmf_ember_search.md`](snmf_ember_search.md), "Repair").
-6. **Cross-lingual** `ember` (all 18; the 4 changed δ fresh, the rest by
-   regenerating only the invalid questions, whose records are saved) and
-   `snmf_ember` after its search. Point `crosslingual/run_edited.py` at the new
-   picks first. `snmf` stays as it is.
+6. ~~Cross-lingual `ember`, `snmf`, `snmf_ember` and the pristine baseline with
+   the fixed scoring and the repaired picks~~ (done 2026-10-16:
+   [`crosslingual_next.md`](crosslingual_next.md) §2.6).
 
 ## Delta-selection policy (updated 2026-10-08)
 

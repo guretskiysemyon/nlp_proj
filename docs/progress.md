@@ -1,6 +1,18 @@
 # Progress log
 
-**Last updated:** 2026-10-16
+**Last updated:** 2026-10-17
+**Current step: Part 1 analysis.** Part 1's experiments are complete and
+repaired: the three HP searches (EMBER, SNMF, SNMF+EMBER) and the cross-lingual
+MC test of all three methods, 18 concepts × 5 languages. **Decided 2026-10-17:
+open-QA judging, the final-test stage and relearning are out of scope for Part
+1** (the paper already establishes them for these methods in English; the MC
+test answers this part's question). Headline after the repair: `ember` leaks
+(mean +0.19, Russian +0.33), `snmf` does not (+0.00) but costs the most
+specificity, `snmf_ember` erases English the most and leaks only into Russian
+(+0.23). Results: [`docs/Part 1/part1_results.md`](Part%201/part1_results.md).
+Next: the analysis in [`crosslingual_next.md`](Part%201/crosslingual_next.md)
+§6, then Part 2.
+
 **Status:**
 - **MC scoring repair (2026-10-15/16): done.** All three HP searches, the
   cross-lingual pristine baseline and all three cross-lingual runs. The multiple-choice scoring (the paper's
@@ -74,9 +86,10 @@
   longer a significant leak into de/es/fr; Russian still +0.23 [+0.08, +0.38].
   Details:
   [`crosslingual_next.md`](Part%201/crosslingual_next.md) §2.6.
-- **Next:** the cross-lingual analysis proper
+- **Next:** the cross-lingual analysis
   ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) on the `_fixed`
-  results.
+  results: paired method differences, targeted leak, non-answer sensitivity,
+  the Russian leak and token overlap → leak. CPU only.
 - **Part 2, multilingual feature search (step 1, World War II): done, result too
   weak.** Features fit on en+ru+de+es+fr together, then filtered with the same
   Gemini judge as the English features: 0 embedding + 2 MLP features kept
@@ -297,11 +310,11 @@ Full reasoning and the detailed design are in
   delete it (`rm -rf`), then commit the deletion.
 
 **Not done yet:**
-- Cross-lingual analysis proper (paired method differences, the effect of
-  invalid answers, targeted leak; plain means are in §2.3 / §2.5), the
-  `english`-wrapper check, and open-QA cross-lingual judging:
-  `crosslingual_next.md` §6.
-- The final-test stage and relearning are later steps.
+- Cross-lingual analysis (paired method differences, targeted leak,
+  non-answer sensitivity, Russian, token overlap; plain means and bootstrap are
+  done) and the optional `english`-wrapper check: `crosslingual_next.md` §6.
+- Out of scope for Part 1 (decided 2026-10-17): open-QA cross-lingual judging,
+  the final-test stage and relearning.
 - Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
   work together), superseded by `qwen_judge.py` as the real reusable module —

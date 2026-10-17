@@ -1,12 +1,15 @@
 # Multilingual feature search — step 1 (World War II)
 
+*Main Part 2 plan (joint fit vs per-language fits): [`plan.md`](plan.md).*
+
 *Status 2026-10-15. Gemma-2-2b-it, rank 100, seed 42, one concept (World War II),
 languages en+ru+de+es+fr. Feature search only; erasure comes later.*
 
 *Where things stand:* the first fit (2026-10-14) gave too few features (0 + 2), mostly
 because of the data. The foreign sentence sets are now being rebuilt along two tracks:
 **native Wikipedia** (`data_v2/` usable, 71 of 72 pairs complete after adding judged
-link sentences, Valentine's Day es 278; see "Native sentence sets") and **translation**
+link sentences, Valentine's Day es 276; bibliography and back-matter lines removed
+2026-10-17, see "Reference removal, second pass") and **translation**
 of the English sets (complete for all 18 concepts, quality checks next; see "Translated
 sentence sets"). No new fit yet.
 
@@ -620,6 +623,63 @@ A stricter second pass could drop most misses in Valentine's Day ru and fr (68 a
 relevant link sentences there are not used), but not in es, where every relevant one is
 already used and the pair is still short.
 
+### Reference removal, second pass (2026-10-17)
+
+**Why.** The English sets from the paper contain no bibliography lines (0 of 5,400 concept
+sentences). `data_v2/` still had many: the plain-text extracts keep one bibliography entry
+per line ("Uwe Walter: Politische Ordnung in der Römischen Republik. Oldenbourg,
+Berlin/Boston 2017, ISBN …"), the splitter cuts it, and the old filter dropped only the
+piece with the ISBN. Also external-link titles and sister-project notices from the end of
+the articles ("Wikimedia Commons alberga una categoría multimedia sobre Halloween.").
+
+**Rules** (`sentences.py`, all logged):
+- whole line dropped if it has at most 65 words and a clear marker (ISBN, doi, OCLC,
+  "abgerufen am", "Consultado el", "consulté le", "Дата обращения", "Архивировано",
+  "— М.:" …), or starts like a citation ("Name Name (Hrsg.):", "Фамилия И. О.",
+  "Surname, First (1999)", "(en) …") and has a year / "In:" / "(Hrsg.)" / "//". A year in
+  a prose date ("am 22. Juni 1941") does not count. Longer lines are prose paragraphs
+  with an inline citation; there only the sentence with the marker goes, as before;
+- everything after the first back-matter heading ("Weblinks", "Einzelnachweise",
+  "Примечания", "Ссылки", "Referencias", "Véase también", "Notes et références",
+  "Voir aussi" …) is dropped; "Literatur" / "Литература" counts only if it is the last
+  such heading before the back matter and at least half of its lines are reference
+  lines (de Pornografie and Irland have content sections called "Literatur");
+- not "Auflage", bare "abgerufen" / "consulté" (also prose: newspaper circulation,
+  "können online abgerufen werden"); "(англ.)" only outside another bracket.
+
+**Output.** `data_v2/removed_references.json`: every eligible sentence (main article,
+related sentences naming the concept, judged link sentences) dropped as a reference, with
+language, concept, kind, article, page and revision ids, the rule and the full source
+line. 1,410 sentences; **531 of them were in the previous sets**. 64 of 72 pairs changed
+(the others had no such lines); all stay at 300 except Valentine's Day es (278 → 276).
+
+**Checks** (by Claude, an LLM: an automated review, not a human one):
+- every removed line read (all 1,410 sentences, over four rounds of fixes). Wrong
+  removals found and fixed: 4 prose sentences in de World War II ("Zweite Phase: …
+  am 22. Juni 1941."), 2 in ru Golf ("(Putting green (англ.))"). Still removed: 1 prose
+  sentence in fr Gun ("… (p. 2:245) …", old page-number rule). Back-matter removals
+  include a few "See also" entries with a gloss and two footnotes, none article prose;
+- kept sentences from after an end-of-article heading: all read, all prose;
+- over-inclusive pattern scan of all 21,576 kept sentences (110 hits): all read, no
+  reference (one prose sentence keeps an archive-link remnant, ru Pornography);
+- 100 random kept sentences per language read: 0 references (so very likely < 0.75%).
+
+**Neutral sets (same day).** `recheck_neutral.py` fetched the article of every neutral
+sentence (today's revision; now saved in `wiki_raw/<lang>/neutral/`, so later checks are
+offline) and applied the same rules. **53 of 1,200 replaced** (ru 11, de 16, es 22, fr 4)
+by another random usable sentence of the same article; log with rule, source line and
+replacement: `data_v2/neutral_removed_references.json`. 1 es sentence is no longer in its
+article (edited since); it passes the rules on its own and is kept (marked
+`not_in_current_text`). All 53 removed and all 53 replacements read: removed = references,
+links, sister-project notices; replacements = prose, two of them boilerplate (ru browser
+notice about hieroglyphs, de monument-list disclaimer), kept.
+
+**Fits started on the cleaned data (2026-10-17)**, `run_feature_search.sbatch`
+(factorization, then the Gemini filter in the same job), World War II, rank 100:
+native `data_v2` → `mf_outputs/native/` (job 1046208), English only (pipeline check
+against the downloaded 1 + 15 features) → `mf_outputs/en_rerun/` (1046210). Results:
+`feature_search_<job>.out`. The translated sets are not used for now (native only).
+
 ## Translated sentence sets (option 6): plan and status
 
 Decided 2026-10-15: build translated sets now (option 6). Native Wikipedia sets
@@ -857,7 +917,7 @@ so this is one more careful automated review, not a human check.
 
 - **Translated sets:** ready; next is step 7 (refit World War II on the translated sets).
   Optional before it: the clean-up of the known remaining errors (see "Known remaining errors").
-- **Native sets, Valentine's Day es (278):** accept it, or judge its extra pool (243
+- **Native sets, Valentine's Day es (276):** accept it, or judge its extra pool (243
   sentences that name the concept, many wrong senses: Valentino, people named Valentín;
   the judge would need to check the sense too) for the last 22.
 - **Native sets, optional:** a stricter second judge pass over the link sentences in

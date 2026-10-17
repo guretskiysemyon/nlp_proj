@@ -1,14 +1,15 @@
 # Cross-lingual leakage, round 2 — plan and status
 
-**Status (2026-10-15):** **all three methods are done** for all 18 concepts ×
-5 languages: `ember` and `snmf` (`crosslingual/run_edited.py`, jobs 1007121
-pilot + 1007145 / 1007146, 2026-10-11) and `snmf_ember` (job 1040077,
-2026-10-14). Every edit check passed. First-look results: §2.3 (`ember`,
-`snmf`), §2.5 (`snmf_ember`); `snmf` leak bootstrap and its collateral damage
-against the Gemini-era picks: §2.4. The pristine baselines were done before
-(job 1006226). **Still to do:** the proper analysis (§6).
+**Status (2026-10-17): experiments complete; analysis next.** All four runs
+(pristine, `ember`, `snmf`, `snmf_ember`) are done for 18 concepts × 5
+languages and **repaired** (fixed MC scoring, repaired picks, fixed pristine
+baseline): results in `results/crosslingual/google_gemma-2-2b-it/<method>_fixed/`,
+write-up §2.6, final tables `part1_results.md` §5. Every edit check reproduces
+the repaired search. **Decided 2026-10-17:** open-QA judging and cross-lingual
+relearning are out of scope for Part 1 (§3, §8). **Next:** the analysis (§6).
+§2.2–§2.5 are the first-look, **pre-repair** numbers, kept for the record.
 
-> **⚠ `ember` and `snmf_ember` numbers are provisional (2026-10-15).** "Invalid"
+> **History (2026-10-15): why the first `ember` / `snmf_ember` numbers were wrong.** "Invalid"
 > answers are mostly not broken output. They are "The answer is **C**" cut off
 > by the 4-token budget before the letter, and they count as wrong. That
 > inflates erasure, and English more than the other languages (so Δ too). The
@@ -421,9 +422,10 @@ The bootstrap here uses `np.random.default_rng(0)` for both columns, so the
 
 | Choice | Decision | Why |
 |---|---|---|
-| Format | **MC only** | judge-free, cheap, and the Gemini-era headline was MC too. Open QA is a later step (§6) |
+| Format | **MC only (final)** | judge-free, cheap, and the Gemini-era headline was MC too. Open QA dropped for Part 1 (2026-10-17): the paper already reports open-QA erasure for these methods in English, and MC answers this part's question |
+| Relearning / final test | **out of scope for Part 1** (2026-10-17) | the paper already measures relearning robustness for these methods in English |
 | Concepts | **all 18** | the Gemini run had n=8 and its method differences landed at t≈2.0, just short of significance (\|t\|≈2.4 needed). One cell's Δ has noise ±0.30, so only averages over concepts mean anything. n=18 cuts the across-concept SE by ~1.5× |
-| Methods | **`pristine`, `ember`, `snmf`, `snmf_ember` (all done)** | `snmf_ember` used its own HP search; see §5 |
+| Methods | **`pristine`, `ember`, `snmf`, `snmf_ember` (all done, repaired)** | `snmf_ember` used its own HP search; see §5 |
 | Languages | en, de, es, fr, ru | 2 cells screened out (Harry Potter/ru, Valentine's Day/ru) |
 | Wrapper | **`native` only for now** | the Gemini run found the wrapper effect negligible (mean −0.014). The `english` wrapper (English instructions, translated question) is not implemented in the new package; add it to `prompts.py` if wanted |
 | Test split | `QA_test` + `SimdomQA_test` | `QA_train` picked the HPs, so it would flatter English |
@@ -520,35 +522,43 @@ The paper's headline config. The Gemini run found it leaks about as much as
    tuning them together. Cheap, but it is not the paper's method, so it
    must be labelled as such.
 
-## 6. After the edited runs
+## 6. Analysis (next)
 
-- **Analysis**: Δ per method and language, averaged over concepts with a
-  bootstrap over concepts (the Gemini summary §5 has the code). Report how many
-  cells were screened out, and `invalid_rate` per language next to retention.
-  Plain means for `ember` / `snmf` are in §2.3, the per-language bootstrap of Δ
-  in §2.4; the paired `ember` − `snmf` difference per (concept, language) is
-  still to do (also `snmf_ember` − `ember` and `snmf_ember` − `snmf`; plain
-  means for `snmf_ember` in §2.5), and so is a "targeted leak" that discounts
-  the SimDom drop. Also check whether the high-invalid cells of `ember` (§2.3)
-  and especially `snmf_ember` (§2.5, English invalid 0.16) change Δ, e.g. by
-  re-scoring with invalid answers dropped.
-- **Open QA** with the decoupled design: generate answers (Gemma, 1 GPU), then
-  judge them (Qwen2.5-32B, 3 GPUs). Add the multilingual line to the judge
-  prompt (`crosslingual_plan.md` §5.7). Hand-check ~30 judged items per
-  language (Semyon can check Russian), and watch for refusals on sensitive
-  concepts (Nazism, Heroin, Pornography, Gun, Cannabis).
-- **Token overlap → leak** (`crosslingual_plan.md` §8): the "money figure",
-  CPU only. With 18 concepts the Gemini-era correlations (r −0.68 / −0.91 at n=8)
-  can actually be tested.
-- **Cross-lingual relearning** (`crosslingual_plan.md` §10).
-- Part 2 ideas (zero-shot foreign edit directions, layer sweep):
-  [`Part 2/ideas_and_discoveries.md`](../Part%202/ideas_and_discoveries.md).
+All on the repaired results (`<method>_fixed/summary.csv` and the per-question
+records), CPU only. Plain means and per-language bootstrap intervals for all
+three methods are done (§2.6, `part1_results.md` §5.2).
+
+- **Paired method differences** per (concept, language): `ember` − `snmf`,
+  `snmf_ember` − `ember`, `snmf_ember` − `snmf`, with a bootstrap over concepts.
+  The same question set, prompt and option order are used for every method, so
+  the comparison can even be paired by question.
+- **Targeted leak**: discount the similar-domain drop, so a broad edit (SNMF)
+  is not credited with "even erasure" it gets by removing neighbouring
+  knowledge too.
+- **Non-answer sensitivity**: give the remaining invalid answers (empty output,
+  whitespace loops) chance credit (0.25) instead of 0 and check that Δ does not
+  move (they are ≤ 2% per language after the repair).
+- **Russian**: why the two methods with the EMBER step leak into Russian and
+  plain SNMF does not; per-concept Russian Δ against script / token overlap.
+- **Token overlap → leak** (`crosslingual_plan.md` §8): the "money figure".
+  With 18 concepts the Gemini-era correlations (r −0.68 / −0.91 at n=8) can
+  actually be tested.
+
+Out of scope for Part 1 (decided 2026-10-17): open-QA cross-lingual judging and
+cross-lingual relearning (`crosslingual_plan.md` §10). The paper establishes
+both for English; this part asks only whether the English-tuned erasure
+carries over to other languages.
+
+Part 2 ideas (zero-shot foreign edit directions, layer sweep):
+[`Part 2/ideas_and_discoveries.md`](../Part%202/ideas_and_discoveries.md).
 
 ## 7. Risks to watch
 
 - **A broken model looks like successful erasure.** If generation collapses,
   MC answers stop parsing and count as wrong. Always report `invalid_rate` per
-  language next to retention. SNMF picks have no Alpaca gate (Pornography 0.85,
+  language next to retention, and read the raw outputs when it is high: the
+  first time, most "invalid" answers were "The answer is **C**" cut off by the
+  4-token budget (§2.6). SNMF picks have no Alpaca gate (Pornography 0.85,
   Golf 0.87); Ancient Rome's broken pick was replaced (`snmf_search.md`).
 - **Near-chance baselines**: the 0.40 screen handles Russian; Valentine's Day is
   near-chance-ish in every language (§2.2).
@@ -562,7 +572,9 @@ The paper's headline config. The Gemini run found it leaks about as much as
 Resolved: all 18 concepts; Ancient Rome SNMF fixed (loop screen); SNMF Pass 2
 finished for all concepts before the cross-lingual runs; `snmf_ember` = proper
 re-run (§5, search done 2026-10-13); `ember` + `snmf` cross-lingual runs done
-(2026-10-11), `snmf_ember` done (2026-10-14).
+(2026-10-11), `snmf_ember` done (2026-10-14); MC scoring repair of all searches
+and all cross-lingual runs done (2026-10-16, §2.6); open QA, relearning and the
+final-test stage out of scope for Part 1 (2026-10-17).
 
 Still open: add the `english` wrapper check, or report `native` only?
 
@@ -576,4 +588,6 @@ Still open: add the `english` wrapper check, or report `native` only?
    2026-10-11). First look: §2.3.
 5. ~~`snmf_ember`: wait for its search, add it to `run_edited.py`, run 18 × 5~~ —
    done (job 1040077, 2026-10-14). First look: §2.5.
-6. Analysis (§6).
+6. ~~MC scoring repair: baseline, `ember`, `snmf`, `snmf_ember`~~ — done
+   (2026-10-16, §2.6).
+7. **Analysis (§6)** — next.

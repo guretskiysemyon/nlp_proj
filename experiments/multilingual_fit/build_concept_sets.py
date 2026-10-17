@@ -19,6 +19,10 @@ Output (<out-dir>, default data_v2/):
                                     main / related / link; format readable by
                                     ember.local_datasets.ConceptDataset)
     concept_report.json             counts per (concept, language)
+    removed_references.json         every eligible sentence dropped as a bibliography /
+                                    reference line (sentences.py), with language, concept,
+                                    kind, article, page and revision ids, the rule and the
+                                    full source line
 
 Usage:
     .venv/bin/python -I experiments/multilingual_fit/build_concept_sets.py
@@ -75,27 +79,49 @@ def main():
     judged_path = args.raw_dir / "links_judged.json"
     judged = {} if args.no_links or not judged_path.exists() else json.loads(judged_path.read_text())
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    report = {}
+    report, removed = {}, []
     for lang in args.langs:
         entries = []
         for concept, stem in STEMS.items():
             main_doc = json.loads((args.raw_dir / lang / f"{safe(concept)}.json").read_text())
-            seen = set()
-            main_s = [(s, main_doc["title"], "main") for s in usable_sentences(main_doc["text"], lang)
+            seen, rm_seen = set(), set()
+
+            def log_removed(found, kind, doc_title, doc):
+                # eligible sentences dropped as references, once per pair, with their source
+                for r in found:
+                    if r["sentence"] not in rm_seen:
+                        rm_seen.add(r["sentence"])
+                        removed.append({"lang": lang, "concept": concept, "kind": kind,
+                                        "article": doc_title, "pageid": doc.get("pageid"),
+                                        "revid": doc.get("revid"), **r})
+
+            found = []
+            main_s = [(s, main_doc["title"], "main") for s in usable_sentences(main_doc["text"], lang, found)
                       if not (s in seen or seen.add(s))]
+            log_removed(found, "main", main_doc["title"], main_doc)
             rx = re.compile(stem, re.I)
             rel_s = []
             for f in sorted((args.raw_dir / lang / "related" / safe(concept)).glob("*.json")):
                 doc = json.loads(f.read_text())
-                rel_s += [(s, doc["title"], "related") for s in usable_sentences(doc["text"], lang)
+                found = []
+                rel_s += [(s, doc["title"], "related") for s in usable_sentences(doc["text"], lang, found)
                           if rx.search(s) and not (s in seen or seen.add(s))]
+                log_removed([r for r in found if rx.search(r["sentence"])], "related", doc["title"], doc)
             link_s = []
             ok = judged.get(concept, {}).get(lang, {})
             links_path = args.raw_dir / lang / "links" / f"{safe(concept)}.json"
             if ok and links_path.exists():
                 for t, a in json.loads(links_path.read_text())["articles"].items():
-                    link_s += [(s, t, "link") for s in a["sentences"]
-                               if ok.get(s, {}).get("relevant") and not (s in seen or seen.add(s))]
+                    for s in a["sentences"]:
+                        if not ok.get(s, {}).get("relevant") or s in seen:
+                            continue
+                        found = []  # fetched with an older sentences.py: check the reference rules again
+                        usable_sentences(s, lang, found)
+                        if found:
+                            log_removed(found, "link", t, a)
+                            continue
+                        seen.add(s)
+                        link_s.append((s, t, "link"))
             rng = random.Random(f"{args.seed}-{concept}-{lang}")
             if len(main_s) >= args.n:
                 chosen = rng.sample(main_s, args.n)
@@ -117,6 +143,8 @@ def main():
         (args.out_dir / f"concept_sentences_{lang}.json").write_text(
             json.dumps(entries, ensure_ascii=False, indent=1))
     (args.out_dir / "concept_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1))
+    (args.out_dir / "removed_references.json").write_text(json.dumps(removed, ensure_ascii=False, indent=1))
+    print(f"{len(removed)} eligible sentences dropped as references -> removed_references.json")
 
 
 if __name__ == "__main__":

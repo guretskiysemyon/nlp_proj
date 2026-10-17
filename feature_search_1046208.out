@@ -1,0 +1,1121 @@
+[feature_search] concept='World War II' langs=en+ru+de+es+fr data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/native
+[feature_search] git 0f829d3, uncommitted: 31 files
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:33<01:33, 93.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:38<00:00, 41.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:38<00:00, 49.09s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] World War II
+================================================================================
+[DATA] languages=en+ru+de+es+fr | samples=3000
+Extracting token IDs:   0%|          | 0/600 [00:00<?, ?it/s]Extracting token IDs:   0%|          | 2/600 [00:00<00:30, 19.63it/s]Extracting token IDs:   3%|▎         | 19/600 [00:00<00:05, 106.07it/s]Extracting token IDs:   7%|▋         | 43/600 [00:00<00:03, 163.24it/s]Extracting token IDs:  11%|█         | 67/600 [00:00<00:02, 189.66it/s]Extracting token IDs:  15%|█▌        | 90/600 [00:00<00:02, 203.42it/s]Extracting token IDs:  19%|█▉        | 113/600 [00:00<00:02, 210.91it/s]Extracting token IDs:  23%|██▎       | 139/600 [00:00<00:02, 224.17it/s]Extracting token IDs:  28%|██▊       | 170/600 [00:00<00:01, 248.76it/s]Extracting token IDs:  33%|███▎      | 196/600 [00:00<00:01, 251.30it/s]Extracting token IDs:  38%|███▊      | 227/600 [00:01<00:01, 267.44it/s]Extracting token IDs:  43%|████▎     | 256/600 [00:01<00:01, 272.46it/s]Extracting token IDs:  47%|████▋     | 284/600 [00:01<00:01, 273.06it/s]Extracting token IDs:  53%|█████▎    | 316/600 [00:01<00:00, 286.89it/s]Extracting token IDs:  58%|█████▊    | 348/600 [00:01<00:00, 296.59it/s]Extracting token IDs:  63%|██████▎   | 378/600 [00:01<00:00, 289.54it/s]Extracting token IDs:  68%|██████▊   | 408/600 [00:01<00:00, 273.99it/s]Extracting token IDs:  73%|███████▎  | 436/600 [00:01<00:00, 260.50it/s]Extracting token IDs:  77%|███████▋  | 463/600 [00:01<00:00, 261.73it/s]Extracting token IDs:  82%|████████▏ | 490/600 [00:01<00:00, 261.93it/s]Extracting token IDs:  87%|████████▋ | 520/600 [00:02<00:00, 271.22it/s]Extracting token IDs:  92%|█████████▏| 551/600 [00:02<00:00, 280.57it/s]Extracting token IDs:  97%|█████████▋| 582/600 [00:02<00:00, 287.98it/s]Extracting token IDs: 100%|██████████| 600/600 [00:02<00:00, 254.26it/s]
+
+[RUN] concept='World War II' | rank=100
+--> Starting embedding track
+Iter    0: loss=148710256.000000  (best=148710256.000000, no_improve=0)
+Iter   25: loss=133812456.000000  (best=133810312.000000, no_improve=1)
+Iter   50: loss=133678672.000000  (best=133678672.000000, no_improve=0)
+Iter   53: loss=133667448.000000  (best=133666928.000000, no_improve=1)
+Iter   58: loss=133635792.000000  (best=133634432.000000, no_improve=1)
+Iter   63: loss=133617032.000000  (best=133615968.000000, no_improve=1)
+Iter   80: loss=133591928.000000  (best=133591448.000000, no_improve=1)
+Iter   85: loss=133584048.000000  (best=133583936.000000, no_improve=1)
+Iter   93: loss=133583816.000000  (best=133583416.000000, no_improve=1)
+Iter   98: loss=133580792.000000  (best=133580592.000000, no_improve=1)
+Iter  100: loss=133580728.000000  (best=133580592.000000, no_improve=3)
+Iter  114: loss=133573568.000000  (best=133573072.000000, no_improve=1)
+Iter  150: loss=133579304.000000  (best=133573072.000000, no_improve=37)
+Iter  200: loss=133578336.000000  (best=133573072.000000, no_improve=87)
+Iter  250: loss=133578336.000000  (best=133573072.000000, no_improve=137)
+Iter  300: loss=133578336.000000  (best=133573072.000000, no_improve=187)
+Iter  350: loss=133578336.000000  (best=133573072.000000, no_improve=237)
+Iter  400: loss=133578336.000000  (best=133573072.000000, no_improve=287)
+Iter  450: loss=133578336.000000  (best=133573072.000000, no_improve=337)
+Iter  500: loss=133578336.000000  (best=133573072.000000, no_improve=387)
+Iter  550: loss=133578336.000000  (best=133573072.000000, no_improve=437)
+Iter  600: loss=133578336.000000  (best=133573072.000000, no_improve=487)
+Stopping early at iter 613 (no improvement in 500 iters)
+[TIMING] Embedding track: 9.9s
+--> Starting MLP track
+Fitting Layers:   0%|          | 0/26 [00:00<?, ?it/s]
+Building vocab frequency:   0%|          | 0/600 [00:00<?, ?it/s][ABuilding vocab frequency: 100%|██████████| 600/600 [00:00<00:00, 6570.66it/s]
+
+Generating multi-layer activations with freq:   0%|          | 0/600 [00:00<?, ?it/s][A
+Generating multi-layer activations with freq:   0%|          | 1/600 [00:00<08:24,  1.19it/s][A
+Generating multi-layer activations with freq:   0%|          | 2/600 [00:01<08:33,  1.17it/s][A
+Generating multi-layer activations with freq:   0%|          | 3/600 [00:02<06:35,  1.51it/s][A
+Generating multi-layer activations with freq:   1%|          | 4/600 [00:02<05:50,  1.70it/s][A
+Generating multi-layer activations with freq:   1%|          | 5/600 [00:03<06:02,  1.64it/s][A
+Generating multi-layer activations with freq:   1%|          | 6/600 [00:03<05:13,  1.89it/s][A
+Generating multi-layer activations with freq:   1%|          | 7/600 [00:04<05:10,  1.91it/s][A
+Generating multi-layer activations with freq:   1%|▏         | 8/600 [00:04<04:46,  2.07it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 9/600 [00:04<04:25,  2.23it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 10/600 [00:05<04:23,  2.24it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 11/600 [00:05<04:12,  2.33it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 12/600 [00:06<04:13,  2.32it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 13/600 [00:06<04:11,  2.34it/s][A
+Generating multi-layer activations with freq:   2%|▏         | 14/600 [00:07<04:13,  2.31it/s][A
+Generating multi-layer activations with freq:   2%|▎         | 15/600 [00:07<04:49,  2.02it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 16/600 [00:08<05:02,  1.93it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 17/600 [00:08<05:03,  1.92it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 18/600 [00:09<04:56,  1.96it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 19/600 [00:09<04:47,  2.02it/s][A
+Generating multi-layer activations with freq:   3%|▎         | 20/600 [00:10<04:47,  2.02it/s][A
+Generating multi-layer activations with freq:   4%|▎         | 21/600 [00:10<04:34,  2.11it/s][A
+Generating multi-layer activations with freq:   4%|▎         | 22/600 [00:11<05:50,  1.65it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 23/600 [00:12<05:39,  1.70it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 24/600 [00:12<05:12,  1.84it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 25/600 [00:13<04:56,  1.94it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 26/600 [00:13<04:43,  2.02it/s][A
+Generating multi-layer activations with freq:   4%|▍         | 27/600 [00:13<04:46,  2.00it/s][A
+Generating multi-layer activations with freq:   5%|▍         | 28/600 [00:14<04:37,  2.06it/s][A
+Generating multi-layer activations with freq:   5%|▍         | 29/600 [00:14<04:41,  2.03it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 30/600 [00:15<04:40,  2.04it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 31/600 [00:15<04:34,  2.07it/s][A
+Generating multi-layer activations with freq:   5%|▌         | 32/600 [00:16<04:38,  2.04it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 33/600 [00:16<04:29,  2.11it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 34/600 [00:17<04:51,  1.94it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 35/600 [00:17<04:16,  2.21it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 36/600 [00:18<04:24,  2.13it/s][A
+Generating multi-layer activations with freq:   6%|▌         | 37/600 [00:18<04:30,  2.08it/s][A
+Generating multi-layer activations with freq:   6%|▋         | 38/600 [00:19<04:33,  2.05it/s][A
+Generating multi-layer activations with freq:   6%|▋         | 39/600 [00:19<04:46,  1.96it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 40/600 [00:20<04:43,  1.97it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 41/600 [00:21<05:48,  1.60it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 42/600 [00:21<05:34,  1.67it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 43/600 [00:22<05:04,  1.83it/s][A
+Generating multi-layer activations with freq:   7%|▋         | 44/600 [00:22<05:38,  1.64it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 45/600 [00:23<05:14,  1.76it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 46/600 [00:23<05:12,  1.77it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 47/600 [00:24<04:51,  1.90it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 48/600 [00:24<04:58,  1.85it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 49/600 [00:25<05:02,  1.82it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 50/600 [00:26<04:57,  1.85it/s][A
+Generating multi-layer activations with freq:   8%|▊         | 51/600 [00:26<04:47,  1.91it/s][A
+Generating multi-layer activations with freq:   9%|▊         | 52/600 [00:27<04:48,  1.90it/s][A
+Generating multi-layer activations with freq:   9%|▉         | 53/600 [00:27<04:43,  1.93it/s][A
+Generating multi-layer activations with freq:   9%|▉         | 54/600 [00:28<04:43,  1.92it/s][A
+Generating multi-layer activations with freq:   9%|▉         | 55/600 [00:28<04:35,  1.98it/s][A
+Generating multi-layer activations with freq:   9%|▉         | 56/600 [00:29<04:43,  1.92it/s][A
+Generating multi-layer activations with freq:  10%|▉         | 57/600 [00:29<04:11,  2.16it/s][A
+Generating multi-layer activations with freq:  10%|▉         | 58/600 [00:30<04:24,  2.05it/s][A
+Generating multi-layer activations with freq:  10%|▉         | 59/600 [00:30<05:17,  1.70it/s][A
+Generating multi-layer activations with freq:  10%|█         | 60/600 [00:31<04:49,  1.87it/s][A
+Generating multi-layer activations with freq:  10%|█         | 61/600 [00:31<04:14,  2.12it/s][A
+Generating multi-layer activations with freq:  10%|█         | 62/600 [00:32<04:18,  2.08it/s][A
+Generating multi-layer activations with freq:  10%|█         | 63/600 [00:32<04:20,  2.06it/s][A
+Generating multi-layer activations with freq:  11%|█         | 64/600 [00:33<04:47,  1.86it/s][A
+Generating multi-layer activations with freq:  11%|█         | 65/600 [00:33<04:46,  1.87it/s][A
+Generating multi-layer activations with freq:  11%|█         | 66/600 [00:34<04:14,  2.10it/s][A
+Generating multi-layer activations with freq:  11%|█         | 67/600 [00:34<04:28,  1.98it/s][A
+Generating multi-layer activations with freq:  11%|█▏        | 68/600 [00:35<04:46,  1.86it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 69/600 [00:36<05:30,  1.61it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 70/600 [00:36<05:24,  1.63it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 71/600 [00:37<05:06,  1.73it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 72/600 [00:37<04:51,  1.81it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 73/600 [00:38<04:43,  1.86it/s][A
+Generating multi-layer activations with freq:  12%|█▏        | 74/600 [00:38<05:19,  1.65it/s][A
+Generating multi-layer activations with freq:  12%|█▎        | 75/600 [00:39<04:34,  1.91it/s][A
+Generating multi-layer activations with freq:  13%|█▎        | 76/600 [00:40<05:26,  1.61it/s][A
+Generating multi-layer activations with freq:  13%|█▎        | 77/600 [00:40<05:42,  1.53it/s][A
+Generating multi-layer activations with freq:  13%|█▎        | 78/600 [00:41<04:46,  1.82it/s][A
+Generating multi-layer activations with freq:  13%|█▎        | 79/600 [00:41<04:36,  1.88it/s][A
+Generating multi-layer activations with freq:  13%|█▎        | 80/600 [00:42<04:36,  1.88it/s][A
+Generating multi-layer activations with freq:  14%|█▎        | 81/600 [00:42<05:04,  1.70it/s][A
+Generating multi-layer activations with freq:  14%|█▎        | 82/600 [00:43<04:44,  1.82it/s][A
+Generating multi-layer activations with freq:  14%|█▍        | 83/600 [00:43<04:53,  1.76it/s][A
+Generating multi-layer activations with freq:  14%|█▍        | 84/600 [00:44<04:35,  1.88it/s][A
+Generating multi-layer activations with freq:  14%|█▍        | 85/600 [00:44<04:31,  1.90it/s][A
+Generating multi-layer activations with freq:  14%|█▍        | 86/600 [00:45<04:41,  1.83it/s][A
+Generating multi-layer activations with freq:  14%|█▍        | 87/600 [00:46<05:01,  1.70it/s][A
+Generating multi-layer activations with freq:  15%|█▍        | 88/600 [00:46<05:11,  1.64it/s][A
+Generating multi-layer activations with freq:  15%|█▍        | 89/600 [00:47<04:41,  1.81it/s][A
+Generating multi-layer activations with freq:  15%|█▌        | 90/600 [00:47<05:05,  1.67it/s][A
+Generating multi-layer activations with freq:  15%|█▌        | 91/600 [00:48<04:34,  1.85it/s][A
+Generating multi-layer activations with freq:  15%|█▌        | 92/600 [00:49<04:58,  1.70it/s][A
+Generating multi-layer activations with freq:  16%|█▌        | 93/600 [00:49<05:11,  1.63it/s][A
+Generating multi-layer activations with freq:  16%|█▌        | 94/600 [00:50<05:16,  1.60it/s][A
+Generating multi-layer activations with freq:  16%|█▌        | 95/600 [00:51<05:30,  1.53it/s][A
+Generating multi-layer activations with freq:  16%|█▌        | 96/600 [00:51<05:41,  1.47it/s][A
+Generating multi-layer activations with freq:  16%|█▌        | 97/600 [00:52<05:39,  1.48it/s][A
+Generating multi-layer activations with freq:  16%|█▋        | 98/600 [00:53<05:35,  1.50it/s][A
+Generating multi-layer activations with freq:  16%|█▋        | 99/600 [00:53<05:24,  1.54it/s][A
+Generating multi-layer activations with freq:  17%|█▋        | 100/600 [00:54<04:37,  1.80it/s][A
+Generating multi-layer activations with freq:  17%|█▋        | 101/600 [00:54<04:20,  1.92it/s][A
+Generating multi-layer activations with freq:  17%|█▋        | 102/600 [00:55<04:45,  1.74it/s][A
+Generating multi-layer activations with freq:  17%|█▋        | 103/600 [00:55<04:49,  1.72it/s][A
+Generating multi-layer activations with freq:  17%|█▋        | 104/600 [00:56<04:46,  1.73it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 105/600 [00:57<04:47,  1.72it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 106/600 [00:57<04:43,  1.74it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 107/600 [00:58<04:56,  1.66it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 108/600 [00:58<04:59,  1.64it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 109/600 [00:59<04:41,  1.75it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 110/600 [01:00<05:11,  1.58it/s][A
+Generating multi-layer activations with freq:  18%|█▊        | 111/600 [01:00<05:36,  1.46it/s][A
+Generating multi-layer activations with freq:  19%|█▊        | 112/600 [01:01<05:18,  1.53it/s][A
+Generating multi-layer activations with freq:  19%|█▉        | 113/600 [01:02<05:16,  1.54it/s][A
+Generating multi-layer activations with freq:  19%|█▉        | 114/600 [01:02<05:08,  1.58it/s][A
+Generating multi-layer activations with freq:  19%|█▉        | 115/600 [01:03<05:46,  1.40it/s][A
+Generating multi-layer activations with freq:  19%|█▉        | 116/600 [01:04<05:33,  1.45it/s][A
+Generating multi-layer activations with freq:  20%|█▉        | 117/600 [01:05<05:36,  1.44it/s][A
+Generating multi-layer activations with freq:  20%|█▉        | 118/600 [01:05<05:17,  1.52it/s][A
+Generating multi-layer activations with freq:  20%|█▉        | 119/600 [01:05<04:34,  1.75it/s][A
+Generating multi-layer activations with freq:  20%|██        | 120/600 [01:06<04:25,  1.81it/s][A
+Generating multi-layer activations with freq:  20%|██        | 121/600 [01:06<04:21,  1.83it/s][A
+Generating multi-layer activations with freq:  20%|██        | 122/600 [01:07<04:39,  1.71it/s][A
+Generating multi-layer activations with freq:  20%|██        | 123/600 [01:08<04:17,  1.85it/s][A
+Generating multi-layer activations with freq:  21%|██        | 124/600 [01:08<03:46,  2.10it/s][A
+Generating multi-layer activations with freq:  21%|██        | 125/600 [01:08<03:41,  2.14it/s][A
+Generating multi-layer activations with freq:  21%|██        | 126/600 [01:09<04:06,  1.92it/s][A
+Generating multi-layer activations with freq:  21%|██        | 127/600 [01:10<04:14,  1.86it/s][A
+Generating multi-layer activations with freq:  21%|██▏       | 128/600 [01:10<04:34,  1.72it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 129/600 [01:11<03:58,  1.97it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 130/600 [01:11<04:04,  1.92it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 131/600 [01:11<03:34,  2.19it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 132/600 [01:12<04:32,  1.71it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 133/600 [01:13<04:28,  1.74it/s][A
+Generating multi-layer activations with freq:  22%|██▏       | 134/600 [01:13<03:53,  2.00it/s][A
+Generating multi-layer activations with freq:  22%|██▎       | 135/600 [01:14<04:09,  1.86it/s][A
+Generating multi-layer activations with freq:  23%|██▎       | 136/600 [01:14<04:11,  1.85it/s][A
+Generating multi-layer activations with freq:  23%|██▎       | 137/600 [01:15<04:34,  1.69it/s][A
+Generating multi-layer activations with freq:  23%|██▎       | 138/600 [01:16<04:22,  1.76it/s][A
+Generating multi-layer activations with freq:  23%|██▎       | 139/600 [01:16<04:48,  1.60it/s][A
+Generating multi-layer activations with freq:  23%|██▎       | 140/600 [01:17<04:13,  1.82it/s][A
+Generating multi-layer activations with freq:  24%|██▎       | 141/600 [01:17<04:14,  1.80it/s][A
+Generating multi-layer activations with freq:  24%|██▎       | 142/600 [01:18<03:48,  2.00it/s][A
+Generating multi-layer activations with freq:  24%|██▍       | 143/600 [01:18<04:06,  1.86it/s][A
+Generating multi-layer activations with freq:  24%|██▍       | 144/600 [01:19<04:12,  1.81it/s][A
+Generating multi-layer activations with freq:  24%|██▍       | 145/600 [01:19<04:03,  1.87it/s][A
+Generating multi-layer activations with freq:  24%|██▍       | 146/600 [01:20<04:08,  1.83it/s][A
+Generating multi-layer activations with freq:  24%|██▍       | 147/600 [01:21<04:04,  1.85it/s][A
+Generating multi-layer activations with freq:  25%|██▍       | 148/600 [01:21<04:11,  1.80it/s][A
+Generating multi-layer activations with freq:  25%|██▍       | 149/600 [01:22<04:01,  1.87it/s][A
+Generating multi-layer activations with freq:  25%|██▌       | 150/600 [01:22<03:33,  2.11it/s][A
+Generating multi-layer activations with freq:  25%|██▌       | 151/600 [01:22<03:43,  2.01it/s][A
+Generating multi-layer activations with freq:  25%|██▌       | 152/600 [01:24<04:56,  1.51it/s][A
+Generating multi-layer activations with freq:  26%|██▌       | 153/600 [01:24<04:11,  1.78it/s][A
+Generating multi-layer activations with freq:  26%|██▌       | 154/600 [01:25<04:22,  1.70it/s][A
+Generating multi-layer activations with freq:  26%|██▌       | 155/600 [01:25<03:47,  1.95it/s][A
+Generating multi-layer activations with freq:  26%|██▌       | 156/600 [01:25<03:51,  1.92it/s][A
+Generating multi-layer activations with freq:  26%|██▌       | 157/600 [01:26<04:49,  1.53it/s][A
+Generating multi-layer activations with freq:  26%|██▋       | 158/600 [01:27<04:08,  1.78it/s][A
+Generating multi-layer activations with freq:  26%|██▋       | 159/600 [01:27<03:53,  1.89it/s][A
+Generating multi-layer activations with freq:  27%|██▋       | 160/600 [01:28<03:51,  1.90it/s][A
+Generating multi-layer activations with freq:  27%|██▋       | 161/600 [01:28<03:55,  1.86it/s][A
+Generating multi-layer activations with freq:  27%|██▋       | 162/600 [01:29<04:02,  1.81it/s][A
+Generating multi-layer activations with freq:  27%|██▋       | 163/600 [01:29<04:01,  1.81it/s][A
+Generating multi-layer activations with freq:  27%|██▋       | 164/600 [01:30<03:32,  2.05it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 165/600 [01:30<03:43,  1.94it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 166/600 [01:31<03:48,  1.90it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 167/600 [01:31<03:44,  1.93it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 168/600 [01:32<03:43,  1.93it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 169/600 [01:32<03:45,  1.91it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 170/600 [01:33<04:09,  1.72it/s][A
+Generating multi-layer activations with freq:  28%|██▊       | 171/600 [01:34<04:46,  1.50it/s][A
+Generating multi-layer activations with freq:  29%|██▊       | 172/600 [01:34<04:00,  1.78it/s][A
+Generating multi-layer activations with freq:  29%|██▉       | 173/600 [01:35<03:38,  1.95it/s][A
+Generating multi-layer activations with freq:  29%|██▉       | 174/600 [01:35<04:05,  1.73it/s][A
+Generating multi-layer activations with freq:  29%|██▉       | 175/600 [01:36<04:13,  1.68it/s][A
+Generating multi-layer activations with freq:  29%|██▉       | 176/600 [01:36<03:45,  1.88it/s][A
+Generating multi-layer activations with freq:  30%|██▉       | 177/600 [01:37<04:12,  1.67it/s][A
+Generating multi-layer activations with freq:  30%|██▉       | 178/600 [01:38<04:04,  1.73it/s][A
+Generating multi-layer activations with freq:  30%|██▉       | 179/600 [01:38<04:06,  1.71it/s][A
+Generating multi-layer activations with freq:  30%|███       | 180/600 [01:39<04:12,  1.67it/s][A
+Generating multi-layer activations with freq:  30%|███       | 181/600 [01:39<04:01,  1.73it/s][A
+Generating multi-layer activations with freq:  30%|███       | 182/600 [01:40<03:36,  1.93it/s][A
+Generating multi-layer activations with freq:  30%|███       | 183/600 [01:40<03:16,  2.13it/s][A
+Generating multi-layer activations with freq:  31%|███       | 184/600 [01:41<03:35,  1.93it/s][A
+Generating multi-layer activations with freq:  31%|███       | 185/600 [01:41<03:16,  2.11it/s][A
+Generating multi-layer activations with freq:  31%|███       | 186/600 [01:42<03:31,  1.96it/s][A
+Generating multi-layer activations with freq:  31%|███       | 187/600 [01:42<03:48,  1.81it/s][A
+Generating multi-layer activations with freq:  31%|███▏      | 188/600 [01:43<04:08,  1.66it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 189/600 [01:44<04:21,  1.57it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 190/600 [01:44<04:14,  1.61it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 191/600 [01:45<04:23,  1.55it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 192/600 [01:46<04:09,  1.64it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 193/600 [01:46<03:43,  1.82it/s][A
+Generating multi-layer activations with freq:  32%|███▏      | 194/600 [01:46<03:18,  2.04it/s][A
+Generating multi-layer activations with freq:  32%|███▎      | 195/600 [01:47<03:34,  1.88it/s][A
+Generating multi-layer activations with freq:  33%|███▎      | 196/600 [01:47<03:09,  2.13it/s][A
+Generating multi-layer activations with freq:  33%|███▎      | 197/600 [01:48<03:25,  1.96it/s][A
+Generating multi-layer activations with freq:  33%|███▎      | 198/600 [01:49<03:23,  1.97it/s][A
+Generating multi-layer activations with freq:  33%|███▎      | 199/600 [01:49<03:35,  1.86it/s][A
+Generating multi-layer activations with freq:  33%|███▎      | 200/600 [01:50<03:23,  1.97it/s][A
+Generating multi-layer activations with freq:  34%|███▎      | 201/600 [01:50<02:58,  2.23it/s][A
+Generating multi-layer activations with freq:  34%|███▎      | 202/600 [01:50<02:39,  2.50it/s][A
+Generating multi-layer activations with freq:  34%|███▍      | 203/600 [01:51<03:01,  2.19it/s][A
+Generating multi-layer activations with freq:  34%|███▍      | 204/600 [01:51<03:14,  2.04it/s][A
+Generating multi-layer activations with freq:  34%|███▍      | 205/600 [01:52<03:18,  1.99it/s][A
+Generating multi-layer activations with freq:  34%|███▍      | 206/600 [01:53<04:02,  1.62it/s][A
+Generating multi-layer activations with freq:  34%|███▍      | 207/600 [01:53<03:57,  1.66it/s][A
+Generating multi-layer activations with freq:  35%|███▍      | 208/600 [01:54<03:47,  1.72it/s][A
+Generating multi-layer activations with freq:  35%|███▍      | 209/600 [01:54<03:43,  1.75it/s][A
+Generating multi-layer activations with freq:  35%|███▌      | 210/600 [01:55<03:56,  1.65it/s][A
+Generating multi-layer activations with freq:  35%|███▌      | 211/600 [01:55<03:30,  1.85it/s][A
+Generating multi-layer activations with freq:  35%|███▌      | 212/600 [01:56<03:28,  1.86it/s][A
+Generating multi-layer activations with freq:  36%|███▌      | 213/600 [01:56<03:07,  2.06it/s][A
+Generating multi-layer activations with freq:  36%|███▌      | 214/600 [01:57<03:13,  1.99it/s][A
+Generating multi-layer activations with freq:  36%|███▌      | 215/600 [01:57<03:17,  1.95it/s][A
+Generating multi-layer activations with freq:  36%|███▌      | 216/600 [01:58<03:12,  2.00it/s][A
+Generating multi-layer activations with freq:  36%|███▌      | 217/600 [01:59<03:25,  1.86it/s][A
+Generating multi-layer activations with freq:  36%|███▋      | 218/600 [01:59<03:23,  1.88it/s][A
+Generating multi-layer activations with freq:  36%|███▋      | 219/600 [01:59<02:55,  2.16it/s][A
+Generating multi-layer activations with freq:  37%|███▋      | 220/600 [02:00<02:56,  2.15it/s][A
+Generating multi-layer activations with freq:  37%|███▋      | 221/600 [02:00<03:01,  2.08it/s][A
+Generating multi-layer activations with freq:  37%|███▋      | 222/600 [02:01<03:19,  1.90it/s][A
+Generating multi-layer activations with freq:  37%|███▋      | 223/600 [02:02<03:35,  1.75it/s][A
+Generating multi-layer activations with freq:  37%|███▋      | 224/600 [02:02<03:10,  1.97it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 225/600 [02:03<03:14,  1.93it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 226/600 [02:03<03:10,  1.96it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 227/600 [02:04<03:49,  1.62it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 228/600 [02:05<03:57,  1.56it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 229/600 [02:05<03:58,  1.56it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 230/600 [02:06<03:31,  1.75it/s][A
+Generating multi-layer activations with freq:  38%|███▊      | 231/600 [02:06<03:18,  1.86it/s][A
+Generating multi-layer activations with freq:  39%|███▊      | 232/600 [02:07<03:11,  1.92it/s][A
+Generating multi-layer activations with freq:  39%|███▉      | 233/600 [02:07<02:51,  2.14it/s][A
+Generating multi-layer activations with freq:  39%|███▉      | 234/600 [02:07<02:53,  2.11it/s][A
+Generating multi-layer activations with freq:  39%|███▉      | 235/600 [02:08<03:00,  2.03it/s][A
+Generating multi-layer activations with freq:  39%|███▉      | 236/600 [02:09<03:03,  1.98it/s][A
+Generating multi-layer activations with freq:  40%|███▉      | 237/600 [02:09<03:20,  1.81it/s][A
+Generating multi-layer activations with freq:  40%|███▉      | 238/600 [02:10<03:21,  1.79it/s][A
+Generating multi-layer activations with freq:  40%|███▉      | 239/600 [02:10<03:19,  1.81it/s][A
+Generating multi-layer activations with freq:  40%|████      | 240/600 [02:11<03:29,  1.72it/s][A
+Generating multi-layer activations with freq:  40%|████      | 241/600 [02:12<03:38,  1.65it/s][A
+Generating multi-layer activations with freq:  40%|████      | 242/600 [02:12<03:29,  1.71it/s][A
+Generating multi-layer activations with freq:  40%|████      | 243/600 [02:13<03:33,  1.67it/s][A
+Generating multi-layer activations with freq:  41%|████      | 244/600 [02:13<03:40,  1.62it/s][A
+Generating multi-layer activations with freq:  41%|████      | 245/600 [02:14<03:34,  1.66it/s][A
+Generating multi-layer activations with freq:  41%|████      | 246/600 [02:15<04:05,  1.44it/s][A
+Generating multi-layer activations with freq:  41%|████      | 247/600 [02:15<03:47,  1.55it/s][A
+Generating multi-layer activations with freq:  41%|████▏     | 248/600 [02:16<03:48,  1.54it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 249/600 [02:17<03:30,  1.67it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 250/600 [02:17<03:48,  1.53it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 251/600 [02:18<03:47,  1.54it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 252/600 [02:18<03:11,  1.82it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 253/600 [02:19<03:11,  1.82it/s][A
+Generating multi-layer activations with freq:  42%|████▏     | 254/600 [02:19<03:18,  1.75it/s][A
+Generating multi-layer activations with freq:  42%|████▎     | 255/600 [02:20<03:23,  1.69it/s][A
+Generating multi-layer activations with freq:  43%|████▎     | 256/600 [02:20<03:01,  1.90it/s][A
+Generating multi-layer activations with freq:  43%|████▎     | 257/600 [02:21<03:03,  1.87it/s][A
+Generating multi-layer activations with freq:  43%|████▎     | 258/600 [02:22<03:01,  1.88it/s][A
+Generating multi-layer activations with freq:  43%|████▎     | 259/600 [02:22<03:36,  1.58it/s][A
+Generating multi-layer activations with freq:  43%|████▎     | 260/600 [02:23<03:08,  1.80it/s][A
+Generating multi-layer activations with freq:  44%|████▎     | 261/600 [02:23<03:13,  1.75it/s][A
+Generating multi-layer activations with freq:  44%|████▎     | 262/600 [02:24<03:13,  1.75it/s][A
+Generating multi-layer activations with freq:  44%|████▍     | 263/600 [02:25<03:38,  1.54it/s][A
+Generating multi-layer activations with freq:  44%|████▍     | 264/600 [02:26<03:40,  1.52it/s][A
+Generating multi-layer activations with freq:  44%|████▍     | 265/600 [02:26<03:33,  1.57it/s][A
+Generating multi-layer activations with freq:  44%|████▍     | 266/600 [02:27<03:28,  1.60it/s][A
+Generating multi-layer activations with freq:  44%|████▍     | 267/600 [02:27<03:24,  1.63it/s][A
+Generating multi-layer activations with freq:  45%|████▍     | 268/600 [02:28<03:21,  1.65it/s][A
+Generating multi-layer activations with freq:  45%|████▍     | 269/600 [02:28<03:03,  1.80it/s][A
+Generating multi-layer activations with freq:  45%|████▌     | 270/600 [02:29<03:22,  1.63it/s][A
+Generating multi-layer activations with freq:  45%|████▌     | 271/600 [02:30<03:31,  1.55it/s][A
+Generating multi-layer activations with freq:  45%|████▌     | 272/600 [02:30<03:24,  1.60it/s][A
+Generating multi-layer activations with freq:  46%|████▌     | 273/600 [02:31<03:11,  1.71it/s][A
+Generating multi-layer activations with freq:  46%|████▌     | 274/600 [02:32<03:25,  1.59it/s][A
+Generating multi-layer activations with freq:  46%|████▌     | 275/600 [02:32<03:31,  1.53it/s][A
+Generating multi-layer activations with freq:  46%|████▌     | 276/600 [02:33<03:31,  1.53it/s][A
+Generating multi-layer activations with freq:  46%|████▌     | 277/600 [02:33<03:08,  1.72it/s][A
+Generating multi-layer activations with freq:  46%|████▋     | 278/600 [02:34<03:30,  1.53it/s][A
+Generating multi-layer activations with freq:  46%|████▋     | 279/600 [02:35<03:28,  1.54it/s][A
+Generating multi-layer activations with freq:  47%|████▋     | 280/600 [02:35<03:17,  1.62it/s][A
+Generating multi-layer activations with freq:  47%|████▋     | 281/600 [02:36<02:50,  1.87it/s][A
+Generating multi-layer activations with freq:  47%|████▋     | 282/600 [02:36<02:52,  1.84it/s][A
+Generating multi-layer activations with freq:  47%|████▋     | 283/600 [02:37<02:57,  1.79it/s][A
+Generating multi-layer activations with freq:  47%|████▋     | 284/600 [02:37<02:38,  1.99it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 285/600 [02:38<03:26,  1.52it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 286/600 [02:39<03:29,  1.50it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 287/600 [02:40<03:31,  1.48it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 288/600 [02:40<03:23,  1.53it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 289/600 [02:41<02:58,  1.74it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 290/600 [02:41<03:15,  1.59it/s][A
+Generating multi-layer activations with freq:  48%|████▊     | 291/600 [02:42<03:27,  1.49it/s][A
+Generating multi-layer activations with freq:  49%|████▊     | 292/600 [02:43<02:58,  1.72it/s][A
+Generating multi-layer activations with freq:  49%|████▉     | 293/600 [02:43<03:04,  1.66it/s][A
+Generating multi-layer activations with freq:  49%|████▉     | 294/600 [02:44<03:12,  1.59it/s][A
+Generating multi-layer activations with freq:  49%|████▉     | 295/600 [02:45<03:23,  1.50it/s][A
+Generating multi-layer activations with freq:  49%|████▉     | 296/600 [02:45<03:26,  1.47it/s][A
+Generating multi-layer activations with freq:  50%|████▉     | 297/600 [02:46<03:21,  1.50it/s][A
+Generating multi-layer activations with freq:  50%|████▉     | 298/600 [02:47<03:23,  1.49it/s][A
+Generating multi-layer activations with freq:  50%|████▉     | 299/600 [02:47<03:20,  1.50it/s][A
+Generating multi-layer activations with freq:  50%|█████     | 300/600 [02:48<03:30,  1.43it/s][A
+Generating multi-layer activations with freq:  50%|█████     | 301/600 [02:49<03:25,  1.46it/s][A
+Generating multi-layer activations with freq:  50%|█████     | 302/600 [02:49<02:49,  1.76it/s][A
+Generating multi-layer activations with freq:  50%|█████     | 303/600 [02:49<02:24,  2.05it/s][A
+Generating multi-layer activations with freq:  51%|█████     | 304/600 [02:50<02:43,  1.81it/s][A
+Generating multi-layer activations with freq:  51%|█████     | 305/600 [02:51<02:46,  1.77it/s][A
+Generating multi-layer activations with freq:  51%|█████     | 306/600 [02:52<03:14,  1.51it/s][A
+Generating multi-layer activations with freq:  51%|█████     | 307/600 [02:52<02:50,  1.72it/s][A
+Generating multi-layer activations with freq:  51%|█████▏    | 308/600 [02:52<02:30,  1.95it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 309/600 [02:53<02:37,  1.85it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 310/600 [02:53<02:23,  2.02it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 311/600 [02:54<02:08,  2.24it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 312/600 [02:54<01:59,  2.41it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 313/600 [02:54<01:50,  2.59it/s][A
+Generating multi-layer activations with freq:  52%|█████▏    | 314/600 [02:55<01:44,  2.73it/s][A
+Generating multi-layer activations with freq:  52%|█████▎    | 315/600 [02:55<02:05,  2.27it/s][A
+Generating multi-layer activations with freq:  53%|█████▎    | 316/600 [02:55<01:52,  2.52it/s][A
+Generating multi-layer activations with freq:  53%|█████▎    | 317/600 [02:56<01:43,  2.72it/s][A
+Generating multi-layer activations with freq:  53%|█████▎    | 318/600 [02:56<01:55,  2.44it/s][A
+Generating multi-layer activations with freq:  53%|█████▎    | 319/600 [02:57<02:10,  2.15it/s][A
+Generating multi-layer activations with freq:  53%|█████▎    | 320/600 [02:58<02:29,  1.87it/s][A
+Generating multi-layer activations with freq:  54%|█████▎    | 321/600 [02:58<02:12,  2.11it/s][A
+Generating multi-layer activations with freq:  54%|█████▎    | 322/600 [02:58<02:22,  1.96it/s][A
+Generating multi-layer activations with freq:  54%|█████▍    | 323/600 [02:59<02:04,  2.22it/s][A
+Generating multi-layer activations with freq:  54%|█████▍    | 324/600 [02:59<01:56,  2.37it/s][A
+Generating multi-layer activations with freq:  54%|█████▍    | 325/600 [02:59<01:49,  2.52it/s][A
+Generating multi-layer activations with freq:  54%|█████▍    | 326/600 [03:00<02:09,  2.12it/s][A
+Generating multi-layer activations with freq:  55%|█████▍    | 327/600 [03:01<02:00,  2.27it/s][A
+Generating multi-layer activations with freq:  55%|█████▍    | 328/600 [03:01<02:10,  2.08it/s][A
+Generating multi-layer activations with freq:  55%|█████▍    | 329/600 [03:02<02:23,  1.88it/s][A
+Generating multi-layer activations with freq:  55%|█████▌    | 330/600 [03:02<02:37,  1.71it/s][A
+Generating multi-layer activations with freq:  55%|█████▌    | 331/600 [03:03<02:18,  1.95it/s][A
+Generating multi-layer activations with freq:  55%|█████▌    | 332/600 [03:03<02:21,  1.89it/s][A
+Generating multi-layer activations with freq:  56%|█████▌    | 333/600 [03:04<02:07,  2.09it/s][A
+Generating multi-layer activations with freq:  56%|█████▌    | 334/600 [03:04<01:58,  2.25it/s][A
+Generating multi-layer activations with freq:  56%|█████▌    | 335/600 [03:04<01:52,  2.35it/s][A
+Generating multi-layer activations with freq:  56%|█████▌    | 336/600 [03:05<01:47,  2.46it/s][A
+Generating multi-layer activations with freq:  56%|█████▌    | 337/600 [03:05<01:53,  2.32it/s][A
+Generating multi-layer activations with freq:  56%|█████▋    | 338/600 [03:06<02:11,  1.99it/s][A
+Generating multi-layer activations with freq:  56%|█████▋    | 339/600 [03:06<01:55,  2.27it/s][A
+Generating multi-layer activations with freq:  57%|█████▋    | 340/600 [03:07<01:51,  2.33it/s][A
+Generating multi-layer activations with freq:  57%|█████▋    | 341/600 [03:07<02:04,  2.08it/s][A
+Generating multi-layer activations with freq:  57%|█████▋    | 342/600 [03:08<01:49,  2.35it/s][A
+Generating multi-layer activations with freq:  57%|█████▋    | 343/600 [03:08<01:58,  2.17it/s][A
+Generating multi-layer activations with freq:  57%|█████▋    | 344/600 [03:08<01:47,  2.38it/s][A
+Generating multi-layer activations with freq:  57%|█████▊    | 345/600 [03:09<02:21,  1.81it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 346/600 [03:10<02:10,  1.95it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 347/600 [03:10<02:07,  1.98it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 348/600 [03:11<02:01,  2.07it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 349/600 [03:11<02:03,  2.03it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 350/600 [03:12<02:09,  1.93it/s][A
+Generating multi-layer activations with freq:  58%|█████▊    | 351/600 [03:12<02:09,  1.93it/s][A
+Generating multi-layer activations with freq:  59%|█████▊    | 352/600 [03:13<02:09,  1.92it/s][A
+Generating multi-layer activations with freq:  59%|█████▉    | 353/600 [03:13<02:15,  1.82it/s][A
+Generating multi-layer activations with freq:  59%|█████▉    | 354/600 [03:14<01:55,  2.12it/s][A
+Generating multi-layer activations with freq:  59%|█████▉    | 355/600 [03:14<01:46,  2.31it/s][A
+Generating multi-layer activations with freq:  59%|█████▉    | 356/600 [03:15<01:52,  2.18it/s][A
+Generating multi-layer activations with freq:  60%|█████▉    | 357/600 [03:15<01:40,  2.42it/s][A
+Generating multi-layer activations with freq:  60%|█████▉    | 358/600 [03:15<01:49,  2.22it/s][A
+Generating multi-layer activations with freq:  60%|█████▉    | 359/600 [03:16<01:51,  2.16it/s][A
+Generating multi-layer activations with freq:  60%|██████    | 360/600 [03:16<01:56,  2.05it/s][A
+Generating multi-layer activations with freq:  60%|██████    | 361/600 [03:17<02:11,  1.82it/s][A
+Generating multi-layer activations with freq:  60%|██████    | 362/600 [03:18<02:15,  1.75it/s][A
+Generating multi-layer activations with freq:  60%|██████    | 363/600 [03:18<02:26,  1.62it/s][A
+Generating multi-layer activations with freq:  61%|██████    | 364/600 [03:19<02:23,  1.64it/s][A
+Generating multi-layer activations with freq:  61%|██████    | 365/600 [03:20<02:30,  1.56it/s][A
+Generating multi-layer activations with freq:  61%|██████    | 366/600 [03:20<02:06,  1.85it/s][A
+Generating multi-layer activations with freq:  61%|██████    | 367/600 [03:20<01:52,  2.07it/s][A
+Generating multi-layer activations with freq:  61%|██████▏   | 368/600 [03:21<02:06,  1.83it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 369/600 [03:21<01:53,  2.03it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 370/600 [03:22<01:39,  2.31it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 371/600 [03:22<01:42,  2.23it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 372/600 [03:23<01:45,  2.16it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 373/600 [03:23<01:51,  2.04it/s][A
+Generating multi-layer activations with freq:  62%|██████▏   | 374/600 [03:24<01:58,  1.90it/s][A
+Generating multi-layer activations with freq:  62%|██████▎   | 375/600 [03:25<02:06,  1.78it/s][A
+Generating multi-layer activations with freq:  63%|██████▎   | 376/600 [03:25<02:04,  1.80it/s][A
+Generating multi-layer activations with freq:  63%|██████▎   | 377/600 [03:26<02:03,  1.81it/s][A
+Generating multi-layer activations with freq:  63%|██████▎   | 378/600 [03:26<01:55,  1.93it/s][A
+Generating multi-layer activations with freq:  63%|██████▎   | 379/600 [03:27<01:54,  1.93it/s][A
+Generating multi-layer activations with freq:  63%|██████▎   | 380/600 [03:27<02:01,  1.81it/s][A
+Generating multi-layer activations with freq:  64%|██████▎   | 381/600 [03:28<02:05,  1.75it/s][A
+Generating multi-layer activations with freq:  64%|██████▎   | 382/600 [03:28<02:04,  1.75it/s][A
+Generating multi-layer activations with freq:  64%|██████▍   | 383/600 [03:29<02:14,  1.61it/s][A
+Generating multi-layer activations with freq:  64%|██████▍   | 384/600 [03:30<02:20,  1.54it/s][A
+Generating multi-layer activations with freq:  64%|██████▍   | 385/600 [03:31<02:18,  1.55it/s][A
+Generating multi-layer activations with freq:  64%|██████▍   | 386/600 [03:31<02:14,  1.59it/s][A
+Generating multi-layer activations with freq:  64%|██████▍   | 387/600 [03:32<02:10,  1.63it/s][A
+Generating multi-layer activations with freq:  65%|██████▍   | 388/600 [03:32<02:09,  1.64it/s][A
+Generating multi-layer activations with freq:  65%|██████▍   | 389/600 [03:33<01:54,  1.85it/s][A
+Generating multi-layer activations with freq:  65%|██████▌   | 390/600 [03:33<01:52,  1.87it/s][A
+Generating multi-layer activations with freq:  65%|██████▌   | 391/600 [03:34<01:37,  2.14it/s][A
+Generating multi-layer activations with freq:  65%|██████▌   | 392/600 [03:34<01:39,  2.09it/s][A
+Generating multi-layer activations with freq:  66%|██████▌   | 393/600 [03:34<01:27,  2.36it/s][A
+Generating multi-layer activations with freq:  66%|██████▌   | 394/600 [03:35<01:33,  2.19it/s][A
+Generating multi-layer activations with freq:  66%|██████▌   | 395/600 [03:35<01:25,  2.41it/s][A
+Generating multi-layer activations with freq:  66%|██████▌   | 396/600 [03:36<01:37,  2.09it/s][A
+Generating multi-layer activations with freq:  66%|██████▌   | 397/600 [03:36<01:28,  2.30it/s][A
+Generating multi-layer activations with freq:  66%|██████▋   | 398/600 [03:36<01:20,  2.50it/s][A
+Generating multi-layer activations with freq:  66%|██████▋   | 399/600 [03:38<02:00,  1.67it/s][A
+Generating multi-layer activations with freq:  67%|██████▋   | 400/600 [03:38<01:42,  1.94it/s][A
+Generating multi-layer activations with freq:  67%|██████▋   | 401/600 [03:38<01:50,  1.81it/s][A
+Generating multi-layer activations with freq:  67%|██████▋   | 402/600 [03:39<01:33,  2.12it/s][A
+Generating multi-layer activations with freq:  67%|██████▋   | 403/600 [03:39<01:28,  2.23it/s][A
+Generating multi-layer activations with freq:  67%|██████▋   | 404/600 [03:40<01:41,  1.93it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 405/600 [03:40<01:27,  2.23it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 406/600 [03:40<01:19,  2.45it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 407/600 [03:41<01:24,  2.27it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 408/600 [03:42<01:32,  2.07it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 409/600 [03:42<01:29,  2.14it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 410/600 [03:43<01:40,  1.89it/s][A
+Generating multi-layer activations with freq:  68%|██████▊   | 411/600 [03:43<01:54,  1.64it/s][A
+Generating multi-layer activations with freq:  69%|██████▊   | 412/600 [03:44<01:38,  1.92it/s][A
+Generating multi-layer activations with freq:  69%|██████▉   | 413/600 [03:44<01:36,  1.93it/s][A
+Generating multi-layer activations with freq:  69%|██████▉   | 414/600 [03:45<01:35,  1.94it/s][A
+Generating multi-layer activations with freq:  69%|██████▉   | 415/600 [03:45<01:25,  2.16it/s][A
+Generating multi-layer activations with freq:  69%|██████▉   | 416/600 [03:45<01:15,  2.43it/s][A
+Generating multi-layer activations with freq:  70%|██████▉   | 417/600 [03:46<01:22,  2.22it/s][A
+Generating multi-layer activations with freq:  70%|██████▉   | 418/600 [03:47<01:41,  1.79it/s][A
+Generating multi-layer activations with freq:  70%|██████▉   | 419/600 [03:47<01:44,  1.74it/s][A
+Generating multi-layer activations with freq:  70%|███████   | 420/600 [03:48<01:42,  1.75it/s][A
+Generating multi-layer activations with freq:  70%|███████   | 421/600 [03:49<01:51,  1.60it/s][A
+Generating multi-layer activations with freq:  70%|███████   | 422/600 [03:49<01:36,  1.84it/s][A
+Generating multi-layer activations with freq:  70%|███████   | 423/600 [03:49<01:31,  1.94it/s][A
+Generating multi-layer activations with freq:  71%|███████   | 424/600 [03:50<01:19,  2.21it/s][A
+Generating multi-layer activations with freq:  71%|███████   | 425/600 [03:50<01:23,  2.10it/s][A
+Generating multi-layer activations with freq:  71%|███████   | 426/600 [03:51<01:13,  2.36it/s][A
+Generating multi-layer activations with freq:  71%|███████   | 427/600 [03:51<01:17,  2.24it/s][A
+Generating multi-layer activations with freq:  71%|███████▏  | 428/600 [03:52<01:23,  2.05it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 429/600 [03:52<01:14,  2.31it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 430/600 [03:53<01:20,  2.11it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 431/600 [03:53<01:19,  2.12it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 432/600 [03:54<01:22,  2.04it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 433/600 [03:54<01:17,  2.14it/s][A
+Generating multi-layer activations with freq:  72%|███████▏  | 434/600 [03:55<01:21,  2.03it/s][A
+Generating multi-layer activations with freq:  72%|███████▎  | 435/600 [03:55<01:29,  1.85it/s][A
+Generating multi-layer activations with freq:  73%|███████▎  | 436/600 [03:56<01:44,  1.57it/s][A
+Generating multi-layer activations with freq:  73%|███████▎  | 437/600 [03:57<01:48,  1.50it/s][A
+Generating multi-layer activations with freq:  73%|███████▎  | 438/600 [03:57<01:32,  1.74it/s][A
+Generating multi-layer activations with freq:  73%|███████▎  | 439/600 [03:58<01:23,  1.92it/s][A
+Generating multi-layer activations with freq:  73%|███████▎  | 440/600 [03:58<01:21,  1.97it/s][A
+Generating multi-layer activations with freq:  74%|███████▎  | 441/600 [03:58<01:10,  2.26it/s][A
+Generating multi-layer activations with freq:  74%|███████▎  | 442/600 [03:59<01:13,  2.14it/s][A
+Generating multi-layer activations with freq:  74%|███████▍  | 443/600 [03:59<01:17,  2.03it/s][A
+Generating multi-layer activations with freq:  74%|███████▍  | 444/600 [04:00<01:18,  1.98it/s][A
+Generating multi-layer activations with freq:  74%|███████▍  | 445/600 [04:00<01:12,  2.14it/s][A
+Generating multi-layer activations with freq:  74%|███████▍  | 446/600 [04:01<01:12,  2.12it/s][A
+Generating multi-layer activations with freq:  74%|███████▍  | 447/600 [04:01<01:21,  1.88it/s][A
+Generating multi-layer activations with freq:  75%|███████▍  | 448/600 [04:02<01:15,  2.00it/s][A
+Generating multi-layer activations with freq:  75%|███████▍  | 449/600 [04:02<01:15,  2.00it/s][A
+Generating multi-layer activations with freq:  75%|███████▌  | 450/600 [04:03<01:20,  1.86it/s][A
+Generating multi-layer activations with freq:  75%|███████▌  | 451/600 [04:04<01:22,  1.80it/s][A
+Generating multi-layer activations with freq:  75%|███████▌  | 452/600 [04:04<01:33,  1.58it/s][A
+Generating multi-layer activations with freq:  76%|███████▌  | 453/600 [04:05<01:19,  1.86it/s][A
+Generating multi-layer activations with freq:  76%|███████▌  | 454/600 [04:05<01:10,  2.06it/s][A
+Generating multi-layer activations with freq:  76%|███████▌  | 455/600 [04:06<01:18,  1.85it/s][A
+Generating multi-layer activations with freq:  76%|███████▌  | 456/600 [04:06<01:16,  1.89it/s][A
+Generating multi-layer activations with freq:  76%|███████▌  | 457/600 [04:07<01:18,  1.82it/s][A
+Generating multi-layer activations with freq:  76%|███████▋  | 458/600 [04:07<01:16,  1.85it/s][A
+Generating multi-layer activations with freq:  76%|███████▋  | 459/600 [04:08<01:15,  1.87it/s][A
+Generating multi-layer activations with freq:  77%|███████▋  | 460/600 [04:08<01:17,  1.81it/s][A
+Generating multi-layer activations with freq:  77%|███████▋  | 461/600 [04:09<01:17,  1.79it/s][A
+Generating multi-layer activations with freq:  77%|███████▋  | 462/600 [04:10<01:15,  1.83it/s][A
+Generating multi-layer activations with freq:  77%|███████▋  | 463/600 [04:10<01:10,  1.95it/s][A
+Generating multi-layer activations with freq:  77%|███████▋  | 464/600 [04:10<01:01,  2.19it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 465/600 [04:11<01:07,  2.01it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 466/600 [04:11<01:08,  1.97it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 467/600 [04:12<01:12,  1.82it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 468/600 [04:13<01:12,  1.83it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 469/600 [04:13<01:11,  1.83it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 470/600 [04:14<01:11,  1.82it/s][A
+Generating multi-layer activations with freq:  78%|███████▊  | 471/600 [04:14<01:09,  1.86it/s][A
+Generating multi-layer activations with freq:  79%|███████▊  | 472/600 [04:15<01:07,  1.90it/s][A
+Generating multi-layer activations with freq:  79%|███████▉  | 473/600 [04:15<01:07,  1.88it/s][A
+Generating multi-layer activations with freq:  79%|███████▉  | 474/600 [04:16<01:11,  1.75it/s][A
+Generating multi-layer activations with freq:  79%|███████▉  | 475/600 [04:16<00:59,  2.09it/s][A
+Generating multi-layer activations with freq:  79%|███████▉  | 476/600 [04:17<01:03,  1.94it/s][A
+Generating multi-layer activations with freq:  80%|███████▉  | 477/600 [04:17<01:02,  1.95it/s][A
+Generating multi-layer activations with freq:  80%|███████▉  | 478/600 [04:18<01:05,  1.86it/s][A
+Generating multi-layer activations with freq:  80%|███████▉  | 479/600 [04:18<00:58,  2.07it/s][A
+Generating multi-layer activations with freq:  80%|████████  | 480/600 [04:19<00:53,  2.25it/s][A
+Generating multi-layer activations with freq:  80%|████████  | 481/600 [04:19<00:54,  2.18it/s][A
+Generating multi-layer activations with freq:  80%|████████  | 482/600 [04:20<01:00,  1.95it/s][A
+Generating multi-layer activations with freq:  80%|████████  | 483/600 [04:20<00:57,  2.03it/s][A
+Generating multi-layer activations with freq:  81%|████████  | 484/600 [04:21<00:51,  2.27it/s][A
+Generating multi-layer activations with freq:  81%|████████  | 485/600 [04:21<00:47,  2.42it/s][A
+Generating multi-layer activations with freq:  81%|████████  | 486/600 [04:21<00:44,  2.58it/s][A
+Generating multi-layer activations with freq:  81%|████████  | 487/600 [04:22<00:47,  2.37it/s][A
+Generating multi-layer activations with freq:  81%|████████▏ | 488/600 [04:22<00:48,  2.31it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 489/600 [04:23<00:48,  2.30it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 490/600 [04:23<00:55,  1.98it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 491/600 [04:24<00:54,  2.00it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 492/600 [04:25<01:01,  1.74it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 493/600 [04:25<01:03,  1.68it/s][A
+Generating multi-layer activations with freq:  82%|████████▏ | 494/600 [04:26<01:00,  1.76it/s][A
+Generating multi-layer activations with freq:  82%|████████▎ | 495/600 [04:26<00:51,  2.03it/s][A
+Generating multi-layer activations with freq:  83%|████████▎ | 496/600 [04:26<00:50,  2.07it/s][A
+Generating multi-layer activations with freq:  83%|████████▎ | 497/600 [04:27<00:56,  1.84it/s][A
+Generating multi-layer activations with freq:  83%|████████▎ | 498/600 [04:28<01:03,  1.61it/s][A
+Generating multi-layer activations with freq:  83%|████████▎ | 499/600 [04:28<00:53,  1.87it/s][A
+Generating multi-layer activations with freq:  83%|████████▎ | 500/600 [04:29<00:51,  1.95it/s][A
+Generating multi-layer activations with freq:  84%|████████▎ | 501/600 [04:29<00:44,  2.21it/s][A
+Generating multi-layer activations with freq:  84%|████████▎ | 502/600 [04:29<00:40,  2.42it/s][A
+Generating multi-layer activations with freq:  84%|████████▍ | 503/600 [04:30<00:41,  2.33it/s][A
+Generating multi-layer activations with freq:  84%|████████▍ | 504/600 [04:30<00:37,  2.57it/s][A
+Generating multi-layer activations with freq:  84%|████████▍ | 505/600 [04:31<00:47,  2.02it/s][A
+Generating multi-layer activations with freq:  84%|████████▍ | 506/600 [04:32<00:50,  1.85it/s][A
+Generating multi-layer activations with freq:  84%|████████▍ | 507/600 [04:32<00:51,  1.81it/s][A
+Generating multi-layer activations with freq:  85%|████████▍ | 508/600 [04:33<00:50,  1.83it/s][A
+Generating multi-layer activations with freq:  85%|████████▍ | 509/600 [04:33<00:48,  1.89it/s][A
+Generating multi-layer activations with freq:  85%|████████▌ | 510/600 [04:34<00:50,  1.77it/s][A
+Generating multi-layer activations with freq:  85%|████████▌ | 511/600 [04:35<00:57,  1.55it/s][A
+Generating multi-layer activations with freq:  85%|████████▌ | 512/600 [04:35<00:54,  1.61it/s][A
+Generating multi-layer activations with freq:  86%|████████▌ | 513/600 [04:36<00:52,  1.65it/s][A
+Generating multi-layer activations with freq:  86%|████████▌ | 514/600 [04:36<00:53,  1.60it/s][A
+Generating multi-layer activations with freq:  86%|████████▌ | 515/600 [04:37<00:49,  1.71it/s][A
+Generating multi-layer activations with freq:  86%|████████▌ | 516/600 [04:37<00:45,  1.86it/s][A
+Generating multi-layer activations with freq:  86%|████████▌ | 517/600 [04:38<00:45,  1.82it/s][A
+Generating multi-layer activations with freq:  86%|████████▋ | 518/600 [04:38<00:40,  2.03it/s][A
+Generating multi-layer activations with freq:  86%|████████▋ | 519/600 [04:39<00:35,  2.29it/s][A
+Generating multi-layer activations with freq:  87%|████████▋ | 520/600 [04:39<00:32,  2.43it/s][A
+Generating multi-layer activations with freq:  87%|████████▋ | 521/600 [04:39<00:34,  2.28it/s][A
+Generating multi-layer activations with freq:  87%|████████▋ | 522/600 [04:40<00:37,  2.09it/s][A
+Generating multi-layer activations with freq:  87%|████████▋ | 523/600 [04:41<00:38,  1.99it/s][A
+Generating multi-layer activations with freq:  87%|████████▋ | 524/600 [04:41<00:35,  2.14it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 525/600 [04:42<00:44,  1.70it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 526/600 [04:42<00:37,  1.96it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 527/600 [04:42<00:32,  2.25it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 528/600 [04:43<00:31,  2.27it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 529/600 [04:43<00:31,  2.22it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 530/600 [04:44<00:40,  1.73it/s][A
+Generating multi-layer activations with freq:  88%|████████▊ | 531/600 [04:45<00:41,  1.67it/s][A
+Generating multi-layer activations with freq:  89%|████████▊ | 532/600 [04:45<00:40,  1.69it/s][A
+Generating multi-layer activations with freq:  89%|████████▉ | 533/600 [04:46<00:38,  1.73it/s][A
+Generating multi-layer activations with freq:  89%|████████▉ | 534/600 [04:46<00:34,  1.90it/s][A
+Generating multi-layer activations with freq:  89%|████████▉ | 535/600 [04:47<00:35,  1.85it/s][A
+Generating multi-layer activations with freq:  89%|████████▉ | 536/600 [04:47<00:29,  2.17it/s][A
+Generating multi-layer activations with freq:  90%|████████▉ | 537/600 [04:48<00:25,  2.45it/s][A
+Generating multi-layer activations with freq:  90%|████████▉ | 538/600 [04:48<00:23,  2.63it/s][A
+Generating multi-layer activations with freq:  90%|████████▉ | 539/600 [04:49<00:28,  2.13it/s][A
+Generating multi-layer activations with freq:  90%|█████████ | 540/600 [04:49<00:24,  2.40it/s][A
+Generating multi-layer activations with freq:  90%|█████████ | 541/600 [04:49<00:29,  2.03it/s][A
+Generating multi-layer activations with freq:  90%|█████████ | 542/600 [04:50<00:29,  1.95it/s][A
+Generating multi-layer activations with freq:  90%|█████████ | 543/600 [04:51<00:37,  1.52it/s][A
+Generating multi-layer activations with freq:  91%|█████████ | 544/600 [04:52<00:40,  1.39it/s][A
+Generating multi-layer activations with freq:  91%|█████████ | 545/600 [04:53<00:40,  1.35it/s][A
+Generating multi-layer activations with freq:  91%|█████████ | 546/600 [04:54<00:51,  1.05it/s][A
+Generating multi-layer activations with freq:  91%|█████████ | 547/600 [04:55<00:45,  1.15it/s][A
+Generating multi-layer activations with freq:  91%|█████████▏| 548/600 [05:02<02:25,  2.80s/it][A
+Generating multi-layer activations with freq:  92%|█████████▏| 549/600 [05:03<01:49,  2.16s/it][A
+Generating multi-layer activations with freq:  92%|█████████▏| 550/600 [05:03<01:24,  1.70s/it][A
+Generating multi-layer activations with freq:  92%|█████████▏| 551/600 [05:04<01:09,  1.41s/it][A
+Generating multi-layer activations with freq:  92%|█████████▏| 552/600 [05:05<00:56,  1.17s/it][A
+Generating multi-layer activations with freq:  92%|█████████▏| 553/600 [05:05<00:42,  1.10it/s][A
+Generating multi-layer activations with freq:  92%|█████████▏| 554/600 [05:06<00:39,  1.16it/s][A
+Generating multi-layer activations with freq:  92%|█████████▎| 555/600 [05:07<00:37,  1.20it/s][A
+Generating multi-layer activations with freq:  93%|█████████▎| 556/600 [05:07<00:33,  1.30it/s][A
+Generating multi-layer activations with freq:  93%|█████████▎| 557/600 [05:08<00:33,  1.30it/s][A
+Generating multi-layer activations with freq:  93%|█████████▎| 558/600 [05:09<00:30,  1.36it/s][A
+Generating multi-layer activations with freq:  93%|█████████▎| 559/600 [05:09<00:25,  1.64it/s][A
+Generating multi-layer activations with freq:  93%|█████████▎| 560/600 [05:09<00:21,  1.85it/s][A
+Generating multi-layer activations with freq:  94%|█████████▎| 561/600 [05:10<00:18,  2.06it/s][A
+Generating multi-layer activations with freq:  94%|█████████▎| 562/600 [05:10<00:19,  2.00it/s][A
+Generating multi-layer activations with freq:  94%|█████████▍| 563/600 [05:11<00:16,  2.22it/s][A
+Generating multi-layer activations with freq:  94%|█████████▍| 564/600 [05:11<00:18,  1.99it/s][A
+Generating multi-layer activations with freq:  94%|█████████▍| 565/600 [05:12<00:16,  2.16it/s][A
+Generating multi-layer activations with freq:  94%|█████████▍| 566/600 [05:12<00:18,  1.84it/s][A
+Generating multi-layer activations with freq:  94%|█████████▍| 567/600 [05:16<00:54,  1.64s/it][A
+Generating multi-layer activations with freq:  95%|█████████▍| 568/600 [05:17<00:39,  1.22s/it][A
+Generating multi-layer activations with freq:  95%|█████████▍| 569/600 [05:17<00:31,  1.01s/it][A
+Generating multi-layer activations with freq:  95%|█████████▌| 570/600 [05:18<00:24,  1.25it/s][A
+Generating multi-layer activations with freq:  95%|█████████▌| 571/600 [05:18<00:19,  1.51it/s][A
+Generating multi-layer activations with freq:  95%|█████████▌| 572/600 [05:19<00:19,  1.43it/s][A
+Generating multi-layer activations with freq:  96%|█████████▌| 573/600 [05:19<00:18,  1.44it/s][A
+Generating multi-layer activations with freq:  96%|█████████▌| 574/600 [05:20<00:15,  1.67it/s][A
+Generating multi-layer activations with freq:  96%|█████████▌| 575/600 [05:20<00:14,  1.68it/s][A
+Generating multi-layer activations with freq:  96%|█████████▌| 576/600 [05:21<00:14,  1.68it/s][A
+Generating multi-layer activations with freq:  96%|█████████▌| 577/600 [05:21<00:13,  1.68it/s][A
+Generating multi-layer activations with freq:  96%|█████████▋| 578/600 [05:22<00:11,  1.92it/s][A
+Generating multi-layer activations with freq:  96%|█████████▋| 579/600 [05:23<00:12,  1.68it/s][A
+Generating multi-layer activations with freq:  97%|█████████▋| 580/600 [05:23<00:13,  1.50it/s][A
+Generating multi-layer activations with freq:  97%|█████████▋| 581/600 [05:24<00:11,  1.72it/s][A
+Generating multi-layer activations with freq:  97%|█████████▋| 582/600 [05:24<00:09,  1.88it/s][A
+Generating multi-layer activations with freq:  97%|█████████▋| 583/600 [05:25<00:09,  1.80it/s][A
+Generating multi-layer activations with freq:  97%|█████████▋| 584/600 [05:26<00:09,  1.70it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 585/600 [05:26<00:09,  1.61it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 586/600 [05:27<00:09,  1.41it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 587/600 [05:27<00:07,  1.71it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 588/600 [05:28<00:07,  1.60it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 589/600 [05:29<00:06,  1.60it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 590/600 [05:29<00:06,  1.52it/s][A
+Generating multi-layer activations with freq:  98%|█████████▊| 591/600 [05:30<00:06,  1.45it/s][A
+Generating multi-layer activations with freq:  99%|█████████▊| 592/600 [05:31<00:05,  1.60it/s][A
+Generating multi-layer activations with freq:  99%|█████████▉| 593/600 [05:32<00:04,  1.49it/s][A
+Generating multi-layer activations with freq:  99%|█████████▉| 594/600 [05:32<00:04,  1.42it/s][A
+Generating multi-layer activations with freq:  99%|█████████▉| 595/600 [05:33<00:03,  1.47it/s][A
+Generating multi-layer activations with freq:  99%|█████████▉| 596/600 [05:34<00:02,  1.49it/s][A
+Generating multi-layer activations with freq: 100%|█████████▉| 597/600 [05:34<00:01,  1.72it/s][A
+Generating multi-layer activations with freq: 100%|█████████▉| 598/600 [05:35<00:01,  1.54it/s][A
+Generating multi-layer activations with freq: 100%|█████████▉| 599/600 [05:35<00:00,  1.61it/s][A
+Generating multi-layer activations with freq: 100%|██████████| 600/600 [05:36<00:00,  1.36it/s][AGenerating multi-layer activations with freq: 100%|██████████| 600/600 [05:36<00:00,  1.78it/s]
+Iter    0: loss=19365478.000000  (best=19365478.000000, no_improve=0)
+Iter   50: loss=11989533.000000  (best=11989533.000000, no_improve=0)
+Iter  100: loss=11487616.000000  (best=11487616.000000, no_improve=0)
+Iter  129: loss=11408177.000000  (best=11407076.000000, no_improve=1)
+Iter  133: loss=11405354.000000  (best=11402398.000000, no_improve=1)
+Iter  138: loss=11396144.000000  (best=11392651.000000, no_improve=1)
+Iter  141: loss=11392848.000000  (best=11391968.000000, no_improve=1)
+Iter  149: loss=11375469.000000  (best=11374030.000000, no_improve=1)
+Iter  150: loss=11371433.000000  (best=11371433.000000, no_improve=0)
+Iter  151: loss=11373407.000000  (best=11371433.000000, no_improve=1)
+Iter  156: loss=11367449.000000  (best=11366944.000000, no_improve=1)
+Iter  168: loss=11346429.000000  (best=11344985.000000, no_improve=1)
+Iter  177: loss=11338812.000000  (best=11336356.000000, no_improve=1)
+Iter  185: loss=11336174.000000  (best=11333497.000000, no_improve=1)
+Iter  191: loss=11326251.000000  (best=11323860.000000, no_improve=1)
+Iter  194: loss=11325446.000000  (best=11323516.000000, no_improve=1)
+Iter  197: loss=11323303.000000  (best=11323067.000000, no_improve=1)
+Iter  200: loss=11315210.000000  (best=11315210.000000, no_improve=0)
+Iter  207: loss=11306922.000000  (best=11306426.000000, no_improve=1)
+Iter  209: loss=11306731.000000  (best=11305572.000000, no_improve=1)
+Iter  212: loss=11306053.000000  (best=11304519.000000, no_improve=1)
+Iter  217: loss=11301119.000000  (best=11299998.000000, no_improve=1)
+Iter  220: loss=11299349.000000  (best=11298580.000000, no_improve=1)
+Iter  224: loss=11299026.000000  (best=11297455.000000, no_improve=1)
+Iter  233: loss=11281797.000000  (best=11281539.000000, no_improve=1)
+Iter  236: loss=11280470.000000  (best=11280411.000000, no_improve=1)
+Iter  239: loss=11279274.000000  (best=11278544.000000, no_improve=1)
+Iter  250: loss=11280252.000000  (best=11278544.000000, no_improve=12)
+Iter  253: loss=11279164.000000  (best=11278482.000000, no_improve=1)
+Iter  256: loss=11278680.000000  (best=11275083.000000, no_improve=1)
+Iter  265: loss=11276835.000000  (best=11274770.000000, no_improve=1)
+Iter  272: loss=11276097.000000  (best=11273448.000000, no_improve=1)
+Iter  291: loss=11276400.000000  (best=11270593.000000, no_improve=1)
+Iter  300: loss=11274209.000000  (best=11270593.000000, no_improve=10)
+Iter  307: loss=11269567.000000  (best=11268392.000000, no_improve=1)
+Iter  310: loss=11267015.000000  (best=11265901.000000, no_improve=1)
+Iter  330: loss=11260600.000000  (best=11259414.000000, no_improve=1)
+Iter  336: loss=11256801.000000  (best=11255871.000000, no_improve=1)
+Iter  340: loss=11254986.000000  (best=11254406.000000, no_improve=1)
+Iter  342: loss=11254000.000000  (best=11253713.000000, no_improve=1)
+Iter  346: loss=11253678.000000  (best=11253665.000000, no_improve=1)
+Iter  350: loss=11254908.000000  (best=11253544.000000, no_improve=1)
+Iter  358: loss=11247643.000000  (best=11245937.000000, no_improve=1)
+Iter  364: loss=11243161.000000  (best=11241234.000000, no_improve=1)
+Iter  367: loss=11243079.000000  (best=11240849.000000, no_improve=1)
+Iter  390: loss=11241427.000000  (best=11240335.000000, no_improve=1)
+Iter  393: loss=11236812.000000  (best=11236423.000000, no_improve=1)
+Iter  396: loss=11237405.000000  (best=11235811.000000, no_improve=1)
+Iter  400: loss=11235685.000000  (best=11235685.000000, no_improve=0)
+Iter  401: loss=11235911.000000  (best=11235685.000000, no_improve=1)
+Iter  406: loss=11236265.000000  (best=11234681.000000, no_improve=1)
+Iter  415: loss=11234472.000000  (best=11233934.000000, no_improve=1)
+Iter  434: loss=11233822.000000  (best=11233052.000000, no_improve=1)
+Iter  436: loss=11233711.000000  (best=11233039.000000, no_improve=1)
+Iter  442: loss=11228867.000000  (best=11228591.000000, no_improve=1)
+Iter  445: loss=11229969.000000  (best=11227555.000000, no_improve=1)
+Iter  450: loss=11228334.000000  (best=11227555.000000, no_improve=6)
+Iter  455: loss=11227123.000000  (best=11227123.000000, no_improve=1)
+Iter  457: loss=11227062.000000  (best=11226081.000000, no_improve=1)
+Iter  464: loss=11220873.000000  (best=11220221.000000, no_improve=1)
+Iter  470: loss=11221090.000000  (best=11219101.000000, no_improve=1)
+Iter  474: loss=11218548.000000  (best=11218444.000000, no_improve=1)
+Iter  478: loss=11217762.000000  (best=11216855.000000, no_improve=1)
+Iter  483: loss=11215864.000000  (best=11215314.000000, no_improve=1)
+Iter  492: loss=11216032.000000  (best=11213903.000000, no_improve=1)
+Iter  500: loss=11217971.000000  (best=11213903.000000, no_improve=9)
+Iter  516: loss=11214085.000000  (best=11213788.000000, no_improve=1)
+Iter  519: loss=11211558.000000  (best=11211278.000000, no_improve=1)
+Iter  532: loss=11210411.000000  (best=11209872.000000, no_improve=1)
+Iter  550: loss=11212090.000000  (best=11209872.000000, no_improve=19)
+Iter  557: loss=11210493.000000  (best=11209637.000000, no_improve=1)
+Iter  563: loss=11204759.000000  (best=11204692.000000, no_improve=1)
+Iter  567: loss=11204107.000000  (best=11201121.000000, no_improve=1)
+Iter  578: loss=11200228.000000  (best=11200096.000000, no_improve=1)
+Iter  584: loss=11198178.000000  (best=11197566.000000, no_improve=1)
+Iter  589: loss=11196832.000000  (best=11195446.000000, no_improve=1)
+Iter  594: loss=11193793.000000  (best=11192937.000000, no_improve=1)
+Iter  600: loss=11188876.000000  (best=11187989.000000, no_improve=1)
+Iter  605: loss=11187090.000000  (best=11186764.000000, no_improve=1)
+Iter  612: loss=11186546.000000  (best=11186426.000000, no_improve=1)
+Iter  615: loss=11185690.000000  (best=11184895.000000, no_improve=1)
+Iter  632: loss=11181411.000000  (best=11180843.000000, no_improve=1)
+Iter  637: loss=11175248.000000  (best=11175046.000000, no_improve=1)
+Iter  640: loss=11173829.000000  (best=11173122.000000, no_improve=1)
+Iter  643: loss=11173137.000000  (best=11172499.000000, no_improve=1)
+Iter  647: loss=11171870.000000  (best=11170523.000000, no_improve=1)
+Iter  650: loss=11169834.000000  (best=11169834.000000, no_improve=0)
+Iter  653: loss=11168872.000000  (best=11167961.000000, no_improve=1)
+Iter  661: loss=11168117.000000  (best=11166820.000000, no_improve=1)
+Iter  665: loss=11164614.000000  (best=11164250.000000, no_improve=1)
+Iter  668: loss=11165059.000000  (best=11162838.000000, no_improve=1)
+Iter  674: loss=11158060.000000  (best=11157961.000000, no_improve=1)
+Iter  681: loss=11158399.000000  (best=11157361.000000, no_improve=1)
+Iter  683: loss=11158167.000000  (best=11156798.000000, no_improve=1)
+Iter  696: loss=11157302.000000  (best=11156754.000000, no_improve=1)
+Iter  700: loss=11156457.000000  (best=11156093.000000, no_improve=1)
+Iter  703: loss=11154605.000000  (best=11153548.000000, no_improve=1)
+Iter  714: loss=11152936.000000  (best=11152905.000000, no_improve=1)
+Iter  721: loss=11150169.000000  (best=11149458.000000, no_improve=1)
+Iter  723: loss=11149410.000000  (best=11149402.000000, no_improve=1)
+Iter  727: loss=11149368.000000  (best=11149182.000000, no_improve=1)
+Iter  731: loss=11147556.000000  (best=11147223.000000, no_improve=1)
+Iter  737: loss=11145026.000000  (best=11144545.000000, no_improve=1)
+Iter  742: loss=11144552.000000  (best=11143309.000000, no_improve=1)
+Iter  750: loss=11141682.000000  (best=11141682.000000, no_improve=0)
+Iter  753: loss=11140409.000000  (best=11140379.000000, no_improve=1)
+Iter  756: loss=11136249.000000  (best=11135807.000000, no_improve=1)
+Iter  761: loss=11134561.000000  (best=11134159.000000, no_improve=1)
+Iter  772: loss=11128243.000000  (best=11127025.000000, no_improve=1)
+Iter  790: loss=11121358.000000  (best=11121348.000000, no_improve=1)
+Iter  799: loss=11116280.000000  (best=11115505.000000, no_improve=1)
+Iter  800: loss=11116123.000000  (best=11115505.000000, no_improve=2)
+Iter  806: loss=11113601.000000  (best=11112515.000000, no_improve=1)
+Iter  813: loss=11113192.000000  (best=11112300.000000, no_improve=1)
+Iter  844: loss=11110823.000000  (best=11109711.000000, no_improve=1)
+Iter  850: loss=11113170.000000  (best=11109711.000000, no_improve=7)
+Iter  860: loss=11107842.000000  (best=11107422.000000, no_improve=1)
+Iter  866: loss=11106934.000000  (best=11106886.000000, no_improve=1)
+Iter  871: loss=11105483.000000  (best=11104951.000000, no_improve=1)
+Iter  874: loss=11101984.000000  (best=11101984.000000, no_improve=1)
+Iter  877: loss=11100733.000000  (best=11100516.000000, no_improve=1)
+Iter  881: loss=11099343.000000  (best=11099288.000000, no_improve=1)
+Iter  890: loss=11096358.000000  (best=11096066.000000, no_improve=1)
+Iter  898: loss=11092541.000000  (best=11091006.000000, no_improve=1)
+Iter  900: loss=11092476.000000  (best=11091006.000000, no_improve=3)
+Iter  916: loss=11091134.000000  (best=11090927.000000, no_improve=1)
+Iter  923: loss=11090375.000000  (best=11089569.000000, no_improve=1)
+Iter  927: loss=11089178.000000  (best=11088966.000000, no_improve=1)
+Iter  950: loss=11100943.000000  (best=11088966.000000, no_improve=24)
+Iter  991: loss=11089850.000000  (best=11088682.000000, no_improve=1)
+Iter  996: loss=11087598.000000  (best=11086489.000000, no_improve=1)
+Iter  999: loss=11086711.000000  (best=11085841.000000, no_improve=1)
+Iter 1000: loss=11087000.000000  (best=11085841.000000, no_improve=2)
+Iter 1016: loss=11083769.000000  (best=11082170.000000, no_improve=1)
+Iter 1022: loss=11081070.000000  (best=11080539.000000, no_improve=1)
+Iter 1031: loss=11075068.000000  (best=11074968.000000, no_improve=1)
+Iter 1038: loss=11071774.000000  (best=11071385.000000, no_improve=1)
+Iter 1050: loss=11073874.000000  (best=11071385.000000, no_improve=13)
+Iter 1078: loss=11069574.000000  (best=11069363.000000, no_improve=1)
+Iter 1080: loss=11070336.000000  (best=11068684.000000, no_improve=1)
+Iter 1084: loss=11069509.000000  (best=11068464.000000, no_improve=1)
+Iter 1094: loss=11067131.000000  (best=11067038.000000, no_improve=1)
+Iter 1097: loss=11066572.000000  (best=11066154.000000, no_improve=1)
+Iter 1100: loss=11067727.000000  (best=11066154.000000, no_improve=4)
+Iter 1114: loss=11064880.000000  (best=11063906.000000, no_improve=1)
+Iter 1150: loss=11067165.000000  (best=11063906.000000, no_improve=37)
+Iter 1200: loss=11078813.000000  (best=11063906.000000, no_improve=87)
+Iter 1250: loss=11071009.000000  (best=11063906.000000, no_improve=137)
+Iter 1300: loss=11067578.000000  (best=11063906.000000, no_improve=187)
+Iter 1305: loss=11063213.000000  (best=11063165.000000, no_improve=1)
+Iter 1320: loss=11062880.000000  (best=11062144.000000, no_improve=1)
+Iter 1332: loss=11060994.000000  (best=11059288.000000, no_improve=1)
+Iter 1337: loss=11059090.000000  (best=11058100.000000, no_improve=1)
+Iter 1350: loss=11062125.000000  (best=11058100.000000, no_improve=14)
+Iter 1357: loss=11057468.000000  (best=11056311.000000, no_improve=1)
+Iter 1366: loss=11052172.000000  (best=11051264.000000, no_improve=1)
+Iter 1400: loss=11061631.000000  (best=11051264.000000, no_improve=35)
+Iter 1425: loss=11050726.000000  (best=11049680.000000, no_improve=1)
+Iter 1433: loss=11046968.000000  (best=11044778.000000, no_improve=1)
+Iter 1448: loss=11043579.000000  (best=11042613.000000, no_improve=1)
+Iter 1450: loss=11041607.000000  (best=11041607.000000, no_improve=0)
+Iter 1452: loss=11040962.000000  (best=11040900.000000, no_improve=1)
+Iter 1454: loss=11043820.000000  (best=11040334.000000, no_improve=1)
+Iter 1464: loss=11039172.000000  (best=11038701.000000, no_improve=1)
+Iter 1469: loss=11037281.000000  (best=11037265.000000, no_improve=1)
+Iter 1472: loss=11035631.000000  (best=11035189.000000, no_improve=1)
+Iter 1480: loss=11034219.000000  (best=11033532.000000, no_improve=1)
+Iter 1485: loss=11032881.000000  (best=11032704.000000, no_improve=1)
+Iter 1500: loss=11034214.000000  (best=11032704.000000, no_improve=16)
+Iter 1507: loss=11031318.000000  (best=11030512.000000, no_improve=1)
+Iter 1512: loss=11032383.000000  (best=11029516.000000, no_improve=1)
+Iter 1527: loss=11028062.000000  (best=11027274.000000, no_improve=1)
+Iter 1532: loss=11025965.000000  (best=11025853.000000, no_improve=1)
+Iter 1540: loss=11024632.000000  (best=11023948.000000, no_improve=1)
+Iter 1545: loss=11024432.000000  (best=11023133.000000, no_improve=1)
+Iter 1550: loss=11024557.000000  (best=11023133.000000, no_improve=6)
+Iter 1553: loss=11025435.000000  (best=11023036.000000, no_improve=1)
+Iter 1597: loss=11017114.000000  (best=11017095.000000, no_improve=1)
+Iter 1600: loss=11016420.000000  (best=11016133.000000, no_improve=1)
+Iter 1607: loss=11016975.000000  (best=11015863.000000, no_improve=1)
+Iter 1611: loss=11016037.000000  (best=11015727.000000, no_improve=1)
+Iter 1615: loss=11015944.000000  (best=11015528.000000, no_improve=1)
+Iter 1628: loss=11013947.000000  (best=11013003.000000, no_improve=1)
+Iter 1631: loss=11012331.000000  (best=11011865.000000, no_improve=1)
+Iter 1634: loss=11011973.000000  (best=11011161.000000, no_improve=1)
+Iter 1643: loss=11009203.000000  (best=11008535.000000, no_improve=1)
+Iter 1647: loss=11006194.000000  (best=11005962.000000, no_improve=1)
+Iter 1650: loss=11006612.000000  (best=11005526.000000, no_improve=1)
+Iter 1657: loss=11001657.000000  (best=11001656.000000, no_improve=1)
+Iter 1661: loss=11003068.000000  (best=11001248.000000, no_improve=1)
+Iter 1665: loss=11002828.000000  (best=11000940.000000, no_improve=1)
+Iter 1672: loss=10999923.000000  (best=10999449.000000, no_improve=1)
+Iter 1680: loss=11000780.000000  (best=10998224.000000, no_improve=1)
+Iter 1700: loss=10996774.000000  (best=10996774.000000, no_improve=0)
+Iter 1706: loss=10993262.000000  (best=10992964.000000, no_improve=1)
+Iter 1716: loss=10992809.000000  (best=10992503.000000, no_improve=1)
+Iter 1730: loss=10988631.000000  (best=10988580.000000, no_improve=1)
+Iter 1742: loss=10980327.000000  (best=10978476.000000, no_improve=1)
+Iter 1748: loss=10978694.000000  (best=10978390.000000, no_improve=1)
+Iter 1750: loss=10979680.000000  (best=10978390.000000, no_improve=3)
+Iter 1753: loss=10979833.000000  (best=10978303.000000, no_improve=1)
+Iter 1759: loss=10978212.000000  (best=10977905.000000, no_improve=1)
+Iter 1763: loss=10975246.000000  (best=10974975.000000, no_improve=1)
+Iter 1769: loss=10974109.000000  (best=10973744.000000, no_improve=1)
+Iter 1773: loss=10975299.000000  (best=10973660.000000, no_improve=1)
+Iter 1781: loss=10973110.000000  (best=10972994.000000, no_improve=1)
+Iter 1783: loss=10972955.000000  (best=10972899.000000, no_improve=1)
+Iter 1788: loss=10972594.000000  (best=10971829.000000, no_improve=1)
+Iter 1800: loss=10974131.000000  (best=10971829.000000, no_improve=13)
+Iter 1850: loss=10974627.000000  (best=10971829.000000, no_improve=63)
+Iter 1860: loss=10971132.000000  (best=10969773.000000, no_improve=1)
+Iter 1866: loss=10968881.000000  (best=10968614.000000, no_improve=1)
+Iter 1870: loss=10968234.000000  (best=10968186.000000, no_improve=1)
+Iter 1873: loss=10967248.000000  (best=10966484.000000, no_improve=1)
+Iter 1882: loss=10964849.000000  (best=10964520.000000, no_improve=1)
+Iter 1885: loss=10964963.000000  (best=10964305.000000, no_improve=1)
+Iter 1899: loss=10963745.000000  (best=10963293.000000, no_improve=1)
+Iter 1900: loss=10963939.000000  (best=10963293.000000, no_improve=2)
+Iter 1914: loss=10964035.000000  (best=10961755.000000, no_improve=1)
+Iter 1933: loss=10955179.000000  (best=10954906.000000, no_improve=1)
+Iter 1937: loss=10954311.000000  (best=10953741.000000, no_improve=1)
+Iter 1942: loss=10953682.000000  (best=10952791.000000, no_improve=1)
+Iter 1946: loss=10952113.000000  (best=10951703.000000, no_improve=1)
+Iter 1950: loss=10950796.000000  (best=10950796.000000, no_improve=0)
+Iter 1952: loss=10950539.000000  (best=10950259.000000, no_improve=1)
+Iter 1955: loss=10949804.000000  (best=10949546.000000, no_improve=1)
+Iter 1957: loss=10949747.000000  (best=10949536.000000, no_improve=1)
+Iter 1970: loss=10945809.000000  (best=10945596.000000, no_improve=1)
+Iter 1973: loss=10944235.000000  (best=10943559.000000, no_improve=1)
+Iter 1978: loss=10943225.000000  (best=10942651.000000, no_improve=1)
+Iter 1991: loss=10942617.000000  (best=10941686.000000, no_improve=1)
+Iter 1995: loss=10941738.000000  (best=10941075.000000, no_improve=1)
+Iter 2000: loss=10941085.000000  (best=10941075.000000, no_improve=6)
+Iter 2005: loss=10939654.000000  (best=10937832.000000, no_improve=1)
+Iter 2012: loss=10938240.000000  (best=10937416.000000, no_improve=1)
+Iter 2021: loss=10936326.000000  (best=10935559.000000, no_improve=1)
+Iter 2023: loss=10933933.000000  (best=10933239.000000, no_improve=1)
+Iter 2050: loss=10935978.000000  (best=10933239.000000, no_improve=28)
+Iter 2062: loss=10933710.000000  (best=10933226.000000, no_improve=1)
+Iter 2072: loss=10932213.000000  (best=10931073.000000, no_improve=1)
+Iter 2086: loss=10926698.000000  (best=10926584.000000, no_improve=1)
+Iter 2094: loss=10924317.000000  (best=10924089.000000, no_improve=1)
+Iter 2096: loss=10924168.000000  (best=10923967.000000, no_improve=1)
+Iter 2100: loss=10922211.000000  (best=10922211.000000, no_improve=0)
+Iter 2101: loss=10922539.000000  (best=10922211.000000, no_improve=1)
+Iter 2103: loss=10922586.000000  (best=10921811.000000, no_improve=1)
+Iter 2111: loss=10920660.000000  (best=10919867.000000, no_improve=1)
+Iter 2144: loss=10918795.000000  (best=10918468.000000, no_improve=1)
+Iter 2146: loss=10918500.000000  (best=10918338.000000, no_improve=1)
+Iter 2149: loss=10916968.000000  (best=10916490.000000, no_improve=1)
+Iter 2150: loss=10917181.000000  (best=10916490.000000, no_improve=2)
+Iter 2195: loss=10914233.000000  (best=10912717.000000, no_improve=1)
+Iter 2200: loss=10913979.000000  (best=10912717.000000, no_improve=6)
+Iter 2231: loss=10914333.000000  (best=10912643.000000, no_improve=1)
+Iter 2241: loss=10909944.000000  (best=10909594.000000, no_improve=1)
+Iter 2250: loss=10908675.000000  (best=10908675.000000, no_improve=0)
+Iter 2255: loss=10902059.000000  (best=10901824.000000, no_improve=1)
+Iter 2262: loss=10898481.000000  (best=10898457.000000, no_improve=1)
+Iter 2265: loss=10897513.000000  (best=10897250.000000, no_improve=1)
+Iter 2268: loss=10896268.000000  (best=10895649.000000, no_improve=1)
+Iter 2272: loss=10893488.000000  (best=10893418.000000, no_improve=1)
+Iter 2275: loss=10893344.000000  (best=10892556.000000, no_improve=1)
+Iter 2282: loss=10889471.000000  (best=10888575.000000, no_improve=1)
+Iter 2300: loss=10890906.000000  (best=10888575.000000, no_improve=19)
+Iter 2309: loss=10886486.000000  (best=10886199.000000, no_improve=1)
+Iter 2319: loss=10886446.000000  (best=10885904.000000, no_improve=1)
+Iter 2324: loss=10880596.000000  (best=10880421.000000, no_improve=1)
+Iter 2327: loss=10879528.000000  (best=10879000.000000, no_improve=1)
+Iter 2350: loss=10880788.000000  (best=10879000.000000, no_improve=24)
+Iter 2372: loss=10873892.000000  (best=10873810.000000, no_improve=1)
+Iter 2375: loss=10872825.000000  (best=10872433.000000, no_improve=1)
+Iter 2382: loss=10871068.000000  (best=10870660.000000, no_improve=1)
+Iter 2389: loss=10871147.000000  (best=10870379.000000, no_improve=1)
+Iter 2400: loss=10871919.000000  (best=10870379.000000, no_improve=12)
+Iter 2415: loss=10867950.000000  (best=10867602.000000, no_improve=1)
+Iter 2419: loss=10866155.000000  (best=10865836.000000, no_improve=1)
+Iter 2425: loss=10864358.000000  (best=10864123.000000, no_improve=1)
+Iter 2428: loss=10864227.000000  (best=10863581.000000, no_improve=1)
+Iter 2446: loss=10857194.000000  (best=10857187.000000, no_improve=1)
+Iter 2450: loss=10856979.000000  (best=10856690.000000, no_improve=1)
+Iter 2454: loss=10850939.000000  (best=10850811.000000, no_improve=1)
+Iter 2459: loss=10850152.000000  (best=10849770.000000, no_improve=1)
+Iter 2472: loss=10848972.000000  (best=10848939.000000, no_improve=1)
+Iter 2479: loss=10845016.000000  (best=10843581.000000, no_improve=1)
+Iter 2482: loss=10844102.000000  (best=10843550.000000, no_improve=1)
+Iter 2484: loss=10844212.000000  (best=10843395.000000, no_improve=1)
+Iter 2492: loss=10838136.000000  (best=10837769.000000, no_improve=1)
+Iter 2498: loss=10836140.000000  (best=10835972.000000, no_improve=1)
+Iter 2500: loss=10836351.000000  (best=10835972.000000, no_improve=3)
+Iter 2524: loss=10833185.000000  (best=10832751.000000, no_improve=1)
+Iter 2531: loss=10827641.000000  (best=10827536.000000, no_improve=1)
+Iter 2550: loss=10817646.000000  (best=10817646.000000, no_improve=0)
+Iter 2557: loss=10816473.000000  (best=10815787.000000, no_improve=1)
+Iter 2561: loss=10815412.000000  (best=10815283.000000, no_improve=1)
+Iter 2571: loss=10813454.000000  (best=10813130.000000, no_improve=1)
+Iter 2575: loss=10812809.000000  (best=10812060.000000, no_improve=1)
+Iter 2585: loss=10809893.000000  (best=10809143.000000, no_improve=1)
+Iter 2588: loss=10808981.000000  (best=10808732.000000, no_improve=1)
+Iter 2592: loss=10805172.000000  (best=10804892.000000, no_improve=1)
+Iter 2596: loss=10804889.000000  (best=10804461.000000, no_improve=1)
+Iter 2600: loss=10806106.000000  (best=10804461.000000, no_improve=5)
+Iter 2612: loss=10802866.000000  (best=10802320.000000, no_improve=1)
+Iter 2632: loss=10789109.000000  (best=10789089.000000, no_improve=1)
+Iter 2637: loss=10787066.000000  (best=10786848.000000, no_improve=1)
+Iter 2643: loss=10786450.000000  (best=10785264.000000, no_improve=1)
+Iter 2647: loss=10785354.000000  (best=10784935.000000, no_improve=1)
+Iter 2649: loss=10784145.000000  (best=10784132.000000, no_improve=1)
+Iter 2650: loss=10781432.000000  (best=10781432.000000, no_improve=0)
+Iter 2651: loss=10781467.000000  (best=10781432.000000, no_improve=1)
+Iter 2656: loss=10781320.000000  (best=10781314.000000, no_improve=1)
+Iter 2662: loss=10778115.000000  (best=10777567.000000, no_improve=1)
+Iter 2668: loss=10777214.000000  (best=10776753.000000, no_improve=1)
+Iter 2679: loss=10776418.000000  (best=10776230.000000, no_improve=1)
+Iter 2682: loss=10776548.000000  (best=10775965.000000, no_improve=1)
+Iter 2691: loss=10775338.000000  (best=10774881.000000, no_improve=1)
+Iter 2700: loss=10777033.000000  (best=10774881.000000, no_improve=10)
+Iter 2711: loss=10773835.000000  (best=10773620.000000, no_improve=1)
+Iter 2731: loss=10773764.000000  (best=10772696.000000, no_improve=1)
+Iter 2750: loss=10771739.000000  (best=10771739.000000, no_improve=0)
+Iter 2752: loss=10770203.000000  (best=10770140.000000, no_improve=1)
+Iter 2756: loss=10767044.000000  (best=10766726.000000, no_improve=1)
+Iter 2760: loss=10766513.000000  (best=10766492.000000, no_improve=1)
+Iter 2764: loss=10764931.000000  (best=10763766.000000, no_improve=1)
+Iter 2770: loss=10764538.000000  (best=10763725.000000, no_improve=1)
+Iter 2800: loss=10762901.000000  (best=10762901.000000, no_improve=0)
+Iter 2801: loss=10763239.000000  (best=10762901.000000, no_improve=1)
+Iter 2803: loss=10762777.000000  (best=10762774.000000, no_improve=1)
+Iter 2808: loss=10761738.000000  (best=10761260.000000, no_improve=1)
+Iter 2815: loss=10759066.000000  (best=10758522.000000, no_improve=1)
+Iter 2823: loss=10755075.000000  (best=10754274.000000, no_improve=1)
+Iter 2830: loss=10751598.000000  (best=10751487.000000, no_improve=1)
+Iter 2834: loss=10750824.000000  (best=10750307.000000, no_improve=1)
+Iter 2837: loss=10749274.000000  (best=10748784.000000, no_improve=1)
+Iter 2842: loss=10746696.000000  (best=10746049.000000, no_improve=1)
+Iter 2850: loss=10744448.000000  (best=10744182.000000, no_improve=1)
+Iter 2853: loss=10745071.000000  (best=10744178.000000, no_improve=1)
+Iter 2862: loss=10741591.000000  (best=10740304.000000, no_improve=1)
+Iter 2877: loss=10740031.000000  (best=10740031.000000, no_improve=1)
+Iter 2884: loss=10738357.000000  (best=10738039.000000, no_improve=1)
+Iter 2889: loss=10735455.000000  (best=10735103.000000, no_improve=1)
+Iter 2893: loss=10733337.000000  (best=10732790.000000, no_improve=1)
+Iter 2898: loss=10732915.000000  (best=10732697.000000, no_improve=1)
+Iter 2900: loss=10733057.000000  (best=10732697.000000, no_improve=3)
+Iter 2904: loss=10729952.000000  (best=10729632.000000, no_improve=1)
+Iter 2908: loss=10730293.000000  (best=10729434.000000, no_improve=1)
+Iter 2950: loss=10724962.000000  (best=10724962.000000, no_improve=0)
+Iter 2951: loss=10725141.000000  (best=10724962.000000, no_improve=1)
+Iter 2954: loss=10723049.000000  (best=10723048.000000, no_improve=1)
+Iter 2957: loss=10721989.000000  (best=10721590.000000, no_improve=1)
+Iter 2961: loss=10720868.000000  (best=10720424.000000, no_improve=1)
+Iter 2970: loss=10718786.000000  (best=10718301.000000, no_improve=1)
+Iter 2979: loss=10715033.000000  (best=10714652.000000, no_improve=1)
+Iter 2981: loss=10714786.000000  (best=10714236.000000, no_improve=1)
+Iter 2983: loss=10714381.000000  (best=10714122.000000, no_improve=1)
+Iter 2985: loss=10714652.000000  (best=10714101.000000, no_improve=1)
+Iter 2997: loss=10713450.000000  (best=10713440.000000, no_improve=1)
+Iter 3000: loss=10714314.000000  (best=10713440.000000, no_improve=4)
+Iter 3007: loss=10712874.000000  (best=10712080.000000, no_improve=1)
+Iter 3017: loss=10708935.000000  (best=10708833.000000, no_improve=1)
+Iter 3019: loss=10708965.000000  (best=10708574.000000, no_improve=1)
+Iter 3023: loss=10706975.000000  (best=10706852.000000, no_improve=1)
+Iter 3026: loss=10705979.000000  (best=10705961.000000, no_improve=1)
+Iter 3028: loss=10705153.000000  (best=10705106.000000, no_improve=1)
+Iter 3031: loss=10704968.000000  (best=10704850.000000, no_improve=1)
+Iter 3034: loss=10704651.000000  (best=10704631.000000, no_improve=1)
+Iter 3045: loss=10703202.000000  (best=10702373.000000, no_improve=1)
+Iter 3050: loss=10703795.000000  (best=10702373.000000, no_improve=6)
+Iter 3058: loss=10701962.000000  (best=10701637.000000, no_improve=1)
+Iter 3061: loss=10700756.000000  (best=10700399.000000, no_improve=1)
+Iter 3063: loss=10699998.000000  (best=10699931.000000, no_improve=1)
+Iter 3066: loss=10700126.000000  (best=10699629.000000, no_improve=1)
+Iter 3075: loss=10699745.000000  (best=10698811.000000, no_improve=1)
+Iter 3100: loss=10692647.000000  (best=10692647.000000, no_improve=0)
+Iter 3102: loss=10693165.000000  (best=10692347.000000, no_improve=1)
+Iter 3117: loss=10686378.000000  (best=10685054.000000, no_improve=1)
+Iter 3120: loss=10685199.000000  (best=10684857.000000, no_improve=1)
+Iter 3132: loss=10683446.000000  (best=10683175.000000, no_improve=1)
+Iter 3134: loss=10683565.000000  (best=10683143.000000, no_improve=1)
+Iter 3139: loss=10683638.000000  (best=10682641.000000, no_improve=1)
+Iter 3146: loss=10682646.000000  (best=10682431.000000, no_improve=1)
+Iter 3150: loss=10680913.000000  (best=10680913.000000, no_improve=0)
+Iter 3151: loss=10681273.000000  (best=10680913.000000, no_improve=1)
+Iter 3160: loss=10677391.000000  (best=10677175.000000, no_improve=1)
+Iter 3163: loss=10676567.000000  (best=10676258.000000, no_improve=1)
+Iter 3170: loss=10676126.000000  (best=10675096.000000, no_improve=1)
+Iter 3173: loss=10675144.000000  (best=10675008.000000, no_improve=1)
+Iter 3177: loss=10674826.000000  (best=10674780.000000, no_improve=1)
+Iter 3181: loss=10675155.000000  (best=10673934.000000, no_improve=1)
+Iter 3200: loss=10674769.000000  (best=10673934.000000, no_improve=20)
+Iter 3210: loss=10670987.000000  (best=10670808.000000, no_improve=1)
+Iter 3213: loss=10670465.000000  (best=10670189.000000, no_improve=1)
+Iter 3216: loss=10670000.000000  (best=10669766.000000, no_improve=1)
+Iter 3223: loss=10667547.000000  (best=10667500.000000, no_improve=1)
+Iter 3230: loss=10663134.000000  (best=10663045.000000, no_improve=1)
+Iter 3236: loss=10661045.000000  (best=10660731.000000, no_improve=1)
+Iter 3240: loss=10659672.000000  (best=10659574.000000, no_improve=1)
+Iter 3242: loss=10659165.000000  (best=10658789.000000, no_improve=1)
+Iter 3250: loss=10655016.000000  (best=10655016.000000, no_improve=0)
+Iter 3252: loss=10654798.000000  (best=10654697.000000, no_improve=1)
+Iter 3255: loss=10654872.000000  (best=10654331.000000, no_improve=1)
+Iter 3260: loss=10652173.000000  (best=10651995.000000, no_improve=1)
+Iter 3262: loss=10651712.000000  (best=10651693.000000, no_improve=1)
+Iter 3266: loss=10649093.000000  (best=10648671.000000, no_improve=1)
+Iter 3275: loss=10646226.000000  (best=10646184.000000, no_improve=1)
+Iter 3283: loss=10642091.000000  (best=10641851.000000, no_improve=1)
+Iter 3300: loss=10633515.000000  (best=10633515.000000, no_improve=0)
+Iter 3318: loss=10625893.000000  (best=10625869.000000, no_improve=1)
+Iter 3322: loss=10624221.000000  (best=10622978.000000, no_improve=1)
+Iter 3332: loss=10622752.000000  (best=10622652.000000, no_improve=1)
+Iter 3337: loss=10620875.000000  (best=10620629.000000, no_improve=1)
+Iter 3342: loss=10617851.000000  (best=10617621.000000, no_improve=1)
+Iter 3344: loss=10617493.000000  (best=10617285.000000, no_improve=1)
+Iter 3347: loss=10616604.000000  (best=10616464.000000, no_improve=1)
+Iter 3350: loss=10614809.000000  (best=10614809.000000, no_improve=0)
+Iter 3353: loss=10616172.000000  (best=10614147.000000, no_improve=1)
+Iter 3370: loss=10613722.000000  (best=10613643.000000, no_improve=1)
+Iter 3377: loss=10610349.000000  (best=10609825.000000, no_improve=1)
+Iter 3385: loss=10608514.000000  (best=10607976.000000, no_improve=1)
+Iter 3397: loss=10600410.000000  (best=10598988.000000, no_improve=1)
+Iter 3400: loss=10599197.000000  (best=10598988.000000, no_improve=4)
+Iter 3403: loss=10598765.000000  (best=10598566.000000, no_improve=1)
+Iter 3408: loss=10597244.000000  (best=10597073.000000, no_improve=1)
+Iter 3412: loss=10595710.000000  (best=10595392.000000, no_improve=1)
+Iter 3424: loss=10590141.000000  (best=10590076.000000, no_improve=1)
+Iter 3429: loss=10589453.000000  (best=10589282.000000, no_improve=1)
+Iter 3439: loss=10588535.000000  (best=10588523.000000, no_improve=1)
+Iter 3448: loss=10586063.000000  (best=10585807.000000, no_improve=1)
+Iter 3450: loss=10586217.000000  (best=10585807.000000, no_improve=3)
+Iter 3458: loss=10582638.000000  (best=10582481.000000, no_improve=1)
+Iter 3460: loss=10582471.000000  (best=10582338.000000, no_improve=1)
+Iter 3465: loss=10582650.000000  (best=10582151.000000, no_improve=1)
+Iter 3469: loss=10581841.000000  (best=10581711.000000, no_improve=1)
+Iter 3474: loss=10581008.000000  (best=10580807.000000, no_improve=1)
+Iter 3478: loss=10580066.000000  (best=10579539.000000, no_improve=1)
+Iter 3483: loss=10578298.000000  (best=10578214.000000, no_improve=1)
+Iter 3486: loss=10577564.000000  (best=10577528.000000, no_improve=1)
+Iter 3498: loss=10573132.000000  (best=10572887.000000, no_improve=1)
+Iter 3500: loss=10572967.000000  (best=10572887.000000, no_improve=3)
+Iter 3503: loss=10572615.000000  (best=10572366.000000, no_improve=1)
+Iter 3524: loss=10571937.000000  (best=10571421.000000, no_improve=1)
+Iter 3527: loss=10571553.000000  (best=10571213.000000, no_improve=1)
+Iter 3531: loss=10570393.000000  (best=10570231.000000, no_improve=1)
+Iter 3541: loss=10570884.000000  (best=10569751.000000, no_improve=1)
+Iter 3546: loss=10570449.000000  (best=10569739.000000, no_improve=1)
+Iter 3550: loss=10569911.000000  (best=10569739.000000, no_improve=5)
+Iter 3554: loss=10570657.000000  (best=10569444.000000, no_improve=1)
+Iter 3564: loss=10569511.000000  (best=10569221.000000, no_improve=1)
+Iter 3566: loss=10569584.000000  (best=10569085.000000, no_improve=1)
+Iter 3593: loss=10568844.000000  (best=10568482.000000, no_improve=1)
+Iter 3600: loss=10568668.000000  (best=10568482.000000, no_improve=8)
+Iter 3608: loss=10569101.000000  (best=10567783.000000, no_improve=1)
+Iter 3622: loss=10567745.000000  (best=10567676.000000, no_improve=1)
+Iter 3631: loss=10563915.000000  (best=10563832.000000, no_improve=1)
+Iter 3634: loss=10561759.000000  (best=10560529.000000, no_improve=1)
+Iter 3643: loss=10558742.000000  (best=10558651.000000, no_improve=1)
+Iter 3648: loss=10558046.000000  (best=10557475.000000, no_improve=1)
+Iter 3650: loss=10557638.000000  (best=10557475.000000, no_improve=3)
+Iter 3653: loss=10557096.000000  (best=10556891.000000, no_improve=1)
+Iter 3657: loss=10556364.000000  (best=10555280.000000, no_improve=1)
+Iter 3663: loss=10555163.000000  (best=10554848.000000, no_improve=1)
+Iter 3691: loss=10550316.000000  (best=10550160.000000, no_improve=1)
+Iter 3695: loss=10550393.000000  (best=10549944.000000, no_improve=1)
+Iter 3700: loss=10549270.000000  (best=10549033.000000, no_improve=1)
+Iter 3707: loss=10548751.000000  (best=10548377.000000, no_improve=1)
+Iter 3716: loss=10547055.000000  (best=10546497.000000, no_improve=1)
+Iter 3723: loss=10544060.000000  (best=10543989.000000, no_improve=1)
+Fitting Layers:   4%|▍         | 1/26 [21:11<8:49:54, 1271.78s/it]
