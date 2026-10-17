@@ -49,7 +49,7 @@ def summary_path(line: str) -> Path:
         tag = f"{a.merge_from}_merge{a.tag_suffix}"
     else:
         cfg = VWConfig(method=a.method, sparsity=a.sparsity, init=a.init, refit=not a.no_refit,
-                       floorcap=not a.no_floorcap, continuation=a.continuation)
+                       floorcap=not a.no_floorcap, continuation=a.continuation, cap=a.cap)
         tag = make_tag(cfg, a.matrix, a.S, a.tag_suffix)
     return run_dir(a.concept, tag, a.seed) / "summary.json"
 

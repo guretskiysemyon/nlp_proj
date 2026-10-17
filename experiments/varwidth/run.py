@@ -117,7 +117,7 @@ def run_one(a) -> Path:
         return run_merge(a)
 
     cfg = VWConfig(method=a.method, sparsity=a.sparsity, init=a.init, refit=not a.no_refit,
-                   floorcap=not a.no_floorcap, continuation=a.continuation)
+                   floorcap=not a.no_floorcap, continuation=a.continuation, cap=a.cap)
     tag = make_tag(cfg, a.matrix, a.S, a.tag_suffix)
     out = run_dir(a.concept, tag, a.seed)
     summ_path = out / "summary.json"
@@ -301,6 +301,7 @@ def parse(argv=None):
     p.add_argument("--seed", type=int, required=True)
     p.add_argument("--matrix", choices=["whitened", "plain"], default="whitened")
     p.add_argument("--sparsity", type=float, default=0.01)
+    p.add_argument("--cap", type=float, default=VWConfig().cap, help="per-feature row cap (fraction of |V*|)")
     p.add_argument("--S", type=int, default=300)
     p.add_argument("--sub-seed", type=int, default=0)
     p.add_argument("--init", choices=["randn", "svd"], default="randn")
