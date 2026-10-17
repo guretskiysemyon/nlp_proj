@@ -1,16 +1,0 @@
-[run_crosslingual_fixed] args: --method ember --concepts Baseball Gambling
-[fixed] ember 'Baseball': full (old hp {'delta_embed': 100.0} -> {'delta_embed': 200.0})
-[fixed] ember 'Gambling': full (old hp {'delta_embed': 100.0} -> {'delta_embed': 10.0})
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [04:20<04:20, 260.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 111.20s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:27<00:00, 133.62s/it]
-[fixed]   'Baseball' en: QA_test=0.56 (invalid 0.00) Simdom=0.78 (invalid 0.00)
-[fixed]   'Baseball' de: QA_test=0.54 (invalid 0.00) Simdom=0.70 (invalid 0.00)
-[fixed]   'Baseball' es: QA_test=0.60 (invalid 0.00) Simdom=0.74 (invalid 0.00)
-[fixed]   'Baseball' fr: QA_test=0.44 (invalid 0.00) Simdom=0.68 (invalid 0.00)
-[fixed]   'Baseball' ru: QA_test=0.50 (invalid 0.00) Simdom=0.52 (invalid 0.00)
-[fixed] 1/2 'Baseball' [full]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.545 (was 0.548)  466s
-[fixed]   'Gambling' en: QA_test=0.64 (invalid 0.00) Simdom=0.98 (invalid 0.00)
-[fixed]   'Gambling' de: QA_test=0.70 (invalid 0.00) Simdom=0.80 (invalid 0.00)
-[fixed]   'Gambling' es: QA_test=0.62 (invalid 0.00) Simdom=0.84 (invalid 0.00)
-[fixed]   'Gambling' fr: QA_test=0.60 (invalid 0.00) Simdom=0.84 (invalid 0.00)
-[fixed]   'Gambling' ru: QA_test=0.58 (invalid 0.00) Simdom=0.84 (invalid 0.00)
-[fixed] 2/2 'Gambling' [full]: edit check OK (Δ vs search {'qa_acc': 0.0, 'simdom_acc': 0.0, 'mmlu_acc': 0.0}) MMLU test=0.549 (was 0.547)  465s

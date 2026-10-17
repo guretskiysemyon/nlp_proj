@@ -1,9 +1,9 @@
 # Progress log
 
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-16
 **Status:**
-- **MC scoring repair (2026-10-15): EMBER and SNMF done; SNMF+EMBER and the
-  cross-lingual reruns still to do.** The multiple-choice scoring (the paper's
+- **MC scoring repair (2026-10-15/16): done.** All three HP searches, the
+  cross-lingual pristine baseline and all three cross-lingual runs. The multiple-choice scoring (the paper's
   `ember/evals/mc.py` / `mmlu.py`) generated only 4 tokens (MMLU 6). Under the
   EMBER embedding edit Gemma answers "The answer is **C**", the cut ends before
   the letter, and the answer counted as **wrong**. That inflated erasure for
@@ -12,8 +12,8 @@
   option ends with "model". Fix: `judge_rerun/mc_fixed.py` (32 tokens, fixed
   parser, new tokens only; `ember/` untouched). Full write-up:
   [`docs/Part 1/ember_search.md`](Part%201/ember_search.md), "MC scoring repair".
-  **Still provisional:** the SNMF+EMBER picks and the cross-lingual `ember` /
-  `snmf_ember` numbers.
+  Superseded but kept: `judge_rerun/*/pass2_outputs/` and the non-`_fixed`
+  cross-lingual folders.
 - **EMBER search: final after the repair (2026-10-15).** Best δ for all 18
   concepts, judged with Qwen2.5-32B-Instruct (picked by the agreement study,
   §3.1), top-3 × 50-question policy, fixed MC scoring:
@@ -52,18 +52,31 @@
   Results: `judge_rerun/SNMF_EMBER/pass2_outputs/` (layout:
   `judge_rerun/SNMF_EMBER/README.md`), numbers and notes:
   [`docs/Part 1/snmf_ember_search.md`](Part%201/snmf_ember_search.md).
-- **Running (submitted 2026-10-15 22:00): SNMF+EMBER repair**, 24 chained
-  jobs (1042781–1042804): fresh grids at the new δ for Baseball, Gambling, Gun
-  and Uranium; re-score of the cells with invalid answers for the other 14
-  (Pornography in full); then Alpaca answers + Qwen judging only for cells new
-  to a top 3, old answers and scores reused for the rest. Expected done
-  2026-10-16 morning. Details:
-  [`snmf_ember_search.md`](Part%201/snmf_ember_search.md), "Repair".
-- **Next:** cross-lingual `ember` (4 changed δ fresh; for the rest regenerate
-  only the invalid questions) and `snmf_ember` (after its repair); `snmf`
-  stays. First point `crosslingual/run_edited.py` at the repaired picks
-  (`pass2_rescored/`). The cross-lingual analysis proper
-  ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) waits for it.
+- **SNMF+EMBER search: final after the repair (2026-10-16).** 24 chained jobs
+  (1042781–1042804): fresh grids at the new EMBER δ for Baseball, Gambling, Gun
+  and Uranium, re-score of the cells with invalid answers for the other 14
+  (Pornography in full), Alpaca + Qwen only for the 27 cells new to a top 3.
+  **7 picks changed** (the 4 fresh concepts, Ancient Rome, Culture of Greece,
+  Valentine's Day); mean `harmonic_alpaca` 0.909 → 0.888, efficacy 0.877 →
+  0.834. Still the best method on the selection score for 17 of 18 concepts.
+  `judge_rerun/SNMF_EMBER/pass2_rescored/…/best_hps_summary.csv`; details:
+  [`snmf_ember_search.md`](Part%201/snmf_ember_search.md), "Repair results".
+- **Cross-lingual repair (2026-10-16):** answers re-read on the CPU (lowercase
+  letters, the "model\n" extraction bug), then only the still-invalid answers
+  regenerated where the pick is unchanged, full rerun where it changed; English
+  MMLU re-scored; retention / leak against the fixed pristine baseline
+  (`crosslingual/reparse_saved.py`, `rerun_fixed.py`, `summary_fixed.py`;
+  results in `results/crosslingual/google_gemma-2-2b-it/<method>_fixed/`).
+  **`ember`:** English retention 0.52 → 0.61, mean leak +0.24 → **+0.19
+  [+0.12, +0.27]** (Russian +0.41 → +0.33), still significant. **`snmf`:**
+  CPU only, unchanged (leak +0.00 [−0.07, +0.08]). **`snmf_ember`:** English
+  retention 0.27 → 0.39, mean leak +0.17 → **+0.05 [−0.02, +0.11]**, i.e. no
+  longer a significant leak into de/es/fr; Russian still +0.23 [+0.08, +0.38].
+  Details:
+  [`crosslingual_next.md`](Part%201/crosslingual_next.md) §2.6.
+- **Next:** the cross-lingual analysis proper
+  ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) on the `_fixed`
+  results.
 - **Part 2, multilingual feature search (step 1, World War II): done, result too
   weak.** Features fit on en+ru+de+es+fr together, then filtered with the same
   Gemini judge as the English features: 0 embedding + 2 MLP features kept
@@ -524,6 +537,9 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/pass2_ember_rescored.py`, `run_pass2_ember_rescored.sbatch` | EMBER Pass 2 on the re-scored grid: same policy as `pass2_delta_search.py`, reuses old Qwen means for top-3 δ already judged, judges the rest (first 50 saved completions), recomputes `harmonic_alpaca`. Output and **final EMBER picks**: `judge_rerun/Ember/pass2_rescored/` |
 | `judge_rerun/rescore_snmf_grid.py`, `run_rescore_snmf.sbatch` | the same for the SNMF grid (`--with-ember`: the SNMF+EMBER grid, EMBER δ from the repaired picks; a concept whose δ changed gets a fresh 144-cell grid): re-scores cells with an invalid answer (`--cells all` for the whole grid) with Pass 1's edit code, skips QA / SimDom for cells still MMLU-gated, checks the control, re-ranks as Pass 1 (only `min_mmlu` gates). Output `judge_rerun/SNMF/rescore_mc/` |
 | `judge_rerun/pass2_snmf_rescored.py`, `run_pass2_snmf_rescored_gen.sbatch`, `run_pass2_snmf_rescored_judge.sbatch` | SNMF (and with `--with-ember` SNMF+EMBER, output `judge_rerun/SNMF_EMBER/pass2_rescored/`) Pass 1 + 2 on the re-scored grid. `--stage generate`: first 50 Alpaca answers + loop check (from `pass1_snmf_screen.py`) for cells new to the top 3, next cell moves up if one loops; Ancient Rome keeps its screen. `--stage judge`: Qwen for new cells only, old Qwen means for the rest, pick by `harmonic_alpaca`. Output and **final SNMF picks**: `judge_rerun/SNMF/pass2_rescored/` |
+| `crosslingual/reparse_saved.py` | cross-lingual repair stage A (CPU): re-reads every saved answer with `parse_letter_fixed` (and the text after the last `"model\n"` when the prompt leaked in), writes `results/crosslingual/<model>/<method>_fixed/` |
+| `crosslingual/rerun_fixed.py`, `run_crosslingual_fixed.sbatch` | stages B / C: per concept `regen` (same pick: regenerate only still-invalid answers, 4-token control) or `full` (pick changed: every cell again), fixed scoring; English MMLU re-scored with answers saved (`mmlu_test.json`); edit check against the repaired grid. `ember` and `snmf_ember` |
+| `crosslingual/summary_fixed.py`, `run_summary_fixed.sbatch` | stage D: `<method>_fixed/summary.csv` against `baseline_fixed`, old-vs-new headline table with bootstrap |
 | `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model), `run_edited.py` + `run_edited.sbatch` (apply each concept's `ember` / `snmf` / `snmf_ember` pick, edit check, per-concept MMLU) |
 | `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv`, pristine MMLU in `_mmlu.json` |
 | `results/crosslingual/google_gemma-2-2b-it/{ember,snmf,snmf_ember}/` | edited cross-lingual runs: `<Concept>/<lang>.json` + `edit.json` (HP, edit check, MMLU), `summary.csv` with retention and leak per (concept, language) |

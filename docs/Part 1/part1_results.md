@@ -10,12 +10,12 @@ Detailed write-ups (how each number was made, job IDs, re-running):
 [`crosslingual_next.md`](crosslingual_next.md), and
 [`../progress.md`](../progress.md) §3.1 for the judge.
 
-> **⚠ Partly provisional (2026-10-15).** The MC scoring cut answers off after
-> 4 tokens and counted "The answer is **C**" as wrong. **Repaired:** the EMBER
-> and SNMF HP searches (§4 shows the repaired numbers; EMBER: 4 picks changed,
-> SNMF: none). **Not yet repaired:** everything SNMF+EMBER, and the
-> cross-lingual `ember` / `snmf_ember` numbers (§1, §5), which still use the old
-> picks and the old scoring and are inflated by it, SNMF+EMBER most. Repair:
+> **Repaired (2026-10-16).** The MC scoring cut answers off after 4 tokens and
+> counted "The answer is **C**" as wrong. All three HP searches (§4: EMBER 4
+> picks changed, SNMF none, SNMF+EMBER 7), the pristine cross-lingual baseline
+> and all three cross-lingual runs are redone with the fixed scoring (§1;
+> details in [`crosslingual_next.md`](crosslingual_next.md) §2.6). §5 still
+> shows the **pre-repair** cross-lingual tables. Repair:
 > [`ember_search.md`](ember_search.md), "MC scoring repair".
 
 **Not done yet in Part 1:** the paired method differences (and re-scoring
@@ -28,35 +28,39 @@ stage and relearning.
 
 | | EMBER | SNMF | SNMF+EMBER |
 |---|---|---|---|
-| Selection score `harmonic_alpaca` (mean of 18, `QA_train`) | 0.667 | 0.820 | **0.909** ² |
-| Efficacy | 0.430 | 0.721 | **0.877** ² |
-| Specificity | **0.970** | 0.848 | 0.909 ² |
-| Coherence | **0.992** | 0.959 | 0.960 ² |
-| English `QA_test` retention r_en (held out; lower = stronger erasure) | 0.52 ² | 0.45 | **0.27** ² |
-| Cross-lingual leak, mean Δ over de/es/fr/ru (`QA_test`) | +0.24 [+0.16, +0.32] ² | **+0.01** [−0.07, +0.09] | +0.17 [+0.08, +0.27] ² |
-| English MMLU, 1000-q test (pristine 0.553) | **0.548** ² | 0.506 | 0.511 ² |
+| Selection score `harmonic_alpaca` (mean of 18, `QA_train`) | 0.667 | 0.820 | **0.888** |
+| Efficacy | 0.430 | 0.721 | **0.834** |
+| Specificity | **0.970** | 0.848 | 0.892 |
+| Coherence | **0.992** | 0.959 | 0.965 |
+| English `QA_test` retention r_en (held out; lower = stronger erasure) | 0.61 | 0.45 | **0.39** |
+| Cross-lingual leak, mean Δ over de/es/fr/ru (`QA_test`) | +0.19 [+0.12, +0.27] | **+0.00** [−0.07, +0.08] | +0.05 [−0.02, +0.11] |
+| Cross-lingual leak into Russian | +0.33 [+0.22, +0.42] | **+0.05** [−0.06, +0.15] | +0.23 [+0.08, +0.38] |
+| English MMLU, 1000-q test (pristine 0.553) | **0.547** | 0.506 | 0.507 |
 
-² Not yet repaired: old 4-token scoring and/or old picks. EMBER's HP-search rows
-are repaired; its cross-lingual rows still use the old picks (4 differ) and scoring.
+All values after the MC scoring repair.
 
 1. **SNMF+EMBER is the best edit on the English selection score** for 17 of 18
-   concepts (Harry Potter is the exception, within noise). These scores are
-   measured on the items used for selection, so they are optimistic, and they
-   are not yet repaired (SNMF+EMBER is the method most inflated by the cut-off
-   answers). After the repair, **EMBER erases less than first reported**: mean
-   efficacy 0.43, not 0.52 (§4.2).
-2. **EMBER leaks across languages.** Tuned in English, it erases English but
-   much less in other languages, and almost not at all in Russian (retention
-   0.94). All four per-language bootstrap intervals exclude 0.
+   concepts (Harry Potter is the exception), also after the repair (0.888 vs
+   0.820 / 0.667). These scores are measured on the items used for selection, so
+   they are optimistic. The repair lowered all of them where cut-off answers had
+   inflated efficacy: **EMBER erases less than first reported** (efficacy 0.43,
+   not 0.52; §4.2).
+2. **EMBER leaks across languages.** Tuned in English, it erases English (held
+   out: retention 0.61 after the repair, 0.52 before) but less in other
+   languages, and almost not at all in Russian (retention 0.96). Mean leak +0.19
+   (Russian +0.33), smaller than the pre-repair +0.24, and all four
+   per-language bootstrap intervals still exclude 0.
 3. **SNMF does not leak** (every interval contains 0), but it damages more:
    similar-domain accuracy drops ~0.15 in every language and English MMLU drops
    ~0.05. The damage comes from SNMF on this grid, not from our new selection
    procedure (§5.5).
-4. **SNMF+EMBER erases English the most on held-out questions, but leaks
-   again.** Adding the EMBER embedding edit on top of SNMF brings back an
-   EMBER-like leak, mostly into Russian (+0.37). Its specificity is between
-   the two, and it has the most invalid answers (English 0.16), so part of its
-   erasure is broken output (§5.4).
+4. **SNMF+EMBER erases English the most on held-out questions (retention
+   0.39) and, after the repair, leaks only into Russian** (+0.23 [+0.08,
+   +0.38]); into German, Spanish and French it does not (all intervals contain
+   0; mean leak +0.05 [−0.02, +0.11]). Before the repair it looked like it
+   leaked about as much as EMBER (+0.17): those cut-off answers were mostly in
+   English, so they inflated the English erasure and with it the leak. Its
+   collateral damage is close to SNMF's (SimDom 0.75 / 0.59, MMLU 0.507).
 
 ---
 
@@ -119,29 +123,29 @@ harmonic_alpaca = hmean(efficacy, specificity, coherence)      # final pick
 
 ### 4.1 Per concept, `harmonic_alpaca`
 
-EMBER and SNMF after the MC scoring repair; SNMF+EMBER not yet repaired (²).
+All three after the MC scoring repair (bold δ: changed by the repair; bold score: best of the three).
 
 | Concept | EMBER δ | EMBER | SNMF | SNMF+EMBER |
 |---|---|---|---|---|
-| Ancient Rome | 200 | 0.816 | 0.802 ¹ | **0.952** |
-| Artificial intelligence | 100 | 0.442 | 0.857 | **0.892** |
-| Baseball | **200** | 0.428 | 0.806 | **0.908** |
+| Ancient Rome | 200 | 0.816 | 0.802 ¹ | **0.939** |
+| Artificial intelligence | 100 | 0.442 | 0.857 | **0.872** |
+| Baseball | **200** | 0.428 | 0.806 | **0.880** |
 | COVID-19 pandemic | 50 | 0.630 | 0.837 | **0.908** |
-| Cannabis | 200 | 0.568 | 0.703 | **0.857** |
-| Culture of Greece | 200 | 0.938 | 0.844 | **0.984** |
-| Gambling | **10** | 0.720 | 0.867 | **0.988** |
+| Cannabis | 200 | 0.568 | 0.703 | **0.778** |
+| Culture of Greece | 200 | 0.938 | 0.844 | **0.967** |
+| Gambling | **10** | 0.720 | 0.867 | **0.895** |
 | Golf | 10 | 0.672 | 0.758 | **0.823** |
-| Gun | **5** | 0.663 | 0.867 | **0.926** |
+| Gun | **5** | 0.663 | 0.867 | **0.898** |
 | Halloween | 10 | 0.659 | 0.787 | **0.871** |
 | Harry Potter | 10 | 0.767 | **0.929** | 0.903 |
-| Heroin | 100 | 0.795 | 0.840 | **0.905** |
-| Nazism | 100 | 0.772 | 0.805 | **0.837** |
-| Pornography | 5 | 0.592 | 0.864 | **0.921** |
-| Republic of Ireland | 100 | 0.589 | 0.740 | **0.911** |
-| Uranium | **200** | 0.621 | 0.716 | **0.967** |
-| Valentine's Day | 200 | 0.684 | 0.909 | **0.923** |
+| Heroin | 100 | 0.795 | 0.840 | **0.886** |
+| Nazism | 100 | 0.772 | 0.805 | **0.818** |
+| Pornography | 5 | 0.592 | 0.864 | **0.908** |
+| Republic of Ireland | 100 | 0.589 | 0.740 | **0.892** |
+| Uranium | **200** | 0.621 | 0.716 | **0.935** |
+| Valentine's Day | 200 | 0.684 | 0.909 | **0.917** |
 | World War II | 5 | 0.659 | 0.829 | **0.897** |
-| **Mean** | | **0.667** | **0.820** | **0.909** ² |
+| **Mean** | | **0.667** | **0.820** | **0.888** |
 
 ¹ After the loop screen (§4.4).
 
@@ -151,7 +155,7 @@ Mean over the 18 concepts (median in brackets):
 |---|---|---|---|---|
 | EMBER | 0.430 (0.403) | 0.970 (0.965) | 0.992 (0.998) | 0.667 (0.661) |
 | SNMF | 0.721 (0.698) | 0.848 (0.858) | 0.959 (0.962) | 0.820 (0.833) |
-| SNMF+EMBER ² | **0.877** (0.890) | 0.909 (0.906) | 0.960 (0.974) | **0.909** (0.908) |
+| SNMF+EMBER | **0.834** (0.847) | 0.892 (0.891) | 0.965 (0.974) | **0.888** (0.896) |
 
 ### 4.2 EMBER
 
@@ -244,9 +248,11 @@ Files: `judge_rerun/SNMF/pass2_rescored/.../best_hps_summary.csv` (after the MC 
 
 ### 4.5 SNMF+EMBER
 
-> **Not yet repaired.** These numbers use the old 4-token scoring (this method
-> has the most cut-off answers: 15% at the picks) and, for Baseball, Gambling,
-> Gun and Uranium, the old EMBER δ. Plan: [`snmf_ember_search.md`](snmf_ember_search.md), "Repair".
+> **Pre-repair numbers below.** After the MC scoring repair (2026-10-16) 7 of 18
+> picks changed (Ancient Rome, Baseball, Culture of Greece, Gambling, Gun,
+> Uranium, Valentine's Day) and the mean fell to efficacy 0.834 / specificity
+> 0.892 / coherence 0.965 / `harmonic_alpaca` 0.888 (§4.1). Per-concept repaired
+> table: [`snmf_ember_search.md`](snmf_ember_search.md), "Repair results".
 
 | Concept | δ_emb | δ_in | δ_out | efficacy | specificity | coherence | harmonic_alpaca | min frac |
 |---|---|---|---|---|---|---|---|---|
@@ -288,6 +294,12 @@ Files: `judge_rerun/SNMF_EMBER/pass2_outputs/.../best_hps_summary.csv`.
 ---
 
 ## 5. Cross-lingual leakage (English-tuned edit, asked in 5 languages)
+
+> **Pre-repair tables below.** The repaired cross-lingual numbers (fixed scoring,
+> repaired picks, fixed pristine baseline) are in
+> [`crosslingual_next.md`](crosslingual_next.md) §2.6: mean leak `ember` +0.24 →
+> **+0.19**, `snmf` +0.01 → **+0.00**, `snmf_ember` +0.17 → **+0.05** (no longer
+> significant; Russian +0.23 still is).
 
 **Setup.** Apply each concept's English-tuned pick once, never re-tuned per
 language. Ask the held-out multiple-choice `QA_test` (50 questions) and

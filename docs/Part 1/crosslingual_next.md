@@ -26,8 +26,8 @@ against the Gemini-era picks: §2.4. The pristine baselines were done before
 > waits for its own repaired search. `run_edited.py` still reads the old
 > `pass2_outputs/` picks and has to be pointed at `pass2_rescored/` first.
 >
-> **Update 2026-10-16: the repair is done for the baseline, `ember` and `snmf`**
-> (§2.6); `snmf_ember` is running with its repaired picks. The fixed results
+> **Update 2026-10-16: the repair is done for the baseline and all three
+> methods** (§2.6). The fixed results
 > are in `results/crosslingual/google_gemma-2-2b-it/<method>_fixed/`; the
 > original folders are untouched. §2.3–§2.5 below are the **pre-repair** numbers.
 
@@ -339,7 +339,7 @@ these values.
 
 **`ember`** (`ember_fixed/`; jobs 1044045–1044048, 23–56 min, all 18 edit checks
 exact): 4 concepts `full` (Baseball 200, Gambling 10, Gun 5, Uranium 200), 14
-`regen`. Stage A re-read 14 answers; stage B regenerated 207 (175 now valid, 1
+`regen`. Stage A re-read 14 answers; stage B regenerated 162 (144 now valid, 1
 control mismatch: Culture of Greece en, a near-tie flip). 30 answers remain
 invalid, nearly all real non-answers (21 empty, "Die primäre-primäre-…"); one
 is a parser miss ("**Réponse :**\n\n**D. …**", letter on the next line).
@@ -371,11 +371,48 @@ fixed baseline: mean leak +0.01 → +0.00 [−0.07, +0.08], r_en 0.45, SimDom 0.
 0.57, MMLU 0.506. Conclusion unchanged: no detectable leak, more collateral
 damage.
 
-**`snmf_ember`** (running, 2026-10-16): 7 concepts `full` (the picks that
+**`snmf_ember`** (`snmf_ember_fixed/`; jobs 1044649–1044652, 48 min – 1 h 09,
+summary job 1044653; all 18 edit checks exact): 7 concepts `full` (the picks that
 changed: Ancient Rome, Baseball, Culture of Greece, Gambling, Gun, Uranium,
-Valentine's Day), 11 `regen` (457 answers still invalid after stage A). Jobs
-1044649–1044652, then the summary job 1044653 (`afterok`), whose log
-`cl_summary_fixed_1044653.out` holds the old-vs-new table.
+Valentine's Day), 11 `regen`. Stage B regenerated 205 answers (167 now valid, 1
+control mismatch). 78 remain invalid, real non-answers (60 empty, "La
+respuesta:\n\nLa respuesta:", "Ich bin ein Virus").
+
+| `snmf_ember` (mean over concepts) | original | **fixed** |
+|---|---|---|
+| English `QA_test` acc (pristine 0.73) | 0.38 | **0.44** |
+| Retention r_en | 0.27 | **0.39** |
+| Retention de / es / fr / ru | 0.38 / 0.39 / 0.36 / 0.65 | 0.37 / 0.40 / 0.35 / 0.64 |
+| Leak de | +0.11 [−0.01, +0.23] | **−0.02** [−0.09, +0.05] |
+| Leak es | +0.12 [+0.02, +0.23] | **+0.01** [−0.07, +0.11] |
+| Leak fr | +0.09 [+0.00, +0.19] | **−0.04** [−0.11, +0.03] |
+| Leak ru | +0.37 [+0.20, +0.54] | **+0.23** [+0.08, +0.38] |
+| **Mean leak de/es/fr/ru** | +0.17 [+0.08, +0.27] | **+0.05 [−0.02, +0.11]** |
+| Concepts with mean leak > 0 | 14 / 18 | 11 / 18 |
+| SimDom acc en / mean other | 0.78 / 0.61 | 0.75 / 0.59 |
+| English MMLU (1000-q test) | 0.511 | 0.507 |
+| `QA_test` invalid en / de / es / fr / ru | 0.160 / 0.110 / 0.100 / 0.098 / 0.023 | 0.018 / 0.022 / 0.016 / 0.021 / 0.006 |
+
+**This changes a conclusion.** Before the repair SNMF+EMBER looked like it
+brought back an EMBER-like leak (+0.17). After it, **SNMF+EMBER does not leak
+into German, Spanish or French** (all three intervals contain 0), and the mean
+leak is +0.05 with an interval containing 0. **Russian still leaks** (+0.23,
+interval excludes 0), less than EMBER's +0.33. Most of the old "leak" was
+cut-off answers counted as erasure in English (16% invalid there, against ~10%
+in de/es/fr and 2% in ru). English erasure is still the strongest of the three
+(r_en 0.39 vs 0.61 / 0.45). One pick costs a lot of MMLU: Gambling's new cell
+(δ = 10) scores 0.450 on the 1000-q MMLU test (old pick 0.524); its 50-question
+MMLU had only just passed the gate (0.46).
+
+**The three methods after the repair:**
+
+| | `ember` | `snmf` | `snmf_ember` |
+|---|---|---|---|
+| English retention r_en (lower = stronger erasure) | 0.61 | 0.45 | **0.39** |
+| Mean leak de/es/fr/ru | +0.19 [+0.12, +0.27] | **+0.00** [−0.07, +0.08] | +0.05 [−0.02, +0.11] |
+| Leak ru | +0.33 [+0.22, +0.42] | +0.05 [−0.06, +0.15] | +0.23 [+0.08, +0.38] |
+| SimDom acc en / mean other (pristine 0.89 / 0.74) | **0.87 / 0.73** | 0.73 / 0.57 | 0.75 / 0.59 |
+| English MMLU (pristine 0.553) | **0.547** | 0.506 | 0.507 |
 
 The bootstrap here uses `np.random.default_rng(0)` for both columns, so the
 "original" bounds can differ by 0.01 from §2.4.

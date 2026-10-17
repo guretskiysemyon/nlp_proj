@@ -19,7 +19,10 @@ most of the three methods, but it leaks (mean non-English Δ +0.17, Russian
 > picks). After the repair **7 of 18 picks changed** and mean `harmonic_alpaca`
 > fell from 0.909 to 0.888 (efficacy 0.877 → 0.834). See "Repair" below. The
 > Results table further down shows the **pre-repair** picks. The cross-lingual
-> `snmf_ember` run is being redone with the new picks (2026-10-16).
+> run is redone too (2026-10-16): mean leak +0.17 → **+0.05 [−0.02, +0.11]**,
+> Russian +0.23 [+0.08, +0.38]; English retention 0.39
+> ([`crosslingual_next.md`](crosslingual_next.md) §2.6). The "Cross-lingual
+> run" section below is the pre-repair run.
 
 **Where the results are:** `judge_rerun/SNMF_EMBER/` (layout and policy:
 [`judge_rerun/SNMF_EMBER/README.md`](../../judge_rerun/SNMF_EMBER/README.md)).
