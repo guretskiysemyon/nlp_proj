@@ -45,10 +45,20 @@ def english_groups():
 def _batch(lang, b, group, force, trans_dir=TRANS_DIR):
     path = trans_dir / f"{lang}_{b:03d}.json"
     en = [g["sentence"] for g in group]
+    prefix = []
     if path.exists() and not force:
         cached = json.loads(path.read_text(encoding="utf-8"))
         if [c["en_sentence"] for c in cached] == en:
             return lang, b, cached, True
+        if 0 < len(cached) < len(en) and [c["en_sentence"] for c in cached] == en[:len(cached)]:
+            # the pool grew inside this batch: keep the cached translations, translate only the new tail
+            prefix, group, en = cached, group[len(cached):], en[len(cached):]
+    if prefix:
+        tail = translate_neutral.translate(en, lang)
+        rows = prefix + [{"id": len(prefix) + i, "en_sentence": g["sentence"], "translation": t, "url": g["url"],
+                          "title": g["title"]} for i, (g, t) in enumerate(zip(group, tail))]
+        path.write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+        return lang, b, rows, False
     for attempt in range(1, 4):  # translate() gives up after MAX_ROUNDS; retry the batch instead of failing the run
         try:
             trans = translate_neutral.translate(en, lang)

@@ -116,10 +116,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--reps", type=int, nargs="+", default=[0, 1, 2])
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--min-pool", type=int, default=0,
+                    help="ext pool size per language at least this (the capped sets of extended_sets.build_neutral_n "
+                         "need per_lang - 40); the pool order is prefix-stable, so only the tail is translated")
     args = ap.parse_args()
 
     counts = {c: concept_counts(c) for c in CONCEPT_TITLES}
-    n_max = {lang: max(cnt[lang] for cnt in counts.values()) for lang in LANGS}
+    n_max = {lang: max(args.min_pool, *(cnt[lang] for cnt in counts.values())) for lang in LANGS}
     print("N_max per language:", n_max)
     report_path = DATA / "neutral_replicates_report.json"
     report = json.loads(report_path.read_text()) if report_path.exists() else {}

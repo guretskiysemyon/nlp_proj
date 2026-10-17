@@ -9,8 +9,10 @@ Sanity check of "noise": for every eps, the 15 background tokens with the larges
 (W fit on the whole background). With too small eps these are dominated by tokens that are extreme in the
 smallest-variance (noisiest) directions.
 
-Output: data/<model>/eps_select.json and data/<model>/eps_select.md.
-Usage: python experiments/whitening/eps_select.py [--models gemma llama]
+Output: data/<model>/eps_select.json and data/<model>/eps_select.md (default backgrounds wiki, full).
+With --backgrounds other than the default (e.g. wiki_ml): eps_select_<names>.json / .md, and for wiki_ml also
+data/<model>/defaults_ml.json (eps_rel from here; eta, gamma copied from defaults.json until a multilingual sweep).
+Usage: python experiments/whitening/eps_select.py [--models gemma llama] [--backgrounds wiki_ml]
 """
 from __future__ import annotations
 
@@ -50,16 +52,17 @@ def top_norm_tokens(emb: Embeddings, ids: list[int], stats: dict, eps_rel: float
         float(norms.median())
 
 
-def run(model: str):
+def run(model: str, backgrounds=BACKGROUNDS):
     md = model_dir(model)
-    out = md / "eps_select.json"
+    tag = "" if list(backgrounds) == BACKGROUNDS else "_" + "_".join(backgrounds)
+    out = md / f"eps_select{tag}.json"
     if out.exists():
         log(f"[{model}] eps_select exists, skipping")
         return
     emb = Embeddings(model)
     res = {"eps_grid": EPS_GRID, "rule": f"smallest eps_rel with mean CV error <= (1+{TOL}) * min", "backgrounds": {}}
     try:
-        for bg in BACKGROUNDS:
+        for bg in backgrounds:
             t0 = time.time()
             ids = read_json(md / f"bg_{bg}_types.json")
             perm = random.Random(SEED).sample(ids, len(ids))
@@ -91,16 +94,24 @@ def run(model: str):
             lines.append(f"| {row['eps_rel']:g} | {row['err_AB']:.3f} | {row['err_BA']:.3f} | {row['err']:.3f} | "
                          f"{row['median_whitened_norm']:.1f} | {toks} |")
         lines.append("")
-    (md / "eps_select.md").write_text("\n".join(lines))
+    (md / f"eps_select{tag}.md").write_text("\n".join(lines))
+    if "wiki_ml" in res["backgrounds"]:
+        base = read_json(md / "defaults.json") if (md / "defaults.json").exists() else {"eta": 0.2, "gamma": 1.0}
+        write_json(md / "defaults_ml.json", {
+            "eps_rel": res["backgrounds"]["wiki_ml"]["chosen_eps_rel"], "eta": base["eta"], "gamma": base["gamma"],
+            "background": "wiki_ml", "target": "ext",
+            "chosen_by": "eps_rel: eps_select.py split-half CV on bg_wiki_ml; eta, gamma: the English defaults.json "
+                         "(no multilingual eta sweep yet)"})
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", nargs="+", default=["gemma", "llama"])
+    ap.add_argument("--backgrounds", nargs="+", default=BACKGROUNDS)
     args = ap.parse_args()
     for m in args.models:
         t0 = time.time()
-        run(m)
+        run(m, args.backgrounds)
         log(f"[{m}] eps_select done ({time.time() - t0:.0f}s)")
 
 
