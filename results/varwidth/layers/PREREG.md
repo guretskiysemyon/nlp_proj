@@ -86,3 +86,13 @@ HJ-R = CJ+S ∨ LO@4.
 - Disjoint-target control for CS, if spend allows: the sharpening target built from page sentences outside the 300
   sampled concept sentences, at L1 and L1+2, judged and evaluated like the main rungs. This is exploratory.
 - Reports use the paper names (CS, RS-1%, GS-norm, TJ, WJ, EJ@t, TWJ); the rung keys are unchanged.
+
+## Amendment 2 (2026-10-18 evening, AFTER the erasure anchor and the held-out judge results were seen; post hoc)
+These rungs are exploratory and were chosen after seeing the results:
+- CS lowered erasure efficacy (EMBER → +CS: Δ H = −0.15).
+- On the 15 new concepts, TJ ∨ WJ+share generalized better than TWJ.
+They are reported separately and never as confirmatory:
+- **L0H** = EMBER matrix + TWJ (L3 without L1, L2);
+- **L0W** = EMBER matrix + TJ ∨ WJ+share (WJ on the L0 runs, seed 42, all 38 concepts);
+- **L12W** = CS + GS + TJ ∨ WJ+share.
+Erasure: the same 14 concepts, seed 42, the same protocol.

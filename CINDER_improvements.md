@@ -47,6 +47,27 @@ All results so far measure the **features**, on Gemma-2-2b-it. Erasure after the
 - **CS may be partly circular at the feature level.** The sharpening target is the concept's Wikipedia page, which contains the very tokens our purity metrics score. With a target that excludes those tokens, the CS gains mostly disappear. The erasure evaluation does not depend on these labels, so it will tell, and a disjoint target is needed for a paper.
 - **TWJ's extra accepts are often broader than the concept.** With strict labels its gain shrinks from 21 to 7 runs. Its threshold was chosen on the same labeled set, and the 15 held-out concepts are not judged yet.
 
+### Ladder and erasure results (Oct 18)
+
+The cumulative ladder ran on 38 concepts (15 of them held out) at the feature level, and on 14 paper concepts with EMBER's erasure protocol. The analysis was pre-registered. Full numbers are in [results/varwidth/layers/SUMMARY.md](results/varwidth/layers/SUMMARY.md).
+
+| Rung | Concept acc. ↓ | Efficacy | H |
+| --- | --- | --- | --- |
+| EMBER | 54.3 | 0.36 | 0.52 |
+| +CS | 62.4 | 0.21 | 0.38 |
+| +CS+GS | 62.1 | 0.22 | 0.39 |
+| +CS+GS+TWJ (CINDER) | 59.7 | 0.28 | 0.49 |
+| EMBER + TJ∨WJ+share (exploratory) | **50.0** | **0.47** | **0.65** |
+
+- **CS hurts erasure** (Δ H −0.15). Its features absorb generic words that occur only in the concept sentences, such as get, win, heart and values. The feature-level purity gains above partly came from that label.
+- **GS is neutral for erasure.**
+- **The judge layer helps** (+0.10 on top of CS+GS, +0.12 on EMBER's own matrix, no concept worse). It rescues concepts where EMBER's judge selected nothing: Heroin, Uranium, Nazism, Halloween.
+- **On the 15 held-out concepts, EJ@5 does not generalize.** TJ ∨ WJ+share does: precision 0.71, recall 0.89.
+- **Fidelity checks pass.** Our EMBER matches the paper's Table 6, and the paper's own Alpaca-in-grid tuning gives the same result as our cheaper gate.
+- **The pre-registered feature-level endpoint (strict clean-hit) showed no gain.**
+
+What this means for the paper: the robust contribution is the judge diagnosis and fix. CS needs a stricter definition of concept tokens before it can help erasure. The judge-only configuration was chosen after seeing the results, so it needs confirmation on new concepts or seeds.
+
 ### Contributions and potential
 
 1. **A diagnosis.** EMBER's features miss concepts for three separate reasons (variance, allocation and verification), and each one has a measurable symptom.

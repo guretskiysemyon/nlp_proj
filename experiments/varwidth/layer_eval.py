@@ -30,7 +30,9 @@ CONFIGS = {"L0": "fixed_refit-False_plain", "L1": "fixed_refit-False", "L12": "r
            "fixed2": "fixed_sparsity-0.02_refit-False", "m1": "m1_refit-False", "m3": "m3_refit-False",
            "rnP": "rn_refit-False_plain"}
 JUDGED = ("L0", "L1", "L12")
-RUNGS = {"L0": ("L0", "TJ"), "L1": ("L1", "TJ"), "L12": ("L12", "TJ"), "L123": ("L12", "HJ")}
+RUNGS = {"L0": ("L0", "TJ"), "L1": ("L1", "TJ"), "L12": ("L12", "TJ"), "L123": ("L12", "HJ"),
+         # exploratory, added after the erasure anchor (PREREG amendment 2): the judges without CS, and TJ v WJ+share
+         "L0H": ("L0", "HJ"), "L0W": ("L0", "TW"), "L12W": ("L12", "TW")}
 LO_T = 5
 OUT = RESULTS / "layers"
 
@@ -107,12 +109,12 @@ def load(concept: str, cfg: str, seed: int) -> dict | None:
 
 def fc(cache: dict, judge: str, lo_t: int = LO_T) -> list:
     """F_C (candidate rows) of a run under a judge: TJ, CJ, CJS (CJ and share >= .5), LO, HJ (TJ or LO@t),
-    HJR (CJS or LO@4)."""
+    HJR (CJS or LO@4), TW (TJ or CJS)."""
     def ok(c):
         lo = c["lo"] or 0
         cjs = bool(c["cj"]) and c["share"] >= 0.5
         return {"TJ": bool(c["tj"]), "CJ": bool(c["cj"]), "CJS": cjs, "LO": lo >= lo_t,
-                "HJ": bool(c["tj"]) or lo >= lo_t, "HJR": cjs or lo >= 4}[judge]
+                "HJ": bool(c["tj"]) or lo >= lo_t, "HJR": cjs or lo >= 4, "TW": bool(c["tj"]) or cjs}[judge]
     return [c for c in cache["candidates"] if ok(c)]
 
 
