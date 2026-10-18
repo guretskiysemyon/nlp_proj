@@ -79,13 +79,13 @@ class Evals:
         c, _, _ = evaluate_mmlu_generation(w, self.mmlu[split])
         return c / len(self.mmlu[split])
 
-    def alpaca(self, w):
-        """Mean instruction / fluency scores (0-2) on the first alpaca_n test prompts."""
+    def alpaca(self, w, split="test", n=None):
+        """Mean instruction / fluency scores (0-2) on the first n (default alpaca_n) prompts of the split."""
         from ember.evals.alpaca import load_alpaca_eval_local
         from ember.evals.gemini import GeminiEvaluator
         from ember.local_datasets import load_alpaca_indices
         items = [ex["instruction"] for ex in load_alpaca_eval_local() if "instruction" in ex]
-        inst = [items[i] for i in load_alpaca_indices("test")[:self.alpaca_n]]
+        inst = [items[i] for i in load_alpaca_indices(split)[:(n or self.alpaca_n)]]
         gens = w.generate_multiple(inst, max_new_tokens=200, do_sample=False, batch_size=8)
         ev = GeminiEvaluator()
 
@@ -187,9 +187,11 @@ def check_space(concept, rung, seed, W, scale):
     return cos
 
 
-def run(concept, rung, seed, alpaca_n, mw=None):
-    """mw: (model, wrapped) to reuse (its embedding is restored from the snapshot afterwards)."""
-    d = OUT / slug(concept) / f"{rung}_s{seed}"
+def run(concept, rung, seed, alpaca_n, mw=None, paper_grid=False):
+    """mw: (model, wrapped) to reuse (its embedding is restored from the snapshot afterwards). paper_grid: the
+    paper's own grid (Alpaca on the 150 validation prompts at every delta that passes the MMLU gate, Alpaca gate 0.9,
+    pick by H = HM(efficacy, specificity, coherence)); output dir <rung>_s<seed>_papergrid."""
+    d = OUT / slug(concept) / (f"{rung}_s{seed}" + ("_papergrid" if paper_grid else ""))
     if (d / "result.json").exists():
         print(f"done: {d / 'result.json'}")
         return
@@ -197,6 +199,14 @@ def run(concept, rung, seed, alpaca_n, mw=None):
     bc, bg = base[concept], base["_global"]
     t0 = time.time()
     ids, C, F, info = edit_vectors(concept, rung, seed)
+    for other in ([] if paper_grid else RUNGS):   # same config and same F_C (TWJ adds nothing to TJ): copy the edit
+        o = OUT / slug(concept) / f"{other}_s{seed}" / "result.json"
+        if other != rung and RUNGS[other][0] == RUNGS[rung][0] and o.exists():
+            r = json.loads(o.read_text())
+            if sorted(r["F_C"]) == sorted(F) and "copied_from" not in r:
+                save(d / "result.json", {**r, "rung": rung, "copied_from": other})
+                print(f"{concept} {rung}: F_C = {F} as in {other}, result copied", flush=True)
+                return
     model, w = mw or load_model()
     W = model.get_input_embeddings().weight
     scale = math.sqrt(W.shape[1])
@@ -212,6 +222,10 @@ def run(concept, rung, seed, alpaca_n, mw=None):
             W.index_copy_(0, idx, (e_new / scale).to(W.dtype))
 
     ev = Evals(concept, alpaca_n)
+    if paper_grid and "alpaca_train150" not in bg:
+        set_delta(0.0)
+        bg["alpaca_train150"] = list(ev.alpaca(w, "train", 150))
+        _locked_update(BASE, lambda dd: dd["_global"].update(alpaca_train150=bg["alpaca_train150"]))
     gpath = d / "grid.json"
     grid = json.loads(gpath.read_text()) if gpath.exists() else []
     done = {g["delta"] for g in grid}
@@ -230,11 +244,20 @@ def run(concept, rung, seed, alpaca_n, mw=None):
             r["efficacy"] = 1 - r["qa_frac"]
             r["specificity"] = hm([r["mmlu_frac"], r["simdom_frac"]])
             r.update(H2=hm([r["efficacy"], r["specificity"]]), gate="")
+            if paper_grid:
+                ai, af = ev.alpaca(w, "train", 150)
+                bi, bf = bg["alpaca_train150"]
+                r.update(instr_frac=min(1.0, ai / bi), flu_frac=min(1.0, af / bf))
+                r["coherence"] = hm([r["instr_frac"], r["flu_frac"]])
+                r["H3"] = hm([r["efficacy"], r["specificity"], r["coherence"]])
+                if r["instr_frac"] < 0.9 or r["flu_frac"] < 0.9:
+                    r.update(H3=0.0, gate="alpaca")
         grid.append(r)
         save(gpath, grid)
         print(f"{concept} {rung} delta={delta}: H2={r['H2']:.3f} {r['gate']}", flush=True)
-    passed = [g for g in grid if g["H2"] > 0]
-    best = 0.0 if not passed else sorted(passed, key=lambda g: (-g["H2"], g["delta"]))[0]["delta"]
+    hk = "H3" if paper_grid else "H2"
+    passed = [g for g in grid if g.get(hk, 0) > 0]
+    best = 0.0 if not passed else sorted(passed, key=lambda g: (-g[hk], g["delta"]))[0]["delta"]
     set_delta(best)
     res = {"concept": concept, "rung": rung, "seed": seed, "F_C": F, "edit_ids": ids, **info, "delta": best}
     res["qa_acc"], res["simdom_acc"] = ev.mc_acc(w, "qa_test"), ev.mc_acc(w, "simdom_test")
@@ -260,6 +283,16 @@ def run(concept, rung, seed, alpaca_n, mw=None):
     print(json.dumps({k: v for k, v in res.items() if k != "edit_ids"}), flush=True)
 
 
+def _copyable(concept, rung, seed) -> bool:
+    ids, C, F, info = edit_vectors(concept, rung, seed)
+    for other in RUNGS:
+        o = OUT / slug(concept) / f"{other}_s{seed}" / "result.json"
+        if other != rung and RUNGS[other][0] == RUNGS[rung][0] and o.exists():
+            if sorted(json.loads(o.read_text())["F_C"]) == sorted(F):
+                return True
+    return False
+
+
 def main():
     from dotenv import load_dotenv
     load_dotenv(ROOT / ".env", override=False)
@@ -270,14 +303,18 @@ def main():
     ap.add_argument("--rung", choices=list(RUNGS), nargs="+")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--alpaca-n", type=int, default=50)
+    ap.add_argument("--paper-grid", action="store_true", help="the paper's grid with Alpaca at every delta (fidelity)")
     a = ap.parse_args()
     if a.what == "baselines":
         baselines(a.concepts, a.alpaca_n)
     else:
-        todo = [r for r in a.rung if not (OUT / slug(a.concept) / f"{r}_s{a.seed}" / "result.json").exists()]
-        mw = load_model() if todo else None   # one model load (~7 min from NFS) for all rungs of the concept
-        for r in todo:
-            run(a.concept, r, a.seed, a.alpaca_n, mw)
+        sfx = "_papergrid" if a.paper_grid else ""
+        todo = [r for r in a.rung if not (OUT / slug(a.concept) / f"{r}_s{a.seed}{sfx}" / "result.json").exists()]
+        mw = None
+        for r in todo:   # one model load (~7 min from NFS) for all rungs of the concept, only when needed
+            if mw is None and (a.paper_grid or not _copyable(a.concept, r, a.seed)):
+                mw = load_model()
+            run(a.concept, r, a.seed, a.alpaca_n, mw, a.paper_grid)
 
 
 if __name__ == "__main__":

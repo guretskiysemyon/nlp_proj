@@ -75,3 +75,14 @@ HJ-R = CJ+S ∨ LO@4.
   2. no CJ on the new concepts;
   3. erasure without Alpaca;
   4. thinking off.
+
+## Amendment 1 (2026-10-18, after the judging finished and before any erasure result existed)
+- Gemini spend was 6.7 of 25 NIS, so the erasure anchor is extended from 10 to all **14 non-prompt paper concepts**
+  (added: Cannabis, Nazism, Republic of Ireland, Valentine's Day). The analysis is unchanged.
+- When a rung's F_C equals the F_C of another rung of the same configuration (L123 vs L12), the erasure result is
+  copied (identical edit), marked `copied_from`.
+- Fidelity: one extra Harry Potter L0 run with the paper's own grid (Alpaca in the grid, 150 train items, Alpaca gate
+  0.9), if spend allows (< 18 NIS before it).
+- Disjoint-target control for CS, if spend allows: the sharpening target built from page sentences outside the 300
+  sampled concept sentences, at L1 and L1+2, judged and evaluated like the main rungs. This is exploratory.
+- Reports use the paper names (CS, RS-1%, GS-norm, TJ, WJ, EJ@t, TWJ); the rung keys are unchanged.

@@ -261,12 +261,12 @@ def per_concept(R: pd.DataFrame, col: str) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------- report
-RUNG_NAMES = {"L0": "L0 Original", "L1": "L1 +CW", "L12": "L1+2 +RNP", "L123": "L1+2+3 +HJ"}
+RUNG_NAMES = {"L0": "EMBER", "L1": "+CS", "L12": "+CS+GS", "L123": "+CS+GS+TWJ (CINDER)"}
 PAIRS = [("L0", "L1"), ("L1", "L12"), ("L12", "L123")]
 
 
 def ladder(R: pd.DataFrame) -> list:
-    L = ["# Layer ladder: Original → +CW → +CW+RNP → +CW+RNP+HJ", "",
+    L = ["# Layer ladder: EMBER → +CS → +CS+GS → +CS+GS+TWJ (CINDER)", "",
          "Pre-registered in PREREG.md. Unit = concept (mean over its seeds). Clean = F_C non-empty and every feature P "
          "(strict; lenient: P or B). Hit = some F_C feature P. Contaminated = some F_C feature N. Unlabeled features "
          "count as not P. Coverage = share of held-out concept-text tokens that are edited (E = concept-only tokens of "
@@ -329,7 +329,7 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
     sc = scopes()
     L = ["# Per-layer diagnostics", "", "Secondary / exploratory (PREREG): effect sizes and CIs, no significance claims.", ""]
     # ---- L1
-    L += ["## L1 (CW): concept recoverability, independent of the judge", "",
+    L += ["## L1 (CS): concept recoverability, independent of the judge", "",
           "Oracle hit@k = a P-labeled feature among the top-k by ρ (share of runs, mean over concepts). "
           "n_tau = features with ρ ≥ 2 (the paper's candidate count; its scale changes under CW). AUC = C-vs-N "
           "separability of the V* columns along the mean-difference direction (prep matrix only).", ""]
@@ -340,7 +340,7 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
             if S.empty:
                 continue
             g = S.groupby(["concept", "seed"])
-            row = {"scope": name, "config": {"L0": "plain Fixed-1%", "L1": "CW Fixed-1%"}[cfg]}
+            row = {"scope": name, "config": {"L0": "EMBER matrix, RS-1%", "L1": "CS, RS-1%"}[cfg]}
             for k in (1, 3, 5, 20):
                 row[f"hit@{k}"] = g.apply(lambda x: bool(((x["rank"] < k) & (x["lab"] == "P")).any())) \
                     .groupby("concept").mean().mean()
@@ -354,7 +354,7 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
     L += [f"C-vs-N AUC over {A.dropna().shape[0]} concepts: plain {A['AUC plain'].mean():.3f}, CW "
           f"{A['AUC CW'].mean():.3f}; CW higher for {(A['AUC CW'] > A['AUC plain']).sum()} / {A.dropna().shape[0]}.", ""]
     # ---- L2
-    L += ["## L2 (width): fragmentation, coverage, breadth adaptivity, stability", "",
+    L += ["## L2 (GS): fragmentation, coverage, breadth adaptivity, stability", "",
           "Fragmentation = distinct P groups among the top-20 per run. Best-P = the P candidate with the largest "
           "held-out coverage. Width adaptivity = Spearman over concepts between the best-P feature's width (mean over "
           "seeds) and breadth = number of concept-only tokens in V*. Stability = mean pairwise Jaccard across seeds "
@@ -368,7 +368,7 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
         best = P.sort_values("cov").groupby(["concept", "seed"]).tail(1)
         bw = best.groupby("concept").agg(width=("width", "mean"), cov=("cov", "mean"), breadth=("n_c_vstar", "first"))
         rho = spearmanr(bw.width, bw.breadth).statistic if len(bw) > 2 and bw.width.nunique() > 1 else float("nan")
-        rows.append({"config": {"L1": "CW Fixed-1%", "L12": "CW RNP"}[cfg], "fragmentation": frag.mean(),
+        rows.append({"config": {"L1": "CS, RS-1%", "L12": "CS, GS-norm"}[cfg], "fragmentation": frag.mean(),
                      "best-P width": bw.width.mean(), "best-P coverage": bw["cov"].mean(),
                      "Spearman(width, breadth)": rho, "concepts with a P feature": len(bw)})
     L += mdt(pd.DataFrame(rows)) + [""]
@@ -388,13 +388,13 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
                                        for c, g in S.groupby("concept"))]
     L += [""]
     # ---- L2 method table (judge-free)
-    L += ["## L2 method table at cap 3% (judge-free; 38 concepts)", "",
-          "Concept feature = the top-20 candidate with the most LO matches (ties: higher ρ), so no Gemini or labels "
-          "are needed. LO ≥ 5 = that feature passes LO@5. Width and neutral share of that feature; seed Jaccard of its "
+    L += ["## L2 width-rule table at cap 3% (judge-free; 38 concepts)", "",
+          "Concept feature = the top-20 candidate with the most EJ matches (ties: higher ρ), so no Gemini or labels "
+          "are needed. EJ ≥ 5 = that feature passes EJ@5. Width and neutral share of that feature; seed Jaccard of its "
           "edited tokens; coverage on held-out concept text; collateral per 10k general tokens.", ""]
     rows = []
-    for cfg, name in (("L1", "Fixed-1%"), ("fixed2", "Fixed-2%"), ("m1", "CP (m1)"), ("m3", "EW (m3)"),
-                      ("L12", "RNP (rn)"), ("L0", "plain Fixed-1%"), ("rnP", "plain RNP")):
+    for cfg, name in (("L1", "CS, RS-1%"), ("fixed2", "CS, RS-2%"), ("m1", "CS, GS-gain"), ("m3", "CS, GS-entropy"),
+                      ("L12", "CS, GS-norm"), ("L0", "no CS, RS-1% (EMBER)"), ("rnP", "no CS, GS-norm")):
         per = []
         for c in concepts():
             sel, breadth = [], np.nan
@@ -418,19 +418,19 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
             continue
         P = pd.DataFrame(per)
         rho = spearmanr(P.width, P.breadth).statistic if P.width.nunique() > 1 else float("nan")
-        rows.append({"config": name, "concepts": len(P), "LO ≥ 5": P.lo5.mean(), "width": P.width.mean(),
+        rows.append({"config": name, "concepts": len(P), "EJ ≥ 5": P.lo5.mean(), "width": P.width.mean(),
                      "concept share": P.share.mean(), "seed Jaccard": P.jac.mean(), "coverage": P["cov"].mean(),
                      "collateral (wiki)": P.col.mean(), "Spearman(width, breadth)": rho})
     L += mdt(pd.DataFrame(rows)) + [""]
     # ---- cross-ablations
-    L += ["## Cross-ablations", "", "LO / HJ applied to the fixed-width rungs (L3 without L2), strict clean-hit rate "
+    L += ["## Cross-ablations", "", "EJ@5 / TWJ applied to the fixed-width rungs (L3 without L2); columns TJ, LO = EJ@5, HJ = TWJ, strict clean-hit rate "
           "on the non-prompt concepts (mean over concepts):", ""]
     rows = []
     np_cs = sc["non-prompt (primary)"]
     lab = labels()
     for cfg in ("L0", "L1", "L12"):
-        row = {"config": {"L0": "plain Fixed-1%", "L1": "CW Fixed-1%", "L12": "CW RNP"}[cfg]}
-        for jd in ("TJ", "LO", "HJ"):
+        row = {"config": {"L0": "no CS, RS-1%", "L1": "CS, RS-1%", "L12": "CS, GS-norm"}[cfg]}
+        for jd in ("TJ", "LO", "HJ"):  # TJ, EJ@5, TWJ
             vals = []
             for c in np_cs:
                 v = []
@@ -446,7 +446,7 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
         rows.append(row)
     L += mdt(pd.DataFrame(rows)) + [""]
     # ---- judges
-    L += ["## L3 judges on the CW RNP runs (top-20 candidates)", "",
+    L += ["## L3 judges on the CS + GS-norm runs (top-20 candidates)", "",
           "Micro precision / recall over candidates (strict: P positive; lenient: P or B), runs hit = runs with an "
           "accepted P feature, macro recall = mean over concepts. Recall is over the labeled pool (TJ, CJ, LO ≥ 2 or "
           "top 3 by ρ), so it is an upper bound.", ""]
@@ -462,9 +462,9 @@ def layers(R: pd.DataFrame, K: pd.DataFrame) -> list:
         lo = S["lo"].fillna(0)
         cj, tj = S.cj.fillna(False).astype(bool), S.tj.fillna(False).astype(bool)
         cjs = cj & (S.share >= 0.5)
-        rules = {"TJ": tj, "CJ": cj, "CJ+S": cjs, "LO@3": lo >= 3, "LO@4": lo >= 4, "LO@5": lo >= 5,
-                 "HJ = TJ ∨ LO@5": tj | (lo >= 5), "TJ ∨ LO@4": tj | (lo >= 4), "TJ ∨ CJ+S": tj | cjs,
-                 "HJ-R = CJ+S ∨ LO@4": cjs | (lo >= 4)}
+        rules = {"TJ (EMBER)": tj, "WJ": cj, "WJ+share": cjs, "EJ@3": lo >= 3, "EJ@4": lo >= 4, "EJ@5": lo >= 5,
+                 "TWJ = TJ ∨ EJ@5": tj | (lo >= 5), "TJ ∨ EJ@4": tj | (lo >= 4), "TJ ∨ WJ+share": tj | cjs,
+                 "TWJ-R = WJ+share ∨ EJ@4": cjs | (lo >= 4)}
         for rn, acc in rules.items():
             row = {"rule": rn, "accepts": int(acc.sum())}
             for lenient in (False, True):

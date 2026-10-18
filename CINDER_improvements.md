@@ -88,7 +88,7 @@ Approach 2 replaces one factorization per language with a single cheap fit. Appr
 2. **Whiten.** Map every row e of the matrix to ũ = W(e − μ\_B), with W = (Σ\_B + εI)^(−1/2). Every background direction now has unit variance. The small ridge ε = 10⁻⁴ · mean(Λ) damps only the smallest eigenvalues.
 3. **Sharpen.** Whiten the token types of the concept's English Wikipedia page in the same way, giving rows ũ\_1, …, ũ\_m. Their second moment, shrunk toward the identity, is S\_η = (1 − η) · (1/m) Σ ũ\_j ũ\_jᵀ + ηI. Map every row to x = S\_η^(γ/2) ũ.
 4. **Factorize** the transformed matrix with sparse MF, exactly as in EMBER.
-5. **Edit.** Map each concept token's part back exactly, c\_t = T⁻¹ c̃\_t with T⁻¹ = W⁻¹ S\_η^(−γ/2), and subtract it from the original embedding. The mean cancels in a difference, so the map is exact, and the notebook checks this numerically. As in EMBER, only concept-only tokens are edited.
+5. **Edit.** Map each concept token's part back exactly, c\_t = T⁻¹ c̃\_t with T⁻¹ = W⁻¹ S\_η^(−γ/2), and subtract it from the original embedding. The mean cancels in a difference, so the map is exact, and the notebook checks this numerically. As in EMBER, only concept-only tokens are edited. The mapped-back c\_t has a different norm from EMBER's, so δ is tuned again for each configuration on the validation grid, and every erasure run first checks that the transformed model rows equal the factorized matrix columns, stopping otherwise ([erase.py](experiments/varwidth/erase.py)).
 
 Defaults: η = 0.05 and γ = 1, chosen by a judge-free sweep on Harry Potter, Ancient Rome and Valentine's Day. η = 1 would mean whitening only, and γ sets how strongly the enriched directions are stretched.
 
