@@ -55,15 +55,21 @@ def summary_path(line: str) -> Path:
 
 
 def is_done(line: str) -> bool:
-    """summary.json exists (and, with --judge-reps N, holds N reruns)."""
+    """summary.json exists (and, with --judge-reps N, holds N reruns; with --reselect, uses the current judge rule);
+    with --fit-only: fit.pt exists."""
     p = summary_path(line)
+    from experiments.varwidth.run import parse
+    a = parse(shlex.split(line))
+    if a.fit_only:
+        return p.exists() or (p.parent / "fit.pt").exists()
     if not p.exists():
         return False
-    from experiments.varwidth.run import parse
-    n = parse(shlex.split(line)).judge_reps
-    if n:
-        import json
-        return len(json.loads(p.read_text()).get("judge_reps", [])) >= n
+    import json
+    if a.reselect:
+        from experiments.varwidth.select import JUDGE_TOP_N
+        return json.loads(p.read_text()).get("judge_rule") == f"top{JUDGE_TOP_N}"
+    if a.judge_reps:
+        return len(json.loads(p.read_text()).get("judge_reps", [])) >= a.judge_reps
     return True
 
 

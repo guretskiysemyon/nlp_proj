@@ -114,7 +114,10 @@ class SimpleGeminiClient:
         last_err: Optional[Exception] = None
         for attempt in range(1, self.max_retries + 1):
             try:
+                from ember import gemini_budget
+                gemini_budget.check()
                 resp = self.model.generate_content(prompt)
+                gemini_budget.record(resp)
                 if not resp.candidates: raise RuntimeError("No candidates returned from Gemini.")
                 text = getattr(resp, "text", None)
                 if not isinstance(text, str) or not text.strip():
@@ -124,6 +127,8 @@ class SimpleGeminiClient:
                 if not isinstance(text, str) or not text.strip(): raise RuntimeError("Gemini returned empty text.")
                 return text.strip()
             except Exception as e:
+                if type(e).__name__ == "BudgetExceeded":
+                    raise
                 last_err = e
                 print(f"[Gemini] error {e}, attempt {attempt}/{self.max_retries}")
                 if attempt < self.max_retries: time.sleep(self.sleep_seconds)

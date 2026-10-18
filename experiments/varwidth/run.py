@@ -11,7 +11,8 @@ tag = cfg.tag() [+ "_plain"] [+ "_S<S>"] [+ tag suffix]. With --merge-from TAG (
 TAG + "_merge" [+ suffix] and the config is the source run's.
 
 A run whose summary.json exists is skipped unless --force; with --judge-reps N on an existing run only the missing
-judge reruns are done (the fit is frozen).
+judge reruns are done (the fit is frozen); with --reselect an existing run's F_C is redone under the current judge rule.
+--fit-only writes fit.pt and stops (no Gemini); a later run with the same config and seed reuses that fit.
 """
 from __future__ import annotations
 
@@ -109,7 +110,7 @@ def write_tables(out: Path, Y, prep, F_C, title):
 
 def run_one(a) -> Path:
     from experiments.varwidth.prep import prepare
-    from experiments.varwidth.select import describe_features, select_features
+    from experiments.varwidth.select import JUDGE_TOP_N, describe_features, select_features
     t_all = time.time()
     timings = {}
 
@@ -125,7 +126,18 @@ def run_one(a) -> Path:
     if summ_path.exists() and not a.force:
         summ = json.loads(summ_path.read_text())
         have = summ.get("judge_reps", [])
-        if a.judge_reps > len(have):
+        if a.reselect and summ.get("judge_rule") != f"top{JUDGE_TOP_N}":
+            log(f"{out}: re-selecting F_C under the top-{JUDGE_TOP_N}-by-rho rule (cached verdicts reused)")
+            prep = prepare(a.concept, a.matrix, a.S, a.sub_seed)
+            fit = torch.load(out / "fit.pt", weights_only=False)
+            t0 = time.time()
+            sel = select_features(fit["Y"], prep, out / "judge.json", workers=a.workers)
+            summ.update({k: v for k, v in selection_summary(fit, prep, sel, {}, []).items() if k != "widest"})
+            summ.update({"judge_rule": f"top{JUDGE_TOP_N}", "n_tau": sel["n_tau"]})
+            summ.setdefault("timings", {})["reselect"] = time.time() - t0
+            write_tables(out, fit["Y"], prep, sel["F_C"], f"{a.concept} / {tag} / seed {a.seed}")
+            save_json(summ_path, summ)
+        elif a.judge_reps > len(have):
             log(f"{out}: exists; adding judge reruns {len(have) + 1}..{a.judge_reps} on the frozen fit")
             prep = prepare(a.concept, a.matrix, a.S, a.sub_seed)
             fit = torch.load(out / "fit.pt", weights_only=False)
@@ -148,14 +160,21 @@ def run_one(a) -> Path:
     A = prep["A"]
 
     t0 = time.time()
-    fit = do_fit(A, cfg, a.seed, a.stub_fit)
+    old = torch.load(out / "fit.pt", weights_only=False) if (out / "fit.pt").exists() else None
+    if old is not None and old.get("config") == cfg.to_dict() and old.get("seed") == a.seed:
+        fit = old   # an earlier --fit-only (or interrupted) run: reuse the fit, so judge.json stays valid
+        log(f"reusing {out / 'fit.pt'}")
+    else:
+        fit = do_fit(A, cfg, a.seed, a.stub_fit)
+        fit["Z"], fit["Y"] = fit["Z"].detach().float().cpu(), fit["Y"].detach().float().cpu()
+        fit.setdefault("config", cfg.to_dict())
+        fit.setdefault("seed", a.seed)
+        torch.save(fit, out / "fit.pt")
     timings["fit"] = time.time() - t0
-    fit["Z"], fit["Y"] = fit["Z"].detach().float().cpu(), fit["Y"].detach().float().cpu()
-    fit.setdefault("config", cfg.to_dict())
-    fit.setdefault("seed", a.seed)
-    torch.save(fit, out / "fit.pt")
     log(f"fit: rel_err={fit['rel_err']:.4f} iters={fit.get('n_iter')} stop={fit.get('stop_reason')} "
         f"({timings['fit']:.1f}s)")
+    if a.fit_only:
+        return out
 
     t0 = time.time()
     sel = select_features(fit["Y"], prep, out / "judge.json", workers=a.workers)
@@ -172,7 +191,8 @@ def run_one(a) -> Path:
             "n_concept_sents": a.S, "sub_seed": a.sub_seed, "vstar": len(prep["vstar_ids"]),
             **selection_summary(fit, prep, sel, wdesc, widest),
             "fit_elapsed": float(fit.get("elapsed", timings["fit"])), "n_iter": fit.get("n_iter"),
-            "lockin_iter": fit.get("lockin_iter"), "stop_reason": fit.get("stop_reason")}
+            "lockin_iter": fit.get("lockin_iter"), "stop_reason": fit.get("stop_reason"),
+            "judge_rule": f"top{JUDGE_TOP_N}", "n_tau": sel["n_tau"]}
     write_tables(out, fit["Y"], prep, sel["F_C"], f"{a.concept} / {tag} / seed {a.seed}")
 
     if a.judge_reps > 0:
@@ -315,6 +335,9 @@ def parse(argv=None):
     p.add_argument("--workers", type=int, default=8, help="concurrent Gemini calls")
     p.add_argument("--no-widest", action="store_true", help="skip the stage-1 descriptions of the 10 widest features")
     p.add_argument("--force", action="store_true")
+    p.add_argument("--fit-only", action="store_true", help="write fit.pt and stop (no Gemini); a later run reuses it")
+    p.add_argument("--reselect", action="store_true",
+                   help="existing run: redo F_C under the current judge rule (top-N by rho), judging only new candidates")
     p.add_argument("--stub-fit", default=None, help=argparse.SUPPRESS)
     return p.parse_args(argv)
 

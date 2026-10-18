@@ -227,9 +227,12 @@ Begin your evaluation by briefly describing the fluency of the sentence, noting 
         for _ in range(10):
             try:
                 self._respect_rate_limit()
+                from ember import gemini_budget
+                gemini_budget.check()
                 response = self.model.generate_content(
                     prompt, generation_config=self.generation_config,
                 )
+                gemini_budget.record(response)
 
                 billed_prompt_toks = 0
                 billed_output_toks = 0
@@ -256,6 +259,8 @@ Begin your evaluation by briefly describing the fluency of the sentence, noting 
             except GeminiBadFinishError:
                 raise
             except Exception as e:
+                if type(e).__name__ == "BudgetExceeded":
+                    raise
                 last_err = e
                 if _is_quota_error(e):
                     global _QUOTA_ERROR_COUNT

@@ -24,6 +24,8 @@ import torch
 from experiments.varwidth.prep import MODEL_NAME, TokenizerOnly, get_tokenizer
 
 TAU = 2.0
+JUDGE_TOP_N = 20        # judge candidates = the top-N features by rho (no tau): the rho scale changes with whitening
+                        # (Harry Potter 3.9 -> 125), so a fixed tau gives different candidate sets per matrix. None: tau rule.
 CONFIDENCE = 0.85
 TOP_K_TOKENS = 20
 GEMINI_MODEL = "models/gemini-3.5-flash-lite"
@@ -92,7 +94,7 @@ class RetryingGemini:
                 return self._inner().generate(prompt)
             except Exception as e:  # noqa: BLE001
                 msg = str(e)
-                if "PerDay" in msg or attempt == self.max_attempts - 1:
+                if "PerDay" in msg or "budget reached" in msg or attempt == self.max_attempts - 1:
                     raise
                 m = re.search(r"retry in ([\d.]+)s", msg)
                 wait = float(m.group(1)) + 1 if m else min(60.0, 2.0 * 2 ** attempt)
@@ -122,12 +124,14 @@ def feature_tokens(Y: torch.Tensor, prep: dict) -> pd.DataFrame:
     return pd.DataFrame(rows).set_index("feature")[["activating_tokens", "labels"]]
 
 
-def rho_candidates(Y: torch.Tensor, prep: dict, tau: float = TAU):
+def rho_candidates(Y: torch.Tensor, prep: dict, tau: float = TAU, top_n: int | None = JUDGE_TOP_N):
+    """(stats sorted by rho, candidates, feature tokens). Candidates: the top_n features by rho, or rho >= tau if top_n
+    is None."""
     from ember.utils import compute_embedding_stats
     Y = Y.detach().float().cpu()
     stats = compute_embedding_stats(Y.T, prep["vstar_ids"], prep["token_to_code"], prep["concept"]) \
         .sort_values("ratio_abs", ascending=False)
-    candidates = stats[stats["ratio_abs"] >= tau]
+    candidates = stats.head(top_n) if top_n else stats[stats["ratio_abs"] >= tau]
     feat_tokens = feature_tokens(Y, prep)
     cand = candidates[["feature", "ratio_abs"]].join(feat_tokens, on="feature").reset_index(drop=True)
     cand["judge_tokens"] = cand["activating_tokens"].apply(lambda toks: toks[:TOP_K_TOKENS])
@@ -158,9 +162,10 @@ def judge(concept: str, feat_to_tokens: dict, cache: JudgeCache, workers: int = 
 
 
 def select_features(Y: torch.Tensor, prep: dict, judge_path: Path | None, use_cache: bool = True,
-                    workers: int = WORKERS, tau: float = TAU, confidence: float = CONFIDENCE) -> dict:
+                    workers: int = WORKERS, tau: float = TAU, confidence: float = CONFIDENCE,
+                    top_n: int | None = JUDGE_TOP_N) -> dict:
     t0 = time.time()
-    stats, cand, feat_tokens = rho_candidates(Y, prep, tau)
+    stats, cand, feat_tokens = rho_candidates(Y, prep, tau, top_n)
     cache = JudgeCache(judge_path, use_cache)
     feats = cand["feature"].astype(int).tolist()
     judge(prep["concept"], {f: t for f, t in zip(feats, cand["judge_tokens"])}, cache, workers)
@@ -173,7 +178,8 @@ def select_features(Y: torch.Tensor, prep: dict, judge_path: Path | None, use_ca
     candidates = [{"feature": int(r.feature), "ratio_abs": float(r.ratio_abs), "description": r.description,
                    "is_member": None if r.is_member is None else bool(r.is_member),
                    "confidence": float(r.confidence), "selected": bool(r.selected)} for r in cand.itertuples()]
-    return {"F_C": F_C, "candidates": candidates, "stats": stats, "cand": cand, "feat_tokens": feat_tokens,
+    return {"F_C": F_C, "candidates": candidates, "n_tau": int((stats["ratio_abs"] >= tau).sum()), "top_n": top_n,
+            "stats": stats, "cand": cand, "feat_tokens": feat_tokens,
             "elapsed": time.time() - t0}
 
 
