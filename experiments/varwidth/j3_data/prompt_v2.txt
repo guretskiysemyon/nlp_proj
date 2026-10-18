@@ -1,0 +1,9 @@
+Given the concept '{concept}', list the {n} words most strongly associated with it.
+Rules:
+- Start with the concept's own name and its basic word forms, but only those that are distinctive on their own: the name, its adjective or demonym (e.g. 'greek', 'greece' for 'Culture of Greece'; 'roman', 'rome' for 'Ancient Rome'; 'ai', 'artificial' for 'Artificial intelligence'). Skip generic parts of the name (e.g. not 'world' or 'war' for 'World War II', not 'day' for "Valentine's Day").
+- Then the entities, people, places, objects, events and terms that an ordinary person with general knowledge would immediately connect to this concept. Prefer well-known words over expert or niche terminology.
+- The single-word test: every word, seen alone without any context, should make a reader think of this concept. So:
+  - no everyday words with many meanings (e.g. not 'ball', 'club', 'bat', 'card', 'heart', 'power', 'test', 'over', 'date');
+  - no words that fit the broader category just as well (e.g. for 'World War II' not 'battle', 'soldier', 'bomb');
+  - no fragments of multi-word names: keep only a part that is distinctive by itself (e.g. 'hiroshima' or 'auschwitz', but not 'pearl' or 'harbor'; 'antoinette', but not 'marie').
+Each item is one word without spaces, lowercase, no duplicates or mere plural variants. Return ONLY a JSON list of exactly {n} strings.
