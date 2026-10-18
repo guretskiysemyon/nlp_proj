@@ -1,32 +1,85 @@
 # Progress log
 
-**Last updated:** 2026-10-15
+**Last updated:** 2026-10-17
+**Current step: Part 1 analysis.** Part 1's experiments are complete and
+repaired: the three HP searches (EMBER, SNMF, SNMF+EMBER) and the cross-lingual
+MC test of all three methods, 18 concepts × 5 languages. **Decided 2026-10-17:
+open-QA judging, the final-test stage and relearning are out of scope for Part
+1** (the paper already establishes them for these methods in English; the MC
+test answers this part's question). Headline after the repair: `ember` leaks
+(mean +0.19, Russian +0.33), `snmf` does not (+0.00) but costs the most
+specificity, `snmf_ember` erases English the most and leaks only into Russian
+(+0.23). Results: [`docs/Part 1/part1_results.md`](Part%201/part1_results.md).
+Next: the analysis in [`crosslingual_next.md`](Part%201/crosslingual_next.md)
+§6, then Part 2.
+
+**Part 2 status (2026-10-17):** plan and results in
+[`docs/Part 2/plan.md`](Part%202/plan.md); data details in
+[`multilingual_features.md`](Part%202/multilingual_features.md).
+- **Plan decided:** two arms, both on native Wikipedia text only (translated sets
+  parked). A: one joint factorization on en+ru+de+es+fr; B: one fit per language,
+  union of the features. Same filter, judge gemini-3.5-flash-lite for all of Part 2
+  (the paper's Gemini-2.5-Flash-Lite is no longer available; on the paper's English
+  World War II candidates the two agree fully on embedding features and on 94% of
+  MLP decisions, 15 → 12 kept, 5 in common).
+- **Data cleaned:** bibliography and back-matter lines removed from `data_v2/`
+  (1,410 concept sentences logged in `removed_references.json`, 531 of them had been
+  in the sets; 53 neutral sentences replaced, `neutral_removed_references.json`);
+  every removal read. All pairs 300 sentences except Valentine's Day es (276).
+- **World War II, rank 100, both tracks (jobs 1046208, 1046235–8):** embedding
+  features kept: English 1, every other run 0; MLP: English 12, joint 3, de 4,
+  fr 3, es 2, ru 0.
+- **Joint embedding rank sweep (Mary, ranks 100–800):** World War II 0 at every
+  rank; Cannabis 1 from rank 400 on, but only 4% Russian.
+- **Why:** the embedding track factorizes the embedding rows of the distinct tokens,
+  not the text. Russian concept words split into meaningless pieces that also occur
+  in neutral text (Гитлер = Г + ит + лер), so no rank can give a Russian concept
+  feature; English concept words are whole tokens.
+- **Embedding rank sweep per language, done** (en, ru, de, es, fr × World War II,
+  Cannabis, Gun; ranks 100–800; jobs 1047659–73). English at rank 100 reproduces the
+  paper (1 / 1 / 2 features). de / es / fr get features, mostly through tokens shared
+  with English (Hitler, cannabis, THC) plus some native whole words (Waffen, armas).
+  Russian: 0 at every rank for World War II and Cannabis; Gun 1–2 from rank 300 on,
+  built on the whole token оружие. Counts jump between ranks (borderline judge calls),
+  so read across ranks. Table: `plan.md`, "Embedding rank sweep per language".
+- **Edit coverage (2026-10-18, `edit_coverage.py`):** the share of test questions
+  an edit touches predicts the Part 1 leak (Spearman −0.56 over 70 non-English cells;
+  Russian coverage 0.04, leak +0.33). New fits reach Russian only for Cannabis joint
+  (rank ≥ 400, via one piece " кан") and Gun per-language (rank ≥ 300, " оружие").
+  Details: `plan.md`, "Edit coverage per language".
+- **Next:** re-judge
+  the Russian MLP features with whole words / snippets instead of bare pieces;
+  erasure code to read Part 2 feature lists; then erasure + leak test.
+
 **Status:**
-- **⚠ In progress: MC scoring repair (2026-10-15).** The multiple-choice
-  scoring (the paper's `ember/evals/mc.py` / `mmlu.py`) generated only 4 tokens
-  (MMLU 6). Under the EMBER embedding edit Gemma answers "The answer is **C**",
-  the cut ends before the letter, and the answer counted as **wrong**. That
-  inflated erasure for EMBER (10% invalid at the picks) and most of all for
-  SNMF+EMBER (15%). SNMF's picks are clean, but other SNMF cells may have been
-  under-ranked. Also found: lowercase letters rejected, and a response-
-  extraction bug when an option ends with "model". **So the EMBER and
-  SNMF+EMBER picks, the cross-lingual `ember` / `snmf_ember` numbers and
-  everything built on them are provisional.** Fix: `judge_rerun/mc_fixed.py`
-  (32 tokens, fixed parser, new tokens only; `ember/` untouched). Rescore:
-  `judge_rerun/rescore_ember_grid.py`. Pilot: Uranium, all 8 δ, job 1041943.
-  Order: EMBER grid → (new top-3 δ judged, Alpaca for all 8 δ already saved)
-  → SNMF+EMBER (fresh grid where δ changed, otherwise rescore) and SNMF rescore
-  → cross-lingual reruns. Full write-up:
+- **MC scoring repair (2026-10-15/16): done.** All three HP searches, the
+  cross-lingual pristine baseline and all three cross-lingual runs. The multiple-choice scoring (the paper's
+  `ember/evals/mc.py` / `mmlu.py`) generated only 4 tokens (MMLU 6). Under the
+  EMBER embedding edit Gemma answers "The answer is **C**", the cut ends before
+  the letter, and the answer counted as **wrong**. That inflated erasure for
+  EMBER (10% invalid at the picks) and most of all for SNMF+EMBER (15%). Also
+  found: lowercase letters rejected, and a response-extraction bug when an
+  option ends with "model". Fix: `judge_rerun/mc_fixed.py` (32 tokens, fixed
+  parser, new tokens only; `ember/` untouched). Full write-up:
   [`docs/Part 1/ember_search.md`](Part%201/ember_search.md), "MC scoring repair".
-- **EMBER search: finished (picks provisional, see above).** Best δ for all 18 concepts, judged with
-  Qwen2.5-32B-Instruct (picked by the agreement study, §3.1), under the top-3 ×
-  50-question policy: `judge_rerun/Ember/pass2_outputs/` (layout:
-  `judge_rerun/Ember/README.md`).
-- **SNMF search: finished (2026-10-10).** Best HP cell for all 18 concepts,
+  Superseded but kept: `judge_rerun/*/pass2_outputs/` and the non-`_fixed`
+  cross-lingual folders.
+- **EMBER search: final after the repair (2026-10-15).** Best δ for all 18
+  concepts, judged with Qwen2.5-32B-Instruct (picked by the agreement study,
+  §3.1), top-3 × 50-question policy, fixed MC scoring:
+  `judge_rerun/Ember/pass2_rescored/google_gemma-2-2b-it/rank100/seed42/best_deltas_summary.csv`.
+  4 picks changed (Baseball 100 → 200, Gambling 100 → 10, Gun 100 → 5,
+  Uranium 100 → 200); mean efficacy 0.520 → 0.430, mean `harmonic_alpaca`
+  0.735 → 0.667. The pre-repair picks stay in `judge_rerun/Ember/pass2_outputs/`
+  (layout: `judge_rerun/Ember/README.md`).
+- **SNMF search: finished (2026-10-10), checked after the repair
+  (2026-10-15): all 18 picks unchanged.** Best HP cell for all 18 concepts,
   same judge, grid checked complete (144 cells) for every concept. Ancient
   Rome's first pick broke generation and was redone with a loop screen.
-  Results: `judge_rerun/SNMF/pass2_outputs/` (layout:
-  `judge_rerun/SNMF/README.md`).
+  Results: `judge_rerun/SNMF/pass2_outputs/`; after the repair
+  `judge_rerun/SNMF/pass2_rescored/` (same cells; Pornography's score 0.880 →
+  0.864). Layout: `judge_rerun/SNMF/README.md`; repair check:
+  [`snmf_search.md`](Part%201/snmf_search.md).
 - **Cross-lingual leakage, round 2: all runs done (2026-10-14), analysis
   open.** "Erase in English, ask in de/es/fr/ru", with the Qwen-era picks,
   judge-free MC (`crosslingual/`). **`pristine`, `ember`, `snmf` and
@@ -49,9 +102,32 @@
   Results: `judge_rerun/SNMF_EMBER/pass2_outputs/` (layout:
   `judge_rerun/SNMF_EMBER/README.md`), numbers and notes:
   [`docs/Part 1/snmf_ember_search.md`](Part%201/snmf_ember_search.md).
-- **Next:** finish the MC scoring repair (above). The cross-lingual analysis
-  proper (paired method differences, targeted leak,
-  [`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) waits for it.
+- **SNMF+EMBER search: final after the repair (2026-10-16).** 24 chained jobs
+  (1042781–1042804): fresh grids at the new EMBER δ for Baseball, Gambling, Gun
+  and Uranium, re-score of the cells with invalid answers for the other 14
+  (Pornography in full), Alpaca + Qwen only for the 27 cells new to a top 3.
+  **7 picks changed** (the 4 fresh concepts, Ancient Rome, Culture of Greece,
+  Valentine's Day); mean `harmonic_alpaca` 0.909 → 0.888, efficacy 0.877 →
+  0.834. Still the best method on the selection score for 17 of 18 concepts.
+  `judge_rerun/SNMF_EMBER/pass2_rescored/…/best_hps_summary.csv`; details:
+  [`snmf_ember_search.md`](Part%201/snmf_ember_search.md), "Repair results".
+- **Cross-lingual repair (2026-10-16):** answers re-read on the CPU (lowercase
+  letters, the "model\n" extraction bug), then only the still-invalid answers
+  regenerated where the pick is unchanged, full rerun where it changed; English
+  MMLU re-scored; retention / leak against the fixed pristine baseline
+  (`crosslingual/reparse_saved.py`, `rerun_fixed.py`, `summary_fixed.py`;
+  results in `results/crosslingual/google_gemma-2-2b-it/<method>_fixed/`).
+  **`ember`:** English retention 0.52 → 0.61, mean leak +0.24 → **+0.19
+  [+0.12, +0.27]** (Russian +0.41 → +0.33), still significant. **`snmf`:**
+  CPU only, unchanged (leak +0.00 [−0.07, +0.08]). **`snmf_ember`:** English
+  retention 0.27 → 0.39, mean leak +0.17 → **+0.05 [−0.02, +0.11]**, i.e. no
+  longer a significant leak into de/es/fr; Russian still +0.23 [+0.08, +0.38].
+  Details:
+  [`crosslingual_next.md`](Part%201/crosslingual_next.md) §2.6.
+- **Next:** the cross-lingual analysis
+  ([`crosslingual_next.md`](Part%201/crosslingual_next.md) §6) on the `_fixed`
+  results: paired method differences, targeted leak, non-answer sensitivity,
+  the Russian leak and token overlap → leak. CPU only.
 - **Part 2, multilingual feature search (step 1, World War II): done, result too
   weak.** Features fit on en+ru+de+es+fr together, then filtered with the same
   Gemini judge as the English features: 0 embedding + 2 MLP features kept
@@ -79,6 +155,9 @@
   the 111 and restored the parentheses (missing now in 2–5% instead of 19–35%), $0.50. No human
   reviewer, so the human spot-check is replaced by the automatic judges. Total Gemini
   cost for the translated data: ~$5.90, including the Flash pilot and the judge comparison tests.
+  Not error-free: 21 known term errors, ~120 missing parentheticals, and errors no check can
+  see; ~0.1% of the data, too little to affect the fit. An optional clean-up is described in the
+  write-up, "Known remaining errors".
   Plan and current step: same write-up, "Translated sentence sets (option 6)".
 
 Per-concept status: [`docs/Part 1/snmf_search.md`](Part%201/snmf_search.md) (SNMF),
@@ -243,6 +322,24 @@ Full reasoning and the detailed design are in
   non-English Δ +0.17 [+0.08, +0.27] (Russian +0.37), `SimdomQA_test`
   retention 0.69–0.81, English MMLU 0.511, `QA_test` invalid rate 0.16 in
   English (up to 0.56 in a cell). `crosslingual_next.md` §2.5.
+- **MC scoring repair, EMBER + SNMF** (2026-10-15). EMBER: all 144 δ cells
+  re-scored with `mc_fixed.py` (jobs 1041943, 1042045, 1042275), new top-3 δ
+  judged (1042338, 1042339), final picks in `judge_rerun/Ember/pass2_rescored/`
+  (4 changed). SNMF: the 328 cells with invalid answers re-scored
+  (1042306–1042309), Pornography and COVID-19 on all 144 cells (1042373,
+  1042489), COVID-19's one new top-3 cell generated + judged (1042615,
+  1042618); all 18 picks unchanged, final file in
+  `judge_rerun/SNMF/pass2_rescored/`. Determinism: one Pornography QA question
+  answers differently than in the October runs (systematic, so its grids were
+  re-scored in one run); elsewhere only single-answer flips in broken cells.
+  Details: [`ember_search.md`](Part%201/ember_search.md) "MC scoring repair",
+  [`snmf_search.md`](Part%201/snmf_search.md) "MC scoring repair check".
+
+  | Method (mean of 18) | efficacy | specificity | coherence | harmonic_alpaca |
+  |---|---|---|---|---|
+  | EMBER, after repair | 0.430 | 0.970 | 0.992 | 0.667 |
+  | SNMF, after repair | 0.721 | 0.848 | 0.959 | 0.820 |
+  | SNMF+EMBER | not yet repaired | | | |
 
 **In progress / open:**
 - `judge_rerun/pass2_outputs_ori/` (Ori's EMBER side folder, owned by
@@ -251,11 +348,11 @@ Full reasoning and the detailed design are in
   delete it (`rm -rf`), then commit the deletion.
 
 **Not done yet:**
-- Cross-lingual analysis proper (paired method differences, the effect of
-  invalid answers, targeted leak; plain means are in §2.3 / §2.5), the
-  `english`-wrapper check, and open-QA cross-lingual judging:
-  `crosslingual_next.md` §6.
-- The final-test stage and relearning are later steps.
+- Cross-lingual analysis (paired method differences, targeted leak,
+  non-answer sensitivity, Russian, token overlap; plain means and bootstrap are
+  done) and the optional `english`-wrapper check: `crosslingual_next.md` §6.
+- Out of scope for Part 1 (decided 2026-10-17): open-QA cross-lingual judging,
+  the final-test stage and relearning.
 - Cleanup done: `judge_rerun/smoke_qwen_judge*.py` and their `.sbatch` files
   were one-off hardware-validation scripts (do 4-bit Qwen + this GPU even
   work together), superseded by `qwen_judge.py` as the real reusable module —
@@ -385,7 +482,25 @@ Alpaca completions were judged fresh with Qwen (§3 above).
   N tokens of a longer generation equal an N-token generation on the same GPU
   type / dtype / batch size. That lets a rescore with a larger budget check
   itself against the old numbers (`mc_fixed.py` stores `old_raw` /
-  `old_letter`), and lets cells with no invalid answer be skipped.
+  `old_letter`).
+- **…but runs are not bit-identical (2026-10-15).** Re-running the same edit
+  on the same GPU type a few weeks later changed single answers: rarely in
+  normal cells, more often in broken near-random ones, and systematically for
+  one Pornography `QA_train` question (+1 correct in every EMBER δ and every
+  SNMF cell). Two pristine baselines (Gemini-era vs Qwen-era) also differ by
+  one question for 8 concepts. So never rank cells scored in different runs
+  against each other when they are within about one question: re-score the
+  whole comparison set in one run (that is why EMBER was re-scored on all 144
+  cells, and Pornography / COVID-19 SNMF on all 144).
+- **`max_qa_acc` is not applied in MC mode.** `configs/snmf*_gemma.yaml` set
+  `max_qa_acc: 0.6`, but `ember/evals/orchestrator.py` checks it only in the
+  open-QA branch. In the `train_mc` grids only `min_mmlu` gates. Reproducing a
+  grid's `harmonic` with that gate added gives wrong numbers for ~45% of cells.
+- **EMBER barely changes Alpaca answers.** The edit touches only the concept
+  tokens' embeddings, which the general Alpaca questions rarely contain: 48–50
+  of 50 answers are identical across δ, and so are the Qwen scores. Judging a
+  new δ can copy per-item scores for identical answers instead of 48 min of
+  Qwen.
 
 - **bitsandbytes/Triton/python3-dev gotcha:** `bitsandbytes.nn` eagerly
   imports Triton-based SwitchBack modules (unused for plain NF4 4-bit) that
@@ -459,17 +574,23 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/pass2_recompute_topk.py` | legacy tool: re-derives a concept's top-3/n=50 pick from its cached full-grid judge scores, no GPU (used once for the 12 old-policy concepts; see `judge_rerun/Ember/README.md`) |
 | `judge_rerun/pass1_snmf_top3.py`, `run_pass1_snmf_top3.sbatch` | SNMF Pass 1: narrows the 144-cell HP grid to the top 3 cells by the judge-free harmonic and generates (does not judge) their first 50 Alpaca completions; output `judge_rerun/SNMF/pass1_outputs/` |
 | `judge_rerun/Ember/pass1_outputs/` | Pass 1 + baseline output: `grid_raw.csv` / `baseline_raw.csv`, saved completions, judged scores, per concept |
-| `judge_rerun/Ember/pass2_outputs/` | Final Pass 2 output (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
+| `judge_rerun/Ember/pass2_outputs/` | Pass 2 output with the original 4-token MC scoring, **superseded by `judge_rerun/Ember/pass2_rescored/`** (top-3/n=50, all 18 concepts): per-concept `delta_metrics__<judge_id>.csv`, `best_delta__<judge_id>.json`, `alpaca_judged__<judge_id>.json`, plus `best_deltas_summary.csv`. Layout, policy and the `archive/` of older runs: `judge_rerun/Ember/README.md` |
 | `docs/judge/judge_swap_plan.md` | the full plan and reasoning behind all of the above |
 | `judge_rerun/SNMF/pass1_outputs/` | SNMF Pass 1 output: per concept `top3_hps.json` and `alpaca_completions/cell_0..2.json` (3 cells × 50 completions); Ancient Rome also `screen/` |
 | `judge_rerun/pass1_snmf_screen.py`, `run_pass1_snmf_screen.sbatch` | SNMF Pass 1 variant with a loop screen (used for Ancient Rome only): walks the full grid ranking generating answers, skips duplicates (identical answers) and cells with >5/50 looping answers, stops at the first 3 distinct non-looping cells, and writes them in Pass 1's format plus `screen/screen_report.csv` |
 | `judge_rerun/pass2_snmf_judge.py`, `run_pass2_snmf.sbatch` | SNMF Pass 2: judges the 3 cells × 50 completions with Qwen2.5-32B (3× RTX 2080 Ti), picks the best cell; several concepts per job, resumable |
-| `judge_rerun/SNMF/pass2_outputs/` | **Final** SNMF Pass 2 output (all 18 concepts): per concept `best_hp__qwen2.5-32b-instruct.json` (the pick, with the full HP dict), `cell_metrics__*.csv`, `alpaca_judged__*.json`, `_rows__*.json`, plus `best_hps_summary.csv`. Layout and `archive/`: `judge_rerun/SNMF/README.md` |
+| `judge_rerun/SNMF/pass2_outputs/` | SNMF Pass 2 output with the original MC scoring (all 18 concepts; the repair kept every pick, final copy in `judge_rerun/SNMF/pass2_rescored/`): per concept `best_hp__qwen2.5-32b-instruct.json` (the pick, with the full HP dict), `cell_metrics__*.csv`, `alpaca_judged__*.json`, `_rows__*.json`, plus `best_hps_summary.csv`. Layout and `archive/`: `judge_rerun/SNMF/README.md` |
 | `docs/Part 1/ember_search.md` | per-concept EMBER Pass 2 status and picks |
 | `docs/Part 1/snmf_search.md` | per-concept SNMF status (Pass 1 + Pass 2, the picks, completeness check, the Ancient Rome problem and fix) |
 | `docs/Part 1/crosslingual_next.md` | plan and status of cross-lingual round 2 |
 | `judge_rerun/mc_fixed.py` | **fixed MC / MMLU scoring** (2026-10-15): 32-token budget, `parse_letter_fixed`, decodes only the new tokens; each record also keeps the old-equivalent (`old_raw`, `old_letter`) as a determinism control. Same prompts, shuffle and batching as `ember/evals` |
-| `judge_rerun/rescore_ember_grid.py`, `run_rescore_ember.sbatch` | re-scores the EMBER δ grid with `mc_fixed.py` (only δ with an invalid answer, or `--all-deltas`), saves per-question records, checks the control, and compares old vs new top 3 / pick on the CPU. Output `judge_rerun/Ember/rescore_mc/`; never writes into `pass1_outputs/` / `pass2_outputs/` |
+| `judge_rerun/rescore_ember_grid.py`, `run_rescore_ember.sbatch` | re-scores the EMBER δ grid with `mc_fixed.py` (only δ with an invalid answer, or `--all-deltas`; `--reparse` re-applies the parser to saved records on the CPU), saves per-question records, checks the control, and compares old vs new top 3 / pick on the CPU. Output `judge_rerun/Ember/rescore_mc/`; never writes into `pass1_outputs/` / `pass2_outputs/` |
+| `judge_rerun/pass2_ember_rescored.py`, `run_pass2_ember_rescored.sbatch` | EMBER Pass 2 on the re-scored grid: same policy as `pass2_delta_search.py`, reuses old Qwen means for top-3 δ already judged, judges the rest (first 50 saved completions), recomputes `harmonic_alpaca`. Output and **final EMBER picks**: `judge_rerun/Ember/pass2_rescored/` |
+| `judge_rerun/rescore_snmf_grid.py`, `run_rescore_snmf.sbatch` | the same for the SNMF grid (`--with-ember`: the SNMF+EMBER grid, EMBER δ from the repaired picks; a concept whose δ changed gets a fresh 144-cell grid): re-scores cells with an invalid answer (`--cells all` for the whole grid) with Pass 1's edit code, skips QA / SimDom for cells still MMLU-gated, checks the control, re-ranks as Pass 1 (only `min_mmlu` gates). Output `judge_rerun/SNMF/rescore_mc/` |
+| `judge_rerun/pass2_snmf_rescored.py`, `run_pass2_snmf_rescored_gen.sbatch`, `run_pass2_snmf_rescored_judge.sbatch` | SNMF (and with `--with-ember` SNMF+EMBER, output `judge_rerun/SNMF_EMBER/pass2_rescored/`) Pass 1 + 2 on the re-scored grid. `--stage generate`: first 50 Alpaca answers + loop check (from `pass1_snmf_screen.py`) for cells new to the top 3, next cell moves up if one loops; Ancient Rome keeps its screen. `--stage judge`: Qwen for new cells only, old Qwen means for the rest, pick by `harmonic_alpaca`. Output and **final SNMF picks**: `judge_rerun/SNMF/pass2_rescored/` |
+| `crosslingual/reparse_saved.py` | cross-lingual repair stage A (CPU): re-reads every saved answer with `parse_letter_fixed` (and the text after the last `"model\n"` when the prompt leaked in), writes `results/crosslingual/<model>/<method>_fixed/` |
+| `crosslingual/rerun_fixed.py`, `run_crosslingual_fixed.sbatch` | stages B / C: per concept `regen` (same pick: regenerate only still-invalid answers, 4-token control) or `full` (pick changed: every cell again), fixed scoring; English MMLU re-scored with answers saved (`mmlu_test.json`); edit check against the repaired grid. `ember` and `snmf_ember` |
+| `crosslingual/summary_fixed.py`, `run_summary_fixed.sbatch` | stage D: `<method>_fixed/summary.csv` against `baseline_fixed`, old-vs-new headline table with bootstrap |
 | `crosslingual/` | **new** cross-lingual package (MC, judge-free): `data.py` (translated items, language-aligned option shuffle), `prompts.py` (native-language scaffold), `mc_eval.py` (one concept × language cell), `run_baseline.py` + `run_baseline.sbatch` (pristine model), `run_edited.py` + `run_edited.sbatch` (apply each concept's `ember` / `snmf` / `snmf_ember` pick, edit check, per-concept MMLU) |
 | `results/crosslingual/google_gemma-2-2b-it/baseline/` | pristine cross-lingual baseline: `<Concept>/<lang>.json` (per-question records) + `summary.csv`, pristine MMLU in `_mmlu.json` |
 | `results/crosslingual/google_gemma-2-2b-it/{ember,snmf,snmf_ember}/` | edited cross-lingual runs: `<Concept>/<lang>.json` + `edit.json` (HP, edit check, MMLU), `summary.csv` with retention and leak per (concept, language) |

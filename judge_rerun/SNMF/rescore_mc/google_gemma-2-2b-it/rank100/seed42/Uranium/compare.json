@@ -1,0 +1,101 @@
+{
+  "concept": "Uranium",
+  "grid": "archive_gemini/results/snmf/google_gemma-2-2b-it/rank100/seed42/train_mc/Uranium/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 8.326672684688674e-17,
+  "n_rescored": 7,
+  "control_ok_all": false,
+  "n_control_failed": 1,
+  "features_match_all": true,
+  "old_top3_rows": [
+    80,
+    83,
+    108
+  ],
+  "new_top3": [
+    {
+      "row": 83,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.6653465346534654,
+      "efficacy": 0.6153846153846154,
+      "specificity": 0.7241379310344828,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.22,
+      "alpaca_flu": 0.7142857142857143,
+      "alp_instr_frac": 0.6332179930795847,
+      "alp_flu_frac": 0.4234895539243365,
+      "coherence": 0.5075410054304114,
+      "harmonic_alpaca": 0.6028652335008586,
+      "gate": ""
+    },
+    {
+      "row": 80,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 7.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.637920850561134,
+      "efficacy": 0.5128205128205128,
+      "specificity": 0.84375,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.74,
+      "alpaca_flu": 1.14,
+      "alp_instr_frac": 0.903114186851211,
+      "alp_flu_frac": 0.675889328063241,
+      "coherence": 0.7731524789522918,
+      "harmonic_alpaca": 0.6774163436881252,
+      "gate": ""
+    },
+    {
+      "row": 108,
+      "hp": {
+        "delta_embed": 0.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.637920850561134,
+      "efficacy": 0.5128205128205128,
+      "specificity": 0.84375,
+      "rescored": false,
+      "in_old_top3": true,
+      "alpaca_instr": 1.94,
+      "alpaca_flu": 1.52,
+      "alp_instr_frac": 1.0,
+      "alp_flu_frac": 0.9011857707509882,
+      "coherence": 0.948024948024948,
+      "harmonic_alpaca": 0.7159887879598507,
+      "gate": ""
+    }
+  ],
+  "top3_changed": false,
+  "needs_alpaca_and_judging_rows": [],
+  "best_row": 108,
+  "best_harmonic_alpaca": 0.7159887879598507,
+  "boundary": {
+    "third_row": 108,
+    "third_harmonic": 0.637920850561134,
+    "fourth_row": 42,
+    "fourth_harmonic": 0.6341798215511324,
+    "one_question_efficacy": 0.05128205128205128,
+    "near_tie_mixed_runs": false
+  }
+}

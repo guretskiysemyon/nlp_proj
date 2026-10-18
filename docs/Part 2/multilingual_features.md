@@ -1,12 +1,15 @@
 # Multilingual feature search — step 1 (World War II)
 
+*Main Part 2 plan (joint fit vs per-language fits): [`plan.md`](plan.md).*
+
 *Status 2026-10-15. Gemma-2-2b-it, rank 100, seed 42, one concept (World War II),
 languages en+ru+de+es+fr. Feature search only; erasure comes later.*
 
 *Where things stand:* the first fit (2026-10-14) gave too few features (0 + 2), mostly
 because of the data. The foreign sentence sets are now being rebuilt along two tracks:
-**native Wikipedia** (`data_v2/` usable, 54 of 72 pairs complete; extra pool for all 18
-short pairs collected, LLM judge next; see "Native sentence sets") and **translation**
+**native Wikipedia** (`data_v2/` usable, 71 of 72 pairs complete after adding judged
+link sentences, Valentine's Day es 276; bibliography and back-matter lines removed
+2026-10-17, see "Reference removal, second pass") and **translation**
 of the English sets (complete for all 18 concepts, quality checks next; see "Translated
 sentence sets"). No new fit yet.
 
@@ -140,8 +143,8 @@ weak to reach the judge.
    sentence around them, and calls such features "random subword tokens". → **open**.
 5. **Foreign sentence sets exist for 5 of 18 concepts only.** The raw articles for all
    18 are now downloaded, but many give fewer than 300 sentences (see "Data check").
-   → **partly fixed**: native `data_v2/` covers all 18 concepts, 54 of 72 pairs with 300
-   sentences, 18 short; the translated sets are complete for all 18.
+   → **almost fixed**: native `data_v2/` covers all 18 concepts, 71 of 72 pairs with 300
+   sentences (Valentine's Day es 278); the translated sets are complete for all 18.
 6. **Wikipedia reference lines** (found 2026-10-15). Not a problem in the World War II
    sentences of the first sets (8 of 1,200 foreign sentences, 17 of 5,400 English sentences
    across all concepts). But the plain-text extracts contain the bibliography and reference
@@ -340,8 +343,9 @@ both, in parallel (next two sections).
 
 ## Native sentence sets (options 4–5): status (2026-10-15)
 
-Two parts: `data_v2/` (option 4, usable now, 18 pairs short) and an extra article pool
-for the short pairs (collected; to be filtered by an LLM judge, option 5).
+`data_v2/` (option 4 plus judged link sentences, 71 of 72 pairs at 300), an extra article
+pool for the pairs that were short (collected, not used: it needs a judge for the sense,
+option 5), and the link sentences (collected, judged, used).
 
 ### `data_v2/`: keyword filter, new splitter, new neutral sets
 
@@ -351,23 +355,34 @@ Output `experiments/multilingual_fit/data_v2/`, in the loader's format (use with
 | Part | Script | What changed from the first sets (`data/`) |
 |---|---|---|
 | Splitter | `sentences.py` | A period does not end a sentence after a German ordinal ("1. Juni"), an initial, a German Roman numeral or a known abbreviation of the language (problem 3). Drops reference lines (problem 6). Removes zero-width spaces first (problem 7). Keeps 6–60 words, as before. |
-| Concept sets | `build_concept_sets.py` | Option 4: every usable main-article sentence; from related articles only sentences that name the concept (per-language stems, `STEMS`). Main article first, related sentences only to fill up to 300. Fixed seed per pair; the source article of every sentence is saved. |
+| Concept sets | `build_concept_sets.py` | Option 4: every usable main-article sentence; from related articles only sentences that name the concept (per-language stems, `STEMS`); then link sentences judged relevant (see "Link sentences"). Main article first, the others only to fill up to 300. Fixed seed per pair; the source article and the kind (main / related / link) of every sentence are saved; `--no-links` gives the sets without link sentences. |
 | Neutral sets | `fetch_neutral_sentences.py` | As in English and the paper: one random usable sentence from each random article of ≥ 3 KB, not the first sentence (problem 2). 376–530 random articles drawn per language (es re-drawn after the zero-width fix). |
 
-Result: 20,516 concept sentences + 4 × 300 neutral sentences. **54 of 72 pairs have 300,
-18 are short** (empty cell = 300; † = short since the keyword fix below):
+Result (2026-10-17): 21,578 concept sentences + 4 × 300 neutral sentences. **71 of 72
+pairs have 300**; Valentine's Day es has 278 (all its relevant link sentences are used).
+The 54 pairs that were already complete do not use link sentences and are unchanged. The
+18 pairs that were short (before → after, main + related + link):
 
-| Concept | ru | de | es | fr |
+| Pair | Before | After | main + related + link | link share |
 |---|---|---|---|---|
-| Baseball | 272 | | | |
-| Culture of Greece | | 294 | | 269 |
-| Gambling | 291 | 299 | | 287 † |
-| Gun | | **108** | | 282 |
-| Halloween | 292 | **127** | | 296 |
-| Harry Potter | 232 † | | | |
-| Heroin | | | 272 | 278 |
-| Nazism | | | | 296 |
-| Valentine's Day | **154** | | **121** | **146** |
+| Gun de | 108 | 300 | 48 + 60 + 192 | 64% |
+| Valentine's Day es | 121 | **278** | 99 + 22 + 157 | 56% |
+| Halloween de | 127 | 300 | 108 + 19 + 173 | 58% |
+| Valentine's Day fr | 146 | 300 | 95 + 51 + 154 | 51% |
+| Valentine's Day ru | 154 | 300 | 113 + 41 + 146 | 49% |
+| Harry Potter ru | 232 | 300 | 177 + 55 + 68 | 23% |
+| Culture of Greece fr | 269 | 300 | 214 + 55 + 31 | 10% |
+| Baseball ru | 272 | 300 | 189 + 83 + 28 | 9% |
+| Heroin es | 272 | 300 | 201 + 71 + 28 | 9% |
+| Heroin fr | 278 | 300 | 167 + 111 + 22 | 7% |
+| Gun fr | 282 | 300 | 70 + 212 + 18 | 6% |
+| Gambling fr | 287 | 300 | 185 + 102 + 13 | 4% |
+| Gambling ru | 291 | 300 | 129 + 162 + 9 | 3% |
+| Halloween ru | 292 | 300 | 171 + 121 + 8 | 3% |
+| Culture of Greece de | 294 | 300 | 7 + 287 + 6 | 2% |
+| Halloween fr | 296 | 300 | 265 + 31 + 4 | 1% |
+| Nazism fr | 296 | 300 | 216 + 80 + 4 | 1% |
+| Gambling de | 299 | 300 | 229 + 70 + 1 | 0% |
 
 **Zero-width fix (2026-10-15, problem 7).** es only: Halloween 102 → 300, COVID-19
 pandemic 194 → 300, Baseball 299 → 300, Harry Potter 291 → 300, Heroin 192 → 272,
@@ -481,11 +496,11 @@ zero-width fix (problem 7). Baseball es, COVID-19 pandemic es and Halloween es n
 
 **Expected outcome:** 18 pairs still need the pool, and all 18 have one. Most can reach
 300 after the judge.
-The bold 3 (Valentine's Day fr / ru / es) probably stay short (~150–250): native
-Wikipedia in these languages has little text about the holiday beyond film and
-pop-culture pages. For them: accept fewer sentences, or top up with translated sentences
-(not decided). Halloween es was in this group before the zero-width fix; its main
-article alone now gives 299 sentences.
+The bold 3 (Valentine's Day fr / ru / es) probably stay short (~150–250) from this pool
+alone: native Wikipedia in these languages has little text about the holiday beyond film
+and pop-culture pages. The link sentences (next section) give them 350–370 candidates
+each. Halloween es was in this group before the zero-width fix; its main article alone
+now gives 299 sentences.
 
 **Problems seen in the pool** (for the judge design):
 - Wrong senses that still name the concept: the *Halloween* films and their actors, a
@@ -509,7 +524,7 @@ A third source, `fetch_link_sentences.py`: Wikipedia articles that **link to the
 article**, and in each the sentence that holds the link. The link fixes the sense, which
 the stems cannot: a link to "Héroïne" is the drug, not a heroine; a link to
 "Saint-Valentin" is the holiday, not Valentino or a commune. Every short pair has
-hundreds of linking articles (Valentine's Day fr 501, es 409, ru 458; Gun de 383;
+hundreds of linking articles (Valentine's Day fr 501, es 408, ru 441; Gun de 383;
 Halloween de 642), except Culture of Greece de (60) and fr (147), which need only 6 and
 31 sentences.
 
@@ -529,7 +544,141 @@ Saint-Valentin"), a few about the holiday itself ("Fête des amoureux, elle est 
 comparée à la Saint-Valentin"). So the judge's question for these is not the sense but
 "about the concept, or only a date / name?".
 
-Result: the run is in progress.
+**Result (done 2026-10-15):** 3,712 articles fetched (no errors, no throttling), **3,000
+link sentences**. Every pair has more than it is missing; the 5 shortest have 1.8–2.5×:
+
+| Pair | Have | Need | Linking articles | Sampled | With a sentence | Link sentences |
+|---|---|---|---|---|---|---|
+| Gun de | 108 | 192 | 383 | 383 | 350 | 356 |
+| Valentine's Day es | 121 | 179 | 408 | 408 | 327 | 352 |
+| Halloween de | 127 | 173 | 642 | 500 | 413 | 432 |
+| Valentine's Day fr | 146 | 154 | 501 | 500 | 356 | 369 |
+| Valentine's Day ru | 154 | 146 | 441 | 441 | 336 | 353 |
+| Harry Potter ru | 232 | 68 | 309 | 272 | 150 | 170 |
+| Culture of Greece fr | 269 | 31 | 147 | 124 | 53 | 58 |
+| Baseball ru | 272 | 28 | 2,583 | 112 | 88 | 92 |
+| Heroin es | 272 | 28 | 1,057 | 112 | 102 | 116 |
+| Heroin fr | 278 | 22 | 1,176 | 100 | 75 | 92 |
+| Gun fr | 282 | 18 | 1,336 | 100 | 66 | 70 |
+| Gambling fr | 287 | 13 | 365 | 100 | 64 | 69 |
+| Gambling ru | 291 | 9 | 497 | 100 | 69 | 74 |
+| Halloween ru | 292 | 8 | 752 | 100 | 83 | 91 |
+| Culture of Greece de | 294 | 6 | 60 | 60 | 54 | 54 |
+| Halloween fr | 296 | 4 | 983 | 100 | 66 | 77 |
+| Nazism fr | 296 | 4 | 10,208 | 100 | 79 | 84 |
+| Gambling de | 299 | 1 | 913 | 100 | 84 | 91 |
+
+Read 8 random link sentences in each of the 6 shortest pairs:
+- Gun de 8/8 and Harry Potter ru 8/8 on topic (firearms in sport, law, fortification
+  history; characters, books, films).
+- Halloween de mostly about Halloween events (parties, costumes, the 2022 Itaewon crowd
+  crush). Culture of Greece fr on topic, mostly ancient Greek culture.
+- Valentine's Day es / ru: about half passing mentions ("Se casaron el día de San
+  Valentín de 2009"), and skewed to pop culture (TV episodes, songs, celebrities), while
+  the main articles are history and customs. The judge should drop pure dates; even
+  then, a set topped up from these is more pop-culture than the English one.
+
+So with a judge acceptance of ~50% or more, every pair can reach 300.
+
+**Judge (2026-10-17).** `judge_link_sentences.py`: Gemini (gemini-3.5-flash-lite, as for
+the translations; temperature 0, minimal thinking), 50 sentences per call, given the
+concept's scope and one rule. Relevant: the sentence says something about the concept or
+about something centred on it (history, customs, use, effects, laws; people or works
+known for it; events, products or episodes themed on it). Not relevant: the concept is
+only a date, only one item in a list, or only part of a name. The sense is not asked; the
+link fixes it. All 3,000 link sentences of the 18 pairs: 70 calls, 160k input + 101k
+output tokens, 0 thinking tokens. Output `wiki_raw/links_judged.json` (decision and a
+short reason per sentence).
+
+Kept 90–100% in 12 pairs; less for the holidays: Halloween ru 63%, de 71%, fr 61%;
+Valentine's Day ru 63%, fr 56%, es 47%. The rejected ones are mostly dates ("Enfin le 14
+février 1880, jour de la Saint-Valentin, il dîne avec Victoria Woodhull.") and list items
+("anniversaires, Noël, mariages, Saint-Valentin, fête des mères …"). A second run on
+Valentine's Day fr agreed on 96% of the 369 decisions (215 vs 208 kept); the flips are
+borderline cases.
+
+Then `build_concept_sets.py` added the relevant link sentences as a third source (table
+in the `data_v2/` section above).
+
+**Check of the added link sentences.** Read by Claude (an LLM, so a second automated
+review, not a human check): 149 of the 1,062 added sentences, 20 in each of the 5 pairs
+where they are about half the set, up to 4 in each of the other 13.
+
+| | Clearly about the concept | Passing mention the judge kept | Borderline |
+|---|---|---|---|
+| Gun de | 18 | 1 (museum list) | 1 (cut off) |
+| Halloween de | 16 | 4 (a Halloween setting in a plot, "zu Anlässen wie Halloween") | 0 |
+| Valentine's Day ru | 17 | 1 (*Picnic at Hanging Rock*, date only) | 2 |
+| Valentine's Day es | 15 | 2 (list of TV specials; the St. Valentine's Day Massacre) | 3 |
+| Valentine's Day fr | 14 | 3 (release dates, e.g. "Le 14 février 2014, jour de la Saint-Valentin, Patrick Fiori sort un nouveau single") | 3 |
+| other 13 pairs | 42 of 49 | 7 (mostly list items, e.g. Gambling ru "пьянства, гордости, блуда, … азартных игр") | 0 |
+
+About 80% of the added sentences are clearly about the concept, ~12% are passing mentions
+the judge missed, the rest borderline (mostly songs or albums released "for Valentine's
+Day"). The misses sit in the 5 heavy pairs, roughly 5–15% of each of those sets. Also: the
+4 Baseball ru sentences read are all first lines of player biographies ("американский
+бейсболист"), and *Picnic at Hanging Rock* was kept in ru but dropped in fr.
+
+A stricter second pass could drop most misses in Valentine's Day ru and fr (68 and 50
+relevant link sentences there are not used), but not in es, where every relevant one is
+already used and the pair is still short.
+
+### Reference removal, second pass (2026-10-17)
+
+**Why.** The English sets from the paper contain no bibliography lines (0 of 5,400 concept
+sentences). `data_v2/` still had many: the plain-text extracts keep one bibliography entry
+per line ("Uwe Walter: Politische Ordnung in der Römischen Republik. Oldenbourg,
+Berlin/Boston 2017, ISBN …"), the splitter cuts it, and the old filter dropped only the
+piece with the ISBN. Also external-link titles and sister-project notices from the end of
+the articles ("Wikimedia Commons alberga una categoría multimedia sobre Halloween.").
+
+**Rules** (`sentences.py`, all logged):
+- whole line dropped if it has at most 65 words and a clear marker (ISBN, doi, OCLC,
+  "abgerufen am", "Consultado el", "consulté le", "Дата обращения", "Архивировано",
+  "— М.:" …), or starts like a citation ("Name Name (Hrsg.):", "Фамилия И. О.",
+  "Surname, First (1999)", "(en) …") and has a year / "In:" / "(Hrsg.)" / "//". A year in
+  a prose date ("am 22. Juni 1941") does not count. Longer lines are prose paragraphs
+  with an inline citation; there only the sentence with the marker goes, as before;
+- everything after the first back-matter heading ("Weblinks", "Einzelnachweise",
+  "Примечания", "Ссылки", "Referencias", "Véase también", "Notes et références",
+  "Voir aussi" …) is dropped; "Literatur" / "Литература" counts only if it is the last
+  such heading before the back matter and at least half of its lines are reference
+  lines (de Pornografie and Irland have content sections called "Literatur");
+- not "Auflage", bare "abgerufen" / "consulté" (also prose: newspaper circulation,
+  "können online abgerufen werden"); "(англ.)" only outside another bracket.
+
+**Output.** `data_v2/removed_references.json`: every eligible sentence (main article,
+related sentences naming the concept, judged link sentences) dropped as a reference, with
+language, concept, kind, article, page and revision ids, the rule and the full source
+line. 1,410 sentences; **531 of them were in the previous sets**. 64 of 72 pairs changed
+(the others had no such lines); all stay at 300 except Valentine's Day es (278 → 276).
+
+**Checks** (by Claude, an LLM: an automated review, not a human one):
+- every removed line read (all 1,410 sentences, over four rounds of fixes). Wrong
+  removals found and fixed: 4 prose sentences in de World War II ("Zweite Phase: …
+  am 22. Juni 1941."), 2 in ru Golf ("(Putting green (англ.))"). Still removed: 1 prose
+  sentence in fr Gun ("… (p. 2:245) …", old page-number rule). Back-matter removals
+  include a few "See also" entries with a gloss and two footnotes, none article prose;
+- kept sentences from after an end-of-article heading: all read, all prose;
+- over-inclusive pattern scan of all 21,576 kept sentences (110 hits): all read, no
+  reference (one prose sentence keeps an archive-link remnant, ru Pornography);
+- 100 random kept sentences per language read: 0 references (so very likely < 0.75%).
+
+**Neutral sets (same day).** `recheck_neutral.py` fetched the article of every neutral
+sentence (today's revision; now saved in `wiki_raw/<lang>/neutral/`, so later checks are
+offline) and applied the same rules. **53 of 1,200 replaced** (ru 11, de 16, es 22, fr 4)
+by another random usable sentence of the same article; log with rule, source line and
+replacement: `data_v2/neutral_removed_references.json`. 1 es sentence is no longer in its
+article (edited since); it passes the rules on its own and is kept (marked
+`not_in_current_text`). All 53 removed and all 53 replacements read: removed = references,
+links, sister-project notices; replacements = prose, two of them boilerplate (ru browser
+notice about hieroglyphs, de monument-list disclaimer), kept.
+
+**Fits started on the cleaned data (2026-10-17)**, `run_feature_search.sbatch`
+(factorization, then the Gemini filter in the same job), World War II, rank 100:
+native `data_v2` → `mf_outputs/native/` (job 1046208), English only (pipeline check
+against the downloaded 1 + 15 features) → `mf_outputs/en_rerun/` (1046210). Results:
+`feature_search_<job>.out`. The translated sets are not used for now (native only).
 
 ## Translated sentence sets (option 6): plan and status
 
@@ -735,25 +884,46 @@ Log with old and new text: `data_translated/fix4b/replacements.csv`.
 - Integrity check: all 4 languages have 18 × 300 concept + 300 neutral sentences, none empty.
 
 **Where the translated data stands.** The automatic checks (Kiwi, term check plus judge) estimate
-term accuracy at ~98–99.7%. ~21 known term errors and ~120 sentences without their
-parenthetical remain. Not checked by a human (none available). Data:
+term accuracy at ~98–99.7%. Not checked by a human (none available). Data:
 `experiments/multilingual_fit/data_translated/`, ready for step 7 with
 `--multilingual-data-dir experiments/multilingual_fit/data_translated`.
+
+**Known remaining errors** (2026-10-15). The data is not error-free. Three groups:
+
+1. **21 known term errors:** sentences the step-4 judge marked ERROR whose step-4b
+   re-translation was rejected (Kiwi drop > 0.02). They are listed in
+   `data_translated/fix4b/replacements.csv` (rows with term hints and `replaced = 0`); the old and the new
+   text are both there. Some new versions were correct (ru "Дол" → "Дойл" ×4) and some worse.
+2. **~120 translations without the English parenthetical** (39 ru, 42 de, 23 es, 19 fr; English
+   has "(" and the translation does not). Some are fine: the content is rewritten with commas or dashes. Others
+   really lost it.
+3. **Errors no check can see.** The checks cover terms that have their own Wikipedia article
+   (term check) and overall adequacy (Kiwi). A wrong word that is not a linked term, a
+   grammar error, or a subtle meaning shift in a sentence Kiwi scores well can remain.
+   Their rate cannot be measured without a human reader; the checks above suggest it is low.
+
+**Why they hardly matter for step 7:** the factorization works on token statistics over 300
+sentences per (concept, language); ~20 wrong terms in 22,800 sentences (~0.1%) will not change
+which features it finds. The native Wikipedia sets and even the English set contain more
+noise than that (e.g. "Cite error" junk, coordinates, LaTeX).
+
+**Optional clean-up (not done yet):** go through groups 1 and 2 one by one: for each
+of the 21 choose the old version, the new one, or a small manual correction (e.g. accept
+"Дойл", fix "Тишек"), and check the ~120 parentheticals, logging every decision. This costs no Gemini
+calls and takes a few minutes. Caveat: the reviewer would be Claude (also a language model),
+so this is one more careful automated review, not a human check.
 
 ## Open
 
 - **Translated sets:** ready; next is step 7 (refit World War II on the translated sets).
-- **Native sets, judge for the extra pool** (all 18 short pairs have a pool):
-  - prompt per concept that names the wrong senses (films, namesakes, "heroine");
-  - which sentences go to it (proposed: all sentences of category articles, only
-    naming sentences of search-only articles, all link sentences);
-  - for link sentences the sense is fixed; the question is "about the concept, or only a
-    date / name?";
-  - hand-check ~50 decisions per language;
-  - then rebuild the short pairs: main article → related sentences that name the concept
-    → judged extras (category / search pool and link sentences).
-- **Native sets, pairs still short after the judge** (likely Valentine's Day es/ru/fr):
-  accept fewer sentences, or top up with translated sentences.
+  Optional before it: the clean-up of the known remaining errors (see "Known remaining errors").
+- **Native sets, Valentine's Day es (276):** accept it, or judge its extra pool (243
+  sentences that name the concept, many wrong senses: Valentino, people named Valentín;
+  the judge would need to check the sense too) for the last 22.
+- **Native sets, optional:** a stricter second judge pass over the link sentences in
+  Valentine's Day ru / fr (spare relevant ones exist) to drop the remaining release-date
+  and list mentions.
+- **Native sets, extra pool:** no longer needed for the 17 pairs that reached 300.
 - **Neutral sets:** done in `data_v2/` (random sentence from random articles, new
   splitter, reference lines and zero-width spaces removed).
 - **Pipeline check:** the English features we compare against match the paper's Table 3,
@@ -767,7 +937,7 @@ parenthetical remain. Not checked by a human (none available). Data:
 # data (no GPU, Wikipedia API, a few minutes each; never touch data/)
 .venv/bin/python -I experiments/multilingual_fit/fetch_wiki_articles.py      # main articles, 18 x 5 languages
 .venv/bin/python -I experiments/multilingual_fit/fetch_related_articles.py   # related articles (+ related_exclude.json)
-.venv/bin/python -I experiments/multilingual_fit/build_concept_sets.py       # data_v2 concept sets (no network)
+.venv/bin/python -I experiments/multilingual_fit/build_concept_sets.py --no-links  # data_v2 without link sentences (no network); its report decides which pairs are short
 .venv/bin/python -I experiments/multilingual_fit/fetch_neutral_sentences.py  # data_v2 neutral sets (~1-2 h; --repair re-picks rejected sentences)
 # extra pool for the pairs short in data_v2/concept_report.json (~1 article/s, ~1 h; detached)
 setsid nohup .venv/bin/python -I experiments/multilingual_fit/fetch_extra_articles.py \
@@ -775,6 +945,9 @@ setsid nohup .venv/bin/python -I experiments/multilingual_fit/fetch_extra_articl
 # link sentences for the same short pairs (~3,600 articles, shortest pairs first; resumable)
 setsid nohup .venv/bin/python -I experiments/multilingual_fit/fetch_link_sentences.py \
     > experiments/multilingual_fit/wiki_raw/links_fetch.log 2>&1 < /dev/null &
+# judge the link sentences (Gemini key from .env, ~2 min, resumable), then the final data_v2
+.venv/bin/python -I experiments/multilingual_fit/judge_link_sentences.py
+.venv/bin/python -I experiments/multilingual_fit/build_concept_sets.py
 ```
 
 ```

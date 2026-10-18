@@ -1,0 +1,100 @@
+{
+  "concept": "Cannabis",
+  "grid": "results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Cannabis/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 0.0,
+  "n_rescored": 125,
+  "control_ok_all": false,
+  "n_control_failed": 1,
+  "delta_embed_old": 200.0,
+  "delta_embed_new": 200.0,
+  "fresh_grid": false,
+  "features_match_all": true,
+  "old_top3_rows": [
+    97,
+    98,
+    132
+  ],
+  "new_top3": [
+    {
+      "row": 132,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.7019756548868623,
+      "efficacy": 0.6101694915254237,
+      "specificity": 0.8263009845288324,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.9,
+      "alpaca_flu": 1.68,
+      "alp_instr_frac": 0.9861591695501729,
+      "alp_flu_frac": 0.9960474308300394,
+      "coherence": 0.9910786363354102,
+      "harmonic_alpaca": 0.7775841512651505,
+      "gate": ""
+    },
+    {
+      "row": 108,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 10.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.6965129358830147,
+      "efficacy": 0.6101694915254237,
+      "specificity": 0.8113207547169812,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    },
+    {
+      "row": 98,
+      "hp": {
+        "delta_embed": 200.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 12.0,
+        "delta_out": 1.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.6722024515618821,
+      "efficacy": 0.576271186440678,
+      "specificity": 0.8064516129032256,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.9,
+      "alpaca_flu": 1.58,
+      "alp_instr_frac": 0.9861591695501729,
+      "alp_flu_frac": 0.9367588932806324,
+      "coherence": 0.9608244782998335,
+      "harmonic_alpaca": 0.7469995017466191,
+      "gate": ""
+    }
+  ],
+  "top3_changed": true,
+  "needs_alpaca_and_judging_rows": [
+    108
+  ],
+  "best_row": null,
+  "best_harmonic_alpaca": null,
+  "boundary": {
+    "third_row": 98,
+    "third_harmonic": 0.6722024515618821,
+    "fourth_row": 96,
+    "fourth_harmonic": 0.6580259222333,
+    "one_question_efficacy": 0.03389830508474576,
+    "near_tie_mixed_runs": false
+  }
+}

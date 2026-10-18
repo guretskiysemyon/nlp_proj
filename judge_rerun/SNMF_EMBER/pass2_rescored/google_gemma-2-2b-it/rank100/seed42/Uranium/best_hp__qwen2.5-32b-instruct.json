@@ -1,0 +1,44 @@
+{
+  "concept": "Uranium",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    75,
+    45,
+    54
+  ],
+  "new_rows": [
+    75,
+    45,
+    54
+  ],
+  "best_row": 75,
+  "best_hp": {
+    "delta_embed": 200.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 7.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 25,
+    "k_features_mlp_in": 36,
+    "delta_out": 4.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 17
+  },
+  "best_harmonic_alpaca": 0.9348919519848652,
+  "best_metrics": {
+    "efficacy": 0.923076923076923,
+    "specificity": 0.911764705882353,
+    "harmonic": 0.9173859432799013,
+    "alp_instr_frac": 0.9965397923875432,
+    "alp_flu_frac": 0.9486166007905138,
+    "coherence": 0.9719878501518731,
+    "harmonic_alpaca": 0.9348919519848652
+  },
+  "old_best_harmonic_alpaca": 0.9666752486081163,
+  "pick_changed": true
+}

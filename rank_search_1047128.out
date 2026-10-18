@@ -1,0 +1,319 @@
+[rank_search] concept='Cannabis' langs=en+ru+de+es+fr ranks='100 200 300 400 600 800' seeds='42' data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+fatal: detected dubious ownership in repository at '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure
+fatal: detected dubious ownership in repository at '/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure
+[rank_search] git , uncommitted: 0 files
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:56<01:56, 116.47s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:04<00:00, 52.46s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:04<00:00, 62.06s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] Cannabis
+================================================================================
+[DATA] languages=en+ru+de+es+fr | samples=3000
+Extracting token IDs:   0%|          | 0/600 [00:00<?, ?it/s]Extracting token IDs:   2%|▏         | 14/600 [00:00<00:04, 135.39it/s]Extracting token IDs:   6%|▌         | 36/600 [00:00<00:03, 182.21it/s]Extracting token IDs:   9%|▉         | 55/600 [00:00<00:02, 184.65it/s]Extracting token IDs:  12%|█▎        | 75/600 [00:00<00:02, 187.82it/s]Extracting token IDs:  16%|█▌        | 94/600 [00:00<00:02, 187.69it/s]Extracting token IDs:  19%|█▉        | 113/600 [00:00<00:02, 186.60it/s]Extracting token IDs:  24%|██▎       | 142/600 [00:00<00:02, 219.54it/s]Extracting token IDs:  28%|██▊       | 170/600 [00:00<00:01, 238.31it/s]Extracting token IDs:  32%|███▎      | 195/600 [00:00<00:01, 237.68it/s]Extracting token IDs:  37%|███▋      | 222/600 [00:01<00:01, 244.63it/s]Extracting token IDs:  41%|████      | 247/600 [00:01<00:01, 245.02it/s]Extracting token IDs:  45%|████▌     | 272/600 [00:01<00:01, 238.74it/s]Extracting token IDs:  50%|████▉     | 297/600 [00:01<00:01, 241.53it/s]Extracting token IDs:  54%|█████▍    | 323/600 [00:01<00:01, 245.17it/s]Extracting token IDs:  59%|█████▉    | 355/600 [00:01<00:00, 266.32it/s]Extracting token IDs:  64%|██████▍   | 383/600 [00:01<00:00, 270.21it/s]Extracting token IDs:  69%|██████▊   | 412/600 [00:01<00:00, 274.90it/s]Extracting token IDs:  74%|███████▍  | 447/600 [00:01<00:00, 296.20it/s]Extracting token IDs:  80%|███████▉  | 477/600 [00:01<00:00, 292.75it/s]Extracting token IDs:  86%|████████▌ | 516/600 [00:02<00:00, 321.19it/s]Extracting token IDs:  92%|█████████▏| 550/600 [00:02<00:00, 325.92it/s]Extracting token IDs:  98%|█████████▊| 589/600 [00:02<00:00, 344.62it/s]Extracting token IDs: 100%|██████████| 600/600 [00:02<00:00, 261.31it/s]
+
+[RUN] concept='Cannabis' | rank=100
+--> Starting embedding track
+Iter    0: loss=150959936.000000  (best=150959936.000000, no_improve=0)
+Iter   38: loss=136206912.000000  (best=136205136.000000, no_improve=1)
+Iter   48: loss=136169600.000000  (best=136168768.000000, no_improve=1)
+Iter   50: loss=136172512.000000  (best=136168768.000000, no_improve=3)
+Iter   88: loss=136113984.000000  (best=136113696.000000, no_improve=1)
+Iter  100: loss=136105872.000000  (best=136105872.000000, no_improve=0)
+Iter  102: loss=136105600.000000  (best=136105232.000000, no_improve=1)
+Iter  115: loss=136098752.000000  (best=136098384.000000, no_improve=1)
+Iter  130: loss=136094960.000000  (best=136094960.000000, no_improve=1)
+Iter  143: loss=136086368.000000  (best=136086208.000000, no_improve=1)
+Iter  150: loss=136086336.000000  (best=136086208.000000, no_improve=8)
+Iter  155: loss=136085920.000000  (best=136085920.000000, no_improve=1)
+Iter  160: loss=136085888.000000  (best=136085888.000000, no_improve=1)
+Iter  200: loss=136085888.000000  (best=136085888.000000, no_improve=41)
+Iter  250: loss=136085888.000000  (best=136085888.000000, no_improve=91)
+Iter  300: loss=136085888.000000  (best=136085888.000000, no_improve=141)
+Iter  350: loss=136085888.000000  (best=136085888.000000, no_improve=191)
+Iter  400: loss=136085888.000000  (best=136085888.000000, no_improve=241)
+Iter  450: loss=136085888.000000  (best=136085888.000000, no_improve=291)
+Iter  500: loss=136085888.000000  (best=136085888.000000, no_improve=341)
+Iter  550: loss=136085888.000000  (best=136085888.000000, no_improve=391)
+Iter  600: loss=136085888.000000  (best=136085888.000000, no_improve=441)
+Iter  650: loss=136085888.000000  (best=136085888.000000, no_improve=491)
+Stopping early at iter 659 (no improvement in 500 iters)
+[TIMING] Embedding track: 13.4s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Cannabis' | rank=200
+--> Starting embedding track
+Iter    0: loss=149634528.000000  (best=149634528.000000, no_improve=0)
+Iter   50: loss=128560944.000000  (best=128560944.000000, no_improve=0)
+Iter   58: loss=128537600.000000  (best=128535736.000000, no_improve=1)
+Iter   64: loss=128519552.000000  (best=128519512.000000, no_improve=1)
+Iter  100: loss=128391760.000000  (best=128391760.000000, no_improve=0)
+Iter  116: loss=128309400.000000  (best=128309184.000000, no_improve=1)
+Iter  120: loss=128307944.000000  (best=128307368.000000, no_improve=1)
+Iter  125: loss=128306216.000000  (best=128305688.000000, no_improve=1)
+Iter  138: loss=128301528.000000  (best=128301240.000000, no_improve=1)
+Iter  150: loss=128303072.000000  (best=128301240.000000, no_improve=13)
+Iter  160: loss=128299448.000000  (best=128299448.000000, no_improve=1)
+Iter  165: loss=128297392.000000  (best=128297256.000000, no_improve=1)
+Iter  173: loss=128297256.000000  (best=128297104.000000, no_improve=1)
+Iter  200: loss=128299648.000000  (best=128297104.000000, no_improve=28)
+Iter  250: loss=128300024.000000  (best=128297104.000000, no_improve=78)
+Iter  300: loss=128300024.000000  (best=128297104.000000, no_improve=128)
+Iter  350: loss=128300024.000000  (best=128297104.000000, no_improve=178)
+Iter  400: loss=128300024.000000  (best=128297104.000000, no_improve=228)
+Iter  450: loss=128300000.000000  (best=128297104.000000, no_improve=278)
+Iter  500: loss=128300024.000000  (best=128297104.000000, no_improve=328)
+Iter  550: loss=128300024.000000  (best=128297104.000000, no_improve=378)
+Iter  600: loss=128300024.000000  (best=128297104.000000, no_improve=428)
+Iter  650: loss=128300024.000000  (best=128297104.000000, no_improve=478)
+Stopping early at iter 672 (no improvement in 500 iters)
+[TIMING] Embedding track: 15.4s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Cannabis' | rank=300
+--> Starting embedding track
+Iter    0: loss=149129168.000000  (best=149129168.000000, no_improve=0)
+Iter   50: loss=122557808.000000  (best=122557808.000000, no_improve=0)
+Iter   65: loss=122499280.000000  (best=122498592.000000, no_improve=1)
+Iter   76: loss=122488520.000000  (best=122488192.000000, no_improve=1)
+Iter   80: loss=122487784.000000  (best=122487224.000000, no_improve=1)
+Iter   89: loss=122485840.000000  (best=122484976.000000, no_improve=1)
+Iter   93: loss=122484736.000000  (best=122484216.000000, no_improve=1)
+Iter  100: loss=122481344.000000  (best=122481344.000000, no_improve=0)
+Iter  125: loss=122459256.000000  (best=122459208.000000, no_improve=1)
+Iter  127: loss=122458776.000000  (best=122458712.000000, no_improve=1)
+Iter  129: loss=122458128.000000  (best=122458104.000000, no_improve=1)
+Iter  135: loss=122455624.000000  (best=122455624.000000, no_improve=1)
+Iter  140: loss=122455880.000000  (best=122455512.000000, no_improve=1)
+Iter  150: loss=122454928.000000  (best=122454928.000000, no_improve=0)
+Iter  151: loss=122454952.000000  (best=122454928.000000, no_improve=1)
+Iter  153: loss=122454904.000000  (best=122454776.000000, no_improve=1)
+Iter  160: loss=122450176.000000  (best=122449464.000000, no_improve=1)
+Iter  172: loss=122449224.000000  (best=122449224.000000, no_improve=1)
+Iter  175: loss=122448896.000000  (best=122448896.000000, no_improve=1)
+Iter  179: loss=122448792.000000  (best=122448728.000000, no_improve=1)
+Iter  193: loss=122443712.000000  (best=122442504.000000, no_improve=1)
+Iter  200: loss=122447800.000000  (best=122442504.000000, no_improve=8)
+Iter  250: loss=122448968.000000  (best=122442504.000000, no_improve=58)
+Iter  300: loss=122448968.000000  (best=122442504.000000, no_improve=108)
+Iter  350: loss=122448968.000000  (best=122442504.000000, no_improve=158)
+Iter  400: loss=122448968.000000  (best=122442504.000000, no_improve=208)
+Iter  450: loss=122448968.000000  (best=122442504.000000, no_improve=258)
+Iter  500: loss=122448968.000000  (best=122442504.000000, no_improve=308)
+Iter  550: loss=122448968.000000  (best=122442504.000000, no_improve=358)
+Iter  600: loss=122448968.000000  (best=122442504.000000, no_improve=408)
+Iter  650: loss=122448968.000000  (best=122442504.000000, no_improve=458)
+Stopping early at iter 692 (no improvement in 500 iters)
+[TIMING] Embedding track: 24.8s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Cannabis' | rank=400
+--> Starting embedding track
+Iter    0: loss=148722976.000000  (best=148722976.000000, no_improve=0)
+Iter   50: loss=117698832.000000  (best=117698832.000000, no_improve=0)
+Iter  100: loss=117409608.000000  (best=117409608.000000, no_improve=0)
+Iter  104: loss=117406576.000000  (best=117406472.000000, no_improve=1)
+Iter  112: loss=117403576.000000  (best=117403000.000000, no_improve=1)
+Iter  116: loss=117401328.000000  (best=117400696.000000, no_improve=1)
+Iter  123: loss=117397056.000000  (best=117396824.000000, no_improve=1)
+Iter  128: loss=117395488.000000  (best=117394328.000000, no_improve=1)
+Iter  138: loss=117394576.000000  (best=117394304.000000, no_improve=1)
+Iter  140: loss=117396000.000000  (best=117394008.000000, no_improve=1)
+Iter  150: loss=117395344.000000  (best=117394008.000000, no_improve=11)
+Iter  200: loss=117402456.000000  (best=117394008.000000, no_improve=61)
+Iter  250: loss=117402472.000000  (best=117394008.000000, no_improve=111)
+Iter  300: loss=117402472.000000  (best=117394008.000000, no_improve=161)
+Iter  350: loss=117402456.000000  (best=117394008.000000, no_improve=211)
+Iter  400: loss=117402456.000000  (best=117394008.000000, no_improve=261)
+Iter  450: loss=117402472.000000  (best=117394008.000000, no_improve=311)
+Iter  500: loss=117402472.000000  (best=117394008.000000, no_improve=361)
+Iter  550: loss=117402472.000000  (best=117394008.000000, no_improve=411)
+Iter  600: loss=117402456.000000  (best=117394008.000000, no_improve=461)
+Stopping early at iter 639 (no improvement in 500 iters)
+[TIMING] Embedding track: 29.6s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Cannabis' | rank=600
+--> Starting embedding track
+Iter    0: loss=148556704.000000  (best=148556704.000000, no_improve=0)
+Iter   50: loss=110652032.000000  (best=110652032.000000, no_improve=0)
+Iter  100: loss=109949312.000000  (best=109949312.000000, no_improve=0)
+Iter  106: loss=109941248.000000  (best=109941000.000000, no_improve=1)
+Iter  108: loss=109941408.000000  (best=109940696.000000, no_improve=1)
+Iter  115: loss=109937600.000000  (best=109937456.000000, no_improve=1)
+Iter  138: loss=109924048.000000  (best=109923960.000000, no_improve=1)
+Iter  141: loss=109923408.000000  (best=109923120.000000, no_improve=1)
+Iter  143: loss=109922776.000000  (best=109922776.000000, no_improve=1)
+Iter  150: loss=109918496.000000  (best=109918496.000000, no_improve=0)
+Iter  151: loss=109918536.000000  (best=109918496.000000, no_improve=1)
+Iter  155: loss=109917736.000000  (best=109917592.000000, no_improve=1)
+Iter  158: loss=109917720.000000  (best=109917512.000000, no_improve=1)
+Iter  173: loss=109916184.000000  (best=109916056.000000, no_improve=1)
+Iter  179: loss=109915816.000000  (best=109915688.000000, no_improve=1)
+Iter  187: loss=109915176.000000  (best=109914976.000000, no_improve=1)
+Iter  200: loss=109916080.000000  (best=109914976.000000, no_improve=14)
+Iter  214: loss=109915072.000000  (best=109914872.000000, no_improve=1)
+Iter  217: loss=109914872.000000  (best=109914728.000000, no_improve=1)
+Iter  219: loss=109914728.000000  (best=109914648.000000, no_improve=1)
+Iter  222: loss=109914704.000000  (best=109914480.000000, no_improve=1)
+Iter  242: loss=109914416.000000  (best=109914416.000000, no_improve=1)
+Iter  250: loss=109914648.000000  (best=109914416.000000, no_improve=9)
+Iter  294: loss=109914464.000000  (best=109914400.000000, no_improve=1)
+Iter  298: loss=109914504.000000  (best=109914072.000000, no_improve=1)
+Iter  300: loss=109914152.000000  (best=109914072.000000, no_improve=3)
+Iter  311: loss=109913112.000000  (best=109912984.000000, no_improve=1)
+Iter  316: loss=109912640.000000  (best=109912560.000000, no_improve=1)
+Iter  328: loss=109912600.000000  (best=109912288.000000, no_improve=1)
+Iter  334: loss=109911760.000000  (best=109911736.000000, no_improve=1)
+Iter  350: loss=109911800.000000  (best=109911736.000000, no_improve=17)
+Iter  353: loss=109911696.000000  (best=109911656.000000, no_improve=1)
+Iter  355: loss=109911512.000000  (best=109911472.000000, no_improve=1)
+Iter  358: loss=109911368.000000  (best=109911304.000000, no_improve=1)
+Iter  400: loss=109911656.000000  (best=109911304.000000, no_improve=43)
+Iter  450: loss=109911656.000000  (best=109911304.000000, no_improve=93)
+Iter  500: loss=109911656.000000  (best=109911304.000000, no_improve=143)
+Iter  550: loss=109911656.000000  (best=109911304.000000, no_improve=193)
+Iter  600: loss=109911656.000000  (best=109911304.000000, no_improve=243)
+Iter  650: loss=109911656.000000  (best=109911304.000000, no_improve=293)
+Iter  700: loss=109911656.000000  (best=109911304.000000, no_improve=343)
+Iter  750: loss=109911656.000000  (best=109911304.000000, no_improve=393)
+Iter  800: loss=109911656.000000  (best=109911304.000000, no_improve=443)
+Iter  850: loss=109911656.000000  (best=109911304.000000, no_improve=493)
+Stopping early at iter 857 (no improvement in 500 iters)
+[TIMING] Embedding track: 50.4s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Cannabis' | rank=800
+--> Starting embedding track
+Iter    0: loss=148955760.000000  (best=148955760.000000, no_improve=0)
+Iter   50: loss=105402248.000000  (best=105402248.000000, no_improve=0)
+Iter  100: loss=104881440.000000  (best=104881440.000000, no_improve=0)
+Iter  107: loss=104869400.000000  (best=104869000.000000, no_improve=1)
+Iter  121: loss=104848424.000000  (best=104847680.000000, no_improve=1)
+Iter  130: loss=104836880.000000  (best=104836440.000000, no_improve=1)
+Iter  146: loss=104835144.000000  (best=104833784.000000, no_improve=1)
+Iter  150: loss=104831560.000000  (best=104831560.000000, no_improve=0)
+Iter  153: loss=104830200.000000  (best=104830144.000000, no_improve=1)
+Iter  159: loss=104827880.000000  (best=104827304.000000, no_improve=1)
+Iter  173: loss=104824240.000000  (best=104824104.000000, no_improve=1)
+Iter  184: loss=104820080.000000  (best=104820064.000000, no_improve=1)
+Iter  189: loss=104820080.000000  (best=104819864.000000, no_improve=1)
+Iter  200: loss=104819944.000000  (best=104819864.000000, no_improve=12)
+Iter  203: loss=104819640.000000  (best=104819584.000000, no_improve=1)
+Iter  213: loss=104817824.000000  (best=104817760.000000, no_improve=1)
+Iter  222: loss=104813864.000000  (best=104813464.000000, no_improve=1)
+Iter  234: loss=104808584.000000  (best=104808344.000000, no_improve=1)
+Iter  236: loss=104808344.000000  (best=104808304.000000, no_improve=1)
+Iter  250: loss=104808344.000000  (best=104808304.000000, no_improve=15)
+Iter  300: loss=104808344.000000  (best=104808304.000000, no_improve=65)
+Iter  350: loss=104808344.000000  (best=104808304.000000, no_improve=115)
+Iter  400: loss=104808344.000000  (best=104808304.000000, no_improve=165)
+Iter  450: loss=104808344.000000  (best=104808304.000000, no_improve=215)
+Iter  500: loss=104808344.000000  (best=104808304.000000, no_improve=265)
+Iter  550: loss=104808344.000000  (best=104808304.000000, no_improve=315)
+Iter  600: loss=104808344.000000  (best=104808304.000000, no_improve=365)
+Iter  650: loss=104808344.000000  (best=104808304.000000, no_improve=415)
+Iter  700: loss=104808344.000000  (best=104808304.000000, no_improve=465)
+Stopping early at iter 735 (no improvement in 500 iters)
+[TIMING] Embedding track: 67.4s
+--> Skipping MLP track (--skip-mlp)
+[rank_search] Gemini filter: rank=100 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 31 features to process.
+[activating_tokens] Concurrent interpretation of 31 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/31 [00:00<?, ?it/s]Interpreting activating_tokens:   3%|▎         | 1/31 [00:01<00:45,  1.52s/it]Interpreting activating_tokens:   6%|▋         | 2/31 [00:01<00:20,  1.42it/s]Interpreting activating_tokens:  10%|▉         | 3/31 [00:01<00:12,  2.28it/s]Interpreting activating_tokens:  16%|█▌        | 5/31 [00:02<00:07,  3.56it/s]Interpreting activating_tokens:  19%|█▉        | 6/31 [00:02<00:10,  2.45it/s]Interpreting activating_tokens:  26%|██▌       | 8/31 [00:02<00:05,  3.95it/s]Interpreting activating_tokens:  29%|██▉       | 9/31 [00:03<00:05,  3.75it/s]Interpreting activating_tokens:  32%|███▏      | 10/31 [00:03<00:04,  4.39it/s]Interpreting activating_tokens:  35%|███▌      | 11/31 [00:04<00:07,  2.79it/s]Interpreting activating_tokens:  45%|████▌     | 14/31 [00:04<00:03,  4.44it/s]Interpreting activating_tokens:  48%|████▊     | 15/31 [00:04<00:03,  4.46it/s]Interpreting activating_tokens:  52%|█████▏    | 16/31 [00:05<00:04,  3.37it/s]Interpreting activating_tokens:  58%|█████▊    | 18/31 [00:05<00:02,  4.96it/s]Interpreting activating_tokens:  61%|██████▏   | 19/31 [00:05<00:03,  3.76it/s]Interpreting activating_tokens:  65%|██████▍   | 20/31 [00:05<00:02,  4.38it/s]Interpreting activating_tokens:  68%|██████▊   | 21/31 [00:06<00:03,  3.03it/s]Interpreting activating_tokens:  77%|███████▋  | 24/31 [00:06<00:01,  4.36it/s]Interpreting activating_tokens:  84%|████████▍ | 26/31 [00:07<00:01,  3.56it/s]Interpreting activating_tokens:  90%|█████████ | 28/31 [00:07<00:00,  4.76it/s]Interpreting activating_tokens:  94%|█████████▎| 29/31 [00:08<00:00,  4.25it/s]Interpreting activating_tokens:  97%|█████████▋| 30/31 [00:08<00:00,  3.98it/s]Interpreting activating_tokens: 100%|██████████| 31/31 [00:08<00:00,  3.76it/s]Interpreting activating_tokens: 100%|██████████| 31/31 [00:08<00:00,  3.52it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank100/seed42/Cannabis/embedding
+[TIMING] Cannabis: 9.1s
+[rank_search] Gemini filter: rank=200 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 52 features to process.
+[activating_tokens] Concurrent interpretation of 52 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/52 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/52 [00:01<01:03,  1.24s/it]Interpreting activating_tokens:   4%|▍         | 2/52 [00:01<00:31,  1.57it/s]Interpreting activating_tokens:  10%|▉         | 5/52 [00:01<00:09,  4.80it/s]Interpreting activating_tokens:  13%|█▎        | 7/52 [00:02<00:14,  3.17it/s]Interpreting activating_tokens:  15%|█▌        | 8/52 [00:02<00:11,  3.67it/s]Interpreting activating_tokens:  21%|██        | 11/52 [00:03<00:12,  3.31it/s]Interpreting activating_tokens:  25%|██▌       | 13/52 [00:03<00:09,  4.06it/s]Interpreting activating_tokens:  31%|███       | 16/52 [00:04<00:09,  3.82it/s]Interpreting activating_tokens:  35%|███▍      | 18/52 [00:04<00:07,  4.59it/s]Interpreting activating_tokens:  37%|███▋      | 19/52 [00:05<00:06,  4.80it/s]Interpreting activating_tokens:  38%|███▊      | 20/52 [00:05<00:07,  4.52it/s]Interpreting activating_tokens:  40%|████      | 21/52 [00:06<00:09,  3.17it/s]Interpreting activating_tokens:  46%|████▌     | 24/52 [00:06<00:05,  4.71it/s]Interpreting activating_tokens:  50%|█████     | 26/52 [00:07<00:06,  3.77it/s]Interpreting activating_tokens:  52%|█████▏    | 27/52 [00:07<00:06,  3.87it/s]Interpreting activating_tokens:  54%|█████▍    | 28/52 [00:07<00:05,  4.38it/s]Interpreting activating_tokens:  58%|█████▊    | 30/52 [00:07<00:03,  5.67it/s]Interpreting activating_tokens:  60%|█████▉    | 31/52 [00:08<00:04,  4.29it/s]Interpreting activating_tokens:  62%|██████▏   | 32/52 [00:08<00:05,  3.66it/s]Interpreting activating_tokens:  63%|██████▎   | 33/52 [00:08<00:04,  3.98it/s]Interpreting activating_tokens:  67%|██████▋   | 35/52 [00:08<00:03,  5.31it/s]Interpreting activating_tokens:  69%|██████▉   | 36/52 [00:09<00:03,  4.41it/s]Interpreting activating_tokens:  71%|███████   | 37/52 [00:09<00:04,  3.75it/s]Interpreting activating_tokens:  73%|███████▎  | 38/52 [00:09<00:03,  4.37it/s]Interpreting activating_tokens:  77%|███████▋  | 40/52 [00:09<00:02,  5.78it/s]Interpreting activating_tokens:  79%|███████▉  | 41/52 [00:10<00:03,  3.60it/s]Interpreting activating_tokens:  83%|████████▎ | 43/52 [00:10<00:02,  4.35it/s]Interpreting activating_tokens:  85%|████████▍ | 44/52 [00:11<00:01,  4.76it/s]Interpreting activating_tokens:  88%|████████▊ | 46/52 [00:11<00:01,  4.10it/s]Interpreting activating_tokens:  90%|█████████ | 47/52 [00:11<00:01,  3.86it/s]Interpreting activating_tokens:  94%|█████████▍| 49/52 [00:12<00:00,  5.11it/s]Interpreting activating_tokens:  96%|█████████▌| 50/52 [00:12<00:00,  3.98it/s]Interpreting activating_tokens: 100%|██████████| 52/52 [00:13<00:00,  3.42it/s]Interpreting activating_tokens: 100%|██████████| 52/52 [00:13<00:00,  3.92it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank200/seed42/Cannabis/embedding
+[TIMING] Cannabis: 13.5s
+[rank_search] Gemini filter: rank=300 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 66 features to process.
+[activating_tokens] Concurrent interpretation of 66 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/66 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/66 [00:01<01:26,  1.34s/it]Interpreting activating_tokens:   6%|▌         | 4/66 [00:01<00:18,  3.34it/s]Interpreting activating_tokens:   9%|▉         | 6/66 [00:02<00:22,  2.71it/s]Interpreting activating_tokens:  11%|█         | 7/66 [00:02<00:19,  3.10it/s]Interpreting activating_tokens:  12%|█▏        | 8/66 [00:02<00:16,  3.54it/s]Interpreting activating_tokens:  14%|█▎        | 9/66 [00:02<00:13,  4.18it/s]Interpreting activating_tokens:  17%|█▋        | 11/66 [00:03<00:16,  3.38it/s]Interpreting activating_tokens:  18%|█▊        | 12/66 [00:03<00:14,  3.62it/s]Interpreting activating_tokens:  20%|█▉        | 13/66 [00:03<00:12,  4.18it/s]Interpreting activating_tokens:  23%|██▎       | 15/66 [00:04<00:11,  4.52it/s]Interpreting activating_tokens:  24%|██▍       | 16/66 [00:04<00:15,  3.31it/s]Interpreting activating_tokens:  26%|██▌       | 17/66 [00:05<00:13,  3.53it/s]Interpreting activating_tokens:  29%|██▉       | 19/66 [00:05<00:11,  4.06it/s]Interpreting activating_tokens:  32%|███▏      | 21/66 [00:06<00:12,  3.74it/s]Interpreting activating_tokens:  33%|███▎      | 22/66 [00:06<00:10,  4.30it/s]Interpreting activating_tokens:  35%|███▍      | 23/66 [00:06<00:09,  4.46it/s]Interpreting activating_tokens:  36%|███▋      | 24/66 [00:06<00:10,  4.14it/s]Interpreting activating_tokens:  38%|███▊      | 25/66 [00:06<00:09,  4.47it/s]Interpreting activating_tokens:  39%|███▉      | 26/66 [00:07<00:11,  3.50it/s]Interpreting activating_tokens:  42%|████▏     | 28/66 [00:07<00:07,  5.25it/s]Interpreting activating_tokens:  44%|████▍     | 29/66 [00:08<00:10,  3.66it/s]Interpreting activating_tokens:  47%|████▋     | 31/66 [00:08<00:09,  3.75it/s]Interpreting activating_tokens:  48%|████▊     | 32/66 [00:08<00:09,  3.77it/s]Interpreting activating_tokens:  52%|█████▏    | 34/66 [00:09<00:07,  4.41it/s]Interpreting activating_tokens:  53%|█████▎    | 35/66 [00:09<00:08,  3.62it/s]Interpreting activating_tokens:  55%|█████▍    | 36/66 [00:09<00:08,  3.73it/s]Interpreting activating_tokens:  58%|█████▊    | 38/66 [00:10<00:06,  4.50it/s]Interpreting activating_tokens:  59%|█████▉    | 39/66 [00:10<00:05,  4.78it/s]Interpreting activating_tokens:  61%|██████    | 40/66 [00:10<00:07,  3.28it/s]Interpreting activating_tokens:  62%|██████▏   | 41/66 [00:11<00:06,  3.78it/s]Interpreting activating_tokens:  64%|██████▎   | 42/66 [00:11<00:05,  4.47it/s]Interpreting activating_tokens:  65%|██████▌   | 43/66 [00:11<00:05,  4.12it/s]Interpreting activating_tokens:  67%|██████▋   | 44/66 [00:11<00:05,  4.31it/s]Interpreting activating_tokens:  68%|██████▊   | 45/66 [00:12<00:07,  2.99it/s]Interpreting activating_tokens:  73%|███████▎  | 48/66 [00:12<00:04,  3.71it/s]Interpreting activating_tokens:  74%|███████▍  | 49/66 [00:13<00:03,  4.26it/s]Interpreting activating_tokens:  76%|███████▌  | 50/66 [00:13<00:04,  3.89it/s]Interpreting activating_tokens:  77%|███████▋  | 51/66 [00:13<00:03,  4.55it/s]Interpreting activating_tokens:  80%|████████  | 53/66 [00:14<00:03,  3.90it/s]Interpreting activating_tokens:  82%|████████▏ | 54/66 [00:14<00:03,  3.92it/s]Interpreting activating_tokens:  85%|████████▍ | 56/66 [00:14<00:02,  3.83it/s]Interpreting activating_tokens:  86%|████████▋ | 57/66 [00:15<00:02,  4.27it/s]Interpreting activating_tokens:  89%|████████▉ | 59/66 [00:15<00:01,  4.32it/s]Interpreting activating_tokens:  91%|█████████ | 60/66 [00:15<00:01,  3.59it/s]Interpreting activating_tokens:  92%|█████████▏| 61/66 [00:16<00:01,  4.00it/s]Interpreting activating_tokens:  94%|█████████▍| 62/66 [00:16<00:00,  4.48it/s]Interpreting activating_tokens:  95%|█████████▌| 63/66 [00:16<00:00,  4.97it/s]Interpreting activating_tokens:  97%|█████████▋| 64/66 [00:16<00:00,  3.67it/s]Interpreting activating_tokens:  98%|█████████▊| 65/66 [00:17<00:00,  3.86it/s]Interpreting activating_tokens: 100%|██████████| 66/66 [00:17<00:00,  4.11it/s]Interpreting activating_tokens: 100%|██████████| 66/66 [00:17<00:00,  3.83it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank300/seed42/Cannabis/embedding
+[TIMING] Cannabis: 17.5s
+[rank_search] Gemini filter: rank=400 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 75 features to process.
+[activating_tokens] Concurrent interpretation of 75 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/75 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|▏         | 1/75 [00:01<01:35,  1.28s/it]Interpreting activating_tokens:   4%|▍         | 3/75 [00:01<00:29,  2.45it/s]Interpreting activating_tokens:   7%|▋         | 5/75 [00:01<00:18,  3.80it/s]Interpreting activating_tokens:   8%|▊         | 6/75 [00:02<00:27,  2.55it/s]Interpreting activating_tokens:   9%|▉         | 7/75 [00:02<00:21,  3.14it/s]Interpreting activating_tokens:  11%|█         | 8/75 [00:03<00:22,  2.92it/s]Interpreting activating_tokens:  13%|█▎        | 10/75 [00:03<00:13,  4.72it/s]Interpreting activating_tokens:  15%|█▍        | 11/75 [00:03<00:17,  3.68it/s]Interpreting activating_tokens:  16%|█▌        | 12/75 [00:03<00:16,  3.75it/s]Interpreting activating_tokens:  17%|█▋        | 13/75 [00:04<00:19,  3.21it/s]Interpreting activating_tokens:  19%|█▊        | 14/75 [00:04<00:15,  3.92it/s]Interpreting activating_tokens:  20%|██        | 15/75 [00:04<00:13,  4.36it/s]Interpreting activating_tokens:  23%|██▎       | 17/75 [00:05<00:17,  3.40it/s]Interpreting activating_tokens:  24%|██▍       | 18/75 [00:05<00:15,  3.66it/s]Interpreting activating_tokens:  25%|██▌       | 19/75 [00:05<00:15,  3.68it/s]Interpreting activating_tokens:  27%|██▋       | 20/75 [00:05<00:13,  4.15it/s]Interpreting activating_tokens:  29%|██▉       | 22/75 [00:06<00:15,  3.35it/s]Interpreting activating_tokens:  31%|███       | 23/75 [00:06<00:13,  3.73it/s]Interpreting activating_tokens:  32%|███▏      | 24/75 [00:06<00:11,  4.31it/s]Interpreting activating_tokens:  33%|███▎      | 25/75 [00:07<00:09,  5.03it/s]Interpreting activating_tokens:  35%|███▍      | 26/75 [00:07<00:08,  5.67it/s]Interpreting activating_tokens:  36%|███▌      | 27/75 [00:07<00:14,  3.20it/s]Interpreting activating_tokens:  39%|███▊      | 29/75 [00:08<00:10,  4.54it/s]Interpreting activating_tokens:  40%|████      | 30/75 [00:08<00:09,  4.56it/s]Interpreting activating_tokens:  41%|████▏     | 31/75 [00:08<00:09,  4.69it/s]Interpreting activating_tokens:  43%|████▎     | 32/75 [00:08<00:12,  3.58it/s]Interpreting activating_tokens:  44%|████▍     | 33/75 [00:09<00:10,  4.16it/s]Interpreting activating_tokens:  45%|████▌     | 34/75 [00:09<00:08,  4.88it/s]Interpreting activating_tokens:  47%|████▋     | 35/75 [00:09<00:08,  4.45it/s]Interpreting activating_tokens:  48%|████▊     | 36/75 [00:09<00:11,  3.43it/s]Interpreting activating_tokens:  49%|████▉     | 37/75 [00:10<00:11,  3.32it/s]Interpreting activating_tokens:  51%|█████     | 38/75 [00:10<00:10,  3.63it/s]Interpreting activating_tokens:  53%|█████▎    | 40/75 [00:10<00:06,  5.15it/s]Interpreting activating_tokens:  55%|█████▍    | 41/75 [00:11<00:09,  3.71it/s]Interpreting activating_tokens:  56%|█████▌    | 42/75 [00:11<00:09,  3.59it/s]Interpreting activating_tokens:  60%|██████    | 45/75 [00:12<00:07,  4.13it/s]Interpreting activating_tokens:  63%|██████▎   | 47/75 [00:12<00:06,  4.23it/s]Interpreting activating_tokens:  64%|██████▍   | 48/75 [00:12<00:06,  4.23it/s]Interpreting activating_tokens:  65%|██████▌   | 49/75 [00:13<00:06,  4.20it/s]Interpreting activating_tokens:  67%|██████▋   | 50/75 [00:13<00:06,  4.03it/s]Interpreting activating_tokens:  68%|██████▊   | 51/75 [00:13<00:05,  4.32it/s]Interpreting activating_tokens:  69%|██████▉   | 52/75 [00:13<00:05,  4.25it/s]Interpreting activating_tokens:  71%|███████   | 53/75 [00:13<00:05,  4.19it/s]Interpreting activating_tokens:  73%|███████▎  | 55/75 [00:14<00:04,  4.22it/s]Interpreting activating_tokens:  75%|███████▍  | 56/75 [00:14<00:04,  4.08it/s]Interpreting activating_tokens:  76%|███████▌  | 57/75 [00:14<00:03,  4.75it/s]Interpreting activating_tokens:  77%|███████▋  | 58/75 [00:15<00:03,  4.34it/s]Interpreting activating_tokens:  80%|████████  | 60/75 [00:15<00:03,  3.87it/s]Interpreting activating_tokens:  81%|████████▏ | 61/75 [00:15<00:03,  4.44it/s]Interpreting activating_tokens:  83%|████████▎ | 62/75 [00:16<00:02,  4.39it/s]Interpreting activating_tokens:  84%|████████▍ | 63/75 [00:16<00:03,  3.95it/s]Interpreting activating_tokens:  87%|████████▋ | 65/75 [00:16<00:02,  4.19it/s]Interpreting activating_tokens:  88%|████████▊ | 66/75 [00:17<00:02,  4.01it/s]Interpreting activating_tokens:  89%|████████▉ | 67/75 [00:17<00:02,  3.81it/s]Interpreting activating_tokens:  91%|█████████ | 68/75 [00:17<00:01,  4.15it/s]Interpreting activating_tokens:  92%|█████████▏| 69/75 [00:17<00:01,  4.36it/s]Interpreting activating_tokens:  93%|█████████▎| 70/75 [00:17<00:01,  4.65it/s]Interpreting activating_tokens:  95%|█████████▍| 71/75 [00:18<00:01,  2.75it/s]Interpreting activating_tokens:  97%|█████████▋| 73/75 [00:18<00:00,  3.86it/s]Interpreting activating_tokens:  99%|█████████▊| 74/75 [00:19<00:00,  4.46it/s]Interpreting activating_tokens: 100%|██████████| 75/75 [00:19<00:00,  3.93it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank400/seed42/Cannabis/embedding
+[TIMING] Cannabis: 19.4s
+[rank_search] Gemini filter: rank=600 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 81 features to process.
+[activating_tokens] Concurrent interpretation of 81 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/81 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|          | 1/81 [00:01<01:37,  1.22s/it]Interpreting activating_tokens:   2%|▏         | 2/81 [00:01<00:47,  1.66it/s]Interpreting activating_tokens:   5%|▍         | 4/81 [00:01<00:21,  3.61it/s]Interpreting activating_tokens:   7%|▋         | 6/81 [00:02<00:28,  2.59it/s]Interpreting activating_tokens:  10%|▉         | 8/81 [00:02<00:20,  3.53it/s]Interpreting activating_tokens:  12%|█▏        | 10/81 [00:03<00:16,  4.18it/s]Interpreting activating_tokens:  14%|█▎        | 11/81 [00:03<00:24,  2.84it/s]Interpreting activating_tokens:  16%|█▌        | 13/81 [00:04<00:17,  3.97it/s]Interpreting activating_tokens:  17%|█▋        | 14/81 [00:04<00:16,  3.98it/s]Interpreting activating_tokens:  19%|█▊        | 15/81 [00:04<00:14,  4.61it/s]Interpreting activating_tokens:  20%|█▉        | 16/81 [00:05<00:22,  2.87it/s]Interpreting activating_tokens:  22%|██▏       | 18/81 [00:05<00:14,  4.28it/s]Interpreting activating_tokens:  23%|██▎       | 19/81 [00:05<00:14,  4.40it/s]Interpreting activating_tokens:  25%|██▍       | 20/81 [00:05<00:12,  4.81it/s]Interpreting activating_tokens:  26%|██▌       | 21/81 [00:06<00:18,  3.30it/s]Interpreting activating_tokens:  27%|██▋       | 22/81 [00:06<00:17,  3.41it/s]Interpreting activating_tokens:  30%|██▉       | 24/81 [00:06<00:13,  4.27it/s]Interpreting activating_tokens:  31%|███       | 25/81 [00:07<00:14,  3.88it/s]Interpreting activating_tokens:  32%|███▏      | 26/81 [00:07<00:15,  3.57it/s]Interpreting activating_tokens:  33%|███▎      | 27/81 [00:07<00:14,  3.71it/s]Interpreting activating_tokens:  35%|███▍      | 28/81 [00:08<00:14,  3.75it/s]Interpreting activating_tokens:  36%|███▌      | 29/81 [00:08<00:13,  3.73it/s]Interpreting activating_tokens:  37%|███▋      | 30/81 [00:08<00:11,  4.29it/s]Interpreting activating_tokens:  38%|███▊      | 31/81 [00:08<00:12,  4.13it/s]Interpreting activating_tokens:  40%|███▉      | 32/81 [00:09<00:18,  2.71it/s]Interpreting activating_tokens:  43%|████▎     | 35/81 [00:09<00:09,  4.81it/s]Interpreting activating_tokens:  44%|████▍     | 36/81 [00:09<00:10,  4.50it/s]Interpreting activating_tokens:  46%|████▌     | 37/81 [00:10<00:14,  3.06it/s]Interpreting activating_tokens:  47%|████▋     | 38/81 [00:10<00:11,  3.62it/s]Interpreting activating_tokens:  49%|████▉     | 40/81 [00:10<00:08,  5.01it/s]Interpreting activating_tokens:  51%|█████     | 41/81 [00:11<00:07,  5.26it/s]Interpreting activating_tokens:  52%|█████▏    | 42/81 [00:11<00:11,  3.53it/s]Interpreting activating_tokens:  53%|█████▎    | 43/81 [00:11<00:09,  4.10it/s]Interpreting activating_tokens:  54%|█████▍    | 44/81 [00:11<00:07,  4.85it/s]Interpreting activating_tokens:  56%|█████▌    | 45/81 [00:12<00:07,  4.61it/s]Interpreting activating_tokens:  58%|█████▊    | 47/81 [00:12<00:08,  3.81it/s]Interpreting activating_tokens:  59%|█████▉    | 48/81 [00:12<00:08,  3.87it/s]Interpreting activating_tokens:  60%|██████    | 49/81 [00:13<00:07,  4.45it/s]Interpreting activating_tokens:  62%|██████▏   | 50/81 [00:13<00:09,  3.38it/s]Interpreting activating_tokens:  64%|██████▍   | 52/81 [00:14<00:08,  3.62it/s]Interpreting activating_tokens:  65%|██████▌   | 53/81 [00:14<00:06,  4.18it/s]Interpreting activating_tokens:  67%|██████▋   | 54/81 [00:14<00:05,  4.88it/s]Interpreting activating_tokens:  68%|██████▊   | 55/81 [00:14<00:05,  4.47it/s]Interpreting activating_tokens:  69%|██████▉   | 56/81 [00:15<00:06,  3.58it/s]Interpreting activating_tokens:  70%|███████   | 57/81 [00:15<00:05,  4.08it/s]Interpreting activating_tokens:  73%|███████▎  | 59/81 [00:15<00:04,  4.55it/s]Interpreting activating_tokens:  74%|███████▍  | 60/81 [00:15<00:04,  5.14it/s]Interpreting activating_tokens:  75%|███████▌  | 61/81 [00:16<00:05,  3.40it/s]Interpreting activating_tokens:  77%|███████▋  | 62/81 [00:16<00:05,  3.29it/s]Interpreting activating_tokens:  79%|███████▉  | 64/81 [00:16<00:03,  4.85it/s]Interpreting activating_tokens:  80%|████████  | 65/81 [00:16<00:02,  5.46it/s]Interpreting activating_tokens:  81%|████████▏ | 66/81 [00:17<00:04,  3.17it/s]Interpreting activating_tokens:  83%|████████▎ | 67/81 [00:17<00:04,  3.19it/s]Interpreting activating_tokens:  84%|████████▍ | 68/81 [00:18<00:03,  3.56it/s]Interpreting activating_tokens:  86%|████████▋ | 70/81 [00:18<00:02,  5.32it/s]Interpreting activating_tokens:  88%|████████▊ | 71/81 [00:18<00:03,  3.29it/s]Interpreting activating_tokens:  89%|████████▉ | 72/81 [00:19<00:02,  3.24it/s]Interpreting activating_tokens:  90%|█████████ | 73/81 [00:19<00:02,  3.84it/s]Interpreting activating_tokens:  94%|█████████▍| 76/81 [00:20<00:01,  3.68it/s]Interpreting activating_tokens:  96%|█████████▋| 78/81 [00:20<00:00,  4.69it/s]Interpreting activating_tokens:  98%|█████████▊| 79/81 [00:20<00:00,  3.98it/s]Interpreting activating_tokens:  99%|█████████▉| 80/81 [00:20<00:00,  4.44it/s]Interpreting activating_tokens: 100%|██████████| 81/81 [00:22<00:00,  2.28it/s]Interpreting activating_tokens: 100%|██████████| 81/81 [00:22<00:00,  3.68it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank600/seed42/Cannabis/embedding
+[TIMING] Cannabis: 22.4s
+[rank_search] Gemini filter: rank=800 seed=42 -> mf_outputs/rank_search/multi_language/en+ru+de+es+fr
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 73 features to process.
+[activating_tokens] Concurrent interpretation of 73 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/73 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|▏         | 1/73 [00:01<01:36,  1.34s/it]Interpreting activating_tokens:   4%|▍         | 3/73 [00:01<00:27,  2.51it/s]Interpreting activating_tokens:   7%|▋         | 5/73 [00:01<00:15,  4.28it/s]Interpreting activating_tokens:  10%|▉         | 7/73 [00:02<00:22,  2.92it/s]Interpreting activating_tokens:  12%|█▏        | 9/73 [00:03<00:18,  3.47it/s]Interpreting activating_tokens:  14%|█▎        | 10/73 [00:03<00:16,  3.94it/s]Interpreting activating_tokens:  15%|█▌        | 11/73 [00:03<00:19,  3.16it/s]Interpreting activating_tokens:  16%|█▋        | 12/73 [00:04<00:21,  2.80it/s]Interpreting activating_tokens:  18%|█▊        | 13/73 [00:04<00:19,  3.05it/s]Interpreting activating_tokens:  19%|█▉        | 14/73 [00:04<00:22,  2.64it/s]Interpreting activating_tokens:  21%|██        | 15/73 [00:05<00:18,  3.22it/s]Interpreting activating_tokens:  22%|██▏       | 16/73 [00:05<00:16,  3.53it/s]Interpreting activating_tokens:  23%|██▎       | 17/73 [00:05<00:17,  3.23it/s]Interpreting activating_tokens:  25%|██▍       | 18/73 [00:05<00:16,  3.30it/s]Interpreting activating_tokens:  26%|██▌       | 19/73 [00:06<00:15,  3.59it/s]Interpreting activating_tokens:  29%|██▉       | 21/73 [00:06<00:09,  5.54it/s]Interpreting activating_tokens:  30%|███       | 22/73 [00:06<00:14,  3.57it/s]Interpreting activating_tokens:  32%|███▏      | 23/73 [00:07<00:15,  3.22it/s]Interpreting activating_tokens:  34%|███▍      | 25/73 [00:07<00:12,  3.88it/s]Interpreting activating_tokens:  36%|███▌      | 26/73 [00:07<00:12,  3.70it/s]Interpreting activating_tokens:  38%|███▊      | 28/73 [00:08<00:10,  4.20it/s]Interpreting activating_tokens:  40%|███▉      | 29/73 [00:08<00:11,  4.00it/s]Interpreting activating_tokens:  41%|████      | 30/73 [00:08<00:11,  3.83it/s]Interpreting activating_tokens:  42%|████▏     | 31/73 [00:09<00:10,  3.99it/s]Interpreting activating_tokens:  44%|████▍     | 32/73 [00:09<00:10,  4.00it/s]Interpreting activating_tokens:  45%|████▌     | 33/73 [00:09<00:10,  3.98it/s]Interpreting activating_tokens:  47%|████▋     | 34/73 [00:09<00:10,  3.69it/s]Interpreting activating_tokens:  49%|████▉     | 36/73 [00:10<00:08,  4.40it/s]Interpreting activating_tokens:  51%|█████     | 37/73 [00:10<00:07,  4.56it/s]Interpreting activating_tokens:  52%|█████▏    | 38/73 [00:10<00:08,  4.21it/s]Interpreting activating_tokens:  53%|█████▎    | 39/73 [00:11<00:11,  2.99it/s]Interpreting activating_tokens:  55%|█████▍    | 40/73 [00:11<00:10,  3.17it/s]Interpreting activating_tokens:  56%|█████▌    | 41/73 [00:11<00:09,  3.38it/s]Interpreting activating_tokens:  59%|█████▉    | 43/73 [00:12<00:07,  4.17it/s]Interpreting activating_tokens:  60%|██████    | 44/73 [00:12<00:07,  3.83it/s]Interpreting activating_tokens:  62%|██████▏   | 45/73 [00:12<00:06,  4.15it/s]Interpreting activating_tokens:  63%|██████▎   | 46/73 [00:13<00:07,  3.82it/s]Interpreting activating_tokens:  64%|██████▍   | 47/73 [00:13<00:06,  3.89it/s]Interpreting activating_tokens:  67%|██████▋   | 49/73 [00:13<00:05,  4.18it/s]Interpreting activating_tokens:  68%|██████▊   | 50/73 [00:13<00:05,  4.36it/s]Interpreting activating_tokens:  70%|██████▉   | 51/73 [00:14<00:05,  4.20it/s]Interpreting activating_tokens:  71%|███████   | 52/73 [00:14<00:06,  3.24it/s]Interpreting activating_tokens:  74%|███████▍  | 54/73 [00:14<00:04,  4.35it/s]Interpreting activating_tokens:  75%|███████▌  | 55/73 [00:15<00:04,  4.34it/s]Interpreting activating_tokens:  78%|███████▊  | 57/73 [00:15<00:04,  3.57it/s]Interpreting activating_tokens:  81%|████████  | 59/73 [00:16<00:03,  4.58it/s]Interpreting activating_tokens:  82%|████████▏ | 60/73 [00:16<00:02,  4.73it/s]Interpreting activating_tokens:  84%|████████▎ | 61/73 [00:16<00:02,  4.78it/s]Interpreting activating_tokens:  85%|████████▍ | 62/73 [00:17<00:03,  3.17it/s]Interpreting activating_tokens:  89%|████████▉ | 65/73 [00:17<00:01,  5.68it/s]Interpreting activating_tokens:  90%|█████████ | 66/73 [00:17<00:01,  3.80it/s]Interpreting activating_tokens:  92%|█████████▏| 67/73 [00:18<00:01,  3.30it/s]Interpreting activating_tokens:  95%|█████████▍| 69/73 [00:18<00:00,  4.24it/s]Interpreting activating_tokens:  96%|█████████▌| 70/73 [00:18<00:00,  4.12it/s]Interpreting activating_tokens:  97%|█████████▋| 71/73 [00:19<00:00,  3.61it/s]Interpreting activating_tokens:  99%|█████████▊| 72/73 [00:19<00:00,  2.96it/s]Interpreting activating_tokens: 100%|██████████| 73/73 [00:19<00:00,  3.63it/s]Interpreting activating_tokens: 100%|██████████| 73/73 [00:19<00:00,  3.67it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/interpretations/rank800/seed42/Cannabis/embedding
+[TIMING] Cannabis: 20.2s
+
+=== Cannabis, langs=en+ru+de+es+fr: one row per (rank, seed) ===
+ rank  seed    V'  rel_err  candidates  member  kept  edit_total  edit_en  edit_ru  edit_de  edit_es  edit_fr
+  100    42 23188   0.9383          31       0     0           0        0        0        0        0        0
+  200    42 23188   0.9109          52       0     0           0        0        0        0        0        0
+  300    42 23188   0.8898          66       0     0           0        0        0        0        0        0
+  400    42 23188   0.8713          75       1     1         143       73        9       52       47       45
+  600    42 23188   0.8430          81       1     1         148       73        9       54       43       50
+  800    42 23188   0.8232          73       1     1         121       62        8       52       34       39
+
+=== kept features (share_<L> = share of the feature's concept-token mass in language L) ===
+ rank  seed  feature  ratio_abs  confidence  share_en  share_ru  share_de  share_es  share_fr                                                                                                                            description
+  400    42      170       4.39        0.99      0.37      0.04      0.22      0.19      0.18 This vector represents the cannabis plant, its cannabinoids, and its various derivative substances like THC, CBD, hemp, and marijuana.
+  600    42      560       4.58        0.99      0.36      0.04      0.23      0.18      0.20                                  This feature vector represents the cannabis plant and its primary chemical compounds and derivatives.
+  800    42      762       3.12        0.99      0.37      0.04      0.26      0.16      0.18                                                      This vector activates in the context of cannabis, hemp, and related cannabinoids.
+
+saved mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/rank_search/Cannabis/summary.csv and mf_outputs/rank_search/multi_language/en+ru+de+es+fr/google_gemma-2-2b-it/rank_search/Cannabis/features.csv

@@ -1,0 +1,40 @@
+{
+  "concept": "Harry Potter",
+  "judge_id": "qwen2.5-32b-instruct",
+  "judge_model": "Qwen/Qwen2.5-32B-Instruct",
+  "scoring": "mc_fixed (judge_rerun/mc_fixed.py), grid judge_rerun/SNMF/rescore_mc",
+  "top_rows": [
+    120,
+    96,
+    72
+  ],
+  "new_rows": [],
+  "best_row": 120,
+  "best_hp": {
+    "delta_embed": 10.0,
+    "w_mode": "both",
+    "feature_source": "all",
+    "ratio_thresh": 2.0,
+    "coverage_thresh": 0.95,
+    "delta_in": 10.0,
+    "layer_lo_in": 0,
+    "layer_hi_in": 8,
+    "k_features_mlp_in": 15,
+    "delta_out": 1.0,
+    "layer_lo_out": 0,
+    "layer_hi_out": 8,
+    "k_features_mlp_out": 15
+  },
+  "best_harmonic_alpaca": 0.9031901764430744,
+  "best_metrics": {
+    "efficacy": 0.8421052631578947,
+    "specificity": 0.8833333333333332,
+    "harmonic": 0.8622267412302999,
+    "alp_instr_frac": 1.0,
+    "alp_flu_frac": 0.9960474308300394,
+    "coherence": 0.998019801980198,
+    "harmonic_alpaca": 0.9031901764430744
+  },
+  "old_best_harmonic_alpaca": 0.9031901764430744,
+  "pick_changed": false
+}

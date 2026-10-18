@@ -1,35 +1,0 @@
-index, name, memory.total [MiB]
-0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
-24000 pairs
-LaBSE done
-Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [00:00<00:02,  1.55it/s]Fetching 5 files:  80%|████████  | 4/5 [00:00<00:00,  4.58it/s]Fetching 5 files:  80%|████████  | 4/5 [00:10<00:02,  2.73s/it]Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Error while downloading from https://huggingface.co/Unbabel/wmt22-cometkiwi-da/resolve/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
-Trying to resume download...
-Fetching 5 files: 100%|██████████| 5/5 [03:06<00:00, 37.24s/it]Fetching 5 files: 100%|██████████| 5/5 [03:06<00:00, 37.24s/it]
-Lightning automatically upgraded your loaded checkpoint from v1.8.2 to v2.6.6. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../.cache/huggingface/hub/models--Unbabel--wmt22-cometkiwi-da/snapshots/1ad785194e391eebc6c53e2d0776cada8f83179a/checkpoints/model.ckpt`
-Encoder model frozen.
-/home/morg/NLP_2526b/semyong/.venv-comet/lib/python3.12/site-packages/pytorch_lightning/core/saving.py:216: Found keys that are not in the model state dict but in the checkpoint: ['encoder.model.embeddings.position_ids']
-/home/morg/NLP_2526b/semyong/.venv-comet/lib/python3.12/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python experiments/multilingual_fit/score_translations.py ...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
-COMET-Kiwi done
-wrote /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/experiments/multilingual_fit/data_translated/quality/scores.csv, summary.csv, worst.csv

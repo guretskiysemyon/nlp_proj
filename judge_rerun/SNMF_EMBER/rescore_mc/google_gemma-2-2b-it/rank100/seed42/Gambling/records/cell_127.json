@@ -1,0 +1,3003 @@
+{
+ "concept": "Gambling",
+ "row": 127,
+ "hp": {
+  "delta_embed": 10.0,
+  "k_features_embed": 3,
+  "n_tokens_edited": 69,
+  "w_mode": "both",
+  "feature_source": "all",
+  "ratio_thresh": 2.0,
+  "coverage_thresh": 0.95,
+  "neurons_thresh": NaN,
+  "delta_in": 10.0,
+  "layer_lo_in": 0,
+  "layer_hi_in": 8,
+  "k_features_mlp_in": 23,
+  "delta_out": 7.0,
+  "layer_lo_out": 9,
+  "layer_hi_out": 17,
+  "k_features_mlp_out": 6
+ },
+ "k_features_mlp_in": 23,
+ "k_features_mlp_out": 6,
+ "mc_max_new_tokens": 32,
+ "mmlu_max_new_tokens": 32,
+ "mmlu": {
+  "acc": 0.44,
+  "invalid_rate": 0.0,
+  "old_acc": 0.44,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "**D. The witness.**",
+    "model_letter": "D",
+    "old_raw": "**D. The witness.**",
+    "old_letter": "D",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 9,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.36,
+  "invalid_rate": 0.0,
+  "old_acc": 0.34,
+  "old_invalid_rate": 0.18000000000000005,
+  "n": 50,
+  "records": [
+   {
+    "question": "What is the highest-ranked poker hand consisting of A-K-Q-J-10 of the same suit?",
+    "options": {
+     "A": "Full house",
+     "B": "Royal flush",
+     "C": "Straight flush",
+     "D": "Four of a kind"
+    },
+    "correct_letter": "B",
+    "correct_text": "Royal flush",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "The Buddha listed gambling as one of the sources of what?",
+    "options": {
+     "A": "Harmony",
+     "B": "Wealth",
+     "C": "Enlightenment",
+     "D": "Destruction"
+    },
+    "correct_letter": "D",
+    "correct_text": "Destruction",
+    "model_raw": "**C. Enlightenment** \n\nThe Buddha is associated with enlightenment, as it is a key concept in Buddhism.",
+    "model_letter": "C",
+    "old_raw": "**C. Enlightenment",
+    "old_letter": "C",
+    "n_new_tokens": 26,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Methodist churches generally view gambling as feeding on what vice?",
+    "options": {
+     "A": "Luck",
+     "B": "Charity",
+     "C": "Greed",
+     "D": "Temperance"
+    },
+    "correct_letter": "C",
+    "correct_text": "Greed",
+    "model_raw": "C. Greed",
+    "model_letter": "C",
+    "old_raw": "C. Greed",
+    "old_letter": "C",
+    "n_new_tokens": 6,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which Asian city-state legalized integrated-resort casinos in 2010 to boost tourism?",
+    "options": {
+     "A": "Monaco",
+     "B": "Singapore",
+     "C": "Hong Kong",
+     "D": "Macau"
+    },
+    "correct_letter": "B",
+    "correct_text": "Singapore",
+    "model_raw": "The answer is **B. Singapore**. \n\nHere's why:\n\n* **Singapore** legalized integrated-resort betting in 2010 to",
+    "model_letter": "B",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "In blackjack, an Ace can count as one or ______ points.",
+    "options": {
+     "A": "Nine",
+     "B": "Eleven",
+     "C": "Ten",
+     "D": "Twelve"
+    },
+    "correct_letter": "B",
+    "correct_text": "Eleven",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A fixed-stake system means betting the same ______ every time.",
+    "options": {
+     "A": "Table",
+     "B": "Day",
+     "C": "Game",
+     "D": "Amount"
+    },
+    "correct_letter": "D",
+    "correct_text": "Amount",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In craps, rolling a 7 on the come-out roll instantly wins a ______ line wager.",
+    "options": {
+     "A": "Don't Pass",
+     "B": "Come",
+     "C": "Pass",
+     "D": "Field"
+    },
+    "correct_letter": "C",
+    "correct_text": "Pass",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In sports betting, odds of 2/1 mean a successful $1 bet wins how many dollars profit?",
+    "options": {
+     "A": "1",
+     "B": "2",
+     "C": "0.5",
+     "D": "3"
+    },
+    "correct_letter": "B",
+    "correct_text": "2",
+    "model_raw": "**C. 0.5**",
+    "model_letter": "C",
+    "old_raw": "**C.",
+    "old_letter": "C",
+    "n_new_tokens": 11,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A casino calculated return-to-player percentage is commonly abbreviated as ______.",
+    "options": {
+     "A": "ROI",
+     "B": "EV",
+     "C": "RTP",
+     "D": "RNG"
+    },
+    "correct_letter": "C",
+    "correct_text": "RTP",
+    "model_raw": "**C. RTP** \n\n**Explanation:**\n\nRTP stands for Return To Player.",
+    "model_letter": "C",
+    "old_raw": "**C. RTP",
+    "old_letter": "C",
+    "n_new_tokens": 21,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Illegal, fast-moving sidewalk game with three cups and a pea is called what?",
+    "options": {
+     "A": "Cup shuffle",
+     "B": "Shell game",
+     "C": "Three-card monte",
+     "D": "Find the coin"
+    },
+    "correct_letter": "B",
+    "correct_text": "Shell game",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which Chinese tile game dating to the 10th century is a domino ancestor?",
+    "options": {
+     "A": "Sic Bo",
+     "B": "Mahjong",
+     "C": "Go",
+     "D": "Pai Gow"
+    },
+    "correct_letter": "D",
+    "correct_text": "Pai Gow",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is wagering on political election outcomes an example of?",
+    "options": {
+     "A": "Fixed-odds betting",
+     "B": "In-play betting",
+     "C": "Parimutuel betting",
+     "D": "Spread betting"
+    },
+    "correct_letter": "A",
+    "correct_text": "Fixed-odds betting",
+    "model_raw": "The best answer is **D. Spread**\n\nHere's why?\n\n**D. Spread** is a type of a voting system used in which voters",
+    "model_letter": "D",
+    "old_raw": "The best answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What small circular token often represents money at casino tables?",
+    "options": {
+     "A": "Marker",
+     "B": "Chip",
+     "C": "Token",
+     "D": "Coin"
+    },
+    "correct_letter": "B",
+    "correct_text": "Chip",
+    "model_raw": "**D. Coin**",
+    "model_letter": "D",
+    "old_raw": "**D. Coin",
+    "old_letter": "D",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Wagering marbles instead of cash shows gambling can use items with what?",
+    "options": {
+     "A": "Face value",
+     "B": "Non-monetary value",
+     "C": "Nominal value",
+     "D": "Cash value"
+    },
+    "correct_letter": "B",
+    "correct_text": "Non-monetary value",
+    "model_raw": "**B. Non-monetary value** \n\nHere's why:\n\n* **Wageringing marbles** is a type of trading system where",
+    "model_letter": "B",
+    "old_raw": "**B. Non",
+    "old_letter": "B",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Betting on the winner of a sports season involves what type of outcome timeframe?",
+    "options": {
+     "A": "Short-term outcome",
+     "B": "Immediate outcome",
+     "C": "Long-term outcome",
+     "D": "In-game outcome"
+    },
+    "correct_letter": "C",
+    "correct_text": "Long-term outcome",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "In blackjack, what card value do players try not to exceed?",
+    "options": {
+     "A": "21",
+     "B": "19",
+     "C": "20",
+     "D": "22"
+    },
+    "correct_letter": "A",
+    "correct_text": "21",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "On a slot machine, what name is given to the large top payout?",
+    "options": {
+     "A": "Multiplier",
+     "B": "Jackpot",
+     "C": "Bonus",
+     "D": "Free spin"
+    },
+    "correct_letter": "B",
+    "correct_text": "Jackpot",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Betting that a specific horse will finish first, second, or third is called a ______ bet.",
+    "options": {
+     "A": "Win",
+     "B": "Show",
+     "C": "Place",
+     "D": "Exacta"
+    },
+    "correct_letter": "B",
+    "correct_text": "Show",
+    "model_raw": "C. Place",
+    "model_letter": "C",
+    "old_raw": "C. Place",
+    "old_letter": "C",
+    "n_new_tokens": 6,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Using statistics to set insurance premiums resembles casinos setting ______.",
+    "options": {
+     "A": "Limits",
+     "B": "Lines",
+     "C": "Payouts",
+     "D": "Odds"
+    },
+    "correct_letter": "D",
+    "correct_text": "Odds",
+    "model_raw": "**A**",
+    "model_letter": "A",
+    "old_raw": "**A**",
+    "old_letter": "A",
+    "n_new_tokens": 6,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A casino security worker monitoring tables is commonly called a ______.",
+    "options": {
+     "A": "Pit boss",
+     "B": "Cashier",
+     "C": "Dealer",
+     "D": "Croupier"
+    },
+    "correct_letter": "A",
+    "correct_text": "Pit boss",
+    "model_raw": "**C. Cashier** \n\nA cashier is the single best answer for a security worker monitoring tables.",
+    "model_letter": "C",
+    "old_raw": "**C. C",
+    "old_letter": "C",
+    "n_new_tokens": 25,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A lottery where the jackpot increases when not won is called a ______ jackpot.",
+    "options": {
+     "A": "Static",
+     "B": "Fixed",
+     "C": "Progressive",
+     "D": "Capped"
+    },
+    "correct_letter": "C",
+    "correct_text": "Progressive",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Problem gambling is characterized by repeated attempts to win back what?",
+    "options": {
+     "A": "Fame",
+     "B": "Comps",
+     "C": "Lost money",
+     "D": "Time"
+    },
+    "correct_letter": "C",
+    "correct_text": "Lost money",
+    "model_raw": "**C. Lost money** \n\nHere's why:\n\n* **Lost money** is a common characteristic of a betting  problem in a betting",
+    "model_letter": "C",
+    "old_raw": "**C. Lost",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What popular U.S. pool involves filling a 10×10 grid for the Super Bowl?",
+    "options": {
+     "A": "Office Pick'em",
+     "B": "Super Bowl Squares",
+     "C": "Fantasy Draft",
+     "D": "March Madness Bracket"
+    },
+    "correct_letter": "B",
+    "correct_text": "Super Bowl Squares",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the usual minimum age to buy a lottery ticket in many U.S. states?",
+    "options": {
+     "A": "19",
+     "B": "18",
+     "C": "21",
+     "D": "16"
+    },
+    "correct_letter": "B",
+    "correct_text": "18",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Rolling two dice for money is an example of what type of gambling timeframe?",
+    "options": {
+     "A": "Parlay outcome",
+     "B": "Long-term outcome",
+     "C": "Immediate outcome",
+     "D": "Season outcome"
+    },
+    "correct_letter": "C",
+    "correct_text": "Immediate outcome",
+    "model_raw": "**C. Immediate outcome** \n\nRolling two times for money is a common example of an **immediate outcome**. \n\nHere's why:\n\n*",
+    "model_letter": "C",
+    "old_raw": "**C. Immediate",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which table game uses numbered spots 0 and 00 on some American wheels?",
+    "options": {
+     "A": "Keno",
+     "B": "Craps",
+     "C": "Baccarat",
+     "D": "Roulette"
+    },
+    "correct_letter": "D",
+    "correct_text": "Roulette",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which element of gambling refers to the reward a player hopes to gain?",
+    "options": {
+     "A": "Prize",
+     "B": "Odds",
+     "C": "Stake",
+     "D": "Risk"
+    },
+    "correct_letter": "A",
+    "correct_text": "Prize",
+    "model_raw": "**A. Prize** \n\nThis is the single best answer because it refers to the reward a player hopes to gain.",
+    "model_letter": "A",
+    "old_raw": "**A. Prize",
+    "old_letter": "A",
+    "n_new_tokens": 28,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Online casinos verify player identity mainly to prevent what illegal act?",
+    "options": {
+     "A": "Cheating",
+     "B": "Addiction",
+     "C": "Tax evasion",
+     "D": "Money laundering"
+    },
+    "correct_letter": "D",
+    "correct_text": "Money laundering",
+    "model_raw": "The single best answer is **A. Cheating**. \n\nHere's why:\n\n* **Cheating** is the most significant concern regarding preventing illegal",
+    "model_letter": "A",
+    "old_raw": "The single best answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Dice showing two ones is nicknamed ______ in craps slang.",
+    "options": {
+     "A": "Yo",
+     "B": "Midnight",
+     "C": "Boxcars",
+     "D": "Snake eyes"
+    },
+    "correct_letter": "D",
+    "correct_text": "Snake eyes",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What word is commonly used in the UK for government-regulated wagering activities?",
+    "options": {
+     "A": "Wagering",
+     "B": "Gambling",
+     "C": "Betting",
+     "D": "Gaming"
+    },
+    "correct_letter": "B",
+    "correct_text": "Gambling",
+    "model_raw": "The answer is **C**. \n\nHere's why?\n\n**C.  **  \n\n**Explanation:**\n\nThe question asks for a single best",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "The psychological urge to keep gambling after losses is often called chasing ______.",
+    "options": {
+     "A": "Comps",
+     "B": "Wins",
+     "C": "Jackpots",
+     "D": "Losses"
+    },
+    "correct_letter": "D",
+    "correct_text": "Losses",
+    "model_raw": "**A. Comps** \n\nHere's why:\n\n* **Comps** is the most common and widely accepted answer to the question.",
+    "model_letter": "A",
+    "old_raw": "**A. Com",
+    "old_letter": "A",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Problem gamblers in the UK can self-exclude by registering with ______.",
+    "options": {
+     "A": "GamCare",
+     "B": "GAMSTOP",
+     "C": "Ofcom",
+     "D": "NHS"
+    },
+    "correct_letter": "B",
+    "correct_text": "GAMSTOP",
+    "model_raw": "**C. Ofcom** \n\n**Explanation:**\n\n* **Ofcom** stands for \"Official Committee\" in the UK context.  It's",
+    "model_letter": "C",
+    "old_raw": "**C. Of",
+    "old_letter": "C",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the term for the expected average gain or loss of a bet?",
+    "options": {
+     "A": "Variance",
+     "B": "Return rate",
+     "C": "House edge",
+     "D": "Expected value"
+    },
+    "correct_letter": "D",
+    "correct_text": "Expected value",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "When roulette wheels had wooden frets, players attempted to spot a physical bias called a ______ wheel.",
+    "options": {
+     "A": "Crooked",
+     "B": "Zero-biased",
+     "C": "Truncated",
+     "D": "Sector"
+    },
+    "correct_letter": "D",
+    "correct_text": "Sector",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Betting on which TV talent-show contestant will win is a form of what?",
+    "options": {
+     "A": "Arbitrage betting",
+     "B": "Political betting",
+     "C": "Entertainment betting",
+     "D": "Sportsbook"
+    },
+    "correct_letter": "C",
+    "correct_text": "Entertainment betting",
+    "model_raw": "The correct answer is **A. Arbitrage**\n\n**Explanation:**\n\nThis is a form of **arbitrage** is a form of **arbitrage**",
+    "model_letter": "A",
+    "old_raw": "The correct answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which cognitive bias leads gamblers to think a winning streak will continue?",
+    "options": {
+     "A": "Gambler's fallacy",
+     "B": "Confirmation bias",
+     "C": "Survivorship bias",
+     "D": "Hot-hand fallacy"
+    },
+    "correct_letter": "A",
+    "correct_text": "Gambler's fallacy",
+    "model_raw": "**A. Gambler's fallacy** \n\nGamb",
+    "model_letter": "A",
+    "old_raw": "**A. Gamb",
+    "old_letter": "A",
+    "n_new_tokens": 15,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The term for leaving without paying a gambling debt is to take a ______.",
+    "options": {
+     "A": "Levant",
+     "B": "Loan",
+     "C": "Leave",
+     "D": "Line"
+    },
+    "correct_letter": "A",
+    "correct_text": "Levant",
+    "model_raw": "**B. Loan**",
+    "model_letter": "B",
+    "old_raw": "**B. Loan",
+    "old_letter": "B",
+    "n_new_tokens": 8,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In Catholic teaching, gambling becomes immoral when the gambler cannot ______ the loss.",
+    "options": {
+     "A": "Control",
+     "B": "Afford",
+     "C": "Avoid",
+     "D": "Explain"
+    },
+    "correct_letter": "B",
+    "correct_text": "Afford",
+    "model_raw": "The correct answer is **C. Avoid**. \n\nHere's why:\n\n* **C. Avoid**  This is the single best answer because it",
+    "model_letter": "C",
+    "old_raw": "The correct answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "The UK regulator for wagering activities is the ______ Commission.",
+    "options": {
+     "A": "Gambling",
+     "B": "Wagering",
+     "C": "Betting",
+     "D": "Lotteries"
+    },
+    "correct_letter": "A",
+    "correct_text": "Gambling",
+    "model_raw": "The correct answer is **C. Lot**. \n\n**Explanation:**\n\nThe UK's (UK) is a common abbreviation for \"The UK\" (",
+    "model_letter": "C",
+    "old_raw": "The correct answer is",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "Betting on the exact order of the top three finishers in a race is called a ______.",
+    "options": {
+     "A": "Superfecta",
+     "B": "Trifecta",
+     "C": "Exacta",
+     "D": "Quinella"
+    },
+    "correct_letter": "B",
+    "correct_text": "Trifecta",
+    "model_raw": "**B. Trifecta**",
+    "model_letter": "B",
+    "old_raw": "**B. Tri",
+    "old_letter": "B",
+    "n_new_tokens": 10,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The colorful machine lever once pulled to spin reels gives slots their nickname ______.",
+    "options": {
+     "A": "Pull bar",
+     "B": "Lucky lever",
+     "C": "Arm puller",
+     "D": "One-armed bandit"
+    },
+    "correct_letter": "D",
+    "correct_text": "One-armed bandit",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which random-number device is spun in the game of roulette?",
+    "options": {
+     "A": "A dice",
+     "B": "A wheel",
+     "C": "A tumbler",
+     "D": "A drum"
+    },
+    "correct_letter": "B",
+    "correct_text": "A wheel",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What popular U.S. card game traces its roots to the Persian game As-Nas?",
+    "options": {
+     "A": "Blackjack",
+     "B": "Poker",
+     "C": "Rummy",
+     "D": "Bridge"
+    },
+    "correct_letter": "B",
+    "correct_text": "Poker",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What handheld objects are used in craps to determine outcomes?",
+    "options": {
+     "A": "Dice",
+     "B": "Coins",
+     "C": "Cards",
+     "D": "Tiles"
+    },
+    "correct_letter": "A",
+    "correct_text": "Dice",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A bettor wagering on the combined points scored in a game is betting on the ______.",
+    "options": {
+     "A": "Over/under",
+     "B": "Moneyline",
+     "C": "Props",
+     "D": "Point spread"
+    },
+    "correct_letter": "A",
+    "correct_text": "Over/under",
+    "model_raw": "The single best answer is **D. Point spread**. \n\nHere's why:\n\n* **Point spread** is a betting  **a way to",
+    "model_letter": "D",
+    "old_raw": "The single best answer",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   },
+   {
+    "question": "What brief term refers to online automated horses or sports used purely for betting?",
+    "options": {
+     "A": "Esports",
+     "B": "Virtual sports",
+     "C": "Fantasy sports",
+     "D": "Sim leagues"
+    },
+    "correct_letter": "B",
+    "correct_text": "Virtual sports",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Betting exchange platforms let users both back and ______ outcomes.",
+    "options": {
+     "A": "Hedge",
+     "B": "Lay",
+     "C": "Sell",
+     "D": "Fade"
+    },
+    "correct_letter": "B",
+    "correct_text": "Lay",
+    "model_raw": "**C**",
+    "model_letter": "C",
+    "old_raw": "**C**",
+    "old_letter": "C",
+    "n_new_tokens": 6,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Casinos often offer free drinks to players; these incentives are called what?",
+    "options": {
+     "A": "Fees",
+     "B": "Tips",
+     "C": "Comps",
+     "D": "Rakes"
+    },
+    "correct_letter": "C",
+    "correct_text": "Comps",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Preferring worse odds because more balls are in the jar shows what ratio-related bias?",
+    "options": {
+     "A": "Outcome bias",
+     "B": "Anchoring",
+     "C": "Ratio bias",
+     "D": "Availability"
+    },
+    "correct_letter": "C",
+    "correct_text": "Ratio bias",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What two betting systems are common in horse racing: fixed-odds and ______ betting?",
+    "options": {
+     "A": "Parimutuel",
+     "B": "Exchange",
+     "C": "In-play",
+     "D": "Spread"
+    },
+    "correct_letter": "A",
+    "correct_text": "Parimutuel",
+    "model_raw": "The answer is **C. In-play** \n\nHere's why:\n\n* **In-play** is a common system in horse racing.",
+    "model_letter": "C",
+    "old_raw": "The answer is **",
+    "old_letter": "",
+    "n_new_tokens": 32,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": false,
+    "old_is_correct": false
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.92,
+  "invalid_rate": 0.0,
+  "old_acc": 0.92,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What price do sellers want?",
+    "options": {
+     "A": "bid price",
+     "B": "strike price",
+     "C": "list price",
+     "D": "ask price"
+    },
+    "correct_letter": "D",
+    "correct_text": "ask price",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What software holds your cryptocurrency keys?",
+    "options": {
+     "A": "exchange",
+     "B": "block explorer",
+     "C": "node",
+     "D": "wallet"
+    },
+    "correct_letter": "D",
+    "correct_text": "wallet",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What tool lets you explore blockchain data and transactions?",
+    "options": {
+     "A": "wallet",
+     "B": "node dashboard",
+     "C": "mempool",
+     "D": "block explorer"
+    },
+    "correct_letter": "D",
+    "correct_text": "block explorer",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a fund that invests in high-yield bonds?",
+    "options": {
+     "A": "equity fund",
+     "B": "REIT",
+     "C": "bond fund",
+     "D": "money market fund"
+    },
+    "correct_letter": "C",
+    "correct_text": "bond fund",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What token type represents unique digital assets?",
+    "options": {
+     "A": "security token",
+     "B": "non-fungible token",
+     "C": "stablecoin",
+     "D": "utility token"
+    },
+    "correct_letter": "B",
+    "correct_text": "non-fungible token",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What consensus mechanism secures the network based on stake?",
+    "options": {
+     "A": "delegated proof-of-stake",
+     "B": "proof-of-stake",
+     "C": "proof-of-authority",
+     "D": "proof-of-work"
+    },
+    "correct_letter": "B",
+    "correct_text": "proof-of-stake",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term refers to the native token of the Ethereum network?",
+    "options": {
+     "A": "gas",
+     "B": "wei",
+     "C": "Ethereum",
+     "D": "Ether"
+    },
+    "correct_letter": "D",
+    "correct_text": "Ether",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the free distribution of tokens to wallet holders called?",
+    "options": {
+     "A": "airdrop",
+     "B": "staking reward",
+     "C": "ICO",
+     "D": "fork"
+    },
+    "correct_letter": "A",
+    "correct_text": "airdrop",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What process improves privacy by mixing multiple transactions?",
+    "options": {
+     "A": "coin mixing",
+     "B": "sharding",
+     "C": "batching",
+     "D": "bridging"
+    },
+    "correct_letter": "A",
+    "correct_text": "coin mixing",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What reward do miners or validators receive for adding a new block?",
+    "options": {
+     "A": "gas rebate",
+     "B": "transaction fee",
+     "C": "staking yield",
+     "D": "block reward"
+    },
+    "correct_letter": "D",
+    "correct_text": "block reward",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What risk involves assets being managed by a third party in crypto?",
+    "options": {
+     "A": "custodial risk",
+     "B": "liquidity risk",
+     "C": "credit risk",
+     "D": "slippage"
+    },
+    "correct_letter": "A",
+    "correct_text": "custodial risk",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What analysis studies past price movements and patterns?",
+    "options": {
+     "A": "behavioral finance",
+     "B": "fundamental analysis",
+     "C": "quantitative easing",
+     "D": "technical analysis"
+    },
+    "correct_letter": "D",
+    "correct_text": "technical analysis",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the face value of a bond called?",
+    "options": {
+     "A": "par value",
+     "B": "coupon",
+     "C": "duration",
+     "D": "yield to maturity"
+    },
+    "correct_letter": "A",
+    "correct_text": "par value",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What document outlines a crypto project's goals and technical details?",
+    "options": {
+     "A": "whitepaper",
+     "B": "litepaper",
+     "C": "pitch deck",
+     "D": "roadmap"
+    },
+    "correct_letter": "A",
+    "correct_text": "whitepaper",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What analysis studies company financials to determine value?",
+    "options": {
+     "A": "sentiment analysis",
+     "B": "technical analysis",
+     "C": "fundamental analysis",
+     "D": "on-chain analysis"
+    },
+    "correct_letter": "C",
+    "correct_text": "fundamental analysis",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What event involves a sudden, significant market drop?",
+    "options": {
+     "A": "bear rally",
+     "B": "consolidation",
+     "C": "correction",
+     "D": "market crash"
+    },
+    "correct_letter": "D",
+    "correct_text": "market crash",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the public record of all blockchain transactions called?",
+    "options": {
+     "A": "distributed ledger",
+     "B": "blockchain",
+     "C": "order book",
+     "D": "database"
+    },
+    "correct_letter": "A",
+    "correct_text": "distributed ledger",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What platform allows creation of smart contracts and DApps?",
+    "options": {
+     "A": "Solana",
+     "B": "Ethereum",
+     "C": "Bitcoin",
+     "D": "Polkadot"
+    },
+    "correct_letter": "B",
+    "correct_text": "Ethereum",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a platform for buying and selling cryptocurrencies called?",
+    "options": {
+     "A": "crypto exchange",
+     "B": "oracle",
+     "C": "lending protocol",
+     "D": "wallet"
+    },
+    "correct_letter": "A",
+    "correct_text": "crypto exchange",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What fund invests globally across countries and markets?",
+    "options": {
+     "A": "sector fund",
+     "B": "target-date fund",
+     "C": "global fund",
+     "D": "index fund"
+    },
+    "correct_letter": "C",
+    "correct_text": "global fund",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What tax strategy offsets gains with losses for crypto investors?",
+    "options": {
+     "A": "income averaging",
+     "B": "tax-loss harvesting",
+     "C": "wash trading",
+     "D": "staking"
+    },
+    "correct_letter": "B",
+    "correct_text": "tax-loss harvesting",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the market where bonds are traded?",
+    "options": {
+     "A": "forex market",
+     "B": "derivatives market",
+     "C": "stock market",
+     "D": "bond market"
+    },
+    "correct_letter": "D",
+    "correct_text": "bond market",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What do you call someone who validates transactions in proof-of-stake networks?",
+    "options": {
+     "A": "validator",
+     "B": "staker",
+     "C": "miner",
+     "D": "relayer"
+    },
+    "correct_letter": "A",
+    "correct_text": "validator",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What standard defines fungible tokens on Ethereum?",
+    "options": {
+     "A": "BEP-20",
+     "B": "ERC-20 standard",
+     "C": "EIP-1559",
+     "D": "ERC-721 standard"
+    },
+    "correct_letter": "B",
+    "correct_text": "ERC-20 standard",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What market is characterized by falling prices?",
+    "options": {
+     "A": "sideways market",
+     "B": "bear market",
+     "C": "accumulation phase",
+     "D": "bull market"
+    },
+    "correct_letter": "B",
+    "correct_text": "bear market",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of bond's interest rate changes with market rates?",
+    "options": {
+     "A": "callable bond",
+     "B": "zero-coupon bond",
+     "C": "floating rate bond",
+     "D": "convertible bond"
+    },
+    "correct_letter": "C",
+    "correct_text": "floating rate bond",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What ratio measures a fund's operating expenses relative to assets?",
+    "options": {
+     "A": "management fee",
+     "B": "turnover ratio",
+     "C": "expense ratio",
+     "D": "tracking error"
+    },
+    "correct_letter": "C",
+    "correct_text": "expense ratio",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a self-executing contract with terms written in code?",
+    "options": {
+     "A": "oracle",
+     "B": "smart contract",
+     "C": "legal contract",
+     "D": "off-chain agreement"
+    },
+    "correct_letter": "B",
+    "correct_text": "smart contract",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the fixed payment made to bondholders called?",
+    "options": {
+     "A": "premium",
+     "B": "coupon",
+     "C": "yield",
+     "D": "dividend"
+    },
+    "correct_letter": "B",
+    "correct_text": "coupon",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term describes converting cryptocurrency to fiat currency?",
+    "options": {
+     "A": "cash out",
+     "B": "stake",
+     "C": "bridge",
+     "D": "wrap"
+    },
+    "correct_letter": "A",
+    "correct_text": "cash out",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What index represents tech-heavy stocks on Nasdaq?",
+    "options": {
+     "A": "Russell 2000",
+     "B": "S&P 500",
+     "C": "Nasdaq Composite",
+     "D": "Dow Jones Industrial Average"
+    },
+    "correct_letter": "C",
+    "correct_text": "Nasdaq Composite",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What software automatically trades crypto based on predefined rules?",
+    "options": {
+     "A": "trading bot",
+     "B": "validator",
+     "C": "wallet",
+     "D": "price oracle"
+    },
+    "correct_letter": "A",
+    "correct_text": "trading bot",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for secure offline storage of cryptocurrency?",
+    "options": {
+     "A": "hot wallet",
+     "B": "paper trading",
+     "C": "cold storage",
+     "D": "multisig"
+    },
+    "correct_letter": "C",
+    "correct_text": "cold storage",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What physical device stores cryptocurrency keys offline?",
+    "options": {
+     "A": "mobile wallet",
+     "B": "custodial account",
+     "C": "paper wallet",
+     "D": "hardware wallet"
+    },
+    "correct_letter": "D",
+    "correct_text": "hardware wallet",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term describes the total value of a company's shares?",
+    "options": {
+     "A": "net asset value",
+     "B": "free float",
+     "C": "market capitalization",
+     "D": "enterprise value"
+    },
+    "correct_letter": "C",
+    "correct_text": "market capitalization",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a share representing ownership in a company?",
+    "options": {
+     "A": "bond",
+     "B": "future",
+     "C": "option",
+     "D": "stock"
+    },
+    "correct_letter": "D",
+    "correct_text": "stock",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the term for a company's first sale of stock to the public?",
+    "options": {
+     "A": "direct listing",
+     "B": "initial public offering",
+     "C": "secondary offering",
+     "D": "SPAC merger"
+    },
+    "correct_letter": "B",
+    "correct_text": "initial public offering",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What order type executes at a specified price or better?",
+    "options": {
+     "A": "market order",
+     "B": "stop-loss order",
+     "C": "limit order",
+     "D": "fill-or-kill order"
+    },
+    "correct_letter": "C",
+    "correct_text": "limit order",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of bond pays no periodic interest but is issued at a discount?",
+    "options": {
+     "A": "inflation-linked bond",
+     "B": "callable bond",
+     "C": "floating rate note",
+     "D": "zero-coupon bond"
+    },
+    "correct_letter": "D",
+    "correct_text": "zero-coupon bond",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What order type executes immediately at the current price?",
+    "options": {
+     "A": "stop-limit order",
+     "B": "limit order",
+     "C": "market order",
+     "D": "stop order"
+    },
+    "correct_letter": "C",
+    "correct_text": "market order",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What fee is paid to process transactions on Ethereum?",
+    "options": {
+     "A": "gas fee",
+     "B": "spread",
+     "C": "commission",
+     "D": "miner tip"
+    },
+    "correct_letter": "A",
+    "correct_text": "gas fee",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the rate of computing power in a crypto network called?",
+    "options": {
+     "A": "throughput",
+     "B": "hash rate",
+     "C": "block time",
+     "D": "transactions per second"
+    },
+    "correct_letter": "B",
+    "correct_text": "hash rate",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the date when a bond's principal is repaid?",
+    "options": {
+     "A": "settlement date",
+     "B": "call date",
+     "C": "issue date",
+     "D": "maturity date"
+    },
+    "correct_letter": "D",
+    "correct_text": "maturity date",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What term describes selling assets in panic?",
+    "options": {
+     "A": "rotation",
+     "B": "sell-off",
+     "C": "short squeeze",
+     "D": "accumulation"
+    },
+    "correct_letter": "B",
+    "correct_text": "sell-off",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What slang term describes holding crypto despite market volatility?",
+    "options": {
+     "A": "HODL",
+     "B": "BTFD",
+     "C": "FUD",
+     "D": "DYOR"
+    },
+    "correct_letter": "A",
+    "correct_text": "HODL",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What pool holds tokens to enable decentralized trading?",
+    "options": {
+     "A": "savings pool",
+     "B": "liquidity pool",
+     "C": "mining pool",
+     "D": "staking pool"
+    },
+    "correct_letter": "B",
+    "correct_text": "liquidity pool",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What fund trades on exchanges like a stock?",
+    "options": {
+     "A": "mutual fund",
+     "B": "money market fund",
+     "C": "exchange-traded fund",
+     "D": "hedge fund"
+    },
+    "correct_letter": "C",
+    "correct_text": "exchange-traded fund",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What strategy involves buying and holding assets for the long term?",
+    "options": {
+     "A": "swing trading",
+     "B": "buy and hold",
+     "C": "scalping",
+     "D": "day trading"
+    },
+    "correct_letter": "B",
+    "correct_text": "buy and hold",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the practice of selling borrowed stocks expecting a price drop?",
+    "options": {
+     "A": "diversification",
+     "B": "margin lending",
+     "C": "dollar-cost averaging",
+     "D": "short selling"
+    },
+    "correct_letter": "D",
+    "correct_text": "short selling",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is a backward-incompatible change to blockchain protocol called?",
+    "options": {
+     "A": "hard fork",
+     "B": "state channel",
+     "C": "soft fork",
+     "D": "sidechain"
+    },
+    "correct_letter": "A",
+    "correct_text": "hard fork",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ }
+}

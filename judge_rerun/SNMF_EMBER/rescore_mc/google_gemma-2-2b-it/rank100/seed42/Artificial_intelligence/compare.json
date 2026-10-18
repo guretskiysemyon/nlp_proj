@@ -1,0 +1,100 @@
+{
+  "concept": "Artificial intelligence",
+  "grid": "results/snmf_ef/google_gemma-2-2b-it/rank100/seed42/train_mc/Artificial_intelligence/hps.csv",
+  "loop_screen_concept": false,
+  "formula_max_abs_err_vs_grid": 5.551115123125783e-17,
+  "n_rescored": 141,
+  "control_ok_all": false,
+  "n_control_failed": 5,
+  "delta_embed_old": 100.0,
+  "delta_embed_new": 100.0,
+  "fresh_grid": false,
+  "features_match_all": true,
+  "old_top3_rows": [
+    39,
+    51,
+    104
+  ],
+  "new_top3": [
+    {
+      "row": 39,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 4.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 4.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.8495094339622643,
+      "efficacy": 0.7636363636363637,
+      "specificity": 0.9571428571428572,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.8,
+      "alpaca_flu": 1.5,
+      "alp_instr_frac": 0.9342560553633218,
+      "alp_flu_frac": 0.8893280632411067,
+      "coherence": 0.911238609517381,
+      "harmonic_alpaca": 0.8691350997289572,
+      "gate": ""
+    },
+    {
+      "row": 51,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 4.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 8.0,
+        "delta_out": 4.0,
+        "layer_lo_out": 0.0,
+        "layer_hi_out": 8.0
+      },
+      "harmonic": 0.8435037849528811,
+      "efficacy": 0.7636363636363637,
+      "specificity": 0.9420289855072463,
+      "rescored": true,
+      "in_old_top3": true,
+      "alpaca_instr": 1.82,
+      "alpaca_flu": 1.56,
+      "alp_instr_frac": 0.9446366782006921,
+      "alp_flu_frac": 0.924901185770751,
+      "coherence": 0.9346647646219687,
+      "harmonic_alpaca": 0.8718485531288256,
+      "gate": ""
+    },
+    {
+      "row": 83,
+      "hp": {
+        "delta_embed": 100.0,
+        "delta_in": 7.0,
+        "layer_lo_in": 0.0,
+        "layer_hi_in": 25.0,
+        "delta_out": 10.0,
+        "layer_lo_out": 13.0,
+        "layer_hi_out": 25.0
+      },
+      "harmonic": 0.840862798349611,
+      "efficacy": 0.7636363636363637,
+      "specificity": 0.9354663774403469,
+      "rescored": true,
+      "in_old_top3": false,
+      "harmonic_alpaca": NaN
+    }
+  ],
+  "top3_changed": true,
+  "needs_alpaca_and_judging_rows": [
+    83
+  ],
+  "best_row": null,
+  "best_harmonic_alpaca": null,
+  "boundary": {
+    "third_row": 83,
+    "third_harmonic": 0.840862798349611,
+    "fourth_row": 63,
+    "fourth_harmonic": 0.8208366219415943,
+    "one_question_efficacy": 0.03636363636363636,
+    "near_tie_mixed_runs": false
+  }
+}
