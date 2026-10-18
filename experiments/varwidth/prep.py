@@ -38,6 +38,8 @@ BACKGROUND, TARGET, GAMMA = "wiki", "page", 1.0
 WH_DIR = ROOT / "experiments" / "whitening" / "data" / MODEL_SLUG
 PREP_DIR = RESULTS / "prep"
 FULL_S = 300
+CONCEPTS_MAIN = ROOT / "data" / "concept_sentences.json"
+CONCEPTS_EXTRA = ROOT / "data" / "concept_sentences_extra.json"   # written by experiments/varwidth/new_concepts.py
 
 
 def prep_path(concept: str, matrix: str, n_concept_sents: int = FULL_S, sub_seed: int = 0) -> Path:
@@ -90,9 +92,17 @@ def load_input_embeddings(model_name: str = MODEL_NAME) -> torch.Tensor:
     return E
 
 
+def concept_path(concept: str) -> Path:
+    """data/concept_sentences.json, or data/concept_sentences_extra.json for concepts only listed there."""
+    if any(e["concept"] == concept for e in json.loads(CONCEPTS_MAIN.read_text())) or not CONCEPTS_EXTRA.exists():
+        return CONCEPTS_MAIN
+    return CONCEPTS_EXTRA
+
+
 def build_dataset(concept: str, n_concept_sents: int = FULL_S, sub_seed: int = 0):
     from ember.local_datasets import ConceptDataset
-    ds = ConceptDataset(concept_name=concept, neutral_sample_seed=NEUTRAL_SAMPLE_SEED)
+    ds = ConceptDataset(concept_name=concept, concept_path=concept_path(concept),
+                        neutral_sample_seed=NEUTRAL_SAMPLE_SEED)
     c_idx = [i for i, (_, lbl) in enumerate(ds.data) if lbl == concept]
     if n_concept_sents < len(c_idx):
         keep = set(random.Random(sub_seed).sample(c_idx, n_concept_sents))
