@@ -50,6 +50,23 @@ def tok_str(t: int) -> str:
 
 
 # ---------------------------------------------------------------- lexicon (A3)
+def parse_lexicon(raw: str) -> dict:
+    """{lang: [words]} from the reply: strict JSON first, else each '"xx": [ ... ]' block read with a regex
+    (tolerates trailing commas, comments and a reply cut off mid-list)."""
+    import re
+    s = raw.strip().strip("`")
+    try:
+        obj = json.loads(s[s.find("{"): s.rfind("}") + 1])
+        if isinstance(obj, dict):
+            return obj
+    except ValueError:
+        pass
+    out = {}
+    for m in re.finditer(r'"([a-z]{2})"\s*:\s*\[(.*?)(?:\]|$)', s, flags=re.DOTALL):
+        out[m.group(1)] = re.findall(r'"([^"\n]+)"', m.group(2))
+    return out
+
+
 def lexicon(concept: str) -> dict:
     from experiments.varwidth.overlap_judge import _dedupe, normalize
     LEXICON_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -59,8 +76,7 @@ def lexicon(concept: str) -> dict:
         if concept in cache:
             return cache[concept]["words"]
         raw = client().generate(LEXICON_PROMPT.format(concept=concept, n=EJ_WORDS, langs=", ".join(LANGS)))
-        s = raw.strip().strip("`")
-        obj = json.loads(s[s.find("{"): s.rfind("}") + 1])
+        obj = parse_lexicon(raw)
         words = {L: _dedupe(normalize(w) for w in obj.get(L, []) if isinstance(w, str))[:EJ_WORDS] for L in LANGS}
         cache[concept] = {"words": words, "raw": raw}
         save_json(LEXICON_PATH, cache)
@@ -71,6 +87,8 @@ def lexicon(concept: str) -> dict:
 def select_run(concept: str, fit_path, sentences, langs, use_ej: bool, workers: int = 8) -> dict:
     from ember.interpret_features import classify_membership_with_desc, get_description
     from ember.utils import compute_embedding_stats
+    tokenizer()                                       # load once here: a first (lazy) import inside the threads races
+    client()
     fit = torch.load(fit_path, weights_only=False)
     Y = fit["Y"].float()
     vstar = fit["vstar_ids"]
