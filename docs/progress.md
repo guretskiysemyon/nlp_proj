@@ -597,6 +597,14 @@ Alpaca completions were judged fresh with Qwen (§3 above).
 | `judge_rerun/SNMF_EMBER/` | **Final** SNMF+EMBER search (`--with-ember` on the three SNMF scripts), all 18 concepts: `pass1_outputs/`, `pass2_outputs/` (same files as SNMF, plus `best_hps_summary.csv` with `delta_embed`), `archive/slurm_logs/`. Layout: `judge_rerun/SNMF_EMBER/README.md` |
 | `docs/Part 1/snmf_ember_search.md` | SNMF+EMBER status, per-concept picks, completeness and loop check, comparison with EMBER / SNMF alone |
 | `archive_gemini/crosslingual/` | the Gemini-era cross-lingual runner, kept for reference (not used) |
+| `ember/judge_words.py` | **new** (2026-10-15): judge input per `JUDGE_FORMAT` — bare tokens, token → source words (alphabetical; multilingual grouped by language), or token → top word (lang); token → word counts from tokenizer offsets; Stage-1 prompts per format. Details: `docs/Part 2/multilingual_whitening.md` |
+| `experiments/whitening/background_ml.py`, `queue_ml.json` | 8-language whitening background (`bg_wiki_ml_*`, 40k sentences per language, 62k types) and the run queue of the multilingual whitened notebook |
+| `experiments/multilingual_hp/topup_translated.py` | Gemini top-up of short concept pages to 300 sentences per language (glossary from interlanguage links, script / length / LaBSE QA) |
+| `experiments/multilingual_hp/extended_sets.py` (`build_concept_n`, `build_neutral_n`, `ext_paths`) | capped 300-per-language extended sets for 3.2.h, $V^*_{ext}\supseteq V^*$ |
+| `ember_three_steps_multilingual_whitened_llama.ipynb`, `low_ram_demands/multilingual_whitened_llama.ipynb` | multilingual background-whitened + target-sharpened notebook, any multilingual concept; built by `scripts/build_multilingual_whitened_nb.py` |
+| `scripts/patch_notebooks_ml.py`, `scripts/nb_patch.py` | idempotent content-anchored patches: judge switch + capped extended sets in the 12 multilingual notebooks, judge switch in the 12 whitened ones |
 
 Everything under `ember/` (the paper's own reference implementation) is
-untouched — `judge_rerun/` and `crosslingual/` only import from it, never edit it.
+untouched — `judge_rerun/` and `crosslingual/` only import from it, never edit it — except two additions for the
+judge input: the new module `ember/judge_words.py` and an optional `sys_prompt` argument of
+`ember.interpret_features.get_description` (default behaviour unchanged).

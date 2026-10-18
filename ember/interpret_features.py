@@ -132,9 +132,10 @@ class SimpleGeminiClient:
 
 # -------------------- Interpretation Logic --------------------
 
-def get_description(client: SimpleGeminiClient, tokens: List[str]) -> str:
+def get_description(client: SimpleGeminiClient, tokens: List[str], sys_prompt: Optional[str] = None) -> str:
+    # sys_prompt None: the module-level TOKENS_DESC_SYS, read at call time (older notebooks override it)
     user = TOKENS_DESC_USER.format(tokens=tokens)
-    prompt = f"{TOKENS_DESC_SYS.strip()}\n\n{user.strip()}"
+    prompt = f"{(sys_prompt if sys_prompt is not None else TOKENS_DESC_SYS).strip()}\n\n{user.strip()}"
     txt = client.generate(prompt).strip()
     s = txt.strip().strip("`").strip()
     try:
