@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
@@ -93,7 +94,9 @@ def build_cache(concept: str, cfg: str, seed: int, force: bool = False) -> dict 
     out = {"concept": concept, "config": cfg, "tag": tag, "seed": seed,
            "n_tau": int((stats["ratio_abs"] >= 2.0).sum()), "n_c_vstar": int((codes == 1).sum()),
            "candidates": rows}
-    path.write_text(json.dumps(out))
+    tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(out))
+    tmp.replace(path)
     return out
 
 

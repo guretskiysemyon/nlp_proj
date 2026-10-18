@@ -2,7 +2,7 @@
 """EMBER embedding erasure of one ladder rung (PREREG "Erasure anchor") on gemma-2-2b-it, MC protocol.
 
     python -m experiments.varwidth.erase baselines --concepts ...          # original model, once (cached)
-    python -m experiments.varwidth.erase run --concept "Harry Potter" --rung L0 [--seed 42] [--alpaca-n 50]
+    python -m experiments.varwidth.erase run --concept "Harry Potter" --rung L0 L1 L12 L123 [--seed 42] [--alpaca-n 50]
 
 F_C = the rung's judged features (layer_eval.fc); edited tokens = concept-only tokens of support(F_C) (EMBER
 embed_edit.py); c_t = sum_{i in F_C} Y_it z_i, mapped back from the whitened space with T_inv (row form,
@@ -187,7 +187,8 @@ def check_space(concept, rung, seed, W, scale):
     return cos
 
 
-def run(concept, rung, seed, alpaca_n):
+def run(concept, rung, seed, alpaca_n, mw=None):
+    """mw: (model, wrapped) to reuse (its embedding is restored from the snapshot afterwards)."""
     d = OUT / slug(concept) / f"{rung}_s{seed}"
     if (d / "result.json").exists():
         print(f"done: {d / 'result.json'}")
@@ -196,7 +197,7 @@ def run(concept, rung, seed, alpaca_n):
     bc, bg = base[concept], base["_global"]
     t0 = time.time()
     ids, C, F, info = edit_vectors(concept, rung, seed)
-    model, w = load_model()
+    model, w = mw or load_model()
     W = model.get_input_embeddings().weight
     scale = math.sqrt(W.shape[1])
     info["space_cos"] = check_space(concept, rung, seed, W, scale)
@@ -255,6 +256,7 @@ def run(concept, rung, seed, alpaca_n):
     res["H2"] = hm([res["efficacy"], res["specificity"]])
     res["seconds"] = time.time() - t0
     save(d / "result.json", res)
+    set_delta(0.0)   # restore the original rows for the next rung on the same model
     print(json.dumps({k: v for k, v in res.items() if k != "edit_ids"}), flush=True)
 
 
@@ -265,14 +267,17 @@ def main():
     ap.add_argument("what", choices=("baselines", "run"))
     ap.add_argument("--concepts", nargs="*", default=[])
     ap.add_argument("--concept")
-    ap.add_argument("--rung", choices=list(RUNGS))
+    ap.add_argument("--rung", choices=list(RUNGS), nargs="+")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--alpaca-n", type=int, default=50)
     a = ap.parse_args()
     if a.what == "baselines":
         baselines(a.concepts, a.alpaca_n)
     else:
-        run(a.concept, a.rung, a.seed, a.alpaca_n)
+        todo = [r for r in a.rung if not (OUT / slug(a.concept) / f"{r}_s{a.seed}" / "result.json").exists()]
+        mw = load_model() if todo else None   # one model load (~7 min from NFS) for all rungs of the concept
+        for r in todo:
+            run(a.concept, r, a.seed, a.alpaca_n, mw)
 
 
 if __name__ == "__main__":

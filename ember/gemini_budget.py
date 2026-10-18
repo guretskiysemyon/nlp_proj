@@ -11,6 +11,7 @@ calls each.
 """
 from __future__ import annotations
 
+import fcntl
 import json
 import os
 import threading
@@ -75,6 +76,7 @@ def record(resp, tag: str = "") -> None:
     LOG.parent.mkdir(parents=True, exist_ok=True)
     fd = os.open(str(LOG), os.O_WRONLY | os.O_CREAT | os.O_APPEND, 0o664)
     try:
+        fcntl.lockf(fd, fcntl.LOCK_EX)   # appends from several nodes over NFS interleave without it
         os.write(fd, (json.dumps(rec) + "\n").encode())
     finally:
         os.close(fd)
@@ -84,7 +86,12 @@ def record(resp, tag: str = "") -> None:
 
 
 def summary() -> dict:
-    rows = [json.loads(x) for x in LOG.read_text().splitlines() if x.strip()] if LOG.exists() else []
+    rows = []
+    for x in (LOG.read_text().splitlines() if LOG.exists() else []):
+        try:
+            rows.append(json.loads(x))
+        except ValueError:   # a line garbled by a concurrent append (before the lock): skipped
+            pass
     by = {}
     for r in rows:
         d = by.setdefault(r.get("tag", ""), {"calls": 0, "p": 0, "o": 0, "t": 0, "nis": 0.0})
