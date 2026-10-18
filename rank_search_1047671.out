@@ -1,0 +1,339 @@
+[rank_search] concept='Gun' langs=de ranks='100 200 300 400 600 800' seeds='42' data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+[rank_search] git fc5e232, uncommitted: 28 files
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.26it/s]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] Gun
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  21%|██        | 25/120 [00:00<00:00, 248.17it/s]Extracting token IDs:  47%|████▋     | 56/120 [00:00<00:00, 283.87it/s]Extracting token IDs:  71%|███████   | 85/120 [00:00<00:00, 280.86it/s]Extracting token IDs:  97%|█████████▋| 116/120 [00:00<00:00, 289.74it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 284.94it/s]
+
+[RUN] concept='Gun' | rank=100
+--> Starting embedding track
+Iter    0: loss=38771528.000000  (best=38771528.000000, no_improve=0)
+Iter   23: loss=34134368.000000  (best=34133624.000000, no_improve=1)
+Iter   50: loss=33967088.000000  (best=33967088.000000, no_improve=0)
+Iter   71: loss=33936024.000000  (best=33935908.000000, no_improve=1)
+Iter   91: loss=33921576.000000  (best=33921568.000000, no_improve=1)
+Iter   94: loss=33920576.000000  (best=33920300.000000, no_improve=1)
+Iter  100: loss=33917624.000000  (best=33917624.000000, no_improve=0)
+Iter  103: loss=33917584.000000  (best=33917584.000000, no_improve=1)
+Iter  105: loss=33917712.000000  (best=33917572.000000, no_improve=1)
+Iter  123: loss=33917564.000000  (best=33917560.000000, no_improve=1)
+Iter  146: loss=33914052.000000  (best=33913984.000000, no_improve=1)
+Iter  150: loss=33912716.000000  (best=33912716.000000, no_improve=0)
+Iter  164: loss=33905360.000000  (best=33905328.000000, no_improve=1)
+Iter  166: loss=33905300.000000  (best=33905292.000000, no_improve=1)
+Iter  182: loss=33905168.000000  (best=33905168.000000, no_improve=1)
+Iter  186: loss=33905152.000000  (best=33905152.000000, no_improve=1)
+Iter  188: loss=33905144.000000  (best=33905144.000000, no_improve=1)
+Iter  194: loss=33905136.000000  (best=33905136.000000, no_improve=1)
+Iter  200: loss=33905136.000000  (best=33905136.000000, no_improve=7)
+Iter  230: loss=33905136.000000  (best=33905128.000000, no_improve=1)
+Iter  250: loss=33905128.000000  (best=33905128.000000, no_improve=21)
+Iter  300: loss=33905128.000000  (best=33905128.000000, no_improve=71)
+Iter  350: loss=33905136.000000  (best=33905128.000000, no_improve=121)
+Iter  400: loss=33905128.000000  (best=33905128.000000, no_improve=171)
+Iter  450: loss=33905136.000000  (best=33905128.000000, no_improve=221)
+Iter  500: loss=33905136.000000  (best=33905128.000000, no_improve=271)
+Iter  550: loss=33905136.000000  (best=33905128.000000, no_improve=321)
+Iter  600: loss=33905136.000000  (best=33905128.000000, no_improve=371)
+Iter  650: loss=33905136.000000  (best=33905128.000000, no_improve=421)
+Iter  700: loss=33905136.000000  (best=33905128.000000, no_improve=471)
+Stopping early at iter 729 (no improvement in 500 iters)
+[TIMING] Embedding track: 3.1s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Gun' | rank=200
+--> Starting embedding track
+Iter    0: loss=38466056.000000  (best=38466056.000000, no_improve=0)
+Iter   50: loss=31196626.000000  (best=31196626.000000, no_improve=0)
+Iter   63: loss=31181972.000000  (best=31181846.000000, no_improve=1)
+Iter   70: loss=31179272.000000  (best=31179050.000000, no_improve=1)
+Iter   80: loss=31174944.000000  (best=31174834.000000, no_improve=1)
+Iter   89: loss=31174306.000000  (best=31173946.000000, no_improve=1)
+Iter   93: loss=31173612.000000  (best=31173580.000000, no_improve=1)
+Iter   96: loss=31173302.000000  (best=31173166.000000, no_improve=1)
+Iter   99: loss=31173112.000000  (best=31173106.000000, no_improve=1)
+Iter  100: loss=31172822.000000  (best=31172822.000000, no_improve=0)
+Iter  103: loss=31171820.000000  (best=31171808.000000, no_improve=1)
+Iter  108: loss=31170898.000000  (best=31170854.000000, no_improve=1)
+Iter  150: loss=31172048.000000  (best=31170854.000000, no_improve=43)
+Iter  200: loss=31172102.000000  (best=31170854.000000, no_improve=93)
+Iter  250: loss=31172114.000000  (best=31170854.000000, no_improve=143)
+Iter  300: loss=31172114.000000  (best=31170854.000000, no_improve=193)
+Iter  350: loss=31172114.000000  (best=31170854.000000, no_improve=243)
+Iter  400: loss=31172114.000000  (best=31170854.000000, no_improve=293)
+Iter  450: loss=31172114.000000  (best=31170854.000000, no_improve=343)
+Iter  500: loss=31172114.000000  (best=31170854.000000, no_improve=393)
+Iter  550: loss=31172114.000000  (best=31170854.000000, no_improve=443)
+Iter  600: loss=31172114.000000  (best=31170854.000000, no_improve=493)
+Stopping early at iter 607 (no improvement in 500 iters)
+[TIMING] Embedding track: 3.0s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Gun' | rank=300
+--> Starting embedding track
+Iter    0: loss=38273116.000000  (best=38273116.000000, no_improve=0)
+Iter   50: loss=29265706.000000  (best=29265706.000000, no_improve=0)
+Iter   91: loss=29184416.000000  (best=29184200.000000, no_improve=1)
+Iter   98: loss=29178286.000000  (best=29178080.000000, no_improve=1)
+Iter  100: loss=29176314.000000  (best=29176314.000000, no_improve=0)
+Iter  128: loss=29142248.000000  (best=29141972.000000, no_improve=1)
+Iter  148: loss=29131020.000000  (best=29130998.000000, no_improve=1)
+Iter  150: loss=29130240.000000  (best=29130240.000000, no_improve=0)
+Iter  155: loss=29129602.000000  (best=29129586.000000, no_improve=1)
+Iter  164: loss=29126666.000000  (best=29126660.000000, no_improve=1)
+Iter  176: loss=29119488.000000  (best=29119188.000000, no_improve=1)
+Iter  182: loss=29116938.000000  (best=29116910.000000, no_improve=1)
+Iter  195: loss=29106932.000000  (best=29106536.000000, no_improve=1)
+Iter  200: loss=29104108.000000  (best=29104108.000000, no_improve=0)
+Iter  203: loss=29104608.000000  (best=29103628.000000, no_improve=1)
+Iter  215: loss=29096506.000000  (best=29096016.000000, no_improve=1)
+Iter  225: loss=29096068.000000  (best=29096000.000000, no_improve=1)
+Iter  227: loss=29096026.000000  (best=29095952.000000, no_improve=1)
+Iter  230: loss=29095800.000000  (best=29095758.000000, no_improve=1)
+Iter  237: loss=29095184.000000  (best=29095184.000000, no_improve=1)
+Iter  244: loss=29094836.000000  (best=29094814.000000, no_improve=1)
+Iter  250: loss=29095110.000000  (best=29094814.000000, no_improve=7)
+Iter  277: loss=29093114.000000  (best=29093086.000000, no_improve=1)
+Iter  280: loss=29093002.000000  (best=29092918.000000, no_improve=1)
+Iter  291: loss=29091912.000000  (best=29091912.000000, no_improve=1)
+Iter  293: loss=29091812.000000  (best=29091796.000000, no_improve=1)
+Iter  300: loss=29091538.000000  (best=29091538.000000, no_improve=0)
+Iter  301: loss=29091560.000000  (best=29091538.000000, no_improve=1)
+Iter  315: loss=29091186.000000  (best=29091186.000000, no_improve=1)
+Iter  328: loss=29089316.000000  (best=29089158.000000, no_improve=1)
+Iter  330: loss=29089352.000000  (best=29089142.000000, no_improve=1)
+Iter  350: loss=29080936.000000  (best=29080936.000000, no_improve=0)
+Iter  366: loss=29073806.000000  (best=29073670.000000, no_improve=1)
+Iter  400: loss=29073754.000000  (best=29073670.000000, no_improve=35)
+Iter  450: loss=29073754.000000  (best=29073670.000000, no_improve=85)
+Iter  500: loss=29073754.000000  (best=29073670.000000, no_improve=135)
+Iter  550: loss=29073754.000000  (best=29073670.000000, no_improve=185)
+Iter  600: loss=29073754.000000  (best=29073670.000000, no_improve=235)
+Iter  650: loss=29073754.000000  (best=29073670.000000, no_improve=285)
+Iter  700: loss=29073754.000000  (best=29073670.000000, no_improve=335)
+Iter  750: loss=29073754.000000  (best=29073670.000000, no_improve=385)
+Iter  800: loss=29073754.000000  (best=29073670.000000, no_improve=435)
+Iter  850: loss=29073754.000000  (best=29073670.000000, no_improve=485)
+Stopping early at iter 865 (no improvement in 500 iters)
+[TIMING] Embedding track: 5.9s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Gun' | rank=400
+--> Starting embedding track
+Iter    0: loss=38223428.000000  (best=38223428.000000, no_improve=0)
+Iter   50: loss=27706488.000000  (best=27706488.000000, no_improve=0)
+Iter   98: loss=27564612.000000  (best=27564228.000000, no_improve=1)
+Iter  100: loss=27563234.000000  (best=27563234.000000, no_improve=0)
+Iter  117: loss=27549274.000000  (best=27548920.000000, no_improve=1)
+Iter  123: loss=27547910.000000  (best=27547844.000000, no_improve=1)
+Iter  125: loss=27547864.000000  (best=27547802.000000, no_improve=1)
+Iter  134: loss=27546394.000000  (best=27546296.000000, no_improve=1)
+Iter  150: loss=27547808.000000  (best=27546296.000000, no_improve=17)
+Iter  157: loss=27544450.000000  (best=27544420.000000, no_improve=1)
+Iter  159: loss=27544076.000000  (best=27543984.000000, no_improve=1)
+Iter  192: loss=27543492.000000  (best=27543492.000000, no_improve=1)
+Iter  194: loss=27543482.000000  (best=27543482.000000, no_improve=1)
+Iter  196: loss=27543472.000000  (best=27543472.000000, no_improve=1)
+Iter  200: loss=27543456.000000  (best=27543456.000000, no_improve=1)
+Iter  203: loss=27543446.000000  (best=27543446.000000, no_improve=1)
+Iter  207: loss=27543436.000000  (best=27543436.000000, no_improve=1)
+Iter  210: loss=27543432.000000  (best=27543432.000000, no_improve=1)
+Iter  212: loss=27543426.000000  (best=27543426.000000, no_improve=1)
+Iter  217: loss=27543420.000000  (best=27543420.000000, no_improve=1)
+Iter  220: loss=27543416.000000  (best=27543416.000000, no_improve=1)
+Iter  228: loss=27543410.000000  (best=27543410.000000, no_improve=1)
+Iter  246: loss=27543406.000000  (best=27543406.000000, no_improve=1)
+Iter  250: loss=27543406.000000  (best=27543406.000000, no_improve=5)
+Iter  300: loss=27543406.000000  (best=27543406.000000, no_improve=55)
+Iter  350: loss=27543406.000000  (best=27543406.000000, no_improve=105)
+Iter  400: loss=27543406.000000  (best=27543406.000000, no_improve=155)
+Iter  450: loss=27543406.000000  (best=27543406.000000, no_improve=205)
+Iter  500: loss=27543406.000000  (best=27543406.000000, no_improve=255)
+Iter  550: loss=27543406.000000  (best=27543406.000000, no_improve=305)
+Iter  600: loss=27543406.000000  (best=27543406.000000, no_improve=355)
+Iter  650: loss=27543406.000000  (best=27543406.000000, no_improve=405)
+Iter  700: loss=27543406.000000  (best=27543406.000000, no_improve=455)
+Stopping early at iter 745 (no improvement in 500 iters)
+[TIMING] Embedding track: 6.7s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Gun' | rank=600
+--> Starting embedding track
+Iter    0: loss=38160368.000000  (best=38160368.000000, no_improve=0)
+Iter   50: loss=25221784.000000  (best=25221784.000000, no_improve=0)
+Iter  100: loss=25020072.000000  (best=25020072.000000, no_improve=0)
+Iter  105: loss=25017220.000000  (best=25017136.000000, no_improve=1)
+Iter  109: loss=25016218.000000  (best=25015676.000000, no_improve=1)
+Iter  115: loss=25012892.000000  (best=25012882.000000, no_improve=1)
+Iter  123: loss=25003726.000000  (best=25003482.000000, no_improve=1)
+Iter  127: loss=25001264.000000  (best=25001230.000000, no_improve=1)
+Iter  129: loss=25000288.000000  (best=25000264.000000, no_improve=1)
+Iter  144: loss=24991476.000000  (best=24991314.000000, no_improve=1)
+Iter  150: loss=24988092.000000  (best=24988092.000000, no_improve=0)
+Iter  155: loss=24985334.000000  (best=24985296.000000, no_improve=1)
+Iter  167: loss=24980180.000000  (best=24979702.000000, no_improve=1)
+Iter  188: loss=24974240.000000  (best=24974220.000000, no_improve=1)
+Iter  200: loss=24972972.000000  (best=24972972.000000, no_improve=0)
+Iter  202: loss=24972918.000000  (best=24972874.000000, no_improve=1)
+Iter  238: loss=24971810.000000  (best=24971810.000000, no_improve=1)
+Iter  245: loss=24971726.000000  (best=24971726.000000, no_improve=1)
+Iter  247: loss=24971722.000000  (best=24971722.000000, no_improve=1)
+Iter  250: loss=24971716.000000  (best=24971716.000000, no_improve=0)
+Iter  251: loss=24971716.000000  (best=24971716.000000, no_improve=1)
+Iter  263: loss=24971712.000000  (best=24971712.000000, no_improve=1)
+Iter  300: loss=24971712.000000  (best=24971712.000000, no_improve=38)
+Iter  350: loss=24971712.000000  (best=24971712.000000, no_improve=88)
+Iter  400: loss=24971712.000000  (best=24971712.000000, no_improve=138)
+Iter  450: loss=24971712.000000  (best=24971712.000000, no_improve=188)
+Iter  500: loss=24971712.000000  (best=24971712.000000, no_improve=238)
+Iter  550: loss=24971712.000000  (best=24971712.000000, no_improve=288)
+Iter  600: loss=24971712.000000  (best=24971712.000000, no_improve=338)
+Iter  650: loss=24971712.000000  (best=24971712.000000, no_improve=388)
+Iter  700: loss=24971712.000000  (best=24971712.000000, no_improve=438)
+Iter  750: loss=24971712.000000  (best=24971712.000000, no_improve=488)
+Stopping early at iter 762 (no improvement in 500 iters)
+[TIMING] Embedding track: 10.4s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='Gun' | rank=800
+--> Starting embedding track
+Iter    0: loss=38450764.000000  (best=38450764.000000, no_improve=0)
+Iter   50: loss=23262096.000000  (best=23262096.000000, no_improve=0)
+Iter  100: loss=23110708.000000  (best=23110708.000000, no_improve=0)
+Iter  120: loss=23096002.000000  (best=23095370.000000, no_improve=1)
+Iter  127: loss=23095374.000000  (best=23095234.000000, no_improve=1)
+Iter  130: loss=23095190.000000  (best=23095130.000000, no_improve=1)
+Iter  142: loss=23087500.000000  (best=23087190.000000, no_improve=1)
+Iter  150: loss=23085834.000000  (best=23085834.000000, no_improve=0)
+Iter  152: loss=23085464.000000  (best=23085454.000000, no_improve=1)
+Iter  161: loss=23081630.000000  (best=23081484.000000, no_improve=1)
+Iter  164: loss=23080372.000000  (best=23080288.000000, no_improve=1)
+Iter  171: loss=23077994.000000  (best=23077684.000000, no_improve=1)
+Iter  180: loss=23076398.000000  (best=23075888.000000, no_improve=1)
+Iter  200: loss=23072720.000000  (best=23072720.000000, no_improve=0)
+Iter  213: loss=23070432.000000  (best=23070300.000000, no_improve=1)
+Iter  226: loss=23068814.000000  (best=23068716.000000, no_improve=1)
+Iter  230: loss=23068466.000000  (best=23068458.000000, no_improve=1)
+Iter  234: loss=23068302.000000  (best=23068232.000000, no_improve=1)
+Iter  249: loss=23067646.000000  (best=23067646.000000, no_improve=1)
+Iter  250: loss=23067646.000000  (best=23067646.000000, no_improve=2)
+Iter  253: loss=23067636.000000  (best=23067636.000000, no_improve=1)
+Iter  256: loss=23067632.000000  (best=23067632.000000, no_improve=1)
+Iter  263: loss=23067628.000000  (best=23067628.000000, no_improve=1)
+Iter  300: loss=23067628.000000  (best=23067628.000000, no_improve=38)
+Iter  303: loss=23067628.000000  (best=23067622.000000, no_improve=1)
+Iter  350: loss=23067628.000000  (best=23067622.000000, no_improve=48)
+Iter  400: loss=23067622.000000  (best=23067622.000000, no_improve=98)
+Iter  450: loss=23067628.000000  (best=23067622.000000, no_improve=148)
+Iter  500: loss=23067622.000000  (best=23067622.000000, no_improve=198)
+Iter  550: loss=23067622.000000  (best=23067622.000000, no_improve=248)
+Iter  600: loss=23067628.000000  (best=23067622.000000, no_improve=298)
+Iter  650: loss=23067628.000000  (best=23067622.000000, no_improve=348)
+Iter  700: loss=23067628.000000  (best=23067622.000000, no_improve=398)
+Iter  750: loss=23067628.000000  (best=23067622.000000, no_improve=448)
+Iter  800: loss=23067628.000000  (best=23067622.000000, no_improve=498)
+Stopping early at iter 802 (no improvement in 500 iters)
+[TIMING] Embedding track: 15.2s
+--> Skipping MLP track (--skip-mlp)
+[rank_search] Gemini filter: rank=100 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 19 features to process.
+[activating_tokens] Concurrent interpretation of 19 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/19 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▌         | 1/19 [00:01<00:23,  1.33s/it]Interpreting activating_tokens:  16%|█▌        | 3/19 [00:01<00:07,  2.25it/s]Interpreting activating_tokens:  21%|██        | 4/19 [00:01<00:05,  2.74it/s]Interpreting activating_tokens:  26%|██▋       | 5/19 [00:02<00:04,  3.05it/s]Interpreting activating_tokens:  32%|███▏      | 6/19 [00:02<00:04,  3.10it/s]Interpreting activating_tokens:  37%|███▋      | 7/19 [00:02<00:03,  3.57it/s]Interpreting activating_tokens:  42%|████▏     | 8/19 [00:02<00:02,  4.14it/s]Interpreting activating_tokens:  47%|████▋     | 9/19 [00:02<00:02,  4.17it/s]Interpreting activating_tokens:  53%|█████▎    | 10/19 [00:03<00:02,  3.97it/s]Interpreting activating_tokens:  63%|██████▎   | 12/19 [00:03<00:01,  4.43it/s]Interpreting activating_tokens:  74%|███████▎  | 14/19 [00:04<00:01,  4.75it/s]Interpreting activating_tokens:  79%|███████▉  | 15/19 [00:04<00:01,  3.91it/s]Interpreting activating_tokens:  84%|████████▍ | 16/19 [00:04<00:00,  4.10it/s]Interpreting activating_tokens:  89%|████████▉ | 17/19 [00:04<00:00,  4.55it/s]Interpreting activating_tokens:  95%|█████████▍| 18/19 [00:05<00:00,  3.32it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:05<00:00,  2.76it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:05<00:00,  3.26it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Gun/embedding
+[TIMING] Gun: 6.0s
+[rank_search] Gemini filter: rank=200 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 29 features to process.
+[activating_tokens] Concurrent interpretation of 29 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/29 [00:00<?, ?it/s]Interpreting activating_tokens:   3%|▎         | 1/29 [00:01<00:34,  1.22s/it]Interpreting activating_tokens:  14%|█▍        | 4/29 [00:01<00:07,  3.46it/s]Interpreting activating_tokens:  21%|██        | 6/29 [00:02<00:08,  2.86it/s]Interpreting activating_tokens:  24%|██▍       | 7/29 [00:02<00:07,  3.10it/s]Interpreting activating_tokens:  34%|███▍      | 10/29 [00:02<00:03,  4.91it/s]Interpreting activating_tokens:  38%|███▊      | 11/29 [00:03<00:05,  3.47it/s]Interpreting activating_tokens:  41%|████▏     | 12/29 [00:03<00:04,  3.87it/s]Interpreting activating_tokens:  45%|████▍     | 13/29 [00:03<00:03,  4.49it/s]Interpreting activating_tokens:  48%|████▊     | 14/29 [00:03<00:03,  4.99it/s]Interpreting activating_tokens:  55%|█████▌    | 16/29 [00:04<00:03,  3.46it/s]Interpreting activating_tokens:  62%|██████▏   | 18/29 [00:04<00:02,  4.51it/s]Interpreting activating_tokens:  66%|██████▌   | 19/29 [00:04<00:01,  5.05it/s]Interpreting activating_tokens:  69%|██████▉   | 20/29 [00:05<00:01,  5.67it/s]Interpreting activating_tokens:  72%|███████▏  | 21/29 [00:05<00:02,  2.80it/s]Interpreting activating_tokens:  79%|███████▉  | 23/29 [00:06<00:01,  4.29it/s]Interpreting activating_tokens:  86%|████████▌ | 25/29 [00:06<00:00,  5.11it/s]Interpreting activating_tokens:  90%|████████▉ | 26/29 [00:07<00:01,  2.80it/s]Interpreting activating_tokens: 100%|██████████| 29/29 [00:07<00:00,  4.69it/s]Interpreting activating_tokens: 100%|██████████| 29/29 [00:07<00:00,  3.87it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank200/seed42/Gun/embedding
+[TIMING] Gun: 7.6s
+[rank_search] Gemini filter: rank=300 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 36 features to process.
+[activating_tokens] Concurrent interpretation of 36 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/36 [00:00<?, ?it/s]Interpreting activating_tokens:   3%|▎         | 1/36 [00:01<00:39,  1.13s/it]Interpreting activating_tokens:   8%|▊         | 3/36 [00:01<00:12,  2.72it/s]Interpreting activating_tokens:  14%|█▍        | 5/36 [00:01<00:07,  4.35it/s]Interpreting activating_tokens:  17%|█▋        | 6/36 [00:02<00:10,  2.97it/s]Interpreting activating_tokens:  22%|██▏       | 8/36 [00:02<00:07,  3.78it/s]Interpreting activating_tokens:  28%|██▊       | 10/36 [00:02<00:05,  4.80it/s]Interpreting activating_tokens:  31%|███       | 11/36 [00:03<00:07,  3.33it/s]Interpreting activating_tokens:  33%|███▎      | 12/36 [00:03<00:06,  3.69it/s]Interpreting activating_tokens:  39%|███▉      | 14/36 [00:03<00:04,  4.80it/s]Interpreting activating_tokens:  42%|████▏     | 15/36 [00:03<00:04,  5.12it/s]Interpreting activating_tokens:  44%|████▍     | 16/36 [00:04<00:06,  3.29it/s]Interpreting activating_tokens:  47%|████▋     | 17/36 [00:04<00:05,  3.52it/s]Interpreting activating_tokens:  53%|█████▎    | 19/36 [00:04<00:03,  5.40it/s]Interpreting activating_tokens:  56%|█████▌    | 20/36 [00:05<00:03,  5.07it/s]Interpreting activating_tokens:  58%|█████▊    | 21/36 [00:05<00:03,  4.31it/s]Interpreting activating_tokens:  61%|██████    | 22/36 [00:05<00:04,  3.39it/s]Interpreting activating_tokens:  67%|██████▋   | 24/36 [00:06<00:02,  5.25it/s]Interpreting activating_tokens:  69%|██████▉   | 25/36 [00:06<00:02,  4.02it/s]Interpreting activating_tokens:  72%|███████▏  | 26/36 [00:06<00:02,  4.65it/s]Interpreting activating_tokens:  75%|███████▌  | 27/36 [00:07<00:02,  3.53it/s]Interpreting activating_tokens:  78%|███████▊  | 28/36 [00:07<00:01,  4.09it/s]Interpreting activating_tokens:  81%|████████  | 29/36 [00:07<00:01,  4.21it/s]Interpreting activating_tokens:  86%|████████▌ | 31/36 [00:08<00:01,  3.79it/s]Interpreting activating_tokens:  89%|████████▉ | 32/36 [00:08<00:01,  3.97it/s]Interpreting activating_tokens:  92%|█████████▏| 33/36 [00:08<00:00,  4.41it/s]Interpreting activating_tokens:  94%|█████████▍| 34/36 [00:08<00:00,  5.08it/s]Interpreting activating_tokens:  97%|█████████▋| 35/36 [00:08<00:00,  4.82it/s]Interpreting activating_tokens: 100%|██████████| 36/36 [00:09<00:00,  3.39it/s]Interpreting activating_tokens: 100%|██████████| 36/36 [00:09<00:00,  3.89it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank300/seed42/Gun/embedding
+[TIMING] Gun: 9.4s
+[rank_search] Gemini filter: rank=400 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 46 features to process.
+[activating_tokens] Concurrent interpretation of 46 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/46 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/46 [00:01<00:56,  1.25s/it]Interpreting activating_tokens:   9%|▊         | 4/46 [00:01<00:11,  3.64it/s]Interpreting activating_tokens:  13%|█▎        | 6/46 [00:02<00:14,  2.81it/s]Interpreting activating_tokens:  17%|█▋        | 8/46 [00:02<00:09,  4.01it/s]Interpreting activating_tokens:  20%|█▉        | 9/46 [00:02<00:10,  3.51it/s]Interpreting activating_tokens:  22%|██▏       | 10/46 [00:03<00:11,  3.04it/s]Interpreting activating_tokens:  26%|██▌       | 12/46 [00:03<00:09,  3.76it/s]Interpreting activating_tokens:  30%|███       | 14/46 [00:04<00:07,  4.47it/s]Interpreting activating_tokens:  33%|███▎      | 15/46 [00:04<00:09,  3.33it/s]Interpreting activating_tokens:  35%|███▍      | 16/46 [00:04<00:08,  3.54it/s]Interpreting activating_tokens:  39%|███▉      | 18/46 [00:04<00:05,  4.97it/s]Interpreting activating_tokens:  41%|████▏     | 19/46 [00:05<00:06,  4.23it/s]Interpreting activating_tokens:  43%|████▎     | 20/46 [00:05<00:06,  4.25it/s]Interpreting activating_tokens:  46%|████▌     | 21/46 [00:05<00:06,  3.65it/s]Interpreting activating_tokens:  50%|█████     | 23/46 [00:06<00:04,  5.03it/s]Interpreting activating_tokens:  52%|█████▏    | 24/46 [00:06<00:04,  5.38it/s]Interpreting activating_tokens:  54%|█████▍    | 25/46 [00:06<00:05,  4.05it/s]Interpreting activating_tokens:  57%|█████▋    | 26/46 [00:07<00:05,  3.59it/s]Interpreting activating_tokens:  61%|██████    | 28/46 [00:07<00:03,  4.79it/s]Interpreting activating_tokens:  65%|██████▌   | 30/46 [00:07<00:03,  4.25it/s]Interpreting activating_tokens:  67%|██████▋   | 31/46 [00:08<00:04,  3.45it/s]Interpreting activating_tokens:  74%|███████▍  | 34/46 [00:08<00:02,  5.84it/s]Interpreting activating_tokens:  78%|███████▊  | 36/46 [00:09<00:02,  3.54it/s]Interpreting activating_tokens:  80%|████████  | 37/46 [00:09<00:02,  3.99it/s]Interpreting activating_tokens:  83%|████████▎ | 38/46 [00:09<00:01,  4.32it/s]Interpreting activating_tokens:  87%|████████▋ | 40/46 [00:10<00:01,  3.49it/s]Interpreting activating_tokens:  89%|████████▉ | 41/46 [00:10<00:01,  3.81it/s]Interpreting activating_tokens:  93%|█████████▎| 43/46 [00:10<00:00,  5.46it/s]Interpreting activating_tokens:  98%|█████████▊| 45/46 [00:11<00:00,  3.79it/s]Interpreting activating_tokens: 100%|██████████| 46/46 [00:11<00:00,  3.94it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank400/seed42/Gun/embedding
+[TIMING] Gun: 11.9s
+[rank_search] Gemini filter: rank=600 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 57 features to process.
+[activating_tokens] Concurrent interpretation of 57 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/57 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/57 [00:01<01:14,  1.33s/it]Interpreting activating_tokens:   5%|▌         | 3/57 [00:01<00:21,  2.52it/s]Interpreting activating_tokens:   7%|▋         | 4/57 [00:01<00:17,  3.02it/s]Interpreting activating_tokens:  11%|█         | 6/57 [00:02<00:17,  2.96it/s]Interpreting activating_tokens:  12%|█▏        | 7/57 [00:02<00:15,  3.25it/s]Interpreting activating_tokens:  14%|█▍        | 8/57 [00:02<00:14,  3.30it/s]Interpreting activating_tokens:  16%|█▌        | 9/57 [00:03<00:12,  3.79it/s]Interpreting activating_tokens:  19%|█▉        | 11/57 [00:03<00:12,  3.72it/s]Interpreting activating_tokens:  21%|██        | 12/57 [00:03<00:11,  3.97it/s]Interpreting activating_tokens:  23%|██▎       | 13/57 [00:04<00:11,  3.96it/s]Interpreting activating_tokens:  25%|██▍       | 14/57 [00:04<00:09,  4.59it/s]Interpreting activating_tokens:  28%|██▊       | 16/57 [00:04<00:08,  4.74it/s]Interpreting activating_tokens:  30%|██▉       | 17/57 [00:04<00:08,  4.56it/s]Interpreting activating_tokens:  32%|███▏      | 18/57 [00:05<00:08,  4.48it/s]Interpreting activating_tokens:  33%|███▎      | 19/57 [00:05<00:07,  4.89it/s]Interpreting activating_tokens:  35%|███▌      | 20/57 [00:05<00:08,  4.36it/s]Interpreting activating_tokens:  37%|███▋      | 21/57 [00:05<00:10,  3.41it/s]Interpreting activating_tokens:  40%|████      | 23/57 [00:06<00:07,  4.79it/s]Interpreting activating_tokens:  44%|████▍     | 25/57 [00:06<00:07,  4.54it/s]Interpreting activating_tokens:  46%|████▌     | 26/57 [00:07<00:07,  3.94it/s]Interpreting activating_tokens:  47%|████▋     | 27/57 [00:07<00:08,  3.57it/s]Interpreting activating_tokens:  53%|█████▎    | 30/57 [00:07<00:05,  5.04it/s]Interpreting activating_tokens:  54%|█████▍    | 31/57 [00:08<00:07,  3.45it/s]Interpreting activating_tokens:  56%|█████▌    | 32/57 [00:08<00:06,  3.97it/s]Interpreting activating_tokens:  60%|█████▉    | 34/57 [00:08<00:05,  4.30it/s]Interpreting activating_tokens:  61%|██████▏   | 35/57 [00:09<00:05,  4.11it/s]Interpreting activating_tokens:  63%|██████▎   | 36/57 [00:09<00:05,  3.73it/s]Interpreting activating_tokens:  65%|██████▍   | 37/57 [00:09<00:05,  3.84it/s]Interpreting activating_tokens:  67%|██████▋   | 38/57 [00:09<00:04,  4.12it/s]Interpreting activating_tokens:  68%|██████▊   | 39/57 [00:10<00:03,  4.79it/s]Interpreting activating_tokens:  70%|███████   | 40/57 [00:10<00:03,  4.75it/s]Interpreting activating_tokens:  72%|███████▏  | 41/57 [00:10<00:04,  3.37it/s]Interpreting activating_tokens:  74%|███████▎  | 42/57 [00:10<00:03,  3.99it/s]Interpreting activating_tokens:  75%|███████▌  | 43/57 [00:11<00:03,  3.64it/s]Interpreting activating_tokens:  79%|███████▉  | 45/57 [00:11<00:02,  4.82it/s]Interpreting activating_tokens:  81%|████████  | 46/57 [00:11<00:02,  4.90it/s]Interpreting activating_tokens:  82%|████████▏ | 47/57 [00:12<00:02,  4.51it/s]Interpreting activating_tokens:  84%|████████▍ | 48/57 [00:12<00:02,  4.15it/s]Interpreting activating_tokens:  86%|████████▌ | 49/57 [00:12<00:01,  4.37it/s]Interpreting activating_tokens:  88%|████████▊ | 50/57 [00:12<00:01,  4.91it/s]Interpreting activating_tokens:  89%|████████▉ | 51/57 [00:12<00:01,  4.83it/s]Interpreting activating_tokens:  91%|█████████ | 52/57 [00:13<00:01,  4.17it/s]Interpreting activating_tokens:  93%|█████████▎| 53/57 [00:13<00:00,  4.13it/s]Interpreting activating_tokens:  95%|█████████▍| 54/57 [00:13<00:00,  3.99it/s]Interpreting activating_tokens:  96%|█████████▋| 55/57 [00:13<00:00,  4.66it/s]Interpreting activating_tokens:  98%|█████████▊| 56/57 [00:14<00:00,  4.84it/s]Interpreting activating_tokens: 100%|██████████| 57/57 [00:14<00:00,  4.71it/s]Interpreting activating_tokens: 100%|██████████| 57/57 [00:14<00:00,  4.00it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank600/seed42/Gun/embedding
+[TIMING] Gun: 14.4s
+[rank_search] Gemini filter: rank=800 seed=42 -> mf_outputs/rank_search/multi_language/de
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 56 features to process.
+[activating_tokens] Concurrent interpretation of 56 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/56 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/56 [00:01<01:11,  1.30s/it]Interpreting activating_tokens:   9%|▉         | 5/56 [00:01<00:11,  4.43it/s]Interpreting activating_tokens:  12%|█▎        | 7/56 [00:02<00:16,  2.98it/s]Interpreting activating_tokens:  16%|█▌        | 9/56 [00:02<00:12,  3.68it/s]Interpreting activating_tokens:  18%|█▊        | 10/56 [00:02<00:11,  4.16it/s]Interpreting activating_tokens:  20%|█▉        | 11/56 [00:03<00:13,  3.27it/s]Interpreting activating_tokens:  23%|██▎       | 13/56 [00:03<00:10,  4.02it/s]Interpreting activating_tokens:  25%|██▌       | 14/56 [00:03<00:09,  4.40it/s]Interpreting activating_tokens:  29%|██▊       | 16/56 [00:04<00:10,  3.66it/s]Interpreting activating_tokens:  32%|███▏      | 18/56 [00:04<00:08,  4.61it/s]Interpreting activating_tokens:  34%|███▍      | 19/56 [00:04<00:07,  5.07it/s]Interpreting activating_tokens:  38%|███▊      | 21/56 [00:05<00:08,  3.92it/s]Interpreting activating_tokens:  39%|███▉      | 22/56 [00:06<00:10,  3.22it/s]Interpreting activating_tokens:  45%|████▍     | 25/56 [00:06<00:05,  5.20it/s]Interpreting activating_tokens:  46%|████▋     | 26/56 [00:06<00:07,  3.78it/s]Interpreting activating_tokens:  48%|████▊     | 27/56 [00:07<00:08,  3.44it/s]Interpreting activating_tokens:  50%|█████     | 28/56 [00:07<00:07,  3.93it/s]Interpreting activating_tokens:  54%|█████▎    | 30/56 [00:07<00:06,  3.90it/s]Interpreting activating_tokens:  57%|█████▋    | 32/56 [00:08<00:06,  3.81it/s]Interpreting activating_tokens:  59%|█████▉    | 33/56 [00:08<00:05,  3.84it/s]Interpreting activating_tokens:  62%|██████▎   | 35/56 [00:08<00:04,  5.03it/s]Interpreting activating_tokens:  64%|██████▍   | 36/56 [00:09<00:03,  5.45it/s]Interpreting activating_tokens:  66%|██████▌   | 37/56 [00:09<00:05,  3.72it/s]Interpreting activating_tokens:  68%|██████▊   | 38/56 [00:09<00:05,  3.57it/s]Interpreting activating_tokens:  73%|███████▎  | 41/56 [00:10<00:02,  6.23it/s]Interpreting activating_tokens:  75%|███████▌  | 42/56 [00:10<00:03,  3.74it/s]Interpreting activating_tokens:  77%|███████▋  | 43/56 [00:11<00:03,  3.75it/s]Interpreting activating_tokens:  82%|████████▏ | 46/56 [00:11<00:01,  5.02it/s]Interpreting activating_tokens:  84%|████████▍ | 47/56 [00:12<00:02,  3.55it/s]Interpreting activating_tokens:  86%|████████▌ | 48/56 [00:12<00:02,  3.59it/s]Interpreting activating_tokens:  89%|████████▉ | 50/56 [00:12<00:01,  5.06it/s]Interpreting activating_tokens:  93%|█████████▎| 52/56 [00:13<00:01,  3.72it/s]Interpreting activating_tokens:  96%|█████████▋| 54/56 [00:13<00:00,  4.63it/s]Interpreting activating_tokens: 100%|██████████| 56/56 [00:13<00:00,  5.61it/s]Interpreting activating_tokens: 100%|██████████| 56/56 [00:13<00:00,  4.08it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank800/seed42/Gun/embedding
+[TIMING] Gun: 13.9s
+
+=== Gun, langs=de: one row per (rank, seed) ===
+ rank  seed   V'  rel_err  candidates  member  kept  edit_total  edit_de
+  100    42 5679   0.9231          19       1     1          42       42
+  200    42 5679   0.8850          29       1     1          39       39
+  300    42 5679   0.8547          36       1     1          38       38
+  400    42 5679   0.8319          46       1     1          36       36
+  600    42 5679   0.7921          57       1     1          37       37
+  800    42 5679   0.7613          56       1     1          30       30
+
+=== kept features (share_<L> = share of the feature's concept-token mass in language L) ===
+ rank  seed  feature  ratio_abs  confidence  share_de                                                                                                        description
+  100    42       69       5.95        0.85       1.0                             This feature activates on terms related to weapons, ammunition, and military violence.
+  200    42        5       7.22        0.98       1.0     This vector represents firearms, weaponry, and related ammunition or military terms across multiple languages.
+  300    42       27       5.92        0.99       1.0                                                  This feature vector represents weaponry, firearms, and munitions.
+  400    42      238       5.39        0.99       1.0 This vector activates for words and roots related to firearms, weaponry, and ammunition across multiple languages.
+  600    42      104       5.66        0.99       1.0     This feature vector represents firearms, ammunition, and weapon-related terminology across multiple languages.
+  800    42      101       3.18        0.99       1.0 This feature activates strongly for tokens related to firearms, weapons, and ammunition across multiple languages.
+
+saved mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/rank_search/Gun/summary.csv and mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/rank_search/Gun/features.csv
