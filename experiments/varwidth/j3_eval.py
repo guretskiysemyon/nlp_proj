@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """J3 (20 x 20) vs J_tok / J_words on hand-labeled candidates: pool export, confusion tables, threshold sweep.
 
-    python -m experiments.varwidth.j3_eval pool   [--scope all|new|noprompt] [--min-j3 2]   # features to label
+    python -m experiments.varwidth.j3_eval pool   [--scope all|new|wide|noprompt] [--min-j3 2]   # features to label
     python -m experiments.varwidth.j3_eval report [--scope ...] [--version v1] [--out PATH]
 
 Candidates: every rho candidate of every run with a judges.json (judge_compare.py) and fw20 words (j3_words features).
@@ -13,7 +13,8 @@ e.g. generic nuclear for Uranium); N = not the concept. Strict counts B as negat
 Unlabeled candidates count as negatives, so FN only counts misses some rule caught and TN is uninformative.
 pool lists the unlabeled groups that any rule accepts (J_tok, W or J3 >= --min-j3), without judge flags (label blind),
 to a CSV under results/varwidth/j3/; add their labels to labels.json.
-Scopes: all; new = the concepts added after the prompt was chosen (NEW_CONCEPTS, the held-out set);
+Scopes: all; new = the concepts added after the prompt was chosen (NEW_CONCEPTS, the held-out set); wide = its broad
+topics (WIDE_CONCEPTS);
 noprompt = all minus the concepts used as examples in prompt_v1 (PROMPT_EXAMPLES).
 """
 from __future__ import annotations
@@ -29,7 +30,9 @@ from experiments.varwidth.j3_words import DATA, FW20, all_concepts, concept_list
 
 PROMPT_EXAMPLES = {"Culture of Greece", "Ancient Rome", "Artificial intelligence", "World War II"}
 NEW_CONCEPTS = ["Judaism", "Karate", "Existentialism", "Prime number", "The Matrix", "Louvre",
-                "American Revolutionary War", "Robot", "Sigmund Freud", "Giraffe", "Surfing"]
+                "American Revolutionary War", "Robot", "Sigmund Freud", "Giraffe", "Surfing", "Flush toilet",
+                "Cloud", "Doctor of Philosophy", "Tourism"]
+WIDE_CONCEPTS = ["Cloud", "Doctor of Philosophy", "Tourism"]   # broad topics among NEW_CONCEPTS
 OUT = RESULTS / "j3"
 KEY = ["concept", "seed"]
 
@@ -68,6 +71,8 @@ def candidates(version: str = "v1") -> pd.DataFrame:
 def in_scope(C: pd.DataFrame, scope: str) -> pd.DataFrame:
     if scope == "new":
         return C[C.concept.isin(NEW_CONCEPTS)]
+    if scope == "wide":
+        return C[C.concept.isin(WIDE_CONCEPTS)]
     if scope == "noprompt":
         return C[~C.concept.isin(PROMPT_EXAMPLES)]
     return C
@@ -121,7 +126,7 @@ def report(C: pd.DataFrame, scope: str) -> list:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("what", choices=("pool", "report"))
-    ap.add_argument("--scope", default="all", choices=("all", "new", "noprompt"))
+    ap.add_argument("--scope", default="all", choices=("all", "new", "wide", "noprompt"))
     ap.add_argument("--version", default="v1")
     ap.add_argument("--min-j3", type=int, default=2)
     ap.add_argument("--out", default=None)
@@ -137,7 +142,7 @@ def main():
         G.sort_values(["concept", "share"]).to_csv(path, index=False)
         print(f"{len(P)} unlabeled candidates in {len(G)} groups -> {path}")
         return
-    scopes = ("new", "noprompt", "all") if a.scope == "all" else (a.scope,)
+    scopes = ("new", "wide", "noprompt", "all") if a.scope == "all" else (a.scope,)
     L = [f"# J3 ({a.version}, 20 x 20, exact) vs J_tok / J_words on labeled candidates", ""]
     for sc in scopes:
         L += report(C, sc)
