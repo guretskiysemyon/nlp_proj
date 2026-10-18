@@ -179,7 +179,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--concept", required=True, nargs="+")
     ap.add_argument("--approach", required=True, nargs="+", choices=["A1", "A2", "A3"])
-    ap.add_argument("--N", type=int, default=40)
+    ap.add_argument("--N", type=int, default=30)   # results/ml/data/SAMPLE.md: smallest N with |V*| >= 1.25 d and full rank
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()

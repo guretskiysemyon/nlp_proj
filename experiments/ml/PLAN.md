@@ -36,7 +36,7 @@ Which pipeline erases a concept best in all 8 languages that Llama-3.1 officiall
 
 The sampled matrix E_V\* (|V\*| × 4096) must have full column rank 4096 but stay small. Rule: the smallest N in
 {20, 30, 40, 50} such that, for every concept, |V\*| ≥ 1.25 · 4096 and the numerical rank of E_V\* is 4096. The
-saved 8-language runs give |V\*| ≈ 7,000 at N = 40.
+saved 8-language runs give |V\*| ≈ 7,000 at N = 40. Result (results/ml/data/SAMPLE.md): N = 30 (min |V\*| 6,260, Baseball; rank 4096 for every concept); N = 20 fails for 9 concepts.
 
 ## Edit rule for A1 (edit once)
 
