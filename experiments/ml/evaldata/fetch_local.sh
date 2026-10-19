@@ -6,7 +6,8 @@ HF_HUB_OFFLINE=0 python -c "
 import sys
 from huggingface_hub import snapshot_download as s
 pats = {'facebook/nllb-200-3.3B': ['*.json', '*.bin', '*.model'],
-        'google/madlad400-3b-mt': ['*.json', 'model.safetensors', '*.model']}
+        'google/madlad400-3b-mt': ['*.json', 'model.safetensors', '*.model'],
+        'sentence-transformers/LaBSE': ['*.json', '*.txt', 'model.safetensors', '*/model.safetensors', '*/*.json']}
 for r in sys.argv[1:]:
     print(s(r, allow_patterns=pats.get(r)), flush=True)
 " "$@"

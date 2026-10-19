@@ -17,10 +17,13 @@ sentence-transformers, sacrebleu; unbabel-comet pins protobuf < 5, so not in the
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+if os.environ.get("EVALDATA_V2"):  # results/ml/data/qa_v2 caches (cleanup_v2.py)
+    import experiments.ml.evaldata.v2  # noqa: F401,E402
 
 from experiments.ml.evaldata.common import (ENGINES, METRICS, MT_LANGS, candidates, WORK, append_jsonl, load_jsonl,  # noqa: E402
                                             score_path, scores)
