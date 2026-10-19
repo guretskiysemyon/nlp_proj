@@ -84,21 +84,18 @@ def _perm(concept, set_name, i, seed=42):
 
 
 def mc_items(concept, lang, set_name):
-    data = json.loads((DATA / "qa" / f"mc_questions_{lang}.json").read_text(encoding="utf-8"))
-    out = []
-    for i, o in enumerate(data[concept][set_name]):
-        opts = [x.strip() for x in o["options"]]
-        p = _perm(concept, set_name, i)
-        by = {L: opts[j] for L, j in zip(LETTERS, p)}
-        correct = next(L for L, j in zip(LETTERS, p) if j == opts.index(o["correct_answer"].strip()))
-        out.append({"question": o["q"].strip(), "options": by, "correct": correct})
-    return out
+    """experiments/ml/evaldata/io.py: language-aligned shuffle, correct letter by position from the English item
+    (safe when a translation makes two options read alike)."""
+    from experiments.ml.evaldata.io import load_mc
+    return [{"question": it.question, "options": it.options_by_letter, "correct": it.correct_letter}
+            for it in load_mc(lang, concept, set_name)]
 
 
 def mmlu_items(lang, split):
-    rows = json.loads((DATA / "mmlu" / f"{lang}.json").read_text(encoding="utf-8"))
-    rows = rows[split] if isinstance(rows, dict) else [r for r in rows if r.get("split", split) == split]
-    return [{"question": r["question"], "options": r["options"], "correct": r["answer"]} for r in rows]
+    """Global-MMLU, same ids in every language: 'val' -> the 50 validation items, 'test' -> the 200 test items."""
+    from experiments.ml.evaldata.io import load_mmlu
+    return [{"question": it.question, "options": dict(zip(LETTERS, it.choices)), "correct": it.answer_letter}
+            for it in load_mmlu(lang, "validation" if split == "val" else split)]
 
 
 def heldout(lang):
@@ -132,14 +129,16 @@ def mc_acc(model, tok, items, lang):
 @torch.no_grad()
 def ppl(model, tok, sents):
     nll = cnt = 0.0
-    for s in range(0, len(sents), BATCH):
-        enc = tok(sents[s:s + BATCH], return_tensors="pt", padding=True).to(model.device)
-        logits = model(**enc).logits[:, :-1].float()
-        tgt = enc.input_ids[:, 1:]
-        m = enc.attention_mask[:, 1:].bool()
-        lp = torch.nn.functional.cross_entropy(logits.transpose(1, 2), tgt, reduction="none")
-        nll += float(lp[m].sum())
-        cnt += float(m.sum())
+    bs = 8                                   # (bs, T, 128k vocab) logits; the float32 cast is done per sentence
+    for s in range(0, len(sents), bs):
+        enc = tok(sents[s:s + bs], return_tensors="pt", padding=True).to(model.device)
+        logits = model(**enc).logits
+        for i in range(logits.shape[0]):
+            m = enc.attention_mask[i, 1:].bool()
+            lp = torch.nn.functional.cross_entropy(logits[i, :-1][m].float(), enc.input_ids[i, 1:][m], reduction="sum")
+            nll += float(lp)
+            cnt += float(m.sum())
+        del logits
     return math.exp(nll / cnt)
 
 
@@ -175,20 +174,27 @@ def concept_baseline(model, tok, concept, split):
     return b
 
 
-def score(model, tok, concept, split, base_c, base_l):
+def score(model, tok, concept, split, base_c, base_l, gate_first: bool = False):
+    """gate_first (the train grid): MMLU and perplexity in every language first; if a gate fails, the delta scores
+    0 and the concept questions are skipped (they cannot change a gated score)."""
     per = {}
+    for L in LANGS:
+        mm = mc_acc(model, tok, mmlu_items(L, "val" if split == "train" else "test"), L)
+        pp = ppl(model, tok, heldout(L))
+        mmf, flu = mc_norm(mm["acc"], base_l[L]["mmlu"]), min(1.0, base_l[L]["ppl"] / pp)
+        per[L] = {"mmlu": mm["acc"], "ppl": pp, "mmlu_frac": mmf, "fluency": flu, "invalid_mmlu": mm["invalid"]}
+    gated = any(per[L]["mmlu_frac"] < MIN_FRAC or per[L]["fluency"] < MIN_FRAC for L in LANGS)
+    if gated and gate_first:
+        return {"per_lang": per, "gated": True, "score": 0.0, "skipped_qa": True}
     for L in LANGS:
         qa = mc_acc(model, tok, mc_items(concept, L, f"QA_{split}"), L)
         sd = mc_acc(model, tok, mc_items(concept, L, f"SimdomQA_{split}"), L)
-        mm = mc_acc(model, tok, mmlu_items(L, "val" if split == "train" else "test"), L)
-        pp = ppl(model, tok, heldout(L))
         eff = 1 - mc_norm(qa["acc"], base_c[L]["qa"])
-        mmf, sdf = mc_norm(mm["acc"], base_l[L]["mmlu"]), mc_norm(sd["acc"], base_c[L]["simdom"])
-        flu = min(1.0, base_l[L]["ppl"] / pp)
-        per[L] = {"qa": qa["acc"], "simdom": sd["acc"], "mmlu": mm["acc"], "ppl": pp, "invalid_qa": qa["invalid"],
-                  "efficacy": eff, "mmlu_frac": mmf, "simdom_frac": sdf, "specificity": hm([mmf, sdf]),
-                  "fluency": flu, "H": hm([eff, hm([mmf, sdf]), flu])}
-    gated = any(per[L]["mmlu_frac"] < MIN_FRAC or per[L]["fluency"] < MIN_FRAC for L in LANGS)
+        sdf = mc_norm(sd["acc"], base_c[L]["simdom"])
+        p = per[L]
+        p.update({"qa": qa["acc"], "simdom": sd["acc"], "invalid_qa": qa["invalid"], "efficacy": eff,
+                  "simdom_frac": sdf, "specificity": hm([p["mmlu_frac"], sdf])})
+        p["H"] = hm([eff, p["specificity"], p["fluency"]])
     return {"per_lang": per, "gated": gated, "score": 0.0 if gated else sum(per[L]["H"] for L in LANGS) / len(LANGS)}
 
 
@@ -235,10 +241,13 @@ def evaluate(model, tok, editor, concept, approach, force=False):
     bc, bl = concept_baseline(model, tok, concept, "train"), lang_baseline(model, tok, "train")
     editor.set_edit(edit)
     for delta in (DELTA_GRID if edit else []):
+        if any(g["gated"] for d, g in grid.items() if float(d) < delta):
+            res["grid_stopped_at"] = min(float(d) for d, g in grid.items() if g["gated"])
+            break                              # damage grows with delta: a larger delta would be gated too
         if str(delta) in grid:
             continue
         editor.apply(delta)
-        grid[str(delta)] = score(model, tok, concept, "train", bc, bl)
+        grid[str(delta)] = score(model, tok, concept, "train", bc, bl, gate_first=True)
         save_json(out_path, res)
         print(f"[{approach} {concept}] delta={delta} score={grid[str(delta)]['score']:.3f} "
               f"gated={grid[str(delta)]['gated']}", flush=True)
