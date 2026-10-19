@@ -10,4 +10,4 @@
 #SBATCH -o results/ml/logs/%x_%j.out
 source experiments/ml/slurm/header.sh
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-python -m experiments.ml.worker
+python -m experiments.ml.worker "$@"

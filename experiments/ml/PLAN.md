@@ -75,3 +75,12 @@ the single-language agent), ≤ 4 CPUs per task, nodes s-004 and s-005 excluded,
 - MC translations for it/pt/hi/th are machine translations (NLLB), checked by COMET-Kiwi only.
 - Labels for A2/A3 come from the multilingual full set, so a token that is a concept token in one language and a
   neutral token in another is "both" and is not edited; A1 labels per language.
+
+## Amendment 2026-10-19: A3z (approved by the user)
+
+A3's edits, mapped back from the whitened space, point into directions layer 0 barely reads (read gain 1.1–1.7×
+random vs 2.6–7.6× for A2; results/ml/diagnose_a3/DIAGNOSIS.md), so efficacy plateaus near 0.1 and no gate fires.
+A3z keeps everything A3 uses to decide what to edit (whitened fit, GS-norm masks, TWJ selection, edited tokens) and
+builds the edit in the original space: Y fixed, Z_o = ridge solve against the original embeddings,
+c_t = Z_o[:, F_C] y_t (experiments/ml/a3z.py). Same evaluation, gates, δ grid and test protocol as A1–A3.
+Reported as a fourth approach, next to (not instead of) A3. Defined after A3's results were seen.
