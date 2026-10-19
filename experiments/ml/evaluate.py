@@ -27,6 +27,7 @@ from experiments.ml.common import (DATA, DELTA_GRID, LANGS, MIN_FRAC, MODEL, RES
 
 LETTERS = ("A", "B", "C", "D")
 BATCH, MAX_NEW = 16, 32
+MIN_BASE_QA = 0.40   # languages below it are left out of the selection score and the reported efficacy
 BASE_DIR = RESULTS / "baselines"
 
 
@@ -212,7 +213,15 @@ def score(model, tok, concept, split, base_c, base_l, gate_first: bool = False):
         p.update({"qa": qa["acc"], "simdom": sd["acc"], "invalid_qa": qa["invalid"], "efficacy": eff,
                   "simdom_frac": sdf, "specificity": hm([p["mmlu_frac"], sdf])})
         p["H"] = hm([eff, p["specificity"], p["fluency"]])
-    return {"per_lang": per, "gated": gated, "score": 0.0 if gated else sum(per[L]["H"] for L in LANGS) / len(LANGS)}
+        p["eligible"] = base_c[L]["qa"] >= MIN_BASE_QA
+    return {"per_lang": per, "gated": gated, "score": 0.0 if gated else agg(per)}
+
+
+def agg(per: dict) -> float:
+    """Mean H over the languages whose unedited concept accuracy is >= MIN_BASE_QA (Part 1's cutoff): near chance
+    (0.25) the efficacy normalization (acc - 0.25) / (base - 0.25) is noise."""
+    hs = [per[L]["H"] for L in LANGS if per[L].get("eligible", True)]
+    return sum(hs) / len(hs) if hs else 0.0
 
 
 # ---------------------------------------------------------------- edits

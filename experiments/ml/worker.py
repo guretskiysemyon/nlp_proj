@@ -18,7 +18,7 @@ import time
 
 from experiments.ml.common import APPROACHES, RESULTS, concepts, run_dir, slug
 
-CLAIMS = RESULTS / "claims_v3"   # earlier dirs hold stale claims of the OOM-prone launches
+CLAIMS = RESULTS / "claims_v4"   # earlier dirs hold stale claims of the OOM-prone launches
 STALE = 90 * 60
 
 

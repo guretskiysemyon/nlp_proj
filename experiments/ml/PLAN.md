@@ -48,6 +48,7 @@ page has the most words. Native pages rank above pages that were topped up with 
 - Per language L: efficacy_L = 1 − qa_frac_L, specificity_L = HM(mmlu_frac_L, simdom_frac_L),
   fluency_L = min(1, ppl_base,L / ppl_edit,L) on the held-out native text; normalizations as in EMBER.
 - H_L = HM(efficacy_L, specificity_L, fluency_L). Selection score = mean over the 8 languages of H_L.
+- Languages whose unedited QA_train accuracy is below 0.40 (Part 1 cutoff; chance is 0.25) are excluded from the selection score and from reported efficacy; their gates still apply. (Added 2026-10-19 before any grid row was scored, after the baselines showed e.g. Valentine's Day th = 0.26.)
 - Gates (per language, as EMBER's MMLU and Alpaca gates): mmlu_frac_L ≥ 0.9 and fluency_L ≥ 0.9 for every L,
   otherwise the δ scores 0.
 - Grid δ ∈ {0.5, 1, 2, 5, 10, 50, 100, 200} on the train split; one δ per (concept, approach) for all languages.
