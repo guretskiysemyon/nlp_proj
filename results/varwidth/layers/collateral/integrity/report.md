@@ -191,3 +191,44 @@ graceful = IGNORANT + KNOWS_OTHER; leak = KNOWS_CONCEPT; destruction = BLIND + I
 | sub:ember@10.0 | 113 | 0.00 | 0.00 | 0.00 | 1.00 | 0 | 0 | 0 | 0 | 113 | 0 |
 | sub:ember@100.0 | 113 | 0.00 | 0.00 | 0.00 | 1.00 | 0 | 0 | 0 | 0 | 110 | 3 |
 | sub:ember@sel | 113 | 0.36 | 0.31 | 0.03 | 0.30 | 35 | 39 | 2 | 3 | 33 | 1 |
+
+## R11: exclusive vs multi-meaning words (means over all runs; destruction from the judge runs)
+
+| Config | class | n words | copy | echo | T3 destruction (n) |
+|---|---|---|---|---|---|
+| mean:cinder@sel | exclusive | 51 | 0.00 | 0.00 | 1.00 (29) |
+| mean:cinder@sel | multi | 294 | 0.00 | 0.01 | 0.98 (131) |
+| mean:ember@sel | exclusive | 49 | 0.00 | 0.00 | 1.00 (23) |
+| mean:ember@sel | multi | 202 | 0.00 | 0.00 | 0.99 (90) |
+| noise:cinder@sel | exclusive | 51 | 0.53 | 0.39 | 0.48 (29) |
+| noise:cinder@sel | multi | 294 | 0.73 | 0.68 | 0.20 (131) |
+| noise:ember@sel | exclusive | 49 | 0.42 | 0.31 | 0.83 (23) |
+| noise:ember@sel | multi | 202 | 0.84 | 0.76 | 0.23 (90) |
+| pow2.0:cinder@sel | exclusive | 47 | 0.31 | 0.30 | 0.75 (28) |
+| pow2.0:cinder@sel | multi | 298 | 0.54 | 0.50 | 0.52 (132) |
+| sub:1a@sel | exclusive | 40 | 0.82 | 0.60 | 0.46 (24) |
+| sub:1a@sel | multi | 236 | 0.65 | 0.63 | 0.10 (88) |
+| sub:1b@sel | exclusive | 44 | 0.73 | 0.48 | 0.43 (23) |
+| sub:1b@sel | multi | 148 | 0.81 | 0.72 | 0.16 (90) |
+| sub:cinder@0.25 | exclusive | 48 | 0.90 | 0.83 | 0.28 (29) |
+| sub:cinder@0.25 | multi | 297 | 0.97 | 0.90 | 0.03 (131) |
+| sub:cinder@1.0 | exclusive | 45 | 0.22 | 0.20 | 0.85 (26) |
+| sub:cinder@1.0 | multi | 300 | 0.55 | 0.50 | 0.46 (134) |
+| sub:cinder@10.0 | exclusive | 50 | 0.00 | 0.00 | 1.00 (28) |
+| sub:cinder@10.0 | multi | 295 | 0.00 | 0.01 | 0.98 (132) |
+| sub:cinder@100.0 | exclusive | 48 | 0.00 | 0.00 | 1.00 (29) |
+| sub:cinder@100.0 | multi | 297 | 0.00 | 0.01 | 0.99 (131) |
+| sub:cinder@sel | exclusive | 48 | 0.85 | 0.73 | 0.37 (27) |
+| sub:cinder@sel | multi | 297 | 0.70 | 0.60 | 0.17 (133) |
+| sub:ember@0.25 | exclusive | 49 | 0.95 | 0.86 | 0.00 (23) |
+| sub:ember@0.25 | multi | 202 | 0.99 | 0.92 | 0.00 (90) |
+| sub:ember@1.0 | exclusive | 49 | 0.13 | 0.10 | 0.87 (23) |
+| sub:ember@1.0 | multi | 202 | 0.52 | 0.42 | 0.49 (90) |
+| sub:ember@10.0 | exclusive | 49 | 0.00 | 0.00 | 1.00 (23) |
+| sub:ember@10.0 | multi | 202 | 0.00 | 0.00 | 1.00 (90) |
+| sub:ember@100.0 | exclusive | 49 | 0.00 | 0.00 | 1.00 (23) |
+| sub:ember@100.0 | multi | 202 | 0.00 | 0.00 | 1.00 (90) |
+| sub:ember@sel | exclusive | 49 | 0.36 | 0.24 | 0.74 (23) |
+| sub:ember@sel | multi | 202 | 0.78 | 0.74 | 0.19 (90) |
+| sub:ember_judge@sel | exclusive | 6 | 0.33 | 0.17 | — |
+| sub:ember_judge@sel | multi | 47 | 0.52 | 0.57 | — |

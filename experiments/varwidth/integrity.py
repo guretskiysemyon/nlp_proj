@@ -484,6 +484,39 @@ def report():
             L.append(f"| {cfg} | {n} | {sum(x[l] for l in GRACEFUL) / n:.2f} | {sum(x[l] for l in LEAK) / n:.2f} | "
                      f"{x['CONFAB'] / n:.2f} | {sum(x[l] for l in DESTR) / n:.2f} | {x['KNOWS_CONCEPT']} | "
                      f"{x['KNOWS_OTHER']} | {x['IGNORANT']} | {x['CONFAB']} | {x['BLIND']} | {x['INCOHERENT']} |")
+    # R11: exclusive vs multi-meaning words (class of the word's tokens in the chosen question-set version; a word
+    # counts as multi if any of its tokens is multi)
+    split = {}
+    for c, s in [(c, s) for c in POC for s in seeds(c)]:
+        d = IOUT / slug(c) / f"s{s}"
+        if not (d / "meta.json").exists():
+            continue
+        cls_tok = token_class(c)
+        meta = json.loads((d / "meta.json").read_text())["words"]
+        wcls = {k: ("multi" if any(cls_tok.get(t) == "multi" for t in v["tokens"]) else
+                    "exclusive" if any(cls_tok.get(t) == "exclusive" for t in v["tokens"]) else "unclassified")
+                for k, v in meta.items()}
+        for f in sorted(d.glob("*.json")):
+            if f.name.startswith("ref_") or f.name == "meta.json":
+                continue
+            j = json.loads(f.read_text())
+            for k, r in j["recs"].items():
+                g = split.setdefault((j["config"], wcls.get(k, "unclassified")), {"copy": [], "echo": [], "destr": []})
+                g["copy"] += r["copy"]
+                g["echo"].append(r["echo"])
+        if lab:
+            for i, kk in key.items():
+                if i in lab and kk["concept"] == c and kk["seed"] == s and not kk["config"].startswith("ref_"):
+                    g = split.setdefault((kk["config"], wcls.get(kk["key"], "unclassified")), {"copy": [], "echo": [], "destr": []})
+                    g["destr"].append(lab[i] in DESTR)
+    L += ["", "## R11: exclusive vs multi-meaning words (means over all runs; destruction from the judge runs)", "",
+          "| Config | class | n words | copy | echo | T3 destruction (n) |", "|---|---|---|---|---|---|"]
+    for (cfg, cl), g in sorted(split.items()):
+        if cl == "unclassified" or not g["echo"]:
+            continue
+        dn = len(g["destr"])
+        L.append(f"| {cfg} | {cl} | {len(g['echo'])} | {np.mean(g['copy']):.2f} | {np.mean(g['echo']):.2f} | "
+                 + (f"{np.mean(g['destr']):.2f} ({dn})" if dn else "—") + " |")
     (IOUT / "report.md").write_text("\n".join(L) + "\n")
     print(f"wrote {IOUT / 'report.md'}")
 
