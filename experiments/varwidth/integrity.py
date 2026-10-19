@@ -40,7 +40,7 @@ from experiments.varwidth.common import slug
 IOUT = OUT / "integrity"
 SWEEP = [0.25, 1.0, 10.0, 100.0]
 PILOT_CONFIGS = ["sub:ember@1.0", "sub:ember@100.0", "mean:ember@sel"]
-SEL_VARIANTS = ["sub:ember", "sub:cinder", "sub:ember_judge", "sub:1a", "sub:1b", "pow2.0:cinder",
+SEL_VARIANTS = ["sub:ember", "sub:cinder", "sub:ember_judge", "sub:1a", "sub:1b", "pow2.0:cinder", "sub:cinder_rs",
                 "mean:ember", "mean:cinder", "noise:ember", "noise:cinder"]
 MAX_WORDS = 60
 MARGIN = 0.1     # nats on the answer tokens (amendment 4b)
@@ -205,7 +205,7 @@ def configs(concept, seed, pilot=False):
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {"ember": 1.0, "cinder": 1.0}
     out = []
     names = PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
-        [f"{v}@{r}" for v in ("sub:ember", "sub:cinder") for r in SWEEP]
+        [f"{v}@{r}" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs") for r in SWEEP]
     for nm in names:
         v, p = nm.split("@")
         if (concept, seed, v) not in G:
@@ -249,9 +249,12 @@ def run(concept, seed, pilot=False):
             "del": {k: "" for k in words}}
     for name, slots in refs.items():
         p = d / f"ref_{name}.json"
-        if not p.exists():
-            p.write_text(json.dumps(measure(model, w, tok, words, slots, mmlu), ensure_ascii=False))
-            print(concept, seed, "ref", name, flush=True)
+        have = json.loads(p.read_text()) if p.exists() else {}
+        todo = [k for k in words if k not in have]          # top-up when a new variant brings new words
+        if todo:
+            have.update(measure(model, w, tok, todo, {k: slots[k] for k in todo}, mmlu))
+            p.write_text(json.dumps(have, ensure_ascii=False))
+            print(concept, seed, "ref", name, f"+{len(todo)} words", flush=True)
     for name, v, par in cfgs:
         p = d / f"{name.replace(':', '_')}.json"
         if p.exists():
@@ -347,6 +350,46 @@ def judge_export():
     print(f"{len(items)} items (+{len(second)} duplicates) -> {len(batches)} batches in {JDIR}")
 
 
+def judge_export_new():
+    """Incremental export (amendment 5): answers not yet in key.json get new ids and new batches; ids and batches
+    already labelled are unchanged. 10% of the new items are duplicated into a different new batch."""
+    key = json.loads((JDIR / "key.json").read_text())
+    seen = {(k["concept"], k["seed"], k["config"], k["key"]) for k in key.values()}
+    items = []
+    for c, s in JUDGE_RUNS:
+        d = IOUT / slug(c) / f"s{s}"
+        for f in sorted(d.glob("*.json")):
+            if f.name == "meta.json" or f.name.startswith("ref_"):
+                continue
+            j = json.loads(f.read_text())
+            for k, r in j["recs"].items():
+                if "ask_out" in r and (c, s, j["config"], k) not in seen:
+                    items.append({"concept": c, "seed": s, "config": j["config"], "key": k,
+                                  "word": r["slot"].strip('"'), "prompt": fill(ASK, r["slot"]), "answer": r["ask_out"]})
+    if not items:
+        print("nothing new")
+        return
+    rng = random.Random(1)
+    rng.shuffle(items)
+    start = max(int(i[1:].rstrip("d")) for i in key) + 1
+    for n, it in enumerate(items):
+        it["id"] = f"j{start + n:05d}"
+        key[it["id"]] = {k: it[k] for k in ("concept", "seed", "config", "key")}
+    (JDIR / "key.json").write_text(json.dumps(key, ensure_ascii=False))
+    blind = [{"id": it["id"], "concept": it["concept"], "word": it["word"], "prompt": it["prompt"],
+              "answer": it["answer"]} for it in items]
+    nb = max(1, -(-len(blind) // BATCH))
+    batches = [blind[i::nb] for i in range(nb)]
+    first = max(int(f.stem.split("_")[1]) for f in JDIR.glob("batch_*.json")) + 1
+    for j, b in enumerate(batches):
+        others = [x for jj, bb in enumerate(batches) if jj != j for x in bb]
+        if others:
+            b += [{**x, "id": x["id"] + "d"} for x in rng.sample(others, min(len(others), len(b) // 10))]
+        rng.shuffle(b)
+        (JDIR / f"batch_{first + j:02d}.json").write_text(json.dumps(b, ensure_ascii=False, indent=1))
+    print(f"{len(items)} new items -> batches {first}..{first + nb - 1}")
+
+
 def labels():
     """{id: label} merged over labels_*.json (first value wins; duplicates kept under their own ids)."""
     out = {}
@@ -377,10 +420,16 @@ def report():
         if i in lab:
             rates.setdefault((k["concept"], k["seed"], k["config"]), Counter())[lab[i]] += 1
     if lab:
-        dups = [(i, i + "d") for i in key if i + "d" in lab and i in lab]
+        batch_of = {it["id"]: int(f.stem.split("_")[1]) for f in JDIR.glob("batch_*.json")
+                    for it in json.loads(f.read_text())}
+        agent = lambda i: batch_of.get(i, -1) // 3      # noqa: E731  (3 consecutive batches per labelling agent;
+        #                                                 new batches from judge_export_new are labelled by other agents)
+        dups = [(i, i + "d") for i in key if i + "d" in lab and i in lab and agent(i) != agent(i + "d")]
         agree = np.mean([lab[a] == lab[b] for a, b in dups]) if dups else float("nan")
-        L += [f"Agent labels: {sum(1 for i in key if i in lab)}/{len(key)} items labelled; agreement on {len(dups)} "
-              f"double-labelled items: {agree:.2f}.", ""]
+        destr = lambda x: x in DESTR                     # noqa: E731
+        agree_d = np.mean([destr(lab[a]) == destr(lab[b]) for a, b in dups]) if dups else float("nan")
+        L += [f"Agent labels: {sum(1 for i in key if i in lab)}/{len(key)} items labelled. Agreement on {len(dups)} "
+              f"duplicates labelled by different agents: exact label {agree:.2f}; destruction yes/no {agree_d:.2f}.", ""]
     cols = ["r", "n_words", "copy", "ctx_pass", "del_likeness", "ctx_excess", "ctxmc", "echo", "static_z_gt3",
             "static_nn_cos_median"]
     L += ["| Concept | Seed | Config | " + " | ".join(cols) + " | graceful | leak | destruction |",
@@ -418,6 +467,23 @@ def report():
     for cfg, xs in sorted(agg.items()):
         L.append(f"| {cfg} | {len(xs)} | " + " | ".join(
             f"{np.nanmean([x[k] for x in xs if isinstance(x.get(k), (int, float))]):.3g}" for k in cols[1:]) + " |")
+    if lab:
+        C = {}
+        for i, k in key.items():
+            if i in lab:
+                C.setdefault(k["config"], Counter())[lab[i]] += 1
+        L += ["", "## T3 agent labels by config (judge runs: Harry Potter 42, Ancient Rome 44, Valentine's Day 42)", "",
+              "graceful = IGNORANT + KNOWS_OTHER; leak = KNOWS_CONCEPT; destruction = BLIND + INCOHERENT.", "",
+              "| Config | n | graceful | leak | confab | destruction | KC | KO | IGN | CONFAB | BLIND | INCOH |",
+              "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        def order(cfg):
+            return (0 if cfg.startswith("ref_") else 1, cfg)
+        for cfg in sorted(C, key=order):
+            x = C[cfg]
+            n = sum(x.values())
+            L.append(f"| {cfg} | {n} | {sum(x[l] for l in GRACEFUL) / n:.2f} | {sum(x[l] for l in LEAK) / n:.2f} | "
+                     f"{x['CONFAB'] / n:.2f} | {sum(x[l] for l in DESTR) / n:.2f} | {x['KNOWS_CONCEPT']} | "
+                     f"{x['KNOWS_OTHER']} | {x['IGNORANT']} | {x['CONFAB']} | {x['BLIND']} | {x['INCOHERENT']} |")
     (IOUT / "report.md").write_text("\n".join(L) + "\n")
     print(f"wrote {IOUT / 'report.md'}")
 
@@ -428,7 +494,7 @@ def main():
     from experiments.varwidth.common import ROOT
     load_dotenv(ROOT / ".env", override=False)
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=("run", "judge-export", "report"))
+    ap.add_argument("what", choices=("run", "judge-export", "judge-export-new", "report"))
     ap.add_argument("--concept")
     ap.add_argument("--seed", type=int)
     ap.add_argument("--pilot", action="store_true")
@@ -437,6 +503,8 @@ def main():
         run(a.concept, a.seed, a.pilot)
     elif a.what == "judge-export":
         judge_export()
+    elif a.what == "judge-export-new":
+        judge_export_new()
     else:
         report()
 

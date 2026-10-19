@@ -32,7 +32,9 @@ CONFIGS = {"L0": "fixed_refit-False_plain", "L1": "fixed_refit-False", "L12": "r
 JUDGED = ("L0", "L1", "L12")
 RUNGS = {"L0": ("L0", "TJ"), "L1": ("L1", "TJ"), "L12": ("L12", "TJ"), "L123": ("L12", "HJ"),
          # exploratory, added after the erasure anchor (PREREG amendment 2): the judges without CS, and TJ v WJ+share
-         "L0H": ("L0", "HJ"), "L0W": ("L0", "TW"), "L12W": ("L12", "TW")}
+         "L0H": ("L0", "HJ"), "L0W": ("L0", "TW"), "L12W": ("L12", "TW"),
+         # PREREG amendment 5: CINDER with EMBER's row sparsity (CS + RS-1% + TWJ), no global sparsity
+         "L13": ("L1", "HJ")}
 LO_T = 5
 OUT = RESULTS / "layers"
 

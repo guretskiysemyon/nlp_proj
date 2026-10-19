@@ -36,3 +36,17 @@ id to its label and a short reason (at most 12 words):
 ```
 
 Label every item in the batch, and use only the six labels above. Read only your batch file and this brief.
+
+## Clarifications (added after the first batches, applied to all labels)
+
+- **Fragments are BLIND.** If the answer is about only a piece of the word ("Voldemort" answered as "Vol" → volatility;
+  "Gringotts" as "Gring"; only a leftover ending such as "'s"), the model no longer reads the word as a whole: label
+  `BLIND`, and start the reason with `fragment "<piece>":`.
+- **Look-alikes are BLIND.** An answer about a different real word that merely resembles the given one, without
+  saying it is guessing, is `BLIND`.
+- **"Did you mean…?" corrections.** If a word is "corrected" to a real thing with an explicit hedge ("did you mean",
+  "you might be thinking of", "likely refers to … but I'm not sure"), label `IGNORANT`. If the real thing is presented
+  as what the word is, without a hedge, label `CONFAB`. If the thing pointed to is itself invented, label `CONFAB`.
+- **Correct concept meaning followed by repetition** stays `KNOWS_CONCEPT`; mention the repetition in the reason.
+- **Everyday words** whose plain meaning is the concept meaning (e.g. "chocolates" for Valentine's Day) are
+  `KNOWS_CONCEPT` only if the answer links them to the concept; a plain dictionary meaning with no link is `KNOWS_OTHER`.

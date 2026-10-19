@@ -111,9 +111,14 @@ def ember_n(concept, seed, ember):
 def edit_sets(concept, seed, force=False):
     path = OUT / slug(concept) / f"edits_s{seed}.pt"
     if path.exists() and not force:
-        return torch.load(path, weights_only=False)
+        sets = torch.load(path, weights_only=False)
+        if "cinder_rs" not in sets:                 # amendment 5: CINDER-RS = CS fit with RS-1% + TWJ
+            sets["cinder_rs"] = sparse_set(concept, "L13", seed)
+            torch.save(sets, path)
+        return sets
     sets = {"ember": sparse_set(concept, "L0", seed), "cinder": sparse_set(concept, "L123", seed),
-            "ember_judge": sparse_set(concept, "L0W", seed), "cs_gs": sparse_set(concept, "L12", seed)}
+            "ember_judge": sparse_set(concept, "L0W", seed), "cs_gs": sparse_set(concept, "L12", seed),
+            "cinder_rs": sparse_set(concept, "L13", seed)}
     em, ci = sets["ember"], sets["cinder"]
     prep = load_fit(concept, "L0", seed)[0]
     codes, vstar = np.asarray(prep["codes"]), prep["vstar_ids"]

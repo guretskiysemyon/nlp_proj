@@ -23,7 +23,7 @@ NAMES = {"sub:ember": "EMBER", "sub:cinder": "CINDER", "sub:cs_gs": "+CS+GS", "s
          "sub:ee": "2×2: EMBER tok × EMBER dir (dense)", "sub:1b": "2×2: EMBER tok × CINDER dir (1b)",
          "sub:1a": "2×2: CINDER top-N × CINDER dir (1a)", "sub:cross": "2×2: CINDER top-N × EMBER dir",
          "mean:ember": "Mean (EMBER tok)", "mean:cinder": "Mean (CINDER tok)", "noise:ember": "Noise (EMBER tok)",
-         "noise:cinder": "Noise (CINDER tok)"}
+         "noise:cinder": "Noise (CINDER tok)", "sub:cinder_rs": "CINDER-RS (CS + RS-1% + TWJ)"}
 
 
 def name(v):

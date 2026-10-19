@@ -241,3 +241,27 @@ multi-meaning words copy fine.
 
 **No further pilot.** The full runs start directly, and the gate is evaluated on each run's references. Every other
 test is unchanged; their pilot gates passed.
+
+## Amendment 5 (2026-10-19): CINDER-RS, layers 1 + 3 without 2 (requested by the user after E1/E2 results were seen)
+
+**Candidate:** CINDER-RS = Contrastive Sharpening (L1) + the Two-Way Judge (L3) with EMBER's row sparsity (RS-1%), no
+Global Sparsity. In code: rung `L13` = fit `fixed_refit-False` (CS, 1% per feature) + judge HJ (TJ ∨ EJ@5; Ancient
+Rome uses the v1r lexicon as in amendment 3). Edit = e − δc with sparse Y, concept-only tokens of support(F_C).
+
+**Motivation (post hoc, disclosed):**
+- In E1, CINDER's direction was more efficient at small r.
+- CINDER's GS-widened token sets carried more multi-meaning tokens.
+- CINDER-RS separates the direction (L1) from the widths (L2).
+
+**Evaluation, identical to E1 and E2:**
+- **E1:** the same r grid, frozen question set, gates and cheaper-rule selection; test pass; Alpaca at the chosen
+  point (50 prompts).
+- **E2:** the selected point plus a sweep r ∈ {0.25, 1, 10, 100}, all judge-free tests, and T3 labels on HP 42,
+  AR 44, VD 42 through an incremental blind export, with already-labelled ids unchanged and the same brief including
+  its clarifications.
+
+**Coverage:** 89–100% of CINDER-RS's edited tokens are in the frozen pool (VD 46: 68/77). Collateral is over the
+edited multi-meaning tokens of the frozen set, as for every variant; uncovered tokens are reported.
+
+**Status:** an exploratory comparison. It is the candidate the user proposed and was not chosen by us from results;
+claims need the expansion concepts.

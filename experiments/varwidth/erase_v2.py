@@ -38,7 +38,7 @@ PILOT_REL = [0.1, 1.0, 10.0, 100.0]
 PROJ = [0.25, 0.5, 0.75, 1.0]
 POW = [1.5, 2.0]
 MIN_MMLU, COLL_GATE = 0.9, 0.8
-SUB_SETS = ["ember", "cinder", "cs_gs", "ember_judge", "ee", "1b", "1a", "cross"]
+SUB_SETS = ["ember", "cinder", "cs_gs", "ember_judge", "ee", "1b", "1a", "cross", "cinder_rs"]
 SHAPE_SETS = ["ember", "cinder"]
 
 
