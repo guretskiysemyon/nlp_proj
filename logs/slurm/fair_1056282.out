@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Pornography
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.14it/s]
+[15:39:20] cinder Pornography delta=0.5: k=1 tokens=69 mmlu 0.52 qa 0.78 simdom 0.90 (44s)
+[15:40:04] cinder Pornography delta=1.0: k=1 tokens=69 mmlu 0.52 qa 0.74 simdom 0.90 (44s)
+[15:40:48] cinder Pornography delta=2.0: k=1 tokens=69 mmlu 0.52 qa 0.56 simdom 0.90 (44s)
+[15:41:32] cinder Pornography delta=5.0: k=1 tokens=69 mmlu 0.52 qa 0.52 simdom 0.90 (45s)
+[15:42:19] cinder Pornography delta=10.0: k=1 tokens=69 mmlu 0.52 qa 0.58 simdom 0.90 (47s)
+[15:43:07] cinder Pornography delta=50.0: k=1 tokens=69 mmlu 0.52 qa 0.56 simdom 0.90 (48s)
+[15:44:00] cinder Pornography delta=100.0: k=1 tokens=69 mmlu 0.52 qa 0.56 simdom 0.90 (53s)
+[15:44:53] cinder Pornography delta=200.0: k=1 tokens=69 mmlu 0.52 qa 0.54 simdom 0.90 (53s)
+[15:44:54] cinder Pornography: pick delta=5.0 harmonic=0.620
+[15:53:33] cinder Pornography final at delta=5.0: edit check OK, MMLU test 0.552

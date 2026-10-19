@@ -19,6 +19,8 @@ seed 42 (no feature for Nazism and Republic of Ireland, so no CINDER edit there)
 | post | 5-language final test of CINDER at its pick, CINDER vs EMBER table, X6–X8 | `post_main.sbatch` | 1 GPU | queued 1051552 (after the main jobs) |
 | final | Redraw X6, rerun X7–X9 when everything is done | `final_summary.sbatch` | 1 GPU | queued 1051587 (after all) |
 | X9 | Does extrapolation reduce the leak? Retention per language at the picked δ, ± extrapolation | `x9_extrapolation_effect.py` | CPU | after G1 |
+| X10 | Does extrapolation need the features? EMBER+X vs a frequency rule without features, and foreign-only added tokens (train questions, coverage only) | `x10_extrapolation_ablation.py` | CPU | **done** 2026-10-19 |
+| X11 | Which extrapolation works best? Real erasure of EMBER, EMBER+X, X_foreign, X_clean at the fair EMBER pick δ and its neighbour; QA_train + SimdomQA_train in 5 languages, MMLU (train items only; the test split is kept for confirming the choice) | `x11_extrap_erasure.py` (+ `x11.sbatch`) | 1 GPU per concept | **done** 2026-10-19 (jobs 1056580–1056585, all exit 0) |
 
 The G1 jobs wait for GPUs held by the main jobs (per-user limit) and start when those finish; they do not slow the
 main run. Logs: `logs/slurm/p2x_*.out`.
@@ -96,3 +98,64 @@ The 6-concept results above use Part 1's protocol (Alpaca in the search) and EMB
 follow-up runs EMBER, EMBER + Ori's judge and CINDER on all 18 concepts with the same judge model (gemini-3.5),
 the same grid, a pick without Alpaca and the 5-language test: `cinder/fair.py`, plan in `docs/Part 2/plan.md`
 "Fair comparison (option B)", report `judge_rerun/Fair/report.md`.
+
+## X10: does extrapolation need the features? (2026-10-19, EMBER, 6 concepts)
+
+CPU, coverage only (no erasure), on the **train** questions of all 5 languages (`data/qa_lang`, the test split is not
+used). Edit sets, all containing EMBER's English edit: X = EMBER+X as built and tested in X9; X_foreign = X without
+the added tokens that occur in English text (English sentences of all 18 concepts); L = the same number of tokens
+from the same concept-only pool, chosen by how many concept sentences contain them (no features); L_word = L with
+whole-word tokens only; L_foreign = L_word from the foreign-only pool. Means over the 6 concepts (de/es/fr/ru
+averaged; `simdom` = SimdomQA_train questions reached, `bg` = other concepts' native sentences reached, both
+collateral):
+
+| | added tokens | QA_train reached, en | foreign | SimdomQA_train reached, en | foreign | background, en | foreign |
+|---|---|---|---|---|---|---|---|
+| EMBER | 0 | 0.78 | 0.29 | 0.10 | 0.02 | 0.008 | 0.004 |
+| X | 96 | 0.79 | 0.61 | 0.12 | 0.10 | 0.013 | 0.021 |
+| X_foreign | 86 | 0.79 | 0.59 | 0.11 | 0.08 | 0.008 | 0.018 |
+| L_word | 96 | 0.78 | 0.69 | 0.11 | 0.22 | 0.013 | 0.099 |
+| L_foreign | 86 | 0.78 | 0.66 | 0.10 | 0.20 | 0.008 | 0.078 |
+
+- **The features matter.** Without them, the frequency rule reaches somewhat more foreign questions but with 2–2.5×
+  the similar-domain collateral and 4–5× the background exposure, in every concept except Nazism (similar). Per
+  similar-domain question touched, X gains about twice as many concept questions (≈ 4–5 vs ≈ 2). The two sets share
+  only 5–23% of their tokens: the frequency rule picks subword fragments (пу, tom, sem, ca, Der) that are "concept-only"
+  only because they are missing from 300 neutral sentences. So X4's near-chance AUC (energy share over all native
+  words) does not mean the loading is useless: its top-ranked tokens are mostly real concept words.
+- **Foreign-only (dropping English-surface tokens) is a small, mixed gain.** It brings English collateral back to
+  EMBER's level (background 0.013 → 0.008) and lowers foreign collateral (0.10 → 0.08) for a small coverage loss
+  (0.61 → 0.59), but it is blunt: it removes noise (dies, coup, violence, mental, permit, costumes, Wales, Albania) and
+  also good tokens that English shares (munitions, canon, balles, Kaiser, Versailles, Ryder, Tee).
+- Correction to the earlier description: the clearly unrelated tokens (trumpet, Tobacco, phone) are from X5's
+  per-language solve, which also re-solves the English tokens; the build actually tested (x5b) keeps the English rows
+  fixed and does not add them.
+- A better lexical rule (e.g. against a large background corpus) might narrow the gap; this compares against a plain
+  frequency rule only.
+
+## X11: which extrapolation works best? (2026-10-19, EMBER, 6 concepts, real erasure)
+
+Each edit applied to Gemma at the fair run's EMBER pick δ and its grid neighbour; QA_train / SimdomQA_train in 5
+languages, MMLU (50 train items). Test split not used. Chance-corrected retention vs the pristine model (lower = more
+erased); `sim` = SimdomQA_train accuracy change (collateral). Means over the 6 concepts at the pick δ
+(`x11_extrap_erasure/report.md`):
+
+| | tokens | ret en | de | es | fr | ru | foreign mean | leak | sim en | sim foreign | MMLU / pristine |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| EMBER | 50 | 0.63 | 0.76 | 0.79 | 0.72 | 0.98 | 0.81 | 0.18 | −0.03 | −0.007 | 1.00 |
+| X | 146 | 0.58 | 0.60 | 0.72 | 0.49 | 0.91 | 0.68 | 0.10 | −0.04 | −0.022 | 1.00 |
+| X_foreign | 136 | 0.59 | 0.59 | 0.75 | 0.48 | 0.91 | 0.68 | 0.10 | −0.03 | −0.020 | 1.00 |
+| X_clean | 137 | 0.58 | 0.60 | 0.73 | 0.50 | 0.95 | 0.70 | 0.11 | −0.04 | −0.018 | 1.00 |
+
+- **Extrapolation works in real erasure, not only in coverage.** Foreign retention 0.81 → 0.68 and leak 0.18 → 0.10
+  at the same δ; X erases at least as much foreign knowledge as EMBER in all 6 concepts, at both δ values. Largest
+  gains: Culture of Greece de 0.81 → 0.36, Ireland fr 0.82 → 0.09, Nazism de/es/fr −0.19 to −0.26. Smallest: Gun at
+  its weak pick δ 5 (0.99 → 0.96; at δ 10 0.95 → 0.84) and Golf (0.74 → 0.74).
+- **Cost:** similar-domain accuracy falls by about 1.5 points more in the foreign languages (−0.007 → −0.022) and
+  1 point in English; MMLU unchanged at the pick δ (one Golf neighbour 0.96). Added tokens also reach English
+  questions: English retention 0.63 → 0.58.
+- **The two filters do not beat plain X.** X_foreign − X: foreign retention +0.002 (better in 3 of 6 concepts);
+  X_clean − X: +0.014 (better in none), with collateral lower by only 0.002–0.005. These gaps are below one question
+  (50 questions per language). Plain X is the choice; X_clean is the option if collateral matters more.
+- Not tested: Ori's naive-projection extrapolation (only the Z-fixed sparse solve, X5/X5b), CINDER+X with real
+  erasure on the train split, a δ re-tuned for X, and the test-split confirmation.

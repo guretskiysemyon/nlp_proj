@@ -1,0 +1,31 @@
+[fair] method=ember_hj concepts: Uranium Heroin
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.09it/s]
+[15:49:18] ember_hj Uranium delta=0.5: k=1 tokens=38 mmlu 0.52 qa 0.66 simdom 0.60 (45s)
+[15:50:02] ember_hj Uranium delta=1.0: k=1 tokens=38 mmlu 0.52 qa 0.64 simdom 0.60 (44s)
+[15:50:46] ember_hj Uranium delta=2.0: k=1 tokens=38 mmlu 0.52 qa 0.74 simdom 0.72 (44s)
+[15:51:33] ember_hj Uranium delta=5.0: k=1 tokens=38 mmlu 0.52 qa 0.56 simdom 0.68 (47s)
+[15:52:20] ember_hj Uranium delta=10.0: k=1 tokens=38 mmlu 0.52 qa 0.48 simdom 0.64 (48s)
+[15:53:29] ember_hj Uranium delta=50.0: k=1 tokens=38 mmlu 0.52 qa 0.56 simdom 0.64 (69s)
+[15:54:43] ember_hj Uranium delta=100.0: k=1 tokens=38 mmlu 0.50 qa 0.56 simdom 0.66 (74s)
+[15:56:04] ember_hj Uranium delta=200.0: k=1 tokens=38 mmlu 0.50 qa 0.54 simdom 0.66 (80s)
+[15:56:05] ember_hj Uranium: pick delta=10.0 harmonic=0.582
+[16:03:40] ember_hj Uranium final at delta=10.0: edit check OK, MMLU test 0.550
+[16:04:25] ember_hj Heroin delta=0.5: k=1 tokens=46 mmlu 0.52 qa 0.66 simdom 1.00 (45s)
+[16:05:08] ember_hj Heroin delta=1.0: k=1 tokens=46 mmlu 0.52 qa 0.60 simdom 1.00 (44s)
+[16:05:53] ember_hj Heroin delta=2.0: k=1 tokens=46 mmlu 0.52 qa 0.50 simdom 1.00 (44s)
+[16:06:37] ember_hj Heroin delta=5.0: k=1 tokens=46 mmlu 0.54 qa 0.52 simdom 1.00 (44s)
+[16:07:21] ember_hj Heroin delta=10.0: k=1 tokens=46 mmlu 0.54 qa 0.44 simdom 0.98 (44s)
+[16:08:10] ember_hj Heroin delta=50.0: k=1 tokens=46 mmlu 0.54 qa 0.44 simdom 1.00 (49s)
+[16:09:01] ember_hj Heroin delta=100.0: k=1 tokens=46 mmlu 0.54 qa 0.42 simdom 1.00 (51s)
+[16:09:52] ember_hj Heroin delta=200.0: k=1 tokens=46 mmlu 0.54 qa 0.46 simdom 1.00 (50s)
+[16:09:52] ember_hj Heroin: pick delta=100.0 harmonic=0.721
+[16:17:49] ember_hj Heroin final at delta=100.0: edit check OK, MMLU test 0.549

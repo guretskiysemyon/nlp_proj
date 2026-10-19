@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Gun
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.74s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.10it/s]
+[15:39:19] cinder Gun delta=0.5: k=2 tokens=67 mmlu 0.52 qa 0.88 simdom 0.74 (43s)
+[15:40:02] cinder Gun delta=1.0: k=2 tokens=67 mmlu 0.52 qa 0.78 simdom 0.74 (44s)
+[15:40:46] cinder Gun delta=2.0: k=2 tokens=67 mmlu 0.52 qa 0.74 simdom 0.70 (44s)
+[15:41:30] cinder Gun delta=5.0: k=2 tokens=67 mmlu 0.52 qa 0.64 simdom 0.68 (44s)
+[15:42:12] cinder Gun delta=10.0: k=2 tokens=67 mmlu 0.52 qa 0.64 simdom 0.70 (43s)
+[15:42:56] cinder Gun delta=50.0: k=2 tokens=67 mmlu 0.52 qa 0.64 simdom 0.74 (43s)
+[15:43:40] cinder Gun delta=100.0: k=2 tokens=67 mmlu 0.52 qa 0.62 simdom 0.74 (44s)
+[15:44:24] cinder Gun delta=200.0: k=2 tokens=67 mmlu 0.52 qa 0.64 simdom 0.74 (44s)
+[15:44:26] cinder Gun: pick delta=100.0 harmonic=0.543
+[15:51:35] cinder Gun final at delta=100.0: edit check OK, MMLU test 0.552

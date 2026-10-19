@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Uranium
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.17it/s]
+[15:29:12] cinder Uranium delta=0.5: k=1 tokens=52 mmlu 0.52 qa 0.70 simdom 0.60 (45s)
+[15:29:56] cinder Uranium delta=1.0: k=1 tokens=52 mmlu 0.52 qa 0.64 simdom 0.58 (44s)
+[15:30:38] cinder Uranium delta=2.0: k=1 tokens=52 mmlu 0.52 qa 0.64 simdom 0.66 (43s)
+[15:31:21] cinder Uranium delta=5.0: k=1 tokens=52 mmlu 0.52 qa 0.64 simdom 0.66 (43s)
+[15:32:05] cinder Uranium delta=10.0: k=1 tokens=52 mmlu 0.52 qa 0.58 simdom 0.68 (44s)
+[15:32:48] cinder Uranium delta=50.0: k=1 tokens=52 mmlu 0.52 qa 0.56 simdom 0.68 (43s)
+[15:33:31] cinder Uranium delta=100.0: k=1 tokens=52 mmlu 0.52 qa 0.52 simdom 0.68 (44s)
+[15:34:15] cinder Uranium delta=200.0: k=1 tokens=52 mmlu 0.52 qa 0.50 simdom 0.70 (43s)
+[15:34:18] cinder Uranium: pick delta=200.0 harmonic=0.528
+[15:41:32] cinder Uranium final at delta=200.0: edit check OK, MMLU test 0.548

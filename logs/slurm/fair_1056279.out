@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Cannabis
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.02it/s]
+[15:34:52] cinder Cannabis delta=0.5: k=1 tokens=34 mmlu 0.52 qa 0.84 simdom 0.88 (44s)
+[15:35:36] cinder Cannabis delta=1.0: k=1 tokens=34 mmlu 0.52 qa 0.74 simdom 0.88 (44s)
+[15:36:19] cinder Cannabis delta=2.0: k=1 tokens=34 mmlu 0.52 qa 0.78 simdom 0.88 (43s)
+[15:37:01] cinder Cannabis delta=5.0: k=1 tokens=34 mmlu 0.52 qa 0.72 simdom 0.88 (42s)
+[15:37:43] cinder Cannabis delta=10.0: k=1 tokens=34 mmlu 0.52 qa 0.74 simdom 0.88 (42s)
+[15:38:26] cinder Cannabis delta=50.0: k=1 tokens=34 mmlu 0.52 qa 0.76 simdom 0.88 (43s)
+[15:39:10] cinder Cannabis delta=100.0: k=1 tokens=34 mmlu 0.52 qa 0.76 simdom 0.88 (44s)
+[15:39:53] cinder Cannabis delta=200.0: k=1 tokens=34 mmlu 0.52 qa 0.76 simdom 0.88 (43s)
+[15:39:55] cinder Cannabis: pick delta=5.0 harmonic=0.338
+[15:46:46] cinder Cannabis final at delta=5.0: edit check OK, MMLU test 0.550

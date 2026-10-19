@@ -1,0 +1,83 @@
+{
+ "method": "cinder",
+ "concept": "Heroin",
+ "delta": 50.0,
+ "no_edit": false,
+ "harmonic": 0.5283018867924529,
+ "efficacy": 0.35897435897435903,
+ "specificity": 1.0,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.64,
+  "simdom_base": 0.98,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.66,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.66,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.15384615384615397,
+   "specificity": 1.0,
+   "harmonic": 0.26666666666666683,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.3076923076923077,
+   "specificity": 1.0,
+   "harmonic": 0.47058823529411764,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.54,
+   "efficacy": 0.2564102564102564,
+   "specificity": 1.0,
+   "harmonic": 0.4081632653061224,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.35897435897435903,
+   "specificity": 1.0,
+   "harmonic": 0.5283018867924529,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.3076923076923077,
+   "specificity": 1.0,
+   "harmonic": 0.47058823529411764,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.3076923076923077,
+   "specificity": 1.0,
+   "harmonic": 0.47058823529411764,
+   "gate": null
+  }
+ ]
+}

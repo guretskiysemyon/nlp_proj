@@ -1,0 +1,31 @@
+[fair] method=ember_hj concepts: Halloween Valentine's Day
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]
+[15:54:20] ember_hj Halloween delta=0.5: k=1 tokens=41 mmlu 0.52 qa 0.58 simdom 0.96 (44s)
+[15:55:08] ember_hj Halloween delta=1.0: k=1 tokens=41 mmlu 0.52 qa 0.56 simdom 0.96 (47s)
+[15:55:53] ember_hj Halloween delta=2.0: k=1 tokens=41 mmlu 0.52 qa 0.54 simdom 0.96 (45s)
+[15:56:36] ember_hj Halloween delta=5.0: k=1 tokens=41 mmlu 0.52 qa 0.48 simdom 0.96 (44s)
+[15:57:20] ember_hj Halloween delta=10.0: k=1 tokens=41 mmlu 0.50 qa 0.52 simdom 0.96 (43s)
+[15:58:05] ember_hj Halloween delta=50.0: k=1 tokens=41 mmlu 0.50 qa 0.50 simdom 0.96 (46s)
+[15:58:58] ember_hj Halloween delta=100.0: k=1 tokens=41 mmlu 0.50 qa 0.50 simdom 0.96 (52s)
+[15:59:45] ember_hj Halloween delta=200.0: k=1 tokens=41 mmlu 0.50 qa 0.50 simdom 0.96 (47s)
+[15:59:47] ember_hj Halloween: pick delta=5.0 harmonic=0.511
+[16:07:02] ember_hj Halloween final at delta=5.0: edit check OK, MMLU test 0.549
+[16:07:46] ember_hj Valentine's Day delta=0.5: k=1 tokens=38 mmlu 0.52 qa 0.66 simdom 0.94 (44s)
+[16:08:32] ember_hj Valentine's Day delta=1.0: k=1 tokens=38 mmlu 0.52 qa 0.62 simdom 0.94 (46s)
+[16:09:17] ember_hj Valentine's Day delta=2.0: k=1 tokens=38 mmlu 0.52 qa 0.54 simdom 0.94 (45s)
+[16:10:01] ember_hj Valentine's Day delta=5.0: k=1 tokens=38 mmlu 0.52 qa 0.60 simdom 0.90 (44s)
+[16:10:45] ember_hj Valentine's Day delta=10.0: k=1 tokens=38 mmlu 0.52 qa 0.60 simdom 0.94 (44s)
+[16:11:29] ember_hj Valentine's Day delta=50.0: k=1 tokens=38 mmlu 0.52 qa 0.62 simdom 0.90 (44s)
+[16:12:14] ember_hj Valentine's Day delta=100.0: k=1 tokens=38 mmlu 0.52 qa 0.56 simdom 0.90 (44s)
+[16:13:02] ember_hj Valentine's Day delta=200.0: k=1 tokens=38 mmlu 0.52 qa 0.54 simdom 0.90 (48s)
+[16:13:02] ember_hj Valentine's Day: pick delta=2.0 harmonic=0.453
+[16:20:17] ember_hj Valentine's Day final at delta=2.0: edit check OK, MMLU test 0.551

@@ -1,10 +1,10 @@
 # Progress log
 
 **Last updated:** 2026-10-19
-**Current step: Part 2, fair comparison running** (all 18 concepts, no Alpaca, 5-language test; EMBER,
-EMBER + Ori's judge, CINDER; step 8 below, `docs/Part 2/plan.md` "Fair comparison (option B)"), after the first
-CINDER vs EMBER run (done 2026-10-18/19, results below and in `Part 2 Experiments/README.md`). Next: extrapolation
-(+X) on the same pipeline. Part 1's experiments are complete and
+**Current step: Part 2, extrapolation arms running** (EMBER+X, CINDER+X on all 18 concepts, step 9 below).
+The fair comparison (all 18 concepts, no Alpaca, 5-language test; EMBER, EMBER + Ori's judge, CINDER; step 8,
+`docs/Part 2/plan.md` "Fair comparison (option B)") is done, report `judge_rerun/Fair/report.md`; before it, the
+first CINDER vs EMBER run (done 2026-10-18/19, results below and in `Part 2 Experiments/README.md`). Part 1's experiments are complete and
 repaired: the three HP searches (EMBER, SNMF, SNMF+EMBER) and the cross-lingual
 MC test of all three methods, 18 concepts × 5 languages. **Decided 2026-10-17:
 open-QA judging, the final-test stage and relearning are out of scope for Part
@@ -50,7 +50,8 @@ has no Alpaca judge in the search and uses the old MC scoring). Code: `cinder/`
 | run | **Submitted 2026-10-18 18:36**, one chained job per concept (`cinder/run_pipeline.sbatch`: features → grid → Qwen pick → final test, **English only for now**; `LANGS="en de es fr ru"` later): Cannabis 1051382, Gun 1051383, Nazism 1051384, Republic of Ireland 1051385, Culture of Greece 1051386, Golf 1051387. Nazism and Ireland stopped after the feature step (no feature, no edit), as expected. Logs: `logs/slurm/cinder_pipeline_<id>.out` | | **running** |
 | 6 | Comparison table (CPU) | `python -m cinder.compare` → `judge_rerun/Cinder/comparison.md` | **done** |
 | 7 | Analyses X1–X9 + leak curves at every δ for EMBER, CINDER and their extrapolated variants (20 GPU jobs) | `Part 2 Experiments/` (README there) | **done** 2026-10-19, all jobs exit 0 |
-| 8 | **Fair comparison, all 18 concepts, no Alpaca** (regular EMBER with the gemini-3.5 judge vs CINDER; same grid, pick, tests; plan.md "Fair comparison (option B)") | `cinder/submit_fair.sh` → `python -m cinder.fair report` | **running**: submitted 2026-10-19 14:45, jobs 1056259–1056287 (14 EMBER + 15 CINDER; 7 no-feature cases written as no edit). Logs `logs/slurm/fair_<id>.out`. **+ third arm EMBER + Ori's judge** (`ember_hj`): same edit as EMBER for 14 concepts (reused), 4 new (Uranium, Heroin, Halloween, Valentine's Day) in jobs 1056525–1056526 |
+| 8 | **Fair comparison, all 18 concepts, no Alpaca** (regular EMBER with the gemini-3.5 judge vs CINDER; same grid, pick, tests; plan.md "Fair comparison (option B)") | `cinder/submit_fair.sh` → `python -m cinder.fair report` | **done** 2026-10-19 (all edit checks reproduce the grid; report generated 17:00): jobs 1056259–1056287 (14 EMBER + 15 CINDER; 7 no-feature cases written as no edit). Logs `logs/slurm/fair_<id>.out`. **+ third arm EMBER + Ori's judge** (`ember_hj`): same edit as EMBER for 14 concepts (reused), 4 new (Uranium, Heroin, Halloween, Valentine's Day) in jobs 1056525–1056526 |
+| 9 | **Extrapolation arms** `ember_x`, `cinder_x`: the fair run's features + native de/es/fr/ru tokens (Part 2 X5b/X11's "X", the winner of X11), the parent's edit kept exactly (checked), at the parent's picked δ (no new search), same final test | `python -m cinder.fair build-x` → `sbatch cinder/run_fair.sbatch ember_x|cinder_x <concepts>` → `python -m cinder.fair report` | **running**: built 2026-10-19 17:04 (`judge_rerun/Fair/x_build.json`; the 6 Part 2 concepts identical to X5b's edits), jobs 1056885–1056887 (ember_x, 14 concepts) and 1056888–1056890 (cinder_x, 15); 7 parent no-edit cases written as no edit |
 | later | equal-strength comparison; Ori's full ladder; training on other languages (joint / per-language fits, see below) | | |
 
 **First CINDER vs EMBER results (2026-10-19, seed 42, Part 1 protocol).**

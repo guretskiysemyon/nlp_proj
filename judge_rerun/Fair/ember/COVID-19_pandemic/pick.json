@@ -1,0 +1,83 @@
+{
+ "method": "ember",
+ "concept": "COVID-19 pandemic",
+ "delta": 50.0,
+ "no_edit": false,
+ "harmonic": 0.5313921747042765,
+ "efficacy": 0.36363636363636354,
+ "specificity": 0.9864864864864864,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.58,
+  "simdom_base": 1.0,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.58,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.54,
+   "efficacy": 0.121212121212121,
+   "specificity": 1.0,
+   "harmonic": 0.2162162162162159,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.24242424242424232,
+   "specificity": 1.0,
+   "harmonic": 0.39024390243902424,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.24242424242424232,
+   "specificity": 1.0,
+   "harmonic": 0.39024390243902424,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.48,
+   "efficacy": 0.303030303030303,
+   "specificity": 1.0,
+   "harmonic": 0.4651162790697674,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.46,
+   "efficacy": 0.36363636363636354,
+   "specificity": 0.9864864864864864,
+   "harmonic": 0.5313921747042765,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.24242424242424232,
+   "specificity": 0.9726027397260274,
+   "harmonic": 0.38811069354287653,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.24242424242424232,
+   "specificity": 0.9726027397260274,
+   "harmonic": 0.38811069354287653,
+   "gate": null
+  }
+ ]
+}

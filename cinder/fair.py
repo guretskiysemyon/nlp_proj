@@ -11,6 +11,11 @@ Only the method differs:
              confidence >= 0.85, or LO@5) -> mf_outputs/ember_hj/. Where it keeps the same features as `ember` the
              edit is identical (checked token by token), so `ember`'s results are reused and only the concepts whose
              features differ run on the GPU.
+    ember_x  `ember` + extrapolation, cinder_x `cinder` + extrapolation (Part 2 Experiments X5b / X11's "X"): the
+             features Z stay fixed, coefficients for the native de/es/fr/ru concept + neutral tokens (data_v2) by a dense
+             ridge solve and the method's sparsity rule; the English rows are kept, so the edit is the parent's edit
+             (checked) + native tokens -> mf_outputs/fair_x_<method>/. No new δ search: one grid row at the parent's
+             pick, then the same final test (X11: the picked δ works for X on the train split).
 
 Per (method, concept), `run` does on one GPU:
     grid    every delta: the edit, MMLU (50 train), QA_train, SimdomQA_train with the fixed MC scoring
@@ -28,6 +33,7 @@ Outputs: judge_rerun/Fair/<method>/<Concept>/{grid.csv, records/, pick.json}
 
     python -m cinder.fair build-ember35                       # CPU, once
     python -m cinder.fair build-ember-hj                      # CPU, once (after build-ember35)
+    python -m cinder.fair build-x                             # CPU, once (after the ember / cinder picks)
     python -m cinder.fair run --method cinder --concept Golf  # GPU (cinder/run_fair.sbatch)
     python -m cinder.fair run --method ember_hj --concepts Uranium Heroin   # one model load, several concepts
     python -m cinder.fair pick --method ember               # CPU, all concepts with a grid
@@ -58,8 +64,12 @@ ALL_CONCEPTS = ["Culture of Greece", "Golf", "Republic of Ireland", "Ancient Rom
 NOT_CLEAN = {"Harry Potter", "Ancient Rome", "Valentine's Day", "Culture of Greece", "Artificial intelligence",
              "World War II"}
 ROOTS = {"ember": C.ROOT / "mf_outputs" / "ember35", "cinder": C.MF_ROOT,
-         "ember_hj": C.ROOT / "mf_outputs" / "ember_hj"}
-PAIRS = [("cinder", "ember"), ("ember_hj", "ember"), ("cinder", "ember_hj")]     # (a, b): report a − b
+         "ember_hj": C.ROOT / "mf_outputs" / "ember_hj",
+         "ember_x": C.ROOT / "mf_outputs" / "fair_x_ember", "cinder_x": C.ROOT / "mf_outputs" / "fair_x_cinder"}
+# extrapolated arms (build-x): the parent's features and English edit + native de/es/fr/ru tokens, at the parent's δ
+X_PARENT = {"ember_x": "ember", "cinder_x": "cinder"}
+PAIRS = [("cinder", "ember"), ("ember_hj", "ember"), ("cinder", "ember_hj"),
+         ("ember_x", "ember"), ("cinder_x", "cinder"), ("cinder_x", "ember_x")]     # (a, b): report a − b
 GRID = list(C.EMBER_GRID)
 SETS = ("mmlu", "qa", "simdom")
 LANGS = ["en", "de", "es", "fr", "ru"]
@@ -204,6 +214,110 @@ def build_ember_hj():
         log(f"{c}: EMBER {old} -> EMBER + Ori's judge {new} (TJ@top20 {rows[-1]['tj_top20']}, LO@5 {rows[-1]['lo5']})"
             f"{'  same edit -> reuse EMBER' if same_edit else '  (changed: GPU run)' if new else '  no feature'}")
     C.write_json(FAIR / "ember_hj_features.json", rows)
+
+
+# ---------------------------------------------------------------- EMBER / CINDER + extrapolation
+def build_x():
+    """mf_outputs/fair_x_<method>/ for ember_x and cinder_x, as Part 2's x5b_build_extrapolated.py on all 18 concepts:
+    V = the parent's V' + every native de/es/fr/ru token not in it; Y = extrapolate(Z, V) (budget over the union);
+    G = the parent's G rows + Y's new rows; labels concept-only = in some language's concept sentences, never in a
+    neutral set. Checked: the parent's edit tokens and c_t rows are all in the new edit, unchanged."""
+    import pickle
+    from types import SimpleNamespace
+    import pandas as pd
+    import torch
+    sys.path.insert(0, str(C.ROOT / "Part 2 Experiments" / "scripts"))
+    import p2x                                   # puts experiments/multilingual_fit on the path
+    import edit_coverage as ec
+    from x5_extrapolation import extrapolate
+    from cinder.edit_size import edit_vectors
+    from ember.erasure import features
+    from ember.utils import collect_feature_rows_for_embeddings, get_pipeline_path
+    from experiments.varwidth.common import slug
+    from experiments.varwidth.prep import TokenizerOnly, get_tokenizer, prepare
+    ec.TOK = p2x.tokenizer()
+    E = p2x.embeddings()
+    special = set(p2x.tokenizer().all_special_ids)
+    rows = []
+    for c in ALL_CONCEPTS:
+        en_codes = all_codes = None
+        for xm, pm in X_PARENT.items():
+            root = ROOTS[xm]
+
+            def path(kind, fname):
+                return get_pipeline_path(str(root), C.MODEL_SAFE, kind, C.RANK, C.safe(c), "embedding", fname,
+                                         seed=C.SEED)
+
+            features.MF_OUTPUTS_ROOT = ROOTS[pm]
+            pkl, pot = features._embedding_paths(C.MODEL_NAME, c, C.RANK, C.SEED)
+            shutil.copy2(pot, path("interpretations", "potential_features.csv"))
+            if not kept_features(pm, c):
+                rows.append({"concept": c, "method": xm, "no_feature": True})
+                log(f"{xm} {c}: {pm} keeps no feature -> no edit")
+                continue
+            F0, G0, v0 = features.load_embedding_payload(pkl)
+            if pm == "ember":
+                Z, transform = torch.as_tensor(F0).double(), (lambda X: X.T)
+            else:
+                prep = prepare(c, "whitened", verbose=False)
+                fit = torch.load(C.ROOT / "results" / "varwidth" / slug(c) / "rn_refit-False" / "seed42" / "fit.pt",
+                                 weights_only=False)
+                M, mu = prep["T_matrix"].double(), prep["mu_B"].double()
+                Z, transform = fit["Z"].double(), (lambda X, M=M, mu=mu: ((X - mu) @ M).T)
+            if all_codes is None:
+                en_codes, _ = ec.labels(c, ("en",), str(p2x.DATA_V2))
+                all_codes, _ = ec.labels(c, tuple(LANGS), str(p2x.DATA_V2))
+            v0set = set(v0)
+            new = sorted(t for t in all_codes if t not in special and t not in v0set)
+            V = list(v0) + new
+            Y = extrapolate(Z, transform(E[torch.tensor(V)]), "EMBER" if pm == "ember" else "CINDER")
+            G = torch.cat([torch.as_tensor(G0).float(), Y[:, len(v0):].T.contiguous()], 0)
+            label = {t: ("both" if code == 2 else c if code == 1 else "Neutral") for t, code in en_codes.items()}
+            label.update({t: ("both" if all_codes[t] == 2 else c if all_codes[t] == 1 else "Neutral") for t in new})
+            with open(path("pickles", "embedding.pkl"), "wb") as fh:
+                pickle.dump({"nmf": SimpleNamespace(F_=torch.as_tensor(F0).float(), G_=G), "vprime_token_ids": V,
+                             "source": f"{pm}+X: {pm}'s V' rows + extrapolated native de/es/fr/ru rows"}, fh)
+            fr = collect_feature_rows_for_embeddings(G, V, label, TokenizerOnly(get_tokenizer()), C.MODEL_SAFE, c,
+                                                     C.RANK, max_activating=100000)
+            pd.DataFrame(fr).to_csv(path("csvs", "token_features.csv"), index=False)
+            t0, r0 = edit_vectors(c, ROOTS[pm])
+            tx, rx = edit_vectors(c, root)
+            pos = {t: i for i, t in enumerate(tx)}
+            kept = all(t in pos and torch.allclose(r0[i], rx[pos[t]], rtol=0, atol=1e-6) for i, t in enumerate(t0))
+            assert kept, f"{xm} {c}: the parent's edit is not kept exactly"
+            rows.append({"concept": c, "method": xm, "no_feature": False, "n_edit_parent": len(t0), "n_edit": len(tx),
+                         "n_added": len(tx) - len(t0), "parent_edit_kept": kept, "n_new_tokens_in_V": len(new),
+                         "added": p2x.tok_str([t for t in tx if t not in set(t0)])})
+            log(f"{xm} {c}: edit {len(t0)} -> {len(tx)} tokens (parent's edit kept exactly)")
+    C.write_json(FAIR / "x_build.json", rows)
+
+
+def parent_pick(method, concept) -> dict:
+    return json.loads((out_dir(X_PARENT[method], concept) / "pick.json").read_text())
+
+
+def pick_x(method, concept) -> dict:
+    """The parent's δ, no new search; the train metrics at that δ are recorded (same screen as pick_from_grid)."""
+    import pandas as pd
+    from judge_rerun.pass2_delta_search import _load_baselines, _metrics_for_delta
+    od = out_dir(method, concept)
+    od.mkdir(parents=True, exist_ok=True)
+    pp = parent_pick(method, concept)
+    if pp["no_edit"] or not kept_features(method, concept):
+        p = {"concept": concept, "method": method, "delta": 0.0, "no_edit": True,
+             "reason": f"{X_PARENT[method]}: {pp.get('reason', 'no edit')}"}
+    else:
+        bases = _load_baselines(C.BASELINE_DIR, concept, C.JUDGE_ID, "original")
+        g = pd.read_csv(od / "grid.csv")
+        mt = _metrics_for_delta(g[g.delta_embed == pp["delta"]].iloc[0], bases, None, C.MIN_MMLU, C.MIN_ALPACA)
+        p = {"concept": concept, "method": method, "delta": float(pp["delta"]), "no_edit": False,
+             "harmonic": float(mt.get("harmonic") or 0.0), "efficacy": mt.get("efficacy"),
+             "specificity": mt.get("specificity"), "gate": mt.get("gate"),
+             "rule": f"{X_PARENT[method]}'s picked delta, no new search", "baselines": bases}
+    C.write_json(od / "pick.json", p)
+    log(f"{method} {concept}: delta={p['delta']} from {X_PARENT[method]}"
+        + (f" ({p['reason']})" if p["no_edit"] else f" harmonic={p['harmonic']:.3f} gate={p['gate']}"))
+    return p
 
 
 def same_as_ember(concept) -> bool:
@@ -371,13 +485,21 @@ def run(method, concepts, deltas):
             continue
         od = out_dir(method, concept)
         od.mkdir(parents=True, exist_ok=True)
+        if method in X_PARENT and (not kept_features(method, concept) or parent_pick(method, concept)["no_edit"]):
+            final(None, method, concept, pick_x(method, concept))
+            log(f"{method} {concept}: {X_PARENT[method]} has no edit -> no edit, no GPU work")
+            continue
         if not kept_features(method, concept):
             final(None, method, concept, pick(method, concept))
             log(f"{method} {concept}: no feature kept -> no edit, no GPU work")
             continue
         m = m or Model(method)
-        grid(m, method, concept, deltas)
-        p = pick(method, concept)
+        if method in X_PARENT:
+            grid(m, method, concept, [float(parent_pick(method, concept)["delta"])])
+            p = pick_x(method, concept)
+        else:
+            grid(m, method, concept, deltas)
+            p = pick(method, concept)
         final(m, method, concept, p)
 
 
@@ -425,7 +547,9 @@ def report():
           "Same model, data, seed 42, judge model (gemini-3.5-flash-lite), grid, pick rule (fast harmonic, MMLU gate, "
           "no Alpaca) and tests; only the method differs. ember = EMBER (paper's factorization and judge), ember_hj = "
           "EMBER's factorization + Ori's judge (top-20 by rho, TJ or LO@5), cinder = Ori's L123. ember_hj rows with "
-          "reused_from = ember have exactly ember's edit, so ember's results. ret_L = retention of QA_test in L "
+          "reused_from = ember have exactly ember's edit, so ember's results. ember_x / cinder_x = ember / cinder + "
+          "extrapolation to native de/es/fr/ru tokens (same features, the parent's edit kept, at the parent's δ; "
+          "foreign native text chooses the added tokens). ret_L = retention of QA_test in L "
           "(1 = nothing erased); leak = mean(ret de/es/fr/ru) - ret_en; simdom_L = SimdomQA_test accuracy change vs the "
           "pristine model. No feature kept → no edit → the pristine model's numbers.", ""]
     if D.empty:
@@ -475,7 +599,7 @@ def md(df) -> str:
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("stage", choices=("build-ember35", "build-ember-hj", "run", "pick", "report"))
+    ap.add_argument("stage", choices=("build-ember35", "build-ember-hj", "build-x", "run", "pick", "report"))
     ap.add_argument("--method", choices=list(ROOTS))
     ap.add_argument("--concept")
     ap.add_argument("--concepts", nargs="+", help="several concepts in one job (one model load)")
@@ -487,12 +611,14 @@ def main(argv=None):
         build_ember35()
     elif a.stage == "build-ember-hj":
         build_ember_hj()
+    elif a.stage == "build-x":
+        build_x()
     elif a.stage == "run":
         run(a.method, a.concepts or [a.concept], a.deltas)
     elif a.stage == "pick":
         for c in ALL_CONCEPTS:
             if (out_dir(a.method, c) / "grid.csv").exists() or not kept_features(a.method, c):
-                pick(a.method, c)
+                (pick_x if a.method in X_PARENT else pick)(a.method, c)
     else:
         report()
 

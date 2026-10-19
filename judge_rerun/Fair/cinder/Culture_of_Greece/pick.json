@@ -1,0 +1,83 @@
+{
+ "method": "cinder",
+ "concept": "Culture of Greece",
+ "delta": 100.0,
+ "no_edit": false,
+ "harmonic": 0.755082284607938,
+ "efficacy": 0.6122448979591837,
+ "specificity": 0.9848484848484849,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.74,
+  "simdom_base": 0.92,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.72,
+   "efficacy": 0.04081632653061229,
+   "specificity": 1.0,
+   "harmonic": 0.07843137254901969,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.326530612244898,
+   "specificity": 0.9848484848484849,
+   "harmonic": 0.49045036547983967,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.4897959183673469,
+   "specificity": 0.9848484848484849,
+   "harmonic": 0.6542252044453765,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.44897959183673464,
+   "specificity": 0.9692307692307693,
+   "harmonic": 0.6136816471109143,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.48,
+   "efficacy": 0.5306122448979592,
+   "specificity": 0.9692307692307693,
+   "harmonic": 0.6857860581955202,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.44,
+   "efficacy": 0.6122448979591837,
+   "specificity": 0.9692307692307693,
+   "harmonic": 0.7504466944609888,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.44,
+   "efficacy": 0.6122448979591837,
+   "specificity": 0.9848484848484849,
+   "harmonic": 0.755082284607938,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.44,
+   "efficacy": 0.6122448979591837,
+   "specificity": 0.9848484848484849,
+   "harmonic": 0.755082284607938,
+   "gate": null
+  }
+ ]
+}

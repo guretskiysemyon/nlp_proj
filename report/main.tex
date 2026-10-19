@@ -19,10 +19,9 @@
 \newcommand{\qatest}{\textsc{QA}\textsubscript{test}}
 \newcommand{\simtest}{\textsc{SimDom}\textsubscript{test}}
 \newcommand{\hm}{\operatorname{HM}}
-\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 
-\title{Erased in English, Recalled in Russian:\\
-Cross-Lingual Leakage of Embedding-Level Concept Erasure}
+\title{English Edits, Multilingual Leakage:\\
+Comparing Embedding- and MLP-Level Erasure on Gemma-2-2B-it}
 
 \author{Mary Arav \\
   Tel Aviv University \\
@@ -39,13 +38,14 @@ Cross-Lingual Leakage of Embedding-Level Concept Erasure}
 
 \begin{abstract}
 Concept erasure aims to remove knowledge of a target concept from a language model's weights.
-EMBER, a recent method, subtracts concept features from the input embeddings of concept-specific tokens and makes MLP-based erasure more robust to relearning, but its features and edited tokens come from English text.
-We ask whether knowledge erased this way comes back when the model is asked about the concept in another language.
-We erase 18 concepts from Gemma-2-2B-it with EMBER, an MLP-based method (SNMF) and their combination, tune every edit in English, and then ask held-out multiple-choice questions in English, German, Spanish, French and Russian.
-Embedding-level erasure leaks: under EMBER, a concept retains on average 0.24 more of its knowledge in the other languages than in English, and 0.41 more in Russian, where the English edit reaches none of the concept's tokens.
-SNMF erases all five languages about equally (leak $+0.01$), at the price of more collateral damage, and adding EMBER on top of SNMF strengthens English erasure but brings the leak back ($+0.16$).
-The conclusions hold when unparseable answers are excluded.
-Along the way we found a scoring artifact that inflated EMBER's efficacy at large edit strengths, replaced the paper's commercial judge with a validated local one, and found that fitting features on five languages jointly recovers almost no concept features at the default rank.
+EMBER subtracts concept features from the input embeddings of concept-specific tokens, but its features and edited tokens are derived from English text.
+We compare EMBER, an MLP-based method (SNMF), and their combination on Gemma-2-2B-it across 18 concepts and five languages, selecting edits in English and evaluating held-out, translated multiple-choice questions.
+In this benchmark, chance-corrected retention under EMBER averages 0.19 higher in non-English than English (95\% CI $[+0.11,+0.27]$), and 0.33 higher in Russian among the 16 concepts with reliable Russian baselines; the English edit touches none of the sampled Russian concept words.
+SNMF's mean leak is near zero ($+0.01$, $[-0.07,+0.08]$), alongside greater collateral damage: it removes 27--41\% of similar-domain knowledge and lowers English MMLU accuracy from 0.553 to 0.506.
+SNMF+EMBER has the lowest English retention ($0.39$); its mean leak is not distinguishable from zero ($+0.04$, $[-0.02,+0.11]$), but it still leaks into Russian ($+0.23$, $[+0.08,+0.38]$).
+All edits were re-selected and re-evaluated after we found that the original multiple-choice scorer truncated answers; the correction reduced EMBER's leak (from $+0.24$) and removed most of SNMF+EMBER's apparent leak (from $+0.16$).
+These results support a method-specific trade-off in one model and a translated multiple-choice benchmark, not a general claim that concept erasure fails across languages.
+We also report a World War II case study in multilingual feature fitting.
 \end{abstract}
 
 %=====================================================================
@@ -63,27 +63,27 @@ An edit to the embedding rows of English tokens cannot change the representation
 At the same time, multilingual models share much of their conceptual knowledge across languages in their middle layers \citep{wendler2024llamas,qi2023crosslingual}, and safety behavior trained in English often fails in other languages \citep{deng2024multilingual,yong2023lowresource}.
 It is therefore unclear how much of an English embedding edit carries over to other languages, and whether this differs from erasure inside the MLPs.
 
-We study two questions, following our proposal:
-\textbf{(Q1) Cross-lingual leakage:} does erased knowledge re-emerge when the questions are translated, and does this differ between embedding-based and MLP-based erasure?
-\textbf{(Q2) Multilingual extension:} can EMBER's feature search be run on multilingual data, and are the resulting concept features shared across languages?
+We organize the evaluation around two research questions:
+\textbf{(RQ1) Cross-lingual transfer:} for English-selected edits on Gemma-2-2B-it, how does concept retention on translated multiple-choice questions vary across English, German, Spanish, French and Russian, and across embedding- and MLP-based methods?
+\textbf{(RQ2) Multilingual extension:} can the embedding-based erasure pipeline be extended to multilingual data, and do learned concept-related features remain shared across languages or become language-specific?
+We did not test cross-lingual relearning; this report studies zero-shot transfer across question languages, leaving relearning for future work.
 
 We reproduce three erasure methods from the EMBER paper on Gemma-2-2B-it for all 18 of its concepts: EMBER alone, SNMF (an MLP-based method), and SNMF+EMBER.
 Each edit is tuned in English with a validated local LLM judge, then evaluated, without re-tuning, on held-out multiple-choice questions translated into four languages.
-Our findings (Figure~\ref{fig:retention}):
+Our central finding is comparative and specific to this setup: the three methods show different leakage--collateral-damage trade-offs. The results do not establish that concept erasure generally fails across languages. In brief:
 \begin{itemize}
 \setlength\itemsep{1pt}
-\item \textbf{EMBER leaks across languages.} Its erasure is weaker in every other language than in English (mean leak $+0.24$, 95\% CI $[+0.15,+0.32]$) and almost absent in Russian (retention 0.94).
-\item \textbf{SNMF does not leak} ($+0.01$, $[-0.07,+0.09]$), but it also removes 30--40\% of knowledge about neighboring topics in every language.
-\item \textbf{Adding EMBER to SNMF} gives the strongest English erasure but brings the leak back ($+0.16$), mostly into Russian.
-\item \textbf{Mechanism.} The English EMBER edit touches none of the Russian concept words and almost none of the German ones, even though the embedding space contains a concept direction shared between English and Russian.
-\item \textbf{Multilingual feature fitting} on five languages at the default rank found 0 embedding features for World War II, against 1 in English. We trace this to the rank and to mismatched data, and describe rebuilt data sets.
-\item \textbf{Methodology.} A 4-token answer budget in the original multiple-choice scorer counted many correct answers as wrong under EMBER, inflating its efficacy at large edit strengths. We give corrected numbers and show that our leakage conclusions are robust to it.
+\item \textbf{EMBER shows positive leakage in this evaluation.} Mean leak is $+0.19$ (95\% CI $[+0.11,+0.27]$); Russian retention is 0.96.
+\item \textbf{SNMF has near-zero mean leak} ($+0.01$, $[-0.07,+0.08]$), but causes greater collateral damage to similar-domain knowledge and English MMLU.
+\item \textbf{SNMF+EMBER leaks mainly into Russian.} Its English retention is the lowest (0.39), though not significantly below SNMF's (0.45). Its mean leak is $+0.04$ (95\% CI $[-0.02,+0.11]$), while its Russian leak is $+0.23$ ($[+0.08,+0.38]$).
+\item \textbf{Multilingual extension remains exploratory.} Probes find cross-language directions for four of five concepts, but a five-language World War II feature search selects no embedding features; neither result demonstrates multilingual erasure efficacy.
+\item \textbf{Methodology.} A 4-token answer budget in the original multiple-choice scorer counted many correct answers as wrong under EMBER, inflating its efficacy at large edit strengths. We corrected the scorer, re-selected all edits (4 of 18 EMBER and 7 of 18 SNMF+EMBER edits changed) and reran the cross-lingual evaluation. EMBER's leak survives at a smaller size; most of SNMF+EMBER's apparent leak was an artifact (\S\ref{sec:artifact}).
 \end{itemize}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{figures/retention_by_language.pdf}
-  \caption{Knowledge of the erased concept that remains in each question language (retention $r_L$, Eq.~\ref{eq:retention}; 1 = as before erasure, 0 = chance). Means over 18 concepts with 95\% bootstrap intervals. Every edit was tuned in English only.}
+  \caption{Knowledge of the erased concept that remains in each question language (retention $r_L$, Eq.~\ref{eq:retention}; 1 = as before erasure, 0 = chance). Means over 18 concepts (16 for Russian) with 95\% bootstrap intervals. Every edit was tuned in English only.}
   \label{fig:retention}
 \end{figure}
 
@@ -115,7 +115,7 @@ Facts are not equally consistent across languages, and edits made in English tra
 Safety training in English transfers poorly to low-resource languages \citep{deng2024multilingual,yong2023lowresource}.
 For unlearning specifically, \citet{choi2024crosslingual} show that unlearning in one language does not reliably carry over to others, \citet{lu2025learn} find that English-only unlearning fails to remove misinformation planted in other languages, and \citet{farashah2026amnesia} study how unlearning transfers between languages.
 These works use fine-tuning-based unlearning or knowledge editing.
-To our knowledge, no prior work studies embedding-level erasure across languages, where the edit is tied to specific vocabulary rows and, by construction, cannot reach tokens of another script.
+We study this distinct intervention: embedding edits are tied to vocabulary rows and cannot directly modify words encoded only by other rows.
 
 %=====================================================================
 \section{Method}
@@ -159,7 +159,7 @@ We skipped cells in which more than 10\% of answers loop (Appendix~\ref{app:loop
 
 \subsection{Cross-lingual evaluation}
 \label{sec:xl}
-We machine-translated \qatest{} and \simtest{} into German (de), Spanish (es), French (fr) and Russian (ru).\todo{name the translation tool}
+We machine-translated \qatest{} and \simtest{} into German (de), Spanish (es), French (fr) and Russian (ru). The translation system and version were not recorded, which limits exact reproducibility.
 We repaired the translations: 19 questions where two options collapsed into the same string, one with a hallucinated fifth option, 30 whitespace defects and one encoding error (Appendix~\ref{app:data}).
 The whole prompt is in the target language, and only the answer letters stay A--D.
 The option order is seeded per question, so a question has the same correct letter in every language and the model's letter preferences cannot appear as a language effect.
@@ -173,39 +173,40 @@ so the denominator is the unedited model's accuracy in the same language, and $\
 We drop a (concept, language) pair when the unedited model scores below 0.40 there: 2 of 90 pairs (Harry Potter and Valentine's Day in Russian).
 Collateral damage is measured with $\phi$ on \simtest{} in every language and with the 1000-question English MMLU test split.
 Each concept is one unit: we average over concepts and report 95\% bootstrap intervals over concepts (10{,}000 resamples), because a single cell (50 questions) has a standard error of about 0.3 on $\Delta$.
+All multiple-choice answers are scored with a 32-token budget and a corrected parser (\S\ref{sec:artifact}).
 All 54 edits reproduced their English selection scores exactly when re-applied.
+Methods are compared by paired differences over concepts, with bootstrap intervals and paired $t$-tests.
+
+Table~\ref{tab:design} summarizes the experimental protocol and distinguishes the English selection data from the held-out evaluation data.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}p{0.15\textwidth}p{0.82\textwidth}@{}}
+\toprule
+Component & Experimental setting \\
+\midrule
+Model & Gemma-2-2B-it, bfloat16, greedy decoding. The checkpoint revision or hash is not recorded in the project materials. \\
+Concepts & All 18 target concepts from the EMBER study, with no further concept-level filtering; use released features (rank 100, seed 42). Russian results omit two concept--language pairs (Harry Potter and Valentine's Day) because unedited accuracy is below 0.40. \\
+Languages & English for edit selection; English, German, Spanish, French, and Russian for evaluation. \\
+Evaluation data & Per concept: 50 English \qatrain{} questions for selection and 50 \qatest{} questions held out for evaluation; 50 selection and 50 held-out \textsc{SimDom} questions. Questions are four-option multiple choice (A--D). \qatest{} and \textsc{SimDom} were machine-translated into the four non-English languages; the translation system/version was not recorded. \\
+Methods & EMBER applies the released rank-100, seed-42 embedding features and searches $\delta \in \{0.5,1,2,5,10,50,100,200\}$. SNMF projects released MLP features from weights over $\delta_{\mathrm{in}},\delta_{\mathrm{out}}\in\{1,4,7,10\}$, input layers 0--8/0--12/0--25 and output layers 0--8/9--17/13--25 (144 cells). SNMF+EMBER fixes the selected EMBER $\delta$ and searches the SNMF grid on top. \\
+Selection vs. test & Pass~1 ranks with $\operatorname{HM}(\text{QA efficacy},\text{specificity})$ on English \qatrain{}, 50-question MMLU, and selection \textsc{SimDom}; Pass~2 judges 50 AlpacaEval answers for the top three with Qwen2.5-32B-Instruct (4-bit NF4), then selects the highest full score. EMBER requires all three normalized MMLU/judge fractions $\geq 0.9$; SNMF has no judge gate. \qatest{} and held-out \textsc{SimDom} are not used for selection. All selections use the corrected 32-token scorer; re-selection changed 4 EMBER and 7 SNMF+EMBER edits and no SNMF edit (\S\ref{sec:artifact}). \\
+Metrics & $\phi(a;a_0)=\operatorname{clip}((a-0.25)/(a_0-0.25),0,1)$; QA efficacy $=1-\phi(\text{QA})$, specificity $=\operatorname{HM}(\phi(\text{MMLU}),\phi(\textsc{SimDom}))$, coherence $=\operatorname{HM}$ of normalized judge scores, and final selection score $=\operatorname{HM}$ of these three. Retention $r_L=\phi(\mathrm{acc}_L;\mathrm{acc}^{\mathrm{unedited}}_L)$ and leak $\Delta_L=r_L-r_{\mathrm{en}}$. Collateral damage is assessed with normalized \textsc{SimDom} retention in each language and English accuracy on 1{,}000 MMLU questions; lower retention/accuracy means more damage. \\
+Statistics & Concepts are the aggregation unit; report means and 95\% bootstrap intervals from 10{,}000 concept-level resamples. Drop a concept--language pair if unedited accuracy is below 0.40 (2 of 90 pairs). Method comparisons are paired by concept (bootstrap interval and paired $t$-test). Unparseable answers count as incorrect; after the scorer correction they average at most 2.2\% per language. \\
+Reproducibility & Recorded settings: feature seed 42, bfloat16, greedy decoding, option order fixed per question (permutation seeded by concept, question set, question index and seed 42), and bootstrap RNG seed 0. Checkpoint revision, software-library versions, QA translation system/version, and a code/data release location are not recorded in the available project materials. \\
+\bottomrule
+\end{tabular}
+\caption{Experimental design for the primary cross-lingual comparison. All selections and held-out results use the corrected scorer (\S\ref{sec:artifact}).}
+\label{tab:design}
+\end{table*}
 
 %=====================================================================
 \section{Results}
 %=====================================================================
 
-\subsection{Erasure in English}
-
-\begin{table}[t]
-\centering\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Method & Effic. & Spec. & Coher. & Score \\
-\midrule
-EMBER       & 0.52 & \textbf{0.97} & \textbf{0.99} & 0.74 \\
-SNMF        & 0.72 & 0.85 & 0.96 & 0.82 \\
-SNMF+EMBER  & \textbf{0.88} & 0.91 & 0.96 & \textbf{0.91} \\
-\midrule
-\multicolumn{5}{@{}l}{\emph{held-out English retention $r_{\text{en}}$ (\qatest, lower is better)}} \\
-\multicolumn{5}{@{}l}{EMBER 0.52 \quad SNMF 0.45 \quad SNMF+EMBER \textbf{0.27}} \\
-\bottomrule
-\end{tabular}
-\caption{English erasure of the selected edits, mean over 18 concepts. The top block shows selection scores on \qatrain{}, which are optimistic because the edits were chosen on these items. EMBER and SNMF+EMBER efficacy is also inflated by the scoring artifact of \S\ref{sec:artifact}.}
-\label{tab:english}
-\end{table}
-
-Table~\ref{tab:english} shows the selected edits.
-EMBER barely harms the model but removes only about half of the concept, SNMF erases more at a higher cost, and the combination scores best on 17 of 18 concepts, consistent with \citet{suslik2026ember}.
-The held-out English retention follows the same order.
-Per-concept results are in Appendix~\ref{app:concepts}.
-
-\subsection{Cross-lingual leakage}
+\subsection{RQ1: Does English-derived erasure transfer?}
 
 \begin{table*}[t]
 \centering\small
@@ -214,97 +215,69 @@ Per-concept results are in Appendix~\ref{app:concepts}.
 \toprule
  & EMBER & SNMF & SNMF+EMBER \\
 \midrule
-English \qatest{} accuracy (unedited 0.73) & 0.50 & 0.47 & \textbf{0.38} \\
-Retention $r_L$: en / de / es / fr / ru & 0.52 / 0.69 / 0.74 / 0.71 / 0.94 & 0.45 / 0.44 / 0.45 / 0.43 / 0.51 & 0.27 / 0.38 / 0.39 / 0.36 / 0.65 \\
+English \qatest{} accuracy (unedited 0.73) & 0.55 & 0.47 & \textbf{0.44} \\
+Retention $r_L$: en / de / es / fr / ru & 0.61 / 0.71 / 0.81 / 0.76 / 0.96 & 0.45 / 0.44 / 0.45 / 0.43 / 0.51 & 0.39 / 0.37 / 0.40 / 0.35 / 0.64 \\
 \midrule
-Leak $\Delta_{\text{de}}$ & $+0.17$ [$+0.07$, $+0.27$] & $-0.00$ [$-0.08$, $+0.07$] & $+0.11$ [$-0.01$, $+0.23$] \\
-Leak $\Delta_{\text{es}}$ & $+0.22$ [$+0.12$, $+0.33$] & $+0.00$ [$-0.10$, $+0.12$] & $+0.12$ [$+0.03$, $+0.23$] \\
-Leak $\Delta_{\text{fr}}$ & $+0.19$ [$+0.09$, $+0.29$] & $-0.02$ [$-0.12$, $+0.08$] & $+0.09$ [$+0.00$, $+0.19$] \\
-Leak $\Delta_{\text{ru}}$ & $+0.41$ [$+0.28$, $+0.52$] & $+0.05$ [$-0.06$, $+0.15$] & $+0.37$ [$+0.20$, $+0.54$] \\
-\textbf{Mean leak over de/es/fr/ru} & $\mathbf{+0.24}$ [$+0.15$, $+0.32$] & $\mathbf{+0.01}$ [$-0.07$, $+0.09$] & $\mathbf{+0.16}$ [$+0.07$, $+0.26$] \\
-Concepts with mean leak $> 0$ & 16 / 18 & 9 / 18 & 14 / 18 \\
-Mean leak, unparseable answers dropped & $+0.19$ [$+0.12$, $+0.27$] & $+0.01$ [$-0.07$, $+0.09$] & $+0.11$ [$+0.02$, $+0.20$] \\
+Leak $\Delta_{\text{de}}$ & $+0.10$ [$+0.01$, $+0.20$] & $-0.01$ [$-0.08$, $+0.06$] & $-0.02$ [$-0.09$, $+0.05$] \\
+Leak $\Delta_{\text{es}}$ & $+0.19$ [$+0.10$, $+0.29$] & $0.00$ [$-0.10$, $+0.11$] & $+0.01$ [$-0.07$, $+0.11$] \\
+Leak $\Delta_{\text{fr}}$ & $+0.15$ [$+0.06$, $+0.24$] & $-0.02$ [$-0.11$, $+0.07$] & $-0.04$ [$-0.11$, $+0.03$] \\
+Leak $\Delta_{\text{ru}}$ & $+0.33$ [$+0.22$, $+0.42$] & $+0.05$ [$-0.06$, $+0.15$] & $+0.23$ [$+0.08$, $+0.38$] \\
+\textbf{Mean leak over de/es/fr/ru} & $\mathbf{+0.19}$ [$+0.11$, $+0.27$] & $\mathbf{+0.01}$ [$-0.07$, $+0.08$] & $\mathbf{+0.04}$ [$-0.02$, $+0.11$] \\
+Concepts with mean leak $> 0$ & 16 / 18 & 9 / 18 & 11 / 18 \\
 \midrule
-\simtest{} retention: en / de / es / fr / ru & 0.96 / 0.98 / 0.98 / 0.98 / 1.00 & 0.73 / 0.62 / 0.65 / 0.68 / 0.59 & 0.81 / 0.69 / 0.75 / 0.77 / 0.76 \\
-English MMLU, 1000 questions (unedited 0.553) & \textbf{0.548} & 0.506 & 0.511 \\
-Unparseable answers on \qatest: en / mean of others & 0.09 / 0.05 & 0.00 / 0.00 & 0.16 / 0.08 \\
+\simtest{} retention: en / de / es / fr / ru & 0.95 / 0.98 / 0.98 / 0.98 / 1.00 & 0.73 / 0.63 / 0.65 / 0.68 / 0.59 & 0.76 / 0.67 / 0.68 / 0.73 / 0.67 \\
+English MMLU, 1000 questions (unedited 0.553) & \textbf{0.547} & 0.506 & 0.507 \\
+Unparseable answers on \qatest: en / mean of others & 0.01 / 0.01 & 0.00 / 0.00 & 0.02 / 0.02 \\
 \bottomrule
 \end{tabular}
 }
-\caption{Cross-lingual evaluation of English-tuned edits, means over 18 concepts (16 for Russian) with 95\% bootstrap intervals over concepts. Retention $r_L$ and leak $\Delta_L = r_L - r_{\text{en}}$ are defined in Eq.~\ref{eq:retention}. The mean leak first averages each concept over its reliable languages. Lower \simtest{} retention and MMLU mean more collateral damage.}
+\caption{Cross-lingual evaluation of English-tuned edits, means over 18 concepts (16 for Russian) with 95\% bootstrap intervals over concepts, after re-selection with the corrected scorer. Retention $r_L$ and leak $\Delta_L = r_L - r_{\text{en}}$ are defined in Eq.~\ref{eq:retention}. The mean leak first averages each concept over its reliable languages. Lower \simtest{} retention and MMLU mean more collateral damage.}
 \label{tab:crossling}
 \end{table*}
 
-Table~\ref{tab:crossling} and Figure~\ref{fig:retention} give the answer to Q1.
+Table~\ref{tab:crossling} and Figure~\ref{fig:retention} report retention by method and language, with concept-bootstrap uncertainty. The table also reports collateral-damage measures used in the secondary comparison below.
 
-\paragraph{The embedding edit leaks.}
-Under EMBER, every non-English language retains more of the concept than English, with intervals that exclude zero for all four languages.
-16 of 18 concepts leak on average.
-Russian is the extreme: retention 0.94, close to the unedited model.
-Its retention is higher than the mean of German, Spanish and French in 15 of 16 concepts (by $+0.22$, $[+0.13,+0.31]$).
+\paragraph{EMBER shows language-dependent leakage in this evaluation.}
+Under EMBER, the mean retention estimate is higher in each tested non-English language than in English; the concept-bootstrap intervals exclude zero for all four language comparisons.
+16 of 18 concepts have positive mean leak.
+Russian is the largest difference: retention is 0.96 on the unedited-normalized scale, compared with 1 for the unedited model.
+Russian retention exceeds the mean of German, Spanish and French in 15 of 16 concepts (by $+0.19$, $[+0.12,+0.26]$).
 
-\paragraph{The MLP edit erases evenly but broadly.}
-SNMF has no detectable leak in any language, and about half the concepts go each way.
-It is also much less specific: it removes 27--41\% of similar-domain knowledge (EMBER: 0--4\%) and lowers English MMLU from 0.553 to 0.506.
-Part of SNMF's evenness therefore comes from a broader edit.
-The 50-question MMLU set used for selection (standard error $\approx 0.07$) cannot detect a 0.05 drop, so the selection procedure could not prevent this.
+\paragraph{SNMF has near-zero estimated mean leak.}
+For SNMF, the concept-bootstrap intervals include zero for all four language comparisons, and about half the concepts have positive and half negative mean leak.
+This estimate does not establish that SNMF is uniformly leakage-free.
 
-\paragraph{The combination leaks again.}
-SNMF+EMBER erases English the most ($r_{\text{en}}=0.27$), but adding the embedding edit on top of SNMF brings the leak back, mainly in Russian ($+0.37$).
-Paired by concept, EMBER leaks more than SNMF by $+0.23$ ($[+0.14,+0.32]$, $t=4.9$), and SNMF+EMBER more than SNMF by $+0.15$ ($[+0.04,+0.27]$).
-EMBER and SNMF+EMBER are not clearly different ($+0.08$, $[-0.01,+0.17]$).
-An earlier run of the same experiment, on 8 concepts with Gemini-based selection and a different option order, found the same ordering (leaks of $+0.25$, $+0.10$ and $+0.22$).
+\paragraph{The combination leaks mainly into Russian.}
+SNMF+EMBER has the lowest English retention ($r_{\text{en}}=0.39$), although the paired difference from SNMF is not significant ($-0.06$, $[-0.17,+0.05]$).
+Its mean leak is $+0.04$ ($[-0.02,+0.11]$): the German, Spanish and French intervals all include zero, but Russian retains more than English ($+0.23$, $[+0.08,+0.38]$).
 
-\subsection{A scoring artifact and its effect}
-\label{sec:artifact}
+\paragraph{Paired method comparison.}
+Paired by concept, EMBER leaks more than SNMF by $+0.18$ ($[+0.09,+0.28]$, $t=3.76$) and more than SNMF+EMBER by $+0.15$ ($[+0.06,+0.24]$, $t=3.10$).
+SNMF+EMBER and SNMF are not clearly different ($+0.04$, $[-0.03,+0.11]$, $t=1.01$).
+Russian is the exception: there, EMBER and SNMF+EMBER are not clearly different ($+0.10$, $[-0.06,+0.25]$), and SNMF+EMBER leaks more than SNMF ($+0.18$, $[+0.04,+0.32]$).
+These per-language comparisons are not corrected for multiple testing.
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{figures/ember_rescore.pdf}
-  \caption{EMBER's concept accuracy on \qatrain{} for each grid value of $\delta$, mean over 18 concepts. The original scorer allows 4 new tokens and so cuts off answers such as ``The answer is **C**'' before the letter, counting them as wrong. With 32 tokens, accuracy stops falling after $\delta = 10$.}
-  \label{fig:artifact}
-\end{figure}
-
-The paper's multiple-choice scorer generates 4 new tokens and reads the first capital letter.
-The unedited model answers with a bare letter, but under a strong embedding edit Gemma often answers in a sentence (``The answer is **C**'', ``La respuesta correcta es \ldots'').
-The 4-token cut ends before the letter, and the answer is counted as wrong, which looks like successful erasure.
-About 90\% of the unparseable answers we inspected were such cut-off phrases rather than broken text.
-The effect is specific to questions about the erased concept: at most 1\% on \textsc{SimDom} and MMLU.
-
-We re-scored the whole EMBER grid with a 32-token budget and a stricter parser.
-Greedy decoding makes this a controlled comparison: the first 4 tokens of the new outputs reproduced the old outputs for 17 of 18 concepts.\footnote{For the 18th (Pornography) the control failed; its selected $\delta$ had no unparseable answers.}
-Figure~\ref{fig:artifact} shows the result.
-With correct scoring, EMBER's concept accuracy stops falling at $\delta \approx 10$; the further decrease at $\delta \geq 50$ was the artifact.
-At the selected edits, mean \qatrain{} accuracy rises from 0.49 to 0.54 and efficacy drops from 0.52 to 0.42 (Uranium: 0.82 to 0.31), and for 8 of 18 concepts the selected $\delta$ changes or a new candidate has to be judged.
-SNMF+EMBER is affected more (15\% unparseable answers at its selected edits); SNMF's selected edits are not affected.
-Re-selecting these edits requires new judging and is in progress, so the EMBER and SNMF+EMBER numbers above should be read as using the original scorer.
-
-Does the artifact explain the leak?
-Unparseable answers are most frequent in English (Table~\ref{tab:crossling}), which lowers $r_{\text{en}}$ and inflates $\Delta$.
-Dropping them from both the edited and the unedited model's scores lowers EMBER's mean leak from $+0.24$ to $+0.19$ and SNMF+EMBER's from $+0.16$ to $+0.11$, and both intervals still exclude zero (Table~\ref{tab:crossling}).
-The leak into Russian, where unparseable answers are rare (1--2\%), stays large ($+0.31$ and $+0.27$).
-The direction of every conclusion in this section is therefore robust to the artifact, while its exact size will change with re-selection.
-
-\subsection{Why EMBER leaks}
+\subsection{RQ2: Can EMBER be extended to multilingual data?}
 \label{sec:mechanism}
 
-\paragraph{The edit does not reach foreign tokens.}
+We examine whether multilingual fitting changes feature coverage and whether embedding-level analyses suggest shared or language-specific concept structure. These analyses are exploratory: the multilingual feature variants were not evaluated on the same held-out cross-lingual QA benchmark as the English-fitted edits, so they do not establish multilingual erasure efficacy.
+
+\subsubsection{Token coverage and embedding probes}
+\paragraph{The edit misses the sampled foreign concept words.}
 Gemma splits most Russian and German concept words into several pieces: only 4 of 50 Russian and 8 of 50 German words for Gun and Heroin are single tokens.
 Using lists of about 25 concept words per concept and language, we measured which words an English-fitted EMBER edit actually touches, for five concepts (Gun, Heroin, Gambling, Ancient Rome, World War II), three seeds and the top three features.
 It edits at least one piece of 45\% of the English concept words, but of 0\% of the Russian and German ones and 3\% and 1\% of the Spanish and French ones.
-Since EMBER changes only whole vocabulary rows, a Russian question passes through the network almost unedited.
-This matches the language ordering in Figure~\ref{fig:retention}: Latin-script languages share some surface forms with English (names, cognates), and Russian shares none.
-In the earlier 8-concept run, concepts whose translated questions shared fewer words with English leaked more under EMBER ($r = -0.68$) and SNMF+EMBER ($r = -0.91$), but not under SNMF ($r = +0.20$).
+Since EMBER changes whole vocabulary rows, these sampled Russian words are not directly edited. This is consistent with the observed language ordering, but the word-list analysis does not establish that token overlap alone causes the QA results.
+In an earlier 8-concept run, with Gemini-based selection and the original 4-token scorer, concepts whose translated questions shared fewer words with English leaked more under EMBER ($r = -0.68$) and SNMF+EMBER ($r = -0.91$), but not under SNMF ($r = +0.20$); we have not recomputed these correlations with the corrected scorer.
 
-\paragraph{A shared concept direction exists.}
-The missing transfer is not because the concept lacks a cross-lingual representation in the embedding matrix.
+\paragraph{Embedding probes find some cross-language directions.}
 For each of the five concepts we built a direction from about 25 Russian concept words (mean of their piece embeddings minus the mean of ordinary Russian words).
 This direction ranks the English words of the same concept above English words of the other four concepts with AUC 0.99 (Gun), 0.95 (Heroin), 0.95 (Gambling) and 0.86 (Ancient Rome), even though no word shares a surface form.
 It fails for World War II (0.41), whose Russian words are mostly transliterated names.
 Yet only 1--7\% of the Russian direction lies in the subspace of EMBER's English features.
-The shared structure exists, but the English-fitted features are too narrow to express it.
+These probes indicate that some cross-language structure is present in the embedding matrix, but do not establish that it causally supports model answers or that the same structure holds for other concepts.
 
-\subsection{Toward multilingual EMBER (Q2)}
+\subsubsection{Multilingual EMBER fitting}
 \label{sec:multi}
 
 \paragraph{Joint fitting, embedding level.}
@@ -329,21 +302,115 @@ Translation quality, measured with COMET-Kiwi \citep{rei2022cometkiwi} and LaBSE
 The translated set isolates the language variable, because the content is identical across languages.
 Refitting with both sets at a higher rank is the next step.
 
+\subsection{Comparative erasure and collateral damage}
+
+This is a secondary comparison of outcomes already measured for RQ1, not a separately designed research question or experiment.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Method & Effic. & Spec. & Coher. & Score \\
+\midrule
+EMBER       & 0.43 & \textbf{0.97} & \textbf{0.99} & 0.67 \\
+SNMF        & 0.72 & 0.85 & 0.96 & 0.82 \\
+SNMF+EMBER  & \textbf{0.83} & 0.89 & 0.97 & \textbf{0.89} \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{held-out English retention $r_{\text{en}}$ (\qatest, lower is better)}} \\
+\multicolumn{5}{@{}l}{EMBER 0.61 \quad SNMF 0.45 \quad SNMF+EMBER \textbf{0.39}} \\
+\bottomrule
+\end{tabular}
+\caption{English selection scores and held-out retention of selected edits, mean over 18 concepts, with the corrected scorer. Selection scores on \qatrain{} are optimistic because edits were chosen on these items.}
+\label{tab:english}
+\end{table}
+
+Table~\ref{tab:english} shows that SNMF+EMBER has the highest selection score (on 17 of 18 concepts) and the lowest held-out English retention, though its retention is not significantly below SNMF's (paired $-0.06$, $[-0.17,+0.05]$). Both erase English more than EMBER, which retains more than SNMF by $+0.16$ ($[+0.08,+0.25]$). The comparison is not just efficacy: Table~\ref{tab:crossling} shows SNMF removes 27--41\% of similar-domain knowledge (versus 0--5\% for EMBER) and lowers English MMLU from 0.553 to 0.506. The 50-question MMLU set used during selection (standard error $\approx 0.07$) could not detect a 0.05 drop. Thus SNMF's near-zero average language difference comes with greater collateral damage; it is not a uniformly better erasure method. The combination has collateral damage close to SNMF's (24--33\% of similar-domain knowledge, MMLU 0.507) and leaks mainly into Russian. Per-concept results are in Appendix~\ref{app:concepts}.
+
+\subsubsection{Scoring artifact and sensitivity}
+\label{sec:artifact}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/ember_rescore.pdf}
+  \caption{EMBER's concept accuracy on \qatrain{} for each grid value of $\delta$, mean over 18 concepts. The original scorer allows 4 new tokens and so cuts off answers such as ``The answer is **C**'' before the letter, counting them as wrong. With 32 tokens, accuracy stops falling after $\delta = 10$.}
+  \label{fig:artifact}
+\end{figure}
+
+The paper's multiple-choice scorer generates 4 new tokens and reads the first capital letter.
+The unedited model answers with a bare letter, but under a strong embedding edit Gemma often answers in a sentence (``The answer is **C**'', ``La respuesta correcta es \ldots'').
+The 4-token cut ends before the letter, and the answer is counted as wrong, which looks like successful erasure.
+About 90\% of the unparseable answers we inspected were such cut-off phrases rather than broken text.
+The effect is specific to questions about the erased concept: at most 1\% on \textsc{SimDom} and MMLU.
+
+We re-scored the whole EMBER grid with a 32-token budget and a stricter parser.
+Greedy decoding makes this a controlled comparison: the first 4 tokens of the new outputs reproduced the old outputs for 17 of 18 concepts.\footnote{For the 18th (Pornography) the control failed; its selected $\delta$ had no unparseable answers.}
+Figure~\ref{fig:artifact} shows the result.
+With correct scoring, EMBER's concept accuracy stops falling at $\delta \approx 10$; the further decrease at $\delta \geq 50$ was the artifact.
+At the originally selected edits, mean \qatrain{} accuracy rises from 0.49 to 0.54 and efficacy drops from 0.52 to 0.42 (Uranium: 0.82 to 0.31).
+
+\paragraph{Re-selection and re-evaluation.}
+We therefore re-ran selection for all three methods with the corrected scorer.
+For EMBER, 4 of 18 selected values of $\delta$ changed (Baseball $100 \to 200$, Gambling $100 \to 10$, Gun $100 \to 5$, Uranium $100 \to 200$); the mean selection score fell from 0.74 to 0.67 and efficacy from 0.52 to 0.43.
+SNMF+EMBER was affected more, with 15\% unparseable answers at its original edits: 7 of 18 edits changed, four of them on a fresh SNMF grid at the new EMBER $\delta$, and its mean selection score fell from 0.91 to 0.89.
+No SNMF edit changed.
+We then reran the cross-lingual evaluation.
+For unchanged edits we regenerated only the answers that were still unparseable, checking that their first 4 tokens reproduced the saved output (all but one answer per method did); for changed edits we reran every question.
+Unparseable English \qatest{} answers fell from 9\% to 0.6\% (EMBER) and from 16\% to 1.8\% (SNMF+EMBER); averaged over concepts, no language now exceeds 2.2\%, and the remaining ones are mostly empty outputs.
+
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+ & Original & Corrected & \\
+\midrule
+EMBER efficacy (\qatrain) & 0.52 & 0.43 & \\
+EMBER $r_{\text{en}}$ & 0.52 & 0.61 & \\
+EMBER mean leak & $+0.24^*$ & $+0.19^*$ & holds \\
+EMBER leak, ru & $+0.41^*$ & $+0.33^*$ & holds \\
+SNMF mean leak & $+0.01$ & $+0.01$ & holds \\
+S+E $r_{\text{en}}$ & 0.27 & 0.39 & \\
+S+E mean leak & $+0.16^*$ & $+0.04$ & changed \\
+S+E leak, ru & $+0.37^*$ & $+0.23^*$ & holds \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{paired, A $-$ B}} \\
+EMBER $-$ SNMF, leak & $+0.23^*$ & $+0.18^*$ & holds \\
+S+E $-$ SNMF, leak & $+0.15^*$ & $+0.04$ & changed \\
+EMBER $-$ S+E, leak & $+0.08$ & $+0.15^*$ & changed \\
+S+E $-$ SNMF, $r_{\text{en}}$ & $-0.18^*$ & $-0.06$ & changed \\
+EMBER $-$ SNMF, $r_{\text{en}}$ & $+0.07$ & $+0.16^*$ & changed \\
+\bottomrule
+\end{tabular}
+\caption{Results before and after correcting the scorer and re-selecting the edits (S+E = SNMF+EMBER). $^*$95\% bootstrap interval over concepts excludes zero.}
+\label{tab:artifact}
+\end{table}
+
+\paragraph{What changed.}
+Table~\ref{tab:artifact} separates the conclusions that survived the correction from those that changed.
+The cut-off answers were concentrated in English, so they inflated both English erasure and the leak.
+EMBER's leak survives at a smaller size, and remains largest in Russian.
+Most of SNMF+EMBER's apparent leak was this artifact: after re-selection, its German, Spanish and French leaks are near zero and only the Russian leak remains.
+As a result, EMBER now leaks clearly more than SNMF+EMBER, and the combination's English erasure is no longer clearly stronger than SNMF's.
+Our earlier sensitivity check, which dropped unparseable answers but kept the original edits, lowered SNMF+EMBER's mean leak only to $+0.11$ with an interval excluding zero, so it was not a substitute for re-scoring and re-selection.
+
 %=====================================================================
 \section{Discussion and Limitations}
 %=====================================================================
 
-EMBER's precision is what makes it leak.
-Because it edits a few dozen vocabulary rows, it causes little collateral damage, but other languages reach the concept through other rows.
-An MLP edit acts on representations that are partly shared across languages, so its erasure transfers, but in our grid it also removes neighboring knowledge.
-For a deployer, English-only evaluation of embedding-level erasure overstates its effect, most of all for languages in another script.
+In this Gemma-2-2B-it experiment, the narrow vocabulary-row edits of EMBER coincide with greater residual concept retention on translated non-English questions, especially Russian. SNMF has smaller estimated language differences but also greater collateral damage on similar-domain questions and English MMLU; the combined method has the lowest English retention and a residual leak only into Russian, the language the embedding edit reaches least. These results describe a trade-off among the tested methods under this selection and evaluation protocol, not a causal or universal ranking of embedding- and MLP-level erasure.
+
+\paragraph{Parallel feature-learning direction: CINDER.}
+Alongside this evaluation, we explored CINDER (Contrastive Informed Directional Embedding Removal), a separate attempt to improve EMBER's feature discovery. The progress notes describe three changes: contrastive sharpening (CS) to emphasize concept-specific directions, global sparsity (GS) to allocate token support adaptively, and a two-way judge (TWJ) that combines an LLM decision with a concept-lexicon check. In the earlier contrastive experiments, whitening against background text alone did not recover a Harry Potter feature, while adding concept-side sharpening did. In later feature-level tests, CS moved the Harry Potter feature from rank 11 to rank 1; GS produced concept-feature widths of 15--113 tokens across 18 concepts while retaining cleanliness comparable to EMBER; and TWJ accepted a relevant or broader feature in 82 of 91 runs, versus 61 for EMBER's judge.
+
+These are preliminary feature-selection results, not erasure results: CINDER edits have not yet been evaluated on held-out QA. The progress notes also identify important validity risks. CS uses the concept's Wikipedia page both to sharpen the factorization and to define some feature-purity labels, and its gains mostly disappear with a target that excludes those tokens. TWJ's broader positives reduce its apparent gain under strict concept-only labels, and its threshold was selected on the labeled examples. We therefore treat CINDER as a parallel research direction rather than evidence for the cross-lingual claims in this report; its next test is an end-to-end erasure evaluation with independent targets and the corrected scorer.
 
 Our study has clear limits.
-\textbf{(i) One model and seed}: we did not run Llama-3.1-8B, which the paper also covers.
+\textbf{(i) One model and released feature seed for the primary comparison}: we did not run Llama-3.1-8B, which the paper also covers.
 \textbf{(ii) Multiple-choice only}: in the earlier run, the unedited model's accuracy on translated open questions was 0.04--0.24, too low to measure erasure.
-\textbf{(iii) Noise}: a cell has 50 questions, so only averages over concepts are meaningful, and retention is clipped, so concepts erased to chance in English can only show positive leak.
-\textbf{(iv) Scoring}: the EMBER and SNMF+EMBER selections are being redone with the corrected scorer (\S\ref{sec:artifact}).
-\textbf{(v) Translations} are machine-made and spot-checked, not native-written.
+\textbf{(iii) Sampling and translation}: each concept-language cell has 50 questions, and machine translations may differ in difficulty or meaning despite repairs and aligned option order.
+\textbf{(iv) Noisy metric}: individual retention estimates are noisy and clipped, so concepts erased to chance in English can only show positive leak; the concept-level intervals do not account for translation uncertainty, and per-language comparisons are not corrected for multiple testing.
+\textbf{(v) Scoring}: all results use the corrected scorer (\S\ref{sec:artifact}); on average at most 2.2\% of answers per language remain unparseable, mostly empty outputs, and count as wrong. One re-selected SNMF+EMBER edit (Gambling) lowers 1000-question MMLU to 0.450 (0.524 for its previous edit), a drop the 50-question selection set cannot detect.
 \textbf{(vi) Specificity} mixes in-language \textsc{SimDom} with English-only MMLU.
 \textbf{(vii)} We did not test cross-lingual \emph{relearning}, the paper's main robustness test.
 
@@ -351,21 +418,17 @@ Our study has clear limits.
 \section{Conclusion}
 %=====================================================================
 
-An embedding edit tuned on English tokens erases a concept in English but much less in other languages, and hardly at all in Russian, whose tokens it never touches.
-An MLP-based edit erases evenly across languages but less precisely, and combining the two inherits the embedding edit's leak.
-A direction shared between Russian and English concept words exists in the embedding matrix, but fitting features jointly on five languages at the default rank did not recover it.
-Erasure methods that edit the embedding layer should be evaluated in more than one language, and multilingual feature fitting needs more capacity and carefully matched data.
+On Gemma-2-2B-it, across 18 concepts and translated multiple-choice tests in five languages, English-selected EMBER edits had higher average concept retention outside English, while SNMF's average language difference was near zero but came with greater collateral damage. SNMF+EMBER had the lowest English retention, though not significantly below SNMF's; its average leak was not distinguishable from zero, but it still leaked into Russian. Correcting an answer-truncation artifact in the scorer and re-selecting all edits reduced EMBER's leak without removing it, and removed most of the combination's apparent leak. These results support a comparative trade-off for this model, concept set and evaluation protocol; they do not show that concept erasure generally fails across languages. Broader claims require replication across models, languages, and evaluation formats, as well as tests of cross-lingual relearning.
 
 %=====================================================================
 \section*{AI Disclosure and Reflection}
 %=====================================================================
 
-\todo{The team must review and complete this section; the text below is a draft based on the project records.}
 We used AI tools in three roles.
 \emph{As research instruments}: Qwen2.5-32B-Instruct is our coherence judge, Gemini Flash-Lite filters features (as in the original pipeline) and translated the sentence sets of \S\ref{sec:multi}, and the word lists of \S\ref{sec:mechanism} were drafted by Claude and are not yet checked by native speakers.
 \emph{As coding and analysis assistants}: we used Claude Code (Anthropic) to write and debug cluster scripts, to document the pipeline, and to run analyses on saved results.
 \emph{For writing}: a first draft of this report was produced with Claude from our project notes and result files and then revised by us.
-\todo{Reflection: what worked, what did not, where the AI was wrong (e.g., the scoring artifact was reported for days as ``broken generation'' before anyone read the raw outputs).}
+AI assistance was useful for implementation and for organizing the project records, but it did not replace checking outputs against the raw data. In particular, an answer-budget parsing error was initially treated as a generation problem; inspecting the completions exposed the scoring artifact and changed our estimates of erasure efficacy. This experience reinforced that we remain responsible for validating both model outputs and the analyses built on them.
 
 \bibliography{references}
 
@@ -385,28 +448,28 @@ We used AI tools in three roles.
  & & & \multicolumn{3}{c|}{Selection score (\qatrain)} & \multicolumn{3}{c|}{$r_{\text{en}}$ (\qatest)} & \multicolumn{3}{c}{Mean leak over de/es/fr/ru} \\
 Concept & EMBER $\delta$ & Unedited en & E & S & S+E & E & S & S+E & E & S & S+E \\
 \midrule
-Ancient Rome & 200 & 0.80 & 0.87 & 0.80 & 0.95 & 0.35 & 0.42 & 0.20 & $+0.47$ & $-0.03$ & $+0.42$ \\
-Artificial intelligence & 100 & 0.78 & 0.54 & 0.86 & 0.89 & 0.70 & 0.55 & 0.25 & $+0.21$ & $-0.06$ & $+0.08$ \\
-Baseball & 100 & 0.66 & 0.60 & 0.81 & 0.91 & 0.56 & 0.51 & 0.07 & $+0.29$ & $0.00$ & $+0.47$ \\
-COVID-19 pandemic & 50 & 0.64 & 0.63 & 0.84 & 0.91 & 0.54 & 0.49 & 0.00 & $-0.09$ & $-0.03$ & $+0.06$ \\
-Cannabis & 200 & 0.94 & 0.70 & 0.70 & 0.86 & 0.30 & 0.62 & 0.22 & $+0.12$ & $-0.05$ & $+0.02$ \\
-Culture of Greece & 200 & 0.62 & 0.98 & 0.84 & 0.98 & 0.68 & 0.68 & 0.62 & $+0.18$ & $-0.20$ & $+0.18$ \\
-Gambling & 100 & 0.84 & 0.80 & 0.87 & 0.99 & 0.49 & 0.42 & 0.08 & $+0.25$ & $-0.14$ & $+0.41$ \\
+Ancient Rome & 200 & 0.80 & 0.82 & 0.80 & 0.94 & 0.35 & 0.42 & 0.31 & $+0.48$ & $-0.03$ & $+0.16$ \\
+Artificial intelligence & 100 & 0.80 & 0.44 & 0.86 & 0.87 & 0.82 & 0.56 & 0.45 & $+0.13$ & $-0.08$ & $-0.08$ \\
+Baseball & 200 & 0.66 & 0.43 & 0.81 & 0.88 & 0.76 & 0.51 & 0.51 & $+0.09$ & $0.00$ & $+0.02$ \\
+COVID-19 pandemic & 50 & 0.64 & 0.63 & 0.84 & 0.91 & 0.69 & 0.49 & 0.00 & $-0.10$ & $-0.07$ & $+0.11$ \\
+Cannabis & 200 & 0.94 & 0.57 & 0.70 & 0.78 & 0.39 & 0.62 & 0.33 & $+0.14$ & $-0.05$ & $+0.03$ \\
+Culture of Greece & 200 & 0.62 & 0.94 & 0.84 & 0.97 & 0.73 & 0.68 & 0.62 & $+0.13$ & $-0.20$ & $-0.03$ \\
+Gambling & 10 & 0.84 & 0.72 & 0.87 & 0.89 & 0.66 & 0.42 & 0.46 & $+0.17$ & $-0.14$ & $-0.02$ \\
 Golf & 10 & 0.80 & 0.67 & 0.76 & 0.82 & 0.75 & 0.60 & 0.60 & $+0.06$ & $+0.07$ & $+0.14$ \\
-Gun & 100 & 0.82 & 0.79 & 0.87 & 0.93 & 0.37 & 0.37 & 0.16 & $+0.53$ & $+0.01$ & $+0.57$ \\
+Gun & 5 & 0.82 & 0.66 & 0.87 & 0.90 & 0.54 & 0.37 & 0.54 & $+0.42$ & $+0.01$ & $+0.01$ \\
 Halloween & 10 & 0.60 & 0.66 & 0.79 & 0.87 & 0.37 & 0.31 & 0.09 & $+0.41$ & $+0.36$ & $+0.39$ \\
-Harry Potter$^\dagger$ & 10 & 0.80 & 0.77 & 0.93 & 0.90 & 0.64 & 0.60 & 0.35 & $-0.03$ & $0.00$ & $+0.03$ \\
-Heroin & 100 & 0.68 & 0.83 & 0.84 & 0.91 & 0.49 & 0.21 & 0.21 & $+0.42$ & $+0.07$ & $-0.06$ \\
-Nazism & 100 & 0.74 & 0.82 & 0.80 & 0.84 & 0.55 & 0.35 & 0.55 & $+0.18$ & $+0.05$ & $+0.02$ \\
-Pornography & 5 & 0.82 & 0.64 & 0.88 & 0.92 & 0.68 & 0.51 & 0.47 & $+0.13$ & $-0.09$ & $-0.18$ \\
-Republic of Ireland & 100 & 0.74 & 0.68 & 0.74 & 0.91 & 0.63 & 0.71 & 0.31 & $+0.21$ & $-0.38$ & $+0.09$ \\
-Uranium & 100 & 0.62 & 0.92 & 0.72 & 0.97 & 0.19 & 0.35 & 0.00 & $+0.44$ & $+0.27$ & $+0.35$ \\
-Valentine's Day$^\dagger$ & 200 & 0.46 & 0.68 & 0.91 & 0.92 & 0.24 & 0.14 & 0.00 & $+0.51$ & $+0.24$ & $0.00$ \\
-World War II & 5 & 0.74 & 0.66 & 0.83 & 0.90 & 0.88 & 0.22 & 0.71 & $+0.03$ & $+0.09$ & $-0.06$ \\
+Harry Potter$^\dagger$ & 10 & 0.80 & 0.77 & 0.93 & 0.90 & 0.67 & 0.60 & 0.35 & $-0.04$ & $0.00$ & $+0.11$ \\
+Heroin & 100 & 0.68 & 0.79 & 0.84 & 0.89 & 0.58 & 0.21 & 0.35 & $+0.35$ & $+0.07$ & $-0.17$ \\
+Nazism & 100 & 0.74 & 0.77 & 0.80 & 0.82 & 0.63 & 0.35 & 0.63 & $+0.14$ & $+0.05$ & $-0.03$ \\
+Pornography & 5 & 0.82 & 0.59 & 0.86 & 0.91 & 0.68 & 0.51 & 0.47 & $+0.14$ & $-0.10$ & $-0.16$ \\
+Republic of Ireland & 100 & 0.74 & 0.59 & 0.74 & 0.89 & 0.67 & 0.71 & 0.43 & $+0.23$ & $-0.36$ & $+0.04$ \\
+Uranium & 200 & 0.62 & 0.62 & 0.72 & 0.93 & 0.62 & 0.35 & 0.08 & $+0.12$ & $+0.27$ & $+0.20$ \\
+Valentine's Day$^\dagger$ & 200 & 0.46 & 0.68 & 0.91 & 0.92 & 0.24 & 0.14 & 0.00 & $+0.51$ & $+0.24$ & $+0.11$ \\
+World War II & 5 & 0.74 & 0.66 & 0.83 & 0.90 & 0.88 & 0.22 & 0.71 & $+0.03$ & $+0.08$ & $-0.07$ \\
 \bottomrule
 \end{tabular}
 }
-\caption{Per-concept results for EMBER (E), SNMF (S) and SNMF+EMBER (S+E). ``Unedited en'' is the unedited model's English \qatest{} accuracy. $^\dagger$Russian is excluded (unedited accuracy below 0.40). Single cells are noisy (standard error of a leak $\approx 0.3$). Concepts with $r_{\text{en}} = 0$ can only show positive leak.}
+\caption{Per-concept results for EMBER (E), SNMF (S) and SNMF+EMBER (S+E), with the corrected scorer. Re-selection changed EMBER's $\delta$ for Baseball, Gambling, Gun and Uranium (all previously 100) and the SNMF+EMBER edit for Ancient Rome, Baseball, Culture of Greece, Gambling, Gun, Uranium and Valentine's Day. ``Unedited en'' is the unedited model's English \qatest{} accuracy. $^\dagger$Russian is excluded (unedited accuracy below 0.40). Single cells are noisy (standard error of a leak $\approx 0.3$). Concepts with $r_{\text{en}} = 0$ can only show positive leak.}
 \label{tab:perconcept}
 \end{table*}
 

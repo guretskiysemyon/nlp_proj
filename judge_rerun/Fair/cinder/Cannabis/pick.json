@@ -1,0 +1,83 @@
+{
+ "method": "cinder",
+ "concept": "Cannabis",
+ "delta": 5.0,
+ "no_edit": false,
+ "harmonic": 0.33802816901408456,
+ "efficacy": 0.2033898305084746,
+ "specificity": 1.0,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.84,
+  "simdom_base": 0.88,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.84,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.1694915254237288,
+   "specificity": 1.0,
+   "harmonic": 0.2898550724637681,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.78,
+   "efficacy": 0.10169491525423724,
+   "specificity": 1.0,
+   "harmonic": 0.18461538461538454,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.72,
+   "efficacy": 0.2033898305084746,
+   "specificity": 1.0,
+   "harmonic": 0.33802816901408456,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.1694915254237288,
+   "specificity": 1.0,
+   "harmonic": 0.2898550724637681,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  }
+ ]
+}

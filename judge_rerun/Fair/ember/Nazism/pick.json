@@ -1,0 +1,83 @@
+{
+ "method": "ember",
+ "concept": "Nazism",
+ "delta": 100.0,
+ "no_edit": false,
+ "harmonic": 0.6932599724896837,
+ "efficacy": 0.5490196078431373,
+ "specificity": 0.9402985074626866,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.76,
+  "simdom_base": 0.96,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.76,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.68,
+   "efficacy": 0.1568627450980391,
+   "specificity": 1.0,
+   "harmonic": 0.27118644067796593,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.6,
+   "efficacy": 0.31372549019607854,
+   "specificity": 0.9402985074626866,
+   "harmonic": 0.4704784130688449,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.47058823529411764,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.6306852637962401,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.54,
+   "efficacy": 0.43137254901960775,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.5944710039492828,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.5098039215686274,
+   "specificity": 0.9402985074626866,
+   "harmonic": 0.6611503531786075,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.48,
+   "efficacy": 0.5490196078431373,
+   "specificity": 0.9402985074626866,
+   "harmonic": 0.6932599724896837,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.48,
+   "efficacy": 0.5490196078431373,
+   "specificity": 0.9402985074626866,
+   "harmonic": 0.6932599724896837,
+   "gate": null
+  }
+ ]
+}

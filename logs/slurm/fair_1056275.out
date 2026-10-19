@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Ancient Rome
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.12it/s]
+[15:23:04] cinder Ancient Rome delta=0.5: k=1 tokens=92 mmlu 0.52 qa 0.72 simdom 0.90 (45s)
+[15:23:48] cinder Ancient Rome delta=1.0: k=1 tokens=92 mmlu 0.52 qa 0.66 simdom 0.90 (44s)
+[15:24:32] cinder Ancient Rome delta=2.0: k=1 tokens=92 mmlu 0.52 qa 0.54 simdom 0.90 (44s)
+[15:25:16] cinder Ancient Rome delta=5.0: k=1 tokens=92 mmlu 0.52 qa 0.50 simdom 0.90 (44s)
+[15:25:59] cinder Ancient Rome delta=10.0: k=1 tokens=92 mmlu 0.52 qa 0.52 simdom 0.92 (43s)
+[15:26:42] cinder Ancient Rome delta=50.0: k=1 tokens=92 mmlu 0.52 qa 0.56 simdom 0.92 (43s)
+[15:27:26] cinder Ancient Rome delta=100.0: k=1 tokens=92 mmlu 0.52 qa 0.56 simdom 0.92 (44s)
+[15:28:11] cinder Ancient Rome delta=200.0: k=1 tokens=92 mmlu 0.52 qa 0.56 simdom 0.92 (45s)
+[15:28:12] cinder Ancient Rome: pick delta=5.0 harmonic=0.706
+[15:35:21] cinder Ancient Rome final at delta=5.0: edit check OK, MMLU test 0.549
