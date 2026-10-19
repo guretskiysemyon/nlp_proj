@@ -112,7 +112,7 @@ fs2 are within 0.001 of ref (A2 sample .9339–.9357, full .9616–.9637; A3 sam
 | Ancient Rome | 0 1 0 0 0 0 0 1 | same | 0 0 0 0 0 0 0 0 | – | 33/33/0/– | 1.00, 0.00, –, – |
 
 - **Device:** A1 is nearly device-stable. The CPU refit reproduces the GPU fit to 4 decimals in most languages,
-  98% of judge verdicts are reused, and merged J is 0.81–1.00. A2/A3 are not (J(0, 0cpu) as low as 0.07): the
+  91% of judge verdicts are reused (the misses are Baseball es, Gun es, Harry Potter en and Culture of Greece fr), and merged J is 0.81–1.00. A2/A3 are not (J(0, 0cpu) as low as 0.07): the
   larger multilingual fit and the extrapolation amplify small numerical differences.
 - **Fit seed:** A1 is just as seed-sensitive as A2/A3. Merged J against ref is 0.21–0.38 for Baseball, Gun and
   Harry Potter. Culture of Greece is at 0.08, where fs1 picked two off-topic fr features ("culinary traditions",
