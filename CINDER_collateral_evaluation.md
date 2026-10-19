@@ -510,15 +510,19 @@ A destroyed token should look like del; a good erasure should look like nonce.
 
 **T1 Copy (judge-free).** Prompt: `Repeat the following sentence exactly, and nothing else: "<carrier with w>"`, 2 carriers. A trial succeeds when the output contains w. An unknown word can be copied (the nonce reference should succeed), and a deleted word cannot.
 
-**T2 Context (judge-free; replaced after the pilot, amendment 4b).** Five carriers, each a sentence with the word and a concrete, concept-free detail, then a question about the detail ("On Tuesday two people on the train mentioned ⟨w⟩, and then the train stopped in Lyon. Question: In which city did the train stop? Answer:" → " Lyon"). One detail comes before the word. Score = NLL of the answer tokens:
+**T2 Context (judge-free; replaced after the pilot, amendments 4b and 4c).** Five carriers, each a sentence with the word and a concrete, concept-free detail, then a question about the detail, asked in chat format: "On Tuesday two people on the train mentioned ⟨w⟩, and then the train stopped in Lyon. Question: In which city did the train stop? Answer with one word." One detail comes before the word. The answer is matched against the detail.
 
 ```latex
-\text{ctx\_pass} = \operatorname{mean}_{w,k}\, \mathbb{1}\!\left[\mathrm{NLL}_{\mathrm{edit}}(w) \le \mathrm{NLL}_{\mathrm{orig}}(n(w)) + 0.1\right]
+\text{ctx\_pass} = \operatorname{mean}_{w,k}\, \mathbb{1}\!\left[\text{the answer contains the detail}\right]
+\quad\text{(valid when orig, nonce and del all recall} \ge 0.9\text{)}
 ```
 
-ctx\_pass asks whether the edited word derails the reading of its own sentence more than an unknown word does. Deleting the word should not hurt recall, so this test detects damage beyond deletion: a token that breaks its context, not one that just vanishes.
+ctx\_pass asks whether the edited word derails the reading of its own sentence. Deleting the word should not hurt recall, so this test detects damage beyond deletion: a token that breaks its context, not one that just vanishes. A secondary diagnostic is the NLL of the answer after a raw "Answer:" prompt, as an excess over the nonce.
 
-*Why the first design was dropped.* The pilot's first T2 scored a long generic continuation ("… while we cooked dinner, and afterwards we watched the evening news …"). It was insensitive: the mean nonce budget was −0.02 nats, and even deleting the word changed the continuation by only +0.006 nats.
+*Why two earlier designs were dropped.*
+
+- **First design: a long generic continuation** ("… while we cooked dinner, and afterwards we watched the evening news …"). It was insensitive: the mean nonce budget was −0.02 nats, and even deleting the word changed the continuation by only +0.006 nats.
+- **Second design: answer NLL without the chat template.** It was poorly calibrated: the unedited model's mean answer NLL was 2.4, and only one carrier was easy. It still showed the signal: +1.34 nats over the nonce at EMBER r = 100, nothing at r = 1. So it stays as a secondary diagnostic.
 
 **Deletion-likeness (from T1).** The share of copy outputs identical to the copy output with the word deleted: the model writes the sentence without the word. In the pilot at EMBER r = 1, this is what happens to Hogwarts: "Yesterday my cousin kept talking about while we cooked dinner."
 
@@ -560,7 +564,7 @@ Each config is tested on its own edited words (capped at 60, seeded). E1-selecte
 | Gate | Outcome |
 | --- | --- |
 | Copy valid: orig and nonce ≥ 0.9 | passed (1.00 / 1.00) |
-| T2 budget meaningful: nonce budget > 0, deletion excess > budget | **failed** (−0.02 / +0.006 nats). T2 replaced by detail recall; re-pilot gate: orig, nonce and deletion answer NLL < 0.5 |
+| T2 budget meaningful: nonce budget > 0, deletion excess > budget | **failed** (−0.02 / +0.006 nats). Replaced by detail recall with answer NLL; its re-pilot gate (reference NLL < 0.5) **failed** too (2.4). Now recall by chat generation, gated per run on the references (recall ≥ 0.9) |
 | Regimes separate (r = 1 vs r = 100) | passed: copy 0.45 → 0.00, echo 0.37 → 0.00, z > 3 0.03 → 1.00, context-MC 0.52 → 0.32 |
 | Echo valid: orig and nonce ≥ 0.8 | passed (1.00 / 0.80) |
 

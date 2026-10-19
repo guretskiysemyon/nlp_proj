@@ -222,3 +222,22 @@ in this stage.
 **Observation already visible in the pilot** (not a gate): at EMBER r=1, concept-exclusive words (Hogwarts,
 Voldemort, Snape, Weasley, Malfoy, Hermione, Dumbledore) are dropped from the copy, as with deletion, while
 multi-meaning words copy fine.
+
+## Amendment 4c (2026-10-19): second T2 fix (before any full E2 run)
+
+**Re-pilot:**
+- **T2 gate failed:** unedited answer NLL mean 2.42, against a gate of < 0.5. Only 1 of 5 carriers is easy: raw
+  "Answer:" scoring without the chat template is poorly calibrated for the instruction model.
+- **The signal is there:** EMBER r=100 raised the answer NLL by +1.34 nats over the nonce; r=1 and Mean did not.
+
+**New primary T2 = recall:**
+- chat generation of "<sentence> Question: <q> Answer with one word.", 8 tokens, case-insensitive match of the detail
+  ("nine" also matches "9");
+- ctx_pass = recall rate of the edited config;
+- **validity gate, checked per run on the references only:** orig, nonce and del recall ≥ 0.9; otherwise T2 is not
+  reported for that run.
+
+**Secondary:** answer-NLL excess over the nonce (diagnostic only).
+
+**No further pilot.** The full runs start directly, and the gate is evaluated on each run's references. Every other
+test is unchanged; their pilot gates passed.

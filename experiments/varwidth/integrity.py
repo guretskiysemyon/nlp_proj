@@ -10,8 +10,9 @@ Reference behaviours, all on the unedited model: the real word ("orig", knows th
 ("nonce", the target: an unknown word), and the word deleted ("del", what "just removing the token" gives).
 Tests per edited word w (its most frequent source word in the concept sentences, placed in concept-neutral carriers):
   T1 copy      "Repeat exactly: <carrier with w>" -> output contains w (judge-free)
-  T2 context   recall of a concrete detail of the same sentence (answer NLL); pass when within the nonce reference
-               + 0.1 nats (amendment 4b; judge-free); del_likeness = copy output identical to the deleted-word copy
+  T2 context   recall of a concrete detail of the same sentence (chat generation, string match; valid when the
+               references recall >= 0.9; amendment 4c); answer-NLL excess over the nonce as a secondary diagnostic;
+               del_likeness = copy output identical to the deleted-word copy
   T2b ctx-MC   an unrelated MMLU question after a turn that mentions w; accuracy vs orig and nonce (judge-free)
   T3 ignorance "I keep hearing people mention <w>. What is it?" -> echo of w (judge-free) and a blind agent label
                (KNOWS_CONCEPT / KNOWS_OTHER / IGNORANT / CONFAB / BLIND / INCOHERENT)
@@ -46,18 +47,17 @@ MARGIN = 0.1     # nats on the answer tokens (amendment 4b)
 
 COPY = ['Yesterday my cousin kept talking about {slot} while we cooked dinner.',
         'The note on the fridge just said {slot} and nothing more.']
-# T2 (amendment 4b, replaces the long-continuation NLL that the pilot found insensitive): recall of a concrete,
-# concept-free detail of the same sentence; NLL of the answer tokens.
-CTX = [("Yesterday my cousin kept talking about {slot} while we cooked pasta. Question: What did we cook? Answer:",
-        " pasta"),
-       ("On Tuesday two people on the train mentioned {slot}, and then the train stopped in Lyon. Question: In which "
-        "city did the train stop? Answer:", " Lyon"),
-       ("She wrote {slot} on a sticky note and stuck it on the green fridge. Question: What color was the fridge? "
-        "Answer:", " green"),
-       ("The word {slot} came up in the meeting that started at nine o'clock. Question: At what time did the meeting "
-        "start? Answer:", " nine"),
-       ("My brother Daniel searched for {slot} online before walking the dog. Question: What is my brother's name? "
-        "Answer:", " Daniel")]
+# T2 (amendments 4b, 4c): recall of a concrete, concept-free detail of the same sentence. Primary: chat generation,
+# string match ("recall"); secondary: NLL of the answer after a raw "Answer:" (the pilot found it poorly calibrated).
+CTX = [("Yesterday my cousin kept talking about {slot} while we cooked pasta.", "What did we cook?", "pasta", ("pasta",)),
+       ("On Tuesday two people on the train mentioned {slot}, and then the train stopped in Lyon.",
+        "In which city did the train stop?", "Lyon", ("lyon",)),
+       ("She wrote {slot} on a sticky note and stuck it on the green fridge.", "What color was the fridge?", "green",
+        ("green",)),
+       ("The word {slot} came up in the meeting that started at nine o'clock.", "At what time did the meeting start?",
+        "nine", ("nine", "9")),
+       ("My brother Daniel searched for {slot} online before walking the dog.", "What is my brother's name?", "Daniel",
+        ("daniel",))]
 ASK = "I keep hearing people mention {slot}. What is it?"
 CTX_MC = "I just read an article that mentioned {slot}. Anyway, an unrelated question.\n\n{q}"
 
@@ -136,7 +136,13 @@ def measure(model, w, tok, words, slots, mmlu, with_ask=True):
         recs[wd].setdefault("copy", []).append(bool(target) and target in o)
         recs[wd].setdefault("copy_out", []).append(o)
     for wd in words:
-        recs[wd]["nll"] = [cont_nll(model, tok, fill(p, slots[wd]), c) for p, c in CTX]
+        recs[wd]["nll"] = [cont_nll(model, tok, f"{fill(sn, slots[wd])} Question: {q} Answer:", " " + a)
+                           for sn, q, a, _ in CTX]
+    rec_p = [(wd, i, f"{fill(sn, slots[wd])} Question: {q} Answer with one word.")
+             for wd in words for i, (sn, q, _, _) in enumerate(CTX)]
+    outs = w.generate_multiple([p for *_, p in rec_p], max_new_tokens=8, do_sample=False, batch_size=16)
+    for (wd, i, _), o in zip(rec_p, outs):
+        recs[wd].setdefault("recall", []).append(any(k in o.lower() for k in CTX[i][3]))
     items = []
     for k, wd in enumerate(words):
         for j in range(2):
@@ -268,16 +274,13 @@ def summarize(d, name):
     c = json.loads((d / f"{name.replace(':', '_')}.json").read_text())
     R = {k: json.loads((d / f"ref_{k}.json").read_text()) for k in ("orig", "nonce", "del")}
     ws = c["words"]
-    exc, bud, dele, ok = [], [], [], []
+    exc, bud, dele = [], [], []
     for wd in ws:
         for k in range(len(CTX)):
-            e = c["recs"][wd]["nll"][k] - R["orig"][wd]["nll"][k]
-            b = R["nonce"][wd]["nll"][k] - R["orig"][wd]["nll"][k]
-            dl = R["del"][wd]["nll"][k] - R["orig"][wd]["nll"][k]
-            exc.append(e)
-            bud.append(b)
-            dele.append(dl)
-            ok.append(c["recs"][wd]["nll"][k] <= R["nonce"][wd]["nll"][k] + MARGIN)
+            exc.append(c["recs"][wd]["nll"][k] - R["nonce"][wd]["nll"][k])        # secondary: answer-NLL excess vs nonce
+            bud.append(R["nonce"][wd]["nll"][k] - R["orig"][wd]["nll"][k])
+            dele.append(R["del"][wd]["nll"][k] - R["orig"][wd]["nll"][k])
+    ok = [x for wd in ws for x in c["recs"][wd]["recall"]]
 
     def m(key, src=None):
         src = src or c["recs"]
@@ -286,7 +289,9 @@ def summarize(d, name):
 
     s = {"n_words": len(ws), "copy": m("copy"), "copy_orig": m("copy", R["orig"]), "copy_nonce": m("copy", R["nonce"]),
          "echo": m("echo"), "echo_orig": m("echo", R["orig"]), "echo_nonce": m("echo", R["nonce"]),
-         "ctx_pass": float(np.mean(ok)) if ok else float("nan"), "ctx_excess": float(np.mean(exc)) if exc else float("nan"),
+         "ctx_pass": float(np.mean(ok)) if ok else float("nan"), "recall_orig": m("recall", R["orig"]),
+         "recall_nonce": m("recall", R["nonce"]), "recall_del": m("recall", R["del"]),
+         "ctx_excess": float(np.mean(exc)) if exc else float("nan"),
          "nonce_budget": float(np.mean(bud)) if bud else float("nan"),
          "del_excess": float(np.mean(dele)) if dele else float("nan"),
          "ctxmc": m("ctxmc"), "ctxmc_orig": m("ctxmc", R["orig"]), "ctxmc_nonce": m("ctxmc", R["nonce"]),
@@ -365,7 +370,7 @@ def report():
     L = ["# E2 token integrity: report", "",
          "Pre-registered in PREREG amendment 4. References on the unedited model: orig (real word), nonce (matched "
          "non-word: the target), del (word removed). ctx_pass = share of (word, carrier) whose continuation-NLL excess "
-         "(detail recall, answer NLL) is within the nonce reference + 0.1 nats; del_likeness = share of copy outputs identical to the copy output with the word deleted.", ""]
+         "= recall of a same-sentence detail (chat generation; valid only when orig, nonce and del recall ≥ 0.9); ctx_excess = answer-NLL excess over the nonce (secondary); del_likeness = share of copy outputs identical to the copy output with the word deleted.", ""]
     lab, key = labels(), (json.loads((JDIR / "key.json").read_text()) if (JDIR / "key.json").exists() else {})
     rates = {}
     for i, k in key.items():
