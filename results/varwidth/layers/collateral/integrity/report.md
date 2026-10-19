@@ -2,7 +2,7 @@
 
 Pre-registered in PREREG amendment 4. References on the unedited model: orig (real word), nonce (matched non-word: the target), del (word removed). ctx_pass = share of (word, carrier) whose continuation-NLL excess = recall of a same-sentence detail (chat generation; valid only when orig, nonce and del recall ≥ 0.9); ctx_excess = answer-NLL excess over the nonce (secondary); del_likeness = share of copy outputs identical to the copy output with the word deleted.
 
-Agent labels: 3001/3641 items labelled. Agreement on 253 duplicates labelled by different agents: exact label 0.97; destruction yes/no 0.99.
+Agent labels: 3641/3641 items labelled. Agreement on 284 duplicates labelled by different agents: exact label 0.98; destruction yes/no 0.99.
 
 | Concept | Seed | Config | r | n_words | copy | ctx_pass | del_likeness | ctx_excess | ctxmc | echo | static_z_gt3 | static_nn_cos_median | graceful | leak | destruction |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -21,11 +21,11 @@ Agent labels: 3001/3641 items labelled. Agreement on 253 duplicates labelled by 
 | Harry Potter | 42 | sub:cinder@10.0 | 10 | 48 | 0 | 1 | 0.583 | 0.159 | 0.51 | 0 | 1 | 0.272 | 0.00 | 0.00 | 0.98 |
 | Harry Potter | 42 | sub:cinder@100.0 | 100 | 48 | 0 | 1 | 0.583 | 0.196 | 0.521 | 0 | 1 | 0.284 | 0.00 | 0.00 | 0.98 |
 | Harry Potter | 42 | sub:cinder@sel | 0.25 | 48 | 1 | 1 | 0 | 0.106 | 0.51 | 0.917 | 0 | 0.595 | 0.40 | 0.29 | 0.04 |
-| Harry Potter | 42 | sub:cinder_rs@0.25 | 0.25 | 43 | 1 | 1 | 0 | 0.119 | 0.57 | 0.977 | 0 | 0.529 | — | — | — |
-| Harry Potter | 42 | sub:cinder_rs@1.0 | 1 | 43 | 0.558 | 0.995 | 0.081 | 0.09 | 0.535 | 0.488 | 0.37 | 0.286 | — | — | — |
-| Harry Potter | 42 | sub:cinder_rs@10.0 | 10 | 43 | 0 | 1 | 0.581 | 0.161 | 0.535 | 0 | 1 | 0.238 | — | — | — |
-| Harry Potter | 42 | sub:cinder_rs@100.0 | 100 | 43 | 0 | 1 | 0.581 | 0.18 | 0.512 | 0 | 1 | 0.252 | — | — | — |
-| Harry Potter | 42 | sub:cinder_rs@sel | 0.5 | 43 | 0.837 | 1 | 0 | 0.067 | 0.547 | 0.744 | 0.022 | 0.448 | — | — | — |
+| Harry Potter | 42 | sub:cinder_rs@0.25 | 0.25 | 43 | 1 | 1 | 0 | 0.119 | 0.57 | 0.977 | 0 | 0.529 | 0.35 | 0.40 | 0.02 |
+| Harry Potter | 42 | sub:cinder_rs@1.0 | 1 | 43 | 0.558 | 0.995 | 0.081 | 0.09 | 0.535 | 0.488 | 0.37 | 0.286 | 0.28 | 0.12 | 0.49 |
+| Harry Potter | 42 | sub:cinder_rs@10.0 | 10 | 43 | 0 | 1 | 0.581 | 0.161 | 0.535 | 0 | 1 | 0.238 | 0.00 | 0.02 | 0.98 |
+| Harry Potter | 42 | sub:cinder_rs@100.0 | 100 | 43 | 0 | 1 | 0.581 | 0.18 | 0.512 | 0 | 1 | 0.252 | 0.00 | 0.00 | 1.00 |
+| Harry Potter | 42 | sub:cinder_rs@sel | 0.5 | 43 | 0.837 | 1 | 0 | 0.067 | 0.547 | 0.744 | 0.022 | 0.448 | 0.42 | 0.19 | 0.21 |
 | Harry Potter | 42 | sub:ember@0.25 | 0.25 | 30 | 1 | 1 | 0 | 0.153 | 0.5 | 0.967 | 0 | 0.503 | 0.30 | 0.63 | 0.00 |
 | Harry Potter | 42 | sub:ember@1.0 | 1 | 30 | 0.45 | 1 | 0.117 | 0.043 | 0.517 | 0.367 | 0.032 | 0.429 | 0.30 | 0.03 | 0.60 |
 | Harry Potter | 42 | sub:ember@10.0 | 10 | 30 | 0 | 1 | 0.767 | 1.4 | 0.383 | 0 | 1 | 0.583 | 0.00 | 0.00 | 1.00 |
@@ -104,11 +104,11 @@ Agent labels: 3001/3641 items labelled. Agreement on 253 duplicates labelled by 
 | Ancient Rome | 44 | sub:cinder@10.0 | 10 | 60 | 0 | 1 | 0.575 | 0.071 | 0.542 | 0 | 1 | 0.415 | 0.02 | 0.00 | 0.97 |
 | Ancient Rome | 44 | sub:cinder@100.0 | 100 | 60 | 0 | 1 | 0.65 | 0.139 | 0.542 | 0 | 1 | 0.429 | 0.00 | 0.00 | 1.00 |
 | Ancient Rome | 44 | sub:cinder@sel | 0.5 | 60 | 0.85 | 1 | 0.008 | -0.019 | 0.542 | 0.683 | 0.01 | 0.453 | 0.32 | 0.15 | 0.23 |
-| Ancient Rome | 44 | sub:cinder_rs@0.25 | 0.25 | 41 | 0.963 | 1 | 0 | 0.093 | 0.512 | 1 | 0 | 0.597 | — | — | — |
-| Ancient Rome | 44 | sub:cinder_rs@1.0 | 1 | 41 | 0.415 | 1 | 0.11 | -0.161 | 0.549 | 0.341 | 0.366 | 0.344 | — | — | — |
-| Ancient Rome | 44 | sub:cinder_rs@10.0 | 10 | 41 | 0 | 1 | 0.659 | -0.008 | 0.598 | 0 | 1 | 0.248 | — | — | — |
-| Ancient Rome | 44 | sub:cinder_rs@100.0 | 100 | 41 | 0 | 1 | 0.659 | 0.021 | 0.561 | 0 | 1 | 0.271 | — | — | — |
-| Ancient Rome | 44 | sub:cinder_rs@sel | 0.25 | 41 | 0.963 | 1 | 0 | 0.093 | 0.512 | 1 | 0 | 0.597 | — | — | — |
+| Ancient Rome | 44 | sub:cinder_rs@0.25 | 0.25 | 41 | 0.963 | 1 | 0 | 0.093 | 0.512 | 1 | 0 | 0.597 | 0.39 | 0.46 | 0.00 |
+| Ancient Rome | 44 | sub:cinder_rs@1.0 | 1 | 41 | 0.415 | 1 | 0.11 | -0.161 | 0.549 | 0.341 | 0.366 | 0.344 | 0.12 | 0.17 | 0.66 |
+| Ancient Rome | 44 | sub:cinder_rs@10.0 | 10 | 41 | 0 | 1 | 0.659 | -0.008 | 0.598 | 0 | 1 | 0.248 | 0.00 | 0.00 | 1.00 |
+| Ancient Rome | 44 | sub:cinder_rs@100.0 | 100 | 41 | 0 | 1 | 0.659 | 0.021 | 0.561 | 0 | 1 | 0.271 | 0.00 | 0.00 | 1.00 |
+| Ancient Rome | 44 | sub:cinder_rs@sel | 0.25 | 41 | 0.963 | 1 | 0 | 0.093 | 0.512 | 1 | 0 | 0.597 | 0.39 | 0.46 | 0.00 |
 | Ancient Rome | 44 | sub:ember@0.25 | 0.25 | 38 | 1 | 1 | 0 | 0.16 | 0.539 | 0.921 | 0 | 0.522 | 0.13 | 0.87 | 0.00 |
 | Ancient Rome | 44 | sub:ember@1.0 | 1 | 38 | 0.421 | 1 | 0.092 | 0.001 | 0.539 | 0.237 | 0 | 0.323 | 0.16 | 0.18 | 0.55 |
 | Ancient Rome | 44 | sub:ember@10.0 | 10 | 38 | 0 | 1 | 0.526 | 0.816 | 0.487 | 0 | 1 | 0.686 | 0.00 | 0.00 | 1.00 |
@@ -129,11 +129,11 @@ Agent labels: 3001/3641 items labelled. Agreement on 253 duplicates labelled by 
 | Valentine's Day | 42 | sub:cinder@10.0 | 10 | 52 | 0 | 1 | 0.673 | 0.296 | 0.51 | 0 | 1 | 0.25 | 0.00 | 0.00 | 1.00 |
 | Valentine's Day | 42 | sub:cinder@100.0 | 100 | 52 | 0 | 1 | 0.673 | 0.416 | 0.49 | 0 | 1 | 0.266 | 0.00 | 0.00 | 1.00 |
 | Valentine's Day | 42 | sub:cinder@sel | 0.5 | 52 | 0.731 | 1 | 0.029 | 0.079 | 0.51 | 0.596 | 0 | 0.598 | 0.60 | 0.02 | 0.33 |
-| Valentine's Day | 42 | sub:cinder_rs@0.25 | 0.25 | 44 | 0.841 | 0.995 | 0 | 0.104 | 0.568 | 0.727 | 0 | 0.716 | — | — | — |
-| Valentine's Day | 42 | sub:cinder_rs@1.0 | 1 | 44 | 0.534 | 1 | 0.045 | 0.03 | 0.557 | 0.432 | 0.273 | 0.442 | — | — | — |
-| Valentine's Day | 42 | sub:cinder_rs@10.0 | 10 | 44 | 0 | 1 | 0.659 | 0.31 | 0.557 | 0 | 1 | 0.238 | — | — | — |
-| Valentine's Day | 42 | sub:cinder_rs@100.0 | 100 | 44 | 0 | 1 | 0.659 | 0.408 | 0.545 | 0 | 1 | 0.254 | — | — | — |
-| Valentine's Day | 42 | sub:cinder_rs@sel | 0.5 | 44 | 0.705 | 1 | 0.023 | 0.071 | 0.557 | 0.614 | 0 | 0.616 | — | — | — |
+| Valentine's Day | 42 | sub:cinder_rs@0.25 | 0.25 | 44 | 0.841 | 0.995 | 0 | 0.104 | 0.568 | 0.727 | 0 | 0.716 | 0.68 | 0.02 | 0.23 |
+| Valentine's Day | 42 | sub:cinder_rs@1.0 | 1 | 44 | 0.534 | 1 | 0.045 | 0.03 | 0.557 | 0.432 | 0.273 | 0.442 | 0.43 | 0.00 | 0.55 |
+| Valentine's Day | 42 | sub:cinder_rs@10.0 | 10 | 44 | 0 | 1 | 0.659 | 0.31 | 0.557 | 0 | 1 | 0.238 | 0.00 | 0.00 | 1.00 |
+| Valentine's Day | 42 | sub:cinder_rs@100.0 | 100 | 44 | 0 | 1 | 0.659 | 0.408 | 0.545 | 0 | 1 | 0.254 | 0.00 | 0.00 | 1.00 |
+| Valentine's Day | 42 | sub:cinder_rs@sel | 0.5 | 44 | 0.705 | 1 | 0.023 | 0.071 | 0.557 | 0.614 | 0 | 0.616 | 0.64 | 0.02 | 0.34 |
 | Valentine's Day | 42 | sub:ember@0.25 | 0.25 | 45 | 1 | 1 | 0 | 0.076 | 0.567 | 0.844 | 0 | 0.671 | 0.69 | 0.29 | 0.00 |
 | Valentine's Day | 42 | sub:ember@1.0 | 1 | 45 | 0.544 | 1 | 0.122 | 0.163 | 0.544 | 0.422 | 0.022 | 0.44 | 0.38 | 0.00 | 0.56 |
 | Valentine's Day | 42 | sub:ember@10.0 | 10 | 45 | 0 | 1 | 0.622 | 1.11 | 0.489 | 0 | 1 | 0.568 | 0.00 | 0.00 | 1.00 |
@@ -231,6 +231,11 @@ graceful = IGNORANT + KNOWS_OTHER; leak = KNOWS_CONCEPT; destruction = BLIND + I
 | sub:cinder@10.0 | 160 | 0.01 | 0.00 | 0.01 | 0.98 | 0 | 0 | 1 | 2 | 156 | 1 |
 | sub:cinder@100.0 | 160 | 0.00 | 0.00 | 0.01 | 0.99 | 0 | 0 | 0 | 1 | 157 | 2 |
 | sub:cinder@sel | 160 | 0.43 | 0.15 | 0.21 | 0.21 | 24 | 66 | 3 | 34 | 30 | 3 |
+| sub:cinder_rs@0.25 | 128 | 0.48 | 0.29 | 0.15 | 0.09 | 37 | 55 | 6 | 19 | 10 | 1 |
+| sub:cinder_rs@1.0 | 128 | 0.28 | 0.09 | 0.06 | 0.56 | 12 | 35 | 1 | 8 | 66 | 6 |
+| sub:cinder_rs@10.0 | 128 | 0.00 | 0.01 | 0.00 | 0.99 | 1 | 0 | 0 | 0 | 126 | 1 |
+| sub:cinder_rs@100.0 | 128 | 0.00 | 0.00 | 0.00 | 1.00 | 0 | 0 | 0 | 0 | 127 | 1 |
+| sub:cinder_rs@sel | 128 | 0.48 | 0.22 | 0.11 | 0.19 | 28 | 57 | 5 | 14 | 23 | 1 |
 | sub:ember@0.25 | 113 | 0.40 | 0.58 | 0.03 | 0.00 | 65 | 44 | 1 | 3 | 0 | 0 |
 | sub:ember@1.0 | 113 | 0.28 | 0.07 | 0.08 | 0.57 | 8 | 30 | 2 | 9 | 58 | 6 |
 | sub:ember@10.0 | 113 | 0.00 | 0.00 | 0.00 | 1.00 | 0 | 0 | 0 | 0 | 113 | 0 |
@@ -265,16 +270,16 @@ graceful = IGNORANT + KNOWS_OTHER; leak = KNOWS_CONCEPT; destruction = BLIND + I
 | sub:cinder@100.0 | multi | 297 | 0.00 | 0.01 | 0.99 (131) |
 | sub:cinder@sel | exclusive | 48 | 0.85 | 0.73 | 0.37 (27) |
 | sub:cinder@sel | multi | 297 | 0.70 | 0.60 | 0.17 (133) |
-| sub:cinder_rs@0.25 | exclusive | 49 | 0.82 | 0.76 | — |
-| sub:cinder_rs@0.25 | multi | 290 | 0.96 | 0.92 | — |
-| sub:cinder_rs@1.0 | exclusive | 48 | 0.14 | 0.08 | — |
-| sub:cinder_rs@1.0 | multi | 292 | 0.54 | 0.46 | — |
-| sub:cinder_rs@10.0 | exclusive | 50 | 0.00 | 0.00 | — |
-| sub:cinder_rs@10.0 | multi | 290 | 0.00 | 0.01 | — |
-| sub:cinder_rs@100.0 | exclusive | 50 | 0.00 | 0.00 | — |
-| sub:cinder_rs@100.0 | multi | 292 | 0.00 | 0.00 | — |
-| sub:cinder_rs@sel | exclusive | 51 | 0.54 | 0.37 | — |
-| sub:cinder_rs@sel | multi | 289 | 0.75 | 0.73 | — |
+| sub:cinder_rs@0.25 | exclusive | 49 | 0.82 | 0.76 | 0.35 (23) |
+| sub:cinder_rs@0.25 | multi | 290 | 0.96 | 0.92 | 0.03 (101) |
+| sub:cinder_rs@1.0 | exclusive | 48 | 0.14 | 0.08 | 0.96 (23) |
+| sub:cinder_rs@1.0 | multi | 292 | 0.54 | 0.46 | 0.48 (101) |
+| sub:cinder_rs@10.0 | exclusive | 50 | 0.00 | 0.00 | 1.00 (23) |
+| sub:cinder_rs@10.0 | multi | 290 | 0.00 | 0.01 | 0.99 (101) |
+| sub:cinder_rs@100.0 | exclusive | 50 | 0.00 | 0.00 | 1.00 (23) |
+| sub:cinder_rs@100.0 | multi | 292 | 0.00 | 0.00 | 1.00 (101) |
+| sub:cinder_rs@sel | exclusive | 51 | 0.54 | 0.37 | 0.65 (23) |
+| sub:cinder_rs@sel | multi | 289 | 0.75 | 0.73 | 0.09 (101) |
 | sub:ember@0.25 | exclusive | 49 | 0.95 | 0.86 | 0.00 (23) |
 | sub:ember@0.25 | multi | 202 | 0.99 | 0.92 | 0.00 (90) |
 | sub:ember@1.0 | exclusive | 49 | 0.13 | 0.10 | 0.87 (23) |
