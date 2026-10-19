@@ -1,0 +1,381 @@
+{
+ "descriptions": {
+  "1": "These tokens function as relative pronouns, interrogative words, or subordinating conjunctions introducing clauses.",
+  "5": "This feature vector represents units of time and temporal duration.",
+  "3": "Adverbs of degree, scope, and frequency that modify verbs or adjectives.",
+  "8": "This feature vector represents the concept of pulling, drawing, or attracting something physically or metaphorically.",
+  "4": "This vector represents numbers and quantifiers related to partial amounts or subsets.",
+  "2": "This vector activates on demonstrative determiners, pronouns, and modifiers denoting specific instances, objects, or times in context.",
+  "7": "This vector represents terms denoting specificity, individuality, or distinction among items.",
+  "0": "Tokens expressing alternative, additional, or distinct entities, locations, or subsequent actions.",
+  "16": "This vector represents the concept of terrestrial surfaces, ground, and numerical digits.",
+  "9": "This vector represents adverbs and numerals associated with emphasis, specificity, and enumeration.",
+  "14": "This vector represents quantitative units, proportions, and statistical measurements.",
+  "12": "This feature vector activates strongly on English articles and determiners that specify or introduce nouns.",
+  "18": "This feature vector represents the concepts of making an attempt or exerting effort, along with numerical digits.",
+  "13": "This feature vector activates on tokens related to naming, designation, and verbal identification.",
+  "10": "The feature represents relative time order and chronological sequence.",
+  "11": "The tokens represent cardinal and ordinal numbers, predominantly single-digit integers expressed as words.",
+  "24": "This vector represents the concept of completeness, entirety, and general scope.",
+  "21": "This vector represents relational or positional prepositions and transition terms indicating spatial, temporal, or logical positioning.",
+  "25": "This vector activates strongly for basic colors and numerals.",
+  "22": "This vector represents the concept of delivering a physical blow or a sports-related scoring action.",
+  "30": "These tokens represent prepositions and relational adverbs used to indicate method, agency, or circumstance.",
+  "31": "This feature represents conditional or temporal conjunctions alongside digits used in logical or numeric expressions.",
+  "26": "This vector represents numerical digits, counts of time, and temporal periods.",
+  "23": "This feature vector represents common English derivational suffixes and morphological endings used for word formation and grammatical inflection.",
+  "33": "This feature activates on words and suffixes denoting similarity, comparison, or resemblance between things.",
+  "36": "This vector represents comparative and superlative adjectives and adverbs indicating degree, quantity, or scale.",
+  "38": "This vector represents the concept of making physical or metaphorical contact and impact.",
+  "40": "This vector represents quantifying words and expressions denoting amounts, counts, or multiplicity.",
+  "42": "This vector represents the concept of engaging in activities, games, or group memberships.",
+  "43": "This vector represents the concept of growth, expansion, and numerical increase.",
+  "34": "This vector represents universal quantification, inclusivity, and totality.",
+  "35": "These tokens represent common base verbs used to express primary actions and states.",
+  "45": "This vector is related to baseball positions, plays, and numerical statistics.",
+  "44": "This feature activates on plural third-person pronouns and their determiners across multiple languages.",
+  "46": "This feature vector represents the concept of recency, modernity, and numerical digits often associated with current time or version numbers.",
+  "54": "This vector represents the concept of frequency, regularity, and typical behavior.",
+  "47": "This vector activates on numeric digits and degree-of-extent or inclusion markers.",
+  "53": "This feature vector activates on baseball-related terminology centered around pitching, along with associated numbers.",
+  "56": "This feature represents the concept of running and runners, encompassing various grammatical forms, related occupations, and athletic activities.",
+  "55": "This feature vector represents concepts of methods, numbers, and modes of action.",
+  "59": "These tokens represent temporal and logical adverbs indicating time, frequency, and logical progression.",
+  "60": "This feature vector represents approximate quantities and estimations.",
+  "61": "This feature activates for words and terms related to official, legal, formal, or authorized status and validation.",
+  "63": "This vector represents spherical objects and round shapes.",
+  "62": "This vector represents a mix of musical scales, political titles, and numerical digits, lacking a single cohesive concept.",
+  "65": "This vector represents the concept of achieving success or experiencing a positive outcome in an endeavor or competition.",
+  "66": "This vector represents cardinal numbers and related quantifiers across different languages.",
+  "67": "This vector represents present participles and gerunds of common transitive verbs indicating ongoing actions or states.",
+  "69": "This vector represents organized sports competitions, leagues, and tournaments.",
+  "68": "This vector represents concepts related to participants, teams, and gameplay in sports or recreational activities.",
+  "71": "This vector represents team sports and athletic games.",
+  "74": "This feature vector represents concepts related to professional expertise, vocations, and skilled occupations.",
+  "76": "This vector represents concepts related to binary choices, duality, and numerical digits.",
+  "78": "This feature vector activates on tokens related to making a choice, decision, or selection.",
+  "77": "This feature vector represents the concept of history, heritage, and the recording of past events.",
+  "80": "This feature represents abstract nouns denoting general concepts, occurrences, or phenomena.",
+  "79": "This vector represents nouns denoting measurable quantities, extents, or hierarchical positions.",
+  "82": "This vector represents concepts and terminology related to the sport of baseball.",
+  "83": "This feature vector represents transitional and contrastive conjunctions and adverbial connectors used to signal logical relationships between clauses.",
+  "84": "This vector is related to entertainment, media, and competitive sports or gaming activities.",
+  "85": "These tokens represent spatial prepositions indicating relative position or direction.",
+  "86": "This vector represents the concept of initiation, commencement, and temporal boundaries of events.",
+  "87": "This feature activates for verbs and participles denoting inclusion, containment, or participation.",
+  "90": "This vector represents the linguistic root and numerical variants associated with the concept of a base or foundation.",
+  "89": "This vector represents the concept of replacement, substitution, and alternatives.",
+  "91": "Constituent parts, roles, or factors that comprise a system, subject, or process.",
+  "88": "This vector represents the concept of similarity, equivalence, and numerical digits.",
+  "92": "This vector represents terms related to the sport of baseball and the physical action of catching.",
+  "94": "This vector represents the concept of vertical or horizontal magnitude, scale, and spatial extremes.",
+  "93": "This feature activates tokens related to cause-and-effect relationships, logical consequences, and their resulting outcomes.",
+  "95": "This feature represents auxiliary and linking verbs used to indicate tense, modality, or grammatical state.",
+  "98": "This vector represents superlative adjectives and numeric digits indicating maximum quantity, value, or degree.",
+  "97": "This vector represents words denoting exclusivity, negation, or limitation of scope and quantity.",
+  "96": "This feature vector represents directional or spatial adverbs and particles indicating movement or orientation.",
+  "99": "This vector represents physical or conceptual bounded 2D or 3D shapes and containers."
+ },
+ "verdicts": {
+  "0": [
+   false,
+   0.99
+  ],
+  "7": [
+   false,
+   0.99
+  ],
+  "2": [
+   false,
+   1.0
+  ],
+  "8": [
+   false,
+   0.99
+  ],
+  "1": [
+   false,
+   1.0
+  ],
+  "3": [
+   false,
+   1.0
+  ],
+  "4": [
+   false,
+   0.99
+  ],
+  "5": [
+   false,
+   1.0
+  ],
+  "14": [
+   false,
+   0.99
+  ],
+  "12": [
+   false,
+   1.0
+  ],
+  "16": [
+   false,
+   0.99
+  ],
+  "13": [
+   false,
+   0.99
+  ],
+  "18": [
+   false,
+   0.99
+  ],
+  "9": [
+   false,
+   1.0
+  ],
+  "10": [
+   false,
+   0.99
+  ],
+  "11": [
+   false,
+   0.99
+  ],
+  "21": [
+   false,
+   1.0
+  ],
+  "30": [
+   false,
+   1.0
+  ],
+  "25": [
+   false,
+   1.0
+  ],
+  "22": [
+   false,
+   0.95
+  ],
+  "26": [
+   false,
+   0.99
+  ],
+  "23": [
+   false,
+   1.0
+  ],
+  "24": [
+   false,
+   0.99
+  ],
+  "31": [
+   false,
+   1.0
+  ],
+  "33": [
+   false,
+   0.99
+  ],
+  "36": [
+   false,
+   1.0
+  ],
+  "40": [
+   false,
+   1.0
+  ],
+  "43": [
+   false,
+   1.0
+  ],
+  "34": [
+   false,
+   1.0
+  ],
+  "42": [
+   false,
+   0.99
+  ],
+  "35": [
+   false,
+   0.99
+  ],
+  "38": [
+   false,
+   0.95
+  ],
+  "45": [
+   true,
+   0.95
+  ],
+  "44": [
+   false,
+   1.0
+  ],
+  "54": [
+   false,
+   1.0
+  ],
+  "46": [
+   false,
+   1.0
+  ],
+  "47": [
+   false,
+   1.0
+  ],
+  "53": [
+   true,
+   0.95
+  ],
+  "56": [
+   false,
+   0.95
+  ],
+  "55": [
+   false,
+   0.99
+  ],
+  "60": [
+   false,
+   1.0
+  ],
+  "59": [
+   false,
+   1.0
+  ],
+  "61": [
+   false,
+   1.0
+  ],
+  "63": [
+   false,
+   0.95
+  ],
+  "65": [
+   false,
+   0.99
+  ],
+  "62": [
+   false,
+   0.99
+  ],
+  "66": [
+   false,
+   1.0
+  ],
+  "67": [
+   false,
+   0.99
+  ],
+  "69": [
+   false,
+   0.95
+  ],
+  "71": [
+   false,
+   0.95
+  ],
+  "68": [
+   false,
+   0.95
+  ],
+  "74": [
+   false,
+   0.99
+  ],
+  "76": [
+   false,
+   0.99
+  ],
+  "78": [
+   false,
+   1.0
+  ],
+  "77": [
+   false,
+   0.99
+  ],
+  "82": [
+   true,
+   0.99
+  ],
+  "80": [
+   false,
+   1.0
+  ],
+  "83": [
+   false,
+   1.0
+  ],
+  "79": [
+   false,
+   0.99
+  ],
+  "84": [
+   false,
+   0.95
+  ],
+  "85": [
+   false,
+   1.0
+  ],
+  "86": [
+   false,
+   0.99
+  ],
+  "91": [
+   false,
+   0.99
+  ],
+  "87": [
+   false,
+   0.99
+  ],
+  "90": [
+   false,
+   0.99
+  ],
+  "89": [
+   false,
+   1.0
+  ],
+  "88": [
+   false,
+   1.0
+  ],
+  "92": [
+   false,
+   0.85
+  ],
+  "94": [
+   false,
+   1.0
+  ],
+  "93": [
+   false,
+   1.0
+  ],
+  "97": [
+   false,
+   1.0
+  ],
+  "95": [
+   false,
+   1.0
+  ],
+  "98": [
+   false,
+   0.99
+  ],
+  "96": [
+   false,
+   1.0
+  ],
+  "99": [
+   false,
+   0.99
+  ]
+ }
+}

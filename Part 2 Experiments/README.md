@@ -67,3 +67,32 @@ some cross-lingual signal, but not a clean one.
 - Test-split numbers in G1 / X8 / X9 are descriptive: nothing is chosen on them.
 - Extrapolated edits (`mf_outputs/extrap_*`) keep the original English edit exactly (checked) and add native tokens;
   they use foreign native *text* to choose tokens, the features stay English-only.
+
+## Results after all jobs (2026-10-19)
+
+All 30 jobs finished with exit code 0, no tracebacks. G1 reproduces Part 1's EMBER final test exactly at the picked
+δ (60/60 cells). Full tables: `comparison_cinder_vs_ember.md`, `x8_test_mechanism/report.md`,
+`x9_extrapolation_effect/report.md`.
+
+**CINDER vs EMBER (seed 42, Part 1 protocol).** Retention on held-out QA_test (lower = more erased), mean over the 4
+concepts CINDER edits: EMBER en 0.60 / de 0.72 / es 0.77 / fr 0.69; CINDER 0.66 / 0.78 / 0.84 / 0.76. Mean leak
+(other languages minus en) about equal: +0.19 vs +0.18. CINDER erases English more only for Culture of Greece (0.46 vs
+0.73), and then leaks more (+0.37 vs +0.13). Search score (harmonic with Alpaca) lower for CINDER on all 4 concepts;
+no edit for Nazism and Republic of Ireland. MMLU unchanged for both (0.55).
+
+**X8: both methods erase only the questions their edit reaches.** Correct answers lost on touched vs untouched
+questions: EMBER 36–46% vs 0–5%, CINDER 30–31% vs 0–3%, in en, de, es and fr alike.
+
+**X9: extrapolation lowers the leak at the same δ (descriptive, test split).** Mean leak, plain → +X: EMBER Cannabis
++0.14 → +0.09, Gun +0.42 → +0.32, Nazism +0.15 → +0.01, Ireland +0.23 → +0.07, Culture of Greece +0.13 → −0.06,
+Golf +0.05 → +0.09; CINDER Gun +0.27 → +0.18, Culture of Greece +0.37 → +0.14, Cannabis and Golf about unchanged.
+SimdomQA_test accuracy unchanged by extrapolation (within 0.02). The original English edit is kept, but some added
+tokens also occur in English questions, so English retention moves too (EMBER Golf 0.75 → 0.64, Nazism 0.63 → 0.71);
+part of a leak change can come from the English side. Not yet measured for +X: MMLU, Alpaca coherence, a δ chosen on the train split.
+
+## Next: fair comparison on all 18 concepts (2026-10-19)
+
+The 6-concept results above use Part 1's protocol (Alpaca in the search) and EMBER with the paper's judge. The
+follow-up runs EMBER, EMBER + Ori's judge and CINDER on all 18 concepts with the same judge model (gemini-3.5),
+the same grid, a pick without Alpaca and the 5-language test: `cinder/fair.py`, plan in `docs/Part 2/plan.md`
+"Fair comparison (option B)", report `judge_rerun/Fair/report.md`.
