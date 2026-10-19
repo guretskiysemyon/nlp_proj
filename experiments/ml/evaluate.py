@@ -280,8 +280,9 @@ def evaluate(model, tok, editor, concept, approach, force=False):
     best = max((float(d) for d in grid if grid[d]["score"] > 0), key=lambda d: (grid[str(d)]["score"], -d),
                default=0.0)
     res["best_delta"] = best
-    editor.apply(best) if best else editor.restore()
+    editor.apply(0.0)                          # the test baselines must come from the unedited model
     btc, btl = concept_baseline(model, tok, concept, "test"), lang_baseline(model, tok, "test")
+    editor.apply(best) if best else editor.restore()
     res["test"] = score(model, tok, concept, "test", btc, btl)
     res["done"] = True
     editor.restore()
