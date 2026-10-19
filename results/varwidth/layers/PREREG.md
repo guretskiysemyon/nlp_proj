@@ -283,3 +283,8 @@ paper's normalization. Tokens whose unedited test accuracy is ≤ 0.25 are left 
 
 **Effect.** Test collateral rises by 0.02–0.04. The H3v and H4 rankings are unchanged. The raw values stay in
 poc.md next to the corrected ones.
+
+## Note (2026-10-19): corrections to amendments 5 and 6 found while documenting
+- **Amendment 5:** CINDER-RS coverage is 88–100% (VD 46: 68/77 = 88.3%), not 89–100%.
+- **Amendment 6:** after renormalizing, variant means rise by 0.02–0.05 (1b and projection on EMBER's tokens +0.05),
+  not 0.02–0.04. Rankings are unchanged.
