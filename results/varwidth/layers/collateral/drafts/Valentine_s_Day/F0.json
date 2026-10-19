@@ -1,0 +1,2798 @@
+{
+ "concept": "Valentine's Day",
+ "overall": "The draft is checker-clean (393/393) and most single-token items are solid, but there are four recurring problems. (1) Concept leakage: items on Cupid's mythology (Psyche, Venus), Eros (the ' erotic' etymology item), Februus/februa (Lupercalia origin lore), and translation items for ' namorados' and ' 情人' (the words that name the holiday in Brazil and China) favour a fan. Reclassify ' namorados' as exclusive and probably ' Febru' too. (2) Forced wording for the no-space/capitalized variants: quoted mid-sentence capitals (\"Affection\", \"Coup\", \"Cup\", \"February\", \"Christmas Island\", \"Lo mein\", \"Flower arranging\", Wars of the \"Roses\"), parentheticals like \"(lovers in ...)\" and \"(Valentinian I)\", and lowercase 'romance languages' or 'Queen of hearts'. Starting the sentence with the word yields the no-space token for Affection, Coup, Christmas, February, Flower and Lo, so use that. (3) Giveaways and duplicates: answers echoed in the question (Gregorian/Gregory, Julian/Julius, Turkish/Turkey, Flower of Scotland, Cookie Monster, Stay Puft Marshmallow Man, marsh/Marshes, Rosa, Viola, Florida/flor), plus repeats across tokens (radiocarbon x2, Pasadena x3, Henry VIII x3, hippies x3, Lancelot, Pyramus, Darcy, 'lover of wisdom', candy/sweets, Valentin vs ' Valentin' near-copies). (4) Obscure trivia beyond a 2B model, mostly in the hard tokens (' Valent', ' Valentín', 'Valentin', ' violets', ' Hug', ' Cupid' moon, 'jura' maxim, sherry flor, Gypsophila). For those, accept fewer than 4 items with a note rather than padding. Also: 'ladin' has 3 items without a note, and the World Cup 'most titles' item is not stable.",
+ "tokens": [
+  {
+   "token": " affection",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Harry Harlow's experiments on infant affection used baby",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In etiquette, the abbreviation PDA refers to showing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which word is the closest synonym of affection?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In King Lear, which daughter refuses to flatter",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Affection",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which word is the closest antonym of \"Affection\"?",
+     "verdict": "fix",
+     "comment": "Capitalized \"Affection\" in quotes mid-sentence is forced. Start the sentence with Affection instead (sentence-initial 'Affection' tokenizes to this id), e.g. 'Affection is the opposite of which feeling?' or a psychology/literature fact."
+    },
+    {
+     "q_start": "What is the adjective form of the noun",
+     "verdict": "fix",
+     "comment": "Same forced quoted capital. Rephrase sentence-initially. Also 'Affective' is a defensible adjective of affect/affection; swap for a clearly wrong form like 'Affectful'."
+    },
+    {
+     "q_start": "Which part of speech is the word \"Affection\"?",
+     "verdict": "fix",
+     "comment": "Same forced quoted capital, and a near-zero-content item. Replace with a sentence-initial Affection fact in a new context."
+    },
+    {
+     "q_start": "In Greek, \"storge\" names which kind of \"Affection\"?",
+     "verdict": "drop",
+     "comment": "Answer 'Family affection' echoes the question word; Greek love-type taxonomy also repeats across tokens (philia, agape) and storge is niche for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " affections",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In law, the tort called alienation of affections",
+     "verdict": "fix",
+     "comment": "Correct answer is far longer and more specific than the distractors (length giveaway). Use same-shape options, e.g. 'The spouse's lover' vs 'The spouse's employer / landlord / doctor'."
+    },
+    {
+     "q_start": "In Pride and Prejudice, Mr. Darcy first seeks",
+     "verdict": "fix",
+     "comment": "'first' is misleading (Darcy only courts Elizabeth; 'first' hints at a sequence, which could suggest Jane). Drop 'first'. Also overlaps with ' marry' item on Darcy/Elizabeth; change one of the two."
+    },
+    {
+     "q_start": "In Wuthering Heights, Heathcliff's affections are directed at",
+     "verdict": "keep",
+     "comment": "Minor: replace distractor 'Jane Eyre' (wrong novel) with a Wuthering Heights woman such as 'Frances Earnshaw'."
+    },
+    {
+     "q_start": "In older English, a person's affections most nearly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " amethyst",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The gemstone amethyst is a variety of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What colour is the gemstone amethyst usually?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ancient Greeks believed amethyst protected its wearer from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Large amethyst geodes are especially famous from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Amor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Amor Towles wrote which novel about a count",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase Amor fati is most associated with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The line 'Omnia vincit Amor' comes from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Amor Prohibido was a hit album by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " amor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Spanish, what does the phrase mi amor",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Spanish phrase amor propio refers to what",
+     "verdict": "keep",
+     "comment": "Overlaps with the 'amour' amour-propre item (same idea, same answer type); fine if one of them changes."
+    },
+    {
+     "q_start": "The Latin phrase amor patriae means love of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The English adjective amorous comes from the Latin",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "amour",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In French, the word l'amour translates to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The song Hymne à l'amour was made famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The French expression \"amour-propre\" means what?",
+     "verdict": "fix",
+     "comment": "Near-duplicate of the ' amor' 'amor propio' item (self-esteem/self-respect). Pick another phrase, e.g. 'pomme d'amour', or a song/film title."
+    },
+    {
+     "q_start": "Elvis Presley's Can't Help Falling in Love is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " anniversary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which material traditionally symbolizes a 25th wedding anniversary?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 400th anniversary of whose death, in 1616,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Queen Elizabeth II's Diamond Jubilee marked the 60th",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which year was the 50th anniversary of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " appreciation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In economics, currency appreciation means the currency does",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the opposite of asset appreciation in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A course in music appreciation mainly teaches students",
+     "verdict": "fix",
+     "comment": "Answer echoes 'music' and is the only long option. Make all options music-related, e.g. 'Listening to music / Tuning pianos / Conducting choirs / Building violins'."
+    },
+    {
+     "q_start": "In the US, a week of teacher appreciation",
+     "verdict": "drop",
+     "comment": "US-specific calendar trivia a 2B model is unlikely to know, and it is a gift/thank-you observance close in spirit to the concept. Replace with another context (art, philosophy, etc.)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bouquets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "At Western weddings, brides traditionally toss their bouquets",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When wine tasters describe bouquets, which sense are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In cooking, herb bundles called bouquets garnis come",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Florists making bouquets often add baby's breath, which",
+     "verdict": "drop",
+     "comment": "Gypsophila is too obscure for a 2B model, and florist bouquets are the concept's gift item. Replace with a non-floristry use."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " boyfriend",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the sitcom Friends, Rachel's on-and-off boyfriend is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Barbie's longtime boyfriend doll is named what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Superman comics, which reporter has Superman as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the musical Grease, Sandy's boyfriend is which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "All four are 'who is X's boyfriend in fiction' lookups; consider swapping one for a different context (e.g. a song title, or the word itself such as 'boyfriend jeans')."
+  },
+  {
+   "token": " Calendar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Gregorian Calendar was introduced in 1582 by",
+     "verdict": "fix",
+     "comment": "Answer is given away by the question: 'Gregorian' names Pope Gregory XIII. Ask a different fact."
+    },
+    {
+     "q_start": "The Julian Calendar was introduced by which Roman",
+     "verdict": "fix",
+     "comment": "Same giveaway: 'Julian' names Julius Caesar. Also overlaps with the ' calendar' Julian/Gregorian item."
+    },
+    {
+     "q_start": "The film Calendar Girls is about women from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hebrew Calendar begins its year in autumn",
+     "verdict": "fix",
+     "comment": "'Hebrew Calendar' with a capital C is unnatural, used only to force the token. Use a real capitalized name, e.g. 'The Pirelli Calendar is published by a company known for making what?' (tyres; tokenizes correctly)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " calendar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Islamic calendar is based on the phases",
+     "verdict": "keep",
+     "comment": "Overlaps with ' calendars' item 1 (Moon); one of them should change."
+    },
+    {
+     "q_start": "How many animals make up the cycle of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Julian calendar was replaced in most countries",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which ancient Mesoamerican civilization is famous for its",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " calendars",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Lunar calendars track the cycles of which celestial",
+     "verdict": "fix",
+     "comment": "'Lunar' gives away 'The Moon', and it duplicates the ' calendar' Islamic-calendar item. Replace."
+    },
+    {
+     "q_start": "Advent calendars count down to which holiday?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Russia switched calendars in 1918, so its October",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Solar calendars add a leap day roughly every",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " candies",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jelly beans are candies most associated with which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mexican sugar skulls are candies made for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pez candies are famously sold in what kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hard candies like lollipops are made mainly by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Candle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Elton John's song Candle in the Wind was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Roman Candle is a type of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Christian feast of Candlemas is celebrated on",
+     "verdict": "keep",
+     "comment": "Same date (Feb 2) as the 'February' Groundhog Day item; change one."
+    },
+    {
+     "q_start": "Karl Duncker's Candle Problem is used to illustrate",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " candy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Cotton candy is called what in Australia?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A traditional candy cane is striped in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The American word candy corresponds to which British",
+     "verdict": "fix",
+     "comment": "Reverse duplicate of the ' sweets' item (British sweets = American candy). Replace this one with a new context (e.g. 'eye candy', Candy Crush)."
+    },
+    {
+     "q_start": "In the US, candy corn is a sweet",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chocolate",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Most chocolate is made from the seeds of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Milton Hershey founded his famous chocolate company in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which compound in chocolate makes it toxic to",
+     "verdict": "fix",
+     "comment": "Distractor 'Caffeine' is also in chocolate and also toxic to dogs, so it is arguably a second correct answer. Replace 'Caffeine' with a compound that isn't in chocolate (e.g. 'Menthol' or 'Gluten')."
+    },
+    {
+     "q_start": "Which ancient people drank chocolate as a bitter",
+     "verdict": "fix",
+     "comment": "Duplicates the 'chocolate' Nahuatl/Aztecs item. Change one of them."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "chocolate",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word \"chocolate\" comes from the language of",
+     "verdict": "fix",
+     "comment": "Answer 'The Aztecs (Nahuatl)' is longer than the distractors (giveaway) and duplicates the ' chocolate' Aztecs item. Rework."
+    },
+    {
+     "q_start": "Which Mexican sauce often contains \"chocolate\" along with",
+     "verdict": "fix",
+     "comment": "Quoting \"chocolate\" mid-sentence is forced. Use a natural hyphenated compound (e.g. 'Mole poblano is a chili-chocolate sauce from which country?'); check the tokenizer gives the no-space id."
+    },
+    {
+     "q_start": "Compared with milk chocolate, \"dark-chocolate\" contains a higher",
+     "verdict": "fix",
+     "comment": "\"dark-chocolate\" as a quoted noun is unnatural. Use it as a modifier without quotes ('a dark-chocolate bar'). Also its answer 'Cocoa solids' is the same as item 4; vary."
+    },
+    {
+     "q_start": "White \"chocolate\" contains cocoa butter but lacks which",
+     "verdict": "keep",
+     "comment": "Scare quotes on white \"chocolate\" are natural here. Answer duplicates item 3; change item 3."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chocolates",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which film does the hero say 'Life",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ferrero Rocher chocolates are made by a company",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lindt chocolates come from a company founded in",
+     "verdict": "fix",
+     "comment": "Items 2-4 are three paraphrases (brand -> country). Replace with a different context."
+    },
+    {
+     "q_start": "Cadbury chocolates originated in which country?",
+     "verdict": "fix",
+     "comment": "Same paraphrase pattern as items 2-3. Replace with a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Christmas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which miser is the main character of Charles",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Many Orthodox churches celebrate Christmas on which date?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which composer wrote The Nutcracker, a ballet set",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which reindeer with a glowing red nose guides",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Christmas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Indian Ocean territory called \"Christmas Island\" belongs",
+     "verdict": "fix",
+     "comment": "Quoting \"Christmas Island\" is forced. Start the sentence with it: 'Christmas Island, in the Indian Ocean, is a territory of which country?' (sentence-initial Christmas gives this token)."
+    },
+    {
+     "q_start": "Which composer wrote the \"Christmas Oratorio\" (BWV 248)?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1914 \"Christmas truce\" took place during which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Mexican plant with red leaves is called",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " confection",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Turkish delight is a confection traditionally from which",
+     "verdict": "fix",
+     "comment": "'Turkish' gives away 'Turkey'. Also Turkish delight repeats the ' sweets' Narnia item. Replace."
+    },
+    {
+     "q_start": "Marzipan is a confection made mainly from ground",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Baklava is a confection made of layers of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nougat is a confection made with sugar or",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "All four share the template 'X is a confection made from/of what'; vary one (e.g. a figurative use of confection)."
+  },
+  {
+   "token": " cookie",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On the web, a cookie is a small",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Sesame Street character is famous for eating",
+     "verdict": "fix",
+     "comment": "The answer 'Cookie Monster' echoes the question word. Ask the reverse, e.g. 'Cookie Monster appears on which children's TV show?'"
+    },
+    {
+     "q_start": "A fortune cookie is commonly served in restaurants",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The idiom 'that's the way the cookie crumbles'",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cookies",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which youth organization is famous for selling cookies",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Children traditionally leave milk and cookies for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chocolate chip cookies were invented at which Massachusetts",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oreo cookies are made by which company?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Coup",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the phrase \"Coup d'état\" mean?",
+     "verdict": "fix",
+     "comment": "Capital C in a quoted mid-sentence phrase is forced. Put the phrase at the start of the sentence ('Coup d'etat means what?' tokenizes to 'Coup'). Shorten the answer, which is much longer than the distractors."
+    },
+    {
+     "q_start": "What does the phrase \"Coup de grâce\" mean?",
+     "verdict": "fix",
+     "comment": "Same forced quoted capital; begin the sentence with 'Coup de grace ...'."
+    },
+    {
+     "q_start": "A \"Coup de théâtre\" in a play is",
+     "verdict": "fix",
+     "comment": "Same forced quoted capital; begin the sentence with the phrase."
+    },
+    {
+     "q_start": "The 1973 Chilean \"Coup d'état\" overthrew which president?",
+     "verdict": "fix",
+     "comment": "Same forced quoted capital, and coup d'etat repeats item 1. Ask about a different event without quotes, starting the sentence with 'Coup'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " couples",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In ballroom dancing, which dance originated in Argentina",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, Noah takes animals onto the",
+     "verdict": "drop",
+     "comment": "'in couples, two by two' is unnatural wording used only to insert the token; the Bible says pairs. Replace."
+    },
+    {
+     "q_start": "In mechanics, force couples produce which effect on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In figure skating, which event for couples features",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Cup",
+   "class_ok": true,
+   "class_comment": "Note: sentence-initial 'Cupid' tokenizes as 'Cup'+'id', so avoid any Cupid-initial sentence for this token.",
+   "items": [
+    {
+     "q_start": "A \"Cup of Joe\" is an American slang",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Instant \"Cup Noodles\" were first sold by a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In US cooking, one \"Cup\" equals how many",
+     "verdict": "fix",
+     "comment": "Capital \"Cup\" in quotes for a unit is forced. Find a natural capitalized context (sentence start, a title or a brand)."
+    },
+    {
+     "q_start": "Which country has won the most men's FIFA",
+     "verdict": "fix",
+     "comment": "'World-Cup' with a hyphen is unnatural, and 'most titles' can change with each tournament (2026 just happened). Use a stable fact and natural spelling."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cupid",
+   "class_ok": true,
+   "class_comment": "multi is right only via the reindeer, Cupid's bow (lip), and song titles; the mythological Cupid counts as concept.",
+   "items": [
+    {
+     "q_start": "Cupid is one of the reindeer that pull",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cupid is a small moon of which planet?",
+     "verdict": "drop",
+     "comment": "Cupid, a tiny moon found in 2003, is too obscure for a 2B model."
+    },
+    {
+     "q_start": "In Roman myth, Cupid falls in love with",
+     "verdict": "drop",
+     "comment": "Cupid's mythology is the holiday's own symbol; a fan has an edge. Use non-myth uses: 'Cupid's bow' (shape of the upper lip), the song 'Stupid Cupid' or the 'Cupid Shuffle' dance."
+    },
+    {
+     "q_start": "In Roman mythology, who is Cupid's mother?",
+     "verdict": "drop",
+     "comment": "Same: the parentage of the holiday's mythological figure is fan knowledge. Replace with a non-myth use."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dates",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Fresh dates grow on palm trees that thrive",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "During Ramadan, Muslims traditionally break the fast with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Radiocarbon dates are calculated from the decay of",
+     "verdict": "fix",
+     "comment": "Exact duplicate of the ' dating' radiocarbon item (same question, same answer). Replace one."
+    },
+    {
+     "q_start": "Easter dates are fixed using the spring equinox",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dating",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Radiocarbon dating measures the decay of which isotope?",
+     "verdict": "fix",
+     "comment": "Duplicate of ' dates' item 3 (radiocarbon -> Carbon-14). Replace one of the two."
+    },
+    {
+     "q_start": "Tree-ring dating is known by which scientific name?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Potassium-argon dating is mainly used to date which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tinder is best known as what kind of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Easter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Easter Island, famous for its moai statues, belongs",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1916 Easter Rising was a rebellion in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Christianity, Easter celebrates what event?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which animal is said to deliver eggs to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " erotic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Kama Sutra, an ancient erotic text, comes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote the erotic novel Fifty Shades of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word erotic comes from the name of",
+     "verdict": "drop",
+     "comment": "Eros is the Greek form of Cupid, the holiday's own mythological figure, so a fan has an edge. Replace."
+    },
+    {
+     "q_start": "Ancient erotic frescoes have been found in the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Febru",
+   "class_ok": false,
+   "class_comment": "Practically every outside use is Februus/Februa (Lupercalia lore tied to the holiday's origin story). ' Februar' and ' Februari' are separate tokens, so German/Danish month names don't help. Lean exclusive unless a clean context turns up.",
+   "items": [
+    {
+     "q_start": "The Roman god Februus gave his name to",
+     "verdict": "fix",
+     "comment": "Februus/februa purification is standard Lupercalia lore in Valentine's Day origin stories, so a fan has an edge. If no neutral host word exists, reclassify as exclusive."
+    },
+    {
+     "q_start": "Februus was a god associated with which concept?",
+     "verdict": "drop",
+     "comment": "Februa purification is exactly the Lupercalia origin lore told about Valentine's Day; it is also too obscure for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "February",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a leap year, how many days does",
+     "verdict": "fix",
+     "comment": "Quoted \"February\" is forced. Start the sentence with it: 'February has how many days in a leap year?' (tokenizes correctly)."
+    },
+    {
+     "q_start": "Groundhog Day falls on which day of \"February\"?",
+     "verdict": "fix",
+     "comment": "Forced quotes, and Feb 2 repeats the ' Candle' Candlemas item. Replace."
+    },
+    {
+     "q_start": "The \"February Revolution\" of 1917 took place in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the US and Canada, \"February\" is observed",
+     "verdict": "fix",
+     "comment": "Forced quotes. Start with 'February is observed in the US and Canada as which history month?'"
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " flor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Spanish, what does the word flor mean?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In sherry winemaking, flor is a layer of",
+     "verdict": "fix",
+     "comment": "Sherry flor is specialist wine knowledge, unlikely for a 2B model. Replace."
+    },
+    {
+     "q_start": "In cooking, flor de sal is a delicate",
+     "verdict": "fix",
+     "comment": "Answer is guessable from 'sal' -> salt, and it is niche. Replace."
+    },
+    {
+     "q_start": "Which US state's name comes from Spanish words",
+     "verdict": "fix",
+     "comment": "The answer 'Florida' visibly contains 'Flor' (giveaway). Ask about Florida by another fact, or use another phrase such as 'flor de lis'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " floral",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which flower is the floral emblem of Wales?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In botany, the female floral organ that contains",
+     "verdict": "keep",
+     "comment": "Near-duplicate of the ' flower' stamen/pistil item; vary one."
+    },
+    {
+     "q_start": "The Rose Parade, famous for its floral floats,",
+     "verdict": "fix",
+     "comment": "Third Pasadena item (also ' Rose' Rose Bowl and 'Roses' Tournament of Roses). Replace."
+    },
+    {
+     "q_start": "Which country celebrates its cherry blossom floral season",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " flower",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which part of a flower produces pollen?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The lotus is the national flower of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The slogan flower power is associated with which",
+     "verdict": "fix",
+     "comment": "Duplicates the 'Flower' Flower Power item and the 'love' love-ins/hippies item. Replace."
+    },
+    {
+     "q_start": "Rafflesia, the largest single flower, grows natively in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Flower",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "\"Flower of Scotland\" is sung before matches by",
+     "verdict": "drop",
+     "comment": "'Flower of Scotland' gives away 'Scotland'."
+    },
+    {
+     "q_start": "The \"Flower Drum Song\" musical is set in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1960s slogan \"Flower Power\" was used by",
+     "verdict": "fix",
+     "comment": "Duplicates the ' flower' flower-power item, and 'anti-Vietnam War movement' vs 'hippies' muddles the key. Replace."
+    },
+    {
+     "q_start": "The Japanese art of \"Flower arranging\" is called",
+     "verdict": "fix",
+     "comment": "Quoted capital \"Flower arranging\" is forced. Start the sentence: 'Flower arranging in Japan is called what?' (tokenizes correctly)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " flowers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bees collect nectar from flowers to make what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Netherlands is world-famous for which flowers grown",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pete Seeger's song asking where all the flowers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vincent van Gogh painted a famous series of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " friendship",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Greek word refers to the love of",
+     "verdict": "keep",
+     "comment": "Greek love-word items repeat across tokens (storge, philia, agape); keep at most one in the set."
+    },
+    {
+     "q_start": "In Toy Story, Woody develops a friendship with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Woven friendship bracelets are usually made of what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Damon and Pythias are a classic example of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Halloween",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On which date is Halloween celebrated?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which masked killer stars in John Carpenter's 1978",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A jack-o'-lantern for Halloween is usually carved from",
+     "verdict": "keep",
+     "comment": "Minor: 'A turnip only' is a padded distractor (turnips were the original); use e.g. 'A melon'."
+    },
+    {
+     "q_start": "Halloween has roots in which ancient Celtic festival?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " happiness",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Himalayan country officially measures national happiness instead",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was the main author of the declaration",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aristotle's ideal of happiness or flourishing is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Danish word describes cozy, contented happiness?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " happy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The phrase 'many happy returns' is traditionally said",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In bars, what is usually offered during happy",
+     "verdict": "fix",
+     "comment": "Distractors 'Live surgery', 'Free haircuts' are absurd. Use plausible bar offers (e.g. 'Live music', 'Free entry', 'Karaoke')."
+    },
+    {
+     "q_start": "In the children's song 'If you're happy and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does it mean to be happy-go-lucky?",
+     "verdict": "fix",
+     "comment": "Grammar mismatch: 'What does it mean to be happy-go-lucky?' vs answer 'A carefree person'. Ask 'A happy-go-lucky person is ...' with matching options."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " heart",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many chambers does the human heart have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The first human heart transplant was performed in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does it mean to learn something by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which node acts as the heart's natural pacemaker?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hearts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the card game Hearts, which card carries",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heart of Midlothian F.C., nicknamed Hearts, is based",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Alice's Adventures in Wonderland, what does the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the film Kind Hearts and Coronets, which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hearts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many hearts does an octopus have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a standard deck, which suit is red",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The strategy of 'winning hearts and minds' is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the nursery rhyme, the Queen of hearts",
+     "verdict": "fix",
+     "comment": "Lowercase 'Queen of hearts' is forced to hit the token (the rhyme character is 'Queen of Hearts'), and it repeats the ' Hearts' Queen of Hearts item. Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hope",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, which woman opened a jar",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Dante's Inferno, the words 'abandon all hope'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Emily Dickinson wrote that hope is the thing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Christian theology, faith, hope and charity are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hugging Face is best known for hosting what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hugging Face's most popular open-source Python library is",
+     "verdict": "fix",
+     "comment": "Second of three Hugging Face items; too similar. Replace with another context (' Huggins' also gives the token, but check notability) or reduce to 3 items with a note."
+    },
+    {
+     "q_start": "The name of the company Hugging Face comes",
+     "verdict": "drop",
+     "comment": "Third Hugging Face item; the emoji origin is trivia. Drop."
+    },
+    {
+     "q_start": "Andy Hug, a champion of K-1 kickboxing, came",
+     "verdict": "drop",
+     "comment": "Andy Hug is too obscure for a 2B model."
+    }
+   ],
+   "missing_items_comment": "Few natural ' Hug' hosts exist (' Hugo', ' Hugh', ' Hughes' are separate tokens). Fewer than 4 items with a note is acceptable."
+  },
+  {
+   "token": " hug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In wrestling, a bear hug is a type",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the sign-off XOXO, which letter stands for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When a ship is said to hug the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Boa constrictors kill prey with a tight hug",
+     "verdict": "drop",
+     "comment": "'tight hug called what?' is forced wording, and 'constrictors' in the question gives away 'Constriction'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hugging",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which hormone is released during hugging and social",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Chipko movement, known for villagers hugging trees,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Koalas are often seen hugging tree trunks mainly",
+     "verdict": "drop",
+     "comment": "Koala thermoregulation is a niche 2014 finding; a 2B model is unlikely to know it."
+    },
+    {
+     "q_start": "A car described as hugging the road has",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ics",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Paralympics are held for athletes with what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bionics is the study of designing technology inspired",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does the word histrionics mean?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these words best describes heroics?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "jura",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Latin legal maxim \"jura novit curia\" means",
+     "verdict": "drop",
+     "comment": "'jura novit curia' is too obscure for a 2B model."
+    },
+    {
+     "q_start": "In Latin, \"jura\" is the plural of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spanish, \"jura de bandera\" is a ceremony",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spanish, \"perjura\" describes a woman who has",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Kiss",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The rock band Kiss is famous for what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Austrian painter created The Kiss, covered in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The marble sculpture The Kiss is by which",
+     "verdict": "fix",
+     "comment": "Second 'The Kiss' artwork item (with Klimt); too similar. Use another context, e.g. 'Kiss of the Spider Woman' (author Manuel Puig)."
+    },
+    {
+     "q_start": "The musical Kiss Me, Kate is based on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " kiss",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The kiss of life refers to which first-aid",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Judas betrayed Jesus with a kiss in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Grimm fairy tale, a kiss or",
+     "verdict": "keep",
+     "comment": "Minor: 'a kiss or a throw' is clumsy; say 'In a Grimm fairy tale, which animal turns into a prince?'"
+    },
+    {
+     "q_start": "The so-called kiss of death is an action",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ladin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Antoine Galland added the tale \"Aladin\" to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Rhaeto-Romance language its speakers call \"ladin\" is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the story known in French as \"Aladin\",",
+     "verdict": "keep",
+     "comment": "Second Aladdin item; acceptable but similar to item 1."
+    }
+   ],
+   "missing_items_comment": "Only 3 items and the note doesn't say why. Add a 4th: 'Saladin'/' Saladin' tokenizes as Sal+adin, not ladin, so look for another host, or state in the note that none was found."
+  },
+  {
+   "token": "Lo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "J.Lo is the nickname of which singer and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase \"Lo and behold\" is used to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Lo mein\" is a noodle dish from which",
+     "verdict": "fix",
+     "comment": "Quoted capital \"Lo mein\" mid-sentence is forced. Start the sentence: 'Lo mein is a noodle dish from which cuisine?'"
+    },
+    {
+     "q_start": "In music and audio, \"Lo-fi\" is short for",
+     "verdict": "fix",
+     "comment": "Same: start with 'Lo-fi, in music, is short for what?' instead of a quoted capital mid-sentence."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " loue",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In French, 'Il loue une voiture' means he",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In French, 'je loue un appartement' is usually",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (both 'loue' = rent). Replace with a different context."
+    },
+    {
+     "q_start": "In a French prayer, 'on loue Dieu' means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The French verb form loue comes from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " love",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In tennis, what score is called love?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who is the Greek goddess of love and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The slogan 'make love, not war' is associated",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek word describes selfless, unconditional love?",
+     "verdict": "keep",
+     "comment": "See ' friendship' note on repeated Greek love words."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Love",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "\"Love Me Do\" was the debut single of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote the comedy \"Love's Labour's Lost\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who sang \"Love Me Tender\" in 1956?",
+     "verdict": "fix",
+     "comment": "Second 'Love Me ...' song -> singer item (with 'Love Me Do'); vary the context."
+    },
+    {
+     "q_start": "Who wrote the novel \"Love in the Time",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "love",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word philosophy literally means \"love of wisdom\"",
+     "verdict": "fix",
+     "comment": "'love of wisdom' duplicates the ' lover' 'lover of wisdom -> philosopher' item. Change one."
+    },
+    {
+     "q_start": "The old English name \"love apple\" referred to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Excessive self-love is named after which figure from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 1960s, gatherings called \"love-ins\" were held",
+     "verdict": "fix",
+     "comment": "Third hippie item (with ' flower' and 'Flower' flower power). Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " loved",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote ''Tis better to have loved and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The verse 'For God so loved the world'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare hero calls himself one that loved",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Great Gatsby, Jay Gatsby loved which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lover",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, Aphrodite's lover Adonis was killed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Arthurian legend, who was Queen Guinevere's lover?",
+     "verdict": "fix",
+     "comment": "Lancelot/Guinevere repeats the 'lovers' item 3. Change one."
+    },
+    {
+     "q_start": "Which word literally means a lover of wisdom?",
+     "verdict": "fix",
+     "comment": "Duplicates the 'love' 'love of wisdom' item. Change one."
+    },
+    {
+     "q_start": "Juliet's lover Romeo belongs to which family?",
+     "verdict": "keep",
+     "comment": "Romeo and Juliet is used 4 times across tokens (here, ' lovers', ' marry', ' rose'); consider trimming."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lovers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Shakespeare play's prologue calls its heroes 'star-crossed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which composer wrote an opera about the tragic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Ovid, the lovers Pyramus and Thisbe whispered",
+     "verdict": "fix",
+     "comment": "Pyramus and Thisbe repeats 'lovers' item 4. Change one."
+    },
+    {
+     "q_start": "The lovers Paolo and Francesca appear in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "lovers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bibliophiles are book-lovers; what do hippophiles love?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ailurophiles are cat-lovers; what do cynophiles love?",
+     "verdict": "fix",
+     "comment": "Same template as item 1 (X-lovers; what do Y-philes love). Replace with another hyphenated '-lovers' context."
+    },
+    {
+     "q_start": "Lancelot and Guinevere (lovers in Arthurian legend) betrayed",
+     "verdict": "drop",
+     "comment": "The parenthetical '(lovers in Arthurian legend)' is inserted only to force the token, and Lancelot repeats ' lover'."
+    },
+    {
+     "q_start": "Pyramus and Thisbe (lovers in Ovid's tale) died",
+     "verdict": "drop",
+     "comment": "Same forced parenthetical, and Pyramus/Thisbe repeats ' lovers'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marriage",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 2001, which country became the first to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Henry VIII's first marriage was to whom?",
+     "verdict": "fix",
+     "comment": "Henry VIII appears in three items (here, ' marriages', ' marry'). Keep at most one."
+    },
+    {
+     "q_start": "A marriage to only one spouse at a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Mozart's opera about Figaro's marriage, whom is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marriages",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many marriages did Henry VIII have?",
+     "verdict": "keep",
+     "comment": "Keep this as the single Henry VIII item."
+    },
+    {
+     "q_start": "Elizabeth Taylor's eight marriages included two to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which dynasty, based in Austria, expanded its power",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Through her children's marriages, which British queen was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marry",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Henry VIII broke with Rome so he could",
+     "verdict": "fix",
+     "comment": "Henry VIII repeat; replace."
+    },
+    {
+     "q_start": "In Pride and Prejudice, Elizabeth Bennet eventually agrees",
+     "verdict": "fix",
+     "comment": "Darcy/Elizabeth repeats ' affections' item 2. Change one."
+    },
+    {
+     "q_start": "In Romeo and Juliet, which friar agrees to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Edward VIII abdicated in 1936 to marry which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marshmallow",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Stanford marshmallow experiment studied children's ability to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Ghostbusters, the giant monster made of marshmallow",
+     "verdict": "fix",
+     "comment": "Answer 'Stay Puft Marshmallow Man' echoes the question word. Ask something else about it, e.g. which film features it."
+    },
+    {
+     "q_start": "The marshmallow plant naturally grows in what kind",
+     "verdict": "fix",
+     "comment": "'Marshes' is given away by 'marsh'-mallow. Replace."
+    },
+    {
+     "q_start": "A s'more is made with a roasted marshmallow,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marshmallows",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What ingredient gives most commercial marshmallows their springy",
+     "verdict": "keep",
+     "comment": "Minor: 'Pectin only' is a padded distractor."
+    },
+    {
+     "q_start": "Which breakfast cereal is known for its colorful",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Peeps, chick-shaped marshmallows, are most associated with which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At campfires, people usually roast marshmallows on what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " namorados",
+   "class_ok": false,
+   "class_comment": "Its only reachable English-MC facts are translations of the word that names the Brazilian Valentine's Day. Reclassify exclusive.",
+   "items": [
+    {
+     "q_start": "The word namorados comes from which language?",
+     "verdict": "drop",
+     "comment": "The word is best known as the name of Brazil's Valentine's Day (Dia dos Namorados), so translation/language items favour a fan."
+    },
+    {
+     "q_start": "In Portuguese, the singular of namorados, namorado, means",
+     "verdict": "drop",
+     "comment": "Same: translating the holiday's name word."
+    },
+    {
+     "q_start": "In Portuguese, os namorados most nearly means what",
+     "verdict": "drop",
+     "comment": "Same, and a paraphrase of item 2."
+    },
+    {
+     "q_start": "In Portuguese, namorados is the plural of a",
+     "verdict": "drop",
+     "comment": "Obscure verb morphology; 'Namorar' echoes the word."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "oved",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Grooved spiral tracks on a vinyl record are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Grooved rifling inside a gun barrel makes the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Grooved rumble strips on highway shoulders warn drivers",
+     "verdict": "fix",
+     "comment": "All four use the same host word 'Grooved' at sentence start; the token isn't essential (each question works without the word). Find another host word with the tokenizer ('Beloved', 'Unmoved', 'Proved' do NOT produce 'oved'), or keep fewer items with a note."
+    },
+    {
+     "q_start": "Grooved tyre treads mainly help channel away what",
+     "verdict": "fix",
+     "comment": "Same host-word monotony as item 3."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Palatine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Palatine Hill, from which the word palace",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Palatine tonsils are located at the back",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Elector Palatine of the Rhine was a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Palatine, Illinois is a suburb of which city?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " relationship",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Einstein's E=mc² describes the relationship between mass and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ohm's law describes the relationship between voltage, current",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A relationship between species in which both benefit",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'special relationship' usually refers to ties between",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " romance",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which novel by Cervantes parodies the chivalric romance?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The romance languages, such as Spanish and French,",
+     "verdict": "fix",
+     "comment": "'romance languages' in lowercase is forced (standard is 'Romance languages')."
+    },
+    {
+     "q_start": "In the medieval romance Sir Gawain and the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mills & Boon, a British romance publisher, became",
+     "verdict": "fix",
+     "comment": "Mills & Boon -> Harlequin is publishing-industry trivia; unlikely for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " romantic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A romantic comedy is commonly abbreviated as what?",
+     "verdict": "fix",
+     "comment": "Distractors 'Dram-com', 'Ro-mo' are made up and implausible, and the answer is derivable from the question. Replace."
+    },
+    {
+     "q_start": "Which German romantic painter created Wanderer above the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which romantic era composer wrote the Minute Waltz?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Wordsworth and Coleridge launched English romantic poetry with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Rose",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the film Titanic, which actress played Rose?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Axl Rose is the lead singer of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pete Rose holds Major League Baseball's career record",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Rose Bowl stadium is located in which",
+     "verdict": "keep",
+     "comment": "Keep this as the single Pasadena item (also in ' floral' and 'Roses')."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " rose",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A compass rose on a map shows what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Gothic cathedrals, a rose window is usually",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word rose is the past tense of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare play contains the line 'a rose",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " roses",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Garden roses belong to which plant genus?",
+     "verdict": "fix",
+     "comment": "'Rosa' is near-echoed by 'roses' (giveaway). Ask another botany fact."
+    },
+    {
+     "q_start": "In Alice in Wonderland, the gardeners paint white",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Tudor rose combined the red and white",
+     "verdict": "keep",
+     "comment": "Minor: 'Plantagenet of Wales' is not a real house; use 'Tudor' or 'Hanover'."
+    },
+    {
+     "q_start": "Attar of roses, a perfume oil, is famously",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Roses",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The cricket \"Roses\" match is played between Lancashire",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The English civil wars called the Wars of",
+     "verdict": "fix",
+     "comment": "Quoting only \"Roses\" inside 'Wars of the Roses' is forced (natural text gives ' Roses')."
+    },
+    {
+     "q_start": "Who composed the waltz \"Roses from the South\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pasadena's Tournament of \"Roses\" parade is held on",
+     "verdict": "drop",
+     "comment": "Forced quotes around one word, and the third Pasadena item."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sentimental",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An object with sentimental value is valued mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Samuel Richardson wrote which famous sentimental novel of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which word is a close synonym of sentimental?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doris Day had a hit in 1945 with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sweets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Narnia, Edmund betrays his siblings for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Grimm tale, Hansel and Gretel find",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Indian sweets such as gulab jamun are made",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In British English, sweets is the usual word",
+     "verdict": "keep",
+     "comment": "Keep; the reverse ' candy' item should change."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tulips",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 17th-century speculative bubble over tulips happened in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Garden tulips grow from what kind of underground",
+     "verdict": "keep",
+     "comment": "Minor: 'Seeds only' is a padded distractor."
+    },
+    {
+     "q_start": "Before reaching Europe, tulips were widely cultivated in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Each year the Netherlands sends tulips to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valencia",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Valencia is a city in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which rice dish is traditionally associated with Valencia?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valencia CF plays its home matches at which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valencia lies on the coast of which sea?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valent",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Cesare Borgia, made Duke of Valentinois, was the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The title Duke of Valentinois is traditionally held",
+     "verdict": "fix",
+     "comment": "The heir's title of Monaco is royalty trivia; borderline for a 2B model."
+    },
+    {
+     "q_start": "The mineral Valentinite is an oxide of which",
+     "verdict": "drop",
+     "comment": "Valentinite is far too obscure."
+    },
+    {
+     "q_start": "The former French province of Valentinois lies along",
+     "verdict": "drop",
+     "comment": "Province of Valentinois geography is too obscure."
+    }
+   ],
+   "missing_items_comment": "Only host is ' Valentinois' (' Valentina', ' Valente' don't give this token). Fewer than 4 items with a note is fine."
+  },
+  {
+   "token": "valent",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the word \"ambivalent\" mean?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In chemistry, a trivalent aluminium ion carries what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A polyvalent vaccine protects against how many strains?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In chemistry, a univalent element has a valence",
+     "verdict": "keep",
+     "comment": "Easy (uni- = one) but fine."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valentin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Valentin Haüy founded the first school in Paris",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Soviet engineer Valentin Glushko was famous for designing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Emperor Valentinian I ruled which half of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "During Emperor Valentinian III's reign, which Hun leader",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " valentin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Valentin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Frenchman \"Valentin Haüy\" is remembered for educating",
+     "verdict": "fix",
+     "comment": "Near-verbatim duplicate of the ' Valentin' Hauy item, with forced quotes around the name. Replace."
+    },
+    {
+     "q_start": "The Soviet rocket designer \"Valentin Glushko\" worked on",
+     "verdict": "fix",
+     "comment": "Duplicate of the ' Valentin' Glushko item. Replace."
+    },
+    {
+     "q_start": "Which half of the Roman Empire did the",
+     "verdict": "drop",
+     "comment": "Forced parenthetical '(Valentinian I)', and it duplicates ' Valentin' item 3."
+    },
+    {
+     "q_start": "The Western emperor \"Valentinian III\" was the son",
+     "verdict": "drop",
+     "comment": "Galla Placidia is too obscure for a 2B model, and the name is quoted only to force the token."
+    }
+   ],
+   "missing_items_comment": "Natural contexts for the no-space form are scarce; fewer than 4 items with a note is better than copies of ' Valentin'."
+  },
+  {
+   "token": " Valentine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which video game series does the character",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Shakespeare's The Two Gentlemen of Verona, Valentine's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heinlein's Valentine Michael Smith in Stranger in a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Ender's Game, Valentine is Ender's what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " valentine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Valentine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Final Fantasy VII, the gunslinger with the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare play features the gentleman \"Valentine\" and",
+     "verdict": "fix",
+     "comment": "Reverse duplicate of the ' Valentine' Two Gentlemen item. Replace."
+    },
+    {
+     "q_start": "The British \"Valentine\" of World War II was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In \"Resident Evil\", the heroine \"Valentine\" belongs to",
+     "verdict": "fix",
+     "comment": "Duplicates ' Valentine' Jill Valentine/Resident Evil, and quoting both names is forced. Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "valentine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valentines",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " valentines",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valentino",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Valentino Rossi is a champion in which sport?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rudolph Valentino became famous as a star of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fashion house Valentino was founded in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valentino Rossi comes from which country?",
+     "verdict": "fix",
+     "comment": "Second Valentino Rossi item (country), a paraphrase of item 1. Use another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valentín",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Valentín Paniagua served as interim president of which",
+     "verdict": "drop",
+     "comment": "Valentín Paniagua is too obscure for a 2B model."
+    },
+    {
+     "q_start": "Valentín Gómez Farías was a 19th-century president of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valentín Elizalde was a famous singer of which",
+     "verdict": "drop",
+     "comment": "Valentín Elizalde is too obscure."
+    },
+    {
+     "q_start": "Footballer Valentín Castellanos plays for which national team?",
+     "verdict": "drop",
+     "comment": "Obscure, current-career footballer ('plays for' can change)."
+    }
+   ],
+   "missing_items_comment": "Few well-known Valentíns exist; fewer than 4 items with a note is acceptable."
+  },
+  {
+   "token": " valued",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Salt was so valued in ancient Rome that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tyrian purple, a highly valued ancient dye, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Saffron, a highly valued spice, comes from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ambergris, valued in perfumery, comes from which animal?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Three of four follow 'a valued X comes from what', and the token is decorative in each. Consider one item where 'valued' carries the meaning."
+  },
+  {
+   "token": " values",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "pH values below 7 indicate what kind of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Boolean logic, the two values are True",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The French Republic's core values are liberty, equality",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In statistics, small p values suggest rejecting what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Vincent",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Vincent van Gogh was from which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played Vincent Vega in Pulp Fiction?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vincent Price is best known for films in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Saint Vincent and the Grenadines is located in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " violet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The colour violet lies at which end of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mixing blue with which colour gives violet?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What kind of person is called a shrinking",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The houseplant called the African violet is native",
+     "verdict": "drop",
+     "comment": "African violet native range (Tanzania) is too obscure for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " violets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Wild violets belong to which plant genus?",
+     "verdict": "fix",
+     "comment": "'Viola' is near-echoed by 'violets' (giveaway). Ask another fact."
+    },
+    {
+     "q_start": "In Pygmalion, Eliza Doolittle sells violets in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Napoleon promised to return from Elba with the",
+     "verdict": "drop",
+     "comment": "Napoleon's 'return with the violets' is obscure."
+    },
+    {
+     "q_start": "Candied violets are a traditional speciality of which",
+     "verdict": "drop",
+     "comment": "Candied violets of Toulouse are obscure."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "チョコ",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Japanese word \"チョコ\" is short for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Final Fantasy, a \"チョコボ\" (Chocobo) is what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At Japanese festivals, \"チョコバナナ\" is a banana covered",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"チョコパイ\" (Choco Pie) is a snack cake best",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " 情人",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the Chinese word 情人 mean in",
+     "verdict": "fix",
+     "comment": "A bare translation; the word is best known from 情人节 (Chinese name of Valentine's Day), which favours a fan. Replace with another context like the proverb item."
+    },
+    {
+     "q_start": "A Chinese proverb says that in the eyes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Chinese word 情人 combines a character for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Xi Shi, named in a proverb with 情人,",
+     "verdict": "drop",
+     "comment": "The token is gratuitous ('named in a proverb with 情人'); the question is really about Xi Shi."
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}
