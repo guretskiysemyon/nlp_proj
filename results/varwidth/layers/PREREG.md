@@ -198,3 +198,27 @@ A failed check invalidates that test before scale.
 in this stage.
 
 **Disclosure.** E1's grids existed and some validation lines were seen in job logs; E1 test results were not read.
+
+## Amendment 4b (2026-10-19): E2 pilot outcome and fixes (before any full E2 run)
+
+**Pilot** (Harry Potter 42: references, EMBER r=1 and r=100, Mean):
+- **Gate 1 passed:** copy orig 1.00, nonce 1.00.
+- **Gate 3 passed:** copy 0.45 → 0.00, echo 0.37 → 0.00, z>3 0.03 → 1.00, context-MC 0.52 → 0.32 from r=1 to r=100.
+- **Gate 4 passed:** echo orig 1.00, nonce 0.80.
+- **Gate 2 failed:** mean nonce budget −0.02 nats and deletion excess +0.006 nats. The long, generic continuation is
+  insensitive even to deleting the word.
+
+**Fixes:**
+- **T2 is replaced by detail recall:** 5 carriers with a concrete, concept-free detail in the same sentence as w (one
+  before it), followed by "Question: … Answer:". Score = NLL of the answer tokens; ctx_pass = share of (word, carrier)
+  with NLL ≤ nonce NLL + 0.1 nats.
+- **del_likeness is redefined:** the share of copy outputs identical (whitespace- and quote-normalized) to the copy
+  output for the deleted-word reference.
+- **T4 bug:** the nearest-real-token search now excludes every edited row (pilot rows matched each other at cosine 1.0).
+
+**Re-pilot validity gate for T2:** orig and nonce answer NLL small (mean < 0.5) and deletion does not break recall
+(mean < 0.5). Whatever the edited configs show is a result, not a validity question.
+
+**Observation already visible in the pilot** (not a gate): at EMBER r=1, concept-exclusive words (Hogwarts,
+Voldemort, Snape, Weasley, Malfoy, Hermione, Dumbledore) are dropped from the copy, as with deletion, while
+multi-meaning words copy fine.

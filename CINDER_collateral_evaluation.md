@@ -78,7 +78,7 @@ Add a fourth term, **collateral**: does the edited model still know ordinary fac
 | Test | Question it answers | Judge |
 | --- | --- | --- |
 | T1 Copy | Can the model repeat a sentence containing the word? | none (string match) |
-| T2 Context | Is the continuation after the word disrupted more than after an unknown word? | none (NLL vs the nonce budget) |
+| T2 Context | Does the word derail reading the rest of its sentence, more than an unknown word does? | none (recall of a detail, answer NLL vs the nonce) |
 | T2b Context-MC | Does an unrelated question go wrong after a turn that mentions the word? | none (MC) |
 | T3 Ignorance | Asked "What is ⟨w⟩?", does it answer like an ignorant model, or leak, go blind or break? | echo check + blind agent label |
 | T4 Static | Do the edited rows stand out in the weights? | none (norm z-score, nearest real token) |
@@ -510,20 +510,17 @@ A destroyed token should look like del; a good erasure should look like nonce.
 
 **T1 Copy (judge-free).** Prompt: `Repeat the following sentence exactly, and nothing else: "<carrier with w>"`, 2 carriers. A trial succeeds when the output contains w. An unknown word can be copied (the nonce reference should succeed), and a deleted word cannot.
 
-**T2 Context (judge-free).** Five carriers, each a prefix with the slot and a fixed, concept-free continuation ("Yesterday my cousin kept talking about ⟨w⟩" + " while we cooked dinner, and afterwards …"). For each word and carrier, the mean NLL of the continuation tokens:
+**T2 Context (judge-free; replaced after the pilot, amendment 4b).** Five carriers, each a sentence with the word and a concrete, concept-free detail, then a question about the detail ("On Tuesday two people on the train mentioned ⟨w⟩, and then the train stopped in Lyon. Question: In which city did the train stop? Answer:" → " Lyon"). One detail comes before the word. Score = NLL of the answer tokens:
 
 ```latex
-\mathrm{exc}_{w,k} = \mathrm{NLL}_{\mathrm{edit}}(w) - \mathrm{NLL}_{\mathrm{orig}}(w), \quad
-b_{w,k} = \mathrm{NLL}_{\mathrm{orig}}(n(w)) - \mathrm{NLL}_{\mathrm{orig}}(w), \quad
-d_{w,k} = \mathrm{NLL}_{\mathrm{orig}}(\text{del}) - \mathrm{NLL}_{\mathrm{orig}}(w)
+\text{ctx\_pass} = \operatorname{mean}_{w,k}\, \mathbb{1}\!\left[\mathrm{NLL}_{\mathrm{edit}}(w) \le \mathrm{NLL}_{\mathrm{orig}}(n(w)) + 0.1\right]
 ```
 
-```latex
-\text{ctx\_pass} = \operatorname{mean}_{w,k}\, \mathbb{1}\!\left[\mathrm{exc}_{w,k} \le \max(b_{w,k}, 0) + 0.05\right], \qquad
-\text{del\_likeness} = \frac{\operatorname{mean}\ \mathrm{exc}}{\operatorname{mean}\ d}
-```
+ctx\_pass asks whether the edited word derails the reading of its own sentence more than an unknown word does. Deleting the word should not hurt recall, so this test detects damage beyond deletion: a token that breaks its context, not one that just vanishes.
 
-ctx\_pass asks whether the edited word disrupts the rest of the sentence no more than an unknown word does (the nonce budget b). del\_likeness near 1 means the edit behaves like deleting the word.
+*Why the first design was dropped.* The pilot's first T2 scored a long generic continuation ("… while we cooked dinner, and afterwards we watched the evening news …"). It was insensitive: the mean nonce budget was −0.02 nats, and even deleting the word changed the continuation by only +0.006 nats.
+
+**Deletion-likeness (from T1).** The share of copy outputs identical to the copy output with the word deleted: the model writes the sentence without the word. In the pilot at EMBER r = 1, this is what happens to Hogwarts: "Yesterday my cousin kept talking about while we cooked dinner."
 
 **T2b Context-MC (judge-free).** An unrelated MMLU question, prefixed by "I just read an article that mentioned ⟨w⟩. Anyway, an unrelated question." (2 questions per word, MMLU train items). Accuracy is compared with the same pairs under orig and nonce.
 
@@ -558,12 +555,18 @@ Each config is tested on its own edited words (capped at 60, seeded). E1-selecte
 
 **Scope.** Judge-free tests (T1, T2, T2b, T4, echo) on all 8 concept-seeds. Agent labels (T3) on one seed per concept, the seed with a complete 2×2: Harry Potter 42, Ancient Rome 44, Valentine's Day 42.
 
-**Pilot first** (Harry Potter 42: the references, EMBER at r = 1 and r = 100, Mean). Expected outcomes; a miss means a test is invalid for this model and is dropped or fixed before scale:
+**Pilot first** (Harry Potter 42: the references, EMBER at r = 1 and r = 100, Mean). Pre-registered gates and outcome (amendment 4b):
 
-1. **Copy is valid:** orig and nonce copy ≥ 0.9 (a 2B model can repeat a sentence).
-2. **The nonce budget is meaningful:** b > 0 on average (an unknown word costs some likelihood), and d > b (deletion costs more).
-3. **The regimes separate:** EMBER at r = 100 fails (low copy, ctx\_pass well below r = 1, del\_likeness toward 1, z > 3 for nearly all rows); EMBER at r = 1 stays near the references.
-4. **Echo is valid:** orig and nonce echo ≥ 0.8.
+| Gate | Outcome |
+| --- | --- |
+| Copy valid: orig and nonce ≥ 0.9 | passed (1.00 / 1.00) |
+| T2 budget meaningful: nonce budget > 0, deletion excess > budget | **failed** (−0.02 / +0.006 nats). T2 replaced by detail recall; re-pilot gate: orig, nonce and deletion answer NLL < 0.5 |
+| Regimes separate (r = 1 vs r = 100) | passed: copy 0.45 → 0.00, echo 0.37 → 0.00, z > 3 0.03 → 1.00, context-MC 0.52 → 0.32 |
+| Echo valid: orig and nonce ≥ 0.8 | passed (1.00 / 0.80) |
+
+Also fixed: T4's nearest-real-token search now excludes all edited rows.
+
+**Pilot observation (EMBER, r = 1, Harry Potter 42).** 14 of 30 words fail to copy at all. All of them are concept-exclusive (Hogwarts, Voldemort, Snape, Weasley, Malfoy, Hermione, Dumbledore, Rowling…) or carry a concept word (Pottermore, Gryffindor). The model writes the sentence without them, as with deletion. Multi-meaning words (Harry, Trump, Sherlock, Lego, HBO, Nestlé) copy perfectly. The reason: r is a median over the edit set, and exclusive tokens sit in the high-µ tail (§F.1). At r = 1 each of them is perturbed by about its own norm. E1's collateral gate admits this point, since exclusive tokens have no collateral items. This is the first direct evidence for Hyp. 6.
 
 **Cost.** No Gemini. GPU: about 20 configs per concept-seed. Claude agents: about 1,400 T3 answers in blind batches, plus 10% double labels.
 
@@ -587,7 +590,7 @@ Mean nonce budget b and deletion excess d (nats/token): [TBD].
 
 **R9. Integrity at E1's selected points.**
 
-| Variant | r\* | Copy | ctx\_pass | del\_likeness | Context-MC | Echo | Graceful / leak / destruction | z > 3 | nn-cos |
+| Variant | r\* | Copy | ctx\_pass | del\_likeness (copy) | Context-MC | Echo | Graceful / leak / destruction | z > 3 | nn-cos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | EMBER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
 | CINDER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |

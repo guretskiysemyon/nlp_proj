@@ -10,8 +10,8 @@ Reference behaviours, all on the unedited model: the real word ("orig", knows th
 ("nonce", the target: an unknown word), and the word deleted ("del", what "just removing the token" gives).
 Tests per edited word w (its most frequent source word in the concept sentences, placed in concept-neutral carriers):
   T1 copy      "Repeat exactly: <carrier with w>" -> output contains w (judge-free)
-  T2 context   NLL of a fixed, concept-free continuation after a carrier with w; pass when the excess over orig is
-               within the nonce budget (+0.05 nats); also deletion-likeness = excess / deletion excess (judge-free)
+  T2 context   recall of a concrete detail of the same sentence (answer NLL); pass when within the nonce reference
+               + 0.1 nats (amendment 4b; judge-free); del_likeness = copy output identical to the deleted-word copy
   T2b ctx-MC   an unrelated MMLU question after a turn that mentions w; accuracy vs orig and nonce (judge-free)
   T3 ignorance "I keep hearing people mention <w>. What is it?" -> echo of w (judge-free) and a blind agent label
                (KNOWS_CONCEPT / KNOWS_OTHER / IGNORANT / CONFAB / BLIND / INCOHERENT)
@@ -42,20 +42,22 @@ PILOT_CONFIGS = ["sub:ember@1.0", "sub:ember@100.0", "mean:ember@sel"]
 SEL_VARIANTS = ["sub:ember", "sub:cinder", "sub:ember_judge", "sub:1a", "sub:1b", "pow2.0:cinder",
                 "mean:ember", "mean:cinder", "noise:ember", "noise:cinder"]
 MAX_WORDS = 60
-MARGIN = 0.05
+MARGIN = 0.1     # nats on the answer tokens (amendment 4b)
 
 COPY = ['Yesterday my cousin kept talking about {slot} while we cooked dinner.',
         'The note on the fridge just said {slot} and nothing more.']
-CTX = [("Yesterday my cousin kept talking about {slot}",
-        " while we cooked dinner, and afterwards we watched the evening news and went to bed early."),
-       ("On the train I overheard two people mention {slot}",
-        ". Then the conductor announced that the next station would be delayed by ten minutes because of maintenance work."),
-       ("She wrote {slot} on a sticky note",
-        " and left it on the kitchen table next to a bowl of apples and a half-empty cup of coffee."),
-       ("The word {slot} came up in the meeting",
-        ", but most of the discussion was about the budget for next year and the new office schedule."),
-       ("I searched for {slot} online",
-        " for a few minutes before giving up, closing my laptop, and going outside for a walk in the park.")]
+# T2 (amendment 4b, replaces the long-continuation NLL that the pilot found insensitive): recall of a concrete,
+# concept-free detail of the same sentence; NLL of the answer tokens.
+CTX = [("Yesterday my cousin kept talking about {slot} while we cooked pasta. Question: What did we cook? Answer:",
+        " pasta"),
+       ("On Tuesday two people on the train mentioned {slot}, and then the train stopped in Lyon. Question: In which "
+        "city did the train stop? Answer:", " Lyon"),
+       ("She wrote {slot} on a sticky note and stuck it on the green fridge. Question: What color was the fridge? "
+        "Answer:", " green"),
+       ("The word {slot} came up in the meeting that started at nine o'clock. Question: At what time did the meeting "
+        "start? Answer:", " nine"),
+       ("My brother Daniel searched for {slot} online before walking the dog. Question: What is my brother's name? "
+        "Answer:", " Daniel")]
 ASK = "I keep hearing people mention {slot}. What is it?"
 CTX_MC = "I just read an article that mentioned {slot}. Anyway, an unrelated question.\n\n{q}"
 
@@ -142,7 +144,7 @@ def measure(model, w, tok, words, slots, mmlu, with_ask=True):
             items.append((wd, replace(it, question=CTX_MC.format(slot=slots[wd], q=it.question).replace("  ", " "))))
     _, _, mrecs = evaluate_mmlu_generation(w, [it for _, it in items])
     for (wd, _), r in zip(items, mrecs):
-        recs[wd].setdefault("ctxmc", []).append(bool(r["is_correct"]))
+        recs[wd].setdefault("ctxmc", []).append(bool(r["is_correct_generation"]))
     if with_ask:
         outs = w.generate_multiple([fill(ASK, slots[wd]) for wd in words], max_new_tokens=80, do_sample=False,
                                    batch_size=16)
@@ -160,18 +162,18 @@ def vocab_norm_stats(W, scale, chunk=32768):
 
 
 @torch.no_grad()
-def static(W, scale, ids, new_rows, vocab_stats, chunk=32768):
+def static(W, scale, ids, new_rows, vocab_stats, chunk=32768, exclude=None):
     """Norm z-score of the edited rows (TL-scaled space) and cosine to the nearest other real token row."""
     mu, sd = vocab_stats
     z = ((new_rows.norm(dim=1) - mu) / sd).cpu().numpy()
     q = torch.nn.functional.normalize(new_rows.to(W.device).float(), dim=1)
     best = torch.full((len(ids),), -2.0, device=W.device)
-    idt = torch.tensor(ids, device=W.device)
+    ex = torch.tensor(sorted(set(exclude or ids)), device=W.device)
     for i in range(0, W.shape[0], chunk):
         sims = q @ torch.nn.functional.normalize(W[i:i + chunk].float(), dim=1).T
-        own = (idt >= i) & (idt < i + chunk)
-        if own.any():
-            sims[own.nonzero().squeeze(1), idt[own] - i] = -2.0
+        m = ex[(ex >= i) & (ex < i + chunk)] - i
+        if len(m):
+            sims[:, m] = -2.0                         # no edited row counts as a "real token" neighbour
         best = torch.maximum(best, sims.max(1).values)
     return {"z_gt3": float((z > 3).mean()), "z_median": float(np.median(z)),
             "nn_cos_median": float(best.median().item())}
@@ -254,7 +256,7 @@ def run(concept, seed, pilot=False):
         if len(mine) > MAX_WORDS:
             mine = sorted(rng.sample(mine, MAX_WORDS))
         recs = measure(model, w, tok, mine, {k: k for k in mine}, mmlu)
-        st = static(W, ed.scale, ids, new.float(), vocab_stats)
+        st = static(W, ed.scale, ids, new.float(), vocab_stats, exclude=all_ids)
         p.write_text(json.dumps({"config": name, "variant": v, "param": par, "r": rr, "n_edit": len(ids),
                                  "words": mine, "static": st, "recs": recs}, ensure_ascii=False))
         print(concept, seed, name, f"r={rr:.3g}", summarize(d, name)["summary"], flush=True)
@@ -275,7 +277,7 @@ def summarize(d, name):
             exc.append(e)
             bud.append(b)
             dele.append(dl)
-            ok.append(e <= max(b, 0.0) + MARGIN)
+            ok.append(c["recs"][wd]["nll"][k] <= R["nonce"][wd]["nll"][k] + MARGIN)
 
     def m(key, src=None):
         src = src or c["recs"]
@@ -289,9 +291,130 @@ def summarize(d, name):
          "del_excess": float(np.mean(dele)) if dele else float("nan"),
          "ctxmc": m("ctxmc"), "ctxmc_orig": m("ctxmc", R["orig"]), "ctxmc_nonce": m("ctxmc", R["nonce"]),
          **{f"static_{k}": v for k, v in c["static"].items()}}
-    s["del_likeness"] = s["ctx_excess"] / s["del_excess"] if s["del_excess"] and s["del_excess"] > 0 else float("nan")
+    norm = lambda x: re.sub(r"\s+", " ", x).strip().strip('"').strip()  # noqa: E731
+    dl = [norm(c["recs"][wd]["copy_out"][i]) == norm(R["del"][wd]["copy_out"][i]) for wd in ws for i in range(len(COPY))]
+    s["del_likeness"] = float(np.mean(dl)) if dl else float("nan")   # copy output == the deleted-word reference
     return {"config": name, "variant": c["variant"], "param": c["param"], "r": c["r"], "summary":
             {k: round(v, 3) if isinstance(v, float) else v for k, v in s.items()}}
+
+
+# ---------------------------------------------------------------- judge export / import, report
+JUDGE_RUNS = [("Harry Potter", 42), ("Ancient Rome", 44), ("Valentine's Day", 42)]
+JDIR = IOUT / "judge"
+BATCH = 150
+
+
+def judge_export():
+    """Blind T3 batches: every (config or reference, word) answer of the judge runs, shuffled, ids only; the key
+    (id -> run, config, word) is kept apart. 10% of the items appear a second time in another batch (agreement)."""
+    items = []
+    for c, s in JUDGE_RUNS:
+        d = IOUT / slug(c) / f"s{s}"
+        files = sorted(d.glob("*.json"))
+        for f in files:
+            if f.name == "meta.json":
+                continue
+            j = json.loads(f.read_text())
+            recs = j["recs"] if "recs" in j else j
+            name = j.get("config", f.stem)
+            for k, r in recs.items():
+                if "ask_out" in r:
+                    shown = r["slot"].strip('"') if r["slot"] else k.strip('"')
+                    items.append({"concept": c, "seed": s, "config": name, "key": k, "word": shown,
+                                  "prompt": fill(ASK, r["slot"]), "answer": r["ask_out"]})
+    rng = random.Random(0)
+    rng.shuffle(items)
+    for i, it in enumerate(items):
+        it["id"] = f"j{i:05d}"
+    dup = rng.sample(items, len(items) // 10)
+    JDIR.mkdir(parents=True, exist_ok=True)
+    (JDIR / "key.json").write_text(json.dumps({it["id"]: {k: it[k] for k in ("concept", "seed", "config", "key")}
+                                               for it in items}, ensure_ascii=False))
+    blind = [{"id": it["id"], "concept": it["concept"], "word": it["word"], "prompt": it["prompt"],
+              "answer": it["answer"]} for it in items]
+    second = [{**b, "id": b["id"] + "d"} for b in rng.sample(blind, len(dup))]
+    batches = [blind[i:i + BATCH] for i in range(0, len(blind), BATCH)]
+    for j, b2 in enumerate(second):                       # duplicates go into a different batch than the original
+        batches[(j * 7 + 3) % len(batches)].append(b2)
+    for j, b in enumerate(batches):
+        rng.shuffle(b)
+        (JDIR / f"batch_{j:02d}.json").write_text(json.dumps(b, ensure_ascii=False, indent=1))
+    print(f"{len(items)} items (+{len(second)} duplicates) -> {len(batches)} batches in {JDIR}")
+
+
+def labels():
+    """{id: label} merged over labels_*.json (first value wins; duplicates kept under their own ids)."""
+    out = {}
+    for f in sorted(JDIR.glob("labels_*.json")):
+        for k, v in json.loads(f.read_text()).items():
+            out.setdefault(k, v["label"] if isinstance(v, dict) else v)
+    return out
+
+
+GRACEFUL, LEAK, DESTR = {"IGNORANT", "KNOWS_OTHER"}, {"KNOWS_CONCEPT"}, {"BLIND", "INCOHERENT"}
+
+
+def token_class(concept):
+    """{slot-key word: 'multi' | 'exclusive'} from the chosen question-set version (via the token strings)."""
+    sel = json.loads((OUT / "drafts" / slug(concept) / "selection.json").read_text())["chosen"]
+    d = json.loads((OUT / "drafts" / slug(concept) / f"{sel}.json").read_text())
+    return {e["token"]: e["class"] for e in d["tokens"]}
+
+
+def report():
+    L = ["# E2 token integrity: report", "",
+         "Pre-registered in PREREG amendment 4. References on the unedited model: orig (real word), nonce (matched "
+         "non-word: the target), del (word removed). ctx_pass = share of (word, carrier) whose continuation-NLL excess "
+         "(detail recall, answer NLL) is within the nonce reference + 0.1 nats; del_likeness = share of copy outputs identical to the copy output with the word deleted.", ""]
+    lab, key = labels(), (json.loads((JDIR / "key.json").read_text()) if (JDIR / "key.json").exists() else {})
+    rates = {}
+    for i, k in key.items():
+        if i in lab:
+            rates.setdefault((k["concept"], k["seed"], k["config"]), Counter())[lab[i]] += 1
+    if lab:
+        dups = [(i, i + "d") for i in key if i + "d" in lab and i in lab]
+        agree = np.mean([lab[a] == lab[b] for a, b in dups]) if dups else float("nan")
+        L += [f"Agent labels: {sum(1 for i in key if i in lab)}/{len(key)} items labelled; agreement on {len(dups)} "
+              f"double-labelled items: {agree:.2f}.", ""]
+    cols = ["r", "n_words", "copy", "ctx_pass", "del_likeness", "ctx_excess", "ctxmc", "echo", "static_z_gt3",
+            "static_nn_cos_median"]
+    L += ["| Concept | Seed | Config | " + " | ".join(cols) + " | graceful | leak | destruction |",
+          "|" + "---|" * (len(cols) + 6)]
+    agg = {}
+    for c, s in [(c, s) for c in POC for s in seeds(c)]:
+        d = IOUT / slug(c) / f"s{s}"
+        if not (d / "ref_orig.json").exists():
+            continue
+        R = {k: json.loads((d / f"ref_{k}.json").read_text()) for k in ("orig", "nonce", "del")}
+        for k in ("orig", "nonce", "del"):
+            ws = list(R[k])
+            cp = np.mean([x for w in ws for x in R[k][w]["copy"]])
+            ec = np.mean([R[k][w]["echo"] for w in ws])
+            mc = np.mean([x for w in ws for x in R[k][w]["ctxmc"]])
+            rc = rates.get((c, s, f"ref_{k}"), Counter())
+            n = sum(rc.values())
+            gl = (f"{sum(rc[x] for x in GRACEFUL) / n:.2f} | {sum(rc[x] for x in LEAK) / n:.2f} | "
+                  f"{sum(rc[x] for x in DESTR) / n:.2f}") if n else "— | — | —"
+            L.append(f"| {c} | {s} | ref:{k} | — | {len(ws)} | {cp:.2f} | — | — | — | {mc:.2f} | {ec:.2f} | — | — | {gl} |")
+        for f in sorted(d.glob("*.json")):
+            if f.name.startswith("ref_") or f.name == "meta.json":
+                continue
+            sm = summarize(d, json.loads(f.read_text())["config"])
+            x = {**sm["summary"], "r": sm["r"]}
+            rc = rates.get((c, s, sm["config"]), Counter())
+            n = sum(rc.values())
+            gl = (f"{sum(rc[x2] for x2 in GRACEFUL) / n:.2f} | {sum(rc[x2] for x2 in LEAK) / n:.2f} | "
+                  f"{sum(rc[x2] for x2 in DESTR) / n:.2f}") if n else "— | — | —"
+            L.append(f"| {c} | {s} | {sm['config']} | " + " | ".join(
+                f"{x[k]:.3g}" if isinstance(x.get(k), (int, float)) and x.get(k) is not None else "—" for k in cols)
+                + f" | {gl} |")
+            agg.setdefault(sm["config"], []).append(x)
+    L += ["", "## Means over concept-seeds", "", "| Config | runs | " + " | ".join(cols[1:]) + " |", "|" + "---|" * (len(cols) + 1)]
+    for cfg, xs in sorted(agg.items()):
+        L.append(f"| {cfg} | {len(xs)} | " + " | ".join(
+            f"{np.nanmean([x[k] for x in xs if isinstance(x.get(k), (int, float))]):.3g}" for k in cols[1:]) + " |")
+    (IOUT / "report.md").write_text("\n".join(L) + "\n")
+    print(f"wrote {IOUT / 'report.md'}")
 
 
 def main():
@@ -300,13 +423,17 @@ def main():
     from experiments.varwidth.common import ROOT
     load_dotenv(ROOT / ".env", override=False)
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=("run",))
+    ap.add_argument("what", choices=("run", "judge-export", "report"))
     ap.add_argument("--concept")
     ap.add_argument("--seed", type=int)
     ap.add_argument("--pilot", action="store_true")
     a = ap.parse_args()
     if a.what == "run":
         run(a.concept, a.seed, a.pilot)
+    elif a.what == "judge-export":
+        judge_export()
+    else:
+        report()
 
 
 if __name__ == "__main__":
