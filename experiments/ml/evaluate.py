@@ -26,7 +26,7 @@ import torch
 from experiments.ml.common import (DATA, DELTA_GRID, LANGS, MIN_FRAC, MODEL, RESULTS, run_dir, save_json, slug)
 
 LETTERS = ("A", "B", "C", "D")
-BATCH, MAX_NEW = 32, 32
+BATCH, MAX_NEW = 16, 32
 BASE_DIR = RESULTS / "baselines"
 
 
@@ -117,6 +117,7 @@ def mc_acc(model, tok, items, lang):
 
     def gen(ps):
         """Greedy answers for prompts ps; on CUDA OOM (long Hindi/Thai MMLU prompts) split the batch in halves."""
+        oom = False
         try:
             enc = tok(ps, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
             out = model.generate(**enc, max_new_tokens=MAX_NEW, do_sample=False, pad_token_id=tok.eos_token_id)
@@ -124,6 +125,10 @@ def mc_acc(model, tok, items, lang):
         except torch.OutOfMemoryError:
             if len(ps) == 1:
                 raise
+            oom = True
+        # retry outside the except block: the live exception would keep the failed batch's tensors allocated
+        if oom:
+            enc = out = None
             torch.cuda.empty_cache()
             h = len(ps) // 2
             return gen(ps[:h]) + gen(ps[h:])
