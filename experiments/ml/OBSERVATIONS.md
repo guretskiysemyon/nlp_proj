@@ -91,8 +91,15 @@ Ancient Rome and Valentine's Day had A3 features at N = 40 that disappeared at N
 - Reconstruction error barely moves (spread ≤ 0.0015).
 
 Consequence: a single-concept A2/A3 result, especially an empty or one-feature selection, is one draw. The
-comparison should be read over concepts, and ideally over several samples. A fit-seed vs sample-seed
-decomposition, including A1, is running.
+comparison should be read over concepts, and ideally over several samples.
+
+Fit seed vs sample (extension in the same file, 0.49 NIS): at a fixed sample, changing only the ALS fit seed moves
+the A2/A3 edited-token set as much as redrawing the sample (mean pairwise Jaccard 0.22 vs 0.20, CPU vs CPU). A1,
+which has no sample, has fit-seed variance of the same size (merged Jaccard vs the reference 0.0–0.38; Ancient Rome
+loses both features, Culture of Greece picks off-topic French features). With fit seed 1, Ancient Rome gets an
+on-topic feature in A2 and A3. GPU vs CPU barely moves A1 (Jaccard 0.81–1.0) but acts like a small seed change for
+A2/A3. So the instability is EMBER's (the nonconvex sparse fit), shared by all three approaches; it is not
+introduced by the sampling step. Seed-robust selection (union or vote over fit seeds) is a natural fix, not run.
 
 ## 6. A3 inverse map: verified
 
