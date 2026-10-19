@@ -99,6 +99,21 @@ def sparse_set(concept, rung, seed):
             "C": components(concept, cfg, seed, F, cols, False).float(), "F": F, "fit": cfg, "dense": False}
 
 
+def zo_set(concept, rung, seed, lam=1e-4):
+    """A3z (amendment 7): the rung's selection (whitened-fit sparse Y incl. its sparsity masks, judge F_C, edited
+    tokens) with a dictionary re-solved in the original space, Y fixed: Z_o = A Y^T (Y Y^T + lam I)^-1, A = the raw
+    TL-scaled embedding matrix of V* (EMBER's plain A; V* and its order are the same in both preps)."""
+    st = sparse_set(concept, rung, seed)
+    if not st["F"]:
+        return {**st, "fit": st["fit"] + "z"}
+    cfg, _ = RUNGS[rung]
+    _, _, Y, *_ = load_fit(concept, cfg, seed)
+    A = load_fit(concept, "L0", seed)[0]["A"].double()
+    Zo = A @ Y.T @ torch.linalg.inv(Y @ Y.T + lam * torch.eye(Y.shape[0], dtype=Y.dtype))
+    C = (Zo[:, st["F"]] @ Y[st["F"]][:, st["cols"]]).T
+    return {**st, "C": C.float(), "fit": cfg + "z", "dense": False}
+
+
 def ember_n(concept, seed, ember):
     """N for the 2x2: EMBER's edit count, or (EMBER selected nothing) the median over seeds 42-46."""
     if ember["ids"]:
@@ -112,8 +127,15 @@ def edit_sets(concept, seed, force=False):
     path = OUT / slug(concept) / f"edits_s{seed}.pt"
     if path.exists() and not force:
         sets = torch.load(path, weights_only=False)
+        changed = False
         if "cinder_rs" not in sets:                 # amendment 5: CINDER-RS = CS fit with RS-1% + TWJ
             sets["cinder_rs"] = sparse_set(concept, "L13", seed)
+            changed = True
+        for v, rung in (("cinder_z", "L123"), ("cinder_rs_z", "L13")):   # amendment 7: A3z
+            if v not in sets:
+                sets[v] = zo_set(concept, rung, seed)
+                changed = True
+        if changed:
             torch.save(sets, path)
         return sets
     sets = {"ember": sparse_set(concept, "L0", seed), "cinder": sparse_set(concept, "L123", seed),

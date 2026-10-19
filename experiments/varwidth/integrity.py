@@ -40,7 +40,7 @@ from experiments.varwidth.common import slug
 IOUT = OUT / "integrity"
 SWEEP = [0.25, 1.0, 10.0, 100.0]
 PILOT_CONFIGS = ["sub:ember@1.0", "sub:ember@100.0", "mean:ember@sel"]
-SEL_VARIANTS = ["sub:ember", "sub:cinder", "sub:ember_judge", "sub:1a", "sub:1b", "pow2.0:cinder", "sub:cinder_rs",
+SEL_VARIANTS = ["sub:ember", "sub:cinder", "sub:ember_judge", "sub:1a", "sub:1b", "pow2.0:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z",
                 "mean:ember", "mean:cinder", "noise:ember", "noise:cinder"]
 MAX_WORDS = 60
 MARGIN = 0.1     # nats on the answer tokens (amendment 4b)
@@ -205,12 +205,20 @@ def configs(concept, seed, pilot=False):
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {"ember": 1.0, "cinder": 1.0}
     out = []
     names = PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
-        [f"{v}@{r}" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs") for r in SWEEP]
+        [f"{v}@{r}" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z")
+         for r in SWEEP] + \
+        [f"{v}@paper" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b")]
     for nm in names:
         v, p = nm.split("@")
         if (concept, seed, v) not in G:
             continue
-        if p == "sel":
+        if p == "paper":                              # amendment 7: the paper-style rule's point
+            from experiments.varwidth.erase_v2 import select_paper
+            b = select_paper(G[(concept, seed, v)])
+            if b is None:
+                continue
+            out.append((nm, v, b["param"]))
+        elif p == "sel":
             par = selected_param(G, (concept, seed, v), alpha)
             if par is None and not v.startswith("mean:"):
                 continue

@@ -38,7 +38,7 @@ PILOT_REL = [0.1, 1.0, 10.0, 100.0]
 PROJ = [0.25, 0.5, 0.75, 1.0]
 POW = [1.5, 2.0]
 MIN_MMLU, COLL_GATE = 0.9, 0.8
-SUB_SETS = ["ember", "cinder", "cs_gs", "ember_judge", "ee", "1b", "1a", "cross", "cinder_rs"]
+SUB_SETS = ["ember", "cinder", "cs_gs", "ember_judge", "ee", "1b", "1a", "cross", "cinder_rs", "cinder_z", "cinder_rs_z"]
 SHAPE_SETS = ["ember", "cinder"]
 
 
@@ -252,7 +252,17 @@ def select(rows, gate=COLL_GATE):
     return sorted(ok, key=lambda x: (-x["H3v"], x["r"]))[0]
 
 
-def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE):
+def select_paper(rows):
+    """The paper-style rule (the anchor's cheaper rule): MMLU-frac >= 0.9, max HM(efficacy, specificity), no
+    collateral term (amendment 7, "old evaluation")."""
+    ok = [x for x in rows if x["mmlu_frac"] >= MIN_MMLU]
+    return None if not ok else sorted(ok, key=lambda x: (-x["H2"], x["r"]))[0]
+
+
+PAPER_VARIANTS = ["sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b"]
+
+
+def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collateral"):
     base, sets, model, w, ed, E = setup(concept, seed)
     bc, bg = base[concept], base["_global"]
     ev = Evals(concept, 50)
@@ -262,15 +272,18 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE):
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {}
     for v in variant_list(sets):
         d = out_dir(concept, seed, v)
-        if not (d / "grid.json").exists() or (d / "result.json").exists():
+        fname = "result.json" if rule == "collateral" else "result_paper.json"
+        if not (d / "grid.json").exists() or (d / fname).exists():
+            continue
+        if rule == "paper" and v not in PAPER_VARIANTS:
             continue
         rows = json.loads((d / "grid.json").read_text())
         if v.startswith("proj:"):
             assert alpha, "run collateral_report shapes first (pooled alpha)"
             rows = [x for x in rows if x["param"] == float(alpha[v.split(':')[1]])]
         assert all("collateral" in x for x in rows), f"{v}: grid rows without collateral (run the phase-2 pass)"
-        best = select(rows, gate)
-        res = {"concept": concept, "seed": seed, "variant": v, "gate": gate}
+        best = select(rows, gate) if rule == "collateral" else select_paper(rows)
+        res = {"concept": concept, "seed": seed, "variant": v, "gate": gate, "rule": rule}
         if best is None:
             ed.restore()
             res.update(param=None, r=0.0, n_edit=0)
@@ -295,7 +308,7 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE):
             res["H4"] = hm([res["efficacy"], res["specificity"], res["coherence"], res["collateral"]])
             res["alpaca_flag"] = res["instr_frac"] < 0.9 or res["flu_frac"] < 0.9
         res["H3v"] = hm([res["efficacy"], res["specificity"], res["collateral"]])
-        save(d / "result.json", res)
+        save(d / fname, res)
         print(json.dumps({k: v2 for k, v2 in res.items() if k != "coll_tok"}), flush=True)
     ed.restore()
 
@@ -313,11 +326,12 @@ def main():
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--alpaca", nargs="*", default=[])
     ap.add_argument("--gate", type=float, default=COLL_GATE)
+    ap.add_argument("--rule", choices=("collateral", "paper"), default="collateral")
     a = ap.parse_args()
     if a.what == "grid":
         grid(a.concept, a.seed, a.group, a.qfile, a.pilot, a.variants)
     else:
-        final(a.concept, a.seed, a.qfile, a.alpaca, a.gate)
+        final(a.concept, a.seed, a.qfile, a.alpaca, a.gate, a.rule)
 
 
 if __name__ == "__main__":

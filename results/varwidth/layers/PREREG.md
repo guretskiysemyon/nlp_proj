@@ -288,3 +288,30 @@ poc.md next to the corrected ones.
 - **Amendment 5:** CINDER-RS coverage is 88–100% (VD 46: 68/77 = 88.3%), not 89–100%.
 - **Amendment 6:** after renormalizing, variant means rise by 0.02–0.05 (1b and projection on EMBER's tokens +0.05),
   not 0.02–0.04. Rankings are unchanged.
+
+## Amendment 7 (2026-10-20): A3z, CINDER's selection with the edit dictionary re-solved in the original space
+
+**Origin.** Proposed by the user, from the multilingual agents' Llama finding: CINDER's mapped-back edits lie in
+low-variance directions that layer 0 barely reads.
+
+**Variants.**
+- **CINDER-z:** CINDER's whitened-fit sparse Y (with its GS masks), its HJ-selected F_C and its edited tokens, with
+  Z replaced by Z_o = A Yᵀ (Y Yᵀ + λI)⁻¹ (λ = 1e-4, A = raw TL-scaled V* embeddings, as EMBER's A); edit
+  c_t = Σ_{i∈F_C} z_o,i y_i,t. No map back.
+- **CINDER-RS-z:** the same for CINDER-RS (L13).
+
+**Offline check, before any evaluation** (diag/a3z_offline.json):
+- layer-0 attention read strength (relative to random directions): EMBER 1.7–2.0×; CINDER / CINDER-RS mapped back
+  1.0–1.2×; A3z 1.8–2.3×;
+- median cos(c, e): 0.10–0.44 → 0.34–0.61;
+- cos to the original CINDER edit: 0.70–0.87.
+
+**Evaluation.**
+- **New evaluation:** E1 (same grid, frozen question set, gates, cheaper rule; Alpaca at the chosen point for the two
+  A3z variants) and E2 (selected point plus sweep r ∈ {0.25, 1, 10, 100}; judge-free on 8 runs; T3 labels on the 3
+  judge runs through the incremental export).
+- **Old evaluation:** the paper-style rule (max HM(efficacy, specificity), MMLU ≥ 0.9, no collateral) on the same
+  grids, with a test pass at its point for EMBER, CINDER, CINDER-RS, CINDER-z, CINDER-RS-z and 1b (result_paper.json;
+  no Alpaca, to stay within budget), plus E2 judge-free tests at that point.
+
+**Status:** exploratory. Gemini ≈ 2 NIS, total ≈ 23.6 of 25 NIS.
