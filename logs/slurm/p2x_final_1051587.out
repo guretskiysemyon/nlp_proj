@@ -1,0 +1,210 @@
+[final] x6_strength_curves
+# X6: erasure vs edit size
+
+Relative edit size x = δ × median‖c_t‖/‖e_t‖ (per concept and method; `judge_rerun/Cinder/edit_size.csv`). QA_train accuracy interpolated at equal x (lower = more erased; pristine ≈ the δ→0 end). Figures: `english_<concept>.png`, `leak_<concept>.png` (when the G1 jobs are done).
+
+| concept | method | picked_delta | qa@0.5 | qa@1 | qa@2 | qa@5 | qa@10 | qa@20 | qa@50 |
+|---|---|---|---|---|---|---|---|---|---|
+| Cannabis | EMBER | 200.0 | 0.752 | 0.721 | 0.682 | 0.7 | 0.7 | 0.698 | 0.672 |
+| Cannabis | CINDER | 5.0 | 0.777 | 0.738 | 0.732 | 0.748 | 0.757 | 0.76 | 0.76 |
+| Gun | EMBER | 5.0 | 0.755 | 0.683 | 0.604 | 0.64 | 0.64 | 0.64 | 0.64 |
+| Gun | CINDER | 100.0 | 0.738 | 0.662 | 0.64 | 0.64 | 0.64 | 0.626 |  |
+| Nazism | EMBER | 100.0 | 0.662 | 0.586 | 0.526 | 0.536 | 0.519 | 0.502 | 0.48 |
+| Republic of Ireland | EMBER | 100.0 | 0.646 | 0.596 | 0.581 | 0.562 | 0.571 | 0.579 | 0.545 |
+| Culture of Greece | EMBER | 200.0 | 0.669 | 0.537 | 0.48 | 0.433 | 0.385 | 0.359 | 0.34 |
+| Culture of Greece | CINDER | 100.0 | 0.5 | 0.515 | 0.492 | 0.463 | 0.445 | 0.44 |  |
+| Golf | EMBER | 10.0 | 0.726 | 0.655 | 0.612 | 0.613 | 0.63 | 0.648 | 0.66 |
+| Golf | CINDER | 10.0 | 0.7 | 0.7 | 0.68 | 0.68 | 0.68 | 0.68 |  |
+
+[final] x7_question_split
+# X7: QA_train accuracy on questions that contain an edited token (touched) vs not (untouched)
+
+Columns: δ. Lower = more erased. A drop only in `touched` means the edit removes the words, not the knowledge.
+
+| concept | method | group | n | 0.5 | 1.0 | 2.0 | 5.0 | 10.0 | 50.0 | 100.0 | 200.0 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cannabis | CINDER | touched | 49 | 0.837 | 0.735 | 0.776 | 0.714 | 0.735 | 0.755 | 0.755 | 0.755 |
+| Cannabis | CINDER | untouched | 1 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
+| Cannabis | EMBER | touched | 49 | 0.837 | 0.755 | 0.735 | 0.673 | 0.694 | 0.714 | 0.694 | 0.673 |
+| Cannabis | EMBER | untouched | 1 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 0.0 |
+| Culture of Greece | CINDER | touched | 50 | 0.72 | 0.58 | 0.5 | 0.52 | 0.48 | 0.44 | 0.44 | 0.44 |
+| Culture of Greece | EMBER | touched | 50 | 0.74 | 0.62 | 0.48 | 0.48 | 0.4 | 0.34 | 0.34 | 0.32 |
+| Golf | CINDER | touched | 44 | 0.818 | 0.75 | 0.705 | 0.705 | 0.682 | 0.682 | 0.682 | 0.682 |
+| Golf | CINDER | untouched | 6 | 0.667 | 0.667 | 0.667 | 0.667 | 0.667 | 0.667 | 0.667 | 0.667 |
+| Golf | EMBER | touched | 42 | 0.833 | 0.81 | 0.69 | 0.595 | 0.571 | 0.619 | 0.643 | 0.643 |
+| Golf | EMBER | untouched | 8 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 |
+| Gun | CINDER | touched | 41 | 0.902 | 0.78 | 0.732 | 0.61 | 0.61 | 0.61 | 0.585 | 0.61 |
+| Gun | CINDER | untouched | 9 | 0.778 | 0.778 | 0.778 | 0.778 | 0.778 | 0.778 | 0.778 | 0.778 |
+| Gun | EMBER | touched | 37 | 0.865 | 0.757 | 0.676 | 0.514 | 0.568 | 0.568 | 0.568 | 0.568 |
+| Gun | EMBER | untouched | 13 | 0.846 | 0.846 | 0.846 | 0.846 | 0.846 | 0.846 | 0.846 | 0.846 |
+| Nazism | EMBER | touched | 40 | 0.8 | 0.7 | 0.6 | 0.5 | 0.525 | 0.475 | 0.45 | 0.45 |
+| Nazism | EMBER | untouched | 10 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 |
+| Republic of Ireland | EMBER | touched | 16 | 0.75 | 0.75 | 0.5 | 0.438 | 0.438 | 0.438 | 0.375 | 0.438 |
+| Republic of Ireland | EMBER | untouched | 34 | 0.618 | 0.618 | 0.647 | 0.647 | 0.618 | 0.647 | 0.618 | 0.618 |
+
+[final] x8_test_mechanism
+/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/Part 2 Experiments/scripts/x8_test_mechanism.py:60: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda g: pd.Series({"questions": int(g.n.sum()),
+# X8: held-out questions at the picked δ, touched vs untouched by the edit
+
+`flipped_to_wrong_%`: share of the questions the pristine model answered correctly that the edited model gets wrong (the erased knowledge).
+
+## All concepts pooled (weighted by questions)
+
+| method | language | group | questions | flipped_% |
+|---|---|---|---|---|
+| CINDER | de | touched | 84.0 | 29.6 |
+| CINDER | de | untouched | 116.0 | 0.0 |
+| CINDER | en | touched | 187.0 | 30.5 |
+| CINDER | en | untouched | 13.0 | 0.0 |
+| CINDER | es | touched | 89.0 | 31.4 |
+| CINDER | es | untouched | 111.0 | 0.0 |
+| CINDER | fr | touched | 92.0 | 31.1 |
+| CINDER | fr | untouched | 108.0 | 2.8 |
+| CINDER | ru | touched | 5.0 | 80.0 |
+| CINDER | ru | untouched | 195.0 | 0.0 |
+| EMBER | de | touched | 120.0 | 44.5 |
+| EMBER | de | untouched | 180.0 | 0.9 |
+| EMBER | en | touched | 245.0 | 36.4 |
+| EMBER | en | untouched | 55.0 | 4.9 |
+| EMBER | es | touched | 116.0 | 46.1 |
+| EMBER | es | untouched | 184.0 | 1.0 |
+| EMBER | fr | touched | 122.0 | 42.7 |
+| EMBER | fr | untouched | 178.0 | 2.8 |
+| EMBER | ru | touched | 6.0 | 44.5 |
+| EMBER | ru | untouched | 294.0 | 0.0 |
+
+## Per concept
+
+| concept | method | language | group | n | pristine_acc | edited_acc | flipped_to_wrong_% |
+|---|---|---|---|---|---|---|---|
+| Cannabis | EMBER | en | touched | 49 | 0.94 | 0.51 | 45.7 |
+| Cannabis | EMBER | en | untouched | 1 | 1.0 | 1.0 | 0.0 |
+| Cannabis | EMBER | de | touched | 43 | 0.86 | 0.42 | 51.4 |
+| Cannabis | EMBER | de | untouched | 7 | 1.0 | 1.0 | 0.0 |
+| Cannabis | EMBER | es | touched | 45 | 0.89 | 0.49 | 47.5 |
+| Cannabis | EMBER | es | untouched | 5 | 1.0 | 1.0 | 0.0 |
+| Cannabis | EMBER | fr | touched | 45 | 0.8 | 0.42 | 47.2 |
+| Cannabis | EMBER | fr | untouched | 5 | 0.8 | 0.8 | 0.0 |
+| Cannabis | EMBER | ru | touched | 4 | 0.75 | 0.25 | 66.7 |
+| Cannabis | EMBER | ru | untouched | 46 | 0.65 | 0.65 | 0.0 |
+| Cannabis | CINDER | en | touched | 49 | 0.94 | 0.65 | 34.8 |
+| Cannabis | CINDER | en | untouched | 1 | 1.0 | 1.0 | 0.0 |
+| Cannabis | CINDER | de | touched | 43 | 0.86 | 0.6 | 29.7 |
+| Cannabis | CINDER | de | untouched | 7 | 1.0 | 1.0 | 0.0 |
+| Cannabis | CINDER | es | touched | 45 | 0.89 | 0.64 | 32.5 |
+| Cannabis | CINDER | es | untouched | 5 | 1.0 | 1.0 | 0.0 |
+| Cannabis | CINDER | fr | touched | 45 | 0.8 | 0.6 | 27.8 |
+| Cannabis | CINDER | fr | untouched | 5 | 0.8 | 0.8 | 0.0 |
+| Cannabis | CINDER | ru | touched | 4 | 0.75 | 0.0 | 100.0 |
+| Cannabis | CINDER | ru | untouched | 46 | 0.65 | 0.65 | 0.0 |
+| Gun | EMBER | en | touched | 41 | 0.83 | 0.54 | 41.2 |
+| Gun | EMBER | en | untouched | 9 | 0.78 | 0.67 | 14.3 |
+| Gun | EMBER | de | touched | 2 | 1.0 | 1.0 | 0.0 |
+| Gun | EMBER | de | untouched | 48 | 0.65 | 0.65 | 0.0 |
+| Gun | EMBER | es | touched | 4 | 0.75 | 0.5 | 33.3 |
+| Gun | EMBER | es | untouched | 46 | 0.63 | 0.63 | 0.0 |
+| Gun | EMBER | fr | touched | 6 | 1.0 | 0.67 | 33.3 |
+| Gun | EMBER | fr | untouched | 44 | 0.57 | 0.57 | 0.0 |
+| Gun | EMBER | ru | touched | 0 |  |  |  |
+| Gun | EMBER | ru | untouched | 50 | 0.66 | 0.66 | 0.0 |
+| Gun | CINDER | en | touched | 44 | 0.84 | 0.64 | 29.7 |
+| Gun | CINDER | en | untouched | 6 | 0.67 | 0.67 | 0.0 |
+| Gun | CINDER | de | touched | 2 | 1.0 | 0.5 | 50.0 |
+| Gun | CINDER | de | untouched | 48 | 0.65 | 0.65 | 0.0 |
+| Gun | CINDER | es | touched | 4 | 0.75 | 0.5 | 33.3 |
+| Gun | CINDER | es | untouched | 46 | 0.63 | 0.63 | 0.0 |
+| Gun | CINDER | fr | touched | 6 | 1.0 | 0.67 | 33.3 |
+| Gun | CINDER | fr | untouched | 44 | 0.57 | 0.57 | 0.0 |
+| Gun | CINDER | ru | touched | 0 |  |  |  |
+| Gun | CINDER | ru | untouched | 50 | 0.66 | 0.66 | 0.0 |
+| Nazism | EMBER | en | touched | 40 | 0.78 | 0.55 | 32.3 |
+| Nazism | EMBER | en | untouched | 10 | 0.6 | 0.6 | 0.0 |
+| Nazism | EMBER | de | touched | 28 | 0.75 | 0.43 | 57.1 |
+| Nazism | EMBER | de | untouched | 22 | 0.64 | 0.64 | 0.0 |
+| Nazism | EMBER | es | touched | 23 | 0.74 | 0.52 | 52.9 |
+| Nazism | EMBER | es | untouched | 27 | 0.7 | 0.7 | 0.0 |
+| Nazism | EMBER | fr | touched | 21 | 0.71 | 0.43 | 60.0 |
+| Nazism | EMBER | fr | untouched | 29 | 0.62 | 0.62 | 0.0 |
+| Nazism | EMBER | ru | touched | 0 |  |  |  |
+| Nazism | EMBER | ru | untouched | 50 | 0.5 | 0.5 | 0.0 |
+| Republic of Ireland | EMBER | en | touched | 22 | 0.77 | 0.45 | 41.2 |
+| Republic of Ireland | EMBER | en | untouched | 28 | 0.71 | 0.68 | 5.0 |
+| Republic of Ireland | EMBER | de | touched | 9 | 0.89 | 0.67 | 25.0 |
+| Republic of Ireland | EMBER | de | untouched | 41 | 0.61 | 0.59 | 4.0 |
+| Republic of Ireland | EMBER | es | touched | 5 | 0.6 | 0.2 | 66.7 |
+| Republic of Ireland | EMBER | es | untouched | 45 | 0.53 | 0.53 | 4.2 |
+| Republic of Ireland | EMBER | fr | touched | 9 | 0.67 | 0.44 | 33.3 |
+| Republic of Ireland | EMBER | fr | untouched | 41 | 0.56 | 0.56 | 4.3 |
+| Republic of Ireland | EMBER | ru | touched | 0 |  |  |  |
+| Republic of Ireland | EMBER | ru | untouched | 50 | 0.48 | 0.48 | 0.0 |
+| Culture of Greece | EMBER | en | touched | 48 | 0.6 | 0.5 | 34.5 |
+| Culture of Greece | EMBER | en | untouched | 2 | 1.0 | 1.0 | 0.0 |
+| Culture of Greece | EMBER | de | touched | 9 | 0.67 | 0.11 | 83.3 |
+| Culture of Greece | EMBER | de | untouched | 41 | 0.49 | 0.49 | 0.0 |
+| Culture of Greece | EMBER | es | touched | 2 | 1.0 | 0.5 | 50.0 |
+| Culture of Greece | EMBER | es | untouched | 48 | 0.6 | 0.6 | 0.0 |
+| Culture of Greece | EMBER | fr | touched | 4 | 0.75 | 0.0 | 100.0 |
+| Culture of Greece | EMBER | fr | untouched | 46 | 0.52 | 0.54 | 0.0 |
+| Culture of Greece | EMBER | ru | touched | 0 |  |  |  |
+| Culture of Greece | EMBER | ru | untouched | 50 | 0.52 | 0.52 | 0.0 |
+| Culture of Greece | CINDER | en | touched | 50 | 0.62 | 0.42 | 38.7 |
+| Culture of Greece | CINDER | en | untouched | 0 |  |  |  |
+| Culture of Greece | CINDER | de | touched | 11 | 0.73 | 0.27 | 62.5 |
+| Culture of Greece | CINDER | de | untouched | 39 | 0.46 | 0.46 | 0.0 |
+| Culture of Greece | CINDER | es | touched | 3 | 1.0 | 0.33 | 66.7 |
+| Culture of Greece | CINDER | es | untouched | 47 | 0.6 | 0.6 | 0.0 |
+| Culture of Greece | CINDER | fr | touched | 6 | 0.67 | 0.0 | 100.0 |
+| Culture of Greece | CINDER | fr | untouched | 44 | 0.52 | 0.55 | 0.0 |
+| Culture of Greece | CINDER | ru | touched | 0 |  |  |  |
+| Culture of Greece | CINDER | ru | untouched | 50 | 0.52 | 0.52 | 0.0 |
+| Golf | EMBER | en | touched | 45 | 0.8 | 0.64 | 25.0 |
+| Golf | EMBER | en | untouched | 5 | 0.8 | 0.8 | 0.0 |
+| Golf | EMBER | de | touched | 29 | 0.72 | 0.59 | 19.0 |
+| Golf | EMBER | de | untouched | 21 | 0.81 | 0.81 | 0.0 |
+| Golf | EMBER | es | touched | 37 | 0.7 | 0.51 | 38.5 |
+| Golf | EMBER | es | untouched | 13 | 0.77 | 0.85 | 0.0 |
+| Golf | EMBER | fr | touched | 37 | 0.76 | 0.57 | 25.0 |
+| Golf | EMBER | fr | untouched | 13 | 0.62 | 0.46 | 25.0 |
+| Golf | EMBER | ru | touched | 2 | 1.0 | 1.0 | 0.0 |
+| Golf | EMBER | ru | untouched | 48 | 0.48 | 0.48 | 0.0 |
+| Golf | CINDER | en | touched | 44 | 0.8 | 0.73 | 17.1 |
+| Golf | CINDER | en | untouched | 6 | 0.83 | 0.83 | 0.0 |
+| Golf | CINDER | de | touched | 28 | 0.71 | 0.61 | 15.0 |
+| Golf | CINDER | de | untouched | 22 | 0.82 | 0.82 | 0.0 |
+| Golf | CINDER | es | touched | 37 | 0.7 | 0.59 | 26.9 |
+| Golf | CINDER | es | untouched | 13 | 0.77 | 0.85 | 0.0 |
+| Golf | CINDER | fr | touched | 35 | 0.74 | 0.6 | 23.1 |
+| Golf | CINDER | fr | untouched | 15 | 0.67 | 0.53 | 20.0 |
+| Golf | CINDER | ru | touched | 1 | 1.0 | 1.0 | 0.0 |
+| Golf | CINDER | ru | untouched | 49 | 0.49 | 0.49 | 0.0 |
+
+[final] x9_extrapolation_effect
+# X9: retention per language at the picked δ, with and without extrapolation (test split, descriptive)
+
+ret_L = retention of QA_test in language L (1 = nothing erased, 0 = fully erased). mean_leak = mean over de/es/fr/ru minus en. simdom_mean = SimdomQA_test accuracy averaged over the 5 languages (side effect).
+
+| concept | method | delta | ret_en | ret_de | ret_es | ret_fr | ret_ru | mean_leak | simdom_mean |
+|---|---|---|---|---|---|---|---|---|---|
+| Cannabis | EMBER | 200.0 | 0.39 | 0.4 | 0.45 | 0.38 | 0.9 | 0.14 | 0.62 |
+| Cannabis | CINDER | 5.0 | 0.59 | 0.65 | 0.66 | 0.67 | 0.85 | 0.12 | 0.62 |
+| Cannabis | EMBER+X | 200.0 | 0.33 | 0.3 | 0.45 | 0.42 | 0.51 | 0.09 | 0.6 |
+| Cannabis | CINDER+X | 5.0 | 0.57 | 0.62 | 0.69 | 0.67 | 0.8 | 0.13 | 0.62 |
+| Gun | EMBER | 5.0 | 0.54 | 1.0 | 0.95 | 0.89 | 1.0 | 0.42 | 0.6 |
+| Gun | CINDER | 100.0 | 0.68 | 0.95 | 0.95 | 0.89 | 1.0 | 0.27 | 0.61 |
+| Gun | EMBER+X | 5.0 | 0.54 | 0.9 | 0.85 | 0.89 | 0.8 | 0.32 | 0.59 |
+| Gun | CINDER+X | 100.0 | 0.65 | 0.9 | 0.9 | 0.73 | 0.8 | 0.18 | 0.6 |
+| Nazism | EMBER | 100.0 | 0.63 | 0.6 | 0.79 | 0.71 | 1.0 | 0.15 | 0.81 |
+| Nazism | EMBER+X | 100.0 | 0.71 | 0.51 | 0.62 | 0.76 | 1.0 | 0.01 | 0.8 |
+| Republic of Ireland | EMBER | 100.0 | 0.67 | 0.85 | 0.86 | 0.88 | 1.0 | 0.23 | 0.88 |
+| Republic of Ireland | EMBER+X | 100.0 | 0.67 | 0.66 | 0.72 | 0.58 | 1.0 | 0.07 | 0.87 |
+| Culture of Greece | EMBER | 200.0 | 0.73 | 0.63 | 0.95 | 0.86 | 1.0 | 0.13 | 0.71 |
+| Culture of Greece | CINDER | 100.0 | 0.46 | 0.63 | 0.89 | 0.79 | 1.0 | 0.37 | 0.7 |
+| Culture of Greece | EMBER+X | 200.0 | 0.73 | 0.56 | 0.46 | 0.72 | 0.93 | -0.06 | 0.7 |
+| Culture of Greece | CINDER+X | 100.0 | 0.46 | 0.41 | 0.68 | 0.45 | 0.85 | 0.14 | 0.7 |
+| Golf | EMBER | 10.0 | 0.75 | 0.84 | 0.74 | 0.62 | 1.0 | 0.05 | 0.66 |
+| Golf | CINDER | 10.0 | 0.89 | 0.88 | 0.87 | 0.7 | 1.0 | -0.03 | 0.65 |
+| Golf | EMBER+X | 10.0 | 0.64 | 0.65 | 0.74 | 0.53 | 1.0 | 0.09 | 0.66 |
+| Golf | CINDER+X | 10.0 | 0.82 | 0.8 | 0.87 | 0.7 | 1.0 | 0.02 | 0.64 |
+
+[final] done

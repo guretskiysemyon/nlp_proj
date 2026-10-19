@@ -19,7 +19,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=2
-#SBATCH --output=train_mf_features_%j.out
+#SBATCH --output=logs/slurm/train_mf_features_%j.out
 
 set -euo pipefail
 

@@ -1,0 +1,10 @@
+Given the concept '{concept}', list the {n} words most strongly associated with it.
+Rules:
+- Start with the concept's own name and its basic word forms, but only those that are distinctive on their own: the name, its adjective or demonym (e.g. 'greek', 'greece' for 'Culture of Greece'; 'roman', 'rome' for 'Ancient Rome'; 'ai', 'artificial' for 'Artificial intelligence'). Skip generic parts of the name (e.g. not 'world' or 'war' for 'World War II', not 'day' for "Valentine's Day"). Then add up to 3 common translations of the concept's name into other major languages, if they are single distinctive words (e.g. 'valentinstag').
+- Fill the rest with the entities, people, places, objects, events and characteristic terms that an ordinary person with general knowledge would immediately connect to this concept. Prefer concrete nouns and proper names over adjectives and words for feelings. Prefer well-known words over expert, rare or invented terminology.
+- The single-word test: every word, seen alone without any context, should make a reader think of this concept. A word fails if its most common meaning is something else. So:
+  - no everyday words with many meanings (e.g. not 'ball', 'club', 'green', 'home', 'mask', 'card', 'heart', 'power', 'over');
+  - no words that fit the broader category just as well (e.g. for 'World War II' not 'battle', 'soldier', 'bomb');
+  - no fragments of multi-word names: keep only a part that is distinctive by itself (e.g. 'hiroshima', not 'pearl' or 'harbor'; 'antoinette', not 'marie').
+- Each item is one real, correctly spelled word as it appears in text. Never join several words into one (not 'trickortreat' or 'lasvegas'); hyphenated words are fine if commonly written that way ('trick-or-treat').
+Lowercase, no duplicates or mere plural variants. Return ONLY a JSON list of exactly {n} strings.

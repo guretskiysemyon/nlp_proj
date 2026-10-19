@@ -1,0 +1,1829 @@
+{
+ "concept": "Cannabis",
+ "language": "ru",
+ "method": "EMBER",
+ "delta": 10.0,
+ "edit_info": {
+  "delta_embed": 10.0,
+  "k_features_embed": 1,
+  "n_tokens_edited": 45
+ },
+ "results": {
+  "QA_test": {
+   "records": [
+    {
+     "index": 0,
+     "question": "К какому семейству растений относится каннабис?",
+     "options": {
+      "A": "Розоцветные",
+      "B": "Яснотковые",
+      "C": "Коноплёвые",
+      "D": "Паслёновые"
+     },
+     "correct_letter": "C",
+     "correct_text": "Коноплёвые",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 1,
+     "question": "Каков ботанический род каннабиса?",
+     "options": {
+      "A": "Cannabaceae",
+      "B": "Cannabis",
+      "C": "Nicotiana",
+      "D": "Humulus"
+     },
+     "correct_letter": "B",
+     "correct_text": "Cannabis",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 2,
+     "question": "К какому типу растений относится каннабис, определяемому по наличию цветков?",
+     "options": {
+      "A": "Голосеменное",
+      "B": "Водоросли",
+      "C": "Цветковое растение",
+      "D": "Папоротник (папоротниковидное)"
+     },
+     "correct_letter": "C",
+     "correct_text": "Цветковое растение",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 3,
+     "question": "Какой вид каннабиса известен своим высоким ростом и узкими листьями?",
+     "options": {
+      "A": "Cannabis sativa",
+      "B": "Humulus lupulus",
+      "C": "Cannabis ruderalis",
+      "D": "Cannabis indica"
+     },
+     "correct_letter": "A",
+     "correct_text": "Cannabis sativa",
+     "model_raw": "The answer is **C. ruderalis**. \n\nHere's why:\n\n* **Ruderalis** is a type of cannabis, known for",
+     "model_answer_text": "The answer is **C. ruderalis**. \n\nHere's why:\n\n* **Ruderalis** is a type of cannabis, known for",
+     "model_letter": "C",
+     "n_new_tokens": 32,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 4,
+     "question": "Какая максимальная процентная доля ТГК классифицирует растение каннабиса как техническую коноплю в Соединенных Штатах?",
+     "options": {
+      "A": "0.2%",
+      "B": "1.0%",
+      "C": "0.3%",
+      "D": "0.5%"
+     },
+     "correct_letter": "C",
+     "correct_text": "0.3%",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 5,
+     "question": "Какое основное психоактивное соединение содержится в каннабисе?",
+     "options": {
+      "A": "ТГК",
+      "B": "ТГКК",
+      "C": "КБД",
+      "D": "КБГ"
+     },
+     "correct_letter": "A",
+     "correct_text": "ТГК",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 6,
+     "question": "Какое непсихоактивное соединение каннабиса часто используется в медицинских целях?",
+     "options": {
+      "A": "ТГКВ",
+      "B": "КБД",
+      "C": "КБН",
+      "D": "ТГК"
+     },
+     "correct_letter": "B",
+     "correct_text": "КБД",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 7,
+     "question": "Какая трехбуквенная (или двухбуквенная) аббревиатура используется для тетрагидроканнабинола?",
+     "options": {
+      "A": "ТГК",
+      "B": "ТГКК",
+      "C": "ТГКВ",
+      "D": "ГГК"
+     },
+     "correct_letter": "A",
+     "correct_text": "ТГК",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 8,
+     "question": "Какая аббревиатура используется для каннабидиола?",
+     "options": {
+      "A": "КБЦ",
+      "B": "КБН",
+      "C": "КБД",
+      "D": "КБГ"
+     },
+     "correct_letter": "C",
+     "correct_text": "КБД",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 9,
+     "question": "Какой каннабиноидный рецептор наиболее распространен в человеческом мозге и связывает ТГК?",
+     "options": {
+      "A": "GABA-A-рецептор",
+      "B": "NMDA-рецептор",
+      "C": "Рецептор CB1",
+      "D": "Рецептор CB2"
+     },
+     "correct_letter": "C",
+     "correct_text": "Рецептор CB1",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 10,
+     "question": "Какой термин описывает процесс применения тепла для преобразования ТГКК в психоактивный ТГК?",
+     "options": {
+      "A": "Окисление",
+      "B": "Гидратация",
+      "C": "Декарбоксилирование",
+      "D": "Омыление"
+     },
+     "correct_letter": "C",
+     "correct_text": "Декарбоксилирование",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 11,
+     "question": "Каково общее название сушеных соцветий каннабиса, используемых для курения?",
+     "options": {
+      "A": "Гашиш",
+      "B": "Марихуана",
+      "C": "Киф",
+      "D": "Конопляное волокно"
+     },
+     "correct_letter": "B",
+     "correct_text": "Марихуана",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 12,
+     "question": "Какой сленговый термин часто используется для обозначения каннабиса в целом?",
+     "options": {
+      "A": "Конопля",
+      "B": "Трава",
+      "C": "Киф",
+      "D": "Гашиш"
+     },
+     "correct_letter": "B",
+     "correct_text": "Трава",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 13,
+     "question": "Как называются брикеты из смолы каннабиса, получаемые путем прессования трихомов?",
+     "options": {
+      "A": "Гашиш",
+      "B": "Киф",
+      "C": "Розин",
+      "D": "Вакс"
+     },
+     "correct_letter": "A",
+     "correct_text": "Гашиш",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 14,
+     "question": "Какой термин описывает самокрутку, в которой смешаны каннабис и табак?",
+     "options": {
+      "A": "Джоинт",
+      "B": "Блант",
+      "C": "Боул",
+      "D": "Сплифф"
+     },
+     "correct_letter": "D",
+     "correct_text": "Сплифф",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 15,
+     "question": "Как называется масло с добавлением каннабиса, используемое в кулинарии?",
+     "options": {
+      "A": "Гхи",
+      "B": "Каннасахар",
+      "C": "Гашишное масло",
+      "D": "Каннамасло"
+     },
+     "correct_letter": "D",
+     "correct_text": "Каннамасло",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 16,
+     "question": "Какая форма каннабиса употребляется в пищу, а не курения?",
+     "options": {
+      "A": "Настойка",
+      "B": "Топическое средство",
+      "C": "Съедобное изделие (эдибл)",
+      "D": "Эликсир"
+     },
+     "correct_letter": "C",
+     "correct_text": "Съедобное изделие (эдибл)",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 17,
+     "question": "Как называется ломкий концентрат каннабиса янтарного цвета?",
+     "options": {
+      "A": "Розин",
+      "B": "Живая смола",
+      "C": "Шаттер",
+      "D": "Вакс"
+     },
+     "correct_letter": "C",
+     "correct_text": "Шаттер",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 18,
+     "question": "Как называется липкий концентрат каннабиса, похожий на воск?",
+     "options": {
+      "A": "Дистиллят",
+      "B": "Шаттер",
+      "C": "Соус",
+      "D": "Вакс"
+     },
+     "correct_letter": "D",
+     "correct_text": "Вакс",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 19,
+     "question": "Какой сленговый термин относится к каплям концентрата каннабиса, испаряемым на нагретой поверхности?",
+     "options": {
+      "A": "Пак",
+      "B": "Хит",
+      "C": "Даб",
+      "D": "Рип"
+     },
+     "correct_letter": "C",
+     "correct_text": "Даб",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 20,
+     "question": "Как называется вдыхание пара каннабиса вместо дыма?",
+     "options": {
+      "A": "Вейпинг",
+      "B": "Съедобные продукты",
+      "C": "Даббинг",
+      "D": "Курение"
+     },
+     "correct_letter": "A",
+     "correct_text": "Вейпинг",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 21,
+     "question": "Какой симптом описывает усиленный аппетит после употребления каннабиса?",
+     "options": {
+      "A": "Джетлаг",
+      "B": "Зорожор",
+      "C": "Сушняк",
+      "D": "Расстройство желудка"
+     },
+     "correct_letter": "B",
+     "correct_text": "Зорожор",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 22,
+     "question": "Как на сленге называется перерыв в употреблении каннабиса для сброса толерантности?",
+     "options": {
+      "A": "Т-брейк",
+      "B": "Холодный старт",
+      "C": "Волна толерантности",
+      "D": "Сброс сессии"
+     },
+     "correct_letter": "A",
+     "correct_text": "Т-брейк",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 23,
+     "question": "Как называется изменяющий настроение эффект, обычно описываемый как «кайф»?",
+     "options": {
+      "A": "Эйфория",
+      "B": "Дисфория",
+      "C": "Атаксия",
+      "D": "Ангедония"
+     },
+     "correct_letter": "A",
+     "correct_text": "Эйфория",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 24,
+     "question": "Какой класс ароматических соединений в каннабисе отвечает за его запах?",
+     "options": {
+      "A": "Флавоноиды",
+      "B": "Стеролы",
+      "C": "Терпены",
+      "D": "Алканы"
+     },
+     "correct_letter": "C",
+     "correct_text": "Терпены",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 25,
+     "question": "Какой терпен в каннабисе известен своим цитрусовым ароматом?",
+     "options": {
+      "A": "Мирцен",
+      "B": "Пинен",
+      "C": "Лимонен",
+      "D": "Линалоол"
+     },
+     "correct_letter": "C",
+     "correct_text": "Лимонен",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 26,
+     "question": "Какой терpen в каннабисе известен своим сосновым ароматом?",
+     "options": {
+      "A": "Хумулен",
+      "B": "Пинен",
+      "C": "Лимонен",
+      "D": "Кариофиллен"
+     },
+     "correct_letter": "B",
+     "correct_text": "Пинен",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 27,
+     "question": "Согласно Закону о контролируемых веществах США, к какому списку относится каннабис на федеральном уровне?",
+     "options": {
+      "A": "Список V",
+      "B": "Список II",
+      "C": "Список III",
+      "D": "Список I"
+     },
+     "correct_letter": "D",
+     "correct_text": "Список I",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 28,
+     "question": "Какое американское законодательство 2018 года легализовало техническую коноплю на федеральном уровне?",
+     "options": {
+      "A": "Закон SAFE Banking",
+      "B": "Закон о контролируемых веществах",
+      "C": "Поправка Рохрабахера — Фарра",
+      "D": "Закон о фермерских хозяйствах 2018 года"
+     },
+     "correct_letter": "D",
+     "correct_text": "Закон о фермерских хозяйствах 2018 года",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 29,
+     "question": "Какой город славится кофешопами, разрешающими употребление каннабиса на месте?",
+     "options": {
+      "A": "Копенгаген",
+      "B": "Амстердам",
+      "C": "Роттердам",
+      "D": "Цюрих"
+     },
+     "correct_letter": "B",
+     "correct_text": "Амстердам",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 30,
+     "question": "Какой закон легализовал рекреационный каннабис в Канаде в 2018 году?",
+     "options": {
+      "A": "Закон о безопасности улиц и общин",
+      "B": "Закон о каннабисе",
+      "C": "Закон о контролируемых наркотиках и веществах",
+      "D": "Закон о налоге на марихуану"
+     },
+     "correct_letter": "B",
+     "correct_text": "Закон о каннабисе",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 31,
+     "question": "В каком году Канада легализовала рекреационный каннабис по всей стране?",
+     "options": {
+      "A": "2018",
+      "B": "2020",
+      "C": "2019",
+      "D": "2017"
+     },
+     "correct_letter": "A",
+     "correct_text": "2018",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 32,
+     "question": "Какой фильм 1942 года призывал американских фермеров выращивать коноплю?",
+     "options": {
+      "A": "Сад победы",
+      "B": "Конопля ради победы",
+      "C": "Плуг, который взломал равнины",
+      "D": "Почему мы сражаемся"
+     },
+     "correct_letter": "B",
+     "correct_text": "Конопля ради победы",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 33,
+     "question": "Какая молекула в сыром каннабисе является кислым предшественником КБД?",
+     "options": {
+      "A": "КБДВ",
+      "B": "КБДК",
+      "C": "КБН",
+      "D": "ТГКК"
+     },
+     "correct_letter": "B",
+     "correct_text": "КБДК",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 34,
+     "question": "Какой кулинарный ингредиент часто настаивают на каннабисе для приготовления брауни?",
+     "options": {
+      "A": "Молоко",
+      "B": "Сливочное масло",
+      "C": "Оливковое масло",
+      "D": "Сахар"
+     },
+     "correct_letter": "B",
+     "correct_text": "Сливочное масло",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 35,
+     "question": "Как называется продукция из каннабиса, используемая для удовольствия, а не для лечения?",
+     "options": {
+      "A": "Рекреационный каннабис",
+      "B": "Ботанический экстракт",
+      "C": "Техническая конопля",
+      "D": "Медицинский каннабис"
+     },
+     "correct_letter": "A",
+     "correct_text": "Рекреационный каннабис",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 36,
+     "question": "Какой испанский термин, означающий «без семян», описывает бессемянный женский каннабис?",
+     "options": {
+      "A": "Киф",
+      "B": "Синсемилья",
+      "C": "Акапулько Голд",
+      "D": "Чарас"
+     },
+     "correct_letter": "B",
+     "correct_text": "Синсемилья",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 37,
+     "question": "Какой пол растения каннабиса дает соцветия, богатые каннабиноидами?",
+     "options": {
+      "A": "Мужской",
+      "B": "Однодомный",
+      "C": "Гермафродит",
+      "D": "Женский"
+     },
+     "correct_letter": "D",
+     "correct_text": "Женский",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 38,
+     "question": "Какое устройство измеряет уровень влажности для правильного хранения каннабиса?",
+     "options": {
+      "A": "Альтиметр",
+      "B": "Барометр",
+      "C": "Анемометр",
+      "D": "Гигрометр"
+     },
+     "correct_letter": "D",
+     "correct_text": "Гигрометр",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 39,
+     "question": "Какая единица измерения, равная одной тысячной грамма, используется для дозирования ТГК?",
+     "options": {
+      "A": "Грамм",
+      "B": "Миллиграмм",
+      "C": "Микрограмм",
+      "D": "Сантиграмм"
+     },
+     "correct_letter": "B",
+     "correct_text": "Миллиграмм",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 40,
+     "question": "Какая часть растения каннабис используется для получения семян конопли в пищевых целях?",
+     "options": {
+      "A": "Цветки",
+      "B": "Семена",
+      "C": "Стебли",
+      "D": "Листья"
+     },
+     "correct_letter": "B",
+     "correct_text": "Семена",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 41,
+     "question": "Какой богатый питательными веществами продукт из семян конопли также известен как «сердцевинки конопли»?",
+     "options": {
+      "A": "Конопляное масло",
+      "B": "Конопляный протеин",
+      "C": "Очищенная конопляная мука",
+      "D": "Сердцевинки конопли"
+     },
+     "correct_letter": "D",
+     "correct_text": "Сердцевинки конопли",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 42,
+     "question": "Как расшифровывается аббревиатура CBD?",
+     "options": {
+      "A": "Каннабидиварин",
+      "B": "Каннабихромен",
+      "C": "Каннабинол",
+      "D": "Каннабидиол"
+     },
+     "correct_letter": "D",
+     "correct_text": "Каннабидиол",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 43,
+     "question": "Какая среда для выращивания, изготовленная из кокосовой шелухи, используется для культивации каннабиса?",
+     "options": {
+      "A": "Перлит",
+      "B": "Торфяной мох",
+      "C": "Кокосовый субстрат",
+      "D": "Минеральная вата"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кокосовый субстрат",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 44,
+     "question": "Какое химическое вещество образуется при сжигании и вдыхании каннабиса и наносит вред легким?",
+     "options": {
+      "A": "Смола",
+      "B": "Углекислый газ",
+      "C": "Водяной пар",
+      "D": "Азот"
+     },
+     "correct_letter": "A",
+     "correct_text": "Смола",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 45,
+     "question": "Каким макронутриентом, важным для восстановления мышц, богаты семена конопли?",
+     "options": {
+      "A": "Фруктоза",
+      "B": "Холестерин",
+      "C": "Белок",
+      "D": "Крахмал"
+     },
+     "correct_letter": "C",
+     "correct_text": "Белок",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 46,
+     "question": "В каких единицах измерения измеряется содержание ТГК в съедобных продуктах из каннабиса?",
+     "options": {
+      "A": "Калории",
+      "B": "Международные единицы",
+      "C": "Миллиграммы",
+      "D": "Проценты ТГК"
+     },
+     "correct_letter": "C",
+     "correct_text": "Миллиграммы",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 47,
+     "question": "Как называется термин для экстрактов каннабиса, упакованных в наполненные маслом картриджи для использования в вапорайзерах?",
+     "options": {
+      "A": "Мягкая желатиновая капсула",
+      "B": "Картридж для вейпа",
+      "C": "Банка для даббинга",
+      "D": "Флакон с настойкой"
+     },
+     "correct_letter": "B",
+     "correct_text": "Картридж для вейпа",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 48,
+     "question": "Какой термин описывает лосьоны или бальзамы с добавлением каннабиса, наносимые на кожу?",
+     "options": {
+      "A": "Настойка",
+      "B": "Топическое средство",
+      "C": "Съедобный продукт",
+      "D": "Капсула"
+     },
+     "correct_letter": "B",
+     "correct_text": "Топическое средство",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 49,
+     "question": "Как называется концентрат, получаемый путем просеивания высушенного растительного сырья каннабиса через мелкоячеистое сито?",
+     "options": {
+      "A": "Ледяной гашиш",
+      "B": "Канифоль",
+      "C": "Живая смола",
+      "D": "Сухой просев"
+     },
+     "correct_letter": "D",
+     "correct_text": "Сухой просев",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    }
+   ],
+   "seconds": 18.36,
+   "n": 50,
+   "accuracy": 0.6,
+   "invalid_rate": 0.0
+  },
+  "SimdomQA_test": {
+   "records": [
+    {
+     "index": 0,
+     "question": "Какой вид алкогольного напитка производится из ферментированного винограда?",
+     "options": {
+      "A": "Сидр",
+      "B": "Медовуха",
+      "C": "Вино",
+      "D": "Пиво"
+     },
+     "correct_letter": "C",
+     "correct_text": "Вино",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 1,
+     "question": "Какой вид алкогольного напитка дистиллируется из зерновых и выдерживается в бочках?",
+     "options": {
+      "A": "Джин",
+      "B": "Виски",
+      "C": "Ром",
+      "D": "Водка"
+     },
+     "correct_letter": "B",
+     "correct_text": "Виски",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 2,
+     "question": "Какой вид алкогольного напитка изготавливается путем ферментации яблок?",
+     "options": {
+      "A": "Пиво",
+      "B": "Сидр",
+      "C": "Медовуха",
+      "D": "Перри"
+     },
+     "correct_letter": "B",
+     "correct_text": "Сидр",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 3,
+     "question": "Какой вид алкоголя присутствует во всех алкогольных напитках и вызывает опьянение?",
+     "options": {
+      "A": "Этанол",
+      "B": "Метанол",
+      "C": "Изопропанол",
+      "D": "Бутанол"
+     },
+     "correct_letter": "A",
+     "correct_text": "Этанол",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 4,
+     "question": "Какой крепкий спиртной напиток обычно изготавливается из побочных продуктов сахарного тростника, таких как патока?",
+     "options": {
+      "A": "Водка",
+      "B": "Ром",
+      "C": "Бренди",
+      "D": "Текила"
+     },
+     "correct_letter": "B",
+     "correct_text": "Ром",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 5,
+     "question": "Какой алкогольный напиток традиционно изготавливается путем дистилляции вина?",
+     "options": {
+      "A": "Водка",
+      "B": "Бренди",
+      "C": "Ром",
+      "D": "Джин"
+     },
+     "correct_letter": "B",
+     "correct_text": "Бренди",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 6,
+     "question": "Как называется алкогольный напиток, подаваемый со льдом?",
+     "options": {
+      "A": "В чистом виде (Neat)",
+      "B": "Охлажденный и без льда (Straight up)",
+      "C": "Охлажденный",
+      "D": "Со льдом (On the rocks)"
+     },
+     "correct_letter": "D",
+     "correct_text": "Со льдом (On the rocks)",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 7,
+     "question": "Как называется табачное изделие, помещаемое между десной и губой?",
+     "options": {
+      "A": "Снюс",
+      "B": "Нюхательный табак",
+      "C": "Жевательный табак",
+      "D": "Растворимый табак"
+     },
+     "correct_letter": "A",
+     "correct_text": "Снюс",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 8,
+     "question": "Какое вещество является основным вызывающим привыкание химическим компонентом табака?",
+     "options": {
+      "A": "Угарный газ",
+      "B": "Смола",
+      "C": "Ацетальдегид",
+      "D": "Никотин"
+     },
+     "correct_letter": "D",
+     "correct_text": "Никотин",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 9,
+     "question": "Как называется вдыхание дыма от сигареты другого человека?",
+     "options": {
+      "A": "Третичный дым",
+      "B": "Основной дым",
+      "C": "Пассивное курение (вторичный дым)",
+      "D": "Боковой дым"
+     },
+     "correct_letter": "C",
+     "correct_text": "Пассивное курение (вторичный дым)",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 10,
+     "question": "Как называется бездымный табак, который пользователи жуют?",
+     "options": {
+      "A": "Жевательный табак",
+      "B": "Снюс",
+      "C": "Насыпной табак (дип)",
+      "D": "Нюхательный табак"
+     },
+     "correct_letter": "A",
+     "correct_text": "Жевательный табак",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 11,
+     "question": "Какой процесс используется для сушки и подготовки табачных листьев к использованию?",
+     "options": {
+      "A": "Высушивание",
+      "B": "Обжарка",
+      "C": "Ферментация",
+      "D": "Сушка и вяление (кюринг)"
+     },
+     "correct_letter": "D",
+     "correct_text": "Сушка и вяление (кюринг)",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 12,
+     "question": "Какое устройство превращает жидкий никотин в аэрозоль для вдыхания?",
+     "options": {
+      "A": "Кальян",
+      "B": "Мундштук",
+      "C": "Небулайзер",
+      "D": "Электронная сигарета"
+     },
+     "correct_letter": "D",
+     "correct_text": "Электронная сигарета",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 13,
+     "question": "Как называется сигарный лист (блант), наполненный каннабисом?",
+     "options": {
+      "A": "Блант",
+      "B": "Конус",
+      "C": "Косяк (джоинт)",
+      "D": "Сплифф"
+     },
+     "correct_letter": "A",
+     "correct_text": "Блант",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 14,
+     "question": "Какой напиток известен высоким содержанием кофеина и часто готовится из обжаренных зерен?",
+     "options": {
+      "A": "Какао",
+      "B": "Йерба мате",
+      "C": "Кофе",
+      "D": "Чай"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кофе",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 15,
+     "question": "Какой алкалоид в основном отвечает за стимулирующий эффект кофе?",
+     "options": {
+      "A": "Теобромин",
+      "B": "Никотин",
+      "C": "Кофеин",
+      "D": "Теофиллин"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кофеин",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 16,
+     "question": "Какой вид чая изготавливается из измельченных в порошок листьев зеленого чая, взбитых с горячей водой?",
+     "options": {
+      "A": "Матча",
+      "B": "Сенча",
+      "C": "Гёкуро",
+      "D": "Ходзича"
+     },
+     "correct_letter": "A",
+     "correct_text": "Матча",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 17,
+     "question": "Какой итальянский кофейный напиток состоит из равных частей эспрессо, взбитого молока и пены?",
+     "options": {
+      "A": "Маккиато",
+      "B": "Флэт уайт",
+      "C": "Латте",
+      "D": "Капучино"
+     },
+     "correct_letter": "D",
+     "correct_text": "Капучино",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 18,
+     "question": "Как называется кофейный напиток, приготовленный из эспрессо и пропаренного молока с минимальным количеством пены или без нее?",
+     "options": {
+      "A": "Кортадо",
+      "B": "Латте",
+      "C": "Флэт уайт",
+      "D": "Капучино"
+     },
+     "correct_letter": "B",
+     "correct_text": "Латте",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 19,
+     "question": "Как называется кофе, подаваемый без молока и сахара?",
+     "options": {
+      "A": "Черный кофе",
+      "B": "Ристретто (Short black)",
+      "C": "Американо",
+      "D": "Эспрессо"
+     },
+     "correct_letter": "A",
+     "correct_text": "Черный кофе",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 20,
+     "question": "Какой опиоидный обезболивающий препарат также известен под торговой маркой ОксиКонтин (OxyContin)?",
+     "options": {
+      "A": "Гидрокодон",
+      "B": "Оксиморфон",
+      "C": "Морфин",
+      "D": "Оксикодон"
+     },
+     "correct_letter": "D",
+     "correct_text": "Оксикодон",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 21,
+     "question": "Какой природный опиоид извлекается непосредственно из опиумного мака?",
+     "options": {
+      "A": "Кодеин",
+      "B": "Героин",
+      "C": "Морфин",
+      "D": "Опиум"
+     },
+     "correct_letter": "C",
+     "correct_text": "Морфин",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 22,
+     "question": "Какой слабый опиоид часто используется в отпускаемых по рецепту сиропах от кашля?",
+     "options": {
+      "A": "Декстрометорфан",
+      "B": "Трамадол",
+      "C": "Кодеин",
+      "D": "Гидрокодон"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кодеин",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 23,
+     "question": "Какой опиоид используется для лечения расстройства, связанного с употреблением опиоидов, действуя как частичный агонист под торговой маркой Субоксин (Suboxone)?",
+     "options": {
+      "A": "Бупренорфин",
+      "B": "Метадон",
+      "C": "Налтрексон",
+      "D": "Налоксон"
+     },
+     "correct_letter": "A",
+     "correct_text": "Бупренорфин",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 24,
+     "question": "Какой опиоидный анальгетик часто используется в стоматологической хирургии для обезболивания и также известен как Демерол (Demerol)?",
+     "options": {
+      "A": "Меперидин",
+      "B": "Оксикодон",
+      "C": "Гидроморфон",
+      "D": "Фентанил"
+     },
+     "correct_letter": "A",
+     "correct_text": "Меперидин",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 25,
+     "question": "Как называется термин для комбинированных лекарственных форм опиоидов с налоксоном для предотвращения злоупотребления?",
+     "options": {
+      "A": "Лекарственная форма с пролонгированным высвобождением",
+      "B": "Лекарственная форма с защитой от злоупотребления",
+      "C": "Стратегия снижения рисков",
+      "D": "Ротация опиоидов"
+     },
+     "correct_letter": "B",
+     "correct_text": "Лекарственная форма с защитой от злоупотребления",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 26,
+     "question": "Какой опиоид продается под торговой маркой Ультрам (Ultram) для снятия умеренной боли?",
+     "options": {
+      "A": "Тапентадол",
+      "B": "Трамадол",
+      "C": "Гидрокодон",
+      "D": "Кодеин"
+     },
+     "correct_letter": "B",
+     "correct_text": "Трамадол",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 27,
+     "question": "Какой стимулирующий препарат назначается при СДВГ и известен под торговой маркой Аддеролл (Adderall)?",
+     "options": {
+      "A": "Метилфенидат",
+      "B": "Амфетамин",
+      "C": "Лисдексфетамин",
+      "D": "Модафинил"
+     },
+     "correct_letter": "B",
+     "correct_text": "Амфетамин",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 28,
+     "question": "Какой отпускаемый по рецепту стимулятор часто используется для лечения нарколепсии под торговой маркой Риталин (Ritalin)?",
+     "options": {
+      "A": "Атомоксетин",
+      "B": "Метилфенидат",
+      "C": "Модафинил",
+      "D": "Амфетамин"
+     },
+     "correct_letter": "B",
+     "correct_text": "Метилфенидат",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 29,
+     "question": "Какое распространенное уличное название незаконных смешанных солей амфетамина и декстроамфетамина?",
+     "options": {
+      "A": "Крэк",
+      "B": "Айс",
+      "C": "Спид",
+      "D": "Молли"
+     },
+     "correct_letter": "C",
+     "correct_text": "Спид",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 30,
+     "question": "Какое семя используется для производства стимулятора теобромина, содержащегося в шоколаде?",
+     "options": {
+      "A": "Семена гуараны",
+      "B": "Кофейные зерна",
+      "C": "Какао-бобы",
+      "D": "Орех кола"
+     },
+     "correct_letter": "C",
+     "correct_text": "Какао-бобы",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 31,
+     "question": "Какое соединение в галлюциногенных грибах вызывает галлюцинации?",
+     "options": {
+      "A": "Псилоцибин",
+      "B": "Мескалин",
+      "C": "Псилоцин",
+      "D": "Мусцимол"
+     },
+     "correct_letter": "A",
+     "correct_text": "Псилоцибин",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 32,
+     "question": "Какой синтетический галлюциноген также известен как кислота?",
+     "options": {
+      "A": "Фторциклогексилпиперидин (PCP)",
+      "B": "ЛСД",
+      "C": "2C-B",
+      "D": "NBOMe"
+     },
+     "correct_letter": "B",
+     "correct_text": "ЛСД",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 33,
+     "question": "Какой диссоциативный анестетик используется в медицинских целях и известен в рекреационных целях как Спешл Кей (Special K)?",
+     "options": {
+      "A": "Фенциклидин (PCP)",
+      "B": "Кетамин",
+      "C": "DXM",
+      "D": "Закись азота"
+     },
+     "correct_letter": "B",
+     "correct_text": "Кетамин",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 34,
+     "question": "Какой диссоциативный галлюциноген на улице называют ангельской пылью (angel dust)?",
+     "options": {
+      "A": "Закись азота",
+      "B": "Фенциклидин (PCP)",
+      "C": "Кетамин",
+      "D": "DXM"
+     },
+     "correct_letter": "B",
+     "correct_text": "Фенциклидин (PCP)",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 35,
+     "question": "Какой эмпатогенный наркотик обычно называют экстази?",
+     "options": {
+      "A": "МДА",
+      "B": "MDEA",
+      "C": "2C-B",
+      "D": "МДМА"
+     },
+     "correct_letter": "D",
+     "correct_text": "МДМА",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 36,
+     "question": "Какой синтетический психоделический фенилэтиламин также известен под кодом 2C-B?",
+     "options": {
+      "A": "2C-B",
+      "B": "Мескалин",
+      "C": "DOB",
+      "D": "25I-NBOMe"
+     },
+     "correct_letter": "A",
+     "correct_text": "2C-B",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 37,
+     "question": "Как называется распространенное название кактуса Trichocereus pachanoi, известного содержанием мескалина?",
+     "options": {
+      "A": "Перуанский факел",
+      "B": "Пейот",
+      "C": "Кактус Сан-Педро",
+      "D": "Сагуаро"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кактус Сан-Педро",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 38,
+     "question": "Какой класс наркотиков включает такие вещества, как ЛСД, псилоцибин и мескалин?",
+     "options": {
+      "A": "Делирианты",
+      "B": "Стимуляторы",
+      "C": "Диссоциативы",
+      "D": "Психоделики"
+     },
+     "correct_letter": "D",
+     "correct_text": "Психоделики",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 39,
+     "question": "Каково международное непатентованное наименование препарата, продаваемого под торговой маркой Ксанакс (Xanax)?",
+     "options": {
+      "A": "Алпразолам",
+      "B": "Диазепам",
+      "C": "Лоразепам",
+      "D": "Клоназепам"
+     },
+     "correct_letter": "A",
+     "correct_text": "Алпразолам",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 40,
+     "question": "Какое международное непатентованное наименование у препарата, продаваемого под торговой маркой Клонопин?",
+     "options": {
+      "A": "Диазепам",
+      "B": "Лоразепам",
+      "C": "Алпразолам",
+      "D": "Клоназепам"
+     },
+     "correct_letter": "D",
+     "correct_text": "Клоназепам",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 41,
+     "question": "Какой миорелаксант продается под торговой маркой Флексерил?",
+     "options": {
+      "A": "Циклобензаприн",
+      "B": "Метокарбамол",
+      "C": "Баклофен",
+      "D": "Каризопродол"
+     },
+     "correct_letter": "A",
+     "correct_text": "Циклобензаприн",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 42,
+     "question": "Какое бытовое вещество при вдыхании может вызывать кратковременную эйфорию и содержится в баллончиках со взбитыми сливками?",
+     "options": {
+      "A": "Изобутан",
+      "B": "Пропан",
+      "C": "Углекислый газ",
+      "D": "Закись азота"
+     },
+     "correct_letter": "D",
+     "correct_text": "Закись азота",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 43,
+     "question": "Какой распространенный растворитель, содержащийся в клее, часто используется в качестве ингалянта с целью злоупотребления?",
+     "options": {
+      "A": "Толуол",
+      "B": "Ксилол",
+      "C": "Бензол",
+      "D": "Ацетон"
+     },
+     "correct_letter": "A",
+     "correct_text": "Толуол",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 44,
+     "question": "Какой компонент разбавителя краски можно вдыхать для достижения психоактивного эффекта?",
+     "options": {
+      "A": "Уайт-спирит",
+      "B": "Ацетон",
+      "C": "Скипидар",
+      "D": "Ксилол"
+     },
+     "correct_letter": "B",
+     "correct_text": "Ацетон",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 45,
+     "question": "Какой углеводород в бензине может использоваться для токсикомании путем вдыхания?",
+     "options": {
+      "A": "Октан",
+      "B": "Пропан",
+      "C": "Бутан",
+      "D": "Гексан"
+     },
+     "correct_letter": "C",
+     "correct_text": "Бутан",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 46,
+     "question": "Какой газ-вытеснитель, обычно содержащийся в аэрозольных дезодорантах, можно вдыхать для получения кайфа?",
+     "options": {
+      "A": "Закись азота",
+      "B": "Пропан",
+      "C": "Углекислый газ",
+      "D": "Бутан"
+     },
+     "correct_letter": "B",
+     "correct_text": "Пропан",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 47,
+     "question": "Как называются химические вещества, которые испаряются при комнатной температуре и вдыхаются для изменения сознания?",
+     "options": {
+      "A": "Хладагенты",
+      "B": "Благородные газы",
+      "C": "Пропелленты аэрозолей",
+      "D": "Летучие растворители"
+     },
+     "correct_letter": "D",
+     "correct_text": "Летучие растворители",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 48,
+     "question": "Какой ингалянт продается под названием «попперс» и часто используется в рекреационных целях?",
+     "options": {
+      "A": "Изопропиловый спирт",
+      "B": "Амилнитрит",
+      "C": "Закись азота",
+      "D": "Эфир"
+     },
+     "correct_letter": "B",
+     "correct_text": "Амилнитрит",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 49,
+     "question": "Каков сленговый термин для практики токсикомании с использованием таких ингаляторов, как клей и растворители?",
+     "options": {
+      "A": "Использование пакетов",
+      "B": "Нюхание клея",
+      "C": "Взлом",
+      "D": "Курение марихуаны"
+     },
+     "correct_letter": "B",
+     "correct_text": "Нюхание клея",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    }
+   ],
+   "seconds": 16.42,
+   "n": 50,
+   "accuracy": 0.46,
+   "invalid_rate": 0.0
+  }
+ }
+}

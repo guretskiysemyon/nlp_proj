@@ -1,0 +1,21 @@
+[cinder pipeline] concept=Republic of Ireland langs=en host=s-005 gpus=3,4,5
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+[cinder pipeline] 1/4 features
+[18:35:33] skip /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/results/varwidth/Republic_of_Ireland/rn_refit-False/seed42: summary.json exists (use --force)
+[18:36:12] Republic of Ireland: candidates 20, TJ [], LO@5 [], HJ [], 0 tokens edited (layer_cache: 0); mapping diff 1.75e-06, rel err X 0.861 / embedding 0.900
+            concept  n_candidates F_TJ F_LO5 F_TWJ  n_tokens_edited widths_min_med_max error
+Republic of Ireland            20   []    []    []                0      [11, 39, 139]  None
+[cinder pipeline] Republic of Ireland: the two-way judge accepted no feature -> no edit; stopping after step 1
+[18:36:34] grid: [0.5, 1.0, 2.0, 5.0, 10.0, 50.0, 100.0, 200.0]
+[18:37:06] [-|-|-] loading HF model google/gemma-2-2b-it (dtype=torch.bfloat16)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [03:25<03:25, 205.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [03:34<00:00, 89.58s/it] Loading checkpoint shards: 100%|██████████| 2/2 [03:34<00:00, 107.01s/it]
+[18:40:47] [-|-|-] loaded google/gemma-2-2b-it | 3204165888 params | device=cuda:0
+[18:40:50] Republic of Ireland: the two-way judge accepted no feature, nothing to edit; skipping

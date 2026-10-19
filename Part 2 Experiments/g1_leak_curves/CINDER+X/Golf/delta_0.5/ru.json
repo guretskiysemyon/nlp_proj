@@ -1,0 +1,1829 @@
+{
+ "concept": "Golf",
+ "language": "ru",
+ "method": "CINDER+X",
+ "delta": 0.5,
+ "edit_info": {
+  "delta_embed": 0.5,
+  "k_features_embed": 1,
+  "n_tokens_edited": 108
+ },
+ "results": {
+  "QA_test": {
+   "records": [
+    {
+     "index": 0,
+     "question": "Какой вид спорта предполагает использование клюшек и мяча для загона его в ряд лунок?",
+     "options": {
+      "A": "Поло",
+      "B": "Крокет",
+      "C": "Хоккей на траве",
+      "D": "Гольф"
+     },
+     "correct_letter": "D",
+     "correct_text": "Гольф",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 1,
+     "question": "Какая зона на поле для гольфа содержит лунку, в которую нужно закатить мяч?",
+     "options": {
+      "A": "Ти-бокс",
+      "B": "Фэйрвэй",
+      "C": "Грин (паттинг-грин)",
+      "D": "Фриндж"
+     },
+     "correct_letter": "C",
+     "correct_text": "Грин (паттинг-грин)",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 2,
+     "question": "В каком веке зародился современный гольф?",
+     "options": {
+      "A": "В 15 веке",
+      "B": "В 14 веке",
+      "C": "В 16 веке",
+      "D": "В 18 веке"
+     },
+     "correct_letter": "A",
+     "correct_text": "В 15 веке",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 3,
+     "question": "Как называется старейший в мире крупный турнир по гольфу?",
+     "options": {
+      "A": "Чемпионат PGA",
+      "B": "Открытый чемпионат Великобритании (British Open)",
+      "C": "Мастерс",
+      "D": "Открытый чемпионат США (U.S. Open)"
+     },
+     "correct_letter": "B",
+     "correct_text": "Открытый чемпионат Великобритании (British Open)",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 4,
+     "question": "На каком поле для гольфа впервые был проведен Открытый чемпионат?",
+     "options": {
+      "A": "Гольф-клуб Прествик",
+      "B": "Олд-Курс в Сент-Эндрюсе",
+      "C": "Роял Трун",
+      "D": "Мьюрфилд"
+     },
+     "correct_letter": "A",
+     "correct_text": "Гольф-клуб Прествик",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 5,
+     "question": "Каково назначение ти в гольфе?",
+     "options": {
+      "A": "Измерение расстояния до лунки",
+      "B": "Исправление дерна на фэйрвэе",
+      "C": "Обозначение позиции мяча на грине",
+      "D": "Установка мяча на возвышение для первого удара на лунке"
+     },
+     "correct_letter": "D",
+     "correct_text": "Установка мяча на возвышение для первого удара на лунке",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 6,
+     "question": "Какая клюшка предназначена для ударов мяча на большие расстояния с ти?",
+     "options": {
+      "A": "Паттер",
+      "B": "Драйвер",
+      "C": "Айрон-5",
+      "D": "Вуд-3"
+     },
+     "correct_letter": "B",
+     "correct_text": "Драйвер",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 7,
+     "question": "Что призваны объединить в себе гибридные клюшки?",
+     "options": {
+      "A": "Характеристики вудов и айронов",
+      "B": "Характеристики вейджей и паттеров",
+      "C": "Характеристики драйверов и паттеров",
+      "D": "Свойства шафтов и гриппов"
+     },
+     "correct_letter": "A",
+     "correct_text": "Характеристики вудов и айронов",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 8,
+     "question": "Почему мячи для гольфа имеют ямочки (димплы)?",
+     "options": {
+      "A": "Для улучшения вращения только на грине",
+      "B": "Чтобы сделать мяч тяжелее при ветре",
+      "C": "Для уменьшения аэродинамического сопротивления и увеличения дальности полета",
+      "D": "Для уменьшения износа от канавок на клюшке"
+     },
+     "correct_letter": "C",
+     "correct_text": "Для уменьшения аэродинамического сопротивления и увеличения дальности полета",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 9,
+     "question": "Что означает термин «грин в регуляции» (GIR)?",
+     "options": {
+      "A": "Нахождение на грине независимо от сделанных ударов",
+      "B": "Попадание на грин за количество ударов на два больше пара",
+      "C": "Попадание на грин за количество ударов на один меньше пара",
+      "D": "Попадание на грин за количество ударов на два меньше пара лунки"
+     },
+     "correct_letter": "D",
+     "correct_text": "Попадание на грин за количество ударов на два меньше пара лунки",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 10,
+     "question": "Каков типичный общий пар для поля для гольфа с 18 лунками?",
+     "options": {
+      "A": "От 66 до 68",
+      "B": "От 74 до 76",
+      "C": "От 60 до 62",
+      "D": "От 70 до 72"
+     },
+     "correct_letter": "D",
+     "correct_text": "От 70 до 72",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 11,
+     "question": "Как называется попадание мяча в лунку с одного удара?",
+     "options": {
+      "A": "Игл",
+      "B": "Хол-ин-уан или эйс",
+      "C": "Берди",
+      "D": "Альбатрос"
+     },
+     "correct_letter": "B",
+     "correct_text": "Хол-ин-уан или эйс",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 12,
+     "question": "Какой термин используется для результата на один удар меньше пара на лунке?",
+     "options": {
+      "A": "Игл",
+      "B": "Боги",
+      "C": "Пар",
+      "D": "Берди"
+     },
+     "correct_letter": "D",
+     "correct_text": "Берди",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 13,
+     "question": "Какой термин используется для результата на два удара меньше пара на лунке?",
+     "options": {
+      "A": "Альбатрос",
+      "B": "Игл",
+      "C": "Берди",
+      "D": "Пар"
+     },
+     "correct_letter": "B",
+     "correct_text": "Игл",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 14,
+     "question": "Какой термин используется для результата на один удар больше пара на лунке?",
+     "options": {
+      "A": "Двойной боги",
+      "B": "Берди",
+      "C": "Пар",
+      "D": "Боги"
+     },
+     "correct_letter": "D",
+     "correct_text": "Боги",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 15,
+     "question": "Какой термин описывает результат в два удара выше пара?",
+     "options": {
+      "A": "Тройной боги",
+      "B": "Двойной игл",
+      "C": "Двойной боги",
+      "D": "Боги"
+     },
+     "correct_letter": "C",
+     "correct_text": "Двойной боги",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 16,
+     "question": "Как называется препятствие с песком на поле для гольфа?",
+     "options": {
+      "A": "Бункер или песчаная ловушка",
+      "B": "Фэйрвэй",
+      "C": "Раф",
+      "D": "Водное препятствие"
+     },
+     "correct_letter": "A",
+     "correct_text": "Бункер или песчаная ловушка",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 17,
+     "question": "Сколько обычно времени занимает раунд гольфа на 18 лунок?",
+     "options": {
+      "A": "Около часа пятнадцати минут",
+      "B": "Около четырех часов",
+      "C": "От пяти до шести часов",
+      "D": "Около двух часов"
+     },
+     "correct_letter": "B",
+     "correct_text": "Около четырех часов",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 18,
+     "question": "Какую альтернативу игроки часто используют вместо того, чтобы ходить по полю пешком?",
+     "options": {
+      "A": "Кэдди, носящего сумку",
+      "B": "Велосипед",
+      "C": "Гольф-кар",
+      "D": "Ручную тележку для сумок"
+     },
+     "correct_letter": "C",
+     "correct_text": "Гольф-кар",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 19,
+     "question": "Каков основополагающий принцип правил гольфа?",
+     "options": {
+      "A": "Скорость игры прежде всего",
+      "B": "Честность (справедливость)",
+      "C": "Снисходительность",
+      "D": "Исключительно традиция"
+     },
+     "correct_letter": "B",
+     "correct_text": "Честность (справедливость)",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 20,
+     "question": "Каков штраф за удар по чужому мячу?",
+     "options": {
+      "A": "Один штрафной удар",
+      "B": "Повторить удар без штрафа",
+      "C": "Проигрыш лунки",
+      "D": "Два штрафных удара"
+     },
+     "correct_letter": "D",
+     "correct_text": "Два штрафных удара",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 21,
+     "question": "Какова главная цель полного удара в гольфе (full swing)?",
+     "options": {
+      "A": "Создать максимальное обратное вращение независимо от направления",
+      "B": "Избегать любого вращения туловища",
+      "C": "Каждый раз пускать мяч как можно ниже",
+      "D": "Ударить по мячу с максимальным расстоянием и точностью"
+     },
+     "correct_letter": "D",
+     "correct_text": "Ударить по мячу с максимальным расстоянием и точностью",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 22,
+     "question": "В чем разница между драйвом (drive) и ударом подхода (approach shot)?",
+     "options": {
+      "A": "Драйв — это удар на дальнюю дистанцию с ти; удар подхода используется для попадания на лужайку (грин)",
+      "B": "Драйв выполняется только айронами; подход — только вудами",
+      "C": "Драйв выполняется из бункеров; подход — из рафа",
+      "D": "Драйв — это паттирование с дальнего расстояния; подход — это любой удар с ти"
+     },
+     "correct_letter": "A",
+     "correct_text": "Драйв — это удар на дальнюю дистанцию с ти; удар подхода используется для попадания на лужайку (грин)",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 23,
+     "question": "Какова цель питч-шота в гольфе?",
+     "options": {
+      "A": "Катить мяч по земле с околозеленой зоны (фринжа)",
+      "B": "Выбраться из глубокого рафа с низким катящимся мячом",
+      "C": "Доставить мяч на грин с короткого расстояния",
+      "D": "Совершать дальние удары с ти на лунках с пар-5"
+     },
+     "correct_letter": "C",
+     "correct_text": "Доставить мяч на грин с короткого расстояния",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 24,
+     "question": "Что такое чип-шот в гольфе?",
+     "options": {
+      "A": "Удар с ти на лунке с пар-3",
+      "B": "Дальний удар для достижения грина с фервея",
+      "C": "Высокий мягкий удар из песчаного бункера",
+      "D": "Короткий удар, используемый для того, чтобы доставить мяч на грин или близко к нему"
+     },
+     "correct_letter": "D",
+     "correct_text": "Короткий удар, используемый для того, чтобы доставить мяч на грин или близко к нему",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 25,
+     "question": "Сколько игроков обычно составляют любительскую группу по гольфу?",
+     "options": {
+      "A": "Ровно 4 игрока",
+      "B": "От 1 до 4 игроков",
+      "C": "От 3 до 5 игроков",
+      "D": "От 2 до 6 игроков"
+     },
+     "correct_letter": "B",
+     "correct_text": "От 1 до 4 игроков",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 26,
+     "question": "Что означает, когда результат игрока на лунке равен в точности значению пар?",
+     "options": {
+      "A": "Игрок сыграл в пар",
+      "B": "Игрок улучшил положение мяча",
+      "C": "Игрок записал свой гандикап",
+      "D": "Игрок взял маллиган"
+     },
+     "correct_letter": "A",
+     "correct_text": "Игрок сыграл в пар",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 27,
+     "question": "Какой термин описывает изгиб или поворот лунки для гольфа?",
+     "options": {
+      "A": "Фейд",
+      "B": "Сойл",
+      "C": "Дро",
+      "D": "Доглег"
+     },
+     "correct_letter": "D",
+     "correct_text": "Доглег",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 28,
+     "question": "Какая особенность на поверхности мяча для гольфа помогает задержать отрыв пограничного слоя?",
+     "options": {
+      "A": "Жлобки (канавки)",
+      "B": "Матовое покрытие",
+      "C": "Ямочки (димплы)",
+      "D": "Швы"
+     },
+     "correct_letter": "C",
+     "correct_text": "Ямочки (димплы)",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 29,
+     "question": "Какой термин описывает процесс добавления дополнительных штрафных ударов за нарушения правил?",
+     "options": {
+      "A": "Предварительное решение",
+      "B": "Корректировка гандикапа",
+      "C": "Предупреждение за медленный темп игры",
+      "D": "Начисление штрафа"
+     },
+     "correct_letter": "D",
+     "correct_text": "Начисление штрафа",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 30,
+     "question": "Какой формат подсчета очков учитывает каждый удар, сделанный за время прохождения поля?",
+     "options": {
+      "A": "Игры на лунки (match play)",
+      "B": "Нассау",
+      "C": "Скинс",
+      "D": "На счет ударов (stroke play)"
+     },
+     "correct_letter": "D",
+     "correct_text": "На счет ударов (stroke play)",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 31,
+     "question": "Какая система подсчета очков в гольфе присуждает очки в зависимости от результата игрока относительно пара?",
+     "options": {
+      "A": "Система подсчета очков Стейблфорда",
+      "B": "Медальная игра",
+      "C": "Командный зачет Кубка Райдера",
+      "D": "Очки в матчевой игре"
+     },
+     "correct_letter": "A",
+     "correct_text": "Система подсчета очков Стейблфорда",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 32,
+     "question": "Что означает двойной боги в подсчете очков в гольфе?",
+     "options": {
+      "A": "Три удара выше пара",
+      "B": "Два удара ниже пара",
+      "C": "Один удар выше пара",
+      "D": "Два удара выше пара"
+     },
+     "correct_letter": "D",
+     "correct_text": "Два удара выше пара",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 33,
+     "question": "Какова главная цель системы гандикапов в гольфе?",
+     "options": {
+      "A": "Выбирать время старта (ти-тайм) для игроков",
+      "B": "Позволить игрокам разного уровня соревноваться на равных",
+      "C": "Ранжировать профессиональных игроков по всему миру",
+      "D": "Стандартизировать характеристики оборудования"
+     },
+     "correct_letter": "B",
+     "correct_text": "Позволить игрокам разного уровня соревноваться на равных",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 34,
+     "question": "Какой шотландский король запретил гольф в 1457 году?",
+     "options": {
+      "A": "Яков III",
+      "B": "Яков II",
+      "C": "Яков I",
+      "D": "Яков V"
+     },
+     "correct_letter": "B",
+     "correct_text": "Яков II",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 35,
+     "question": "Какой шотландский король позже отменил запрет на гольф и сам стал игроком в гольф?",
+     "options": {
+      "A": "Яков V",
+      "B": "Карл I",
+      "C": "Яков III",
+      "D": "Яков IV"
+     },
+     "correct_letter": "D",
+     "correct_text": "Яков IV",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 36,
+     "question": "На каком типе местности первоначально располагались ранние шотландские поля для гольфа?",
+     "options": {
+      "A": "Городские парки",
+      "B": "Горные луга",
+      "C": "Земли линкс (прибрежные песчаные дюны)",
+      "D": "Парковые леса"
+     },
+     "correct_letter": "C",
+     "correct_text": "Земли линкс (прибрежные песчаные дюны)",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 37,
+     "question": "Что игроки в гольф часто используют для перевозки своих клюшек, если они предпочитают не ходить пешком?",
+     "options": {
+      "A": "Корзину для тренировочного поля",
+      "B": "Услуги кедди",
+      "C": "Моторизованную гольф-машинку",
+      "D": "Тележку для гольфа или сумку для переноски"
+     },
+     "correct_letter": "D",
+     "correct_text": "Тележку для гольфа или сумку для переноски",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 38,
+     "question": "Каково одно из главных преимуществ формата игры на счет ударов?",
+     "options": {
+      "A": "Это позволяет засчитывать патты на большинстве лунок",
+      "B": "Каждый удар идет в зачет общего результата",
+      "C": "Плохие лунки не имеют значения, так как учитываются только выигранные лунки",
+      "D": "Это поощряет азартные игры в стиле скинс"
+     },
+     "correct_letter": "B",
+     "correct_text": "Каждый удар идет в зачет общего результата",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 39,
+     "question": "Что означает «боги» при подсчете очков в гольфе?",
+     "options": {
+      "A": "Один удар ниже пара",
+      "B": "Два удара выше пара",
+      "C": "Три удара выше пара",
+      "D": "Один удар выше пара"
+     },
+     "correct_letter": "D",
+     "correct_text": "Один удар выше пара",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 40,
+     "question": "Какой клуб специально разработан с большой головкой с малым лофтом для максимального увеличения дальности?",
+     "options": {
+      "A": "3-вуд",
+      "B": "Драйвер",
+      "C": "Лоб-ведж",
+      "D": "Гибрид"
+     },
+     "correct_letter": "B",
+     "correct_text": "Драйвер",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 41,
+     "question": "Для чего в основном используется патт?",
+     "options": {
+      "A": "Для высоких ударов поддбросом со 100 ярдов",
+      "B": "Для удара с ти на длинных лунках",
+      "C": "Для скатывания мяча в лунку на грине",
+      "D": "Для выхода из бункеров"
+     },
+     "correct_letter": "C",
+     "correct_text": "Для скатывания мяча в лунку на грине",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 42,
+     "question": "Какой клюшка чаще всего ассоциируется с ударами на дальние дистанции?",
+     "options": {
+      "A": "Драйвер",
+      "B": "9-айрон",
+      "C": "Паттер",
+      "D": "Сэнд-ведж"
+     },
+     "correct_letter": "A",
+     "correct_text": "Драйвер",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 43,
+     "question": "Какова цель подбора клюшек (клаб-фиттинга) в обучении гольфу?",
+     "options": {
+      "A": "Исключительно для соблюдения регламента турниров",
+      "B": "Чтобы снизить стоимость клюшек",
+      "C": "Чтобы настроить цвет шафта",
+      "D": "Подобрать клюшки под физические данные и свинг игрока"
+     },
+     "correct_letter": "D",
+     "correct_text": "Подобрать клюшки под физические данные и свинг игрока",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 44,
+     "question": "Что такое «анкерный паттинг» (anchored putting) в гольфе?",
+     "options": {
+      "A": "Паттинг лицом к лунке (боком к лунке)",
+      "B": "Стиль паттинга, при котором паттер фиксируется о тело игрока",
+      "C": "Удержание паттера только ладонями",
+      "D": "Использование головки паттера молотковой формы"
+     },
+     "correct_letter": "B",
+     "correct_text": "Стиль паттинга, при котором паттер фиксируется о тело игрока",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 45,
+     "question": "Что означает термин «нахлест» (overlap) в стилях хвата для паттинга?",
+     "options": {
+      "A": "Традиционный хват, при котором палец неведущей руки накладывается на палец ведущей руки",
+      "B": "Бейсбольный хват, при котором все пальцы находятся на клюшке",
+      "C": "Перекрестный хват, при котором пальцы сцепляются вместе",
+      "D": "Хват «крест-накрест» с ведущей рукой ниже"
+     },
+     "correct_letter": "A",
+     "correct_text": "Традиционный хват, при котором палец неведущей руки накладывается на палец ведущей руки",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 46,
+     "question": "Какой метод подсчета очков наиболее часто используется на профессиональных турнирах по гольфу?",
+     "options": {
+      "A": "Матч-плей",
+      "B": "Скрембл",
+      "C": "Стрейк-плей (игра на счет ударов)",
+      "D": "Стейблфорд"
+     },
+     "correct_letter": "C",
+     "correct_text": "Стрейк-плей (игра на счет ударов)",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 47,
+     "question": "Что такое старт с двух ти (two-tee start) в турнирном гольфе?",
+     "options": {
+      "A": "Чередование стартов с ти и с фервея",
+      "B": "Две тренировочные сессии на ти перед раундом",
+      "C": "Старт «дробовик», при котором все группы начинают на разных лунках",
+      "D": "Формат, при котором участники разделены между двумя стартовыми ти"
+     },
+     "correct_letter": "D",
+     "correct_text": "Формат, при котором участники разделены между двумя стартовыми ти",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 48,
+     "question": "Как называется бонус за результат на один удар меньше пара на лунке?",
+     "options": {
+      "A": "Берди",
+      "B": "Игл",
+      "C": "Боги",
+      "D": "Эйс"
+     },
+     "correct_letter": "A",
+     "correct_text": "Берди",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 49,
+     "question": "В какой стране зародился современный гольф?",
+     "options": {
+      "A": "Ирландия",
+      "B": "Англия",
+      "C": "США",
+      "D": "Шотландия"
+     },
+     "correct_letter": "D",
+     "correct_text": "Шотландия",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    }
+   ],
+   "seconds": 13.95,
+   "n": 50,
+   "accuracy": 0.5,
+   "invalid_rate": 0.0
+  },
+  "SimdomQA_test": {
+   "records": [
+    {
+     "index": 0,
+     "question": "Как называется ситуация, когда счет в теннисе составляет 40-40?",
+     "options": {
+      "A": "Больше",
+      "B": "Ровно",
+      "C": "Лет",
+      "D": "Лав"
+     },
+     "correct_letter": "B",
+     "correct_text": "Ровно",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 1,
+     "question": "Какое покрытие используется на турнире Открытый чемпионат Франции?",
+     "options": {
+      "A": "Ковер",
+      "B": "Трава",
+      "C": "Грунт",
+      "D": "Хард"
+     },
+     "correct_letter": "C",
+     "correct_text": "Грунт",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 2,
+     "question": "Как называется мягкий удар в теннисе, при котором мяч едва перелетает через сетку?",
+     "options": {
+      "A": "Лоб",
+      "B": "Укороченный удар",
+      "C": "Воллей",
+      "D": "Слайс"
+     },
+     "correct_letter": "B",
+     "correct_text": "Укороченный удар",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 3,
+     "question": "Как называется нулевой счет в теннисе?",
+     "options": {
+      "A": "Ровно",
+      "B": "Ошибка",
+      "C": "Ноль",
+      "D": "Лав"
+     },
+     "correct_letter": "D",
+     "correct_text": "Лав",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 4,
+     "question": "Какой турнир Большого шлема проводится в Соединенных Штатах?",
+     "options": {
+      "A": "Уимблдон",
+      "B": "Открытый чемпионат Франции",
+      "C": "Открытый чемпионат Австралии",
+      "D": "Открытый чемпионат США"
+     },
+     "correct_letter": "D",
+     "correct_text": "Открытый чемпионат США",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 5,
+     "question": "Как называется удар в бейсболе, позволяющий бьющему обежать все базы?",
+     "options": {
+      "A": "Трипл",
+      "B": "Хоум-ран",
+      "C": "Внутренний дабл",
+      "D": "Гранд-слэм"
+     },
+     "correct_letter": "B",
+     "correct_text": "Хоум-ран",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 6,
+     "question": "Сколько баз на стандартном бейсбольном поле?",
+     "options": {
+      "A": "Пять",
+      "B": "Три",
+      "C": "Шесть",
+      "D": "Четыре"
+     },
+     "correct_letter": "D",
+     "correct_text": "Четыре",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 7,
+     "question": "Как называется ситуация в бейсболе, когда бьющий промахивается по мячу и получает страйк?",
+     "options": {
+      "A": "Страйкаут",
+      "B": "Размах и промах",
+      "C": "Фол-тип",
+      "D": "Страйк"
+     },
+     "correct_letter": "D",
+     "correct_text": "Страйк",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 8,
+     "question": "Как называется подача в бейсболе, которая проходит за пределами зоны страйка?",
+     "options": {
+      "A": "Болк",
+      "B": "Болл",
+      "C": "Страйк",
+      "D": "Уайлд-питч"
+     },
+     "correct_letter": "B",
+     "correct_text": "Болл",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 9,
+     "question": "Как в бейсболе называется удар, позволяющий дойти до первой базы?",
+     "options": {
+      "A": "Бант",
+      "B": "Дабл",
+      "C": "Уоки",
+      "D": "Сингл"
+     },
+     "correct_letter": "D",
+     "correct_text": "Сингл",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 10,
+     "question": "Сколько игроков одной команды находятся на поле во время бейсбольного матча?",
+     "options": {
+      "A": "Восемь",
+      "B": "Девять",
+      "C": "Десять",
+      "D": "Одиннадцать"
+     },
+     "correct_letter": "B",
+     "correct_text": "Девять",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 11,
+     "question": "Как называется уок в бейсболе?",
+     "options": {
+      "A": "Проход на базу",
+      "B": "Помеха кетчера",
+      "C": "Удар мячом по бьющему",
+      "D": "Выбор филдера"
+     },
+     "correct_letter": "A",
+     "correct_text": "Проход на базу",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 12,
+     "question": "Как называется розыгрыш, когда филдер ловит отбитый мяч на лету в бейсболе?",
+     "options": {
+      "A": "Флай-аут",
+      "B": "Граунд-аут",
+      "C": "Форс-аут",
+      "D": "Тэг-аут"
+     },
+     "correct_letter": "A",
+     "correct_text": "Флай-аут",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 13,
+     "question": "Как называется отбитый мяч, который медленно катится по земле в бейсболе?",
+     "options": {
+      "A": "Граунд-болл",
+      "B": "Бант",
+      "C": "Флай-болл",
+      "D": "Лайнер"
+     },
+     "correct_letter": "A",
+     "correct_text": "Граунд-болл",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 14,
+     "question": "Сколько игроков от каждой команды находятся на площадке во время баскетбольного матча?",
+     "options": {
+      "A": "Семь",
+      "B": "Пять",
+      "C": "Четыре",
+      "D": "Шесть"
+     },
+     "correct_letter": "B",
+     "correct_text": "Пять",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 15,
+     "question": "Как называется главная профессиональная баскетбольная лига в Соединенных Штатах?",
+     "options": {
+      "A": "МЛБ",
+      "B": "НФЛ",
+      "C": "НБА",
+      "D": "НХЛ"
+     },
+     "correct_letter": "C",
+     "correct_text": "НБА",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 16,
+     "question": "Как называется защитное действие, останавливающее бросок соперника в баскетболе?",
+     "options": {
+      "A": "Заслон",
+      "B": "Столкновение",
+      "C": "Блок-шот",
+      "D": "Перехват"
+     },
+     "correct_letter": "C",
+     "correct_text": "Блок-шот",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 17,
+     "question": "Как называется термин для обозначения незаконного физического контакта в баскетболе?",
+     "options": {
+      "A": "Двойное ведение",
+      "B": "Пробежка",
+      "C": "Нарушение зоны",
+      "D": "Фол"
+     },
+     "correct_letter": "D",
+     "correct_text": "Фол",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 18,
+     "question": "Как называется быстрое нападение сразу после подбора в защите в баскетболе?",
+     "options": {
+      "A": "Изоляция",
+      "B": "Быстрый отрыв",
+      "C": "Прессинг по всей площадке",
+      "D": "Пик-н-ролл"
+     },
+     "correct_letter": "B",
+     "correct_text": "Быстрый отрыв",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 19,
+     "question": "Как называется ситуация, когда игрок забивает мяч сверху в баскетболе?",
+     "options": {
+      "A": "Аллей-уп",
+      "B": "Слэм-данк",
+      "C": "Тип-ин",
+      "D": "Лэй-ап"
+     },
+     "correct_letter": "B",
+     "correct_text": "Слэм-данк",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 20,
+     "question": "Как называется защитная стратегия, при которой игроки плотно опекают соперника в баскетболе?",
+     "options": {
+      "A": "Персональная защита",
+      "B": "Капкан («бокс-энд-ван»)",
+      "C": "Зональная защита",
+      "D": "Треугольник и два"
+     },
+     "correct_letter": "A",
+     "correct_text": "Персональная защита",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 21,
+     "question": "Сколько игроков одной команды находится на поле в футбольном матче?",
+     "options": {
+      "A": "Двенадцать",
+      "B": "Девять",
+      "C": "Десять",
+      "D": "Одиннадцать"
+     },
+     "correct_letter": "D",
+     "correct_text": "Одиннадцать",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 22,
+     "question": "Как называется игра в футбол, которая заканчивается с равным счетом?",
+     "options": {
+      "A": "Переигровка",
+      "B": "Дополнительное время",
+      "C": "Серия пенальти",
+      "D": "Ничья"
+     },
+     "correct_letter": "D",
+     "correct_text": "Ничья",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 23,
+     "question": "Какова продолжительность стандартного профессионального футбольного матча?",
+     "options": {
+      "A": "120 минут",
+      "B": "80 минут",
+      "C": "90 минут",
+      "D": "100 минут"
+     },
+     "correct_letter": "C",
+     "correct_text": "90 минут",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 24,
+     "question": "Как называется возобновление игры после забитого гола в футболе?",
+     "options": {
+      "A": "Удар с центра поля",
+      "B": "Удар от ворот",
+      "C": "Вбрасывание",
+      "D": "Спорный мяч"
+     },
+     "correct_letter": "A",
+     "correct_text": "Удар с центра поля",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 25,
+     "question": "Какая страна выиграла чемпионат мира по футболу 2018 года?",
+     "options": {
+      "A": "Аргентина",
+      "B": "Германия",
+      "C": "Хорватия",
+      "D": "Франция"
+     },
+     "correct_letter": "D",
+     "correct_text": "Франция",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 26,
+     "question": "Как называется главная профессиональная футбольная лига Англии?",
+     "options": {
+      "A": "Премьер-лига",
+      "B": "Ла Лига",
+      "C": "Серия А",
+      "D": "Бундеслига"
+     },
+     "correct_letter": "A",
+     "correct_text": "Премьер-лига",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 27,
+     "question": "Сколько таймов в футбольном матче?",
+     "options": {
+      "A": "Два",
+      "B": "Три",
+      "C": "Два плюс дополнительное время",
+      "D": "Четыре"
+     },
+     "correct_letter": "A",
+     "correct_text": "Два",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 28,
+     "question": "Как называется финальная игра чемпионата НФЛ?",
+     "options": {
+      "A": "Мировая серия",
+      "B": "Супербоул",
+      "C": "Финал Кубка Стэнли",
+      "D": "Финал НБА"
+     },
+     "correct_letter": "B",
+     "correct_text": "Супербоул",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 29,
+     "question": "Как называется ситуация, когда игрок защиты перехватывает пас, предназначенный противнику в американском футболе?",
+     "options": {
+      "A": "Перехват",
+      "B": "Срыв паса",
+      "C": "Подбор фамбла",
+      "D": "Сэк"
+     },
+     "correct_letter": "A",
+     "correct_text": "Перехват",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 30,
+     "question": "Какая позиция в американском футболе в первую очередь отвечает за ловлю пасов?",
+     "options": {
+      "A": "Раннинбек",
+      "B": "Уайд-ресивер",
+      "C": "Тайт-энд",
+      "D": "Лайнбекер"
+     },
+     "correct_letter": "B",
+     "correct_text": "Уайд-ресивер",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 31,
+     "question": "Сколько очков стоит филд-гол в американском футболе?",
+     "options": {
+      "A": "Четыре",
+      "B": "Три",
+      "C": "Один",
+      "D": "Два"
+     },
+     "correct_letter": "B",
+     "correct_text": "Три",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 32,
+     "question": "Какой формат крикета предполагает, что каждая команда играет по 50 оверов?",
+     "options": {
+      "A": "The Hundred",
+      "B": "ODI",
+      "C": "T20",
+      "D": "Тестовый крикет"
+     },
+     "correct_letter": "B",
+     "correct_text": "ODI",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 33,
+     "question": "Как называется матч в крикете, который длится до пяти дней?",
+     "options": {
+      "A": "Тестовый матч",
+      "B": "T20",
+      "C": "ODI",
+      "D": "Классический однодневный матч"
+     },
+     "correct_letter": "A",
+     "correct_text": "Тестовый матч",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 34,
+     "question": "Как называется выбывание бэтсмена в крикете, когда полевой игрок ловит мяч до того, как тот коснется земли?",
+     "options": {
+      "A": "Боулд",
+      "B": "Кэтч (пойман)",
+      "C": "Ран-аут",
+      "D": "LBW (нога перед калиткой)"
+     },
+     "correct_letter": "B",
+     "correct_text": "Кэтч (пойман)",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 35,
+     "question": "Сколько игроков каждой команды находится на льду в хоккее с шайбой?",
+     "options": {
+      "A": "Семь",
+      "B": "Четыре",
+      "C": "Шесть",
+      "D": "Пять"
+     },
+     "correct_letter": "C",
+     "correct_text": "Шесть",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 36,
+     "question": "Как называется чемпионский трофей, вручаемый в НХЛ?",
+     "options": {
+      "A": "Кубок Грея",
+      "B": "Трофей Винса Ломбарди",
+      "C": "Кубок Стэнли",
+      "D": "Трофей Комиссара"
+     },
+     "correct_letter": "C",
+     "correct_text": "Кубок Стэнли",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 37,
+     "question": "Как называется метод возобновления игры сбрасыванием шайбы в хоккее?",
+     "options": {
+      "A": "Скрам",
+      "B": "Вбрасывание",
+      "C": "Спорный бросок",
+      "D": "Стартовый удар"
+     },
+     "correct_letter": "B",
+     "correct_text": "Вбрасывание",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 38,
+     "question": "Как называется нарушение правил, когда игрок использует клюшку для незаконного препятствования сопернику в хоккее?",
+     "options": {
+      "A": "Подножка",
+      "B": "Проброс",
+      "C": "Игра высоко поднятой клюшкой",
+      "D": "Задержка клюшкой (хукинг)"
+     },
+     "correct_letter": "D",
+     "correct_text": "Задержка клюшкой (хукинг)",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 39,
+     "question": "Как называется удар, выполняемый после попытки в регби-юнион?",
+     "options": {
+      "A": "Дроп-гол",
+      "B": "Свободный удар",
+      "C": "Реализация",
+      "D": "Штрафной удар"
+     },
+     "correct_letter": "C",
+     "correct_text": "Реализация",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 40,
+     "question": "Сколько игроков в команде по регби-15?",
+     "options": {
+      "A": "15",
+      "B": "13",
+      "C": "14",
+      "D": "11"
+     },
+     "correct_letter": "A",
+     "correct_text": "15",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 41,
+     "question": "Как называется построение, в котором игроки сцепляются друг с другом для борьбы за владение мячом в регби?",
+     "options": {
+      "A": "Скрам",
+      "B": "Ruck",
+      "C": "Мол",
+      "D": "Коридор"
+     },
+     "correct_letter": "A",
+     "correct_text": "Скрам",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 42,
+     "question": "Как называется ситуация, когда боксер побеждает, нокаутируя соперника?",
+     "options": {
+      "A": "Технический нокаут",
+      "B": "Раздельное решение",
+      "C": "Единогласное решение",
+      "D": "Нокаут"
+     },
+     "correct_letter": "D",
+     "correct_text": "Нокаут",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 43,
+     "question": "Как называется исход боя, определяемый судьями в боксерском поединке?",
+     "options": {
+      "A": "Несостоявшийся бой",
+      "B": "Решение судей",
+      "C": "Нокаут",
+      "D": "Технический нокаут"
+     },
+     "correct_letter": "B",
+     "correct_text": "Решение судей",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 44,
+     "question": "Какая весовая категория в боксе предназначена для более легких бойцов с весом примерно от 56 до 60 кг?",
+     "options": {
+      "A": "Полулёгкий вес",
+      "B": "Полусредний вес",
+      "C": "Лёгкий вес",
+      "D": "Легчайший вес"
+     },
+     "correct_letter": "A",
+     "correct_text": "Полулёгкий вес",
+     "model_raw": "C",
+     "model_answer_text": "C",
+     "model_letter": "C",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    },
+    {
+     "index": 45,
+     "question": "Как называется серия гонок в чемпионате Формулы-1?",
+     "options": {
+      "A": "Чемпионат мира по ралли",
+      "B": "Гран-при",
+      "C": "Индикар",
+      "D": "Тур де Франс"
+     },
+     "correct_letter": "B",
+     "correct_text": "Гран-при",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 46,
+     "question": "Как называется гоночный трек, принимающий Гран-при Великобритании?",
+     "options": {
+      "A": "Сильверстоун",
+      "B": "Спа-Франкоршам",
+      "C": "Монца",
+      "D": "Брэндс-Хэтч"
+     },
+     "correct_letter": "A",
+     "correct_text": "Сильверстоун",
+     "model_raw": "A",
+     "model_answer_text": "A",
+     "model_letter": "A",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 47,
+     "question": "Как называется подача в волейболе, которая приносит очко напрямую?",
+     "options": {
+      "A": "Килл",
+      "B": "Блок",
+      "C": "Диг",
+      "D": "Эйс"
+     },
+     "correct_letter": "D",
+     "correct_text": "Эйс",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 48,
+     "question": "Как называется многодневная шоссейная велогонка?",
+     "options": {
+      "A": "Этап",
+      "B": "Тур",
+      "C": "Критериум",
+      "D": "Классика"
+     },
+     "correct_letter": "B",
+     "correct_text": "Тур",
+     "model_raw": "B",
+     "model_answer_text": "B",
+     "model_letter": "B",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": true
+    },
+    {
+     "index": 49,
+     "question": "Как называется лыжная гонка с прохождением ворот на скорость?",
+     "options": {
+      "A": "Гигантский слалом",
+      "B": "Слалом",
+      "C": "Супер-гигант",
+      "D": "Скоростной спуск"
+     },
+     "correct_letter": "B",
+     "correct_text": "Слалом",
+     "model_raw": "D",
+     "model_answer_text": "D",
+     "model_letter": "D",
+     "n_new_tokens": 4,
+     "is_valid": true,
+     "is_correct": false
+    }
+   ],
+   "seconds": 13.72,
+   "n": 50,
+   "accuracy": 0.58,
+   "invalid_rate": 0.0
+  }
+ }
+}

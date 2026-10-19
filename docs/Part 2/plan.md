@@ -1,8 +1,85 @@
-# Part 2 — main plan (baseline)
+# Part 2 — plan
 
-*Decided 2026-10-17. This is the baseline design for Part 2; other ideas (see
-[`ideas_and_discoveries.md`](ideas_and_discoveries.md)) come after it. Data and feature
-search details: [`multilingual_features.md`](multilingual_features.md).*
+## Current plan (decided 2026-10-18): CINDER vs EMBER, English only
+
+**Question.** Does CINDER (Ori: contrastive sharpening, global sparsity, two-way judge)
+erase a concept better than EMBER in English, and does the better English edit leak less
+when the same questions are asked in de / es / fr / ru?
+
+**Design.** Both methods fitted on English sentences only (`data/`), the same edit
+(EMBER's embedding edit; CINDER's features are mapped back into embedding space), the same
+judge (gemini-3.5-flash-lite), the same strength search and test as Part 1's EMBER.
+
+| | English erasure | leak in de / es / fr / ru |
+|---|---|---|
+| EMBER | Part 1 (done) | Part 1 (done) |
+| CINDER | strength search (`cinder.grid`, `cinder.pick`) | `cinder.final_test` (same cells as Part 1's repaired run) |
+
+**Concepts (6):**
+
+| EMBER English retention | Concept | Kind | Russian leak in Part 1 |
+|---|---|---|---|
+| strong | Cannabis (0.39), Gun (0.54) | substance, weapon | +0.51, +0.46 |
+| medium | Nazism (0.63), Republic of Ireland (0.67) | ideology, country | +0.37, +0.33 |
+| weak | Culture of Greece (0.73), Golf (0.75) | culture, sport | +0.27, +0.25 |
+
+Chosen from the 10 concepts whose EMBER features are identical under the paper's judge and
+3.5 (`mf_outputs/en_rejudge35/embedding_judge_agreement.md`), so no EMBER rerun is needed;
+spread over erasure strength and kinds of knowledge; all with reliable tests in 5 languages;
+none is a CINDER tuning concept (Harry Potter, Ancient Rome, Valentine's Day).
+
+**Steps, owners, status:** [`../progress.md`](../progress.md), "Part 2 status". Code review,
+decisions and the implementation: [`cinder_code_review.md`](cinder_code_review.md). Code: `cinder/`.
+
+**Decided 2026-10-18.** CINDER is Ori's whole method, not compared layer by layer: his ladder rung
+**L123** (`experiments/varwidth/layer_eval.py`): contrastive sharpening (page target, η 0.05, γ 1,
+ε 10⁻⁴), GS-norm (`rn`, `refit=False`, floor 0.2%, cap 3%), and his two-way judge HJ = TJ ∨ LO@5 on
+the top 20 features by ρ (LO = matches with his 20 concept words, `j3_data/concept_words_v1.json`).
+His newer code, judge data and seed-42 runs for the 6 concepts were copied from his folder
+(2026-10-18); refitting here reproduces his fits (same supports, |ΔY| ≤ 5·10⁻⁶). We run the strength
+search and the final test ourselves with Part 1's protocol: his `erase.py` picks δ without the Alpaca
+judge and scores MC with the old 4-token cut-off, so its numbers are not comparable to Part 1's EMBER.
+
+**CINDER features (L123, seed 42, `judge_rerun/Cinder/features/`):**
+
+| Concept | EMBER features / edited tokens | CINDER features (accepted by) / edited tokens |
+|---|---|---|
+| Cannabis | 1 / 45 | f42 (TJ and LO 9) / 34 |
+| Gun | 2 / 61 | f37 (TJ and LO 6), f40 (TJ) / 67 |
+| Nazism | 1 / 41 | **none**: the closest candidate is a broad "political ideologies" feature (LO 2, TJ no); no edit |
+| Republic of Ireland | 1 / 31 | **none**: the Irish tokens sit in a 111-token "countries and nationalities" feature outside the top 20 by ρ; no edit |
+| Culture of Greece | 1 / 52 | f10 (TJ; LO 4) / 106 |
+| Golf | 2 / 70 | f33 (TJ and LO 10) / 44 |
+
+So CINDER edits 4 of the 6 concepts. Caveat: Culture of Greece is one of the 4 example concepts in
+Ori's concept-word prompt (`j3_data/prompt_v1.txt`), so its LO count is not clean (it is accepted by TJ
+anyway). Ori's own results agree: no edit for Nazism and Republic of Ireland at seed 42
+(`results/varwidth/layers/erasure/` in his folder).
+
+**Strength grid (`python -m cinder.edit_size`, `judge_rerun/Cinder/delta_grid.json`).** At the
+same δ, CINDER's edit is about half of EMBER's: the median relative edit ‖c_t‖ / ‖e_t‖ is 0.24 for
+CINDER and 0.46 for EMBER (paired over the 4 concepts both edit; per concept the ratio is
+1.4–2.7). The ratio 1.93 is inside the agreed band (0.5–2), so **CINDER uses EMBER's grid,
+0.5, 1, 2, 5, 10, 50, 100, 200** (also the grid of Ori's `erase.py`). On CINDER's scale it spans
+relative edits 0.12–48; EMBER's QA
+accuracy stops falling at δ ≈ 5–10 (relative edit 2–5), i.e. δ ≈ 10–20 for CINDER, well inside.
+Edge rule: if the fast screen's best δ is the largest (smallest) value, one more δ (×2, or ÷2)
+is scored.
+
+**Report:** English erasure per concept grouped by EMBER's strength (CINDER's claim is
+strongest where EMBER is weak); leak only where both methods erase English; coverage vs leak
+for both methods; paired by question, bootstrap over concepts.
+
+**Later:** equal-strength comparison; Ori's full ladder (EMBER → +CS → +CS+GS → +TWJ);
+training on other languages (the two-arm design below).
+
+---
+
+# Earlier design: training on other languages (parked, 2026-10-17)
+
+*Decided 2026-10-17 as the Part 2 baseline, parked on 2026-10-18 in favour of the plan above.
+The results below (feature search, rank sweeps, tokenization, coverage) stay valid.
+Data and feature search details: [`multilingual_features.md`](multilingual_features.md).*
 
 ## Question
 

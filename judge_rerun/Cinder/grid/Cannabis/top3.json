@@ -1,0 +1,86 @@
+{
+ "concept": "Cannabis",
+ "grid": [
+  0.5,
+  1.0,
+  2.0,
+  5.0,
+  10.0,
+  50.0,
+  100.0,
+  200.0
+ ],
+ "extended": [],
+ "top_k": [
+  5.0,
+  1.0,
+  10.0
+ ],
+ "fast": {
+  "0.5": {
+   "qa_acc": 0.84,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  "1.0": {
+   "qa_acc": 0.74,
+   "efficacy": 0.1694915254237288,
+   "specificity": 1.0,
+   "harmonic": 0.2898550724637681,
+   "gate": null
+  },
+  "2.0": {
+   "qa_acc": 0.78,
+   "efficacy": 0.10169491525423724,
+   "specificity": 1.0,
+   "harmonic": 0.18461538461538454,
+   "gate": null
+  },
+  "5.0": {
+   "qa_acc": 0.72,
+   "efficacy": 0.2033898305084746,
+   "specificity": 1.0,
+   "harmonic": 0.33802816901408456,
+   "gate": null
+  },
+  "10.0": {
+   "qa_acc": 0.74,
+   "efficacy": 0.1694915254237288,
+   "specificity": 1.0,
+   "harmonic": 0.2898550724637681,
+   "gate": null
+  },
+  "50.0": {
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  },
+  "100.0": {
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  },
+  "200.0": {
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 1.0,
+   "harmonic": 0.23880597014925367,
+   "gate": null
+  }
+ },
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.84,
+  "simdom_base": 0.88,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "alpaca_generated": 56,
+ "alpaca_judged": 50
+}
