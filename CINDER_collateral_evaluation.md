@@ -2,7 +2,7 @@
 
 Oct 19, 2026 · @Ori
 
-**How to read this.** Part 1 is the overview: the problem, what we observed, the idea, the hypotheses and the planned experiments. Every statement there is marked as an **observation** (backed by a run) or a **hypothesis** (to be tested). Part 2 gives the low-level details: exact definitions, formulas, the protocol, the pilot, result placeholders and caveats. Part 3 holds the naming map, open items, sources and references. Paper section numbers refer to EMBER (Suslik, Shafran and Geva, arXiv:2606.03695v2).
+**How to read this.** Part 1 is the overview: the problem, what we observed, the idea, the hypotheses with their verdicts, the planned experiments, the findings and the open speculations. Every statement there is marked as an **observation** or **finding** (backed by a run) or as a **hypothesis** or **speculation** (to be tested). Part 2 gives the low-level details: exact definitions, formulas, the protocol, the pilot, the results and caveats. Part 3 holds the naming map, open items, sources and references. Paper section numbers refer to EMBER (Suslik, Shafran and Geva, arXiv:2606.03695v2).
 
 ---
 
@@ -28,7 +28,7 @@ Gemma-2-2b-it, EMBER's MC protocol, the Oct 18 erasure anchor (seed 42) unless n
 ### Why it matters
 
 - **The paper's specificity claim needs this axis.** §5 argues that coherence damage is localized on concept-exclusive tokens. It measures this after tuning, on one prompt per token, and the result never enters the δ search. In the search, damage to multi-meaning tokens is free.
-- **Destruction blurs the method comparison.** Once a token is replaced, the subtracted direction barely matters. In the pilot at r = 10–100, Noise of the same magnitude reached efficacy 0.39, the same as an edit along CINDER's direction. The paper's Table 1 argument, that direction matters (Gemma MC Con: EMBER 49.4 vs Mean 62.8 and Noise 62.2, unedited 73.3), was made at the δ the paper's tuning selects, which our Observation 1 suggests is in this regime.
+- **Destruction blurs the method comparison.** Once a token is replaced, the subtracted direction barely matters. In the pilot at r = 10–100, Noise of the same magnitude reached efficacy 0.39, the same as an edit along CINDER's direction. Over all runs it holds for CINDER's direction on EMBER's tokens (1b 0.25–0.28 vs Noise 0.29–0.31 at r ≥ 10, validation), but EMBER's own direction stays well above Noise (0.44–0.52; F3, S8). The paper's Table 1 argument, that direction matters (Gemma MC Con: EMBER 49.4 vs Mean 62.8 and Noise 62.2, unedited 73.3), was made at the δ the paper's tuning selects, which our Observation 1 suggests is in this regime.
 - **The anchor compared different regimes.** On Harry Potter, EMBER was selected at δ = 200 (r ≈ 120), and CINDER at δ = 2 (r ≈ 0.4). A ranking of feature quality, which is what CINDER changes, should compare methods where the direction matters.
 
 ### The idea
@@ -46,9 +46,13 @@ Add a fourth term, **collateral**: does the edited model still know ordinary fac
 ### Hypotheses (to be tested)
 
 - **Hyp. 1: regime shift.** Under collateral, the selected point moves from the destruction regime (r ≫ 1) to the subtraction regime (r ≲ 1).
+  - **Verdict: supported** (validation; F1, R2). Without collateral, EMBER's selected r is 10–100 in all 6 EMBER runs. With it, r is 0.05–2.
 - **Hyp. 2: the comparison changes.** In the subtraction regime the direction matters, so the EMBER vs CINDER comparison differs from the anchor. The pilot hints at this: at r = 1, an edit along CINDER's direction on EMBER's tokens reached efficacy 0.42, against 0.28 for EMBER.
+  - **Verdict: partly** (F2, F3, F13). At matched small r, CINDER's direction erases more (validation efficacy at r = 0.25: 0.26 vs 0.05) and removes more knowledge with little destruction. At each method's selected point the two tie (test H4 0.48 vs 0.48). The pilot's gap at r = 1 (0.42 vs 0.28) shrinks over all runs (1b 0.31 vs EMBER 0.31; 0.31 vs 0.25 on the 5 matched runs); the main gap sits at r = 0.25–0.5.
 - **Hyp. 3: the 2×2 separates the two effects.** Changing only the token set and changing only the direction have separate, measurable effects on efficacy and collateral.
+  - **Verdict: partly** (F6, R3). At fixed r the direction raises efficacy (Δ\_dir +0.15 at r = 0.25, +0.09 at r = 1; validation, 5 runs) and the token set changes it little (Δ\_tok −0.01 to −0.03). At the selected points the effects are heterogeneous and inconclusive (test H3v: Δ\_dir +0.05, Δ\_tok −0.08).
 - **Hyp. 4: shaped edits trade better.** Bounded projection and exclusivity-weighted edits reach a better efficacy–collateral trade-off than e − δc.
+  - **Verdict: not supported at this sample size** (F2, F5, R4). Exclusivity weighting on EMBER's tokens has the best mean test H3v (0.49 vs 0.42 for EMBER), within noise. Bounded projection is worse (0.29 and 0.39). The pre-registered best shape (power m = 2 on CINDER's tokens) scored 0.37 on test.
 - **Expected limit: context blindness.** An embedding edit sees the token, not its context. " Harry" in Prince Harry and in Harry Potter is the same row, so no input-embedding edit can erase one and keep the other. The Pareto curves, not a single score, are the honest output.
 
 ### Planned experiments
@@ -86,21 +90,63 @@ Add a fourth term, **collateral**: does the edited model still know ordinary fac
 **Hypotheses (to be tested).**
 
 - **Hyp. 5: destruction fails integrity on exclusive tokens too.** At r ≫ 1, copy fails, the context excess exceeds the nonce budget and approaches deletion, T3 answers are blind or incoherent, and the rows are norm outliers. At r ≲ 1 the edited model stays within the nonce budget.
+  - **Verdict: partly** (F9, F11, F14). At r ≥ 10 the word fails every token test for both methods: copy 0, T3 destruction 0.98–1.00, every edited row a norm outlier. The context mostly survives: same-sentence recall stays ≈ 1.00, and only EMBER lowers context-MC. The boundary is lower than predicted: at r = 1, copy is already 0.45–0.52 and destruction 0.52–0.57; only r = 0.25 stays near the nonce reference. The split by token class (R11) is not computed yet; the pilot points to exclusive tokens failing first (F10).
 - **Hyp. 6: collateral is a partial proxy.** E1's collateral-aware selection lands at points with high integrity, but not always, so integrity needs its own axis.
+  - **Verdict: supported** (F12, R9). Every E1-selected point passed collateral ≥ 0.8 on validation. Yet T3 destruction there is 0.18–0.30 for EMBER, CINDER, 1a and 1b, and 0.56 for power m = 2. Example: Harry Potter 42, EMBER at r\* = 2 (validation collateral 0.81): copy 0.03, destruction 0.83.
 - **Hyp. 7: graceful ignorance trades against leakage.** At small r the model reads the word and may still know the concept. The interesting question is whether any variant reaches low leakage with high integrity.
+  - **Verdict: supported** (F13, R9b). No labelled config reaches leak ≤ 0.1 with destruction ≤ 0.1. For EMBER, leak falls only as destruction rises (r = 0.25: leak 0.58, destruction 0.00; r = 1: 0.07 and 0.57). The best trade measured is CINDER at r = 0.25 (leak 0.25, destruction 0.07), then 1a at its selected points (0.12 and 0.18).
 - **Hyp. 8: Mean and Noise are destructive by construction**, at any strength where they erase.
+  - **Verdict: supported for Mean, partly for Noise** (F7, F15, R9). Mean deletes the word at its only point (copy 0, destruction 0.99) and fails E1's collateral gate in every run. Noise at its selected points (median r = 1) destroys 0.25–0.35 of the words while still leaking 0.29, and 0.60–0.64 of its rows are norm outliers.
 
 **How it runs.** E2 reuses E1's frozen grids and selected points; it adds no new search. It runs judge-free on all 8 concept-seeds and, for T3 labels, on one seed per concept, with Claude agent judges (no Gemini). Details in D11–D14.
 
+### Findings (backed)
+
+E1 on 8 concept-seeds (D9), E2 on the same 8 with T3 labels on 3 (D14). Means are over concept-seeds; T3 numbers come from the 3 judge runs.
+
+- **F1. Regime shift (Hyp. 1).** On validation, the paper-style rule (H2, no collateral) picks EMBER at r = 10–100 in all 6 EMBER runs, and EMBER + TJ∨WJ+share at r = 100 in its one separate run. The collateral rule picks r = 0.05–2. Example, Valentine's Day 42, EMBER: r 100 → 0.5, efficacy 0.44 → 0.24, collateral 0.65 → 0.94. For CINDER the two rules agree in 4 of 7 runs (r = 0.5 or 5). In the other 3 the H2 rule picks r = 10–100 (R2).
+- **F2. All variants land in a narrow band.** Under the collateral rule, test efficacy is 0.14–0.27 and collateral 0.83–0.92 across variants (Mean and the single EMBER + TJ∨WJ+share run excluded). Mean test H3v: exclusivity-weighted (EMBER's tokens) 0.49; exclusivity-weighted (CINDER's tokens) and power m = 1.5 (EMBER's tokens) 0.47; 1b 0.45; EMBER 0.42; CINDER 0.42. H4 for the primaries with Alpaca: 1b 0.52, EMBER 0.48, CINDER 0.48, power m = 2 (CINDER's tokens) 0.43, 1a 0.38. The differences are within noise: 5–7 runs per variant, 50 test questions per run.
+- **F3. Direction vs magnitude (matched r, validation means; R5).** Efficacy at r = 0.25: CINDER 0.26, 1b 0.20, EMBER 0.05. At r = 0.5: 0.33, 0.33, 0.20. At r = 1: 0.35, 0.31, 0.31. At r ≥ 2 EMBER is higher: 0.38 at r = 2, rising to 0.52 at r = 100, against 0.32–0.36 for CINDER and 0.25–0.30 for 1b. On the 5 runs with a full 2×2 the same holds at fixed tokens: ee 0.05, 0.21, 0.25 vs 1b 0.20, 0.33, 0.31 at r = 0.25, 0.5, 1. CINDER's direction is more efficient per unit of perturbation in the subtraction regime. EMBER gains more from magnitude in the destruction regime, and not from magnitude alone: Noise on EMBER's tokens stays at 0.28–0.31 for r ≥ 2 (S8).
+- **F4. CINDER's token sets are its liability.** CINDER's GS-widened edit sets are larger in 4 of the 5 runs shared with EMBER and hold a higher share of multi-meaning tokens in all 5: Ancient Rome 44, 82 of 103 edited tokens vs 26 of 38 for EMBER; Valentine's Day 46, 30 of 32 vs 24 of 34. Its validation collateral falls faster with r (0.93 vs 0.98 at r = 0.25, 0.88 vs 0.96 at r = 0.5), so the gate binds earlier. In Valentine's Day 43 and 46, CINDER selected r = 5, just above the gate on validation (collateral 0.81 and 0.80), and fell to 0.63 and 0.68 on test (H3v 0.19 each).
+- **F5. Winner's curse.** The validation-best edit shape (power m = 2 on CINDER's tokens, pooled validation H3v 0.58) scored 0.37 on test. CINDER's validation lead at the selected point (H3v 0.61 vs 0.45 for EMBER) also vanished on test (0.42 vs 0.42).
+- **F6. The 2×2 is inconclusive at the selected points and separates at fixed r (R3).** At the selected points, the mean test H3v effects are Δ\_dir +0.05 and Δ\_tok −0.08, with signs that differ across runs (Δ\_dir from −0.07 to +0.34). At fixed r on validation, the direction raises efficacy in 5 of 5 runs at r = 0.25 (mean +0.15) and in 4 of 5 at r = 1 (mean +0.09, the fifth 0.00). The token set changes efficacy by −0.01 to −0.03. The direction's collateral cost is −0.01 to −0.05.
+- **F7. Mean fails the gate; Noise is weak.** Mean's single point (r ≈ 0.85–0.95) has validation collateral 0.71 (0.55–0.78), so no Mean edit passes the 0.8 gate in any run. Noise reaches test H3v 0.34 (CINDER's tokens) and 0.39 (EMBER's tokens).
+- **F8. E2's references validate the tests (R8).** Copy is 1.00 for orig and nonce and 0.00 for del in every run. Same-sentence recall is 1.00 for nonce and del and 0.99–1.00 for orig in every run, so T2 is valid in all 8. T3 labels: orig leak 0.51 and graceful 0.45 (KNOWS\_OTHER 0.43); nonce mostly CONFAB (0.62) and IGNORANT (0.29), destruction 0.06; del 100% BLIND. On 253 duplicates labelled by different agents, agreement is 0.97 on the exact label and 0.99 on destruction yes/no.
+- **F9. Readability collapses between r = 0.25 and r = 1 (R10).** Copy: EMBER 0.98 → 0.45 → 0 (r = 0.25 → 1 → ≥ 10), CINDER 0.95 → 0.52 → 0. T3 destruction: EMBER 0.00 → 0.57 → 1.00, CINDER 0.07 → 0.52 → 0.98–0.99.
+- **F10. Concept-exclusive tokens go first (pilot).** In the pilot (Harry Potter 42, EMBER r = 1), 14 of 30 words were dropped from the copy. All were exclusive or carried a concept word (Hogwarts, Voldemort, Snape, Weasley…); multi-meaning words copied fine. The reason: r is a median, and exclusive tokens are the high-µ tail. The full split by token class (R11) is not computed yet.
+- **F11. Destruction is local (R10).** Same-sentence recall stays ≈ 1.00 at every r. Context-MC drops only for EMBER at r ≥ 10 (0.54 → 0.45 and 0.38). The answer-NLL excess over the nonce is +1.1–1.2 nats for EMBER at r ≥ 10, against +0.12–0.24 for CINDER. "Destroys the whole context" is mostly not supported; "deletes the word" is.
+- **F12. Collateral is a partial proxy for integrity (Hyp. 6; R9).** At E1's selected points, T3 destruction and leak are: EMBER 0.30 and 0.31, CINDER 0.21 and 0.15, 1a 0.18 and 0.12, 1b 0.21 and 0.18, power m = 2 0.56 and 0.08, Noise 0.25–0.35 and 0.29, Mean 0.99 and 0.00. Copy (all runs): EMBER 0.65, CINDER 0.64, 1b 0.80, 1a 0.65. All these points except Mean's passed the collateral gate. EMBER's 0.30 is driven by Harry Potter 42, where it sits at r = 2 (destruction 0.83); its other two judge runs give 0.00 and 0.20.
+- **F13. CINDER's direction removes knowledge without destruction at r = 0.25.** CINDER at r = 0.25: leak 0.25, destruction 0.07, CONFAB 0.17. EMBER at r = 0.25: leak 0.58, destruction 0.00, CONFAB 0.03. CINDER-edited words drift toward unknown-word behaviour (confabulation, as for the nonce). EMBER-edited words at r = 1 go blind instead (destruction 0.57, mostly BLIND). The token sets differ, but on EMBER's own tokens CINDER's direction (1b at its selected points) also confabulates more (0.16) than EMBER at r = 0.25 or 1 (0.03, 0.08). This is the clearest evidence for CINDER's direction.
+- **F14. Static fingerprint (R9, R10).** At r ≥ 10 every edited row is a norm outlier (z > 3 share 1.00). At the selected points the share is EMBER 0.14, CINDER 0.29, 1b 0.11.
+- **F15. Mean behaves like deletion without harming the context.** Copy 0, echo 0, T3 destruction 0.99 (BLIND 0.96–0.97), while same-sentence recall stays 0.98–0.99 and context-MC 0.52–0.54.
+- **F16. Two E2 context designs failed validity.** A long continuation was insensitive, and raw "Answer:" NLL was poorly calibrated, before chat-generation recall passed (amendments 4b and 4c, D12).
+
+### Speculations (to be tested)
+
+Each item is a speculation, not a result.
+
+- **S1. For concept-exclusive tokens, complete and graceful erasure may be incompatible for any input-embedding edit.** Their embedding is mostly the concept, so removing the concept removes the token's identity, and copy fails (F9, F10). An identity-preserving edit could separate "unknown" from "deleted": keep the component that lets the model copy the token, for example by removing the concept part only orthogonally to the token's own unembedding or identity direction. **Test:** such a variant on the same E1 and E2 settings.
+- **S2. CINDER's direction advantage lives in the subtraction regime, so any evaluation that forbids destruction should favour it** (F3, F6, F13). **Test (proposed E3, not launched):** integrity-gated selection (copy ≥ 0.9 and collateral ≥ 0.8) on the full r grid for EMBER, CINDER, 1b and CINDER-RS. It needs E2's judge-free tests at every grid point.
+- **S3. CINDER's token-set liability comes from the concept-only label, amplified by GS widening** (F4). The label admits generic words, and GS adds more of them. **Test:** CINDER-RS tests the GS part (D15); an exclusivity filter on the edit set would test the label part.
+- **S4. The paper's relearning robustness at δ = 200 may come from destruction.** Rows 40–120× the token's norm cannot be moved back by small fine-tuning steps. **Test:** LoRA relearning (§C.6) at r ≈ 0.5 vs r = 100.
+- **S5. For a small model, graceful ignorance means behaving like the nonce, not saying "I don't know".** Gemma-2-2B confabulates on unknown words (nonce: 62% CONFAB, 29% IGNORANT). **Test:** a distribution-matching T3 score, the distance between a config's label distribution and the nonce's, recomputed from the existing labels.
+- **S6. MC efficacy in the destruction regime partly measures unreadable questions, so it overstates knowledge removal.** **Test:** OE efficacy, or efficacy controlled by the nonce (the same questions with the word replaced by its nonce, on the unedited model, as the floor).
+- **S7. Method differences below about 0.05–0.08 cannot be resolved with 3 concepts × 2–3 seeds and 50-question tests** (F2, F5, F6). **Test:** the 12 expansion concepts, before any verdict on CINDER.
+- **S8. EMBER's large-r efficacy may partly be global disruption, not erasure.** At r ≥ 10, EMBER is the only method that lowers context-MC and raises the answer NLL (F11), and it beats Noise at the same r on the same tokens (0.52 vs 0.31 at r = 100, F3). Its rows are huge and share few directions (one feature on Harry Potter, D1). The same disruption could lower MC accuracy on concept questions without removing knowledge. **Test:** per run, relate EMBER's large-r efficacy gain to its context-MC drop, and score efficacy on OE or nonce-controlled questions (S6).
+
+### CINDER-RS: the direction without the widths (amendment 5)
+
+CINDER stacks three layers: Contrastive Sharpening (CS, layer 1), Global Sparsity (GS, layer 2) and the Two-Way Judge (TWJ, layer 3). F3 and F13 credit its direction; F4 blames its GS-widened token sets. **CINDER-RS** keeps layers 1 and 3 and replaces GS with EMBER's row sparsity: CS + RS-1% + TWJ, no GS. It separates CINDER's direction (layer 1) from the GS widths (layer 2). It is evaluated with E1 and E2 settings unchanged: the same grid, question set, gates, selection, test pass and Alpaca, and the same integrity tests, sweep and blind T3 labels. 88–100% of its edited tokens are in the frozen pool (Valentine's Day 46: 68 of 77), so collateral covers it. The user proposed it after E1 and E2 were seen, so the comparison is exploratory. Status: running. Details in D15.
+
 ### Where we stand
 
-- **Done:** the premise check, the pipeline pilot, the frozen question set (D5), and the E1 grids for all variants, concepts and seeds (955 grid points, collateral at every point). The pooled edit-shape choice (D6): α = 1 for the projection; best shape power m = 2 on CINDER's tokens.
-- **Running:** E1's final pass (selection, test split, Alpaca for the primary variants), and the E2 pilot.
-- **Not started:** E2 full runs and judge labels; the E1 report (D9).
+- **Done:** the premise check, the pipeline pilot and the frozen question set (D5). **E1:** 955 grid points on 8 concept-seeds with collateral at every point, the pooled shape choice (α = 1; best shape power m = 2 on CINDER's tokens), selection, the test split and Alpaca for the primaries ([poc.md](results/varwidth/layers/collateral/poc.md), D9). **E2:** the pilot and two T2 fixes (amendments 4b and 4c), judge-free tests on 8 concept-seeds, and 3,001 blind T3 labels on 3 of them, with 0.97 agreement on cross-agent duplicates ([integrity/report.md](results/varwidth/layers/collateral/integrity/report.md), D14).
+- **Running:** CINDER-RS (amendment 5) through E1 and E2 with unchanged settings (D15).
+- **Not started:** the split by token class (R11), the proposed E3 (S2), the expansion concepts and relearning.
 
 ### What to keep in mind
 
-- **Efficacy will likely fall for every method.** The efficacy questions contain the same tokens, so part of today's efficacy is destruction.
+- **Efficacy fell for every method.** EMBER's validation efficacy was 0.29–1.00 under the H2 rule and is 0.00–0.42 under the collateral rule (R2). The efficacy questions contain the same tokens, so part of the old efficacy was destruction.
 - **MC collateral is lenient.** Options and context can rescue a destroyed token: in the pilot, Sherlock and Trump stay at 1.0 in MC while generation fails. So collateral is a conservative measure.
 - **The questions are written by Claude agents.** Their blind spots are correlated. The objective checks and a human spot check are the counterweights.
 - **3 concepts × 2–3 seeds give direction, not significance.** Claims come after the freeze, on new concepts.
@@ -283,7 +329,7 @@ The pilot used Harry Potter v0 as a provisional file (60 tokens, 221 items, hash
 | Ancient Rome | v2 | 111 | 13 | 17 | 200 / 161 | 0.93 |
 | Valentine's Day | v2 | 90 | 9 | 5 | 162 / 142 | 0.90 |
 
-Kept items are all answered correctly by the unedited model, by construction. File hash (sha256[:16]): `57b21bb9dfcecfc2`. Human spot check (20 random items per concept): [TBD, optional].
+Kept items are all answered correctly by the unedited model, by construction; in E1's test pass the unedited model still misses a few of them (R1, open item). File hash (sha256[:16]): `57b21bb9dfcecfc2`. Human spot check (20 random items per concept): [TBD, optional].
 
 The selectors' scores (neutrality / essential / certainty / coverage / answerability, 1–5) were v0 2/3/3–4/3–5/3–4 and v2 5/4/4–5/4/4–5 across concepts. The revisions bought neutrality and token essentiality at the cost of 4–9 tokens of coverage per concept.
 
@@ -414,62 +460,111 @@ Seeds 44 and 46 were added so that each concept has a seed where both EMBER and 
 
 ### D9. Results
 
-\[TBD: all tables below are filled from `results/varwidth/layers/collateral/<concept>/s<seed>/<variant>/result.json` and `grid.json`, and summarized in `results/varwidth/layers/collateral/poc.md`. Means are over concept × seed.\]
+**Sources.** Per-run `result.json` (test, at the selected point) and `grid.json` (validation, every grid point) in `results/varwidth/layers/collateral/<concept>/s<seed>/<variant>/`, summarized in [poc.md](results/varwidth/layers/collateral/poc.md): the per-run test table, means, 2×2, regime shift, gate sensitivity, pooled shape choice and Pareto PNGs. Per-concept detail stays in poc.md. Values that poc.md does not print (specificity, coherence, H, H′, median r\*, the fixed-r 2×2 effects, gate-sensitivity r\*, matched-r means) are computed from the same files with the rules of [collateral\_report.py](experiments/varwidth/collateral_report.py); H′ uses the D4 formula.
 
-**R1. Main table** (test split, at each variant's selected point):
+**Means and run sets.** Means are over the concept-seeds where a variant edits, so n differs per row and rows are not on identical runs. EMBER selects no feature at Ancient Rome 42 and Valentine's Day 43, CINDER none at Ancient Rome 43, and the 2×2 is complete in 5 runs (Harry Potter 42, 43; Ancient Rome 44; Valentine's Day 42, 46).
 
-| Variant | r\* | Efficacy | Specificity | Collateral | Coherence | H | H4 | H′ |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| EMBER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| CINDER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| +CS+GS | [TBD] | [TBD] | [TBD] | [TBD] | — | — | — | — |
-| EMBER + TJ∨WJ+share | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| 1a | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| 1b | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Best edit shape | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Mean | — | [TBD] | [TBD] | [TBD] | — | — | — | — |
-| Noise | [TBD] | [TBD] | [TBD] | [TBD] | — | — | — | — |
+**R1. Main table** (test split, at each variant's selected point; mean over n runs):
 
-The per-concept version of R1 (one block per concept and seed) goes in poc.md.
+| Variant | n runs | r\*, median (range) | Efficacy | Specificity | Collateral | Coherence | H | H4 | H′ | H3v |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EMBER | 6 | 0.5 (0.05–2) | 0.22 | 1.00 | 0.89 | 0.99 | 0.43 | 0.48 | 0.43 | 0.42 |
+| CINDER | 7 | 0.5 (0.25–5) | 0.21 | 1.00 | 0.84 | 0.97 | 0.42 | 0.48 | 0.42 | 0.42 |
+| CINDER-RS (CS + RS-1% + TWJ) | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+| +CS+GS | 0 | — | — | — | — | — | — | — | — | — |
+| EMBER + TJ∨WJ+share | 1 | 0.5 | 0.00 | 0.98 | 0.92 | 0.98 | 0.00 | 0.00 | 0.00 | 0.00 |
+| 1a | 7 | 0.5 (0.25–5) | 0.17 | 1.00 | 0.84 | 0.97 | 0.34 | 0.38 | 0.34 | 0.34 |
+| 1b | 5 | 0.5 (0.5–1) | 0.23 | 0.99 | 0.88 | 0.99 | 0.46 | 0.52 | 0.46 | 0.45 |
+| Best edit shape (power m = 2, CINDER's tokens) | 7 | 1 (0.25–2) | 0.19 | 0.99 | 0.84 | 0.97 | 0.38 | 0.43 | 0.37 | 0.37 |
+| Mean (EMBER's / CINDER's tokens) | 6 / 7 | no point passes | 0.00 | 1.00 | 0.94 / 0.96 (unedited) | — | — | — | — | 0.00 |
+| Noise (EMBER's tokens) | 6 | 1 (0.05–2) | 0.22 | 0.99 | 0.88 | — | — | — | — | 0.39 |
+| Noise (CINDER's tokens) | 7 | 1 (0.5–5) | 0.18 | 0.98 | 0.87 | — | — | — | — | 0.34 |
 
-**R2. Regime shift (Hyp. 1).** Selected point per concept, old rule vs collateral-aware rule:
+- **+CS+GS has no run of its own.** In the 5 runs where it selects features it has CINDER's F\_C and fit, so its edit is identical to CINDER's and the code runs it once. It selects no feature at Ancient Rome 43 and Valentine's Day 43 and 46. Likewise, EMBER + TJ∨WJ+share equals EMBER wherever EMBER edits, so its only separate run is Ancient Rome 42.
+- **Alpaca flags** (fluency < 0.9; flagged, not reselected): 1a at Ancient Rome 44 (0.89), power m = 2 at Valentine's Day 43 (0.89) and 46 (0.88).
+- **Unedited test ceiling.** Mean never passes the gate, so its rows score the unedited model. The unedited model misses a few test collateral items: 1 Harry Potter, 5 Ancient Rome and 6 Valentine's Day tokens score below 1. The unedited test collateral is 0.95–0.98 on the union pool and 0.88–0.98 on a variant's own tokens, while the validation grids reach 1.00 at small r. Test collateral differences of a few hundredths are within this baseline.
 
-| Concept | EMBER r, anchor rule | EMBER r\*, new rule | CINDER r, anchor rule | CINDER r\*, new rule |
-| --- | --- | --- | --- | --- |
-| Harry Potter | ≈ 120 (δ = 200) | [TBD] | ≈ 0.4 (δ = 2) | [TBD] |
-| Ancient Rome | [TBD] | [TBD] | [TBD] | [TBD] |
-| Valentine's Day | [TBD] | [TBD] | [TBD] | [TBD] |
+**R2. Regime shift (Hyp. 1).** Selected r on validation under the paper-style rule (H2 = HM(efficacy, specificity), no collateral) and under the collateral rule, with validation efficacy and collateral at both points:
 
-**R3. 2×2 effects (Hyp. 3)**, at the selected points and at fixed r = 1:
-
-| Metric | Δ\_dir | Δ\_tok | Δ\_× |
-| --- | --- | --- | --- |
-| Efficacy | [TBD] | [TBD] | [TBD] |
-| Collateral | [TBD] | [TBD] | [TBD] |
-| H4 | [TBD] | [TBD] | [TBD] |
-
-µ-ranking vs raw-Y ranking overlap of the top-N sets: [TBD].
-
-**R4. Edit shapes (Hyp. 4)**, on the EMBER and CINDER sets:
-
-| Shape | Parameter | r\* | Efficacy | Collateral | H4 |
+| Concept, seed | EMBER r, H2 → coll. rule | EMBER efficacy; collateral | CINDER r, H2 → coll. rule | CINDER efficacy; collateral | CINDER-RS r, H2 → coll. rule |
 | --- | --- | --- | --- | --- | --- |
-| e − δc | — | [TBD] | [TBD] | [TBD] | [TBD] |
-| Bounded projection | α = [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Exclusivity-weighted | — | [TBD] | [TBD] | [TBD] | [TBD] |
-| Power | m = [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| Harry Potter 42 | 30 → 2 | 0.49 → 0.42; 0.58 → 0.81 | 10 → 0.25 | 0.56 → 0.49; 0.64 → 1.00 | [TBD: running] |
+| Harry Potter 43 | 30 → 1 | 0.56 → 0.42; 0.55 → 0.88 | 30 → 0.25 | 0.60 → 0.53; 0.59 → 1.00 | [TBD: running] |
+| Ancient Rome 42 | no feature; EMBER + TJ∨WJ+share 100 → 0.5 | 0.95 → 0.22; 0.21 → 0.82 | 0.5 → 0.5 | 0.55; 0.84 (same point) | [TBD: running] |
+| Ancient Rome 43 | 30 → 0.5 | 1.00 → 0.15; 0.61 → 0.91 | no feature | — | [TBD: running] |
+| Ancient Rome 44 | 10 → 0.05 | 0.29 → 0.00; 0.78 → 1.00 | 100 → 0.5 | 0.51 → 0.47; 0.74 → 0.83 | [TBD: running] |
+| Valentine's Day 42 | 100 → 0.5 | 0.44 → 0.24; 0.65 → 0.94 | 0.5 → 0.5 | 0.24; 0.96 (same point) | [TBD: running] |
+| Valentine's Day 43 | no feature | — | 5 → 5 | 0.20; 0.81 (same point) | [TBD: running] |
+| Valentine's Day 46 | 100 → 0.5 | 0.34 → 0.29; 0.75 → 0.97 | 5 → 5 | 0.20; 0.80 (same point) | [TBD: running] |
 
-**R5. Pareto curves.** \[TBD: efficacy vs collateral on validation, one curve per variant over the r grid, per concept, from the saved grids. The figure path goes here.\]
+The r grid tops out at 100. For reference, the anchor (δ grid, H with Alpaca) picked Harry Potter EMBER at δ = 200 (r ≈ 120) and CINDER at δ = 2 (r ≈ 0.4).
 
-**R6. Gate sensitivity.**
+**R3. 2×2 effects (Hyp. 3).** Each cell is Δ\_dir / Δ\_tok / Δ\_×, the mean over the 5 runs with a complete 2×2:
 
-| Variant | r\* / H4, gate 0.7 | r\* / H4, gate 0.8 | r\* / H4, gate 0.9 |
+| Metric | Selected points (test) | r = 0.25 (validation) | r = 0.5 (validation) | r = 1 (validation) |
+| --- | --- | --- | --- | --- |
+| Efficacy | +0.02 / −0.05 / +0.08 | +0.15 / −0.01 / +0.00 | +0.12 / −0.02 / +0.00 | +0.09 / −0.03 / +0.04 |
+| Collateral | −0.02 / −0.01 / −0.05 | −0.01 / 0.00 / +0.01 | −0.05 / −0.01 / +0.01 | −0.01 / −0.01 / −0.02 |
+| H3v | +0.05 / −0.08 / +0.09 | +0.27 / −0.01 / +0.02 | +0.16 / −0.04 / −0.01 | +0.11 / −0.05 / +0.08 |
+| H4 | — | — | — | — |
+
+H4 needs Alpaca, which ee and cross do not have. At the selected points the per-run Δ\_dir on H3v ranges from −0.07 to +0.34 (poc.md); Valentine's Day 46 carries most of Δ\_tok (−0.50), because 1a and cross select r = 5 and 2 there and erase nothing on test.
+
+µ-ranking vs raw-Y ranking overlap of the top-N sets: 0.89–1.00 (mean 0.94) over the 7 runs with a 1a cell.
+
+**R4. Edit shapes (Hyp. 4)**, on the EMBER and CINDER sets (test at the selected point; validation H3v is the pooled score of the shape choice):
+
+| Shape | Token set | Parameter | n runs | r\*, median | Efficacy | Collateral | H3v, test | H3v, validation | H4 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| e − δc | EMBER | — | 6 | 0.5 | 0.22 | 0.89 | 0.42 | 0.45 | 0.48 |
+| Bounded projection | EMBER | α = 1 | 6 | 0.59 (none at AR 43) | 0.14 | 0.91 | 0.29 | 0.22 | — |
+| Exclusivity-weighted | EMBER | — | 6 | 0.75 | 0.27 | 0.88 | 0.49 | 0.55 | — |
+| Power | EMBER | m = 1.5 | 6 | 1 | 0.25 | 0.85 | 0.47 | 0.54 | — |
+| Power | EMBER | m = 2 | 6 | 0.75 | 0.24 | 0.88 | 0.46 | 0.54 | — |
+| e − δc | CINDER | — | 7 | 0.5 | 0.21 | 0.84 | 0.42 | 0.61 | 0.48 |
+| Bounded projection | CINDER | α = 1 | 7 | 0.36 | 0.21 | 0.92 | 0.39 | 0.45 | — |
+| Exclusivity-weighted | CINDER | — | 7 | 0.5 | 0.25 | 0.88 | 0.47 | 0.57 | — |
+| Power | CINDER | m = 1.5 | 7 | 0.5 | 0.22 | 0.83 | 0.42 | 0.58 | — |
+| Power | CINDER | m = 2 | 7 | 1 | 0.19 | 0.84 | 0.37 | 0.58 | 0.43 |
+
+- **α = 1 won for both sets**, and validation H3v rose monotonically with α (EMBER's tokens 0.03, 0.08, 0.15, 0.22; CINDER's 0.11, 0.27, 0.40, 0.45). The bound itself costs efficacy. Projection keeps the highest collateral (0.91–0.92); on EMBER's tokens it also has the lowest efficacy (0.14).
+- **The validation ranking does not survive the test split** (F5): power m = 2 on CINDER's tokens is the best shape on validation (0.58) and the worst of CINDER's rows on test (0.37). Plain CINDER drops from 0.61 to 0.42.
+
+**R5. Pareto curves.** Efficacy vs collateral on validation, one curve per variant over the r grid, per concept-seed: [collateral/pareto/](results/varwidth/layers/collateral/pareto/) (`<concept>_s<seed>.png`, also embedded in poc.md). Mean over concept-seeds at matched r (efficacy / collateral, validation):
+
+| Variant (n runs) | r = 0.1 | 0.25 | 0.5 | 1 | 2 | 5 | 10 | 100 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EMBER (6) | 0.01 / 0.99 | 0.05 / 0.98 | 0.20 / 0.96 | 0.31 / 0.85 | 0.38 / 0.73 | 0.42 / 0.69 | 0.44 / 0.67 | 0.52 / 0.65 |
+| CINDER (7) | 0.08 / 0.98 | 0.26 / 0.93 | 0.33 / 0.88 | 0.35 / 0.82 | 0.32 / 0.76 | 0.35 / 0.73 | 0.34 / 0.72 | 0.36 / 0.73 |
+| CINDER-RS | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+| 1b (5) | 0.04 / 0.99 | 0.20 / 0.97 | 0.33 / 0.92 | 0.31 / 0.86 | 0.30 / 0.78 | 0.27 / 0.72 | 0.25 / 0.71 | 0.27 / 0.69 |
+| Noise, EMBER's tokens (6) | 0.01 / 0.96 | 0.02 / 0.95 | 0.12 / 0.93 | 0.22 / 0.87 | 0.28 / 0.76 | 0.30 / 0.70 | 0.29 / 0.69 | 0.31 / 0.68 |
+
+Mean's single point (r ≈ 0.85–0.95) gives efficacy 0.31–0.32 at collateral 0.71. CINDER saturates at about 0.35 from r = 0.5 on; EMBER keeps rising to r = 100 while its collateral falls to 0.65.
+
+**R6. Gate sensitivity.** Median selected r and validation H3v of the selected point (mean over runs, 0 when no point passes). H4 needs Alpaca, which exists only at the gate-0.8 point:
+
+| Variant | r\* / H3v, gate 0.7 | r\* / H3v, gate 0.8 | r\* / H3v, gate 0.9 |
 | --- | --- | --- | --- |
-| EMBER | [TBD] | [TBD] | [TBD] |
-| CINDER | [TBD] | [TBD] | [TBD] |
-| EMBER + TJ∨WJ+share | [TBD] | [TBD] | [TBD] |
+| EMBER | 2 / 0.61 | 0.5 / 0.45 | 0.5 / 0.42 |
+| CINDER | 0.5 / 0.61 | 0.5 / 0.61 | 0.25 / 0.41 |
+| CINDER-RS | [TBD: running] | [TBD: running] | [TBD: running] |
+| EMBER + TJ∨WJ+share (1 run) | 1 / 0.69 | 0.5 / 0.44 | 0.1 / 0.10 |
+| 1a | 2 / 0.57 | 0.5 / 0.51 | 0.25 / 0.34 |
+| 1b | 0.5 / 0.59 | 0.5 / 0.59 | 0.5 / 0.54 |
+| Power m = 2 (CINDER's tokens) | 1 / 0.58 | 1 / 0.58 | 0.1 / 0.41 |
+| Mean (EMBER's / CINDER's tokens) | passes in 4 of 6 / 5 of 7 runs; 0.32 / 0.30 | none / 0.00 | none / 0.00 |
 
-**R7. Conclusions.** \[TBD: one line per hypothesis (supported, not supported, unclear), the H vs H4 ranking of methods, and what this means for CINDER_improvements.md.\]
+At gate 0.7, EMBER returns to the destruction regime in 2 of 6 runs (r\* = 10 and 100). 1b is the most gate-robust variant. All variants are in poc.md.
+
+**R7. Conclusions (E1).**
+
+- **Hyp. 1, regime shift: supported** on validation (F1, R2).
+- **Hyp. 2, the comparison changes: partly.** CINDER's direction wins at matched small r (F3), but the bundles tie at their selected points (F2).
+- **Hyp. 3, the 2×2 separates the effects: partly.** Clean at fixed r, inconclusive at the selected points (F6, R3).
+- **Hyp. 4, shaped edits trade better: not supported at this sample size** (F2, F5, R4).
+- **H vs H4 ranking.** The order is the same under both: 1b > EMBER ≈ CINDER > power m = 2 > 1a (H 0.46, 0.43, 0.42, 0.38, 0.34; H4 0.52, 0.48, 0.48, 0.43, 0.38). After the gate, mean test collateral is 0.84–0.89 for every primary, so the fourth axis lifts all scores together and reorders nothing. Collateral acts through the selection, not through the score.
+- **For CINDER\_improvements.md.** CINDER's claim should move from "better erasure at the selected point" to "a more efficient direction in the non-destructive regime, held back by its token set". The combined reading with E2 is at the end of R12.
 
 ### D10. Known limits
 
@@ -482,6 +577,10 @@ The per-concept version of R1 (one block per concept and seed) goes in poc.md.
 - **Small development set.** 3 concepts × 2–3 seeds give direction only. The seeds 44 and 46 were picked for a complete 2×2, from feature counts only.
 - **Deviations from the paper.** Top-20 candidate features instead of τ = 2; no Alpaca in the grid; collateral is new.
 - **Collateral covers only multi-meaning tokens.** Concept-exclusive tokens have no items, so E1 cannot see their destruction. E2 covers them.
+- **Unedited test ceiling below 1.** The unedited model misses a few test collateral items (R1), so test collateral tops out at 0.88–0.98 per variant and run.
+- **Unequal run sets.** Variant means cover 5–7 runs, not always the same ones (D9). Only the 2×2 effects are computed on matched runs.
+- **T3 on 3 runs.** Agent labels come from one seed per concept; the other integrity columns cover 5–7 runs.
+- **BLIND includes fragments and look-alikes.** Under the judge brief's clarifications, an answer about a piece of the word or about a similar real word counts as BLIND. Destruction therefore includes multi-token words that lose a piece.
 
 ### D11. E2: why collateral is not enough
 
@@ -572,7 +671,7 @@ Also fixed: T4's nearest-real-token search now excludes all edited rows.
 
 **Pilot observation (EMBER, r = 1, Harry Potter 42).** 14 of 30 words fail to copy at all. All of them are concept-exclusive (Hogwarts, Voldemort, Snape, Weasley, Malfoy, Hermione, Dumbledore, Rowling…) or carry a concept word (Pottermore, Gryffindor). The model writes the sentence without them, as with deletion. Multi-meaning words (Harry, Trump, Sherlock, Lego, HBO, Nestlé) copy perfectly. The reason: r is a median over the edit set, and exclusive tokens sit in the high-µ tail (§F.1). At r = 1 each of them is perturbed by about its own norm. E1's collateral gate admits this point, since exclusive tokens have no collateral items. This is the first direct evidence for Hyp. 6.
 
-**Cost.** No Gemini. GPU: about 20 configs per concept-seed. Claude agents: about 1,400 T3 answers in blind batches, plus 10% double labels.
+**Cost.** No Gemini. GPU: about 20 configs per concept-seed. Claude agents: about 1,400 T3 answers in blind batches, plus 10% double labels (actual: 3,001 items plus 300 duplicates, 253 of them labelled by a different agent).
 
 **Pre-registration.** PREREG amendment 4 records the tests, references, thresholds (0.05 nats margin, z > 3), labels and scope before any E2 measurement. It was written after E1's grids existed and some validation lines had been seen in job logs, but before E1's test results were read.
 
@@ -580,34 +679,106 @@ Also fixed: T4's nearest-real-token search now excludes all edited rows.
 
 ### D14. E2: results
 
-\[TBD: filled from `results/varwidth/layers/collateral/integrity/<concept>/s<seed>/*.json` and summarized in `results/varwidth/layers/collateral/integrity/report.md`.\]
+**Sources.** Per-config outputs in `results/varwidth/layers/collateral/integrity/<concept>/s<seed>/*.json`, summarized in [integrity/report.md](results/varwidth/layers/collateral/integrity/report.md): the per-config table, means over concept-seeds, the T3 label table and judge agreement. Per-concept detail stays in report.md. Judge-free columns are means over the n runs of each config (8 for the references); T3 columns come from the 3 judge runs (Harry Potter 42, Ancient Rome 44, Valentine's Day 42). Agent labels: 3,001 of 3,001 items; agreement on 253 duplicates labelled by different agents is 0.97 on the exact label and 0.99 on destruction yes/no.
 
-**R8. References (calibration).**
+**R8. References (calibration).** Unedited model, 8 runs; T3 shares over 235 items per reference:
 
-| Reference | Copy | Echo | Context-MC | T3 labels (KNOWS / IGNORANT / CONFAB / BLIND / INCOHERENT) |
-| --- | --- | --- | --- | --- |
-| orig | [TBD] | [TBD] | [TBD] | [TBD] |
-| nonce | [TBD] | [TBD] | [TBD] | [TBD] |
-| del | — | [TBD] | [TBD] | [TBD] |
+| Reference | Copy | Same-sentence recall | Echo | Context-MC | T3 labels (KC / KO / IGN / CONFAB / BLIND / INCOH) |
+| --- | --- | --- | --- | --- | --- |
+| orig | 1.00 | 0.99–1.00 | 0.95 (0.87–1.00) | 0.54 | 0.51 / 0.43 / 0.03 / 0.04 / 0.00 / 0.00 |
+| nonce | 1.00 | 1.00 | 0.77 (0.72–0.87) | 0.53 | 0.00 / 0.04 / 0.29 / 0.62 / 0.05 / 0.00 |
+| del | 0.00 | 1.00 | 0.00 | 0.56 | 0.00 / 0.00 / 0.00 / 0.00 / 1.00 / 0.00 |
 
-Mean nonce budget b and deletion excess d (nats/token): [TBD].
+- **T2 is valid in all 8 runs.** The nats budget of amendment 4 was dropped after the pilot (D13); recall by chat generation replaced it, and every run passes its reference gate (recall ≥ 0.9).
+- **Echo is the weakest reference test.** Nonce echo is 0.72–0.87 per run, below the pilot's 0.8 gate in 6 of 8 runs. Echo is reported, but copy carries more weight.
+- **Context-MC barely moves between references** (0.53–0.56). Deleting the word does not hurt an unrelated question, so this test can only show damage beyond deletion.
 
-**R9. Integrity at E1's selected points.**
+**R9. Integrity at E1's selected points** (judge-free: mean over n runs; graceful / leak / destruction: 3 judge runs):
 
-| Variant | r\* | Copy | ctx\_pass | del\_likeness (copy) | Context-MC | Echo | Graceful / leak / destruction | z > 3 | nn-cos |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| EMBER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| CINDER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| EMBER + TJ∨WJ+share | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| 1a / 1b | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Power m = 2 | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Mean / Noise | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| Variant | n runs | r\*, median (range) | Copy | ctx\_pass | del\_likeness (copy) | Context-MC | Echo | Graceful / leak / destruction | z > 3 | nn-cos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EMBER | 6 | 0.5 (0.05–2) | 0.65 | 1.00 | 0.10 | 0.52 | 0.61 | 0.36 / 0.31 / 0.30 | 0.14 | 0.52 |
+| CINDER | 7 | 0.5 (0.25–5) | 0.64 | 1.00 | 0.14 | 0.53 | 0.55 | 0.43 / 0.15 / 0.21 | 0.29 | 0.50 |
+| CINDER-RS | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+| EMBER + TJ∨WJ+share | 1 | 0.5 | 0.50 | 1.00 | 0.06 | 0.53 | 0.53 | — | 0.02 | 0.29 |
+| 1a | 7 | 0.5 (0.25–5) | 0.65 | 1.00 | 0.14 | 0.53 | 0.61 | 0.46 / 0.12 / 0.18 | 0.29 | 0.49 |
+| 1b | 5 | 0.5 (0.5–1) | 0.80 | 1.00 | 0.02 | 0.53 | 0.67 | 0.45 / 0.18 / 0.21 | 0.11 | 0.54 |
+| Power m = 2 (CINDER's tokens) | 7 | 1 (0.25–2) | 0.50 | 1.00 | 0.17 | 0.52 | 0.47 | 0.27 / 0.08 / 0.56 | 0.42 | 0.43 |
+| Mean (EMBER's tokens) | 6 | one point, 0.85–0.88 | 0.00 | 0.99 | 0.31 | 0.54 | 0.00 | 0.00 / 0.00 / 0.99 | 0.00 | 0.92 |
+| Mean (CINDER's tokens) | 7 | one point, 0.87–0.95 | 0.00 | 0.98 | 0.30 | 0.52 | 0.00 | 0.00 / 0.00 / 0.99 | 0.00 | 0.92 |
+| Noise (EMBER's tokens) | 6 | 1 (0.05–2) | 0.75 | 1.00 | 0.03 | 0.55 | 0.67 | 0.26 / 0.29 / 0.35 | 0.60 | 0.45 |
+| Noise (CINDER's tokens) | 7 | 1 (0.5–5) | 0.67 | 1.00 | 0.11 | 0.53 | 0.61 | 0.28 / 0.29 / 0.25 | 0.64 | 0.42 |
 
-**R10. Regime sweep** (EMBER and CINDER, r = 0.25 / 1 / 10 / 100): copy, ctx\_pass, del\_likeness, destruction rate, z > 3. \[TBD\]
+- **Mean is tested at its single point**, although E1's gate rejects it in every run. All its rows equal the vocabulary mean, hence the constant nn-cos 0.92.
+- **EMBER + TJ∨WJ+share has no labels:** Ancient Rome 42 is not a judge run.
+- **The selected points are heterogeneous.** Harry Potter 42, EMBER at r\* = 2: copy 0.03, destruction 0.83, z > 3 0.55. Valentine's Day 43 and 46, CINDER at r\* = 5: copy 0.00, z > 3 1.00 (report.md).
 
-**R11. Exclusive vs multi-meaning tokens** (the same metrics, split by the token's class in the frozen question set). \[TBD\]
+**R9b. T3 labels by config** (3 judge runs; graceful = IGNORANT + KNOWS\_OTHER, leak = KNOWS\_CONCEPT, destruction = BLIND + INCOHERENT; counts per label in report.md):
 
-**R12. Conclusions for Hyp. 5–8.** \[TBD\]
+| Config | n | Graceful | Leak | CONFAB | Destruction |
+| --- | --- | --- | --- | --- | --- |
+| ref: orig | 235 | 0.45 | 0.51 | 0.04 | 0.00 |
+| ref: nonce | 235 | 0.33 | 0.00 | 0.62 | 0.06 |
+| ref: del | 235 | 0.00 | 0.00 | 0.00 | 1.00 |
+| EMBER, selected | 113 | 0.36 | 0.31 | 0.03 | 0.30 |
+| CINDER, selected | 160 | 0.43 | 0.15 | 0.21 | 0.21 |
+| CINDER-RS, selected | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+| 1a, selected | 112 | 0.46 | 0.12 | 0.24 | 0.18 |
+| 1b, selected | 113 | 0.45 | 0.18 | 0.16 | 0.21 |
+| Power m = 2 (CINDER's tokens), selected | 160 | 0.27 | 0.08 | 0.09 | 0.56 |
+| Mean (EMBER's / CINDER's tokens) | 113 / 160 | 0.00 / 0.00 | 0.00 / 0.00 | 0.01 / 0.01 | 0.99 / 0.99 |
+| Noise (EMBER's / CINDER's tokens), selected | 113 / 160 | 0.26 / 0.28 | 0.29 / 0.29 | 0.10 / 0.18 | 0.35 / 0.25 |
+| EMBER, r = 0.25 / 1 / 10 / 100 | 113 each | 0.40 / 0.28 / 0.00 / 0.00 | 0.58 / 0.07 / 0.00 / 0.00 | 0.03 / 0.08 / 0.00 / 0.00 | 0.00 / 0.57 / 1.00 / 1.00 |
+| CINDER, r = 0.25 / 1 / 10 / 100 | 160 each | 0.51 / 0.28 / 0.01 / 0.00 | 0.25 / 0.06 / 0.00 / 0.00 | 0.17 / 0.14 / 0.01 / 0.01 | 0.07 / 0.52 / 0.98 / 0.99 |
+| CINDER-RS, r = 0.25 / 1 / 10 / 100 | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+
+**R10. Regime sweep** (judge-free: 6 runs for EMBER, 7 for CINDER; T3: 3 judge runs; answer-NLL excess is the secondary T2 diagnostic, nats over the nonce):
+
+| Variant | r | Copy | ctx\_pass | del\_likeness | Context-MC | Answer-NLL excess | Echo | Destruction (T3) | Leak (T3) | z > 3 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EMBER | 0.25 | 0.98 | 1.00 | 0.00 | 0.54 | 0.12 | 0.90 | 0.00 | 0.58 | 0.00 |
+| EMBER | 1 | 0.45 | 1.00 | 0.11 | 0.52 | 0.12 | 0.36 | 0.57 | 0.07 | 0.12 |
+| EMBER | 10 | 0.00 | 1.00 | 0.62 | 0.45 | 1.08 | 0.00 | 1.00 | 0.00 | 1.00 |
+| EMBER | 100 | 0.00 | 1.00 | 0.63 | 0.38 | 1.22 | 0.00 | 1.00 | 0.00 | 1.00 |
+| CINDER | 0.25 | 0.95 | 1.00 | 0.00 | 0.51 | 0.11 | 0.88 | 0.07 | 0.25 | 0.00 |
+| CINDER | 1 | 0.52 | 1.00 | 0.08 | 0.52 | 0.04 | 0.47 | 0.52 | 0.06 | 0.35 |
+| CINDER | 10 | 0.00 | 1.00 | 0.62 | 0.53 | 0.12 | 0.01 | 0.98 | 0.00 | 1.00 |
+| CINDER | 100 | 0.00 | 1.00 | 0.62 | 0.53 | 0.24 | 0.01 | 0.99 | 0.00 | 1.00 |
+| CINDER-RS | 0.25 / 1 / 10 / 100 | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] | [TBD: running] |
+
+- **The word goes between r = 0.25 and r = 1** (F9). At r ≥ 10 the copy output equals the deleted-word copy in 62–63% of cases.
+- **The context survives** (F11). ctx\_pass stays at 1.00. Only EMBER at r ≥ 10 pulls context-MC well below the references (0.45 and 0.38 vs 0.53–0.56) and raises the answer NLL by more than a nat; every other point stays at 0.51–0.54.
+
+**R11. Exclusive vs multi-meaning tokens** (the same metrics, split by the token's class in the frozen question set). Not computed yet: report.md has no split by token class. The pilot points to exclusive tokens failing first (F10): at EMBER r = 1, all 14 words dropped from the copy were exclusive or carried a concept word. The per-word outputs (`integrity/<concept>/s<seed>/*.json`, words and tokens in `meta.json`) and the classes of the chosen question-set drafts (`token_class` in [integrity.py](experiments/varwidth/integrity.py)) allow the split without new runs.
+
+**R12. Conclusions (E2).**
+
+- **Hyp. 5, destruction fails integrity: partly.** At r ≥ 10 every token test fails for both methods (copy 0, destruction 0.98–1.00, z > 3 1.00), but the context survives (F11). The failure starts at r ≈ 1, not r ≫ 1 (F9). The exclusive-token part waits for R11.
+- **Hyp. 6, collateral is a partial proxy: supported** (F12). Points that pass the collateral gate still destroy 0.18–0.56 of the words.
+- **Hyp. 7, ignorance trades against leakage: supported** (F13). No config reaches leak ≤ 0.1 with destruction ≤ 0.1; CINDER at r = 0.25 is the best trade measured.
+- **Hyp. 8, Mean and Noise are destructive: supported for Mean, partly for Noise** (F7, F15, R9).
+- **The references behave as designed** (F8), so the integrity tests can be trusted, with echo the weakest.
+
+**Overall reading (E1 + E2).** CINDER as a bundle does not beat EMBER at the collateral-aware selected point (test H4 0.48 vs 0.48; F2). Its direction is better where erasure is non-destructive: it erases more per unit of perturbation at r ≤ 0.5 (F3, F6), and at r = 0.25 it removes much more concept knowledge with little destruction (F13). Its liability is the GS-widened, generic token set (F4). Under an integrity criterion it, and 1a and 1b, are less destructive at their selected points than EMBER (destruction 0.18–0.21 vs 0.30, 3 judge runs; F12). The paper-worthy candidate is "CS direction on a cleaner token set in the non-destructive regime": 1b-like edits, exclusivity weighting, and CINDER-RS (pending, D15).
+
+### D15. CINDER-RS (layers 1 + 3)
+
+**What it is.** CINDER-RS = Contrastive Sharpening (layer 1) + the Two-Way Judge (layer 3), with EMBER's row sparsity (RS-1%) in place of Global Sparsity (layer 2). In code it is rung `L13`: the fit `fixed_refit-False` (CS, 1% row sparsity per feature) and the judge HJ (TJ ∨ EJ@5; Ancient Rome uses the v1r lexicon, as in amendment 3). The edit is e − δc with sparse Y, on the concept-only tokens of support(F\_C), as for EMBER and CINDER (D1).
+
+**Why.** In E1 and E2, CINDER's direction was more efficient at small r (F3, F6, F13), and its GS-widened token sets carried more multi-meaning tokens (F4). CINDER-RS separates the direction (layer 1) from the widths (layer 2). The motivation is post hoc and disclosed in amendment 5. The user proposed the candidate; we did not choose it from results.
+
+**Evaluation, identical to E1 and E2.**
+
+| Stage | Settings |
+| --- | --- |
+| E1 | The same r grid, frozen question set, gates (MMLU-frac ≥ 0.9, collateral ≥ 0.8) and cheaper-rule selection; the test pass; Alpaca at the chosen point (50 prompts) |
+| E2 | The selected point plus the sweep r ∈ {0.25, 1, 10, 100}; all judge-free tests on 8 concept-seeds; T3 labels on Harry Potter 42, Ancient Rome 44 and Valentine's Day 42, through an incremental blind export that leaves already-labelled ids unchanged and uses the same brief, clarifications included |
+
+**Coverage and size.** The token pool was frozen before CINDER-RS existed. 88–100% of its edited tokens are in the pool (Valentine's Day 46: 68 of 77). As for every variant, collateral is over its edited multi-meaning tokens of the frozen set, and uncovered tokens are reported. It edits 40–46 tokens per run (Valentine's Day 46: 77), against 32–103 for CINDER and 31–59 for EMBER.
+
+**Reading (not pre-registered).** If CINDER-RS keeps CINDER's efficacy at small r with EMBER-like collateral and less destruction, GS is the liability (S3). If it loses CINDER's efficacy advantage, the direction gain needs GS too.
+
+**Status.** Running. No CINDER-RS number is reported yet. Results go in the [TBD: running] cells of R1, R2, R5, R6, R9, R9b and R10. The comparison is exploratory; claims need the expansion concepts.
 
 ---
 
@@ -622,6 +793,7 @@ Mean nonce budget b and deletion excess d (nats/token): [TBD].
 | L12, `sub:cs_gs` | +CS+GS |
 | L123, `sub:cinder` | CINDER (+CS+GS+TWJ) |
 | L0W, `sub:ember_judge` | EMBER + TJ∨WJ+share |
+| L13, `sub:cinder_rs` | CINDER-RS (CS + RS-1% + TWJ, no GS; amendment 5) |
 | `sub:ee` / `sub:1b` / `sub:1a` / `sub:cross` | 2×2 cells (dense Y) |
 | `mean:<set>`, `noise:<set>` | Mean, Noise (§4.2) |
 | `proj:<set>`, `excl:<set>`, `pow1.5:<set>`, `pow2:<set>` | Bounded projection, exclusivity-weighted, power |
@@ -635,20 +807,30 @@ Mean nonce budget b and deletion excess d (nats/token): [TBD].
 | E2, `integrity.py` | Token integrity (D11–D14) |
 | `ref_orig` / `ref_nonce` / `ref_del` | E2 references: real word / nonce word / word deleted |
 | `copy`, `ctx_pass`, `del_likeness`, `ctxmc`, `echo`, `static_*` | T1, T2, T2, T2b, T3 echo, T4 |
+| `ctx_excess` | Answer-NLL excess over the nonce (secondary T2 diagnostic) |
+| KC, KO, IGN, INCOH | T3 labels KNOWS\_CONCEPT, KNOWS\_OTHER, IGNORANT, INCOHERENT |
+| F1–F16, S1–S8 | Findings and speculations of Part 1 |
 
 ### Open items
 
 - [x] Select one version per concept, clean up, freeze `data/collateral_questions.json`, and put the hash in PREREG amendment 3.
 - [ ] Human spot check of 20 items per concept.
 - [x] Phase 1 and phase 2 grids for all variants, concepts and seeds.
-- [ ] Selection, test pass and Alpaca for the primaries (running).
+- [x] Selection, test pass and Alpaca for the primaries (3 runs flagged for fluency < 0.9, R1).
 - [x] Choose m and α pooled over the 3 concepts: α = 1; best shape power m = 2 on CINDER's tokens ([shape\_choice.json](results/varwidth/layers/collateral/shape_choice.json)).
-- [ ] Fill R1–R7 and write `collateral/poc.md`.
-- [ ] E2: pilot checks, full judge-free runs on 8 concept-seeds, agent labels on 3, fill R8–R12.
+- [x] Fill R1–R7 and write `collateral/poc.md`.
+- [x] E2: pilot checks (two T2 fixes, amendments 4b and 4c), full judge-free runs on 8 concept-seeds, agent labels on 3 (3,001 items), fill R8–R10 and R12.
+- [ ] CINDER-RS (amendment 5): E1 grids, test pass and Alpaca; E2 tests and incremental T3 labels; fill the [TBD: running] cells (running).
+- [ ] R11: split the integrity metrics by token class from the per-word outputs (no new runs).
+- [ ] Find why the unedited model misses some test collateral items (R1), and report test collateral against that ceiling.
+- [ ] Decide whether echo stays a reported test (nonce echo below the 0.8 pilot gate in 6 of 8 runs, R8).
+- [ ] Proposed E3 (S2): integrity-gated selection on the full r grid for EMBER, CINDER, 1b and CINDER-RS. Needs approval: it adds E2's judge-free tests at every grid point.
+- [ ] Proposed: an identity-preserving edit variant (S1), the nonce-matching T3 score (S5, from existing labels), and OE or nonce-controlled efficacy (S6, S8).
 - [x] µ and cos(c, e) medians of D1 saved: `python -m experiments.varwidth.collateral_diag mu` → [diag/mu\_cos.json](results/varwidth/layers/collateral/diag/mu_cos.json).
 - [x] Expansion list: the 12 anchor concepts not used for development (the 14 anchor concepts minus Harry Potter and Valentine's Day; Ancient Rome is not an anchor concept). The plan's "11" was a miscount.
 - [ ] Decide whether to re-run the premise prompts at the selected points.
-- [ ] Merge into CINDER_improvements.md once results exist.
+- [ ] Merge into CINDER_improvements.md, with the reframed claim of R7 and the overall reading of R12.
+- [ ] After this stage: the 12 expansion concepts (S7) and LoRA relearning at r ≈ 0.5 vs r = 100 (S4).
 - [x] Edit set checked against the code: `edit_vectors` in [erase.py](experiments/varwidth/erase.py) edits support ∩ codes = 1, as in §3.3.
 - [x] Variant definitions checked against [erase\_v2.py](experiments/varwidth/erase_v2.py) and [collateral.py](experiments/varwidth/collateral.py).
 
@@ -660,9 +842,12 @@ Mean nonce budget b and deletion excess d (nats/token): [TBD].
 - Premise check: [premise\_prompts.json](results/varwidth/layers/collateral/premise_prompts.json), [premise\_generations.json](results/varwidth/layers/collateral/premise_generations.json).
 - Pilot: [collateral/Harry\_Potter/\_pilot\_s42\_v0metric/](results/varwidth/layers/collateral/Harry_Potter/_pilot_s42_v0metric/) (grids record the union collateral; the own-token collateral of the pilot table is recomputed from the saved per-token accuracies by `python -m experiments.varwidth.collateral_diag pilot` → [diag/pilot\_own\_tokens.json](results/varwidth/layers/collateral/diag/pilot_own_tokens.json)), [cl\_pilot\_1055037.out](results/varwidth/layers/slurm/logs/cl_pilot_1055037.out).
 - Token pools and drafts: [collateral/pool/](results/varwidth/layers/collateral/pool/), [collateral/drafts/](results/varwidth/layers/collateral/drafts/).
-- Pre-registration: [PREREG\_amend3\_draft.md](results/varwidth/layers/collateral/PREREG_amend3_draft.md), [PREREG.md](results/varwidth/layers/PREREG.md).
+- Pre-registration: [PREREG\_amend3\_draft.md](results/varwidth/layers/collateral/PREREG_amend3_draft.md), [PREREG.md](results/varwidth/layers/PREREG.md) (amendment 3: E1; 4, 4b, 4c: E2 and its pilot fixes; 5: CINDER-RS).
 - Edit magnitudes µ and cos(c, e): [diag/mu\_cos.json](results/varwidth/layers/collateral/diag/mu_cos.json).
-- Code: [erase.py](experiments/varwidth/erase.py), [erase\_v2.py](experiments/varwidth/erase_v2.py), [collateral.py](experiments/varwidth/collateral.py), [collateral\_diag.py](experiments/varwidth/collateral_diag.py).
+- E1 results: [collateral/poc.md](results/varwidth/layers/collateral/poc.md) (written by `python -m experiments.varwidth.collateral_report report`); per run `collateral/<concept>/s<seed>/<variant>/{grid.json, result.json}`; Pareto PNGs in [collateral/pareto/](results/varwidth/layers/collateral/pareto/); shape choice in [shape\_choice.json](results/varwidth/layers/collateral/shape_choice.json). Edit sets and the 2×2 top-N overlap (`_info.topN_overlap_rawY`): `collateral/<concept>/edits_s<seed>.pt`.
+- E2 results: [integrity/report.md](results/varwidth/layers/collateral/integrity/report.md) (written by `python -m experiments.varwidth.integrity report`); per config `integrity/<concept>/s<seed>/*.json`, with the words, nonces and tokens in `meta.json`; the pilots in `integrity/Harry_Potter/_pilot1_s42/` and `_pilot2_s42/`.
+- T3 labels: [integrity/judge/](results/varwidth/layers/collateral/integrity/judge/): blind batches `batch_*.json`, agent labels `labels_*.json` (3,001 items plus 300 duplicates), the id-to-config key `key.json`, and `pre_clarification/` (the first labels of batches 00–02, superseded after the brief's clarifications; 347 of 450 unchanged). Brief: [briefs/judge\_t3.md](results/varwidth/layers/collateral/briefs/judge_t3.md).
+- Code: [erase.py](experiments/varwidth/erase.py), [erase\_v2.py](experiments/varwidth/erase_v2.py), [collateral.py](experiments/varwidth/collateral.py), [collateral\_diag.py](experiments/varwidth/collateral_diag.py), [collateral\_report.py](experiments/varwidth/collateral_report.py), [integrity.py](experiments/varwidth/integrity.py).
 
 ### References
 

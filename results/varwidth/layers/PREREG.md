@@ -265,3 +265,21 @@ edited multi-meaning tokens of the frozen set, as for every variant; uncovered t
 
 **Status:** an exploratory comparison. It is the candidate the user proposed and was not chosen by us from results;
 claims need the expansion concepts.
+
+## Amendment 6 (2026-10-19): erratum, test-collateral baseline
+
+**The issue.** The base filter checked every collateral item under the option order of a "val" item, because the MC
+evaluator seeds the option shuffle with an id that includes the split. Test items are shuffled differently, and the
+unedited model misses some of them. Its test collateral is 0.981 for Harry Potter, 0.964 for Ancient Rome and 0.948
+for Valentine's Day (union), identical across seeds, so the evaluation is deterministic.
+
+**What is affected and what is not.**
+- **Not affected:** validation, where the baseline of 1 holds by construction, and therefore selection.
+- **Affected:** reported test collateral, which assumed a baseline of 1.
+
+**Fix, in reporting only.** collateral_rn = the mean over the variant's edited multi-meaning tokens of
+mc_norm(acc_edit, acc_unedited), using the unedited per-token test accuracy from the no-edit rows. This is the
+paper's normalization. Tokens whose unedited test accuracy is ≤ 0.25 are left out, and no edit gives 1.0.
+
+**Effect.** Test collateral rises by 0.02–0.04. The H3v and H4 rankings are unchanged. The raw values stay in
+poc.md next to the corrected ones.

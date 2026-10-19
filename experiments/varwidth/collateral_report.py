@@ -103,6 +103,39 @@ def results():
     return out
 
 
+def unedited_test_acc():
+    """{concept: {token: unedited test accuracy}} from any no-edit result (same items, same option order). The base
+    filter ran on items shuffled as "val"; test items are shuffled differently, so the unedited test accuracy is
+    < 1 for some tokens (erratum, amendment 6)."""
+    out = {}
+    for (c, s, v), r in results().items():
+        if r.get("param") is None and r.get("n_edit", 1) == 0 and c not in out:
+            out[c] = r["coll_tok"]
+    return out
+
+
+def renorm(R):
+    """Adds collateral_rn = mean over the variant's edited multi-meaning tokens of mc_norm(acc, unedited acc)
+    (tokens whose unedited test accuracy is <= 0.25 are unmeasurable and left out; no edit -> 1.0), and
+    H3v_rn / H4_rn."""
+    import torch
+
+    from experiments.varwidth.erase import mc_norm
+    base = unedited_test_acc()
+    sets_cache = {}
+    for (c, s, v), r in R.items():
+        if (c, s) not in sets_cache:
+            sets_cache[(c, s)] = torch.load(OUT / slug(c) / f"edits_s{s}.pt", weights_only=False)
+        ids = {str(t) for t in sets_cache[(c, s)][v.split(":")[1]]["ids"]} if r.get("n_edit") else set()
+        b = base.get(c, {})
+        vals = [mc_norm(a, b[t]) for t, a in r["coll_tok"].items() if t in ids and b.get(t, 0) > 0.25]
+        r["collateral_rn"] = float(np.mean(vals)) if vals else 1.0
+        r["H3v_rn"] = hm([r["efficacy"], r["specificity"], r["collateral_rn"]])
+        if "coherence" in r:
+            r["H4_rn"] = hm([r["efficacy"], r["specificity"], r["coherence"], r["collateral_rn"]])
+    return R
+
+
 def fmt(x, n=2):
     return "—" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{n}f}"
 
@@ -139,7 +172,7 @@ def pareto_png(G):
 
 
 def report():
-    G, R = grids(), results()
+    G, R = grids(), renorm(results())
     sh = json.loads((OUT / "shape_choice.json").read_text()) if (OUT / "shape_choice.json").exists() else shapes(G, False)
     L = ["# Collateral-aware erasure: development stage (Harry Potter, Ancient Rome, Valentine's Day)", "",
          "Pre-registered in PREREG amendment 3. Question set `data/collateral_questions.json` (sha256[:16] 57b21bb9dfcecfc2).",
@@ -149,23 +182,26 @@ def report():
          "H4 adds collateral; H3v = HM(efficacy, specificity, collateral) (no Alpaca).", ""]
     # main table
     L += ["## Test results at the selected point", "",
-          "| Concept | Seed | Variant | r | n edit | Efficacy | Specificity | Collateral | Coll. (union) | Coherence | H | H4 | H3v |",
+          "Collateral (rn) is normalized by the unedited model's test accuracy per token (erratum, amendment 6); the raw "
+          "column assumes a baseline of 1.", "",
+          "| Concept | Seed | Variant | r | n edit | Efficacy | Specificity | Collateral (rn) | Coll. raw | Coherence | H | H4 (rn) | H3v (rn) |",
           "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for (c, s, v), r in sorted(R.items(), key=lambda kv: (kv[0][0], kv[0][1], kv[0][2])):
         L.append(f"| {c} | {s} | {name(v)} | {fmt(r.get('r'), 3)} | {r.get('n_edit')} | {fmt(r['efficacy'])} | "
-                 f"{fmt(r['specificity'])} | {fmt(r['collateral'])} | {fmt(r.get('coll_all'))} | {fmt(r.get('coherence'))} | "
-                 f"{fmt(r.get('H'))} | {fmt(r.get('H4'))} | {fmt(r['H3v'])} |")
+                 f"{fmt(r['specificity'])} | {fmt(r['collateral_rn'])} | {fmt(r['collateral'])} | {fmt(r.get('coherence'))} | "
+                 f"{fmt(r.get('H'))} | {fmt(r.get('H4_rn'))} | {fmt(r['H3v_rn'])} |")
     # means per variant over concept-seeds
     L += ["", "## Mean over concept-seeds (variants present in every run of the concept are averaged over those runs)", "",
-          "| Variant | runs | Efficacy | Collateral | H3v | H4 (if Alpaca) | mean selected r |", "|---|---|---|---|---|---|---|"]
+          "| Variant | runs | Efficacy | Collateral (rn) | H3v (rn) | H4 rn (if Alpaca) | H3v raw | mean selected r |", "|---|---|---|---|---|---|---|---|"]
     by = {}
     for (c, s, v), r in R.items():
         by.setdefault(v, []).append(r)
-    for v, rs in sorted(by.items(), key=lambda kv: -np.mean([r["H3v"] for r in kv[1]])):
-        h4 = [r["H4"] for r in rs if "H4" in r]
+    for v, rs in sorted(by.items(), key=lambda kv: -np.mean([r["H3v_rn"] for r in kv[1]])):
+        h4 = [r["H4_rn"] for r in rs if "H4_rn" in r]
         L.append(f"| {name(v)} | {len(rs)} | {fmt(np.mean([r['efficacy'] for r in rs]))} | "
-                 f"{fmt(np.mean([r['collateral'] for r in rs]))} | {fmt(np.mean([r['H3v'] for r in rs]))} | "
-                 f"{fmt(np.mean(h4)) if h4 else '—'} | {fmt(np.mean([r.get('r') or 0 for r in rs]), 2)} |")
+                 f"{fmt(np.mean([r['collateral_rn'] for r in rs]))} | {fmt(np.mean([r['H3v_rn'] for r in rs]))} | "
+                 f"{fmt(np.mean(h4)) if h4 else '—'} | {fmt(np.mean([r['H3v'] for r in rs]))} | "
+                 f"{fmt(np.mean([r.get('r') or 0 for r in rs]), 2)} |")
     # 2x2
     L += ["", "## 2×2: token set × direction (dense Y, N = EMBER's edit count), test H3v", "",
           "| Concept | Seed | EE | 1b (CINDER dir) | 1a (CINDER tok+dir) | cross (CINDER tok) | Δ direction | Δ tokens | Δ interaction |",
@@ -175,7 +211,7 @@ def report():
         cells = {k: R.get((c, s, f"sub:{k}")) for k in ("ee", "1b", "1a", "cross")}
         if not all(cells.values()):
             continue
-        h = {k: v["H3v"] for k, v in cells.items()}
+        h = {k: v["H3v_rn"] for k, v in cells.items()}
         dd = ((h["1b"] - h["ee"]) + (h["1a"] - h["cross"])) / 2
         dt = ((h["cross"] - h["ee"]) + (h["1a"] - h["1b"])) / 2
         di = (h["1a"] - h["cross"]) - (h["1b"] - h["ee"])
