@@ -77,8 +77,22 @@ each A1 feature usually covers few languages.
 
 ## 5. Selection depends on the sample
 
-Ancient Rome and Valentine's Day had A3 features at N = 40 that disappeared at N = 30. A seed study (3 extra
-N = 30 samples on 5 concepts, fit + selection only) is running; results go to results/ml/stability/STABILITY.md.
+Ancient Rome and Valentine's Day had A3 features at N = 40 that disappeared at N = 30. Seed study
+([results/ml/stability/STABILITY.md](../../results/ml/stability/STABILITY.md); 5 concepts, the reference sample
+(data seed 0) + 3 new N = 30 samples, fit + selection only, 0.26 NIS):
+
+- Strong concepts (Baseball, Gun): every sample selects on-topic features, but which features and which tokens
+  they edit varies (pairwise Jaccard of edited token sets 0.10–0.47).
+- Weak concepts: one feature near ρ = 2 that comes and goes. Selection is empty on at least one sample for
+  Culture of Greece (A2, A3), Harry Potter (A2) and Ancient Rome (A2, A3; A2 finds a Rome feature on 1 of 4).
+  The N = 40 → 30 disappearance fits this pattern; it is not an effect of N.
+- Part of it is the fit, not the sample: refitting the identical sample on CPU instead of GPU gives Jaccard
+  0.26 (Gun A3) and 0.07 (Harry Potter A3) — near-tied features in the nonconvex fit.
+- Reconstruction error barely moves (spread ≤ 0.0015).
+
+Consequence: a single-concept A2/A3 result, especially an empty or one-feature selection, is one draw. The
+comparison should be read over concepts, and ideally over several samples. A fit-seed vs sample-seed
+decomposition, including A1, is running.
 
 ## 6. A3 inverse map: verified
 
