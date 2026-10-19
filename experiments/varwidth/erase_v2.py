@@ -258,11 +258,17 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE):
     ev = Evals(concept, 50)
     Q = load_questions(concept, qfile)
     assert Q, "final needs the frozen collateral set"
+    sc = OUT / "shape_choice.json"           # pooled alpha per token set (collateral_report shapes)
+    alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {}
     for v in variant_list(sets):
         d = out_dir(concept, seed, v)
         if not (d / "grid.json").exists() or (d / "result.json").exists():
             continue
         rows = json.loads((d / "grid.json").read_text())
+        if v.startswith("proj:"):
+            assert alpha, "run collateral_report shapes first (pooled alpha)"
+            rows = [x for x in rows if x["param"] == float(alpha[v.split(':')[1]])]
+        assert all("collateral" in x for x in rows), f"{v}: grid rows without collateral (run the phase-2 pass)"
         best = select(rows, gate)
         res = {"concept": concept, "seed": seed, "variant": v, "gate": gate}
         if best is None:

@@ -158,3 +158,43 @@ tokens. The paper's metric cannot see damage to multi-meaning tokens (" Harry", 
 - **Power:** sign(Y)|Y|^m, m ∈ {1.5, 2}.
 - m and α are chosen pooled over the 3 concepts.
 - **Primary variants (Alpaca):** EMBER, CINDER, EMBER + TJ∨WJ+share, 1a, 1b, best edit shape.
+
+## Amendment 4 (2026-10-19): E2, token integrity (written before any E2 measurement)
+
+**Why.** E1's collateral term covers only multi-meaning tokens, through MC. Destruction of concept-exclusive tokens
+(most of each edit set) is invisible to it, and MC is lenient.
+
+**Target.** "Erased" = the edited model reading w behaves like the unedited model reading a matched nonce word. The
+references, all on the unedited model, are orig (real word), nonce, and del (word removed).
+
+**Words.** Each edited token → its most frequent source word in the concept sentences, slotted as w, or "w" when only
+the quoted form yields the token. One entry per slot form. Nonce: pronounceable, same capitalization, similar length,
+no edited token ids, seeded by the word.
+
+**Tests.**
+- **T1 copy:** 2 carriers, success = output contains w.
+- **T2 context:** 5 carriers with fixed concept-free continuations. ctx_pass = share of (word, carrier) with NLL
+  excess over orig ≤ max(nonce budget, 0) + 0.05 nats; del_likeness = mean excess / mean deletion excess.
+- **T2b context-MC:** 2 MMLU train questions per word after a mention turn.
+- **T3 ignorance:** "I keep hearing people mention ⟨w⟩. What is it?"; echo = answer contains w; blind Claude-agent
+  label ∈ {KNOWS_CONCEPT, KNOWS_OTHER, IGNORANT, CONFAB, BLIND, INCOHERENT}. graceful = KNOWS_OTHER + IGNORANT,
+  leak = KNOWS_CONCEPT, destruction = BLIND + INCOHERENT. References labelled as calibration; 10% double-labelled.
+- **T4 static:** share of edited rows with norm z > 3 vs the vocabulary; median cosine to the nearest real token row.
+
+**Configs.** E1 selected points (recomputed with E1's rule from the frozen grids, α = 1) for EMBER, CINDER,
+EMBER+TJ∨WJ+share, 1a, 1b, pow2:cinder, Mean and Noise (both token sets); EMBER and CINDER at r ∈ {0.25, 1, 10, 100}.
+Words per config are capped at 60 (seeded).
+
+**Scope.** Judge-free tests on all 8 concept-seeds; T3 labels on HP 42, AR 44, VD 42. No Gemini.
+
+**Pilot gate** (HP 42: refs, EMBER r=1 and r=100, Mean):
+- orig/nonce copy ≥ 0.9;
+- mean nonce budget > 0 and deletion excess > budget;
+- EMBER r=100 clearly worse than r=1 on copy, ctx_pass, z>3;
+- orig/nonce echo ≥ 0.8.
+A failed check invalidates that test before scale.
+
+**Exploratory.** Integrity = HM(copy, ctx_pass, 1 − destruction), reported next to H4; no integrity-aware selection
+in this stage.
+
+**Disclosure.** E1's grids existed and some validation lines were seen in job logs; E1 test results were not read.

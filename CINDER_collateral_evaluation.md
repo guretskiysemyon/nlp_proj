@@ -57,13 +57,46 @@ Add a fourth term, **collateral**: does the edited model still know ordinary fac
 2. **Grids** for all variants on r ∈ {0.05, …, 100}, with validation scores at every point (efficacy, specificity, collateral).
 3. **Selection** by the collateral-aware cheaper rule, then the test split and Alpaca at the chosen point for the primary variants.
 4. **Report** H, H4 and the paper-structured variant, the 2×2 effects, the edit-shape comparison, Pareto curves and gate sensitivity.
-5. **After this stage, with the team:** expand to the other erasure concepts, and test relearning or LoRA healing.
+5. **E2, token integrity** (D11–D14): copy, context, context-MC, ignorance and static tests on every edited token, exclusive ones included, at E1's selected points and on a regime sweep, against the real-word, nonce and deletion references.
+6. **After this stage, with the team:** expand to the other erasure concepts, and test relearning or LoRA healing.
+
+### Beyond multi-meaning tokens: token integrity (Experiment E2)
+
+**The gap.** The collateral term only sees multi-meaning tokens, and only through MC recognition. Most edited tokens are concept-exclusive (" Hogwarts", " Voldemort", "ffindor"): they have no outside meaning to test, so the question set gives them no items. Yet destruction is not about other meanings. It is about the token itself: after a destructive edit the model cannot read the token in any context. Multi-meaning tokens are only the most visible case, and finding them is not always possible; for some concepts it is artificial.
+
+**What a good erasure should look like.** When an erased token appears in the input, the model should behave like someone who has never heard of the concept: it reads the word as an unknown word, can repeat it, says it does not know what it is, and carries on with the rest of the conversation. A destroyed token instead behaves like a hole or a glitch, with several costs:
+
+1. **The erasure is detectable.** The model reacts to the word in a way no ordinary model does ("Please provide the name…"), and the edited rows stand out in the weights (norms tens of times larger than any real token).
+2. **The context breaks.** A destroyed token can derail the surrounding sentence or turn, not just the concept.
+3. **It is no better than deleting the token.** An erasure that equals "remove the word from the input" is not a knowledge edit; a tokenizer blocklist would do the same.
+4. **The model cannot copy, quote or spell the word**, which breaks ordinary tasks (summaries, translations, transcripts) whenever the word appears.
+5. **It disrupts fluency around the word**, even in unrelated text that merely mentions it.
+6. **It gives an attacker a fingerprint and an easy undo.** Edited rows are easy to locate and to restore, for example from the unedited output matrix (the paper's own limitation for tied embeddings).
+
+**The idea.** Define the target behaviour by a reference: the **unedited model reading a matched nonce word** (a pronounceable non-word in the same slot). That is what "unaware of the concept" looks like. Two other references bound it: the unedited model with the **real word** (knows the concept) and with the **word deleted** (what destruction resembles). Every edited token, exclusive or not, is tested against them.
+
+| Test | Question it answers | Judge |
+| --- | --- | --- |
+| T1 Copy | Can the model repeat a sentence containing the word? | none (string match) |
+| T2 Context | Is the continuation after the word disrupted more than after an unknown word? | none (NLL vs the nonce budget) |
+| T2b Context-MC | Does an unrelated question go wrong after a turn that mentions the word? | none (MC) |
+| T3 Ignorance | Asked "What is ⟨w⟩?", does it answer like an ignorant model, or leak, go blind or break? | echo check + blind agent label |
+| T4 Static | Do the edited rows stand out in the weights? | none (norm z-score, nearest real token) |
+
+**Hypotheses (to be tested).**
+
+- **Hyp. 5: destruction fails integrity on exclusive tokens too.** At r ≫ 1, copy fails, the context excess exceeds the nonce budget and approaches deletion, T3 answers are blind or incoherent, and the rows are norm outliers. At r ≲ 1 the edited model stays within the nonce budget.
+- **Hyp. 6: collateral is a partial proxy.** E1's collateral-aware selection lands at points with high integrity, but not always, so integrity needs its own axis.
+- **Hyp. 7: graceful ignorance trades against leakage.** At small r the model reads the word and may still know the concept. The interesting question is whether any variant reaches low leakage with high integrity.
+- **Hyp. 8: Mean and Noise are destructive by construction**, at any strength where they erase.
+
+**How it runs.** E2 reuses E1's frozen grids and selected points; it adds no new search. It runs judge-free on all 8 concept-seeds and, for T3 labels, on one seed per concept, with Claude agent judges (no Gemini). Details in D11–D14.
 
 ### Where we stand
 
-- **Done:** the premise check (Observation 5), the pipeline pilot (Observation 6), the token pools, and the first question drafts for all 3 concepts.
-- **Running:** the review rounds, the selection of one version per concept, and the freeze.
-- **Not started:** the real grids. No result in this doc yet uses the frozen question set.
+- **Done:** the premise check, the pipeline pilot, the frozen question set (D5), and the E1 grids for all variants, concepts and seeds (955 grid points, collateral at every point). The pooled edit-shape choice (D6): α = 1 for the projection; best shape power m = 2 on CINDER's tokens.
+- **Running:** E1's final pass (selection, test split, Alpaca for the primary variants), and the E2 pilot.
+- **Not started:** E2 full runs and judge labels; the E1 report (D9).
 
 ### What to keep in mind
 
@@ -242,15 +275,17 @@ Two review rounds at most, so the loop does not echo. No agent sees our hypothes
 
 The pilot used Harry Potter v0 as a provisional file (60 tokens, 221 items, hash b42f96805f04f55a), for plumbing only.
 
-**Frozen set.** \[TBD: filled from `data/collateral_questions.json` and PREREG amendment 3 after the selectors and the cleanup.\]
+**Frozen set** (`data/collateral_questions.json`, PREREG amendment 3). Every selector chose v2. Items the selector listed as clear violations were dropped mechanically (Harry Potter 2, Ancient Rome 18, Valentine's Day 3), then tokens with fewer than 2 usable items.
 
-| Concept | Version chosen | Multi tokens kept | Exclusive | Tokens dropped | Items, val / test | Unedited correct |
+| Concept | Version chosen | Multi tokens kept | Exclusive (v2) | Tokens dropped | Items, val / test | Unedited correct (v2 draft) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Harry Potter | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Ancient Rome | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
-| Valentine's Day | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| Harry Potter | v2 | 54 | 15 | 4 | 103 / 86 | 0.91 |
+| Ancient Rome | v2 | 111 | 13 | 17 | 200 / 161 | 0.93 |
+| Valentine's Day | v2 | 90 | 9 | 5 | 162 / 142 | 0.90 |
 
-File hash (sha256[:16]): [TBD]. Human spot check (20 random items per concept): [TBD].
+Kept items are all answered correctly by the unedited model, by construction. File hash (sha256[:16]): `57b21bb9dfcecfc2`. Human spot check (20 random items per concept): [TBD, optional].
+
+The selectors' scores (neutrality / essential / certainty / coverage / answerability, 1–5) were v0 2/3/3–4/3–5/3–4 and v2 5/4/4–5/4/4–5 across concepts. The revisions bought neutrality and token essentiality at the cost of 4–9 tokens of coverage per concept.
 
 ### D6. Variants
 
@@ -446,6 +481,126 @@ The per-concept version of R1 (one block per concept and seed) goes in poc.md.
 - **Granularity.** 2 items per token and split give per-token scores in {0, 1/3, 1}, and validation qa has 50 questions (one question ≈ 0.035 qa\_frac on Harry Potter).
 - **Small development set.** 3 concepts × 2–3 seeds give direction only. The seeds 44 and 46 were picked for a complete 2×2, from feature counts only.
 - **Deviations from the paper.** Top-20 candidate features instead of τ = 2; no Alpaca in the grid; collateral is new.
+- **Collateral covers only multi-meaning tokens.** Concept-exclusive tokens have no items, so E1 cannot see their destruction. E2 covers them.
+
+### D11. E2: why collateral is not enough
+
+**What the collateral term misses.**
+
+| Edited token kind | Share of edited tokens | E1 collateral | What destruction costs |
+| --- | --- | --- | --- |
+| Multi-meaning (" Harry", " Trump", " heart") | a minority (54 of 73 pool tokens for Harry Potter, fewer per variant) | MC questions on outside meanings | Outside knowledge (E1), plus everything below |
+| Concept-exclusive (" Hogwarts", "ffindor") | most of each variant's edit set | none | Readability, copying, context, detectability |
+
+E1's MC items are also lenient: a model can pick the right option from context while being unable to read the token (Sherlock and Trump in the pilot). E2 measures the token itself, in generation and in likelihood.
+
+**The target, stated as a reference.** "Erased" should mean "ignorant", not "blind". Operationally, the edited model reading w should behave like the unedited model reading a nonce word n(w) in the same slot. Three references, all on the unedited model:
+
+| Reference | Input | Stands for |
+| --- | --- | --- |
+| orig | the real word w | Knows the concept (upper bound for readability, the leak reference) |
+| nonce | a matched nonce n(w) | **Target**: an unknown word |
+| del | w removed from the input | What "just deleting the token" gives |
+
+A destroyed token should look like del; a good erasure should look like nonce.
+
+**Words and slots.** For each edited token, w is its most frequent source word in the concept sentences ("ffindor" → Gryffindor, " McG" → McGonagall), placed in concept-neutral carrier sentences. The slot is w, or "w" in quotes when only that form produces the token (a no-space token such as "Harry"). Each slot form is tested once. The nonce is a pronounceable non-word of similar length and the same capitalization, whose tokens are not edited by any variant (seeded by the word, so it is identical across variants). On Harry Potter, seed 42, all 58 edited tokens (EMBER ∪ CINDER) get a slot.
+
+### D12. E2: tests
+
+**T1 Copy (judge-free).** Prompt: `Repeat the following sentence exactly, and nothing else: "<carrier with w>"`, 2 carriers. A trial succeeds when the output contains w. An unknown word can be copied (the nonce reference should succeed), and a deleted word cannot.
+
+**T2 Context (judge-free).** Five carriers, each a prefix with the slot and a fixed, concept-free continuation ("Yesterday my cousin kept talking about ⟨w⟩" + " while we cooked dinner, and afterwards …"). For each word and carrier, the mean NLL of the continuation tokens:
+
+```latex
+\mathrm{exc}_{w,k} = \mathrm{NLL}_{\mathrm{edit}}(w) - \mathrm{NLL}_{\mathrm{orig}}(w), \quad
+b_{w,k} = \mathrm{NLL}_{\mathrm{orig}}(n(w)) - \mathrm{NLL}_{\mathrm{orig}}(w), \quad
+d_{w,k} = \mathrm{NLL}_{\mathrm{orig}}(\text{del}) - \mathrm{NLL}_{\mathrm{orig}}(w)
+```
+
+```latex
+\text{ctx\_pass} = \operatorname{mean}_{w,k}\, \mathbb{1}\!\left[\mathrm{exc}_{w,k} \le \max(b_{w,k}, 0) + 0.05\right], \qquad
+\text{del\_likeness} = \frac{\operatorname{mean}\ \mathrm{exc}}{\operatorname{mean}\ d}
+```
+
+ctx\_pass asks whether the edited word disrupts the rest of the sentence no more than an unknown word does (the nonce budget b). del\_likeness near 1 means the edit behaves like deleting the word.
+
+**T2b Context-MC (judge-free).** An unrelated MMLU question, prefixed by "I just read an article that mentioned ⟨w⟩. Anyway, an unrelated question." (2 questions per word, MMLU train items). Accuracy is compared with the same pairs under orig and nonce.
+
+**T3 Ignorance.** Prompt: "I keep hearing people mention ⟨w⟩. What is it?", greedy, 80 tokens.
+- **Echo (judge-free):** does the answer contain w? An ignorant model usually names the word it does not know; a blind one does not.
+- **Agent label (blind):** a Claude agent sees the concept, the word, the prompt and the answer, never the variant, and assigns one label:
+
+| Label | Meaning | Counts as |
+| --- | --- | --- |
+| KNOWS\_CONCEPT | Shows knowledge of the concept meaning | leak |
+| KNOWS\_OTHER | Answers with a real non-concept meaning (multi-meaning words) | graceful |
+| IGNORANT | Treats w as a word it does not know, coherently (says so, asks, hedges) | graceful |
+| CONFAB | Confidently invents a meaning | reported separately (compare with nonce) |
+| BLIND | Does not register w: asks for missing information, answers about another word, or ignores it | destruction |
+| INCOHERENT | Broken text, repetition, garbage | destruction |
+
+Scores: graceful rate, leak rate, destruction rate (BLIND + INCOHERENT), each per variant. The orig, nonce and del answers are labelled too, as calibration: nonce should be mostly IGNORANT or CONFAB, del mostly BLIND, orig mostly KNOWS. 10% of the items get a second, independent label for agreement.
+
+**T4 Static (no generation).** For the edited rows e′ (TL-scaled space): the share with norm z-score > 3 against the vocabulary's norm distribution, and the median cosine to the nearest other real token row. These are white-box fingerprints: a large norm or a row unlike any real token is easy to locate and undo.
+
+### D13. E2: protocol
+
+**Configs per concept-seed** (all from E1's frozen grids; no new search):
+
+| Group | Configs |
+| --- | --- |
+| References | orig, nonce, del (unedited model) |
+| E1 selected points | EMBER, CINDER, EMBER + TJ∨WJ+share, 1a, 1b, power m = 2 (CINDER), Mean (EMBER / CINDER tokens), Noise (EMBER / CINDER tokens) |
+| Regime sweep | EMBER and CINDER at r ∈ {0.25, 1, 10, 100} |
+
+Each config is tested on its own edited words (capped at 60, seeded). E1-selected points are recomputed with E1's rule from the saved grids, so they match E1's final pass.
+
+**Scope.** Judge-free tests (T1, T2, T2b, T4, echo) on all 8 concept-seeds. Agent labels (T3) on one seed per concept, the seed with a complete 2×2: Harry Potter 42, Ancient Rome 44, Valentine's Day 42.
+
+**Pilot first** (Harry Potter 42: the references, EMBER at r = 1 and r = 100, Mean). Expected outcomes; a miss means a test is invalid for this model and is dropped or fixed before scale:
+
+1. **Copy is valid:** orig and nonce copy ≥ 0.9 (a 2B model can repeat a sentence).
+2. **The nonce budget is meaningful:** b > 0 on average (an unknown word costs some likelihood), and d > b (deletion costs more).
+3. **The regimes separate:** EMBER at r = 100 fails (low copy, ctx\_pass well below r = 1, del\_likeness toward 1, z > 3 for nearly all rows); EMBER at r = 1 stays near the references.
+4. **Echo is valid:** orig and nonce echo ≥ 0.8.
+
+**Cost.** No Gemini. GPU: about 20 configs per concept-seed. Claude agents: about 1,400 T3 answers in blind batches, plus 10% double labels.
+
+**Pre-registration.** PREREG amendment 4 records the tests, references, thresholds (0.05 nats margin, z > 3), labels and scope before any E2 measurement. It was written after E1's grids existed and some validation lines had been seen in job logs, but before E1's test results were read.
+
+**Planned composite (exploratory).** Integrity = HM(copy, ctx\_pass, 1 − destruction rate), reported next to H4. An integrity-aware selection (a fifth axis) is left for after this stage, because measuring integrity on every grid point would add cost.
+
+### D14. E2: results
+
+\[TBD: filled from `results/varwidth/layers/collateral/integrity/<concept>/s<seed>/*.json` and summarized in `results/varwidth/layers/collateral/integrity/report.md`.\]
+
+**R8. References (calibration).**
+
+| Reference | Copy | Echo | Context-MC | T3 labels (KNOWS / IGNORANT / CONFAB / BLIND / INCOHERENT) |
+| --- | --- | --- | --- | --- |
+| orig | [TBD] | [TBD] | [TBD] | [TBD] |
+| nonce | [TBD] | [TBD] | [TBD] | [TBD] |
+| del | — | [TBD] | [TBD] | [TBD] |
+
+Mean nonce budget b and deletion excess d (nats/token): [TBD].
+
+**R9. Integrity at E1's selected points.**
+
+| Variant | r\* | Copy | ctx\_pass | del\_likeness | Context-MC | Echo | Graceful / leak / destruction | z > 3 | nn-cos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| EMBER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| CINDER | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| EMBER + TJ∨WJ+share | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| 1a / 1b | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| Power m = 2 | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+| Mean / Noise | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] | [TBD] |
+
+**R10. Regime sweep** (EMBER and CINDER, r = 0.25 / 1 / 10 / 100): copy, ctx\_pass, del\_likeness, destruction rate, z > 3. \[TBD\]
+
+**R11. Exclusive vs multi-meaning tokens** (the same metrics, split by the token's class in the frozen question set). \[TBD\]
+
+**R12. Conclusions for Hyp. 5–8.** \[TBD\]
 
 ---
 
@@ -469,14 +624,20 @@ The per-concept version of R1 (one block per concept and seed) goes in poc.md.
 | `H`, `H4` | The paper's H; H4 |
 | codes = 1 | Concept-only tokens |
 | step 0 / premise | Premise check (D3) |
+| E1 | The collateral-aware erasure stage (D4–D9) |
+| E2, `integrity.py` | Token integrity (D11–D14) |
+| `ref_orig` / `ref_nonce` / `ref_del` | E2 references: real word / nonce word / word deleted |
+| `copy`, `ctx_pass`, `del_likeness`, `ctxmc`, `echo`, `static_*` | T1, T2, T2, T2b, T3 echo, T4 |
 
 ### Open items
 
-- [ ] Select one version per concept, clean up, freeze `data/collateral_questions.json`, and put the hash in PREREG amendment 3.
+- [x] Select one version per concept, clean up, freeze `data/collateral_questions.json`, and put the hash in PREREG amendment 3.
 - [ ] Human spot check of 20 items per concept.
-- [ ] Phase 1 and phase 2 grids for all variants, concepts and seeds; selection; test pass; Alpaca for the primaries.
-- [ ] Choose m and α pooled over the 3 concepts.
+- [x] Phase 1 and phase 2 grids for all variants, concepts and seeds.
+- [ ] Selection, test pass and Alpaca for the primaries (running).
+- [x] Choose m and α pooled over the 3 concepts: α = 1; best shape power m = 2 on CINDER's tokens ([shape\_choice.json](results/varwidth/layers/collateral/shape_choice.json)).
 - [ ] Fill R1–R7 and write `collateral/poc.md`.
+- [ ] E2: pilot checks, full judge-free runs on 8 concept-seeds, agent labels on 3, fill R8–R12.
 - [x] µ and cos(c, e) medians of D1 saved: `python -m experiments.varwidth.collateral_diag mu` → [diag/mu\_cos.json](results/varwidth/layers/collateral/diag/mu_cos.json).
 - [x] Expansion list: the 12 anchor concepts not used for development (the 14 anchor concepts minus Harry Potter and Valentine's Day; Ancient Rome is not an anchor concept). The plan's "11" was a miscount.
 - [ ] Decide whether to re-run the premise prompts at the selected points.
