@@ -12,6 +12,16 @@ run_dir / load_sample / lexicon redirected (monkeypatched in this process only).
 results/ml/stability/; the seed-0 reference is read from results/ml/runs/. The fit seed stays common.SEED=42.
 The A3 lexicon is read from results/ml/lexicons.json (read only, never regenerated).
 Judge verdicts are reused across runs (and from the seed-0 runs) when the top-20 token strings are identical.
+
+Extension (fit-seed variance and A1): variants named by directory under results/ml/stability/runs/
+    s1 s2 s3   sample seed 1/2/3, fit seed 42          (A2, A3)
+    s0cpu      sample seed 0, fit seed 42, CPU          (A2, A3; A1 = full per-language sets)
+    fs1 fs2    sample seed 0, fit seed 1/2, CPU         (A2, A3, A1)
+    ref        results/ml/runs/ (GPU, seed 0 / fit 42), read only
+    python -m experiments.ml.stability vfit    --concept ... --variants fs1 fs2 --approach A1 A2 A3
+    python -m experiments.ml.stability vselect --concept ... --variants fs1 fs2 --approach A1 A2 A3 --cap-nis 0.48
+    python -m experiments.ml.stability vreport --concept ...
+vselect stops before a selection when this process's Gemini spend (from GEMINI_USAGE_LOG) reaches --cap-nis.
 """
 from __future__ import annotations
 
@@ -47,7 +57,28 @@ def _redirect(seed):
     F.run_dir = lambda c, a, lang=None: sdir(c, seed, a)
     S.run_dir = F.run_dir
     F.load_sample = lambda c, n: json.loads(sample_path(c, seed).read_text())
+    _lexicon_ro()
 
+
+# ---------------------------------------------------------------- variants (extension)
+VARIANTS = {"s1": (1, 42), "s2": (2, 42), "s3": (3, 42), "s0cpu": (0, 42), "fs1": (0, 1), "fs2": (0, 2)}
+
+
+def vdir(concept, variant, approach, lang=None):
+    d = RUNS / slug(concept) / approach if variant == "ref" else OUT / "runs" / variant / slug(concept) / approach
+    return d / lang if lang else d
+
+
+def _vredirect(variant):
+    sample_seed, fit_seed = VARIANTS[variant]
+    F.run_dir = lambda c, a, lang=None: vdir(c, variant, a, lang)
+    S.run_dir = F.run_dir
+    F.SEED = fit_seed                     # fit._fit reads the module global at call time
+    F.load_sample = lambda c, n: json.loads(sample_path(c, CPU_CTRL if sample_seed == 0 else sample_seed).read_text())
+    _lexicon_ro()
+
+
+def _lexicon_ro():
     def lexicon_ro(c):
         return json.loads(S.LEXICON_PATH.read_text())[c]["words"]
     S.lexicon = lexicon_ro
@@ -80,7 +111,9 @@ def seed_judge_cache(concept, fit_path):
     # index restricted to this concept: walk the concept's own run dirs only
     idx = {}
     for p in list((RUNS / slug(concept)).glob("A[23]/judge.json")) + \
-            list((OUT / "runs").glob(f"s*/{slug(concept)}/A[23]/judge.json")):
+            list((RUNS / slug(concept)).glob("A1/*/judge.json")) + \
+            list((OUT / "runs").glob(f"*/{slug(concept)}/A[23]/judge.json")) + \
+            list((OUT / "runs").glob(f"*/{slug(concept)}/A1/*/judge.json")):
         for e in json.loads(p.read_text()).values():
             if "verdict" in e:
                 idx.setdefault(tuple(e["tokens"]), e)
@@ -146,7 +179,128 @@ def report(concepts, seeds, approaches):
     return rows
 
 
+def spend_nis(log_path, from_line=0):
+    """NIS of all log lines after `from_line` (conservative: counts every writer of the shared log)."""
+    tot = 0.0
+    with open(log_path) as fh:
+        for i, line in enumerate(fh):
+            if i >= from_line:
+                tot += json.loads(line)["nis"]
+    return tot
+
+
+def _jac(a, b):
+    a, b = set(a), set(b)
+    return len(a & b) / len(a | b) if (a | b) else None
+
+
+def vreport(concepts, variants=("ref", "s0cpu", "fs1", "fs2")):
+    from experiments.ml.common import LANGS
+    from experiments.ml.data.io import page_priority
+    ext = {}
+    for c in concepts:
+        for a in ("A2", "A3"):
+            per = {}
+            for v in variants:
+                d = vdir(c, v, a)
+                if not (d / "selection.json").exists():
+                    continue
+                sel = json.loads((d / "selection.json").read_text())
+                summ = json.loads((d / "fit_summary.json").read_text())
+                per[v] = {"F_C": sel["F_C"], "tokens": sorted(edited_tokens(d / "fit.pt", d / "selection.json")),
+                          "rel_err_sample": summ["rel_err_sample"], "rel_err_full": summ["rel_err_full"],
+                          "selected": [{k: x[k] for k in ("feature", "rho", "description", "TJ", "EJ")}
+                                       for x in sel["candidates"] if x["selected"]]}
+            ks = list(per)
+            ext[f"fitseed|{c}|{a}"] = {"per_variant": per, "jaccard": {
+                f"{u}-{w}": _jac(per[u]["tokens"], per[w]["tokens"]) for i, u in enumerate(ks) for w in ks[i + 1:]}}
+        per = {}
+        prio = page_priority(c)
+        for v in variants:
+            langs, merged, src = {}, set(), {}
+            for L in prio:                                   # evaluate.edits order: first language keeps the token
+                d = vdir(c, v, "A1", L)
+                if not (d / "selection.json").exists():
+                    langs = None
+                    break
+                sel = json.loads((d / "selection.json").read_text())
+                summ = json.loads((d / "fit_summary.json").read_text())
+                toks = edited_tokens(d / "fit.pt", d / "selection.json")
+                for t in toks:
+                    src.setdefault(t, L)
+                merged |= toks
+                langs[L] = {"F_C": sel["F_C"], "n_tok": len(toks), "rel_err": summ["rel_err"],
+                            "selected": [x["description"] for x in sel["candidates"] if x["selected"]]}
+            if langs is None:
+                continue
+            per[v] = {"langs": {L: langs[L] for L in LANGS}, "merged_tokens": sorted(merged),
+                      "edited_by_lang": {L: sum(x == L for x in src.values()) for L in LANGS}}
+        ks = list(per)
+        ext[f"A1|{c}"] = {"per_variant": per, "jaccard_merged": {
+            f"{u}-{w}": _jac(per[u]["merged_tokens"], per[w]["merged_tokens"]) for i, u in enumerate(ks) for w in ks[i + 1:]},
+            "jaccard_per_lang": {f"{u}-{w}": {L: _jac(_lang_tokens(c, u, L), _lang_tokens(c, w, L)) for L in LANGS}
+                                 for i, u in enumerate(ks) for w in ks[i + 1:]}}
+    path = OUT / "report.json"
+    rep = json.loads(path.read_text()) if path.exists() else {}
+    rep["extension"] = ext
+    save_json(path, rep)
+    return ext
+
+
+def _lang_tokens(c, v, L):
+    d = vdir(c, v, "A1", L)
+    return edited_tokens(d / "fit.pt", d / "selection.json")
+
+
+def vmain(a):
+    import os
+    log = os.environ["GEMINI_USAGE_LOG"]
+    for v in a.variants:
+        assert v in VARIANTS, v
+        _vredirect(v)
+        for c in a.concept:
+            full = F.load_full(c) if a.stage == "vselect" else None
+            for ap_ in a.approach:
+                if a.stage == "vfit":
+                    F.run(c, ap_, N, a.device)
+                    continue
+                if ap_ == "A1":
+                    from experiments.ml.common import LANGS
+                    jobs = [(vdir(c, v, "A1", L) / "fit.pt", *F._flatten(full, [L])[::2], False) for L in LANGS]
+                else:
+                    s_, _, ls_ = F._flatten(full)
+                    jobs = [(vdir(c, v, ap_) / "fit.pt", s_, ls_, ap_ == "A3")]
+                for fit_path, sents, ls_, use_ej in jobs:
+                    if fit_path.with_name("selection.json").exists() or \
+                            not fit_path.with_name("fit_summary.json").exists():   # done, or fit not finished yet
+                        continue
+                    spent = spend_nis(log, a.log_from)
+                    if spent >= a.cap_nis:
+                        print(f"BUDGET STOP at {spent:.4f} NIS before {fit_path}", flush=True)
+                        return
+                    n, r = seed_judge_cache(c, fit_path)
+                    sel = S.select_run(c, fit_path, sents, ls_, use_ej=use_ej)
+                    print(f"[{v} {ap_} {c} {fit_path.parent.name}] reused {r}/{n} F_C={sel['F_C']} "
+                          f"spent={spend_nis(log, a.log_from):.4f}", flush=True)
+
+
 def main():
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] in ("vfit", "vselect", "vreport"):
+        ap = argparse.ArgumentParser()
+        ap.add_argument("stage", choices=["vfit", "vselect", "vreport"])
+        ap.add_argument("--concept", nargs="+", required=True)
+        ap.add_argument("--variants", nargs="+", default=["fs1", "fs2"])
+        ap.add_argument("--approach", nargs="+", default=["A2", "A3"], choices=["A1", "A2", "A3"])
+        ap.add_argument("--device", default="cpu")
+        ap.add_argument("--cap-nis", type=float, default=0.48)
+        ap.add_argument("--log-from", type=int, default=0, help="usage-log line where this budget starts")
+        a = ap.parse_args()
+        if a.stage == "vreport":
+            vreport(a.concept)
+        else:
+            vmain(a)
+        return
     ap = argparse.ArgumentParser()
     ap.add_argument("stage", choices=["sample", "fit", "select", "report"])
     ap.add_argument("--concept", nargs="+", required=True)

@@ -69,3 +69,59 @@ nonconvex, near-tied features), not only from which sentences are drawn.
 ## Cost
 
 Gemini 0.256 NIS (738 calls; 40 selections). Wall time about 49 min, CPU only.
+
+## Extension: fit-seed variance at a fixed sample, and A1
+
+Same 5 concepts, CPU only. I changed the fit seed by patching `fit.SEED` inside the stability process
+(`stability.py vfit/vselect/vreport`). Variants: **ref** = the existing GPU run (sample 0, fit 42); **0cpu** = the
+same on CPU; **fs1, fs2** = sample 0 with fit seed 1 or 2. For A1 the fit is on the full per-language sets, as in
+`fit.run` for A1, and the merged edit set is the union over languages in `page_priority` order, as in
+`evaluate.edits`. Gemini 0.494 NIS for this extension (cap 0.5); a guard stopped selection at the budget. Because
+of the budget, A1 fs2 covers **Baseball only**.
+
+### A2/A3: fit seed at a fixed sample
+
+| Concept | App | #F_C ref/0cpu/fs1/fs2 | #tok ref/0cpu/fs1/fs2 | J ref-fs1, ref-fs2, fs1-fs2 | mean J fit (0cpu,fs1,fs2) | mean J sample (0cpu,s1,s2,s3) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Baseball | A2 | 1/1/1/1 | 120/120/109/111 | .53 .55 .67 | 0.58 | 0.26 |
+| Baseball | A3 | 2/2/1/2 | 160/160/54/194 | .18 .35 .09 | 0.20 | 0.15 |
+| Culture of Greece | A2 | 1/1/**0**/1 | 90/88/0/71 | 0 .50 0 | 0.17 | 0.08 |
+| Culture of Greece | A3 | 1/1/**0**/1 | 108/102/0/110 | 0 .69 0 | 0.21 | 0.18 |
+| Gun | A2 | 1/2/1/4 | 99/140/111/213 | .48 .28 .38 | 0.36 | 0.35 |
+| Gun | A3 | 5/3/2/6 | 274/168/133/348 | .20 .20 .18 | 0.21 | 0.20 |
+| Harry Potter | A2 | 1/1/1/**0** | 101/101/96/0 | .67 0 0 | 0.23 | 0.29 |
+| Harry Potter | A3 | 1/2/3/2 | 79/162/237/152 | .18 .11 .13 | 0.11 | 0.14 |
+| Ancient Rome | A2 | 0/0/**1**/0 | 0/0/76/0 | 0 – 0 | 0.00 | 0.00 |
+| Ancient Rome | A3 | 0/0/**1**/0 | 0/0/61/0 | 0 – 0 | 0.00 | – |
+
+Mean pairwise J (pairs where both sides are empty are excluded): **fit seed 0.22 (28 pairs) vs sample 0.20 (50
+pairs)**. Every comparison here is CPU against CPU. With fit seed 1, Ancient Rome gets a feature in both A2 and
+A3: a "Latin language / classical literature" feature, judged a member by TJ. Reconstruction errors for fs1 and
+fs2 are within 0.001 of ref (A2 sample .9339–.9357, full .9616–.9637; A3 sample .9503–.9556, full .9781–.9809).
+
+### A1 (per-language EMBER, full sets)
+
+#F_C per language, in the order en de fr it pt hi es th:
+
+| Concept | ref (GPU, 42) | 0cpu (42) | fs1 | fs2 | merged #tok ref/0cpu/fs1/fs2 | J merged ref-0cpu, ref-fs1, ref-fs2, fs1-fs2 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Baseball | 1 0 1 1 1 0 0 3 | 1 0 1 1 1 0 **2** 3 | 1 0 0 2 1 0 2 1 | 2 0 1 2 3 0 1 1 | 108/129/108/148 | 0.84, 0.21, 0.24, 0.21 |
+| Culture of Greece | 2 1 0 0 0 0 0 0 | same | 1 0 2 1 0 0 0 0 | – | 91/91/98/– | 1.00, 0.08, –, – |
+| Gun | 3 1 1 1 1 0 1 3 | same | 3 1 1 1 1 0 0 0 | – | 169/169/114/– | 1.00, 0.32, –, – |
+| Harry Potter | 1 1 1 0 1 0 1 0 | same | 0 1 0 1 1 0 1 0 | – | 84/84/81/– | 0.81, 0.38, –, – |
+| Ancient Rome | 0 1 0 0 0 0 0 1 | same | 0 0 0 0 0 0 0 0 | – | 33/33/0/– | 1.00, 0.00, –, – |
+
+- **Device:** A1 is nearly device-stable. The CPU refit reproduces the GPU fit to 4 decimals in most languages,
+  98% of judge verdicts are reused, and merged J is 0.81–1.00. A2/A3 are not (J(0, 0cpu) as low as 0.07): the
+  larger multilingual fit and the extrapolation amplify small numerical differences.
+- **Fit seed:** A1 is just as seed-sensitive as A2/A3. Merged J against ref is 0.21–0.38 for Baseball, Gun and
+  Harry Potter. Culture of Greece is at 0.08, where fs1 picked two off-topic fr features ("culinary traditions",
+  "historical artifacts") that TJ accepted. Ancient Rome loses both of its features. Per language, J against ref
+  ranges from 0 to 0.68, and the low-resource languages (es, th) flip between 0 and 3 features.
+
+### Variance decomposition
+
+At a fixed sample, changing only the ALS fit seed moves the edited-token set about as much as redrawing the
+sample: mean pairwise J 0.22 vs 0.20. So for A2/A3 the fit seed is the dominant noise source, and the sample adds
+little beyond it. A1 has no sample, yet its fit-seed variance is of the same size. Device nondeterminism (GPU vs
+CPU) acts like a small fit-seed perturbation for A2/A3, but it is close to zero for A1.
