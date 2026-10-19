@@ -114,12 +114,24 @@ def _prompt(tok, item, lang):
 def mc_acc(model, tok, items, lang):
     from judge_rerun.mc_fixed import parse_letter_fixed
     prompts = [_prompt(tok, it, lang) for it in items]
+
+    def gen(ps):
+        """Greedy answers for prompts ps; on CUDA OOM (long Hindi/Thai MMLU prompts) split the batch in halves."""
+        try:
+            enc = tok(ps, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
+            out = model.generate(**enc, max_new_tokens=MAX_NEW, do_sample=False, pad_token_id=tok.eos_token_id)
+            return [tok.decode(r, skip_special_tokens=True) for r in out[:, enc.input_ids.shape[1]:]]
+        except torch.OutOfMemoryError:
+            if len(ps) == 1:
+                raise
+            torch.cuda.empty_cache()
+            h = len(ps) // 2
+            return gen(ps[:h]) + gen(ps[h:])
+
     right = valid = 0
     for s in range(0, len(prompts), BATCH):
-        enc = tok(prompts[s:s + BATCH], return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
-        out = model.generate(**enc, max_new_tokens=MAX_NEW, do_sample=False, pad_token_id=tok.eos_token_id)
-        for it, row in zip(items[s:s + BATCH], out[:, enc.input_ids.shape[1]:]):
-            letter = parse_letter_fixed(tok.decode(row, skip_special_tokens=True))
+        for it, raw in zip(items[s:s + BATCH], gen(prompts[s:s + BATCH])):
+            letter = parse_letter_fixed(raw)
             valid += letter in LETTERS
             right += letter == it["correct"]
     n = len(items)

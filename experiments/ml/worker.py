@@ -18,7 +18,7 @@ import time
 
 from experiments.ml.common import APPROACHES, RESULTS, concepts, run_dir, slug
 
-CLAIMS = RESULTS / "claims"
+CLAIMS = RESULTS / "claims_v2"   # v1 (results/ml/claims) holds stale claims of the first, OOM-prone launch
 STALE = 90 * 60
 
 
@@ -68,7 +68,11 @@ def main():
         try:
             evaluate(model, tok, editor, c, x)
         except Exception as e:  # noqa: BLE001 — log, release the claim, go on
+            import traceback
+            traceback.print_exc()
             print(f"[worker] FAILED {c} {x}: {type(e).__name__}: {e}", flush=True)
+            import torch
+            torch.cuda.empty_cache()
             (CLAIMS / f"{slug(c)}__{x}").unlink(missing_ok=True)
             editor.restore()
             continue
