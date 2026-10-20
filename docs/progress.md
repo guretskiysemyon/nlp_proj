@@ -13,6 +13,44 @@ specificity, `snmf_ember` erases English the most and leaks only into Russian
 Next: the analysis in [`crosslingual_next.md`](Part%201/crosslingual_next.md)
 §6, then Part 2.
 
+**Part 2 status (2026-10-17):** plan and results in
+[`docs/Part 2/plan.md`](Part%202/plan.md); data details in
+[`multilingual_features.md`](Part%202/multilingual_features.md).
+- **Plan decided:** two arms, both on native Wikipedia text only (translated sets
+  parked). A: one joint factorization on en+ru+de+es+fr; B: one fit per language,
+  union of the features. Same filter, judge gemini-3.5-flash-lite for all of Part 2
+  (the paper's Gemini-2.5-Flash-Lite is no longer available; on the paper's English
+  World War II candidates the two agree fully on embedding features and on 94% of
+  MLP decisions, 15 → 12 kept, 5 in common).
+- **Data cleaned:** bibliography and back-matter lines removed from `data_v2/`
+  (1,410 concept sentences logged in `removed_references.json`, 531 of them had been
+  in the sets; 53 neutral sentences replaced, `neutral_removed_references.json`);
+  every removal read. All pairs 300 sentences except Valentine's Day es (276).
+- **World War II, rank 100, both tracks (jobs 1046208, 1046235–8):** embedding
+  features kept: English 1, every other run 0; MLP: English 12, joint 3, de 4,
+  fr 3, es 2, ru 0.
+- **Joint embedding rank sweep (Mary, ranks 100–800):** World War II 0 at every
+  rank; Cannabis 1 from rank 400 on, but only 4% Russian.
+- **Why:** the embedding track factorizes the embedding rows of the distinct tokens,
+  not the text. Russian concept words split into meaningless pieces that also occur
+  in neutral text (Гитлер = Г + ит + лер), so no rank can give a Russian concept
+  feature; English concept words are whole tokens.
+- **Embedding rank sweep per language, done** (en, ru, de, es, fr × World War II,
+  Cannabis, Gun; ranks 100–800; jobs 1047659–73). English at rank 100 reproduces the
+  paper (1 / 1 / 2 features). de / es / fr get features, mostly through tokens shared
+  with English (Hitler, cannabis, THC) plus some native whole words (Waffen, armas).
+  Russian: 0 at every rank for World War II and Cannabis; Gun 1–2 from rank 300 on,
+  built on the whole token оружие. Counts jump between ranks (borderline judge calls),
+  so read across ranks. Table: `plan.md`, "Embedding rank sweep per language".
+- **Edit coverage (2026-10-18, `edit_coverage.py`):** the share of test questions
+  an edit touches predicts the Part 1 leak (Spearman −0.56 over 70 non-English cells;
+  Russian coverage 0.04, leak +0.33). New fits reach Russian only for Cannabis joint
+  (rank ≥ 400, via one piece " кан") and Gun per-language (rank ≥ 300, " оружие").
+  Details: `plan.md`, "Edit coverage per language".
+- **Next:** re-judge
+  the Russian MLP features with whole words / snippets instead of bare pieces;
+  erasure code to read Part 2 feature lists; then erasure + leak test.
+
 **Status:**
 - **MC scoring repair (2026-10-15/16): done.** All three HP searches, the
   cross-lingual pristine baseline and all three cross-lingual runs. The multiple-choice scoring (the paper's

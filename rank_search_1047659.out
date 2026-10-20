@@ -1,0 +1,310 @@
+[rank_search] concept='World War II' langs=en ranks='100 200 300 400 600 800' seeds='42' data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+[rank_search] git fc5e232, uncommitted: 17 files
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [03:59<03:59, 239.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:09<00:00, 104.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [04:09<00:00, 124.54s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] World War II
+================================================================================
+[DATA] languages=en | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  22%|██▎       | 27/120 [00:00<00:00, 269.40it/s]Extracting token IDs:  48%|████▊     | 57/120 [00:00<00:00, 282.87it/s]Extracting token IDs:  73%|███████▎  | 88/120 [00:00<00:00, 291.75it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 301.09it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 294.67it/s]
+
+[RUN] concept='World War II' | rank=100
+--> Starting embedding track
+Iter    0: loss=30175940.000000  (best=30175940.000000, no_improve=0)
+Iter   20: loss=25812288.000000  (best=25810910.000000, no_improve=1)
+Iter   50: loss=25702488.000000  (best=25702488.000000, no_improve=0)
+Iter   58: loss=25687846.000000  (best=25687708.000000, no_improve=1)
+Iter   60: loss=25688530.000000  (best=25687430.000000, no_improve=1)
+Iter   99: loss=25679496.000000  (best=25678992.000000, no_improve=1)
+Iter  100: loss=25679324.000000  (best=25678992.000000, no_improve=2)
+Iter  131: loss=25677142.000000  (best=25677068.000000, no_improve=1)
+Iter  134: loss=25676122.000000  (best=25675988.000000, no_improve=1)
+Iter  148: loss=25671198.000000  (best=25671198.000000, no_improve=1)
+Iter  150: loss=25671194.000000  (best=25671194.000000, no_improve=1)
+Iter  183: loss=25671194.000000  (best=25671188.000000, no_improve=1)
+Iter  200: loss=25671194.000000  (best=25671188.000000, no_improve=18)
+Iter  250: loss=25671194.000000  (best=25671188.000000, no_improve=68)
+Iter  300: loss=25671194.000000  (best=25671188.000000, no_improve=118)
+Iter  350: loss=25671194.000000  (best=25671188.000000, no_improve=168)
+Iter  400: loss=25671194.000000  (best=25671188.000000, no_improve=218)
+Iter  450: loss=25671194.000000  (best=25671188.000000, no_improve=268)
+Iter  500: loss=25671194.000000  (best=25671188.000000, no_improve=318)
+Iter  550: loss=25671194.000000  (best=25671188.000000, no_improve=368)
+Iter  600: loss=25671194.000000  (best=25671188.000000, no_improve=418)
+Iter  650: loss=25671194.000000  (best=25671188.000000, no_improve=468)
+Stopping early at iter 682 (no improvement in 500 iters)
+[TIMING] Embedding track: 6.7s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='World War II' | rank=200
+--> Starting embedding track
+Iter    0: loss=29996326.000000  (best=29996326.000000, no_improve=0)
+Iter   50: loss=23267376.000000  (best=23267376.000000, no_improve=0)
+Iter   80: loss=23214348.000000  (best=23214150.000000, no_improve=1)
+Iter   95: loss=23207210.000000  (best=23207060.000000, no_improve=1)
+Iter  100: loss=23204976.000000  (best=23204976.000000, no_improve=0)
+Iter  103: loss=23204500.000000  (best=23204500.000000, no_improve=1)
+Iter  107: loss=23204256.000000  (best=23204016.000000, no_improve=1)
+Iter  113: loss=23202732.000000  (best=23202614.000000, no_improve=1)
+Iter  121: loss=23202586.000000  (best=23202534.000000, no_improve=1)
+Iter  132: loss=23199444.000000  (best=23199430.000000, no_improve=1)
+Iter  136: loss=23199420.000000  (best=23199260.000000, no_improve=1)
+Iter  143: loss=23197712.000000  (best=23197694.000000, no_improve=1)
+Iter  149: loss=23197576.000000  (best=23197548.000000, no_improve=1)
+Iter  150: loss=23197642.000000  (best=23197548.000000, no_improve=2)
+Iter  165: loss=23196410.000000  (best=23196348.000000, no_improve=1)
+Iter  168: loss=23196236.000000  (best=23196212.000000, no_improve=1)
+Iter  179: loss=23193904.000000  (best=23193814.000000, no_improve=1)
+Iter  186: loss=23193616.000000  (best=23193616.000000, no_improve=1)
+Iter  188: loss=23193612.000000  (best=23193612.000000, no_improve=1)
+Iter  194: loss=23193606.000000  (best=23193606.000000, no_improve=1)
+Iter  200: loss=23193606.000000  (best=23193606.000000, no_improve=7)
+Iter  203: loss=23193602.000000  (best=23193602.000000, no_improve=1)
+Iter  221: loss=23193598.000000  (best=23193598.000000, no_improve=1)
+Iter  238: loss=23193592.000000  (best=23193592.000000, no_improve=1)
+Iter  250: loss=23193592.000000  (best=23193592.000000, no_improve=13)
+Iter  300: loss=23193592.000000  (best=23193592.000000, no_improve=63)
+Iter  350: loss=23193592.000000  (best=23193592.000000, no_improve=113)
+Iter  400: loss=23193592.000000  (best=23193592.000000, no_improve=163)
+Iter  450: loss=23193592.000000  (best=23193592.000000, no_improve=213)
+Iter  500: loss=23193592.000000  (best=23193592.000000, no_improve=263)
+Iter  550: loss=23193592.000000  (best=23193592.000000, no_improve=313)
+Iter  600: loss=23193592.000000  (best=23193592.000000, no_improve=363)
+Iter  650: loss=23193592.000000  (best=23193592.000000, no_improve=413)
+Iter  700: loss=23193592.000000  (best=23193592.000000, no_improve=463)
+Stopping early at iter 737 (no improvement in 500 iters)
+[TIMING] Embedding track: 3.5s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='World War II' | rank=300
+--> Starting embedding track
+Iter    0: loss=29834532.000000  (best=29834532.000000, no_improve=0)
+Iter   50: loss=21317698.000000  (best=21317698.000000, no_improve=0)
+Iter  100: loss=21261092.000000  (best=21261092.000000, no_improve=0)
+Iter  102: loss=21261010.000000  (best=21261006.000000, no_improve=1)
+Iter  106: loss=21260876.000000  (best=21260830.000000, no_improve=1)
+Iter  113: loss=21260124.000000  (best=21260110.000000, no_improve=1)
+Iter  117: loss=21260052.000000  (best=21260052.000000, no_improve=1)
+Iter  119: loss=21260046.000000  (best=21260046.000000, no_improve=1)
+Iter  135: loss=21259286.000000  (best=21259282.000000, no_improve=1)
+Iter  140: loss=21259186.000000  (best=21259164.000000, no_improve=1)
+Iter  144: loss=21259146.000000  (best=21259146.000000, no_improve=1)
+Iter  150: loss=21258876.000000  (best=21258872.000000, no_improve=1)
+Iter  200: loss=21259030.000000  (best=21258872.000000, no_improve=51)
+Iter  250: loss=21259042.000000  (best=21258872.000000, no_improve=101)
+Iter  300: loss=21259048.000000  (best=21258872.000000, no_improve=151)
+Iter  350: loss=21259052.000000  (best=21258872.000000, no_improve=201)
+Iter  400: loss=21259052.000000  (best=21258872.000000, no_improve=251)
+Iter  450: loss=21259052.000000  (best=21258872.000000, no_improve=301)
+Iter  500: loss=21259052.000000  (best=21258872.000000, no_improve=351)
+Iter  550: loss=21259052.000000  (best=21258872.000000, no_improve=401)
+Iter  600: loss=21259052.000000  (best=21258872.000000, no_improve=451)
+Stopping early at iter 649 (no improvement in 500 iters)
+[TIMING] Embedding track: 5.0s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='World War II' | rank=400
+--> Starting embedding track
+Iter    0: loss=29843814.000000  (best=29843814.000000, no_improve=0)
+Iter   50: loss=19815196.000000  (best=19815196.000000, no_improve=0)
+Iter   76: loss=19695454.000000  (best=19694292.000000, no_improve=1)
+Iter   79: loss=19694540.000000  (best=19694266.000000, no_improve=1)
+Iter  100: loss=19681124.000000  (best=19681124.000000, no_improve=0)
+Iter  118: loss=19675060.000000  (best=19675056.000000, no_improve=1)
+Iter  120: loss=19674998.000000  (best=19674982.000000, no_improve=1)
+Iter  128: loss=19674548.000000  (best=19674536.000000, no_improve=1)
+Iter  135: loss=19673912.000000  (best=19673856.000000, no_improve=1)
+Iter  137: loss=19673730.000000  (best=19673716.000000, no_improve=1)
+Iter  145: loss=19673422.000000  (best=19673370.000000, no_improve=1)
+Iter  150: loss=19673028.000000  (best=19673028.000000, no_improve=0)
+Iter  151: loss=19673166.000000  (best=19673028.000000, no_improve=1)
+Iter  159: loss=19672616.000000  (best=19672560.000000, no_improve=1)
+Iter  165: loss=19672496.000000  (best=19672230.000000, no_improve=1)
+Iter  177: loss=19671594.000000  (best=19671508.000000, no_improve=1)
+Iter  194: loss=19669736.000000  (best=19669718.000000, no_improve=1)
+Iter  200: loss=19669190.000000  (best=19669190.000000, no_improve=0)
+Iter  221: loss=19667450.000000  (best=19667450.000000, no_improve=1)
+Iter  223: loss=19667444.000000  (best=19667444.000000, no_improve=1)
+Iter  225: loss=19667440.000000  (best=19667440.000000, no_improve=1)
+Iter  236: loss=19667440.000000  (best=19667436.000000, no_improve=1)
+Iter  250: loss=19667440.000000  (best=19667436.000000, no_improve=15)
+Iter  300: loss=19667436.000000  (best=19667436.000000, no_improve=65)
+Iter  350: loss=19667436.000000  (best=19667436.000000, no_improve=115)
+Iter  400: loss=19667436.000000  (best=19667436.000000, no_improve=165)
+Iter  450: loss=19667436.000000  (best=19667436.000000, no_improve=215)
+Iter  500: loss=19667436.000000  (best=19667436.000000, no_improve=265)
+Iter  550: loss=19667436.000000  (best=19667436.000000, no_improve=315)
+Iter  600: loss=19667436.000000  (best=19667436.000000, no_improve=365)
+Iter  650: loss=19667436.000000  (best=19667436.000000, no_improve=415)
+Iter  700: loss=19667436.000000  (best=19667436.000000, no_improve=465)
+Stopping early at iter 735 (no improvement in 500 iters)
+[TIMING] Embedding track: 6.4s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='World War II' | rank=600
+--> Starting embedding track
+Iter    0: loss=29832362.000000  (best=29832362.000000, no_improve=0)
+Iter   50: loss=17400992.000000  (best=17400992.000000, no_improve=0)
+Iter  100: loss=17217872.000000  (best=17217872.000000, no_improve=0)
+Iter  150: loss=17175508.000000  (best=17175508.000000, no_improve=0)
+Iter  163: loss=17171098.000000  (best=17170790.000000, no_improve=1)
+Iter  166: loss=17170818.000000  (best=17170640.000000, no_improve=1)
+Iter  181: loss=17166658.000000  (best=17166556.000000, no_improve=1)
+Iter  187: loss=17165788.000000  (best=17165666.000000, no_improve=1)
+Iter  191: loss=17165788.000000  (best=17165522.000000, no_improve=1)
+Iter  200: loss=17163206.000000  (best=17163206.000000, no_improve=0)
+Iter  206: loss=17162802.000000  (best=17162750.000000, no_improve=1)
+Iter  236: loss=17162216.000000  (best=17162156.000000, no_improve=1)
+Iter  249: loss=17162042.000000  (best=17162042.000000, no_improve=1)
+Iter  250: loss=17161876.000000  (best=17161876.000000, no_improve=0)
+Iter  266: loss=17160310.000000  (best=17160310.000000, no_improve=1)
+Iter  268: loss=17160282.000000  (best=17160282.000000, no_improve=1)
+Iter  270: loss=17160278.000000  (best=17160278.000000, no_improve=1)
+Iter  300: loss=17160318.000000  (best=17160278.000000, no_improve=31)
+Iter  350: loss=17160326.000000  (best=17160278.000000, no_improve=81)
+Iter  400: loss=17160330.000000  (best=17160278.000000, no_improve=131)
+Iter  450: loss=17160330.000000  (best=17160278.000000, no_improve=181)
+Iter  500: loss=17160330.000000  (best=17160278.000000, no_improve=231)
+Iter  550: loss=17160330.000000  (best=17160278.000000, no_improve=281)
+Iter  600: loss=17160330.000000  (best=17160278.000000, no_improve=331)
+Iter  650: loss=17160330.000000  (best=17160278.000000, no_improve=381)
+Iter  700: loss=17160330.000000  (best=17160278.000000, no_improve=431)
+Iter  750: loss=17160330.000000  (best=17160278.000000, no_improve=481)
+Stopping early at iter 769 (no improvement in 500 iters)
+[TIMING] Embedding track: 10.6s
+--> Skipping MLP track (--skip-mlp)
+
+[RUN] concept='World War II' | rank=800
+--> Starting embedding track
+Iter    0: loss=30035810.000000  (best=30035810.000000, no_improve=0)
+Iter   50: loss=15505467.000000  (best=15505467.000000, no_improve=0)
+Iter  100: loss=15231694.000000  (best=15231694.000000, no_improve=0)
+Iter  150: loss=15149143.000000  (best=15149143.000000, no_improve=0)
+Iter  169: loss=15139283.000000  (best=15139150.000000, no_improve=1)
+Iter  186: loss=15131739.000000  (best=15131726.000000, no_improve=1)
+Iter  188: loss=15131984.000000  (best=15131718.000000, no_improve=1)
+Iter  200: loss=15127295.000000  (best=15127280.000000, no_improve=1)
+Iter  224: loss=15122887.000000  (best=15122863.000000, no_improve=1)
+Iter  229: loss=15122566.000000  (best=15122386.000000, no_improve=1)
+Iter  236: loss=15122378.000000  (best=15122266.000000, no_improve=1)
+Iter  242: loss=15122196.000000  (best=15122156.000000, no_improve=1)
+Iter  246: loss=15122118.000000  (best=15122118.000000, no_improve=1)
+Iter  250: loss=15122063.000000  (best=15122063.000000, no_improve=0)
+Iter  258: loss=15120806.000000  (best=15120658.000000, no_improve=1)
+Iter  270: loss=15119559.000000  (best=15119525.000000, no_improve=1)
+Iter  274: loss=15119568.000000  (best=15119289.000000, no_improve=1)
+Iter  300: loss=15120825.000000  (best=15119289.000000, no_improve=27)
+Iter  350: loss=15119745.000000  (best=15119289.000000, no_improve=77)
+Iter  400: loss=15119377.000000  (best=15119289.000000, no_improve=127)
+Iter  411: loss=15119061.000000  (best=15119044.000000, no_improve=1)
+Iter  415: loss=15119006.000000  (best=15118993.000000, no_improve=1)
+Iter  450: loss=15119031.000000  (best=15118993.000000, no_improve=36)
+Iter  500: loss=15119033.000000  (best=15118993.000000, no_improve=86)
+Iter  550: loss=15119035.000000  (best=15118993.000000, no_improve=136)
+Iter  600: loss=15119035.000000  (best=15118993.000000, no_improve=186)
+Iter  650: loss=15119035.000000  (best=15118993.000000, no_improve=236)
+Iter  700: loss=15119035.000000  (best=15118993.000000, no_improve=286)
+Iter  750: loss=15119035.000000  (best=15118993.000000, no_improve=336)
+Iter  800: loss=15119035.000000  (best=15118993.000000, no_improve=386)
+Iter  850: loss=15119035.000000  (best=15118993.000000, no_improve=436)
+Iter  900: loss=15119035.000000  (best=15118993.000000, no_improve=486)
+Stopping early at iter 914 (no improvement in 500 iters)
+[TIMING] Embedding track: 15.9s
+--> Skipping MLP track (--skip-mlp)
+[rank_search] Gemini filter: rank=100 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 47 features to process.
+[activating_tokens] Concurrent interpretation of 47 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/47 [00:00<?, ?it/s]Interpreting activating_tokens:   2%|▏         | 1/47 [00:02<01:50,  2.41s/it]Interpreting activating_tokens:   6%|▋         | 3/47 [00:02<00:29,  1.48it/s]Interpreting activating_tokens:  11%|█         | 5/47 [00:02<00:16,  2.62it/s]Interpreting activating_tokens:  13%|█▎        | 6/47 [00:03<00:24,  1.67it/s]Interpreting activating_tokens:  19%|█▉        | 9/47 [00:04<00:12,  3.09it/s]Interpreting activating_tokens:  21%|██▏       | 10/47 [00:05<00:17,  2.08it/s]Interpreting activating_tokens:  23%|██▎       | 11/47 [00:05<00:14,  2.44it/s]Interpreting activating_tokens:  26%|██▌       | 12/47 [00:05<00:13,  2.51it/s]Interpreting activating_tokens:  30%|██▉       | 14/47 [00:05<00:08,  3.90it/s]Interpreting activating_tokens:  32%|███▏      | 15/47 [00:06<00:12,  2.59it/s]Interpreting activating_tokens:  36%|███▌      | 17/47 [00:07<00:10,  2.82it/s]Interpreting activating_tokens:  38%|███▊      | 18/47 [00:07<00:09,  3.15it/s]Interpreting activating_tokens:  43%|████▎     | 20/47 [00:08<00:08,  3.13it/s]Interpreting activating_tokens:  45%|████▍     | 21/47 [00:08<00:08,  3.01it/s]Interpreting activating_tokens:  47%|████▋     | 22/47 [00:08<00:07,  3.30it/s]Interpreting activating_tokens:  49%|████▉     | 23/47 [00:09<00:07,  3.21it/s]Interpreting activating_tokens:  53%|█████▎    | 25/47 [00:09<00:06,  3.65it/s]Interpreting activating_tokens:  55%|█████▌    | 26/47 [00:10<00:07,  2.91it/s]Interpreting activating_tokens:  57%|█████▋    | 27/47 [00:10<00:05,  3.41it/s]Interpreting activating_tokens:  62%|██████▏   | 29/47 [00:10<00:04,  4.18it/s]Interpreting activating_tokens:  64%|██████▍   | 30/47 [00:10<00:04,  4.07it/s]Interpreting activating_tokens:  66%|██████▌   | 31/47 [00:11<00:05,  2.86it/s]Interpreting activating_tokens:  68%|██████▊   | 32/47 [00:11<00:04,  3.15it/s]Interpreting activating_tokens:  72%|███████▏  | 34/47 [00:12<00:03,  3.98it/s]Interpreting activating_tokens:  74%|███████▍  | 35/47 [00:12<00:02,  4.05it/s]Interpreting activating_tokens:  77%|███████▋  | 36/47 [00:12<00:03,  3.16it/s]Interpreting activating_tokens:  79%|███████▊  | 37/47 [00:13<00:03,  2.94it/s]Interpreting activating_tokens:  81%|████████  | 38/47 [00:13<00:02,  3.08it/s]Interpreting activating_tokens:  85%|████████▌ | 40/47 [00:14<00:02,  3.35it/s]Interpreting activating_tokens:  89%|████████▉ | 42/47 [00:14<00:01,  3.70it/s]Interpreting activating_tokens:  94%|█████████▎| 44/47 [00:14<00:00,  4.36it/s]Interpreting activating_tokens:  96%|█████████▌| 45/47 [00:15<00:00,  3.81it/s]Interpreting activating_tokens:  98%|█████████▊| 46/47 [00:15<00:00,  2.95it/s]Interpreting activating_tokens: 100%|██████████| 47/47 [00:15<00:00,  2.96it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank100/seed42/World_War_II/embedding
+[TIMING] World War II: 16.8s
+[rank_search] Gemini filter: rank=200 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 71 features to process.
+[activating_tokens] Concurrent interpretation of 71 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/71 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|▏         | 1/71 [00:01<01:37,  1.40s/it]Interpreting activating_tokens:   3%|▎         | 2/71 [00:01<00:45,  1.53it/s]Interpreting activating_tokens:   6%|▌         | 4/71 [00:01<00:20,  3.34it/s]Interpreting activating_tokens:   8%|▊         | 6/71 [00:02<00:29,  2.19it/s]Interpreting activating_tokens:  10%|▉         | 7/71 [00:03<00:27,  2.32it/s]Interpreting activating_tokens:  13%|█▎        | 9/71 [00:03<00:17,  3.46it/s]Interpreting activating_tokens:  14%|█▍        | 10/71 [00:03<00:16,  3.79it/s]Interpreting activating_tokens:  15%|█▌        | 11/71 [00:04<00:26,  2.26it/s]Interpreting activating_tokens:  18%|█▊        | 13/71 [00:04<00:17,  3.25it/s]Interpreting activating_tokens:  20%|█▉        | 14/71 [00:05<00:16,  3.44it/s]Interpreting activating_tokens:  23%|██▎       | 16/71 [00:05<00:17,  3.22it/s]Interpreting activating_tokens:  24%|██▍       | 17/71 [00:05<00:14,  3.77it/s]Interpreting activating_tokens:  25%|██▌       | 18/71 [00:06<00:14,  3.78it/s]Interpreting activating_tokens:  27%|██▋       | 19/71 [00:06<00:12,  4.11it/s]Interpreting activating_tokens:  30%|██▉       | 21/71 [00:07<00:15,  3.25it/s]Interpreting activating_tokens:  31%|███       | 22/71 [00:07<00:13,  3.69it/s]Interpreting activating_tokens:  32%|███▏      | 23/71 [00:07<00:11,  4.18it/s]Interpreting activating_tokens:  34%|███▍      | 24/71 [00:07<00:09,  4.92it/s]Interpreting activating_tokens:  35%|███▌      | 25/71 [00:07<00:08,  5.12it/s]Interpreting activating_tokens:  37%|███▋      | 26/71 [00:08<00:16,  2.77it/s]Interpreting activating_tokens:  41%|████      | 29/71 [00:08<00:09,  4.48it/s]Interpreting activating_tokens:  42%|████▏     | 30/71 [00:09<00:09,  4.41it/s]Interpreting activating_tokens:  44%|████▎     | 31/71 [00:09<00:13,  2.97it/s]Interpreting activating_tokens:  46%|████▋     | 33/71 [00:09<00:08,  4.27it/s]Interpreting activating_tokens:  49%|████▉     | 35/71 [00:10<00:09,  3.95it/s]Interpreting activating_tokens:  51%|█████     | 36/71 [00:11<00:11,  3.08it/s]Interpreting activating_tokens:  55%|█████▍    | 39/71 [00:11<00:06,  5.15it/s]Interpreting activating_tokens:  56%|█████▋    | 40/71 [00:11<00:08,  3.65it/s]Interpreting activating_tokens:  58%|█████▊    | 41/71 [00:12<00:09,  3.21it/s]Interpreting activating_tokens:  59%|█████▉    | 42/71 [00:12<00:07,  3.77it/s]Interpreting activating_tokens:  62%|██████▏   | 44/71 [00:12<00:05,  5.29it/s]Interpreting activating_tokens:  63%|██████▎   | 45/71 [00:13<00:07,  3.50it/s]Interpreting activating_tokens:  66%|██████▌   | 47/71 [00:13<00:05,  4.10it/s]Interpreting activating_tokens:  68%|██████▊   | 48/71 [00:13<00:05,  4.32it/s]Interpreting activating_tokens:  69%|██████▉   | 49/71 [00:14<00:05,  3.71it/s]Interpreting activating_tokens:  70%|███████   | 50/71 [00:14<00:05,  3.75it/s]Interpreting activating_tokens:  72%|███████▏  | 51/71 [00:14<00:04,  4.21it/s]Interpreting activating_tokens:  75%|███████▍  | 53/71 [00:14<00:03,  5.76it/s]Interpreting activating_tokens:  76%|███████▌  | 54/71 [00:15<00:05,  2.94it/s]Interpreting activating_tokens:  79%|███████▉  | 56/71 [00:15<00:03,  4.12it/s]Interpreting activating_tokens:  82%|████████▏ | 58/71 [00:15<00:02,  5.59it/s]Interpreting activating_tokens:  83%|████████▎ | 59/71 [00:16<00:03,  3.55it/s]Interpreting activating_tokens:  85%|████████▍ | 60/71 [00:16<00:03,  3.47it/s]Interpreting activating_tokens:  87%|████████▋ | 62/71 [00:17<00:01,  4.72it/s]Interpreting activating_tokens:  89%|████████▊ | 63/71 [00:17<00:01,  4.14it/s]Interpreting activating_tokens:  90%|█████████ | 64/71 [00:17<00:02,  3.46it/s]Interpreting activating_tokens:  92%|█████████▏| 65/71 [00:18<00:01,  3.22it/s]Interpreting activating_tokens:  94%|█████████▍| 67/71 [00:18<00:00,  4.97it/s]Interpreting activating_tokens:  96%|█████████▌| 68/71 [00:18<00:00,  4.72it/s]Interpreting activating_tokens:  97%|█████████▋| 69/71 [00:19<00:00,  3.68it/s]Interpreting activating_tokens:  99%|█████████▊| 70/71 [00:19<00:00,  3.97it/s]Interpreting activating_tokens: 100%|██████████| 71/71 [00:19<00:00,  4.08it/s]Interpreting activating_tokens: 100%|██████████| 71/71 [00:19<00:00,  3.63it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank200/seed42/World_War_II/embedding
+[TIMING] World War II: 19.7s
+[rank_search] Gemini filter: rank=300 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 96 features to process.
+[activating_tokens] Concurrent interpretation of 96 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/96 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|          | 1/96 [00:01<01:48,  1.14s/it]Interpreting activating_tokens:   2%|▏         | 2/96 [00:01<00:54,  1.72it/s]Interpreting activating_tokens:   4%|▍         | 4/96 [00:01<00:24,  3.72it/s]Interpreting activating_tokens:   6%|▋         | 6/96 [00:02<00:28,  3.20it/s]Interpreting activating_tokens:   7%|▋         | 7/96 [00:02<00:26,  3.38it/s]Interpreting activating_tokens:   9%|▉         | 9/96 [00:02<00:18,  4.69it/s]Interpreting activating_tokens:  10%|█         | 10/96 [00:02<00:17,  4.96it/s]Interpreting activating_tokens:  11%|█▏        | 11/96 [00:03<00:21,  3.93it/s]Interpreting activating_tokens:  12%|█▎        | 12/96 [00:03<00:27,  3.08it/s]Interpreting activating_tokens:  15%|█▍        | 14/96 [00:03<00:17,  4.68it/s]Interpreting activating_tokens:  16%|█▌        | 15/96 [00:04<00:22,  3.59it/s]Interpreting activating_tokens:  18%|█▊        | 17/96 [00:04<00:20,  3.86it/s]Interpreting activating_tokens:  19%|█▉        | 18/96 [00:05<00:18,  4.17it/s]Interpreting activating_tokens:  21%|██        | 20/96 [00:05<00:19,  3.86it/s]Interpreting activating_tokens:  22%|██▏       | 21/96 [00:05<00:17,  4.26it/s]Interpreting activating_tokens:  23%|██▎       | 22/96 [00:06<00:20,  3.58it/s]Interpreting activating_tokens:  25%|██▌       | 24/96 [00:06<00:13,  5.16it/s]Interpreting activating_tokens:  26%|██▌       | 25/96 [00:06<00:20,  3.45it/s]Interpreting activating_tokens:  27%|██▋       | 26/96 [00:07<00:18,  3.77it/s]Interpreting activating_tokens:  28%|██▊       | 27/96 [00:07<00:18,  3.82it/s]Interpreting activating_tokens:  29%|██▉       | 28/96 [00:07<00:15,  4.27it/s]Interpreting activating_tokens:  31%|███▏      | 30/96 [00:08<00:19,  3.44it/s]Interpreting activating_tokens:  32%|███▏      | 31/96 [00:08<00:16,  3.97it/s]Interpreting activating_tokens:  34%|███▍      | 33/96 [00:08<00:14,  4.28it/s]Interpreting activating_tokens:  35%|███▌      | 34/96 [00:09<00:15,  4.12it/s]Interpreting activating_tokens:  36%|███▋      | 35/96 [00:09<00:18,  3.27it/s]Interpreting activating_tokens:  39%|███▊      | 37/96 [00:09<00:13,  4.52it/s]Interpreting activating_tokens:  40%|███▉      | 38/96 [00:10<00:13,  4.35it/s]Interpreting activating_tokens:  41%|████      | 39/96 [00:10<00:15,  3.65it/s]Interpreting activating_tokens:  42%|████▏     | 40/96 [00:10<00:14,  3.96it/s]Interpreting activating_tokens:  43%|████▎     | 41/96 [00:10<00:13,  4.00it/s]Interpreting activating_tokens:  44%|████▍     | 42/96 [00:11<00:12,  4.16it/s]Interpreting activating_tokens:  45%|████▍     | 43/96 [00:11<00:13,  3.79it/s]Interpreting activating_tokens:  46%|████▌     | 44/96 [00:11<00:13,  3.74it/s]Interpreting activating_tokens:  47%|████▋     | 45/96 [00:11<00:11,  4.42it/s]Interpreting activating_tokens:  48%|████▊     | 46/96 [00:12<00:10,  4.55it/s]Interpreting activating_tokens:  49%|████▉     | 47/96 [00:12<00:10,  4.82it/s]Interpreting activating_tokens:  50%|█████     | 48/96 [00:12<00:15,  3.12it/s]Interpreting activating_tokens:  51%|█████     | 49/96 [00:12<00:12,  3.72it/s]Interpreting activating_tokens:  53%|█████▎    | 51/96 [00:13<00:09,  4.82it/s]Interpreting activating_tokens:  55%|█████▌    | 53/96 [00:14<00:12,  3.43it/s]Interpreting activating_tokens:  58%|█████▊    | 56/96 [00:14<00:08,  4.80it/s]Interpreting activating_tokens:  60%|██████    | 58/96 [00:15<00:09,  4.12it/s]Interpreting activating_tokens:  61%|██████▏   | 59/96 [00:15<00:08,  4.16it/s]Interpreting activating_tokens:  62%|██████▎   | 60/96 [00:15<00:08,  4.22it/s]Interpreting activating_tokens:  66%|██████▌   | 63/96 [00:16<00:07,  4.25it/s]Interpreting activating_tokens:  67%|██████▋   | 64/96 [00:16<00:08,  3.63it/s]Interpreting activating_tokens:  70%|██████▉   | 67/96 [00:16<00:05,  5.48it/s]Interpreting activating_tokens:  71%|███████   | 68/96 [00:17<00:05,  4.69it/s]Interpreting activating_tokens:  72%|███████▏  | 69/96 [00:17<00:08,  3.21it/s]Interpreting activating_tokens:  74%|███████▍  | 71/96 [00:17<00:05,  4.61it/s]Interpreting activating_tokens:  76%|███████▌  | 73/96 [00:18<00:04,  4.60it/s]Interpreting activating_tokens:  77%|███████▋  | 74/96 [00:19<00:06,  3.39it/s]Interpreting activating_tokens:  80%|████████  | 77/96 [00:19<00:04,  4.67it/s]Interpreting activating_tokens:  81%|████████▏ | 78/96 [00:19<00:03,  4.94it/s]Interpreting activating_tokens:  82%|████████▏ | 79/96 [00:20<00:05,  3.38it/s]Interpreting activating_tokens:  84%|████████▍ | 81/96 [00:20<00:03,  4.57it/s]Interpreting activating_tokens:  86%|████████▋ | 83/96 [00:20<00:02,  5.92it/s]Interpreting activating_tokens:  88%|████████▊ | 84/96 [00:21<00:03,  3.42it/s]Interpreting activating_tokens:  89%|████████▊ | 85/96 [00:21<00:02,  3.77it/s]Interpreting activating_tokens:  91%|█████████ | 87/96 [00:21<00:01,  4.76it/s]Interpreting activating_tokens:  93%|█████████▎| 89/96 [00:22<00:01,  4.13it/s]Interpreting activating_tokens:  94%|█████████▍| 90/96 [00:22<00:01,  4.29it/s]Interpreting activating_tokens:  95%|█████████▍| 91/96 [00:22<00:01,  3.84it/s]Interpreting activating_tokens:  98%|█████████▊| 94/96 [00:23<00:00,  4.27it/s]Interpreting activating_tokens: 100%|██████████| 96/96 [00:24<00:00,  3.69it/s]Interpreting activating_tokens: 100%|██████████| 96/96 [00:24<00:00,  3.97it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank300/seed42/World_War_II/embedding
+[TIMING] World War II: 24.3s
+[rank_search] Gemini filter: rank=400 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 100 features to process.
+[activating_tokens] Concurrent interpretation of 100 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/100 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|          | 1/100 [00:01<02:26,  1.48s/it]Interpreting activating_tokens:   4%|▍         | 4/100 [00:01<00:30,  3.17it/s]Interpreting activating_tokens:   6%|▌         | 6/100 [00:02<00:38,  2.41it/s]Interpreting activating_tokens:   7%|▋         | 7/100 [00:02<00:32,  2.84it/s]Interpreting activating_tokens:   9%|▉         | 9/100 [00:02<00:21,  4.27it/s]Interpreting activating_tokens:  11%|█         | 11/100 [00:03<00:23,  3.80it/s]Interpreting activating_tokens:  12%|█▏        | 12/100 [00:03<00:24,  3.59it/s]Interpreting activating_tokens:  13%|█▎        | 13/100 [00:04<00:22,  3.79it/s]Interpreting activating_tokens:  15%|█▌        | 15/100 [00:04<00:16,  5.01it/s]Interpreting activating_tokens:  16%|█▌        | 16/100 [00:04<00:22,  3.70it/s]Interpreting activating_tokens:  17%|█▋        | 17/100 [00:05<00:20,  4.10it/s]Interpreting activating_tokens:  18%|█▊        | 18/100 [00:05<00:20,  3.95it/s]Interpreting activating_tokens:  19%|█▉        | 19/100 [00:05<00:17,  4.52it/s]Interpreting activating_tokens:  20%|██        | 20/100 [00:05<00:20,  3.96it/s]Interpreting activating_tokens:  21%|██        | 21/100 [00:06<00:19,  3.97it/s]Interpreting activating_tokens:  22%|██▏       | 22/100 [00:06<00:23,  3.27it/s]Interpreting activating_tokens:  23%|██▎       | 23/100 [00:06<00:22,  3.49it/s]Interpreting activating_tokens:  24%|██▍       | 24/100 [00:06<00:18,  4.12it/s]Interpreting activating_tokens:  26%|██▌       | 26/100 [00:07<00:13,  5.37it/s]Interpreting activating_tokens:  27%|██▋       | 27/100 [00:07<00:23,  3.07it/s]Interpreting activating_tokens:  29%|██▉       | 29/100 [00:07<00:15,  4.60it/s]Interpreting activating_tokens:  30%|███       | 30/100 [00:08<00:16,  4.18it/s]Interpreting activating_tokens:  32%|███▏      | 32/100 [00:08<00:18,  3.76it/s]Interpreting activating_tokens:  33%|███▎      | 33/100 [00:08<00:15,  4.31it/s]Interpreting activating_tokens:  34%|███▍      | 34/100 [00:09<00:13,  4.94it/s]Interpreting activating_tokens:  35%|███▌      | 35/100 [00:09<00:16,  4.05it/s]Interpreting activating_tokens:  37%|███▋      | 37/100 [00:10<00:16,  3.78it/s]Interpreting activating_tokens:  38%|███▊      | 38/100 [00:10<00:18,  3.40it/s]Interpreting activating_tokens:  39%|███▉      | 39/100 [00:10<00:15,  3.96it/s]Interpreting activating_tokens:  41%|████      | 41/100 [00:10<00:10,  5.44it/s]Interpreting activating_tokens:  42%|████▏     | 42/100 [00:11<00:15,  3.74it/s]Interpreting activating_tokens:  43%|████▎     | 43/100 [00:11<00:17,  3.29it/s]Interpreting activating_tokens:  46%|████▌     | 46/100 [00:11<00:09,  5.46it/s]Interpreting activating_tokens:  47%|████▋     | 47/100 [00:12<00:16,  3.20it/s]Interpreting activating_tokens:  49%|████▉     | 49/100 [00:13<00:12,  4.06it/s]Interpreting activating_tokens:  51%|█████     | 51/100 [00:13<00:09,  5.44it/s]Interpreting activating_tokens:  52%|█████▏    | 52/100 [00:13<00:12,  3.79it/s]Interpreting activating_tokens:  53%|█████▎    | 53/100 [00:13<00:11,  3.94it/s]Interpreting activating_tokens:  54%|█████▍    | 54/100 [00:14<00:10,  4.42it/s]Interpreting activating_tokens:  55%|█████▌    | 55/100 [00:14<00:12,  3.61it/s]Interpreting activating_tokens:  56%|█████▌    | 56/100 [00:14<00:12,  3.58it/s]Interpreting activating_tokens:  57%|█████▋    | 57/100 [00:15<00:11,  3.61it/s]Interpreting activating_tokens:  59%|█████▉    | 59/100 [00:15<00:08,  4.76it/s]Interpreting activating_tokens:  60%|██████    | 60/100 [00:15<00:10,  3.94it/s]Interpreting activating_tokens:  61%|██████    | 61/100 [00:15<00:08,  4.53it/s]Interpreting activating_tokens:  62%|██████▏   | 62/100 [00:16<00:09,  4.14it/s]Interpreting activating_tokens:  63%|██████▎   | 63/100 [00:16<00:10,  3.51it/s]Interpreting activating_tokens:  65%|██████▌   | 65/100 [00:16<00:08,  4.04it/s]Interpreting activating_tokens:  66%|██████▌   | 66/100 [00:17<00:08,  4.12it/s]Interpreting activating_tokens:  67%|██████▋   | 67/100 [00:17<00:07,  4.47it/s]Interpreting activating_tokens:  68%|██████▊   | 68/100 [00:17<00:08,  3.84it/s]Interpreting activating_tokens:  69%|██████▉   | 69/100 [00:17<00:07,  4.18it/s]Interpreting activating_tokens:  70%|███████   | 70/100 [00:18<00:06,  4.51it/s]Interpreting activating_tokens:  71%|███████   | 71/100 [00:18<00:05,  5.00it/s]Interpreting activating_tokens:  72%|███████▏  | 72/100 [00:18<00:05,  5.06it/s]Interpreting activating_tokens:  73%|███████▎  | 73/100 [00:18<00:07,  3.58it/s]Interpreting activating_tokens:  74%|███████▍  | 74/100 [00:19<00:07,  3.53it/s]Interpreting activating_tokens:  77%|███████▋  | 77/100 [00:19<00:05,  4.03it/s]Interpreting activating_tokens:  78%|███████▊  | 78/100 [00:19<00:04,  4.51it/s]Interpreting activating_tokens:  79%|███████▉  | 79/100 [00:20<00:04,  4.26it/s]Interpreting activating_tokens:  81%|████████  | 81/100 [00:20<00:04,  4.30it/s]Interpreting activating_tokens:  82%|████████▏ | 82/100 [00:21<00:04,  3.97it/s]Interpreting activating_tokens:  83%|████████▎ | 83/100 [00:21<00:03,  4.30it/s]Interpreting activating_tokens:  84%|████████▍ | 84/100 [00:21<00:03,  4.54it/s]Interpreting activating_tokens:  86%|████████▌ | 86/100 [00:21<00:02,  5.21it/s]Interpreting activating_tokens:  87%|████████▋ | 87/100 [00:22<00:04,  3.22it/s]Interpreting activating_tokens:  89%|████████▉ | 89/100 [00:22<00:02,  4.77it/s]Interpreting activating_tokens:  91%|█████████ | 91/100 [00:23<00:02,  3.65it/s]Interpreting activating_tokens:  92%|█████████▏| 92/100 [00:23<00:02,  3.38it/s]Interpreting activating_tokens:  95%|█████████▌| 95/100 [00:23<00:00,  5.72it/s]Interpreting activating_tokens:  97%|█████████▋| 97/100 [00:24<00:00,  3.68it/s]Interpreting activating_tokens:  98%|█████████▊| 98/100 [00:24<00:00,  3.92it/s]Interpreting activating_tokens: 100%|██████████| 100/100 [00:24<00:00,  4.00it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank400/seed42/World_War_II/embedding
+[TIMING] World War II: 25.1s
+[rank_search] Gemini filter: rank=600 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 130 features to process.
+[activating_tokens] Concurrent interpretation of 130 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/130 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|          | 1/130 [00:01<03:05,  1.43s/it]Interpreting activating_tokens:   3%|▎         | 4/130 [00:01<00:41,  3.02it/s]Interpreting activating_tokens:   5%|▍         | 6/130 [00:02<00:44,  2.76it/s]Interpreting activating_tokens:   5%|▌         | 7/130 [00:02<00:39,  3.10it/s]Interpreting activating_tokens:   6%|▌         | 8/130 [00:02<00:33,  3.64it/s]Interpreting activating_tokens:   8%|▊         | 10/130 [00:03<00:32,  3.65it/s]Interpreting activating_tokens:   8%|▊         | 11/130 [00:03<00:36,  3.30it/s]Interpreting activating_tokens:  10%|█         | 13/130 [00:03<00:24,  4.73it/s]Interpreting activating_tokens:  11%|█         | 14/130 [00:04<00:26,  4.46it/s]Interpreting activating_tokens:  12%|█▏        | 15/130 [00:04<00:33,  3.48it/s]Interpreting activating_tokens:  13%|█▎        | 17/130 [00:04<00:21,  5.19it/s]Interpreting activating_tokens:  14%|█▍        | 18/130 [00:05<00:25,  4.47it/s]Interpreting activating_tokens:  15%|█▍        | 19/130 [00:05<00:23,  4.79it/s]Interpreting activating_tokens:  15%|█▌        | 20/130 [00:05<00:30,  3.62it/s]Interpreting activating_tokens:  16%|█▌        | 21/130 [00:05<00:27,  3.98it/s]Interpreting activating_tokens:  18%|█▊        | 23/130 [00:06<00:20,  5.17it/s]Interpreting activating_tokens:  18%|█▊        | 24/130 [00:06<00:24,  4.26it/s]Interpreting activating_tokens:  19%|█▉        | 25/130 [00:06<00:24,  4.25it/s]Interpreting activating_tokens:  20%|██        | 26/130 [00:06<00:24,  4.18it/s]Interpreting activating_tokens:  22%|██▏       | 28/130 [00:07<00:26,  3.81it/s]Interpreting activating_tokens:  22%|██▏       | 29/130 [00:07<00:25,  3.93it/s]Interpreting activating_tokens:  23%|██▎       | 30/130 [00:08<00:24,  4.02it/s]Interpreting activating_tokens:  24%|██▍       | 31/130 [00:08<00:27,  3.60it/s]Interpreting activating_tokens:  25%|██▍       | 32/130 [00:08<00:25,  3.84it/s]Interpreting activating_tokens:  26%|██▌       | 34/130 [00:09<00:22,  4.22it/s]Interpreting activating_tokens:  27%|██▋       | 35/130 [00:09<00:28,  3.31it/s]Interpreting activating_tokens:  28%|██▊       | 36/130 [00:09<00:24,  3.85it/s]Interpreting activating_tokens:  29%|██▉       | 38/130 [00:10<00:21,  4.21it/s]Interpreting activating_tokens:  31%|███       | 40/130 [00:10<00:23,  3.91it/s]Interpreting activating_tokens:  32%|███▏      | 42/130 [00:11<00:22,  3.85it/s]Interpreting activating_tokens:  33%|███▎      | 43/130 [00:11<00:20,  4.31it/s]Interpreting activating_tokens:  35%|███▍      | 45/130 [00:11<00:22,  3.71it/s]Interpreting activating_tokens:  35%|███▌      | 46/130 [00:12<00:22,  3.76it/s]Interpreting activating_tokens:  37%|███▋      | 48/130 [00:12<00:18,  4.42it/s]Interpreting activating_tokens:  38%|███▊      | 49/130 [00:12<00:18,  4.48it/s]Interpreting activating_tokens:  38%|███▊      | 50/130 [00:13<00:22,  3.52it/s]Interpreting activating_tokens:  40%|████      | 52/130 [00:13<00:17,  4.58it/s]Interpreting activating_tokens:  41%|████      | 53/130 [00:13<00:19,  4.01it/s]Interpreting activating_tokens:  42%|████▏     | 55/130 [00:14<00:17,  4.20it/s]Interpreting activating_tokens:  43%|████▎     | 56/130 [00:14<00:20,  3.62it/s]Interpreting activating_tokens:  45%|████▍     | 58/130 [00:14<00:14,  5.04it/s]Interpreting activating_tokens:  45%|████▌     | 59/130 [00:15<00:14,  4.93it/s]Interpreting activating_tokens:  46%|████▌     | 60/130 [00:15<00:16,  4.36it/s]Interpreting activating_tokens:  47%|████▋     | 61/130 [00:15<00:20,  3.30it/s]Interpreting activating_tokens:  48%|████▊     | 63/130 [00:16<00:13,  5.03it/s]Interpreting activating_tokens:  49%|████▉     | 64/130 [00:16<00:11,  5.59it/s]Interpreting activating_tokens:  50%|█████     | 65/130 [00:16<00:16,  3.95it/s]Interpreting activating_tokens:  51%|█████     | 66/130 [00:17<00:21,  3.02it/s]Interpreting activating_tokens:  52%|█████▏    | 68/130 [00:17<00:15,  4.03it/s]Interpreting activating_tokens:  53%|█████▎    | 69/130 [00:17<00:13,  4.49it/s]Interpreting activating_tokens:  54%|█████▍    | 70/130 [00:17<00:11,  5.12it/s]Interpreting activating_tokens:  55%|█████▍    | 71/130 [00:18<00:19,  2.97it/s]Interpreting activating_tokens:  55%|█████▌    | 72/130 [00:18<00:16,  3.43it/s]Interpreting activating_tokens:  57%|█████▋    | 74/130 [00:18<00:12,  4.37it/s]Interpreting activating_tokens:  58%|█████▊    | 75/130 [00:18<00:11,  4.98it/s]Interpreting activating_tokens:  58%|█████▊    | 76/130 [00:19<00:17,  3.01it/s]Interpreting activating_tokens:  60%|██████    | 78/130 [00:19<00:12,  4.12it/s]Interpreting activating_tokens:  61%|██████    | 79/130 [00:20<00:12,  3.97it/s]Interpreting activating_tokens:  62%|██████▏   | 80/130 [00:20<00:12,  4.05it/s]Interpreting activating_tokens:  62%|██████▏   | 81/130 [00:20<00:12,  3.83it/s]Interpreting activating_tokens:  63%|██████▎   | 82/130 [00:20<00:10,  4.43it/s]Interpreting activating_tokens:  64%|██████▍   | 83/130 [00:21<00:13,  3.51it/s]Interpreting activating_tokens:  65%|██████▍   | 84/130 [00:21<00:13,  3.53it/s]Interpreting activating_tokens:  65%|██████▌   | 85/130 [00:21<00:11,  4.05it/s]Interpreting activating_tokens:  67%|██████▋   | 87/130 [00:22<00:08,  4.96it/s]Interpreting activating_tokens:  68%|██████▊   | 88/130 [00:22<00:09,  4.22it/s]Interpreting activating_tokens:  68%|██████▊   | 89/130 [00:22<00:09,  4.46it/s]Interpreting activating_tokens:  69%|██████▉   | 90/130 [00:22<00:08,  4.63it/s]Interpreting activating_tokens:  70%|███████   | 91/130 [00:22<00:08,  4.82it/s]Interpreting activating_tokens:  71%|███████   | 92/130 [00:23<00:08,  4.48it/s]Interpreting activating_tokens:  72%|███████▏  | 93/130 [00:23<00:11,  3.15it/s]Interpreting activating_tokens:  74%|███████▍  | 96/130 [00:24<00:07,  4.41it/s]Interpreting activating_tokens:  75%|███████▌  | 98/130 [00:24<00:08,  3.95it/s]Interpreting activating_tokens:  77%|███████▋  | 100/130 [00:25<00:07,  4.19it/s]Interpreting activating_tokens:  78%|███████▊  | 101/130 [00:25<00:07,  4.08it/s]Interpreting activating_tokens:  78%|███████▊  | 102/130 [00:25<00:07,  3.86it/s]Interpreting activating_tokens:  79%|███████▉  | 103/130 [00:25<00:06,  4.43it/s]Interpreting activating_tokens:  80%|████████  | 104/130 [00:26<00:06,  4.07it/s]Interpreting activating_tokens:  82%|████████▏ | 106/130 [00:26<00:04,  5.29it/s]Interpreting activating_tokens:  82%|████████▏ | 107/130 [00:27<00:06,  3.55it/s]Interpreting activating_tokens:  83%|████████▎ | 108/130 [00:27<00:05,  4.16it/s]Interpreting activating_tokens:  84%|████████▍ | 109/130 [00:27<00:04,  4.36it/s]Interpreting activating_tokens:  85%|████████▌ | 111/130 [00:27<00:03,  4.96it/s]Interpreting activating_tokens:  86%|████████▌ | 112/130 [00:28<00:04,  3.76it/s]Interpreting activating_tokens:  87%|████████▋ | 113/130 [00:28<00:03,  4.33it/s]Interpreting activating_tokens:  88%|████████▊ | 114/130 [00:28<00:03,  4.53it/s]Interpreting activating_tokens:  88%|████████▊ | 115/130 [00:28<00:03,  3.88it/s]Interpreting activating_tokens:  89%|████████▉ | 116/130 [00:29<00:03,  4.03it/s]Interpreting activating_tokens:  90%|█████████ | 117/130 [00:29<00:03,  4.22it/s]Interpreting activating_tokens:  91%|█████████ | 118/130 [00:29<00:02,  4.59it/s]Interpreting activating_tokens:  92%|█████████▏| 119/130 [00:29<00:02,  5.27it/s]Interpreting activating_tokens:  92%|█████████▏| 120/130 [00:30<00:03,  2.98it/s]Interpreting activating_tokens:  94%|█████████▍| 122/130 [00:30<00:01,  4.74it/s]Interpreting activating_tokens:  95%|█████████▍| 123/130 [00:30<00:01,  4.05it/s]Interpreting activating_tokens:  96%|█████████▌| 125/130 [00:31<00:01,  3.67it/s]Interpreting activating_tokens:  98%|█████████▊| 127/130 [00:31<00:00,  4.96it/s]Interpreting activating_tokens:  98%|█████████▊| 128/130 [00:31<00:00,  3.95it/s]Interpreting activating_tokens:  99%|█████████▉| 129/130 [00:32<00:00,  3.26it/s]Interpreting activating_tokens: 100%|██████████| 130/130 [00:32<00:00,  4.00it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank600/seed42/World_War_II/embedding
+[TIMING] World War II: 32.6s
+[rank_search] Gemini filter: rank=800 seed=42 -> mf_outputs/rank_search
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 128 features to process.
+[activating_tokens] Concurrent interpretation of 128 features with 5 workers.
+Interpreting activating_tokens:   0%|          | 0/128 [00:00<?, ?it/s]Interpreting activating_tokens:   1%|          | 1/128 [00:01<02:56,  1.39s/it]Interpreting activating_tokens:   2%|▏         | 3/128 [00:01<00:51,  2.44it/s]Interpreting activating_tokens:   4%|▍         | 5/128 [00:01<00:28,  4.35it/s]Interpreting activating_tokens:   5%|▌         | 7/128 [00:02<00:44,  2.70it/s]Interpreting activating_tokens:   7%|▋         | 9/128 [00:02<00:29,  3.98it/s]Interpreting activating_tokens:   9%|▊         | 11/128 [00:03<00:41,  2.85it/s]Interpreting activating_tokens:  10%|█         | 13/128 [00:04<00:29,  3.84it/s]Interpreting activating_tokens:  12%|█▏        | 15/128 [00:04<00:21,  5.14it/s]Interpreting activating_tokens:  13%|█▎        | 17/128 [00:05<00:32,  3.39it/s]Interpreting activating_tokens:  15%|█▍        | 19/128 [00:05<00:26,  4.11it/s]Interpreting activating_tokens:  16%|█▌        | 20/128 [00:05<00:24,  4.33it/s]Interpreting activating_tokens:  16%|█▋        | 21/128 [00:06<00:35,  3.03it/s]Interpreting activating_tokens:  18%|█▊        | 23/128 [00:06<00:24,  4.28it/s]Interpreting activating_tokens:  19%|█▉        | 24/128 [00:06<00:27,  3.84it/s]Interpreting activating_tokens:  20%|██        | 26/128 [00:07<00:28,  3.53it/s]Interpreting activating_tokens:  21%|██        | 27/128 [00:07<00:26,  3.83it/s]Interpreting activating_tokens:  22%|██▏       | 28/128 [00:07<00:23,  4.30it/s]Interpreting activating_tokens:  23%|██▎       | 30/128 [00:08<00:21,  4.55it/s]Interpreting activating_tokens:  24%|██▍       | 31/128 [00:08<00:27,  3.51it/s]Interpreting activating_tokens:  25%|██▌       | 32/128 [00:08<00:23,  4.10it/s]Interpreting activating_tokens:  27%|██▋       | 35/128 [00:09<00:22,  4.12it/s]Interpreting activating_tokens:  28%|██▊       | 36/128 [00:09<00:21,  4.21it/s]Interpreting activating_tokens:  29%|██▉       | 37/128 [00:10<00:24,  3.69it/s]Interpreting activating_tokens:  30%|███       | 39/128 [00:10<00:19,  4.65it/s]Interpreting activating_tokens:  31%|███▏      | 40/128 [00:10<00:23,  3.72it/s]Interpreting activating_tokens:  33%|███▎      | 42/128 [00:11<00:19,  4.37it/s]Interpreting activating_tokens:  34%|███▎      | 43/128 [00:11<00:17,  4.91it/s]Interpreting activating_tokens:  34%|███▍      | 44/128 [00:11<00:21,  3.98it/s]Interpreting activating_tokens:  35%|███▌      | 45/128 [00:12<00:21,  3.85it/s]Interpreting activating_tokens:  36%|███▌      | 46/128 [00:12<00:19,  4.26it/s]Interpreting activating_tokens:  37%|███▋      | 47/128 [00:12<00:16,  4.79it/s]Interpreting activating_tokens:  38%|███▊      | 49/128 [00:13<00:21,  3.71it/s]Interpreting activating_tokens:  39%|███▉      | 50/128 [00:13<00:20,  3.90it/s]Interpreting activating_tokens:  40%|███▉      | 51/128 [00:13<00:16,  4.60it/s]Interpreting activating_tokens:  41%|████▏     | 53/128 [00:13<00:14,  5.20it/s]Interpreting activating_tokens:  42%|████▏     | 54/128 [00:14<00:21,  3.43it/s]Interpreting activating_tokens:  44%|████▍     | 56/128 [00:14<00:16,  4.27it/s]Interpreting activating_tokens:  45%|████▌     | 58/128 [00:14<00:11,  5.91it/s]Interpreting activating_tokens:  46%|████▌     | 59/128 [00:15<00:17,  3.88it/s]Interpreting activating_tokens:  47%|████▋     | 60/128 [00:15<00:15,  4.44it/s]Interpreting activating_tokens:  48%|████▊     | 61/128 [00:15<00:17,  3.89it/s]Interpreting activating_tokens:  49%|████▉     | 63/128 [00:16<00:13,  4.68it/s]Interpreting activating_tokens:  50%|█████     | 64/128 [00:16<00:13,  4.58it/s]Interpreting activating_tokens:  51%|█████     | 65/128 [00:16<00:14,  4.37it/s]Interpreting activating_tokens:  52%|█████▏    | 66/128 [00:17<00:19,  3.23it/s]Interpreting activating_tokens:  53%|█████▎    | 68/128 [00:17<00:13,  4.52it/s]Interpreting activating_tokens:  55%|█████▍    | 70/128 [00:17<00:11,  5.00it/s]Interpreting activating_tokens:  55%|█████▌    | 71/128 [00:18<00:16,  3.48it/s]Interpreting activating_tokens:  57%|█████▋    | 73/128 [00:18<00:11,  4.77it/s]Interpreting activating_tokens:  59%|█████▊    | 75/128 [00:18<00:09,  5.52it/s]Interpreting activating_tokens:  59%|█████▉    | 76/128 [00:19<00:14,  3.49it/s]Interpreting activating_tokens:  61%|██████    | 78/128 [00:19<00:10,  4.61it/s]Interpreting activating_tokens:  62%|██████▎   | 80/128 [00:19<00:07,  6.23it/s]Interpreting activating_tokens:  64%|██████▍   | 82/128 [00:20<00:12,  3.81it/s]Interpreting activating_tokens:  66%|██████▋   | 85/128 [00:20<00:08,  5.20it/s]Interpreting activating_tokens:  67%|██████▋   | 86/128 [00:21<00:11,  3.60it/s]Interpreting activating_tokens:  70%|██████▉   | 89/128 [00:22<00:08,  4.60it/s]Interpreting activating_tokens:  70%|███████   | 90/128 [00:22<00:08,  4.74it/s]Interpreting activating_tokens:  71%|███████   | 91/128 [00:22<00:09,  3.82it/s]Interpreting activating_tokens:  72%|███████▏  | 92/128 [00:22<00:08,  4.30it/s]Interpreting activating_tokens:  73%|███████▎  | 93/128 [00:22<00:07,  4.44it/s]Interpreting activating_tokens:  73%|███████▎  | 94/128 [00:23<00:08,  4.18it/s]Interpreting activating_tokens:  74%|███████▍  | 95/128 [00:23<00:07,  4.68it/s]Interpreting activating_tokens:  75%|███████▌  | 96/128 [00:23<00:09,  3.44it/s]Interpreting activating_tokens:  76%|███████▌  | 97/128 [00:24<00:07,  4.19it/s]Interpreting activating_tokens:  77%|███████▋  | 99/128 [00:24<00:05,  5.13it/s]Interpreting activating_tokens:  78%|███████▊  | 100/128 [00:24<00:05,  5.05it/s]Interpreting activating_tokens:  79%|███████▉  | 101/128 [00:25<00:07,  3.48it/s]Interpreting activating_tokens:  80%|███████▉  | 102/128 [00:25<00:06,  4.18it/s]Interpreting activating_tokens:  81%|████████▏ | 104/128 [00:25<00:05,  4.75it/s]Interpreting activating_tokens:  82%|████████▏ | 105/128 [00:25<00:04,  5.29it/s]Interpreting activating_tokens:  83%|████████▎ | 106/128 [00:25<00:05,  4.27it/s]Interpreting activating_tokens:  84%|████████▎ | 107/128 [00:26<00:04,  4.45it/s]Interpreting activating_tokens:  85%|████████▌ | 109/128 [00:26<00:04,  4.51it/s]Interpreting activating_tokens:  86%|████████▌ | 110/128 [00:26<00:04,  4.04it/s]Interpreting activating_tokens:  87%|████████▋ | 111/128 [00:27<00:04,  4.15it/s]Interpreting activating_tokens:  88%|████████▊ | 113/128 [00:27<00:02,  5.33it/s]Interpreting activating_tokens:  89%|████████▉ | 114/128 [00:28<00:04,  3.49it/s]Interpreting activating_tokens:  91%|█████████ | 116/128 [00:28<00:02,  5.03it/s]Interpreting activating_tokens:  91%|█████████▏| 117/128 [00:28<00:02,  4.87it/s]Interpreting activating_tokens:  93%|█████████▎| 119/128 [00:29<00:02,  3.88it/s]Interpreting activating_tokens:  94%|█████████▍| 120/128 [00:29<00:02,  3.89it/s]Interpreting activating_tokens:  95%|█████████▌| 122/128 [00:29<00:01,  4.47it/s]Interpreting activating_tokens:  97%|█████████▋| 124/128 [00:30<00:00,  4.33it/s]Interpreting activating_tokens:  98%|█████████▊| 125/128 [00:30<00:00,  3.70it/s]Interpreting activating_tokens:  99%|█████████▉| 127/128 [00:30<00:00,  4.89it/s]Interpreting activating_tokens: 100%|██████████| 128/128 [00:30<00:00,  4.95it/s]Interpreting activating_tokens: 100%|██████████| 128/128 [00:30<00:00,  4.14it/s]
+[done] Saved interpretations to mf_outputs/rank_search/google_gemma-2-2b-it/interpretations/rank800/seed42/World_War_II/embedding
+[TIMING] World War II: 31.1s
+
+=== World War II, langs=en: one row per (rank, seed) ===
+ rank  seed   V'  rel_err  candidates  member  kept  edit_total  edit_en
+  100    42 4603   0.9107          47       1     1          32       32
+  200    42 4603   0.8656          71       1     1          33       33
+  300    42 4603   0.8287          96       0     0           0        0
+  400    42 4603   0.7971         100       0     0           0        0
+  600    42 4603   0.7446         130       1     1          29       29
+  800    42 4603   0.6989         128       1     1          36       36
+
+=== kept features (share_<L> = share of the feature's concept-token mass in language L) ===
+ rank  seed  feature  ratio_abs  confidence  share_en                                                                                                                                                            description
+  100    42       43       5.67        0.95       1.0                    This feature vector represents concepts, historical figures, and terminology associated with Nazi Germany, the Holocaust, and World War II history.
+  200    42       25       6.87        0.95       1.0                                                                      This feature vector activates on tokens related to Nazi Germany, Adolf Hitler, and the Holocaust.
+  600    42       53       3.47        0.95       1.0                              This feature vector represents figures, movements, and key historical concepts associated with World War II and mid-20th-century fascism.
+  800    42       56       9.05        0.85       1.0 This vector activates strongly in contexts related to Nazi Germany, Adolf Hitler, and the history and ideology of German fascism during the early-to-mid 20th century.
+
+saved mf_outputs/rank_search/google_gemma-2-2b-it/rank_search/World_War_II/summary.csv and mf_outputs/rank_search/google_gemma-2-2b-it/rank_search/World_War_II/features.csv
