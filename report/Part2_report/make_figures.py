@@ -32,9 +32,9 @@ FAIR = ROOT / "judge_rerun" / "Fair" / "report.csv"
 LANGS = ["en", "de", "es", "fr", "ru"]
 FOR = ["de", "es", "fr", "ru"]
 UNRELIABLE = {("Harry Potter", "ru"), ("Valentine's Day", "ru")}  # unedited QA_test accuracy < 0.40
-ARMS = ["ember", "cinder", "ember_hj", "ember_x", "cinder_x"]
+ARMS = ["ember", "cinder", "ember_hj", "ember_x", "cinder_x", "ml_sep", "ml_joint"]
 LABEL = {"ember": "EMBER", "cinder": "CINDER", "ember_hj": "EMBER+TWJ", "ember_x": "EMBER+X",
-         "cinder_x": "CINDER+X"}
+         "cinder_x": "CINDER+X", "ml_sep": "Native per-language", "ml_joint": "Native joint"}
 
 BLUE, ORANGE, AQUA, VIOLET = "#2a78d6", "#eb6834", "#1baf7a", "#6250d6"
 BLUE_L, ORANGE_L = "#86b6ef", "#f4a98a"
@@ -209,35 +209,85 @@ def fig_retention(df):
     save(fig, "fig8_retention_by_language.png")
 
 
-# ---------------------------------------------------------------- figure 4: paired differences
+# ---------------------------------------------------------------- figure 9: paired differences (X14)
 def fig_paired():
-    s = pd.read_csv(P2X / "x13_fair_analysis" / "stats.csv")
-    s = s[s.analysis.str.startswith("primary")]
+    s = pd.read_csv(P2X / "x14_followup" / "stats.csv")
     order = [("ember_x − ember", "EMBER+X − EMBER"), ("cinder_x − cinder", "CINDER+X − CINDER"),
              ("cinder − ember", "CINDER − EMBER"), ("cinder_x − ember_x", "CINDER+X − EMBER+X"),
-             ("ember_hj − ember", "EMBER+TWJ − EMBER"), ("cinder − ember_hj", "CINDER − EMBER+TWJ")]
-    fig, ax = plt.subplots(figsize=(6.4, 3.3))
-    for i, (key, lab) in enumerate(order):
-        r = s[s.pair == key].iloc[0]
-        y = len(order) - 1 - i
-        sig = r.holm_p < 0.05
-        col = BLUE if sig else GRAY
-        ax.hlines(y, r.ci_low, r.ci_high, color=col, lw=2.2, zorder=3)
-        ax.plot(r["mean"], y, "o", ms=8, color=col, mec=SURFACE, mew=1.5, zorder=4)
-        ax.text(0.2, y, f"{r['mean']:+.3f}  [{r.ci_low:+.3f}, {r.ci_high:+.3f}]   {int(r.lower)} lower / {int(r.higher)} higher",
-                va="center", fontsize=7.6, color=INK2)
-    ax.axvline(0, color=INK2, lw=1)
-    ax.set_yticks(range(len(order)), [o[1] for o in order][::-1])
-    ax.set_xlim(-0.22, 0.62)
-    ax.set_xticks([-0.2, -0.1, 0, 0.1])
-    ax.set_xlabel("Difference in mean leak (negative: first arm leaks less)")
-    ax.set_title("Paired differences in leak, 18 concepts")
-    ax.xaxis.grid(True, color=GRIDC, lw=0.8)
-    ax.set_axisbelow(True)
-    ax.scatter([], [], color=BLUE, s=40, label="survives Holm correction (p < 0.05)")
-    ax.scatter([], [], color=GRAY, s=40, label="does not")
-    ax.legend(loc="upper center", bbox_to_anchor=(0.4, -0.2), ncol=2)
+             ("ember_hj − ember", "EMBER+TWJ − EMBER"), ("cinder − ember_hj", "CINDER − EMBER+TWJ"),
+             ("ml_sep − ember", "Native per-lang. − EMBER"), ("ml_sep − ember_x", "Native per-lang. − EMBER+X")]
+    fig, axes = plt.subplots(1, 2, figsize=(8.6, 3.9), sharey=True, gridspec_kw={"wspace": 0.08})
+    for ax, (block, title) in zip(axes, [("leak, all 18", "(a) Leak"), ("foreign_ret, all 18", "(b) Foreign retention")]):
+        for i, (key, lab) in enumerate(order):
+            r = s[(s.analysis == block) & (s.pair == key)].iloc[0]
+            y = len(order) - 1 - i
+            col = BLUE if r.holm_p < 0.05 else GRAY
+            ax.hlines(y, r.ci_low, r.ci_high, color=col, lw=2.2, zorder=3)
+            ax.plot(r["mean"], y, "o", ms=8, color=col, mec=SURFACE, mew=1.5, zorder=4)
+        ax.axvline(0, color=INK2, lw=1)
+        ax.set_title(title)
+        ax.set_xlabel("Difference (negative: first arm erases more / leaks less)", fontsize=8)
+        ax.xaxis.grid(True, color=GRIDC, lw=0.8)
+        ax.set_axisbelow(True)
+    axes[0].set_yticks(range(len(order)), [o[1] for o in order][::-1])
+    axes[0].set_xlim(-0.14, 0.16)
+    axes[1].set_xlim(-0.30, 0.17)
+    axes[1].scatter([], [], color=BLUE, s=40, label="survives Holm correction (p < 0.05)")
+    axes[1].scatter([], [], color=GRAY, s=40, label="does not")
+    axes[1].legend(loc="upper center", bbox_to_anchor=(-0.05, -0.2), ncol=2)
     save(fig, "fig9_paired_leak.png")
+
+
+# ---------------------------------------------------------------- figure 10: all arms, English vs foreign
+def fig_all_arms(df):
+    style = {"ember": (BLUE, "o", True), "ember_x": (BLUE, "o", False), "ember_hj": (BLUE, "D", True),
+             "cinder": (ORANGE, "s", True), "cinder_x": (ORANGE, "s", False),
+             "ml_sep": (AQUA, "^", True), "ml_joint": (AQUA, "^", False)}
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.9), gridspec_kw={"width_ratios": [1.1, 1], "wspace": 0.25})
+    ax = axes[0]
+    ax.plot([0.5, 1.0], [0.5, 1.0], color=AXIS, lw=1, zorder=1)
+    off = {"ember": (6, 5, "left"), "ember_x": (6, -11, "left"), "ember_hj": (-6, -12, "right"),
+           "cinder": (6, 5, "left"), "cinder_x": (6, -11, "left"), "ml_sep": (8, -3, "left"), "ml_joint": (-8, 6, "right")}
+    rows = []
+    for a, (color, mk, filled) in style.items():
+        d = df[df.method == a]
+        x = boot(d.ret_en)
+        y = boot(d.ret_for)
+        ax.plot(x[0], y[0], ls="none", marker=mk, ms=9, color=color, mfc=color if filled else SURFACE, mew=1.7, zorder=4)
+        dx, dy, ha = off[a]
+        ax.annotate(LABEL[a], (x[0], y[0]), xytext=(dx, dy), textcoords="offset points", fontsize=8, color=INK, ha=ha)
+        rows.append((a, x[0], y[0], int(d.no_edit.sum())))
+    ax.set_xlim(0.54, 0.96)
+    ax.set_ylim(0.64, 0.95)
+    ax.set_xlabel("English retention")
+    ax.set_ylabel("Foreign retention (mean of de/es/fr/ru)")
+    ax.set_title("(a) All arms, 18 concepts")
+    ax.text(0.955, 0.655, "above the line: the concept survives better\nin foreign languages than in English (leak)", fontsize=7.6, color=MUTED, va="bottom", ha="right")
+    grid(ax, "both")
+    # (b) retention by language
+    ax = axes[1]
+    x = np.arange(5)
+    arms = ["ember", "ember_x", "ml_sep", "ml_joint"]
+    for k, a in enumerate(arms):
+        d = df[df.method == a]
+        st = np.array([boot(d[f"ret_{l}"]) for l in LANGS])
+        color, mk, filled = style[a]
+        xs = x + (k - 1.5) * 0.17
+        ax.vlines(xs, st[:, 1], st[:, 2], color=color, lw=1.6, zorder=3)
+        ax.plot(xs, st[:, 0], ls="none", marker=mk, ms=7.5, color=color, mfc=color if filled else SURFACE, mew=1.6,
+                zorder=4, label=LABEL[a])
+        print(f"  {LABEL[a]:20s}", " ".join(f"{l} {v[0]:.2f}" for l, v in zip(LANGS, st)))
+    ax.axhline(1.0, color=MUTED, lw=1, ls=(0, (3, 2)))
+    ax.set_xticks(x, ["en", "de", "es", "fr", "ru"])
+    ax.set_xlim(-0.5, 4.5)
+    ax.set_ylim(0.4, 1.06)
+    ax.set_ylabel("Retention (lower = more erased)")
+    ax.set_title("(b) Native-text arms by language")
+    grid(ax)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2)
+    save(fig, "fig10_all_arms.png")
+    for r in rows:
+        print(f"  {LABEL[r[0]]:20s} ret_en {r[1]:.3f} foreign {r[2]:.3f} leak {r[2]-r[1]:+.3f} no_edit {r[3]}")
 
 
 # ---------------------------------------------------------------- figure 5: touched vs untouched
@@ -420,6 +470,7 @@ def main() -> int:
     print("Retention by language (mean over concepts):")
     fig_retention(df)
     fig_paired()
+    fig_all_arms(df)
     print("Touched vs untouched:")
     fig_touched()
     print("Coverage vs leak:")

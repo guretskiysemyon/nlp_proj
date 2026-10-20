@@ -10,7 +10,7 @@ Mary Arav, Ori Petel, Semyon Guretskiy (Tel Aviv University, NLP course 2025/26)
 
 ### 1.1 Starting point
 
-Part 1 showed that an erasure edit built from English data leaks across languages. EMBER subtracts concept features from the embeddings of a few dozen English tokens, and after this edit the concept survives better in German, Spanish, French and especially Russian than in English (mean leak +0.19, Russian +0.33). Two causes are plausible. First, the edit may be weak: in our Part 1 reproduction EMBER removes less than half of the concept even in English (efficacy 0.43), and with the judge model now available to us the feature-selection step sometimes finds no concept feature at all. Second, the edit may simply not reach the tokens that foreign questions use. Part 2 tests both explanations. We ask whether a better feature-finding method (CINDER, Section 1.2) improves English erasure and reduces leakage, and whether the edit can be extended to foreign tokens without training on foreign text (extrapolation, Section 1.4). We also test the more direct alternative of fitting the features on foreign text (Section 4.1).
+Part 1 showed that an erasure edit built from English data leaks across languages. EMBER subtracts concept features from the embeddings of a few dozen English tokens, and after this edit the concept survives better in German, Spanish, French and especially Russian than in English (mean leak +0.19, Russian +0.33). Two causes are plausible. First, the edit may be weak: in our Part 1 reproduction EMBER removes less than half of the concept even in English (efficacy 0.43), and with the judge model now available to us the feature-selection step sometimes finds no concept feature at all. Second, the edit may simply not reach the tokens that foreign questions use. Part 2 tests both explanations. We ask whether a better feature-finding method (CINDER, Section 1.2) improves English erasure and reduces leakage, and whether the edit can be extended to foreign tokens without training on foreign text (extrapolation, Section 1.4). We also test the more direct alternative of fitting the features on foreign text (Sections 4.1 and 4.6).
 
 All edits keep EMBER's edit step. Features are found on English concept and neutral sentences, a feature is accepted by a judge, and the concept component of each selected token is subtracted from its embedding with strength δ (Part 1, Section 2.2). What differs between the methods below is how the features are found and which tokens are edited.
 
@@ -52,7 +52,7 @@ Extrapolation uses foreign native text to choose the added tokens, so it is no l
 
 ### 1.5 Arms
 
-**Table 1.** The arms of the main comparison. All use the same model, English concept and neutral sentences, feature judge model, strength grid, selection rule and tests; only the method differs.
+**Table 1.** The arms of the comparison. All use the same model, feature judge model, strength grid, selection rule and tests. The first five arms use English concept and neutral sentences for the features; the two native-text arms use native sentences.
 
 | Arm | Features | Judge | Edited tokens |
 |---|---|---|---|
@@ -61,8 +61,12 @@ Extrapolation uses foreign native text to choose the added tokens, so it is no l
 | EMBER+TWJ | EMBER's factorization | TWJ | English tokens |
 | EMBER+X | as EMBER | as EMBER | English tokens + extrapolated foreign tokens |
 | CINDER+X | as CINDER | as CINDER | English tokens + extrapolated foreign tokens |
+| Native per-language | five EMBER factorizations, one per language, on native sentences (rank 100) | EMBER's TJ | union of the five edits |
+| Native joint | one EMBER factorization of all five languages (rank 500) | EMBER's TJ | the fit's own edit |
 
 EMBER+TWJ separates the contribution of CINDER's judge from that of its sharpening and sparsity, since it uses EMBER's factorization unchanged. It is built on the CPU from the same candidate features: it keeps EMBER's verdicts and adds a feature only where the lexicon test accepts one. The +X arms use the parent's features and strength.
+
+The two native-text arms test the direct alternative to extrapolation, fitting the features on foreign text. The per-language arm refits EMBER on the native sentences of each language alone (rank 100, the same judge) and takes the union of the five edits. A token that the English fit edits is edited exactly as in EMBER, and every other token is edited by the foreign fit in which its edit has the largest norm, so each token is edited once and EMBER's English edit is kept. The joint arm factorizes the sentences of all five languages together, at rank 500 because five languages need more features than one, and uses that fit's own features and edit. Both arms have their own strength search.
 
 ---
 
@@ -80,7 +84,7 @@ We ran the comparison in two stages. The first stage used six concepts and Part 
 
 CINDER's edit is about half the size of EMBER's at the same δ (the median edit norm relative to the embedding norm is 0.24 against 0.46, a ratio of 1.93), which lies inside the band of 0.5 to 2 that we had fixed in advance for reusing EMBER's grid. All arms therefore use EMBER's grid, δ ∈ {0.5, 1, 2, 5, 10, 50, 100, 200}, and one more value is scored if the best δ is at the edge.
 
-In the fair comparison the strength is chosen in English, per concept and arm, by Part 1's judge-free screen: among the strengths whose MMLU fraction is at least 0.9, the one with the highest HM(efficacy, specificity) on `QA_train`, `SimdomQA_train` and the 50-question MMLU set, with ties broken towards the smaller δ. There is no Qwen coherence term here, so these picks are not directly comparable with Part 1's. Each +X arm keeps its parent's δ and has no search of its own. The edit is then applied once and evaluated on `QA_test` and `SimdomQA_test` in five languages and on the 1,000-question MMLU test split, with a check that the edited model reproduces its grid row. A concept without a kept feature gets no edit and is scored as the unedited model.
+In the fair comparison the strength is chosen in English, per concept and arm, by Part 1's judge-free screen: among the strengths whose MMLU fraction is at least 0.9, the one with the highest HM(efficacy, specificity) on `QA_train`, `SimdomQA_train` and the 50-question MMLU set, with ties broken towards the smaller δ. There is no Qwen coherence term here, so these picks are not directly comparable with Part 1's. Each +X arm keeps its parent's δ and has no search of its own; the two native-text arms have their own search. The edit is then applied once and evaluated on `QA_test` and `SimdomQA_test` in five languages and on the 1,000-question MMLU test split, with a check that the edited model reproduces its grid row. A concept without a kept feature gets no edit and is scored as the unedited model.
 
 ### 2.3 Mechanism analyses and controls
 
@@ -94,18 +98,19 @@ We use the metrics of Part 1 unchanged: the chance-corrected ratio $\phi(a;a_0)=
 
 New in Part 2:
 
+- **Foreign retention.** The mean of $r_L$ over a concept's reliable de, es, fr and ru cells (lower = more erased), so that the leak is the foreign retention minus $r_{\text{en}}$. We report it next to the leak as a co-primary measure, because the leak alone penalizes an arm that also erases English more: a lower English retention raises the leak.
 - **Question coverage.** For a language and an edit, the share of the 50 `QA_test` questions whose question or correct answer contains a token that the edit changes. The coverage gap is the English coverage minus the coverage in the language. We use coverage because the embedding edit can act on a question only through the tokens it contains.
 - **Touched-question loss.** Among the questions that the unedited model answers correctly, the share the edit turns wrong, reported separately for touched and untouched questions. This isolates the effect of the edit on the questions it reaches from its effect on all others.
-- **Collateral damage.** The change in `SimdomQA_test` accuracy (edited minus unedited, negative = damage) in each language, and MMLU on the 1,000-question test split, as in Part 1; for the added tokens also the share of ordinary Wikipedia sentences that contain an edited token (exposure).
+- **Collateral damage.** The change in `SimdomQA_test` accuracy (edited minus unedited, negative = damage) in each language, and MMLU on the 1,000-question test split, as in Part 1; The accuracy change is also split by whether the similar-domain question contains an edited token, and the exposure of an edit is the share of other concepts' sentences (English and native) that contain an edited token.
 - **Edit size.** The norm of a token's edit relative to the norm of its embedding, used to compare the strengths of different methods.
 
-Method differences are tested pairwise over concepts. We report the mean paired difference with a 95% interval from a two-level bootstrap (resampling the concepts and, within each cell, the 50 questions, paired across arms), a Wilcoxon signed-rank test over concepts, and Holm's correction over the six primary comparisons. Coverage and leak are related by Spearman's rank correlation. As in Part 1, the unit of analysis is the concept, because the questions of one concept are not independent.
+Method differences are tested pairwise over concepts. We report the mean paired difference with a 95% interval from a two-level bootstrap (resampling the concepts and, within each cell, the 50 questions, paired across arms), a Wilcoxon signed-rank test over concepts, and Holm's correction within each block of eight comparisons (the leak and the foreign retention form one block each). Each comparison is repeated on the concepts that both arms of a pair edit, so that it is not decided by concepts on which one arm makes no edit. Coverage and leak are related by Spearman's rank correlation. As in Part 1, the unit of analysis is the concept, because the questions of one concept are not independent.
 
 ---
 
 ## 4. Results
 
-### 4.1 Fitting the features on foreign text does not help the embedding track
+### 4.1 Fitting the features on foreign text: the feature search
 
 The most direct way to cover foreign tokens is to find the features on foreign sentences. We tried two arms. A joint fit factorizes the English, Russian, German, Spanish and French sentences together (World War II and Cannabis). A per-language fit factorizes each language alone and takes the union of the edits, each token edited once (World War II, Cannabis and Gun).
 
@@ -120,7 +125,7 @@ The most direct way to cover foreign tokens is to find the features on foreign s
 | Spanish alone | 18 → 0 | 62 → 2 |
 | French alone | 22 → 0 | 51 → 3 |
 
-At rank 100 no fit outside English keeps an embedding feature for World War II. The joint fit keeps none at any of the ranks 100 to 800 we tried, and the German, Spanish and French fits keep one at some higher ranks, through tokens shared with English (Hitler, Mussolini, Stalin, Auschwitz), but the Russian fit never does. For Cannabis the joint fit finds one multilingual feature from rank 400 on, with only 4% of its concept mass in Russian. The reason is how the embedding track works. It factorizes the embedding rows of the distinct tokens that occur in the sentences, and the text only decides which tokens enter the matrix and how each is labeled (concept-only, neutral, or both). English concept words are whole tokens that occur only in concept sentences (Hitler, Nazi, Führer, cannabis, THC). Russian words are split into short pieces that also occur in unrelated text, so they are labeled "both" or neutral and carry no concept meaning of their own: Гитлер is Г + ит + лер, all three labeled "both", and 30% of the Russian tokens of World War II are labeled "both" against 13% of the English ones. No rank or amount of text can build a feature for Hitler out of Г, ит and лер. The English features also separate native foreign concept words only poorly (AUC 0.41–0.64, close to random directions of the same fit). The per-language arm raises the coverage of German, Spanish and French questions for World War II and Gun, and Russian only where whole-word tokens exist (Gun: оружие). On the three concepts it does not appreciably reduce the leak: its mean leak is +0.18 against +0.20 for EMBER and +0.13 for EMBER+X (Appendix A). We therefore keep the English features and extend only the token set.
+At rank 100 no fit outside English keeps an embedding feature for World War II. The joint fit keeps none at any of the ranks 100 to 800 we tried, and the German, Spanish and French fits keep one at some higher ranks, through tokens shared with English (Hitler, Mussolini, Stalin, Auschwitz), but the Russian fit never does. For Cannabis the joint fit finds one multilingual feature from rank 400 on, with only 4% of its concept mass in Russian. The reason is how the embedding track works. It factorizes the embedding rows of the distinct tokens that occur in the sentences, and the text only decides which tokens enter the matrix and how each is labeled (concept-only, neutral, or both). English concept words are whole tokens that occur only in concept sentences (Hitler, Nazi, Führer, cannabis, THC). Russian words are split into short pieces that also occur in unrelated text, so they are labeled "both" or neutral and carry no concept meaning of their own: Гитлер is Г + ит + лер, all three labeled "both", and 30% of the Russian tokens of World War II are labeled "both" against 13% of the English ones. No rank or amount of text can build a feature for Hitler out of Г, ит and лер. The English features also separate native foreign concept words only poorly (AUC 0.41–0.64, close to random directions of the same fit). The per-language arm raises the coverage of German, Spanish and French questions for World War II and Gun, and Russian only where whole-word tokens exist (Gun: оружие). Section 4.6 reports what these fits do to erasure when they are run through the full pipeline on all 18 concepts.
 
 ### 4.2 CINDER in English: no better than EMBER
 
@@ -184,42 +189,69 @@ Two controls test whether the tokens must be chosen by the features. Without fea
 
 ### 4.5 Fair comparison on 18 concepts
 
-Table 4 and Figures 8 and 9 give the held-out result for all arms on all 18 concepts.
+Table 4 and Figures 8 and 9 give the held-out result for all arms on all 18 concepts. We report the foreign retention next to the leak (Section 3); the native-text arms are discussed in Section 4.6.
 
-**Table 4.** Held-out `QA_test` retention by language (mean over concepts; the unedited model is 1) and mean leak with a 95% bootstrap interval over concepts. Upper block: all 18 concepts, a concept without an edit counted as unedited (EMBER and EMBER+X make no edit for four, CINDER and CINDER+X for three). Lower block: the 11 concepts that EMBER, CINDER, EMBER+X and CINDER+X all edit.
+**Table 4.** Held-out `QA_test` retention by language (mean over concepts; the unedited model is 1), foreign retention (mean of the four foreign languages) and mean leak with a 95% bootstrap interval over concepts. Upper block: all 18 concepts, a concept without an edit counted as unedited (EMBER and EMBER+X make no edit for four concepts, CINDER and CINDER+X for three, the native joint arm for eleven and the native per-language arm for one). Lower block: the 11 concepts that EMBER, CINDER, EMBER+X and CINDER+X all edit.
 
-| Arm | en | de | es | fr | ru | Mean leak |
-|---|---|---|---|---|---|---|
-| EMBER | 0.75 | 0.82 | 0.85 | 0.82 | 0.96 | +0.10 [+0.05, +0.16] |
-| CINDER | 0.74 | 0.88 | 0.87 | 0.85 | 0.97 | +0.15 [+0.08, +0.21] |
-| EMBER+TWJ | 0.67 | 0.77 | 0.81 | 0.80 | 0.96 | +0.15 [+0.10, +0.21] |
-| EMBER+X | 0.74 | 0.75 | 0.75 | 0.77 | 0.91 | +0.05 [−0.00, +0.10] |
-| CINDER+X | 0.73 | 0.85 | 0.80 | 0.80 | 0.92 | +0.11 [+0.05, +0.17] |
-| *11 common concepts* | | | | | | |
-| EMBER | 0.67 | 0.77 | 0.80 | 0.76 | 0.93 | +0.14 [+0.06, +0.21] |
-| CINDER | 0.71 | 0.86 | 0.85 | 0.81 | 0.95 | +0.15 [+0.06, +0.24] |
-| EMBER+X | 0.65 | 0.68 | 0.68 | 0.68 | 0.85 | +0.07 [−0.01, +0.15] |
-| CINDER+X | 0.69 | 0.80 | 0.77 | 0.73 | 0.88 | +0.10 [+0.03, +0.20] |
+| Arm | en | de | es | fr | ru | Foreign | Mean leak |
+|---|---|---|---|---|---|---|---|
+| EMBER | 0.75 | 0.82 | 0.85 | 0.82 | 0.96 | 0.86 | +0.10 [+0.05, +0.16] |
+| CINDER | 0.74 | 0.88 | 0.87 | 0.85 | 0.97 | 0.89 | +0.15 [+0.08, +0.21] |
+| EMBER+TWJ | 0.67 | 0.77 | 0.81 | 0.80 | 0.96 | 0.83 | +0.15 [+0.10, +0.21] |
+| EMBER+X | 0.74 | 0.75 | 0.75 | 0.77 | 0.91 | 0.79 | +0.05 [−0.00, +0.10] |
+| CINDER+X | 0.73 | 0.85 | 0.80 | 0.80 | 0.92 | 0.84 | +0.11 [+0.05, +0.17] |
+| Native per-language | 0.59 | 0.59 | 0.70 | 0.60 | 0.90 | 0.69 | +0.10 [+0.04, +0.16] |
+| Native joint | 0.85 | 0.91 | 0.89 | 0.89 | 0.94 | 0.91 | +0.06 [+0.01, +0.11] |
+| *11 common concepts* | | | | | | | |
+| EMBER | 0.67 | 0.77 | 0.80 | 0.76 | 0.93 | 0.81 | +0.14 [+0.06, +0.21] |
+| CINDER | 0.71 | 0.86 | 0.85 | 0.81 | 0.95 | 0.86 | +0.15 [+0.06, +0.24] |
+| EMBER+X | 0.65 | 0.68 | 0.68 | 0.68 | 0.85 | 0.71 | +0.07 [−0.01, +0.15] |
+| CINDER+X | 0.69 | 0.80 | 0.77 | 0.73 | 0.88 | 0.79 | +0.10 [+0.03, +0.20] |
+| Native per-language | 0.58 | 0.56 | 0.68 | 0.54 | 0.84 | 0.65 | +0.07 [−0.01, +0.15] |
+| Native joint | 0.83 | 0.90 | 0.87 | 0.86 | 0.91 | 0.89 | +0.06 [−0.00, +0.13] |
 
 ![[fig8_retention_by_language.png|520]]
 
-**Figure 8.** Concept retention by question language, mean over 18 concepts with 95% bootstrap intervals (16 concepts for Russian). Filled: parent methods; hollow: with extrapolation. Every edit was selected in English only.
+**Figure 8.** Concept retention by question language for the four main arms, mean over 18 concepts with 95% bootstrap intervals (16 concepts for Russian). Filled: parent methods; hollow: with extrapolation. Every edit was selected in English only.
 
 ![[fig9_paired_leak.png|520]]
 
-**Figure 9.** Paired differences in mean leak between arms (first minus second), with the two-level 95% interval; labels give the number of concepts with lower and higher leak. Blue: the difference survives Holm's correction.
+**Figure 9.** Paired differences between arms (first minus second) over the 18 concepts, with the two-level 95% interval, for (a) the mean leak and (b) the foreign retention. Blue: the difference survives Holm's correction within the block of eight comparisons.
 
-**CINDER against EMBER.** The two methods do not differ. English retention is 0.74 against 0.75 (paired difference −0.013, Wilcoxon p = 0.91; lower in 7 and higher in 11 of 18 concepts), and the mean leak differs by +0.04 with an interval that contains zero ([−0.06, +0.14], lower in 9 and higher in 9 concepts, Holm p = 1.0). On the 12 concepts that CINDER's authors neither used to tune it nor as lexicon-prompt examples the result is the same (leak +0.05, p = 0.42). The sharpening and the global sparsity therefore bring no measurable gain in either English erasure or leak.
+**CINDER against EMBER.** The two methods do not differ. English retention is 0.74 against 0.75 (paired difference −0.013, Wilcoxon p = 0.91; lower in 7 and higher in 11 of 18 concepts). Foreign retention differs by +0.028 ([−0.037, +0.089]) and the mean leak by +0.041 ([−0.060, +0.137], lower in 9 and higher in 9 concepts), with Holm p = 1.0 for both. The result is the same on the 11 concepts that both methods edit (foreign retention +0.053, [−0.011, +0.123]; leak +0.013, [−0.096, +0.126]), so it is not an artefact of counting unedited concepts, and on the 12 concepts that CINDER's authors neither used to tune it nor as lexicon-prompt examples (leak +0.05, p = 0.42). The sharpening and the global sparsity therefore bring no measurable gain in either English erasure or leak.
 
-**The judge is what helps.** EMBER+TWJ keeps the same edit as EMBER for 14 concepts and adds an edit for the four on which EMBER's judge selects nothing: Halloween, Heroin, Uranium and Valentine's Day. It lowers the mean English retention from 0.75 to 0.67 (all four added concepts are erased, with retention 0.54–0.81) and raises the mean leak by +0.05 ([−0.01, +0.12]), because the concepts that were not erased had zero leak. Compared with EMBER+TWJ, CINDER erases English a little less (+0.067, p = 0.08) and leaks the same (−0.01, [−0.09, +0.08]). CINDER's judge rescues the concepts for which EMBER's judge fails, and in our runs CINDER's factorization does not improve on EMBER's once the judge is the same.
+**The judge is what helps.** EMBER+TWJ keeps the same edit as EMBER for 14 concepts and adds an edit for the four on which EMBER's judge selects nothing: Halloween, Heroin, Uranium and Valentine's Day. It lowers the mean English retention from 0.75 to 0.67 (all four added concepts are erased, with retention 0.54–0.81) and the foreign retention by 0.032 ([−0.081, −0.004]). It raises the mean leak by +0.048 ([−0.006, +0.119]), because the concepts that were not erased had zero leak. Compared with EMBER+TWJ, CINDER erases English a little less (+0.067, p = 0.08) and the foreign questions slightly less (foreign retention +0.060, [+0.014, +0.113], Wilcoxon p = 0.015, Holm p = 0.075), and it leaks the same (−0.007, [−0.094, +0.081]). CINDER's judge rescues the concepts for which EMBER's judge fails, and in our runs CINDER's factorization does not improve on EMBER's once the judge is the same.
 
-**Extrapolation reduces the leak.** EMBER+X leaks less than EMBER by 0.059 ([−0.102, −0.023], lower in 12 and higher in 2 concepts, Wilcoxon p = 0.001, Holm p = 0.007); this is the only paired difference that survives the correction. CINDER+X leaks less than CINDER by 0.039 ([−0.088, −0.004], lower in 10 and higher in 4, p = 0.02), which does not survive the correction (Holm p = 0.10). The same holds when retention is not clipped at 0 and 1 (EMBER+X: −0.055, Holm p = 0.014; CINDER+X: −0.044, Holm p = 0.18). English retention is unchanged within noise (−0.011, p = 0.31). EMBER+X and CINDER+X do not differ (+0.06, [−0.04, +0.15], Holm p = 0.43); when only German, Spanish and French are used, CINDER+X leaks more (+0.07, p = 0.02), which does not survive the correction either.
+**Extrapolation lowers foreign retention and the leak.** EMBER+X erases the foreign questions more than EMBER (foreign retention −0.070, [−0.109, −0.040], lower in 14 and higher in none of 18 concepts, Wilcoxon p = 0.0001, Holm p = 0.0008) and leaks less (−0.059, [−0.102, −0.023], lower in 12 and higher in 2 concepts, p = 0.001, Holm p = 0.010). For CINDER the foreign retention falls by 0.050 ([−0.095, −0.022], lower in 12 and higher in 2 concepts, Holm p = 0.014) and the leak by 0.039 ([−0.088, −0.004], p = 0.02), which does not survive the correction (Holm p = 0.14). On the concepts that both a parent and its extrapolated arm edit the effects are larger, because arms without an edit contribute zero (EMBER+X: foreign retention −0.090, leak −0.076; CINDER+X: −0.060 and −0.047). English retention is unchanged within noise (−0.011, p = 0.31). EMBER+X and CINDER+X do not differ (foreign retention +0.048, [−0.048, +0.126]; leak +0.061, [−0.035, +0.150]; Holm p ≥ 0.5).
 
 **What remains.** Extrapolation closes only part of the gap. After EMBER+X, 77% of the foreign questions that the unedited model answers correctly are still answered correctly (German 360 of 480, Spanish 348 of 472, French 337 of 450, Russian 319 of 358), and about 60% of them contain no edited token. The failures are mostly answers that are numbers or dates (1955, 1969–1984, 17 марта) and names that are split into pieces (St·aling·rad, R·ube·us Hag·rid, Б·роне·бой·ный). Russian remains the hardest language: its retention stays 0.91–0.92 and its coverage rises only to 0.28–0.37. Per-concept values are in Appendix A.
 
-### 4.6 Collateral damage
+### 4.6 Fitting on native text through the full pipeline
 
-**Table 5.** Collateral damage of the selected edits, mean over all 18 concepts (concepts without an edit count as unedited). `SimdomQA_test` is the change in accuracy against the unedited model (negative = damage); MMLU on the 1,000-question test split (unedited 0.553).
+Section 4.1 asked whether native text yields embedding features. The two native-text arms of Section 1.5 answer what such fits do to erasure. Both were run through the full pipeline on all 18 concepts with their own strength search.
+
+**Features and edits.** The per-language arm edits 17 of the 18 concepts (Heroin is the exception). The fits keep a feature for 14 concepts in English (the EMBER arm), 12 in German, 9 in Spanish and 9 in French, and for only 7 in Russian (Republic of Ireland, Baseball, Harry Potter, Pornography, Valentine's Day, Artificial intelligence and COVID-19); Cyrillic tokens enter an edit for six concepts (8–29 tokens). The edit has a median of 98 tokens against 42 for EMBER, and the foreign fits add 37–128 tokens to the English edit for 15 concepts (the three others are Heroin, without an edit, and Golf and World War II, where the foreign fits keep nothing beyond the English edit). The joint fit at rank 500 keeps a feature for only 7 concepts (Republic of Ireland, Baseball, Uranium, Cannabis, Gambling, Gun, COVID-19), edits 122–326 tokens in them (1–21 Cyrillic), and makes no edit for the other 11. Per-concept details are in Appendix A (Table A3).
+
+**Table 5.** Native-text arms against EMBER and EMBER+X, 18 concepts. Concepts with an edit, median edited tokens (concepts with an edit), English retention, foreign retention, mean leak, change of `SimdomQA_test` accuracy in English and in the foreign languages, and MMLU (unedited 0.553).
+
+| Arm | Edited | Tokens | $r_{\text{en}}$ | Foreign | Leak | SimDom en | SimDom foreign | MMLU |
+|---|---|---|---|---|---|---|---|---|
+| EMBER | 14 | 42 | 0.75 | 0.86 | +0.10 | −0.024 | −0.006 | 0.550 |
+| EMBER+X | 14 | 130 | 0.74 | 0.79 | +0.05 | −0.033 | −0.015 | 0.550 |
+| Native per-language | 17 | 98 | 0.59 | 0.69 | +0.10 | −0.038 | −0.029 | 0.548 |
+| Native joint | 7 | 144 | 0.85 | 0.91 | +0.06 | −0.017 | −0.008 | 0.552 |
+
+![[fig10_all_arms.png|720]]
+
+**Figure 10.** (a) English against foreign retention for all arms, 18 concepts (points above the diagonal have a positive leak). (b) Retention by language for EMBER, EMBER+X and the two native-text arms, with 95% bootstrap intervals over concepts.
+
+**Effect on erasure.** The per-language arm erases much more than any other arm, in English and in the foreign languages (Table 5, Figure 10): English retention 0.59 and foreign retention 0.69, against 0.75 and 0.86 for EMBER. Its foreign retention is 0.174 lower than EMBER's (paired [−0.266, −0.088], lower in 13 and higher in none of 18 concepts, Holm p = 0.0014; on the 14 concepts that both edit −0.156, Holm p = 0.014). It also erases English more, so its leak does not change (−0.008 against EMBER, [−0.087, +0.074]). Against extrapolation it erases the foreign questions more (−0.103, [−0.198, −0.009], lower in 10 and higher in 7 concepts), but the difference is not significant after correction (Holm p = 0.44), and its leak is higher (+0.051, [−0.027, +0.136]). Russian is erased about as much as with extrapolation (retention 0.90 against 0.91). The joint arm erases less than EMBER, because it edits only 7 concepts: its English retention is 0.85 and its foreign retention 0.91 (against EMBER, concept-level differences of +0.10, [+0.01, +0.18], and +0.05, [−0.02, +0.12]).
+
+**Cost.** The per-language arm needs five factorizations and five judge passes per concept instead of one, and it edits more than twice as many tokens as EMBER. The extra erasure is paid for in collateral damage (Section 4.7): the similar-domain accuracy changes by −0.038 in English and −0.029 in the foreign languages (EMBER: −0.024 and −0.006), and for some concepts the damage is large (Baseball: similar-domain change −0.14 in English, MMLU 0.543, German retention 0.00).
+
+### 4.7 Collateral damage
+
+**Table 6.** Collateral damage of the selected edits, mean over all 18 concepts (concepts without an edit count as unedited). `SimdomQA_test` is the change in accuracy against the unedited model (negative = damage); MMLU on the 1,000-question test split (unedited 0.553).
 
 | Arm | SimDom, English | SimDom, foreign mean | MMLU |
 |---|---|---|---|
@@ -228,8 +260,23 @@ Table 4 and Figures 8 and 9 give the held-out result for all arms on all 18 conc
 | EMBER+TWJ | −0.027 | −0.006 | 0.550 |
 | EMBER+X | −0.033 | −0.015 | 0.550 |
 | CINDER+X | −0.024 | −0.008 | 0.551 |
+| Native per-language | −0.038 | −0.029 | 0.548 |
+| Native joint | −0.017 | −0.008 | 0.552 |
 
-All arms leave MMLU at 0.550–0.551 against 0.553 and similar-domain accuracy within a few points of the unedited model. Extrapolation costs a little: for EMBER the similar-domain change more than doubles in the foreign languages (−0.006 to −0.015) and grows by about one point in English, while for CINDER it is within 0.005. On the six first-stage concepts and the train questions the same cost is −0.007 to −0.022 in the foreign languages.
+All arms leave MMLU at 0.548–0.552 against 0.553, and similar-domain accuracy within a few points of the unedited model; the native per-language arm is the most damaging. Extrapolation costs a little: for EMBER the similar-domain change more than doubles in the foreign languages (−0.006 to −0.015) and grows by about one point in English, while for CINDER it is within 0.005. On the six first-stage concepts and the train questions the same cost is −0.007 to −0.022 in the foreign languages.
+
+The damage is confined to the questions that contain an edited token (Table 7). Of the foreign similar-domain questions that the unedited model answers correctly, those without an edited token lose at most 0.4% of their correct answers in any arm, whereas those with an edited token lose 16–43%. The cost of an edit is therefore its reach. EMBER+X touches 161 foreign similar-domain questions against 63 for EMBER (CINDER+X 255 against 67 for CINDER), and the per-language arm touches 262. The exposure of the edited tokens in ordinary text shows the same ordering: 0.5% of the other concepts' foreign sentences contain an edited token for EMBER and CINDER, 2.1% for EMBER+X, 2.5% for CINDER+X and 1.7% for the per-language arm, and in English 0.8% for EMBER, 1.4% for EMBER+X and 4.7% for the per-language arm. General ability in the foreign languages was not measured (MMLU is English only), so the foreign collateral damage is estimated from these two measures and not tested directly.
+
+**Table 7.** Foreign `SimdomQA_test` questions that the unedited model answers correctly: number and share lost, by whether the question contains an edited token, and the share of other concepts' sentences that contain an edited token (exposure, mean over the concepts each arm edits).
+
+| Arm | Touched: questions | lost | Untouched: questions | lost | Exposure, foreign | Exposure, English |
+|---|---|---|---|---|---|---|
+| EMBER | 63 | 42.9% | 1,994 | 0.1% | 0.48% | 0.84% |
+| CINDER | 67 | 28.4% | 2,103 | 0.0% | 0.54% | 1.91% |
+| EMBER+TWJ | 73 | 37.0% | 2,564 | 0.1% | 0.51% | 0.95% |
+| EMBER+X | 161 | 40.4% | 1,896 | 0.3% | 2.12% | 1.41% |
+| CINDER+X | 255 | 16.1% | 1,915 | 0.1% | 2.52% | 2.57% |
+| Native per-language | 262 | 43.1% | 2,194 | 0.4% | 1.68% | 4.69% |
 
 ---
 
@@ -239,9 +286,9 @@ All arms leave MMLU at 0.550–0.551 against 0.553 and similar-domain accuracy w
 
 **Extrapolation addresses the actual mechanism.** Adding native tokens raises coverage in the foreign languages (Russian from 0.05 to 0.28) and the extra erasure appears in the questions that the new tokens reach, so the reduction of the leak is explained by the mechanism and not by a general weakening of the edit. The effect is moderate (−0.06 for EMBER) because many questions are answered through tokens that no edit reaches, such as numbers, dates and names split into pieces, and because the added tokens are noisy. The token controls show that the choice of tokens matters and that the features are not the only good rule, but they buy lower collateral damage.
 
-**Fitting on foreign text is the wrong lever for embeddings.** The embedding features are built from token rows and not from the text, so foreign text can only choose which rows enter the factorization, and the pieces of foreign words carry no concept meaning. Extrapolation keeps the English features, which are well defined, and uses foreign text only to decide which tokens load on them.
+**Fitting on foreign text erases more, but at a cost, and hardly reaches Russian.** At the feature level, foreign text can only choose which token rows enter the factorization, and the pieces of foreign words carry no concept meaning, so the Russian fit keeps a feature for only 7 concepts and the joint fit edits only 7. The per-language fits do lower the foreign retention more than any other arm (0.69 against 0.86 for EMBER), but they also erase English more and edit more than twice as many tokens, so the leak does not change and the similar-domain damage in the foreign languages is about five times larger. Against extrapolation the extra foreign erasure is not significant after correction. Extrapolation keeps the English features, which are well defined, and uses foreign text only to decide which tokens load on them; it reaches part of the same effect with one fit, no new judge calls and a much smaller edit.
 
-**Practical implication.** An embedding edit should be checked for question coverage in each target language, and a language with a different script needs explicit coverage of its tokens. Extrapolation is a cheap way to obtain it: it needs no new fit and no new judge calls, only native text.
+**Practical implication.** An embedding edit should be checked for question coverage in each target language, and a language with a different script needs explicit coverage of its tokens. Extrapolation is a cheap way to obtain it: it needs no new fit and no new judge calls, only native text. A per-language refit erases the most, but at several times the collateral damage and five times the feature-discovery cost.
 
 ### Limitations
 
@@ -249,16 +296,17 @@ All arms leave MMLU at 0.550–0.551 against 0.553 and similar-domain accuracy w
 2. **Concepts without an edit.** Whether a concept is edited depends on the judge. Means that include unedited concepts mix the quality of the edit with how often features are found; we therefore also report the 11 concepts that all four main arms edit.
 3. **CINDER was tuned on a few concepts.** Its parameters (η, γ, the lexicon threshold) were chosen on three concepts and the lexicon prompt uses four example concepts; the 12-concept analysis excludes them. Its sharpening target is the concept's Wikipedia page, which also supplies some of the tokens that its feature-level metrics score.
 4. **The judge is a different model than in the paper.** All arms use gemini-3.5-flash-lite, and EMBER+TWJ was added after the main comparison had been decided, so it is a post-hoc arm.
-5. **Extrapolation is not query-only.** It uses native foreign text to choose tokens, and its δ was not re-tuned. Some added tokens are noise and some occur in English questions.
+5. **Extrapolation and the native-text arms are not query-only.** They use native foreign text to choose tokens. The δ of the +X arms was not re-tuned, and some added tokens are noise and some occur in English questions.
 6. **The controls are small.** The extrapolation variants and token controls use six concepts and the train questions and are descriptive; the held-out test is used only to confirm the final arms.
 7. **Multiple choice, machine-translated questions, 50 questions per cell**, as in Part 1, and no relearning test.
-8. **Only the paired difference EMBER+X − EMBER survives correction for multiple comparisons.** The effects of CINDER+X and of the judge are suggestive.
+8. **Few differences survive correction for multiple comparisons.** For the foreign retention EMBER+X − EMBER, CINDER+X − CINDER and the native per-language arm − EMBER do; for the leak only EMBER+X − EMBER does. The effect of the judge and the differences between extrapolation and the native per-language arm are suggestive.
+9. **The native-text arms mix two effects.** They have their own strength search and edit more tokens, so their results combine the effect of the features with that of a larger edit. They were run for one seed, the joint arm at one rank (500), and the per-language arm's English fit is EMBER's, so it inherits EMBER's four empty concepts.
 
 ---
 
 ## 6. Conclusion
 
-An embedding edit acts only on the questions that contain an edited token, so an erasure fitted on English leaks into the languages whose questions use other tokens. A better feature finder, CINDER, does not change this: on 18 concepts it neither erases English better nor leaks less than EMBER, and the part of it that helps is its judge, which finds features for four concepts where EMBER's judge finds none. Fitting the features on foreign text does not help the embedding track, because the pieces of foreign words carry no concept meaning. Extending the edit to native tokens by extrapolation, with English features, raises the coverage of foreign questions and lowers EMBER's leak by 0.06 (Holm p = 0.007) at a small cost in similar-domain accuracy, while leaving English erasure unchanged. About three quarters of the foreign questions are still answered correctly after the extension, so complete cross-lingual erasure remains open.
+An embedding edit acts only on the questions that contain an edited token, so an erasure fitted on English leaks into the languages whose questions use other tokens. A better feature finder, CINDER, does not change this: on 18 concepts it neither erases English better nor leaks less than EMBER, and the part of it that helps is its judge, which finds features for four concepts where EMBER's judge finds none. Refitting the features on foreign text finds a Russian feature for only 7 of the 18 concepts. Refitting per language does erase the foreign questions most (foreign retention 0.69 against 0.86 for EMBER), but it also erases English more, leaves the leak unchanged and costs several times the collateral damage. Extending the edit to native tokens by extrapolation, with English features, raises the coverage of foreign questions and lowers EMBER's foreign retention by 0.07 (Holm p = 0.0008) and its leak by 0.06 (Holm p = 0.010) at a small cost in similar-domain accuracy, while leaving English erasure unchanged. About three quarters of the foreign questions are still answered correctly after the extension, so complete cross-lingual erasure remains open.
 
 ---
 
@@ -312,7 +360,30 @@ Notation as in Section 2. For the +X arms the number of edited tokens includes t
 | Valentine's Day | 1.00 / 0.00 | 0.71 / +0.22 | 0.81 / +0.08 | 1.00 / 0.00 | 0.71 / +0.15 |
 | World War II | 0.88 / +0.03 | 1.00 / 0.00 | 0.88 / +0.03 | 0.88 / −0.01 | 1.00 / 0.00 |
 
-Single cells are noisy: each has 50 questions, so only the averages over concepts in Section 4.5 support conclusions. The per-language arm of Section 4.1 (union of per-language EMBER fits) was run for three concepts: leak +0.16 (Cannabis), +0.34 (Gun), +0.03 (World War II), against +0.14, +0.42, +0.03 for EMBER and +0.07, +0.32, −0.01 for EMBER+X.
+Single cells are noisy: each has 50 questions, so only the averages over concepts in Section 4.5 support conclusions.
+
+**Table A3.** Native-text arms per concept. Per-language arm: features kept by the en / de / es / fr / ru fits, edited tokens, δ; joint arm: features kept, edited tokens, δ. $r_{\text{en}}$ and foreign retention (mean over the reliable de/es/fr/ru cells) on the held-out `QA_test`; "—" = no edit (retention 1).
+
+| Concept | Per-language: kept (en/de/es/fr/ru) | tokens / δ | $r_{\text{en}}$ | foreign | Joint: features / tokens / δ | $r_{\text{en}}$ | foreign |
+|---|---|---|---|---|---|---|---|
+| Ancient Rome | 2/2/0/1/0 | 144 / 200 | 0.27 | 0.43 | — | 1.00 | 1.00 |
+| Artificial intelligence | 1/1/1/1/1 | 155 / 50 | 0.67 | 0.62 | — | 1.00 | 1.00 |
+| Baseball | 1/1/0/0/2 | 107 / 200 | 0.46 | 0.35 | 1 / 122 / 5 | 0.61 | 0.88 |
+| COVID-19 pandemic | 1/1/1/1/1 | 170 / 10 | 0.69 | 0.59 | 1 / 174 / 10 | 0.85 | 0.80 |
+| Cannabis | 1/1/1/1/0 | 109 / 100 | 0.30 | 0.47 | 1 / 142 / 5 | 0.45 | 0.56 |
+| Culture of Greece | 1/1/0/0/0 | 89 / 50 | 0.78 | 0.86 | — | 1.00 | 1.00 |
+| Gambling | 1/1/1/0/0 | 99 / 10 | 0.59 | 0.79 | 1 / 144 / 200 | 0.69 | 0.70 |
+| Golf | 2/0/0/0/0 | 70 / 10 | 0.74 | 0.80 | — | 1.00 | 1.00 |
+| Gun | 2/1/2/0/0 | 157 / 5 | 0.58 | 0.92 | 3 / 326 / 5 | 0.51 | 0.81 |
+| Halloween | 0/0/0/1/0 | 41 / 50 | 0.54 | 0.80 | — | 1.00 | 1.00 |
+| Harry Potter | 1/1/1/1/1 | 98 / 10 | 0.60 | 0.56 | — | 1.00 | 1.00 |
+| Heroin | 0/0/0/0/0 | — | 1.00 | 1.00 | — | 1.00 | 1.00 |
+| Nazism | 1/0/1/1/0 | 92 / 100 | 0.51 | 0.63 | — | 1.00 | 1.00 |
+| Pornography | 1/1/0/1/1 | 128 / 5 | 0.65 | 0.76 | — | 1.00 | 1.00 |
+| Republic of Ireland | 1/1/0/1/1 | 85 / 200 | 0.31 | 0.60 | 1 / 150 / 10 | 0.67 | 0.78 |
+| Uranium | 0/0/2/0/0 | 50 / 50 | 0.57 | 0.70 | 1 / 141 / 200 | 0.57 | 0.86 |
+| Valentine's Day | 0/1/1/0/1 | 91 / 200 | 0.43 | 0.56 | — | 1.00 | 1.00 |
+| World War II | 1/0/0/0/0 | 36 / 5 | 0.88 | 0.91 | — | 1.00 | 1.00 |
 
 ## Appendix B. Tokens that extrapolation adds
 
@@ -332,11 +403,12 @@ For the 12 concepts outside the first stage, extrapolation adds 54–125 tokens 
 |---|---|
 | Fair comparison, all arms and concepts | `judge_rerun/Fair/report.csv`, `report.md`; code `cinder/fair.py` |
 | CINDER features and edits | `judge_rerun/Cinder/`, code `cinder/`, `experiments/varwidth/`, `experiments/whitening/` |
-| Touched/untouched, coverage, extrapolation, controls (X1–X13) | `Part 2 Experiments/` (one folder and `report.md` per analysis; scripts in `scripts/`) |
+| Touched/untouched, coverage, extrapolation, controls (X1–X14) | `Part 2 Experiments/` (one folder and `report.md` per analysis; scripts in `scripts/`); foreign retention, collateral by touched question and exposure: `x14_followup/` |
+| Native-text arms (per-language and joint fits) | `cinder/ml_arms.py`, `judge_rerun/Fair/ml_sep/`, `ml_joint/`, `ml_build.json` |
 | Foreign-text fits and rank sweeps | `docs/Part 2/plan.md`, `docs/Part 2/multilingual_features.md` |
 | Figures in this report | `report/Part2_report/make_figures.py` → `figures/` |
 
-Settings: Gemma-2-2B-it, bfloat16, greedy decoding; rank 100, seed 42; feature judge gemini-3.5-flash-lite; δ grid 0.5–200; reliability cutoff 0.40; two-level bootstrap with 4,000 resamples and Holm over six comparisons for the paired tests; bootstrap `numpy.random.default_rng(0)`, 10,000 resamples for the intervals over concepts in Table 4 and Figure 8. The means in Table 4 use the reliable cells only and can differ by 0.01 from the unfiltered means in `judge_rerun/Fair/report.md`.
+Settings: Gemma-2-2B-it, bfloat16, greedy decoding; rank 100, seed 42; feature judge gemini-3.5-flash-lite; δ grid 0.5–200; reliability cutoff 0.40; two-level bootstrap with 4,000 resamples and Holm within blocks of eight comparisons for the paired tests; bootstrap `numpy.random.default_rng(0)`, 10,000 resamples for the intervals over concepts in Table 4 and Figure 8. The means in Table 4 use the reliable cells only and can differ by 0.01 from the unfiltered means in `judge_rerun/Fair/report.md`.
 
 To regenerate the figures (needs matplotlib, numpy, pandas):
 
