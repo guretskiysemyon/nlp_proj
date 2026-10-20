@@ -293,6 +293,15 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
         else:                                    # fixed r = 0.5 (amendment 8)
             best = next((x for x in rows if x["param"] == 0.5), None)
         res = {"concept": concept, "seed": seed, "variant": v, "gate": gate, "rule": rule}
+        par = None if best is None else best["param"]
+        same = [json.loads((d / f).read_text()) for f in ("result.json", "result_paper.json", "result_fixed05.json")
+                if f != fname and (d / f).exists()]
+        same = [x for x in same if x.get("param") == par and "alpaca_instr" not in x]
+        if same and v not in alpaca_variants:   # another rule chose the same point: deterministic eval, reuse it
+            res.update({k: x for k, x in same[0].items() if k not in res})
+            save(d / fname, res)
+            print(json.dumps({k: v2 for k, v2 in res.items() if k != "coll_tok"}), "(reused)", flush=True)
+            continue
         if best is None:
             ed.restore()
             res.update(param=None, r=0.0, n_edit=0)
