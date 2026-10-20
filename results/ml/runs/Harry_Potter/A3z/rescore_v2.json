@@ -1,0 +1,179 @@
+{
+ "concept": "Harry Potter",
+ "approach": "A3z",
+ "best_delta": 200.0,
+ "delta_selected_on": "v1 train",
+ "v2_langs": [
+  "it",
+  "pt",
+  "hi",
+  "th"
+ ],
+ "baseline_v2": {
+  "train": {
+   "it": {
+    "qa": 0.72
+   },
+   "pt": {
+    "qa": 0.74
+   },
+   "hi": {
+    "qa": 0.42
+   },
+   "th": {
+    "qa": 0.54
+   }
+  },
+  "test": {
+   "it": {
+    "qa": 0.76,
+    "simdom": 0.84
+   },
+   "pt": {
+    "qa": 0.74,
+    "simdom": 0.86
+   },
+   "hi": {
+    "qa": 0.32,
+    "simdom": 0.5
+   },
+   "th": {
+    "qa": 0.52,
+    "simdom": 0.48
+   }
+  }
+ },
+ "per_lang": {
+  "en": {
+   "mmlu": 0.68,
+   "ppl": 34.96160132228642,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.76,
+   "simdom": 0.96,
+   "invalid_qa": 0.0,
+   "efficacy": 0.16393442622950816,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.3703703703703703,
+   "eligible": true
+  },
+  "de": {
+   "mmlu": 0.535,
+   "ppl": 22.736753882483683,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9978971335310234,
+   "invalid_mmlu": 0.0,
+   "qa": 0.62,
+   "simdom": 0.84,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.09756097560975618,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.24485583802633945,
+   "eligible": true
+  },
+  "fr": {
+   "mmlu": 0.53,
+   "ppl": 23.79309439036902,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9975216303747012,
+   "invalid_mmlu": 0.0,
+   "qa": 0.6,
+   "simdom": 0.82,
+   "invalid_qa": 0.0,
+   "efficacy": 0.10256410256410264,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.2552651733389877,
+   "eligible": true
+  },
+  "it": {
+   "mmlu": 0.57,
+   "ppl": 20.411001950558987,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9954070775654835,
+   "invalid_mmlu": 0.0,
+   "qa": 0.62,
+   "simdom": 0.82,
+   "invalid_qa": 0.16000000000000003,
+   "efficacy": 0.27450980392156865,
+   "simdom_frac": 0.9661016949152542,
+   "specificity": 0.9827586206896551,
+   "H": 0.5295661066967416,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "pt": {
+   "mmlu": 0.575,
+   "ppl": 19.645096272785437,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9961353385304773,
+   "invalid_mmlu": 0.0,
+   "qa": 0.64,
+   "simdom": 0.84,
+   "invalid_qa": 0.07999999999999996,
+   "efficacy": 0.20408163265306123,
+   "simdom_frac": 0.9672131147540983,
+   "specificity": 0.9833333333333334,
+   "H": 0.43347409442069884,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "hi": {
+   "mmlu": 0.46,
+   "ppl": 9.572126334313694,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.32,
+   "simdom": 0.5,
+   "invalid_qa": 0.06000000000000005,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.0,
+   "eligible": false,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "es": {
+   "mmlu": 0.605,
+   "ppl": 20.294400661423648,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9982480445733308,
+   "invalid_mmlu": 0.0,
+   "qa": 0.6,
+   "simdom": 0.82,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.14634146341463428,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.3395551777835741,
+   "eligible": true
+  },
+  "th": {
+   "mmlu": 0.43,
+   "ppl": 12.272664208608257,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.5,
+   "simdom": 0.48,
+   "invalid_qa": 0.0,
+   "efficacy": 0.07407407407407418,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.19354838709677444,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  }
+ },
+ "gated": false,
+ "score": 0.33809073539049805,
+ "score_v1": 0.34277562392782557
+}

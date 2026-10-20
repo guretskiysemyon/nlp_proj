@@ -1,0 +1,179 @@
+{
+ "concept": "Culture of Greece",
+ "approach": "A2",
+ "best_delta": 200.0,
+ "delta_selected_on": "v1 train",
+ "v2_langs": [
+  "it",
+  "pt",
+  "hi",
+  "th"
+ ],
+ "baseline_v2": {
+  "train": {
+   "it": {
+    "qa": 0.78
+   },
+   "pt": {
+    "qa": 0.78
+   },
+   "hi": {
+    "qa": 0.6
+   },
+   "th": {
+    "qa": 0.54
+   }
+  },
+  "test": {
+   "it": {
+    "qa": 0.7,
+    "simdom": 0.82
+   },
+   "pt": {
+    "qa": 0.7,
+    "simdom": 0.78
+   },
+   "hi": {
+    "qa": 0.5,
+    "simdom": 0.64
+   },
+   "th": {
+    "qa": 0.62,
+    "simdom": 0.56
+   }
+  }
+ },
+ "per_lang": {
+  "en": {
+   "mmlu": 0.675,
+   "ppl": 35.38496843989767,
+   "mmlu_frac": 1.0,
+   "fluency": 0.988035396489604,
+   "invalid_mmlu": 0.0,
+   "qa": 0.6,
+   "simdom": 0.82,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.36363636363636376,
+   "simdom_frac": 0.9047619047619047,
+   "specificity": 0.9499999999999998,
+   "H": 0.623086466712068,
+   "eligible": true
+  },
+  "de": {
+   "mmlu": 0.535,
+   "ppl": 22.85371454590621,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9927900989379911,
+   "invalid_mmlu": 0.0,
+   "qa": 0.66,
+   "simdom": 0.8,
+   "invalid_qa": 0.0,
+   "efficacy": 0.12765957446808496,
+   "simdom_frac": 0.9649122807017545,
+   "specificity": 0.9821428571428572,
+   "H": 0.30429736613350067,
+   "eligible": true
+  },
+  "fr": {
+   "mmlu": 0.52,
+   "ppl": 23.734126307940063,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.74,
+   "simdom": 0.76,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 0.9272727272727272,
+   "specificity": 0.9622641509433963,
+   "H": 0.0,
+   "eligible": true
+  },
+  "it": {
+   "mmlu": 0.57,
+   "ppl": 20.317255801789305,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.62,
+   "simdom": 0.8,
+   "invalid_qa": 0.0,
+   "efficacy": 0.1777777777777777,
+   "simdom_frac": 0.9649122807017545,
+   "specificity": 0.9821428571428572,
+   "H": 0.3925066904549508,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "pt": {
+   "mmlu": 0.57,
+   "ppl": 19.65230685722494,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9957698487167965,
+   "invalid_mmlu": 0.0,
+   "qa": 0.64,
+   "simdom": 0.78,
+   "invalid_qa": 0.0,
+   "efficacy": 0.1333333333333332,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.3156483250074202,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "hi": {
+   "mmlu": 0.46,
+   "ppl": 9.572126334313694,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.5,
+   "simdom": 0.64,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.0,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "es": {
+   "mmlu": 0.6,
+   "ppl": 20.258845776053867,
+   "mmlu_frac": 0.9859154929577465,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.6,
+   "simdom": 0.82,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.25531914893617025,
+   "simdom_frac": 1.0,
+   "specificity": 0.9929078014184397,
+   "H": 0.5064308681672026,
+   "eligible": true
+  },
+  "th": {
+   "mmlu": 0.43,
+   "ppl": 12.272664208608257,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.62,
+   "simdom": 0.56,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.0,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  }
+ },
+ "gated": false,
+ "score": 0.2677462145593928,
+ "score_v1": 0.27686977243770206
+}

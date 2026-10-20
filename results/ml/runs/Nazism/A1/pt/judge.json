@@ -1,0 +1,292 @@
+{
+ "159": {
+  "tokens": [
+   " lav",
+   " Cav",
+   " Sav",
+   " Bav",
+   "lav",
+   "av",
+   " Dev",
+   " pav",
+   " Mov",
+   "Dev",
+   " pov",
+   "rav",
+   " lev",
+   "rev",
+   " rev",
+   " fav",
+   " dev",
+   "lev",
+   "év",
+   " Rev"
+  ],
+  "description": "This feature vector represents subword tokens ending with the lowercase letters \"-av\" or \"-ev\".",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "102": {
+  "tokens": [
+   " estava",
+   " têm",
+   " seus",
+   " possível",
+   " numa",
+   " podem",
+   " eles",
+   " próp",
+   " sua",
+   " sido",
+   " sempre",
+   " importante",
+   " como",
+   " diferentes",
+   " dessa",
+   " na",
+   " durante",
+   " da",
+   " importantes",
+   " qualquer"
+  ],
+  "description": "This feature vector represents common Portuguese words and grammatical particles.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "163": {
+  "tokens": [
+   " Holocaust",
+   "ocaust",
+   " Germ",
+   " Aust",
+   " exter",
+   " germ",
+   " extern",
+   "Extern",
+   "occo",
+   "Ext",
+   " ext",
+   " irre",
+   " incon",
+   " Indie",
+   " indic",
+   " insign",
+   " mascul",
+   " signific",
+   "estar",
+   " Kro"
+  ],
+  "description": "This feature vector activates on prefixes, roots, and fragments of words related to historical events, nationality, and semantics.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "66": {
+  "tokens": [
+   "Ant",
+   " Ant",
+   " ant",
+   " antic",
+   " antib",
+   " antim",
+   " anti",
+   " antig",
+   "anti",
+   " mant",
+   "ant",
+   "mant",
+   " anal",
+   " delic",
+   "nt",
+   " ent",
+   " cic",
+   "Ent",
+   " ang",
+   "antes"
+  ],
+  "description": "This vector represents words or word fragments starting with the prefix \"ant-\" or containing the letter sequence \"ant\".",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "107": {
+  "tokens": [
+   "utsche",
+   " Deutsche",
+   "utschen",
+   "ische",
+   "ischen",
+   "isch",
+   "beiter",
+   " Dresden",
+   "ichte",
+   "furt",
+   "orsk",
+   " Goldman",
+   "ensch",
+   " German",
+   "ismus",
+   "zburg",
+   "sch",
+   " Baz",
+   "chten",
+   "chaft"
+  ],
+  "description": "This feature vector represents German-language morphological suffixes, words, and proper nouns related to German culture and geography.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "192": {
+  "tokens": [
+   " Friedrich",
+   " Johann",
+   " Karl",
+   " Wilhelm",
+   " Kaiser",
+   " Adolf",
+   " Gott",
+   " Franz",
+   " Kurt",
+   " Ernst",
+   " neon",
+   " Georg",
+   " Hein",
+   " Neon",
+   " Otto",
+   " Koch",
+   " Reich",
+   " Curt",
+   " Stefan",
+   "ühr"
+  ],
+  "description": "This vector is related to common German given names and historical terms.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "44": {
+  "tokens": [
+   "social",
+   "ocial",
+   "-social",
+   " social",
+   " Social",
+   "cial",
+   "zial",
+   " moral",
+   " Univers",
+   " univers",
+   " Socialist",
+   " territorial",
+   "-cultural",
+   "icial",
+   " sexual",
+   " mental",
+   " rural",
+   "acial",
+   "Visual",
+   " colonial"
+  ],
+  "description": "This feature vector represents adjectival modifiers that describe the societal, structural, or ideological domain of a noun.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "86": {
+  "tokens": [
+   " Nazis",
+   " Nazi",
+   " Holocaust",
+   "ocaust",
+   " Hitler",
+   " propaganda",
+   " cartel",
+   " BBC",
+   " ancestral",
+   " Stefan",
+   " reun",
+   " racist",
+   " Reich",
+   " Oliveira",
+   " Socialist",
+   " Eck",
+   " jazz",
+   " Portugal",
+   " tempor",
+   "azi"
+  ],
+  "description": "This feature activates on terms related to historical fascism, specifically the Nazi regime and Holocaust, along with European surnames and cultural proper nouns.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "124": {
+  "tokens": [
+   "amente",
+   "emente",
+   "mente",
+   "icamente",
+   " completamente",
+   "ivamente",
+   " realmente",
+   "adamente",
+   " totalmente",
+   " principalmente",
+   "ament",
+   " especialmente",
+   "ement",
+   "amentos",
+   "amento",
+   "imento",
+   "ment",
+   "iment",
+   "imentos",
+   "amental"
+  ],
+  "description": "These tokens represent adverbial and nominal suffixes in Romance languages, primarily forming adverbs ending in \"-ly\" and abstract nouns.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "141": {
+  "tokens": [
+   " inclus",
+   " incl",
+   " excl",
+   " exclus",
+   "clus",
+   " inclusive",
+   " conclus",
+   " decl",
+   " inclu",
+   " concl",
+   " expl",
+   "cl",
+   " cl",
+   "Decl",
+   " propaganda",
+   " ex",
+   "cluir",
+   "-cl",
+   " recl",
+   " declar"
+  ],
+  "description": "This feature vector represents morphological roots, prefixes, and suffixes related to the Latin root *claudere* (meaning \"to shut\" or \"close\") and its derivatives involving inclusion, exclusion, and declaration.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}
