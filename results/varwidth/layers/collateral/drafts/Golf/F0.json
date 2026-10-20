@@ -1,0 +1,1840 @@
+{
+ "concept": "Golf",
+ "overall": "Checker is clean (252/252) and neutrality is mostly good: the writer stayed away from golf for players (Tiger, Rory, Palmer, Henrik, Woods), places (Augusta) and terms (birdie, tee, greens, handicap). The main problems are (1) answer echoed in the question (Fight Club, Culture Club, MVP, ESPN, Augusta -> Augustus, plague -> Black Death, leg irons -> ankles, wraparound -> wrapping); (2) quotes or splits used only to force no-space tokens (Volkswagen's 'Golf', 'icap' x4, 'swing', 'course', 'Courses', 'Woods', night clubs, crash-course, a mid-sentence Class); verified natural routes exist for some: watercourse -> 'course', non-handicap -> 'icap', (Golfstrom ...) -> 'Golf'; (3) the same fact repeated across related tokens (horse-racing weights in 5 handicap tokens, Go stones x3, NATO H = Hotel x2, card colours, T-ball/kickoff tees, Elle Woods x2). Recommend reclassifying ' fairway' and 'Courses' as exclusive (their only items are obscure or contrived); a few items are too niche for a 2B model (PGA pin grid, VW Golf etymology). Thin tokens with fewer than 4 items are acceptable as listed; do not pad them with forced wording.",
+ "tokens": [
+  {
+   "token": " archery",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Swiss legend, William Tell proved his skill",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English outlaw of Sherwood Forest is famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In archery, what is the name for the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Roman mythology, which winged god uses archery",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " athlete",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The skin infection called athlete's foot is caused",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which American athlete won four gold medals at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A decathlon athlete competes in how many track",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Jamaican athlete holds the world record in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Augusta",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Augusta is the capital city of which U.S.",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Augusta Ada King, Countess of Lovelace, wrote notes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In ancient Rome, the title Augusta was the",
+     "verdict": "fix",
+     "comment": "Giveaway: Augusta -> Augustus is obvious from the spelling. Ask about a different fact, e.g. Augusta as a title given to empresses such as Livia, wife of which emperor (Augustus is then not in the question), or another Augusta (Augusta, Maine is used; Augusta National is golf, avoid)."
+    },
+    {
+     "q_start": "Which singer known as the 'Godfather of Soul'",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ball",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the fairy tale, Cinderella must leave the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At a masquerade ball, guests traditionally hide their",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these human joints is a ball",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone 'drops the ball' on a task,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ball",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Italian-American classic dish, each meatball is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The traditional mothball is made from which strong-smelling",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The sport of racquetball is played inside an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Screwball comedy films such as 'Bringing Up Baby'",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " balles",
+   "class_ok": true,
+   "class_comment": "Thin French-only use; multi with 2 items is acceptable.",
+   "items": [
+    {
+     "q_start": "In French, the phrase balles de tennis means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a French crime novel, police find 'des",
+     "verdict": "fix",
+     "comment": "Contrived setup (crime novel, quoted des balles). Ask plainly, e.g. In French, the word balles can mean tennis balls or what kind of ammunition? (Bullets / Shells / Arrows / Grenades), or drop."
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": " balls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In snooker, how many red balls are on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In baseball, a batter who receives four balls",
+     "verdict": "fix",
+     "comment": "Length giveaway: A walk to first base is far longer than the other options. Use short parallel options: A walk / A home run / An out / A strike."
+    },
+    {
+     "q_start": "Newton's cradle, with its swinging steel balls, demonstrates",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shiny decorative balls hung on a Christmas tree",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " baseball",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which baseball player was nicknamed 'The Bambino'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1947, which player broke the color barrier",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The championship series of Major League baseball is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many players does a baseball team have",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " birdie",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In badminton, the birdie is another name for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Photographers used to say 'watch the birdie' to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tweety, the cartoon birdie always chased by Sylvester,",
+     "verdict": "fix",
+     "comment": "cartoon birdie is forced wording (nobody calls Tweety that). Rephrase so birdie is natural, or replace with another use (e.g. the badminton birdie is made with feathers from which bird? Goose)."
+    },
+    {
+     "q_start": "If someone says 'a little birdie told me',",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bunkers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Maginot Line of concrete bunkers was built",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cold War nuclear bunkers were designed mainly to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Atlantic Wall bunkers along the French coast",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of the Maginot item (WWII line of bunkers, which country built it). Use a different context, e.g. ship fuel bunkers (coal/oil), or Hitler s last days in Berlin bunkers."
+    },
+    {
+     "q_start": "Modern military bunkers are typically built from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "All four are military; one non-military item would help variety."
+  },
+  {
+   "token": " cad",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In old-fashioned English, a man called a cad",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a concerto, a cadenza is a solo",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The caduceus, a staff with two snakes, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone tries to cadge a cigarette from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cart",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The idiom 'putting the cart before the horse'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To 'upset the apple cart' means to do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In British English, a supermarket shopping cart is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A hand cart pushed by street vendors in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In many traditional farming societies, carts were pulled",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In old mines, small carts on rails carried",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Amish travel in horse-drawn carts and buggies",
+     "verdict": "keep",
+     "comment": "Distractor Shoes is silly; Trains or Tractors would be better."
+    },
+    {
+     "q_start": "In medieval European towns, the carts that collected",
+     "verdict": "fix",
+     "comment": "Giveaway: the question says plague and the answer is The Black Death. Ask a fact not named in the question, e.g. carts collected victims of the Great Plague of 1665 in which city? (London / Paris / Rome / Madrid)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Class",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Class Mammalia includes animals that feed their young",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Class action lawsuits are brought on behalf of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a Class 1 lever, where is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In object-oriented programming, a Class serves as a",
+     "verdict": "fix",
+     "comment": "Capital Class mid-sentence is unnatural (in OOP it is lowercase class). Use a natural capitalised use, e.g. In UK law, heroin and cocaine are classified as Class what drugs? (A), or a Class A felony."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " classroom",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a traditional classroom, the teacher writes with",
+     "verdict": "fix",
+     "comment": "Distractor A whiteboard marker is not the same type (an object you write with, and whiteboards use markers not chalk). Use surfaces: A blackboard / A corkboard / A canvas / A window."
+    },
+    {
+     "q_start": "The classroom method using self-directed learning materials is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which film does Robin Williams inspire his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Christa McAuliffe, who planned to teach a classroom",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Club",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which film says its first rule is 'You",
+     "verdict": "drop",
+     "comment": "Answer echoed in the question (talk about Fight Club -> Fight Club). Replace, e.g. Who directed the 1999 film Fight Club? (David Fincher)."
+    },
+    {
+     "q_start": "Which band released the album 'Sgt. Pepper's Lonely",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who directed the 1985 teen film 'The Breakfast",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Boy George was the lead singer of which",
+     "verdict": "fix",
+     "comment": "Answer echoed in the question (named Culture Club -> Culture Club). Ask e.g. Culture Club s lead singer was which flamboyant performer? (Boy George)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " clubhouse",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In professional baseball, a team's clubhouse serves mainly",
+     "verdict": "keep",
+     "comment": "Niche for a 2B model; acceptable."
+    },
+    {
+     "q_start": "Children often build a backyard clubhouse up in",
+     "verdict": "fix",
+     "comment": "Trivially easy with absurd distractors (A cloud, A river). Use plausible locations: A tree / A garage roof / A basement / A barn, or a different use. Note: Mickey Mouse Clubhouse tokenizes as Clubhouse (capital), not this token."
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": " clubs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a standard deck of cards, clubs and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Football clubs Real Madrid and Atletico Madrid are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Members of book clubs meet regularly to discuss",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bouncers at the door of night clubs are",
+     "verdict": "fix",
+     "comment": "night clubs is split to force the token; the normal spelling nightclubs does not contain it. Use e.g. Rotary clubs / working men s clubs, or cavemen s clubs as weapons."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Clubs",
+   "class_ok": true,
+   "class_comment": "Only reachable after a quote or parenthesis; thin is fine.",
+   "items": [
+    {
+     "q_start": "In playing cards, the suit 'Clubs' uses a",
+     "verdict": "keep",
+     "comment": "Quotes around a suit name are borderline but acceptable."
+    },
+    {
+     "q_start": "In a standard deck, what color is the",
+     "verdict": "drop",
+     "comment": "Same fact as the clubs card-colour item (clubs and spades are black). Duplicate across tokens."
+    },
+    {
+     "q_start": "In contract bridge, where does the suit 'Clubs'",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fine at 2-3; do not pad with forced quotes."
+  },
+  {
+   "token": "course",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Aintree racecourse in England hosts which famous steeplechase?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Flemington racecourse in Australia hosts which famous horse",
+     "verdict": "fix",
+     "comment": "Paraphrase of the Aintree item (racecourse -> famous race). Use a different word with this split, e.g. watercourse (verified: water + course), in a geography or law item whose answer is not just water."
+    },
+    {
+     "q_start": "At a formal dinner, the main 'course' is",
+     "verdict": "fix",
+     "comment": "Quotes around course are there only to force the token. Drop the quotes and use a natural split word instead (watercourse), or keep the racecourse/watercourse contexts."
+    },
+    {
+     "q_start": "A 'crash-course' in a subject is what kind",
+     "verdict": "drop",
+     "comment": "crash-course is normally written as two words; the hyphen only forces the token. Replace with a natural item."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " courses",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a traditional formal dinner served in several",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When meandering rivers change their courses, they can",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coursera and edX are platforms that offer online",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "People take driving courses mainly to obtain what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Courses",
+   "class_ok": false,
+   "class_comment": "Only reachable via a quoted heading; both items are contrived. Effectively no natural outside item; reclassify exclusive, or keep multi with 0 items and a note.",
+   "items": [
+    {
+     "q_start": "On a university website, the page titled 'Courses'",
+     "verdict": "drop",
+     "comment": "Unnatural setup (page titled Courses) purely to force the token."
+    },
+    {
+     "q_start": "On a restaurant menu section headed 'Courses', the",
+     "verdict": "drop",
+     "comment": "Incoherent: a menu section headed Courses whose pre-main dish is asked; also forced quotes."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fairway",
+   "class_ok": false,
+   "class_comment": "The navigable-channel sense is real but rare; a 2B model is unlikely to know it, and the token is dominated by golf. Reclassify exclusive.",
+   "items": [
+    {
+     "q_start": "In shipping and navigation, what is a fairway?",
+     "verdict": "drop",
+     "comment": "Obscure for a small model; only one item and it tests a definition most speakers only know from golf."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gap",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The warning 'mind the gap' is famously announced",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A gap year is usually taken between finishing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In semiconductors, the energy gap between the valence",
+     "verdict": "fix",
+     "comment": "Answer Band gap repeats energy gap from the question, and distractors (Fermi pit, Spin gate) are invented. Ask e.g. Materials with a large band gap are usually what? (Insulators / Conductors / Magnets / Superconductors)."
+    },
+    {
+     "q_start": "The gender pay gap measures differences between men",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "gey",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In folklore, the bogeyman is used by parents",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Calling someone an 'old fogey' means you think",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'Colonel Bogey March' is famously whistled in",
+     "verdict": "keep",
+     "comment": "Colonel Bogey is named after the golf bogey, but the answer (the film) needs no golf knowledge; OK."
+    },
+    {
+     "q_start": "In military aviation slang, a 'bogey' on radar",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Golf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Volkswagen Golf replaced which iconic car as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Volkswagen Golf GTI is a famous example",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the NATO phonetic alphabet, which code word",
+     "verdict": "fix",
+     "comment": "The NATO G = Golf fact is asked again in the Golf (no-space) item 3, and H = Hotel appears twice (golf item 2, Golf item 4). Keep at most one NATO item per token, each a different fact; this token already has 3 VW items, so a NATO item is fine here if the Golf duplicate is changed. Otherwise use another context."
+    },
+    {
+     "q_start": "The Volkswagen Golf takes its name from the",
+     "verdict": "drop",
+     "comment": "Obscure etymology (Golf from Golfstrom) that a 2B model will not know, and it is disputed."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " golf",
+   "class_ok": true,
+   "class_comment": "Thin; golf-ball hail and NATO are the honest outside uses.",
+   "items": [
+    {
+     "q_start": "Hailstones as large as golf balls usually fall",
+     "verdict": "keep",
+     "comment": "Golf-ball-sized hail is an everyday size comparison; neutral."
+    },
+    {
+     "q_start": "In the NATO phonetic alphabet, the letter G",
+     "verdict": "fix",
+     "comment": "Same fact as the Golf item which code word comes right after Golf (Hotel). Change one of them, e.g. here ask which NATO word is used for F (Foxtrot)."
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": "Golf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Volkswagen's 'Golf' hatchback is designed by a carmaker",
+     "verdict": "drop",
+     "comment": "Quotes around a car name only force the token. Natural route verified: the Gulf Stream (Golfstrom in German) yields this token; or keep only the Golf von Mexiko item."
+    },
+    {
+     "q_start": "In German, the name 'Golf von Mexiko' refers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the NATO phonetic alphabet, the code word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the NATO phonetic alphabet, which code word",
+     "verdict": "fix",
+     "comment": "Duplicates the golf item (H = Hotel). Change one of them."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "golf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Montgolfier brothers are famous for inventing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Montgolfier brothers came from which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which century did the Montgolfier brothers make",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Montgolfier balloon's first passengers in 1783 were",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Four items on the same pair of brothers; acceptable for a fragment with one outside word, but item 4 (the sheep/duck/rooster) is trivia a 2B model may not know; consider replacing with a safer fact."
+  },
+  {
+   "token": " golfer",
+   "class_ok": true,
+   "class_comment": "Thin (golfer s elbow only); 2 items OK.",
+   "items": [
+    {
+     "q_start": "The condition known as golfer's elbow causes pain",
+     "verdict": "fix",
+     "comment": "Distractors are not the same type: The back of the wrist / The shoulder blade are not elbow sides. Use The inner side / The outer side / The back / The front."
+    },
+    {
+     "q_start": "The injury called golfer's elbow is the inner-side",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " golfers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "green",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Oil of wintergreen gives a minty flavor and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Walgreen company operates a large chain of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Blue-green algae are now more accurately classified as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In environmental talk, a 'green' product is one",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " greens",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Collard greens are a traditional side dish in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Leafy greens such as kale and spinach are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the sport of lawn bowls, matches are",
+     "verdict": "fix",
+     "comment": "Biased balls is obscure for a small model; ask something simpler with greens still in the question, e.g. On bowling greens, players roll balls toward a small target ball called what? (The jack)."
+    },
+    {
+     "q_start": "Salad greens include arugula, which British people call",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " handic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these is a traditional handicraft?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Arts and Crafts movement, which revived handicraft",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In horse racing, a handicapper assigns each horse",
+     "verdict": "fix",
+     "comment": "Horse-racing weights is now tested 5 times across handicap tokens (handic, Handicap, handicap, handicaps, icap). Swap this one for another handicraft or handicapping use (verified: handicapping -> handic), e.g. sports handicapping in betting."
+    },
+    {
+     "q_start": "The Mexican handicraft known as the pinata is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Handicap",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Handicap races in horse racing try to equalize",
+     "verdict": "fix",
+     "comment": "Horse-racing weights duplicated across 5 tokens; replace with a different context."
+    },
+    {
+     "q_start": "Handicap principle theory in biology explains costly signals",
+     "verdict": "fix",
+     "comment": "Handicap principle theory is awkward and the concept (Zahavi) is niche; simplify: The Handicap principle in biology is often illustrated by which bird s tail? still niche - consider a different use."
+    },
+    {
+     "q_start": "Handicap parking spaces are reserved for which drivers?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Handicap stones in the board game Go are",
+     "verdict": "fix",
+     "comment": "Go handicap stones duplicated in handicaps and icap; vary across tokens."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " handicap",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Helen Keller became famous despite the double handicap",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In league bowling, a handicap adds what to",
+     "verdict": "fix",
+     "comment": "Bowling handicap duplicated in icap item 4; vary one."
+    },
+    {
+     "q_start": "The Melbourne Cup, a famous handicap horse race,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stephen Hawking's physical handicap was caused by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " handicaps",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In chess, the traditional odds handicaps given by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Athletes with physical handicaps compete at which international",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the game of Go, handicaps are given",
+     "verdict": "fix",
+     "comment": "Duplicate of Handicap item 4 (Go stones, weaker player, same options)."
+    },
+    {
+     "q_start": "In horse racing, handicaps are set by an",
+     "verdict": "fix",
+     "comment": "Duplicate of the horse-racing weight items in other handicap tokens."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Henrik",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Henrik Ibsen wrote which famous play about Nora",
+     "verdict": "fix",
+     "comment": "Distractor Hedda Gabler s Return is a made-up title and echoes another Ibsen play; use Uncle Vanya or The Cherry Orchard."
+    },
+    {
+     "q_start": "The playwright Henrik Ibsen was from which country?",
+     "verdict": "fix",
+     "comment": "Second Ibsen item; use another Henrik for variety (e.g. Henrik Sedin of the Vancouver Canucks, twin of Daniel), avoiding Henrik Stenson (golfer)."
+    },
+    {
+     "q_start": "Henrik Lundqvist was a star goaltender for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Footballer Henrik Larsson played for which national team?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ho",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which jolly holiday figure famously laughs 'ho ho",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A barn dance called a hoedown is associated",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The feathery ice crystals called hoarfrost form when",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A crowd shouting 'hip hip hooray' is expressing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If critics accuse a studio of pigeonholing an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Buttonholing someone at a party means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": " hole",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The boundary of a black hole beyond which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ozone hole forms each spring above which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In poker slang, having an 'ace in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Lewis Carroll's story, Alice falls down a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hole",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In physics, a wormhole is a hypothetical tunnel",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A sinkhole most commonly forms when water dissolves",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Keyhole surgery is another name for which type",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Most manhole covers are round, which mainly prevents",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " holes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The holes in Swiss cheese are made by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Louis Sachar's novel, Stanley Yelnats is forced",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Woodpeckers drill holes in trees mainly to find",
+     "verdict": "keep",
+     "comment": "Distractor Shelter from fish is a joke option; use Sap or Nesting material."
+    },
+    {
+     "q_start": "Stellar black holes form when what kind of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "icap",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In horse racing, a 'handicap' race makes the",
+     "verdict": "fix",
+     "comment": "Quotes around handicap only force the token; all 4 items do this. Natural route verified: non-handicap yields hand+icap (e.g. a non-handicap horse race / non-handicap Go game). Also horse-racing weights duplicated."
+    },
+    {
+     "q_start": "In the board game Go, a 'handicap' game",
+     "verdict": "fix",
+     "comment": "Forced quotes; also duplicate of the Go-stones items."
+    },
+    {
+     "q_start": "In modern usage, the older word 'handicap' for",
+     "verdict": "fix",
+     "comment": "Forced quotes. Content is fine (handicap -> disability); rephrase without quotes using a hyphenated compound if possible, or accept fewer items."
+    },
+    {
+     "q_start": "In league bowling, a 'handicap' system is meant",
+     "verdict": "fix",
+     "comment": "Forced quotes and duplicate of the handicap bowling item."
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 natural items is acceptable here."
+  },
+  {
+   "token": " irons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Someone with 'too many irons in the fire'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Steam irons are household appliances used to remove",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ranchers use branding irons on cattle mainly to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Prisoners in leg irons are restrained around which",
+     "verdict": "fix",
+     "comment": "Giveaway: leg irons -> the ankles, and The wrists only is phrased oddly. Ask a different use, e.g. curling irons are used on what (Hair)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "laus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Nicolaus Copernicus proposed that which body lies at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nicolaus Copernicus was born in which present-day country?",
+     "verdict": "fix",
+     "comment": "Second Copernicus item; use another -laus word for variety (verified: Claus, Nikolaus and applause are whole tokens and do not work; Wenceslaus does). If nothing else works, keep it."
+    },
+    {
+     "q_start": "Nicolaus Otto is credited with building the first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Saint Wenceslaus is the patron saint of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " McIl",
+   "class_ok": true,
+   "class_comment": "Thin; McIlhenny is borderline obscure but the Tabasco link makes it answerable.",
+   "items": [
+    {
+     "q_start": "The McIlhenny Company is famous for producing which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The McIlhenny family's Tabasco sauce is made on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": " Palmer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The mystery 'Who killed Laura Palmer?' drives which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Palmer had a 1986 hit with which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The band Emerson, Lake and Palmer is associated",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Palmer Luckey founded which virtual reality company?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "par",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Viviparous animals, such as most mammals, reproduce how?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oviparous animals, such as most birds and reptiles,",
+     "verdict": "fix",
+     "comment": "Paraphrase of the viviparous item (same biology contrast). Use another word containing this split, check with the checker."
+    },
+    {
+     "q_start": "The French phrase used in English, 'par excellence',",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A wraparound skirt is fastened by doing what?",
+     "verdict": "fix",
+     "comment": "Answer echoes the question (wraparound -> Wrapping it around). The split wra+par+ound is real, but the answer must not repeat the word; ask e.g. Wraparound sunglasses are designed to cover what? (The sides of the eyes) or drop."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " PGA",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In computer hardware, what does a PGA processor",
+     "verdict": "fix",
+     "comment": "Ungrammatical (what does a PGA processor package stand for) and too niche for a 2B model. Either drop or make it: In computing, the CPU packaging abbreviation PGA stands for pin grid what?"
+    },
+    {
+     "q_start": "The Producers Guild of America, abbreviated PGA, represents",
+     "verdict": "keep",
+     "comment": "Easy (answer guessable from Producers Guild) but fine."
+    }
+   ],
+   "missing_items_comment": "Fine at 1-2."
+  },
+  {
+   "token": "PGA",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Producers Guild of America (PGA) gives awards",
+     "verdict": "fix",
+     "comment": "Same fact as the PGA Producers Guild item; ask a different, well-known fact here, or drop it and keep this token at 1 item."
+    },
+    {
+     "q_start": "CPU sockets come in LGA/PGA types; which side",
+     "verdict": "drop",
+     "comment": "LGA/PGA pin placement is too niche for a 2B model."
+    }
+   ],
+   "missing_items_comment": "Fine at 1-2."
+  },
+  {
+   "token": " Player",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote the novel 'Ready Player One'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Windows Media Player was developed by which company?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Kurt Vonnegut's first novel, titled Player Piano, depicts",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In sports awards, the abbreviation MVP stands for",
+     "verdict": "drop",
+     "comment": "Giveaway: the question spells out Most Valuable Player and asks what V stands for. Replace with another capitalised Player use (e.g. Robert Altman s film The Player satirises which industry? Hollywood); avoid Gary Player (golfer)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " polo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In traditional polo, players ride on what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In water polo, how many players per team",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The clothing brand whose logo shows a polo",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A British polo neck sweater is called what",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Marco Polo is an obvious extra context if you want variety."
+  },
+  {
+   "token": " putt",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " putter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In American English, to putter around the house",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The American verb putter, as in 'putter in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fine at 2."
+  },
+  {
+   "token": " Rory",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 'Gilmore Girls', Rory Gilmore attends which Ivy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rory Williams, husband of Amy Pond, is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Rory Culkin is the younger brother of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rory Gallagher was a famous blues-rock guitarist from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "rshire",
+   "class_ok": true,
+   "class_comment": "Only Ayrshire splits this way (verified: Worcestershire, Leicestershire, Lanarkshire etc. are whole tokens or split differently).",
+   "items": [
+    {
+     "q_start": "The poet Robert Burns was born in Ayrshire,",
+     "verdict": "keep",
+     "comment": "Answerable from Burns alone; fine."
+    },
+    {
+     "q_start": "Ayrshire cattle are a breed raised mainly for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ayrshire lies on the coast of which body",
+     "verdict": "keep",
+     "comment": "Firth of Clyde is moderately obscure for a 2B model; acceptable."
+    }
+   ],
+   "missing_items_comment": "Fine at 3."
+  },
+  {
+   "token": " Scots",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mary, Queen of Scots was executed on the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At Bannockburn in 1314, the Scots were led",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Scots pine is what kind of tree?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Burns wrote much of his poetry in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sport",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sumo wrestling is the national sport of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The vehicle type abbreviated SUV stands for sport",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Calling someone a 'good sport' means they do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ice hockey is the official national winter sport",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sports",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sports Illustrated magazine is famous for an annual",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the acronym ESPN, 'Entertainment and Sports Programming",
+     "verdict": "drop",
+     "comment": "Giveaway: the expansion with Entertainment is in the question. Replace with another Sports use, e.g. BBC Sports Personality of the Year is awarded in which country? (United Kingdom)."
+    },
+    {
+     "q_start": "EA Sports publishes which long-running American football video",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sports drinks such as Gatorade are designed to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " swing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Benny Goodman led a famous swing orchestra while",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In U.S. presidential elections, what is a swing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a party is 'in full swing', what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A playground swing behaves physically like which simple",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "swing",
+   "class_ok": true,
+   "class_comment": "Only reachable after a quote or slash (upswing/downswing split as ups+wing).",
+   "items": [
+    {
+     "q_start": "The jazz style called 'swing' dominated popular music",
+     "verdict": "keep",
+     "comment": "Quoting a style name is natural."
+    },
+    {
+     "q_start": "In politics, a 'swing' voter is best described",
+     "verdict": "fix",
+     "comment": "a swing voter does not need quotes; forced. Use a slash or quote only where natural, or drop."
+    },
+    {
+     "q_start": "The 'swing' dance known as the Lindy Hop",
+     "verdict": "fix",
+     "comment": "The swing dance in quotes is forced."
+    },
+    {
+     "q_start": "Duke Ellington's song says it don't mean a",
+     "verdict": "fix",
+     "comment": "Quotes around swing in the song title are forced, and the answer (jazz bandleader) is trivially known."
+    }
+   ],
+   "missing_items_comment": "Fewer natural items is acceptable here."
+  },
+  {
+   "token": " swinging",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The cultural scene known as the swinging sixties",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The period of a swinging pendulum depends mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the jungle, Tarzan travels by swinging on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gibbons move through trees by swinging from branch",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " swings",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Extreme mood swings between mania and depression are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The British saying 'it is all swings and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The slow swings of a Foucault pendulum demonstrate",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Playground swings usually hang from chains attached to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tee",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If an outfit suits you 'to a tee',",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In T-ball, children hit the ball off a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In American football, the kicker places the ball",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In casual fashion, a tee is short for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "tee",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A settee is a type of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Witty repartee in conversation consists of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A draftee is someone who has been what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Rock and Roll Hall of Fame inductee",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tees",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Fashion retailers advertising 'graphic tees' are selling which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In youth T-ball, batting tees are used to",
+     "verdict": "fix",
+     "comment": "Duplicates the tee T-ball item; use another context."
+    },
+    {
+     "q_start": "In American football, kicking tees are used to",
+     "verdict": "fix",
+     "comment": "Duplicates the tee kickoff item; use another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Tiger",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Tony the Tiger is the mascot of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The song 'Eye of the Tiger' was featured",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who directed the martial arts film 'Crouching Tiger,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The economic boom nickname 'Celtic Tiger' refers to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Woods",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 1944 Bretton Woods conference led to the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Elle Woods is the main character of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote the music and lyrics for the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Muir Woods National Monument, known for its redwoods,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " woods",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The idiom 'out of the woods' means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which poet wrote the line 'The woods are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Henry David Thoreau lived in the woods beside",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the fairy tale, whom does Little Red",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Woods",
+   "class_ok": true,
+   "class_comment": "Only reachable after quote/parenthesis; thin is fine.",
+   "items": [
+    {
+     "q_start": "The character Elle 'Woods' is a law student",
+     "verdict": "drop",
+     "comment": "Quote inside a character name is forced, and it duplicates the Woods Elle Woods item."
+    },
+    {
+     "q_start": "The 'Woods Hole' Oceanographic Institution is located in",
+     "verdict": "fix",
+     "comment": "Quotes around Woods Hole are forced. If kept, use a natural parenthetical or accept 0-1 items."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " yard",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many feet are in one yard?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At a yard sale, people typically sell what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a sailing ship, a yard is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What Americans call the back yard of a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

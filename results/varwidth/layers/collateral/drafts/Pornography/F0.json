@@ -1,0 +1,2380 @@
+{
+ "concept": "Pornography",
+ "overall": "The checker passes (316/316 items, all 100 tokens present) and class calls are right: the five porn/pornography forms and ' hentai' are exclusive, everything else (incl. ' Playboy', ' Penthouse', ' obscene', ' Warhol') has real outside uses. Content is factual and family-friendly; the sexual-health, Kellogg/Onan, Sabine/Europa and prostitution items are clinical or classical and acceptable, and none touch pornography itself. Main problems: (1) unnatural token-forcing for the no-space and capitalised fragments: quoted 'female'/'feminine'/\"Feminism\"/\"Gon\"/\"Sexual ...\", all-caps UNICORN/ACORN/CAPRICORN, mid-sentence 'Camera Obscura', '(DSM)' after non-acronym text, 'in nudity'; natural alternatives exist (all-female, male/female, ecofeminist, quoted real titles, sentence-initial Obsess-, real acronyms). (2) The same fact reused across tokens: Jung anima/animus x3, Kinsey 0/6, XX/XY, seahorse, Freud's id, Henry VIII/Catherine, Neisseria, Treponema, oxytocin, dopamine, Butler. (3) Some giveaways (Censuses->Censors, andropause->Menopause, Zithromax->Azithromycin, pot/kettle idiom) and padded tokens that the question doesn't need (' heterosexual', ' orgasm', ' pleasurable'). (4) Many multi tokens stop at 2-3 items where a 4th is easy; ' obscene' item 1 uses the concept's own indecency sense.",
+ "tokens": [
+  {
+   "token": " abortion",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which 1973 US Supreme Court case established a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medical terminology, a 'spontaneous abortion' is another",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Simone Veil championed the 1975 law legalizing abortion",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th (e.g. Ireland's 2018 abortion referendum, or veterinary/medical use)."
+  },
+  {
+   "token": " abuse",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Long-term alcohol abuse most commonly causes cirrhosis of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Dickens novel exposed the abuse of pupils",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Watergate scandal, involving abuse of presidential power,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Widespread abuse of antibiotics in medicine and farming",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " andro",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In botany, the androecium is the collective term",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The condition andropause is sometimes described as the",
+     "verdict": "fix",
+     "comment": "'andropause' -> 'Menopause' is a giveaway (the -pause echo). Use another ' andro' word with a different context (note: ' androgen' and ' android' are single tokens, so they won't work; try e.g. 'androgynous' in a fashion or biology item)."
+    },
+    {
+     "q_start": "Which glam-rock star, famous for his androgyny, created",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " arousal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which psychological law states that performance improves with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Schachter-Singer theory holds that emotion arises from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which brainstem network regulates wakefulness and arousal?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fight-or-flight arousal response is driven by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " broadband",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "DSL broadband delivers internet over which existing kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fibre-optic broadband transmits data as pulses of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cable broadband uses coaxial cables originally laid for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Home broadband connection speeds are most commonly quoted",
+     "verdict": "fix",
+     "comment": "Distractors are absurd units (Bytes per litre, Hertz per metre). Use plausible rate/size units, e.g. Kilowatts, Decibels, Pixels per inch."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " celib",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which church requires celibacy of its Latin-rite priests?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Shakers, a celibate American religious sect, are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Indian independence leader took a vow of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; a 4th is possible (e.g. Buddhist monks' celibacy, Elizabeth I)."
+  },
+  {
+   "token": " Cens",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Censuses in the Roman Republic were conducted by",
+     "verdict": "fix",
+     "comment": "'Censuses' -> 'Censors' echoes the question; giveaway. Ask something else about Roman censuses or use 'Censorship'/'Censored' sentence-initially with an unrelated answer."
+    },
+    {
+     "q_start": "Censuses are recorded in Luke's Gospel; which emperor",
+     "verdict": "fix",
+     "comment": "Plural 'Censuses are recorded in Luke's Gospel' is forced to get ' Cens' (singular ' Census' is its own token). Rephrase naturally or replace with another 'Censorship ...' item outside pornography (e.g. wartime or Soviet censorship)."
+    },
+    {
+     "q_start": "Censorship of printing was attacked in which 1644",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " condoms",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Most condoms are made of latex, which comes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Using condoms helps prevent HIV, the virus that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mass production of rubber goods such as tyres",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; a 4th should be easy (e.g. history/etymology or public-health campaigns)."
+  },
+  {
+   "token": " consens",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The adjective consensual describes something done with the",
+     "verdict": "fix",
+     "comment": "Awkward 'done with the what of all parties'; 'Permission of a judge' is not the same type. Rephrase, e.g. 'A consensual decision is one reached by what?' with options like General agreement / Majority vote / Coin toss / Royal decree."
+    },
+    {
+     "q_start": "Quaker business meetings reach decisions consensually rather than",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; try harder for more ('consensual' in law/politics outside sex)."
+  },
+  {
+   "token": " content",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If someone says they are content, how do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Steel is iron with a small content of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bananas are known for their high content of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A 24-karat rating describes gold with what content?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " courtes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Verdi's opera about the courtesan Violetta Valéry is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Madame de Pompadour, a famous royal mistress sometimes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French author wrote 'La Dame aux Camélias',",
+     "verdict": "fix",
+     "comment": "La Dame aux Camélias is the source of La Traviata (item 0): same story twice. Use another context, e.g. 'courtesies' (diplomatic or professional courtesies)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " courtship",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which bird's courtship display features a huge fan",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Male bowerbirds attract mates during courtship mainly by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Birds of paradise, famous for elaborate courtship dances,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Male fiddler crabs wave which body part during",
+     "verdict": "fix",
+     "comment": "All four items are animal courtship displays. Replace one (fiddler crab is also the least known) with a human/historical use, e.g. courtship in a Jane Austen novel or Victorian courtship customs."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " divorce",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which English king broke with Rome after the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French emperor arranged a divorce from Josephine",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actress starred opposite Dustin Hoffman in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US president was the first to have",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "DSM",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Diagnostic and Statistical Manual of Mental Disorders",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which diagnosis was merged into autism spectrum disorder",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Psychiatrists use the manual known by the initials",
+     "verdict": "drop",
+     "comment": "Paraphrase of item 0 (what the DSM is for), and 'known by the initials (DSM)' is unnatural parenthesising."
+    },
+    {
+     "q_start": "The airport code (DSM) belongs to the capital",
+     "verdict": "drop",
+     "comment": "'airport code (DSM)' is unnatural parenthesising and airport codes are trivia a 2B model is unlikely to know."
+    }
+   ],
+   "missing_items_comment": "After drops, 2 items; '(DSM-5)' or 'DSM-IV' after the full name are natural contexts for more."
+  },
+  {
+   "token": " ejac",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Victorian novels, a character who ejaculated a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Catholic devotion, an ejaculatory prayer is what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ejaculatory ducts pass through which gland located",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Grand Canyon is an erosional feature carved",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Acid erosions from soft drinks wear away which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which erosional landform is a U-shaped valley carved",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sea arches and stacks are erosional features formed",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ferrero, the Italian confectionery company, makes which hazelnut",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Colombian artist Fernando Botero is famous for depicting",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valero Energy, a large Texas company, mainly operates",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ferrero Rocher chocolates have which whole nut at",
+     "verdict": "fix",
+     "comment": "Second Ferrero/hazelnut item; near-paraphrase of item 0. Use another -ero name in a different field (check tokenization), e.g. a film director or a place."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " erotic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Greek Muse presided over lyric and erotic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word erotic derives from the name of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which book of the Hebrew Bible is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The medieval Khajuraho temples, known for erotic sculptures,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "female",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is a 'female' fox called?",
+     "verdict": "fix",
+     "comment": "Quoting 'female' around a plain word is unnatural, done only to force the no-space token. 'all-female' and 'male/female' give 'female' naturally (verified), e.g. 'The Spice Girls were an all-female pop group from which country?'"
+    },
+    {
+     "q_start": "What is a young 'female' horse called?",
+     "verdict": "fix",
+     "comment": "Same unnatural quoting; rephrase with a natural 'all-female' / 'male/female' context or a different fact."
+    },
+    {
+     "q_start": "In honeybees, which caste is the fertile 'female'",
+     "verdict": "fix",
+     "comment": "Same unnatural quoting; also the bee-caste fact overlaps ' male' item 0 (drone). Replace."
+    },
+    {
+     "q_start": "In birds, which pair of sex chromosomes does",
+     "verdict": "fix",
+     "comment": "Same unnatural quoting; also overlaps the XX/XY items for ' females'/' males'. Replace with a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " females",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Among lions, the females of a pride do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Only female mosquitoes bite; females need the blood",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In seahorses, the females deposit eggs into the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Human females normally carry which pair of sex",
+     "verdict": "fix",
+     "comment": "XX for females mirrors ' males' item 3 (XY): same fact tested twice. Replace this one with another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Femin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Jung's psychology, the anima is a man's",
+     "verdict": "fix",
+     "comment": "Quoted \"Feminine\" mid-sentence is unnatural; also the Jung anima/animus fact appears in ' femininity' and ' masculine' too. Replace."
+    },
+    {
+     "q_start": "The first wave of \"Feminism\" in the early",
+     "verdict": "fix",
+     "comment": "Putting a common noun in quotes (\"Feminism\") is unnatural token-forcing. Use a quoted real title, e.g. 'Who wrote the book \"Feminism Is for Everybody\"?' (bell hooks), which yields 'Femin' after the quote (verified). If you can't find enough natural contexts, keep fewer items."
+    },
+    {
+     "q_start": "Mary Wollstonecraft's 1792 book, a founding text of",
+     "verdict": "fix",
+     "comment": "Same unnatural quoting of a common noun; reword so the token comes from a real title or a natural hyphenated form."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "femin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ecofeminism links feminist ideas with which other movement?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'feminine' symbol ♀ is traditionally the symbol",
+     "verdict": "fix",
+     "comment": "Quoted 'feminine' is unnatural; the Venus-symbol fact also mirrors ' masculine' item 1 (Mars). Use 'ecofeminist'/'ecofeminism' (verified) or another word where the split is natural; 'effeminate' does not work (splits as 'emin')."
+    },
+    {
+     "q_start": "In Spanish, what is the 'feminine' form of",
+     "verdict": "fix",
+     "comment": "Quoted 'feminine' is unnatural token-forcing; replace with a natural context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " femininity",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Chinese philosophy, yin represents femininity while yang",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Betty Friedan's 1963 critique of postwar ideals of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Jungian psychology, the anima is the unconscious",
+     "verdict": "fix",
+     "comment": "Jung anima again (also in 'Femin' item 0 and ' masculine' item 2). Use a different context."
+    }
+   ],
+   "missing_items_comment": "3 items (1 needs fixing); add more."
+  },
+  {
+   "token": " feminism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which French philosopher's 1949 work 'The Second Sex'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "First-wave feminism in Britain secured votes for women",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English writer of 'A Room of One's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gloria Steinem, an icon of second-wave feminism, co-founded",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " feminists",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "British feminists led by Emmeline Pankhurst who used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At Seneca Falls in 1848, feminists Elizabeth Cady",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which date is celebrated by feminists worldwide as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " Freud",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sigmund Freud published 'The Interpretation of Dreams' while",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lucian Freud, Sigmund's grandson, was famous in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Anna Freud is regarded as a founder of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Freud's model of the mind, which part",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gender",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many grammatical gender categories do German nouns",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which philosopher argued gender is performative in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The gender pay gap measures the difference between",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In French grammar, which article marks a noun",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " genital",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Freud's theory of development, which stage comes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which virus causes genital warts and is also",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which herpes simplex virus type most commonly causes",
+     "verdict": "fix",
+     "comment": "Second STI-virus item next to item 1 (HPV), and HSV only has types 1 and 2, so 'Type 4/Type 8' make it guessable. Use a different context (e.g. medicine/anatomy or zoology)."
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " genitals",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to Hesiod, which goddess arose from sea",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which leaf was added to cover the genitals",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which medical specialty treats the urinary tract and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " gon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The gonads in human males are the testes;",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gonadotropins, which stimulate the gonads, are released by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The bacterium that causes gonorrhea belongs to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The infection gonorrhea is normally treated with which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Gon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which American writer pioneered \"Gonzo\" journalism in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Muppet character \"Gonzo\" is known for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The boy \"Gon\" Freecss is the hero of",
+     "verdict": "fix",
+     "comment": "Quotes around \"Gon\" are unnatural; sentence-initial 'Gon' gives ' Gon', not 'Gon'. Find a natural quoted title or nickname, or drop and keep 3 items."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hentai",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " heterosexual",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On the Kinsey scale, which number denotes an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The prefix of the word heterosexual comes from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marriage was once limited to heterosexual couples everywhere;",
+     "verdict": "fix",
+     "comment": "The token is padding: 'Marriage was once limited to heterosexual couples everywhere' adds nothing and the question works without it. Write an item that hinges on the word."
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " HIV",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "HIV mainly attacks which type of immune cell?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "HIV belongs to which family of viruses that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Magic Johnson announced in 1991 that he had",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which class of drugs is used to control",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " homosexual",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Stonewall riots of 1969, a turning point",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Harvey Milk, one of the first openly homosexual",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which regime forced homosexual prisoners in its camps",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On the Kinsey scale, which number denotes an",
+     "verdict": "fix",
+     "comment": "Kinsey-scale item mirrors ' heterosexual' item 0 (0 vs 6): same fact twice. Replace this one."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " homosexuality",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which British mathematician, convicted for homosexuality in 1952,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oscar Wilde, imprisoned for homosexuality, later wrote a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which year did the World Health Organization",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " hypocrisy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Molière comedy satirizes religious hypocrisy through a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospels, Jesus often condemns the hypocrisy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word hypocrisy comes from a Greek term",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which idiom about a pot and a kettle",
+     "verdict": "fix",
+     "comment": "'idiom about a pot and a kettle' gives away 'The pot calling the kettle black'. Drop the pot/kettle hint, e.g. 'Which idiom describes the hypocrisy of criticizing others for your own faults?'"
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " illegal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bars that sold illegal alcohol during US Prohibition",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In chess, it is illegal to make a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In basketball, taking too many steps without dribbling",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which constitutional amendment made alcohol illegal across the",
+     "verdict": "fix",
+     "comment": "Second Prohibition item (with item 0). Use another context, e.g. football (an illegal offside position) or law."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " incest",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which king in Sophocles' tragedy unknowingly commits incest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which European royal dynasty's protruding jaw is attributed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "DNA studies suggest which Egyptian boy-king was born",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; a 4th is possible (e.g. incest taboo in anthropology, Greek myth)."
+  },
+  {
+   "token": " intercourse",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 18th-century usage, commercial intercourse between nations referred",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 18th-century English, 'social intercourse' meant what?",
+     "verdict": "fix",
+     "comment": "Same archaic-sense pattern as item 0 ('In 18th-century ...'). Use a different frame (e.g. a famous author's line or 'diplomatic intercourse'). Note: 'Intercourse, Pennsylvania' splits as ' Inter'+'course' (verified), so the note's 'Amish town' can't be used."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " intimate",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which word is the best synonym of intimate",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In French, 'tu' is used with intimate friends;",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Having an intimate knowledge of a city means",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " kiss",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Austrian painter created the gold-leaf painting of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospels, which apostle betrayed Jesus with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The kiss of life is another name for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the fairy tale, what does a princess's",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "lamydia",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Chlamydia infections are caused by what type of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chlamydia trachomatis causes which eye disease, a leading",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chlamydia psittaci causes 'parrot fever', a disease caught",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which antibiotic, sold as Zithromax, is commonly used",
+     "verdict": "fix",
+     "comment": "'sold as Zithromax' gives away 'Azithromycin'. Remove the brand name."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lasci",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Dante's Inferno, the gate of Hell bears",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which poet wrote the line lasciate ogni speranza,",
+     "verdict": "fix",
+     "comment": "Same Dante line as item 0 (lasciate ogni speranza); paraphrase. Use a different context."
+    },
+    {
+     "q_start": "Which word is closest in meaning to lascivious?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; 'lascivious' item is OK but stays close to sexual vocabulary."
+  },
+  {
+   "token": " libert",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Don Giovanni, the libertine of opera, is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English artist painted 'A Rake's Progress', the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Latin, what does the word libertas mean?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th if a natural word splits this way."
+  },
+  {
+   "token": " lube",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A quick lube shop for cars mainly offers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cyclists apply chain lube mainly to reduce what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A garage lube job traditionally involves applying what",
+     "verdict": "fix",
+     "comment": "'lube job' grease is a near-paraphrase of item 0 (car lubrication service). Use another context (e.g. bicycles, locks, machinery)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Lust",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Irving Stone's novel Lust for Life is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which punk-rock singer recorded the 1977 song Lust",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Taiwanese director made the 2007 film Lust,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which deadly sin completes the list: Pride, Greed,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " male",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is a male bee called?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is a male duck called?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which fish does the male carry the",
+     "verdict": "fix",
+     "comment": "Seahorse male pregnancy duplicates ' females' item 2. Replace this one."
+    },
+    {
+     "q_start": "What is an adult male deer commonly called?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " males",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Red-green colour blindness is more common in males",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Adult lion males are distinguished from females by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In elephant seals, dominant males guard groups of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among humans, males normally carry which pair of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marital",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Besides single, married and divorced, which marital status",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In US law, marital privilege can protect a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; add more (e.g. marital status on census forms, Tolstoy)."
+  },
+  {
+   "token": " marriage",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Henry VIII's first marriage was to which Spanish",
+     "verdict": "fix",
+     "comment": "Henry VIII / Catherine of Aragon duplicates ' divorce' item 0. Use another context."
+    },
+    {
+     "q_start": "In 'Romeo and Juliet', who performs the couple's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A marriage in which one person has several",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which composer wrote the comic opera about the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " masculine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Spanish, masculine nouns most often end in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The masculine symbol ♂ is also the astronomical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Jungian psychology, the animus is the unconscious",
+     "verdict": "fix",
+     "comment": "Third Jung anima/animus item (also 'Femin' 0, ' femininity' 2). Replace."
+    },
+    {
+     "q_start": "In German, 'der' marks masculine nouns; which article",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " masturb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The old term 'onanism', meaning masturbation, comes from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which American physician promoted bland breakfast cereals partly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; fine to leave at 2."
+  },
+  {
+   "token": " mating",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which insect may the female sometimes eat",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The mating season of deer, when stags roar",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pacific salmon swim upstream to their birth rivers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Male frogs attract partners in the mating season",
+     "verdict": "fix",
+     "comment": "All four items are animal mating, and frog calls overlap the courtship theme. Use another context, e.g. a chess 'mating net' or 'mating' of gears/parts in engineering (check tokenization)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " naked",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which is the brightest planet visible to the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The naked mole-rat is native to which continent?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hans Christian Andersen's tale, a child points",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gymnosperms such as pines are named for having",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nude",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which artist's 1912 painting of a nude descending",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Michelangelo's famous marble nude in Florence depicts which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Spanish painter created the famous reclining nude",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In fashion, the colour called nude most closely",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nudity",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the name of the lifestyle movement",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ancient Greek athletes trained in nudity; 'gymnasium' comes",
+     "verdict": "fix",
+     "comment": "'trained in nudity' is unnatural phrasing to force the token. E.g. 'Because Greek athletes competed in nudity...' is still odd; better pick a context where 'nudity' is the natural word."
+    },
+    {
+     "q_start": "According to legend, which noblewoman rode through Coventry",
+     "verdict": "fix",
+     "comment": "'rode through Coventry in nudity' is unnatural (normally 'naked'). Rephrase, e.g. 'Lady Godiva's legendary nudity was a protest against what?' (Her husband's taxes)."
+    },
+    {
+     "q_start": "In Genesis, Adam and Eve became ashamed of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Obs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A Camera Obscura projects an image of the",
+     "verdict": "fix",
+     "comment": "'Camera Obscura' is capitalised mid-sentence only to force ' Obs' (lowercase gives ' obs'). Use a natural sentence-initial word: 'Obsessive ...', 'Obsession ...' (verified ' Obs')."
+    },
+    {
+     "q_start": "Which Dutch painter of 'Girl with a Pearl",
+     "verdict": "fix",
+     "comment": "Same forced capital 'Camera Obscura'. Replace with a natural sentence-initial 'Obsess...' item in a different context."
+    },
+    {
+     "q_start": "Obsessive-compulsive disorder is commonly abbreviated as what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " obsc",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During a solar eclipse, which body is obscuring",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The term obscurantism means the practice of deliberately",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which weather phenomenon, a cloud at ground level,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " obscene",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "When critics call an executive's salary obscene, they",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which word is an antonym of obscene in",
+     "verdict": "drop",
+     "comment": "'offensive to good taste' is the indecency sense, i.e. the concept's own sense of the word (obscenity law); a concept-aware model gets help. Keep to the 'outrageously excessive' sense or other non-sexual uses (e.g. obscene gesture is borderline; obscene wealth/profits)."
+    }
+   ],
+   "missing_items_comment": "After dropping item 1 only one item remains; add non-sexual 'outrageous/excessive' uses."
+  },
+  {
+   "token": "ocrats",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During which revolution were many aristocrats executed by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Greek root of the word aristocrats means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2011, economist Mario Monti formed a government",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Theocrats believe a state should be governed according",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " orgas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Oxytocin is released during childbirth, breastfeeding and orgasms;",
+     "verdict": "fix",
+     "comment": "Oxytocin item duplicates ' orgasm' item 0. Use a different fact."
+    },
+    {
+     "q_start": "The French euphemism for orgasms, 'la petite mort',",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; acceptable if no more natural contexts."
+  },
+  {
+   "token": " orgasm",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which hormone, released in childbirth and orgasm, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which neurotransmitter, linked to orgasm and other rewards,",
+     "verdict": "fix",
+     "comment": "The token is padding ('linked to orgasm and other rewards'); the question works without it. Also dopamine reappears in ' pleasurable' item 1."
+    }
+   ],
+   "missing_items_comment": "2 items, one needing a fix; add more."
+  },
+  {
+   "token": "ORN",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The UNICORN is the national animal of which",
+     "verdict": "fix",
+     "comment": "'UNICORN' in all caps is unnatural, done only to force 'ORN'. Use real all-caps acronyms where 'ORN' occurs (e.g. ORNL; ACORN, the US community organization; check others)."
+    },
+    {
+     "q_start": "An ACORN is the nut of which tree?",
+     "verdict": "fix",
+     "comment": "'ACORN' as the nut in all caps is unnatural. If you use ACORN, use the organization's real acronym."
+    },
+    {
+     "q_start": "The zodiac sign CAPRICORN is represented by which",
+     "verdict": "fix",
+     "comment": "'CAPRICORN' in all caps is unnatural. Replace, or keep fewer items if no natural acronym works."
+    },
+    {
+     "q_start": "Oak Ridge National Laboratory (ORNL), founded for the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "orrhea",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Logorrhea refers to an excessive flow of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Amenorrhea is the medical term for the absence",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rhinorrhea is the medical term for what common",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gonorrhea is caused by a bacterium of which",
+     "verdict": "fix",
+     "comment": "Gonorrhea -> Neisseria duplicates ' gon' item 2. Use another -orrhea word (e.g. 'pyorrhea' splits ' py'+'orrhea', verified; check others)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "osexuality",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Homosexuality was decriminalized in England and Wales by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Homosexuality was removed from its manual of disorders",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Penthouse",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Penthouse apartments are located on which part of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Penthouse suites in luxury hotels often have private",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; add more (e.g. famous penthouses, 'penthouse' in architecture)."
+  },
+  {
+   "token": "piracy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "International anti-piracy naval patrols off Somalia operate mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Software anti-piracy controls are often called DRM; what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cyberpiracy, also called cybersquatting, involves registering what in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Playboy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote the 1907 Irish play 'The Playboy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1907 premiere of 'The Playboy of the",
+     "verdict": "fix",
+     "comment": "Distractor 'Gate Theatre London' stands out (the city tag marks it as wrong) and the Gate is in fact a Dublin theatre too. Use a same-format distractor, e.g. 'Gaiety Theatre' or 'Lyceum Theatre'."
+    }
+   ],
+   "missing_items_comment": "2 items, both on the same play; try another context (e.g. 'playboy' as a word for a rich pleasure-seeker, in a sentence-initial position)."
+  },
+  {
+   "token": " pleasurable",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jeremy Bentham's calculus of how pleasurable actions are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dopamine makes rewarding activities feel pleasurable; dopamine is",
+     "verdict": "fix",
+     "comment": "The token is padding; the question is just 'dopamine is a type of what?'. Also duplicates the dopamine theme in ' orgasm' item 1."
+    },
+    {
+     "q_start": "The Italian phrase 'dolce far niente' describes the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " pleasure",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which philosophy holds that pleasure is the highest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek philosopher taught that pleasure, understood as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Freud's theory, which part of the psyche",
+     "verdict": "fix",
+     "comment": "Exact duplicate of ' Freud' item 3 (id / pleasure principle). Use another context."
+    },
+    {
+     "q_start": "In 'Pinocchio', what happens to boys who visit",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Porn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " porn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Porn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "porn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pornography",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prostitutes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jack the Ripper's victims, mostly prostitutes, were killed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Book of Joshua, Rahab, counted among",
+     "verdict": "fix",
+     "comment": "'counted among the prostitutes of her city' is forced wording. Rephrase naturally or replace with another historical/literary context."
+    },
+    {
+     "q_start": "Toulouse-Lautrec painted cabaret dancers and prostitutes in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prostitution",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The trade of prostitution is often euphemistically called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 'Les Misérables', which character is forced into",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the film 'Pretty Woman', which actress plays",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " pru",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A person called a prude is excessively concerned",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The English word prude was borrowed from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; consider 'prudish/prudery' in Victorian history."
+  },
+  {
+   "token": " queer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In older English usage, the word queer primarily",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Yorkshire saying 'there's nowt so queer as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which American philosopher, author of 'Gender Trouble', is",
+     "verdict": "fix",
+     "comment": "Judith Butler / 'Gender Trouble' duplicates ' gender' item 1. Use another context (e.g. 'queer street' idiom or a historical usage)."
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " rape",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Oilseed rape is the crop that produces which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In spring, fields of oilseed rape are known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The legendary rape of the Sabine women is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek myth, the rape of Europa involved",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Romance",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Romance languages all developed from which ancient",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Romance language is the official language of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Romance language is the official language of",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (official language of Brazil vs Mexico). Use another context, e.g. Romance as a medieval literary genre or Romanesque/Romance architecture."
+    },
+    {
+     "q_start": "The classic Chinese novel Romance of the Three",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " romantic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Shakespeare's most famous romantic tragedy is set in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Valentine's Day, a romantic holiday, falls on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English romantic poet wrote 'Ode to a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which composer wrote the romantic 'Moonlight Sonata'?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sex",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Sex Pistols' lead singer was known by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actress played Carrie Bradshaw in the TV",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sexagesimal (base-60) counting, still used for minutes and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th (e.g. Sex Pistols' 'God Save the Queen')."
+  },
+  {
+   "token": "Sex",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which entrepreneur managed the punk band \"Sex Pistols\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The TV series \"Sex and the City\" is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sex",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In many turtles, what determines the sex of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In honeybees, what determines the sex of an",
+     "verdict": "fix",
+     "comment": "Same template as item 0 ('what determines the sex of ...'). Use another context (e.g. law or demography: sex ratio, sex discrimination)."
+    },
+    {
+     "q_start": "In mammals, which chromosome triggers development of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Clownfish can change sex; a dominant clownfish becomes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sexism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the 1973 'Battle of the Sexes', a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Bechdel test for sexism in film asks",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word sexism was coined in the 1960s",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": "Sexual",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Motown singer released \"Sexual Healing\" in 1982?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Darwin's theory of \"Sexual selection\" explains which feature",
+     "verdict": "fix",
+     "comment": "Quoting a technical term (\"Sexual selection\") is unnatural token-forcing. Use quoted real titles (songs, books, laws) or keep fewer items."
+    },
+    {
+     "q_start": "\"Sexual dimorphism\" describes differences between which two groups",
+     "verdict": "fix",
+     "comment": "Same: quoted \"Sexual dimorphism\" is unnatural; also close to item 1 (both evolutionary biology). Replace or drop."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "sexual",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Asexual reproduction in bacteria occurs mainly by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Asexual reproduction produces offspring that are what compared",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Asexual reproduction in yeast typically occurs by which",
+     "verdict": "fix",
+     "comment": "Yeast budding is a near-paraphrase of item 0 (bacteria, binary fission); 'Mitosis of the egg' is a weak distractor. Use another 'Asexual ...' context (e.g. plants vs animals, aphids, starfish regeneration)."
+    },
+    {
+     "q_start": "Asexual propagation of strawberry plants uses which structures?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sexuality",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which French philosopher wrote a multi-volume history of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Freud's account of childhood sexuality, which stage",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alfred Kinsey founded his institute for research on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; add a 4th."
+  },
+  {
+   "token": " sexually",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Organisms that reproduce sexually form gametes by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which vaccine, against a sexually transmitted virus, helps",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In flowering plants reproducing sexually, what carries the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Syphilis, a sexually transmitted infection, is caused by",
+     "verdict": "fix",
+     "comment": "Treponema pallidum duplicates ' syphilis' item 3. Replace this one."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "stasy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bernini's sculpture 'The Ecstasy of Saint Teresa' is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Irving Stone's novel 'The Agony and the Ecstasy'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ennio Morricone's 'The Ecstasy of Gold' comes from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The drug known as Ecstasy is chemically abbreviated",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " strip",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The famous casino strip of Las Vegas is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The coastal strip of Gaza borders Israel and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which comic strip by Charles Schulz features Charlie",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Möbius strip is a surface with how",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " stripper",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An electrician uses a wire stripper to remove",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Furniture restorers use a chemical stripper mainly to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; add more (e.g. paint stripper in DIY vs chemistry, a 'stripper' clip in firearms is fine if factual)."
+  },
+  {
+   "token": " studio",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Beatles recorded most of their albums at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hayao Miyazaki co-founded which Japanese animation studio?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A studio apartment mainly consists of a single",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Andy Warhol's New York studio was famously called",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " studios",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rome's Cinecittà studios are the largest film studio",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Motown's original recording studios were located in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bollywood film studios are concentrated in which Indian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Disney's main animation studios are located in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " syphilis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which antibiotic became the standard cure for syphilis",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The notorious Tuskegee study of untreated syphilis took",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Chicago gangster suffered in later life from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The disease syphilis is caused by a spiral-shaped",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " unmarried",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which English queen, who remained unmarried, was known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which traditional title is used for an unmarried",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 'Pride and Prejudice', Mrs Bennet is eager",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English novelist, who died unmarried in 1817,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaginal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which surgical procedure delivers a baby through the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fungus is the usual cause of vaginal",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; acceptable, a 3rd medical item would help."
+  },
+  {
+   "token": " Warhol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Andy Warhol famously painted cans of which brand",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Andy Warhol is associated with which art movement?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Andy Warhol Museum is in which city,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Andy Warhol predicted that everyone would be world-famous",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

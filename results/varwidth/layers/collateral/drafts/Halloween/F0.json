@@ -1,0 +1,4741 @@
+{
+ "concept": "Halloween",
+ "overall": "The draft is clean on tokenization (checker ok_rate 1.0, all 183 pool tokens covered) and mostly strong: facts are accurate and most items are school-level and well outside Halloween. The main neutrality problems are Halloween-culture horror and adjacent-observance items: Rocky Horror, American Horror Story, Amityville and Hammer (' Horror'), Scary Movie/Scream, Fright Night, Ghostbusters, The Addams Family, The Exorcist, the Lugosi Dracula film, Salem witches, and two Day of the Dead items (sugar skulls, marigolds on graves). Drop or replace these. The second pattern is low variety: several tokens repeat one frame 3-4 times (phobias for ' fear', liquors for ' spirits', animal displays for ' threatening', drug-for-disease for ' treat', doctor specialties for ' treats'), and some facts are duplicated across tokens (Monopoly Go, Houdini's birthplace, Hamlet's ghost on the battlements). Some answers are given away by the question (Parliament, charm bracelet, costume designer, Monty Python and the Holy Grail, Where the Wild Things Are, boxers/boxing, Irish/Ireland). A few items are forced or garbled to get the token in ('land bargain', 'wage bargain', 'evening meal of feasting', 'most rare', the 'Trunk' item), and the Congreve 'savage breast' item is a trick question. The token classes are right. The four exclusives check out: the checker finds no outside word yielding 'hain' or 'gants'. Many thin multi tokens with fewer than 4 items are justified by checker tests, but ' Fright' can reach 4 with questions that start 'Frightened ...'/'Frightening ...'.",
+ "tokens": [
+  {
+   "token": " ...",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Complete the proverb that begins A stitch in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Complete the proverb that begins When in Rome",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Julius Caesar's boast I came, I saw ...",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dickens opens A Tale of Two Cities with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " [...]",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote \"We hold these truths [...] that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US president said \"Ask not what your",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who delivered the 1963 speech \"I have a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The line \"To be, or not to be",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "act",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In insurance contracts, an \"act of God\" refers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If an official is asked to redact a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An actor who tends to overact is doing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A parent who tells a teenager to \"act",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " acts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many acts does a typical Shakespeare play",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the UK, laws passed by Parliament are",
+     "verdict": "fix",
+     "comment": "Answer 'Parliament' is in the question ('passed by Parliament'). Use another context, e.g. the Bible's Acts of the Apostles (traditional author: Luke)."
+    },
+    {
+     "q_start": "In a circus, who introduces the acts in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A stand-up comedy club books several acts a",
+     "verdict": "fix",
+     "comment": "Same frame as the circus item (who introduces the acts); vary, e.g. 'random acts of kindness' or vaudeville."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " angel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An angel investor typically provides money to what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The cake called angel food cake gets its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In \"It's a Wonderful Life\", the angel Clarence",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In \"It's a Wonderful Life\", every time a",
+     "verdict": "fix",
+     "comment": "Second It's a Wonderful Life item. Vary, e.g. 'In Genesis, an angel stops Abraham from sacrificing which son?' (Isaac)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "angel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the Gospel of Luke, which archangel",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Islam, the archangel Gabriel revealed the Quran",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which archangel is traditionally shown slaying a dragon",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " angels",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US city's Spanish name means \"the angels\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, Jacob dreamed of angels going",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A famous medieval-style question asks how many angels",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Milton's Paradise Lost, who leads the rebel",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " apple",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which scientist is said to have been inspired",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, Eve gives Adam fruit often",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Swiss folk hero shot an apple off",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the fairy tale, who falls asleep after",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " apples",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which alcoholic drink is made from fermented apples?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek myth, which hero fetched the golden",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Matt Damon's line \"How do you like them",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French Post-Impressionist is famous for many still",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Apples",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The expression \"Apples and oranges\" describes two things",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the party game \"Apples to Apples\", players",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " approaching",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The changing pitch of an approaching train's whistle",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In calculus, the value a function gets closer",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The rhyme \"red sky in the morning\" warns",
+     "verdict": "fix",
+     "comment": "'warns sailors of what approaching?' is ungrammatical. E.g. 'A falling barometer usually signals what kind of weather is approaching?'"
+    },
+    {
+     "q_start": "As a spaceship's speed is approaching the speed",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " attraction",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which scientist formulated the law of universal gravitational",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Between which magnetic poles does attraction occur?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Eiffel Tower is the most famous tourist",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coulomb's law describes the attraction or repulsion between",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " attractions",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which city's top attractions include the Colosseum and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Great Barrier Reef is one of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mount Rushmore is one of the best-known attractions",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Florida city is famous for theme park",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " autumn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Southern Hemisphere, autumn begins in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the usual American word for autumn?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Leaves change color in autumn when which green",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which season comes right after autumn?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bargain",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A plea bargain is an agreement made in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1803 land bargain doubled the size of",
+     "verdict": "fix",
+     "comment": "'land bargain' is forced, and it repeats the Alaska item's context (a US land deal). Use another context, e.g. a 'Faustian bargain' (Goethe) or the idiom 'drive a hard bargain'."
+    },
+    {
+     "q_start": "Which territory, bought from Russia in 1867, later",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a wage bargain between workers and employers,",
+     "verdict": "fix",
+     "comment": "'wage bargain' isn't idiomatic (the term is 'collective bargaining'). Pick another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " behaviour",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The scientific study of animal behaviour is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ivan Pavlov's experiments on dog behaviour demonstrated which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "B. F. Skinner studied behaviour using which kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which field of economics studies how real human",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " calendars",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which pope introduced the reform that gave Western",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before 1582, European calendars followed a system named",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Advent calendars count down the days to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lunar calendars, such as the Islamic one, are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Candy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Candy Crush Saga is what kind of game?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which sport did John Candy coach the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Candy Land is a board game designed mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which rapper had a 2005 hit with Candy",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " candy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is cotton candy called in British English?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The red-and-white striped candy cane is a decoration",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What do British people usually call candy?",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of the candyfloss item (British word for a candy term). Vary, e.g. the meaning of 'eye candy' or rock candy (sugar crystals)."
+    },
+    {
+     "q_start": "Which author wrote about Willy Wonka's candy factory?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carnival",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Brazilian city hosts the world's most famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The carnival season ends just before which Christian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Venice carnival is famous for elaborate what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Notting Hill carnival takes place in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carve",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Inuit artists often carve sculptures from which soft",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Glaciers carve valleys into which characteristic shape?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A company that tries to carve out a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At Thanksgiving dinner in the US, the host",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carved",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many presidents' faces are carved into Mount",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The text carved on the Rosetta Stone helped",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What are Easter Island's giant carved stone statues",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Great Sphinx of Giza, carved from limestone,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carving",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The ivory carving trade has threatened which animal?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Totem pole carving is a tradition of Indigenous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A carving knife is mainly used to slice",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scrimshaw is a form of carving done by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cemeteries",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pere Lachaise, one of the world's most visited",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which philosopher of communism is buried in Highgate,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "American cemeteries in Normandy honor soldiers killed in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The catacombs of Rome were underground cemeteries used",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cemetery",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rock singer Jim Morrison is buried in a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lincoln's Gettysburg Address dedicated a cemetery during which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US president, buried at Arlington cemetery, has",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Eva Peron is buried in the Recoleta cemetery",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ceremonies",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A master of ceremonies is commonly abbreviated as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Japanese tea ceremonies traditionally serve which powdered green",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Olympic flame is lit in ceremonies held",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Wedding ceremonies in many Western countries end with",
+     "verdict": "fix",
+     "comment": "Rings are exchanged mid-ceremony; the ceremony usually ends with a kiss. Say 'include the couple exchanging what?'"
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " charms",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A bracelet that holds small decorative charms is",
+     "verdict": "fix",
+     "comment": "The answer 'a charm bracelet' repeats 'charms' and 'bracelet' from the question. Ask which jewelry item holds charms (options: bracelet/brooch/tiara/cufflink), or use another context."
+    },
+    {
+     "q_start": "Which cereal has marshmallow charms such as hearts,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Harry Potter, which professor teaches charms at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Complete William Congreve's line: \"Music has charms to",
+     "verdict": "fix",
+     "comment": "Trick item: 'beast' is the well-known misquote and it's a distractor, so a 2B model will likely pick it. Remove 'beast' from the options or use a different line."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Christ",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Christ the Redeemer statue overlooks which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who composed the music for the rock opera",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The title Christ comes from a Greek word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Leonardo da Vinci mural shows Christ with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Christmas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On which date is Christmas celebrated in most",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote A Christmas Carol?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Christmas Island in the Indian Ocean is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Christmas tree tradition is usually traced to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "coated",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To give someone \"sugar-coated\" news means to make",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Steel that is zinc-coated to resist rust is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Teflon-coated frying pans are valued for which property?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which brand sells candy-coated chocolates printed with a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Collect",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Monopoly, players \"Collect $200\" each time they",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A telephone \"Collect call\" is paid for by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " con",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the dish chili con carne, what does",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The musical direction con brio tells performers to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A con artist is someone who does what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cafe con leche is coffee mixed with what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " consider",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which number do mathematicians consider the smallest prime?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hindus consider which animal sacred?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which animal do many people consider \"man's best",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Catholics consider which city-state the seat of the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " considered",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which ancient wonder is considered the only one",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country is considered the birthplace of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which sport is considered America's national pastime?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shakespeare is considered the greatest writer in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " costume",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Superman's costume shows which letter on the chest?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The traditional national costume of Scotland includes which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which traditional Japanese costume is a long robe",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a theatre, who is responsible for creating",
+     "verdict": "fix",
+     "comment": "The answer 'the costume designer' repeats 'costume designs' from the question. Use another context, e.g. which superhero's costume is red and blue with a web pattern (Spider-Man)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " costumes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In ballet, the stiff short skirt among dancers'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Flamenco dancers' ruffled costumes come from which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rio's carnival parades feature feathered costumes and which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dirndl dresses and lederhosen are traditional costumes of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dates",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The fruits called dates grow on which kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Muslims traditionally break the Ramadan fast by eating",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Radiocarbon dating estimates the dates of organic remains",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "BC and AD dates are counted from the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " deemed",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which planet was deemed a dwarf planet by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Galileo's support for heliocentrism was deemed heresy by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which red fruit was long deemed poisonous in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Under US law, a defendant is deemed innocent",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Devil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actress plays Miranda Priestly in The Devil",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Tasmanian Devil is what kind of animal?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which band recorded Sympathy for the Devil?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Charlie Daniels Band song, The Devil",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " devil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is meant when people say \"speak of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone who plays devil's advocate does what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The dessert called devil's food cake is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Being \"between the devil and the deep blue",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " devils",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Dust devils are small rotating what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Wild Tasmanian devils are threatened by a contagious",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The party snack called devils on horseback is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tasmanian devils are found in the wild only",
+     "verdict": "fix",
+     "comment": "Second Tasmanian devil item. Use a context that isn't Tasmanian devils."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Diwali",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Diwali is widely known as the festival of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Diwali is chiefly a festival of which religion?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which goddess of wealth is worshipped during Diwali?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Diwali celebrates the return of which hero-king to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Dracula",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote the 1897 novel Dracula?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the novel, Count Dracula's castle is in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dracula is often linked to which Wallachian prince?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor famously played Dracula in the 1931",
+     "verdict": "fix",
+     "comment": "The 1931 Universal monster films (Lugosi/Karloff/Chaney) are core Halloween TV and costume culture. Use a book fact instead, e.g. the English port where Dracula's ship lands (Whitby) or the novel's letters-and-diaries form."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " earth",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A person described as \"down to earth\" is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which gas makes up most of the earth's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which astronomer proposed that the earth orbits the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to the Beatitudes, who \"shall inherit the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " entertain",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Court jesters were employed to entertain whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In One Thousand and One Nights, who tells",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gladiator fights were held to entertain crowds in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Buskers are performers who entertain people where?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " entertainments",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Roman satirist coined 'bread and circuses' for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shakespeare's Globe was one of the public entertainments",
+     "verdict": "fix",
+     "comment": "The Globe is a theatre, not 'an entertainment', so the wording is forced, and 'Stratford' is a trap distractor. E.g. 'Public entertainments in Elizabethan London included plays at which theatre linked to Shakespeare?'"
+    },
+    {
+     "q_start": "Victorian music halls offered popular entertainments mainly in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chariot races, among the great public entertainments of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " evil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US president called the Soviet Union an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which company adopted the early motto Don't be",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to the Bible verse, the love of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Besides Iran and Iraq, which country was in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " exor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Catholic teaching, an exorcism is meant to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospels, Jesus performs an exorcism by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Catholic Church, a priest needs permission",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1973 film is about the exorcism of",
+     "verdict": "fix",
+     "comment": "The Exorcist, with all-horror-film distractors, is Halloween horror-marathon canon. Use a non-film item, e.g. what it means to 'exorcise' painful memories (get rid of them)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US president said \"the only thing we",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An extreme fear of spiders is called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An irrational fear of heights is called what?",
+     "verdict": "fix",
+     "comment": "Second phobia-name item. Keep one and vary, e.g. Kierkegaard's 'Fear and Trembling' (check the token) or Yoda: 'fear leads to' what? (anger)."
+    },
+    {
+     "q_start": "Claustrophobia is a fear of what?",
+     "verdict": "fix",
+     "comment": "Third phobia item (claustrophobia). Replace with a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " feared",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Edward Teach, a feared pirate, is better known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ivan IV of Russia, feared for his cruelty,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which feared Mongol leader founded the Mongol Empire?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Attila was the feared leader of which people?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " feast",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Jewish feast of Passover commemorates the exodus",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At which town's wedding feast did Jesus turn",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Islamic feast of Eid al-Fitr marks the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Roman feast of Saturnalia honored which god?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " feasting",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Norse myth, slain warriors spend their afterlife",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "During Ramadan, the evening meal of feasting that",
+     "verdict": "fix",
+     "comment": "'the evening meal of feasting' is unnatural. E.g. 'After fasting all day in Ramadan, Muslims begin feasting at which evening meal?'"
+    },
+    {
+     "q_start": "The feasting of Eid al-Adha commemorates which prophet's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Beowulf, the monster Grendel attacks warriors feasting",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " feasts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During Sukkot, one of the Jewish feasts, families",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Movable Christian feasts like Easter are set by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Traditional Hawaiian feasts are called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gift-giving feasts called potlatches are traditional among Indigenous",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Fever",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor starred in Saturday Night Fever?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nick Hornby's memoir Fever Pitch is about supporting",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English playwright wrote the comedy Hay Fever?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which singer had a famous 1958 hit with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Ziegfeld follies were lavish revues staged in",
+     "verdict": "fix",
+     "comment": "'Ziegfeld follies' in lower case is unnatural (the title is 'Follies'). The checker passes lower-case 'follies' only, so use the common noun, e.g. 'In landscape gardening, follies are what kind of structure?' (decorative buildings)."
+    }
+   ],
+   "missing_items_comment": "Checker: 'folio', 'foliage', 'folic', 'follicle', 'folly' and capitalized 'Folger' don't yield ' fol'; only 'follies' does. One item is acceptable."
+  },
+  {
+   "token": " foods",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Gluten is found in foods made from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Kimchi and other fermented foods are staples of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vegans avoid foods that come from what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Citrus fruits are foods rich in which vitamin?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Frankenstein",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote the novel Frankenstein?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the subtitle of Frankenstein?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the novel, what is Dr. Frankenstein's first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which director made the 1974 comedy Young Frankenstein?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Fright",
+   "class_ok": true,
+   "class_comment": "Multi is OK, but the outside uses are thin and its capitalized uses are mostly Halloween events (Fright Night, Fright Fest). See the item comments for the 'Frightened...' route.",
+   "items": [
+    {
+     "q_start": "Marlene Dietrich starred in which 1950 Alfred Hitchcock",
+     "verdict": "fix",
+     "comment": "Stage Fright (1950) is too obscure for a 2B model. The checker yields ' Fright' for a question that starts with 'Frightened' or 'Frightening', e.g. 'Frightened by a spider, Little Miss Muffet ran off; what had she been eating?' (curds and whey)."
+    },
+    {
+     "q_start": "In the 1985 film Fright Night, a teenager",
+     "verdict": "drop",
+     "comment": "Fright Night is a vampire horror film of the kind watched at Halloween, so fans have an edge."
+    }
+   ],
+   "missing_items_comment": "Questions starting with 'Frightened ...' or 'Frightening ...' yield ' Fright' (checker-verified). Use them to reach 4 non-horror items."
+  },
+  {
+   "token": " frighten",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Scarecrows are placed in fields to frighten away",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fish inflates its body to frighten off",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Some moths have large eyespots on their wings",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The frilled lizard spreads its neck frill to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " frightening",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which psychologist's Little Albert experiment made a white",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Norwegian painter created The Scream, a frightening",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Thunder can be frightening; it is caused by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which detective investigates a frightening hound on Dartmoor?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " games",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How often are the summer Olympic games held?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mario is the mascot of which company's video",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chess and checkers are games played on a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Highland games, with caber tossing, originate in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "gants",
+   "class_ok": true,
+   "class_comment": "Confirmed: only non-words ('arrogants', quoted 'elegants') yield it.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ghost",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor plays the murdered banker in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Christian theology, the Holy Ghost is another",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In A Christmas Carol, the Ghost of Christmas",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marvel's Ghost Rider has a head that is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ghost",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A ghost writer is someone who does what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A ghost town is a town that is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hamlet, the ghost of Hamlet's father says",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When a machine \"gives up the ghost\", what",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ghosts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Pac-Man, the four ghosts are Blinky, Pinky,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many ghosts visit Scrooge after Jacob Marley",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who sang the theme song of Ghostbusters, the",
+     "verdict": "fix",
+     "comment": "Ghostbusters and its theme song are Halloween-party staples. Replace, e.g. 'In which country's tradition is the seventh lunar month the month of hungry ghosts?' (China)."
+    },
+    {
+     "q_start": "In which country is joss paper traditionally burned",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gifts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Magi brought gifts of gold, frankincense and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In \"The Twelve Days of Christmas\", which bird",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Beware of Greeks bearing gifts\" refers to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spain, children traditionally receive gifts on January",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " go",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "When a couple decide to go Dutch on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, who told Pharaoh to let",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does it mean to go cold turkey?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the game of Monopoly, how much money",
+     "verdict": "fix",
+     "comment": "Same Monopoly fact as the 'Collect' item ('Collect $200' when passing Go). Vary, e.g. the meaning of 'touch and go' or 'go-kart'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "go",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To \"go for broke\" means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Yugo car was made in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Go-go boots and go-go dancing became fashionable in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To \"go the extra mile\" means to do",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " God",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country's national anthem is God Save the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In God We Trust is the official motto",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which philosopher declared that God is dead?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The God of War video games originally drew",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gods",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Greek gods were said to live on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Norse gods lived in which realm?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek myth, who stole fire from the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which planet is named after the king of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Gothic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Paris cathedral is a famous example of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Grant Wood's painting American Gothic shows a farmer",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Gothic language was spoken by which ancient",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gothic cathedrals use which external supports to hold",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " graves",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Poppies grew among the soldiers' graves of Flanders",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "For Mexico's Day of the Dead, families decorate",
+     "verdict": "fix",
+     "comment": "Day of the Dead is an adjacent observance (Nov 1-2, All Saints/All Souls) and is routinely merged with Halloween. Replace it, e.g. with 'Who was buried in an unmarked mass grave in Vienna?' (Mozart; check the token: 'graves' plural)."
+    },
+    {
+     "q_start": "The Sutton Hoo ship was found among Anglo-Saxon",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If people say a dead author would be",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " graveyard",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Someone working the graveyard shift works when?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which Disney film does Simba wander into",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Point Nemo, a spacecraft graveyard, lies in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country is nicknamed the graveyard of empires?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " grotesque",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The grotesque carved figures on Gothic churches that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Hieronymus Bosch painting is full of grotesque",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Kafka's story, Gregor Samsa wakes up turned",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Victor Hugo character is the grotesque bell-ringer",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hades",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek mythology, Hades rules over which realm?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which goddess did Hades abduct to be his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the name of the three-headed dog",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hades is the brother of Poseidon and which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hain",
+   "class_ok": true,
+   "class_comment": "Confirmed: the checker yields 'hain' in none of Bahrain, Hainan, chain, unchained, chainsaw.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The halibut is what kind of fish?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A halberd is what kind of object?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone recalls the halcyon days of youth,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a sailboat, a halyard is a rope",
+     "verdict": "fix",
+     "comment": "'halyard' is sailing jargon a 2B model is unlikely to know. 'halitosis' passes the checker and is well known (bad breath)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hallo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In German, the greeting Hallo means what in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British singer recorded Hallo Spaceboy for the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "'Hallowed' doesn't yield ' Hallo'; two items are acceptable."
+  },
+  {
+   "token": "Hallo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Dutch speakers answer the phone with \"Hallo\"; what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which band remixed David Bowie's \"Hallo Spaceboy\" for",
+     "verdict": "drop",
+     "comment": "The Pet Shop Boys remix of 'Hallo Spaceboy' is niche trivia. The checker finds no other natural no-space 'Hallo' word, so a single item is acceptable."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Halloween",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Halloween",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Haunted",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Haunted Mansion ride first opened in 1969",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which comedian starred in the 2003 film The",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " haunted",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Tower of London is said to be",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stephen King's The Shining is set in a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare character is haunted by Banquo's ghost",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which composer wrote an opera about a haunted",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " haunts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A phantom haunts the Paris Opera House in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In A Christmas Carol, which dead partner first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If you revisit your old haunts, you go",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hamlet, whose ghost haunts the battlements of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Heaven",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which band recorded Stairway to Heaven?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Temple of Heaven is in which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote Knockin' on Heaven's Door?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which guitarist wrote Tears in Heaven after the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " heaven",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which apostle is said to guard the gates",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Being \"in seventh heaven\" means feeling what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Dante's Divine Comedy, who guides Dante through",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Islam, heaven is called Jannah, a word",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hell",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the proverb, the road to hell",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Dante's Inferno, which Roman poet guides Dante",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If you will do something \"come hell or",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which philosopher wrote the line \"Hell is other",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hell",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "\"Hell's Kitchen\" is a neighborhood in which New",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which chef hosts the TV cooking competition \"Hell's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The brand \"Hellmann's\" is best known for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The WWII fighter plane \"Hellcat\" was built for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hell",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which physicist wrote the book The Universe in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Holding a large seashell to your ear seems",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A bird's eggshell is made mainly of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the news, a \"bombshell\" report is one",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Holy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which king was crowned the first Holy Roman",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Holy See is based in which city-state?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to legend, the Holy Grail is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Monty Python film follows King Arthur's quest",
+     "verdict": "fix",
+     "comment": "The answer 'Monty Python and the Holy Grail' repeats the question. Ask instead which comedy troupe made the 1975 Holy Grail film."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " holy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which river is considered holy by Hindus?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which city is holy to Judaism, Christianity and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In churches, holy water is used in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Kaaba in Mecca is the most holy",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Horror",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who played Dr. Frank-N-Furter in The Rocky Horror",
+     "verdict": "drop",
+     "comment": "Rocky Horror is the archetypal Halloween midnight-screening and costume film, a strong Halloween advantage."
+    },
+    {
+     "q_start": "Who co-created the TV series American Horror Story?",
+     "verdict": "drop",
+     "comment": "American Horror Story is horror-TV fandom (its seasons premiere around Halloween), and its co-creator is trivia for a 2B model."
+    },
+    {
+     "q_start": "The Amityville Horror is set on which island",
+     "verdict": "fix",
+     "comment": "Amityville is haunted-house horror lore that Halloween and horror fans know. Find a capitalized 'Horror' outside the genre, e.g. Kurtz's 'The Horror! The horror!' (Heart of Darkness, Conrad) or the art term 'Horror vacui'. Verify with the checker."
+    },
+    {
+     "q_start": "Hammer Horror films were made by a studio",
+     "verdict": "fix",
+     "comment": "Hammer Horror is horror-film fandom (Christopher Lee's Dracula). Same advice as the Amityville item."
+    }
+   ],
+   "missing_items_comment": "After the drops, find capitalized 'Horror' outside horror fandom (Conrad, 'Horror vacui'). If you can't reach 4, fewer is acceptable."
+  },
+  {
+   "token": " horror",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which American writer of horror fiction created the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which horror novelist wrote Carrie and It?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alfred Hitchcock's horror film Psycho features a motel",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Japanese horror film Ringu centers on a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hysteria",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Anti-communist hysteria in 1950s America is named after",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word hysteria comes from the Greek word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fans' screaming hysteria over which band was dubbed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Speculative hysteria over which flower bulbs gripped the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ick",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A limerick is a humorous poem with how",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Victorian writer popularized the limerick in A",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which Shakespeare play does a character say",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " imperson",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In The Prince and the Pauper, Tom Canty",
+     "verdict": "fix",
+     "comment": "'son of which king, whom he must impersonate' is ambiguous: he impersonates Prince Edward, not the king. E.g. 'Tom Canty must impersonate Prince Edward, the son of which English king?'"
+    },
+    {
+     "q_start": "Which film stars Leonardo DiCaprio as a con",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Mrs. Doubtfire, Robin Williams's character dresses up",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A comedian who impersonates famous people's voices is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "indle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A swindle is best described as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bernie Madoff ran which type of swindle?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Charles Ponzi's swindle paid early investors with money",
+     "verdict": "fix",
+     "comment": "Second Ponzi-scheme item (the Madoff item already covers it). Quoted \"spindle\" passes the checker, e.g. 'In Sleeping Beauty, the princess pricks her finger on a \"spindle\" of what device?' (a spinning wheel)."
+    },
+    {
+     "q_start": "Brindle is a streaked coat pattern seen in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Quoted 'spindle' passes the checker; 'Kindle' and 'dwindle' don't."
+  },
+  {
+   "token": "ings",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rembrandt made etchings by using what to bite",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A book of someone's musings contains what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Checker: Hastings, Jennings and innings yield 'ings' only in quotes or odd contexts. Two items are acceptable."
+  },
+  {
+   "token": " Jack",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jack Nicholson won an Oscar for which 1975",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Jack Kerouac wrote which Beat Generation novel?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played Captain Jack Sparrow?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Union Jack is the flag of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " jack",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a standard deck of cards, the jack",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A car jack is used for what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone called a jack of all trades is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A headphone jack usually has a diameter of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Jack",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the nursery rhyme, \"Jack and Jill\" went",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the nursery rhyme, \"Jack Sprat\" could eat",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Jack the Ripper\" committed murders in which city",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Jack and the Beanstalk\" tells of a boy",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Jesus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the Gospels, Jesus was born in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many apostles did Jesus choose?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What was the name of the mother of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which disciple betrayed Jesus for thirty pieces of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " magic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a 3x3 magic square using 1 to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Hungarian-born performer was famous for magic and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Disney's Fantasia, Mickey Mouse misuses magic as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which science fiction author said advanced technology is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " mischief",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Norse myth, which god is known for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In A Midsummer Night's Dream, Puck causes mischief",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Britain, the comic character Dennis the Menace",
+     "verdict": "fix",
+     "comment": "UK Dennis the Menace's dog is niche for a 2B model and clashes with the US Dennis (dog Ruff). Vary, e.g. 'Criminal mischief laws mainly cover damage to what?' (property)."
+    },
+    {
+     "q_start": "A group of which animal is called a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " monsters",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, Scylla and Charybdis were sea",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Godzilla and other giant monsters come from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Maurice Sendak book features monsters called the",
+     "verdict": "fix",
+     "comment": "The answer 'Where the Wild Things Are' repeats 'Wild Things' from the question. Ask which author wrote the book about monsters called the Wild Things (Maurice Sendak)."
+    },
+    {
+     "q_start": "Which hero slew Medusa, one of the Gorgon",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Observ",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jerry Seinfeld is best known for which style",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A study in which researchers watch subjects without",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "'Observatory' doesn't yield ' Observ'; two items are acceptable."
+  },
+  {
+   "token": " observ",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During Ramadan, religious observances include fasting from dawn",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Weekly Sabbath observances in Judaism begin on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hindu observances of Diwali traditionally include lighting what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Christian observances of Lent last for roughly how",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " occult",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In medicine, occult bleeding is bleeding that is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aleister Crowley, a famous occult writer, came from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tarot cards are used in occult practice mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fecal occult blood tests are mainly used to",
+     "verdict": "fix",
+     "comment": "Second item on medical 'occult' (hidden blood), the same sense as the occult-bleeding item. Use a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Oct",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country reunified on Oct 3, 1990?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country launched Sputnik on Oct 4, 1957?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On Oct 12, 1492, which explorer first reached",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The stock market crash of Oct 1929 marked",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "onsored",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A bill cosponsored by members of both major",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 2010 Dodd-Frank Act, cosponsored by Chris Dodd",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "orial",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The adjective sartorial relates to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The medieval manorial system was part of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Armorial bearings belong to which field?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " parishes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US state is divided into parishes instead",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Catholic and Anglican churches, parishes are grouped",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Church of England, many parishes are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Old registers of baptisms and burials kept by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " poke",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The dish called poke, made of diced raw",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To buy \"a pig in a poke\" means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To poke fun at someone means to do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which social network let users poke one another?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pranks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "April Fools' Day pranks are played on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Ashton Kutcher TV show played hidden-camera pranks",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Harry Potter, which twins open a joke",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which MTV show starring Johnny Knoxville featured stunts",
+     "verdict": "fix",
+     "comment": "Mirrors the Punk'd item (same two shows swapped as answer and distractor). Use another context, e.g. MIT's student pranks called 'hacks', or Till Eulenspiegel."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pumpkin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A slice of pumpkin pie is a traditional",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Cinderella, the fairy godmother turns a pumpkin",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The pumpkin belongs to the same plant family",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which coffee chain made the pumpkin spice latte",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pumpkins",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Botanically, pumpkins are a type of which vegetable",
+     "verdict": "fix",
+     "comment": "'Botanically ... vegetable group' contradicts item 3 ('botanically, pumpkins are fruits'), and both items open with 'Botanically, pumpkins are'. Reword to 'Pumpkins are a kind of which plant group?' or change the context."
+    },
+    {
+     "q_start": "Cultivated pumpkins originally come from which continent?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Botanically, pumpkins are fruits because they contain what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Mexican cooking, roasted seeds of pumpkins are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Purg",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Dante's Divine Comedy, the second part after",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which reformer attacked the sale of indulgences said",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " quench",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which drink is most commonly used to quench",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In metalworking, smiths quench hot steel in water",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Firefighters quench a fire mainly by spraying what?",
+     "verdict": "fix",
+     "comment": "Its answer 'water' repeats the thirst item's answer and is trivially guessable. Use another context, e.g. 'quench' in idioms or electronics."
+    },
+    {
+     "q_start": "In The Rime of the Ancient Mariner, sailors",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " rare",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Welsh rarebit is a dish made mainly of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which ABO blood type is the most rare",
+     "verdict": "fix",
+     "comment": "'the most rare' is forced (the natural word is 'rarest'). E.g. 'AB negative is a rare type of what?' (blood), or another context such as a rare (once-in-a-blue-moon) event."
+    },
+    {
+     "q_start": "The giant panda is a rare animal native",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Penny Black, now a rare collector's stamp,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "rare",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A steak cooked \"rare\" has what kind of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these \"rare earth\" elements is used",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " rule",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which year did British rule in India",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before calculators, engineers used a slide rule for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In physics, the right-hand rule relates electric current",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1776, the American colonies declared independence from",
+     "verdict": "fix",
+     "comment": "Second 'British rule' item (with India). Vary, e.g. 'rule of thumb', 'Rule, Britannia!' (check the token) or the 'rule of law'."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sacred",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Uluru is a sacred site for which people?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What are the oldest sacred texts of Hinduism",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ancient Egyptians held which beetle sacred?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which mountain is sacred in Japan's Shinto tradition?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " saint",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who is the patron saint of Ireland?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who is the patron saint of England?",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of the patron-saint-of-Ireland item. Vary, e.g. 'Whose feast day, February 14, is named after which saint?' (Valentine)."
+    },
+    {
+     "q_start": "Which saint is the origin of Santa Claus?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which saint from Assisi is the patron saint",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Saints",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Church of Jesus Christ of Latter-day Saints",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which jazz trumpeter famously recorded When the Saints",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which quarterback led the New Orleans Saints to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to tradition, Saints Peter and Paul were",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " saints",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Christian art, saints are usually shown with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The process of declaring saints in the Catholic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French heroine, burned in 1431, is now",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mother Teresa, declared one of the saints in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Saints",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which American city's NFL team is nicknamed the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English south-coast football club is nicknamed \"Saints\"?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Satan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which poet portrayed Satan in Paradise Lost?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospels, Satan tempted Jesus in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Dante's Inferno, Satan is trapped at the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Satan is also called Lucifer, a name meaning",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sca",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does a scabbard hold?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dishes called scampi are made from which seafood?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The disease scabies is a skin condition caused",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Wizard of Oz, what does the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Scary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Scary Movie series, begun in 2000, mainly",
+     "verdict": "drop",
+     "comment": "Scary Movie parodies Scream, a Halloween-season slasher, with an all-horror option set, so Halloween fans have an edge."
+    },
+    {
+     "q_start": "Which girl group included Scary Spice?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scary Monsters (And Super Creeps) is a 1980",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Two items are left after the drop. Acceptable if nothing natural remains."
+  },
+  {
+   "token": "Scary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Spice Girl nicknamed \"Scary Spice\" is Melanie",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The album \"Scary Monsters\" includes Ashes to Ashes,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " scary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jaws, the scary 1975 shark film, was directed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The scary clown Pennywise appears in which Stephen",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Goosebumps, a series of scary children's books, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Little Red Riding Hood, which scary animal",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "September",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which band recorded the 1978 hit \"September\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The month name \"September\" comes from the Latin",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which equinox occurs around mid-September in the Northern",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country celebrates its Independence Day in mid-September,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " serves",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the US, who serves as President of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which organ serves as the body's main detoxifier",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In tennis, when a player serves a ball",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which city serves as the capital of Australia?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " skeletons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Someone with skeletons in the closet has what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shark skeletons are made of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Insects have external skeletons called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coral reefs are built from the skeletons of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " skull",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The skull protects which organ?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many bones make up the adult human",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A skull and crossbones on a bottle label",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The pirate flag showing a skull and crossbones",
+     "verdict": "fix",
+     "comment": "Same skull-and-crossbones symbol as the poison item. Vary, e.g. Yale's secret society Skull and Bones, or the skull's other name (cranium)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " skulls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Decorated sugar skulls are part of which Mexican",
+     "verdict": "drop",
+     "comment": "Sugar skulls and the Day of the Dead are adjacent-observance imagery heavily merged with Halloween decor, so fans have an edge."
+    },
+    {
+     "q_start": "Which city's catacombs are lined with the skulls",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Georgia O'Keeffe painted animal skulls from the desert",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Phrenology studied the shape of skulls to judge",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " soul",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Goethe's play, Faust sells his soul to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Into how many parts did Plato divide the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hamlet, which character says \"brevity is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Blues legend Robert Johnson supposedly sold his soul",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "soul",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which group's cooking is known as \"soul food\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Erykah Badu is a leading singer of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A \"soul mate\" is a person you feel",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Souls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Dead Souls is a novel by which Russian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "All Souls College is part of which university?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Dark Souls video games were developed by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " souls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, which ferryman carried souls across",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Egyptian god weighed the hearts of souls",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Norse myth, which maidens carried the souls",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hindu belief that souls are reborn in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Special",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The cereal \"Special K\" is made by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The \"Special Olympics\" are for athletes with which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The US Army's \"Special Forces\" are nicknamed what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "spir",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The dietary supplement \"spirulina\" is made from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Checker: aspire, inspire, conspiracy, respiratory and aspirin don't yield 'spir'. One item is acceptable."
+  },
+  {
+   "token": " Spirit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which aviator flew the Spirit of St. Louis",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "NASA's Spirit rover explored which planet?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Christian art, the Holy Spirit is often",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Spirit of Ecstasy is the hood ornament",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " spirit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A spirit level is used to check whether",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The German word Zeitgeist means \"the spirit of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "White spirit is mainly used as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Japan's Shinto religion, a divine spirit is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " spirits",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these spirits is made from the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these spirits is flavored mainly with",
+     "verdict": "fix",
+     "comment": "Three liquor items (tequila, gin, rum). Keep one and vary, e.g. 'In Anne of Green Gables, Anne calls her close friends kindred spirits; what is her best friend's name?' (Diana Barry)."
+    },
+    {
+     "q_start": "Rum, one of the classic spirits, is distilled",
+     "verdict": "fix",
+     "comment": "Third liquor item. Replace with a non-alcohol context."
+    },
+    {
+     "q_start": "If someone is \"in good spirits\", how do",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Spo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Spoonerisms are named after a clergyman from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The video game Spore was made by the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Checker: Spock, Spokane and Spotify fail; Spoonerism and Spode pass. Two items are acceptable."
+  },
+  {
+   "token": " spooky",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which physicist called quantum entanglement spooky action at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scooby-Doo, who solves spooky mysteries with his friends,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the spooky Addams Family, what is the",
+     "verdict": "fix",
+     "comment": "The Addams Family is a Halloween film and costume staple, so fans have an edge. Use a non-Halloween 'spooky' instead (the Einstein item is a good model)."
+    },
+    {
+     "q_start": "Edgar Allan Poe's spooky poem features which bird",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "stones",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which town do the Flintstones live?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gallstones form in which organ?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among birthstones, which gem is traditionally assigned to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If freedom and equality are cornerstones of a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " supernatural",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Japanese folklore, supernatural creatures such as kappa",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare play opens with a supernatural apparition",
+     "verdict": "fix",
+     "comment": "Duplicates the ' haunts' item (Hamlet, the battlements of Elsinore). Use another context, e.g. Macbeth's witches or 'supernatural' in Catholic theology."
+    },
+    {
+     "q_start": "In Arabian folklore, supernatural beings made of smokeless",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote The Picture of Dorian Gray, in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " threat",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In chess, a direct threat to capture the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Cuban Missile Crisis, a nuclear threat, happened",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coral bleaching, a major threat to reefs, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Red Scare referred to the perceived threat",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "threat",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A triple-threat performer can act, sing and do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In basketball's triple-threat stance, a player can shoot,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " threatening",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which great ape beats its chest as a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A cobra's threatening posture involves spreading what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A rattlesnake gives a threatening warning by shaking",
+     "verdict": "fix",
+     "comment": "Four animal threat-display items. Keep two and add other contexts, e.g. 'A life-threatening allergic reaction is called what?' (anaphylaxis, as your note planned)."
+    },
+    {
+     "q_start": "An angry dog makes a threatening snarl by",
+     "verdict": "fix",
+     "comment": "Fourth animal-display item. Replace it, e.g. with a 'threatening letter' or a threatening sky."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tomb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who discovered Tutankhamun's tomb in 1922?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Taj Mahal is a tomb built by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Napoleon's tomb is in which Paris monument?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to the Gospels, which woman first found",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tombs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Valley of the Kings, with its royal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Ming tombs belong to emperors of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The pyramids of Giza were built as tombs",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The rock-cut tombs of Petra are in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Tra",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which admiral's column stands in London's \"Trafalgar Square\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which silent film star created the character known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The \"Trabant\" car was produced in which country?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tracts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which writer published revolutionary tracts such as Common",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1862 US law gave settlers tracts of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vast tracts of rainforest are cleared in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which religious group hands out tracts door to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tradition",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Japanese tradition, viewing cherry blossoms is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Scottish tradition, New Year's Eve is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The tradition of Oktoberfest takes place in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "By tradition, people kiss under which plant at",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " traditions",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Chinese New Year traditions include giving red envelopes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hanukkah traditions include lighting which candelabrum?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Easter traditions in many countries include hunting for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among Thanksgiving traditions, the US president pardons which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tre",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Britain, treacle is a word for what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In music, tremolo refers to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A trestle bridge is supported by what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ancient surgical practice of trepanning involves drilling",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " treat",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Antibiotics are used to treat infections caused by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Insulin is used to treat which disease?",
+     "verdict": "fix",
+     "comment": "Three 'drug X is used to treat disease Y' items. Keep one and vary, e.g. the Hippocratic Oath or the Golden Rule wording 'treat others as...'."
+    },
+    {
+     "q_start": "Quinine was historically used to treat which disease?",
+     "verdict": "fix",
+     "comment": "Third drug-for-disease item. Replace with a different context."
+    },
+    {
+     "q_start": "What does it mean when a meal is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Treat",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The principle \"Treat others as you would like",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which singer released the 2016 hit \"Treat You",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which sitcom features the annual \"Treat Yo Self\"",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "treat",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To maltreat an animal means to do what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before washing, people often pre-treat a tough stain",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " treated",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Florence Nightingale treated wounded soldiers in which war?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drinking water is commonly treated with which chemical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1885 Louis Pasteur treated a boy with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scurvy in sailors was treated by giving them",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " treats",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A dermatologist treats disorders of which organ?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A veterinarian treats whom?",
+     "verdict": "fix",
+     "comment": "Three doctor-specialty items (dermatologist, vet, ophthalmologist). Keep one and vary, e.g. dog treats used as rewards in training, or the Hippocratic duty in how a doctor treats patients."
+    },
+    {
+     "q_start": "Gelato and tiramisu are sweet treats from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An ophthalmologist treats diseases of which body part?",
+     "verdict": "fix",
+     "comment": "Third doctor-specialty item. Replace with a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tree",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Yggdrasil is the world tree in which mythology?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which tree's leaf appears on Canada's flag?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Under which kind of tree did the Buddha",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In computer science, the top node of a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tremble",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which tree's leaves tremble in the slightest breeze,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which disease commonly makes a person's hands tremble",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When an earthquake makes the ground tremble, its",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tri",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The triceps muscle is located where?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fossils called trilobites were extinct animals that",
+     "verdict": "fix",
+     "comment": "Typo: 'that that lived'."
+    },
+    {
+     "q_start": "A trimaran is a boat with how many",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The medieval trivium consisted of grammar, logic and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " trick",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which trick did the Greeks use to enter",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In card games like bridge, players try to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In skateboarding, the basic jumping trick is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which magician's famous trick made the Statue of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Trick",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US president was nicknamed \"Tricky Dick\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Trickle-down\" economics is most associated with which US",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "trick",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In football, a hat-trick means one player scores",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In cricket, a bowler's hat-trick means taking three",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In ice hockey, fans celebrate a hat-trick by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Geoff Hurst scored a hat-trick in which year's",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tricks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the proverb, which animal can't be",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Harry Houdini, famous for escape tricks, was born",
+     "verdict": "fix",
+     "comment": "Same fact as the ' magic' item, which itself says 'Hungarian-born' about Houdini. Vary, e.g. 'tricks of the trade' or Felix the Cat's magic bag of tricks."
+    },
+    {
+     "q_start": "Which Looney Tunes rabbit uses tricks to fool",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Card tricks usually use a standard deck of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " trivial",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In linear algebra, the trivial solution of Ax",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word trivial comes from the Latin trivium,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a problem is described as trivial, it",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "trivial",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Riemann hypothesis says all non-trivial zeros of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In group theory, how many elements does the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " trunk",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is a car's trunk called in British",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An elephant's trunk is an extension of its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Counting the rings in a tree trunk tells",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In anatomy, the trunk is another word for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Trunk",
+   "class_ok": true,
+   "class_comment": "Borderline: the only quoted outside use is forced, and the capitalized use is mainly 'Trunk-or-Treat'. Either write one natural item or make it exclusive.",
+   "items": [
+    {
+     "q_start": "What do Americans call a car's \"Trunk\" in",
+     "verdict": "fix",
+     "comment": "Garbled ('What do Americans call ... in British English?'), and it duplicates the ' trunk' boot item. Quoting a capitalized 'Trunk' just to get the token is forced. Write one natural item, or reclassify, since the main capitalized use is 'Trunk-or-Treat' (Halloween)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " trunks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Boxers traditionally wear trunks in which sport?",
+     "verdict": "fix",
+     "comment": "'Boxers ... in which sport?' gives away 'boxing'. E.g. 'Swimming trunks are a type of what?' (swimwear for men), or ask which athletes wear satin trunks without saying 'boxers'."
+    },
+    {
+     "q_start": "Which African tree stores water in its massive",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Large steamer trunks were luggage used mainly for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "A 4th item is easy: swimming trunks."
+  },
+  {
+   "token": " vampires",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In folklore, vampires are said to cast no",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which author wrote Twilight, about teenagers and vampires?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Anne Rice's Interview with the Vampire is set",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In folklore, which vegetable is said to repel",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " view",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Galileo's telescope gave the first close view of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a first-person point of view, the narrator",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which giant wheel gives a view over the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A bird's-eye view shows a scene from where?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " wan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A person with a wan face looks what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone smiled wanly, how did they smile?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 'wan'/'wanly' work ('wane', 'wander', 'wand' are other tokens); two items are acceptable."
+  },
+  {
+   "token": " wearing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On the Abbey Road cover, which Beatle walks",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Britain, wearing a red poppy in November",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On which saint's day is wearing green traditional?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Michael Jackson famously performed wearing one sparkly what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Wearing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The fashion rule \"Wearing white after Labor Day\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Irish ballad \"Wearing of the Green\" is",
+     "verdict": "fix",
+     "comment": "'Irish ballad' gives away 'Ireland'. Drop 'Irish' or ask what colour the ballad is about (green)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " witches",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1692, the trials of accused witches at",
+     "verdict": "fix",
+     "comment": "Salem is strongly tied to Halloween culture (it markets itself as a Halloween capital), so fans have an edge. Replace, e.g. 'Who wrote the children's novel The Witches?' (Roald Dahl), or Hansel and Gretel."
+    },
+    {
+     "q_start": "In Macbeth, the three witches prophesy that Macbeth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Wizard of Oz, Dorothy's house lands",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Walpurgis Night, when witches were said to gather,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " word",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A word that reads the same backward and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A word with the opposite meaning of another",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word robot was introduced by which Czech",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word alphabet comes from the first two",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

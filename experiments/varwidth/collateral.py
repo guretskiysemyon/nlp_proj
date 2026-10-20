@@ -297,7 +297,7 @@ def basecheck(drafts, out):
     """GPU: the unedited model's MC answer on every item of the drafts -> {item key: correct}."""
     from ember.evals.mc import evaluate_mc_generation, prepare_mc_items
     from ember.local_datasets import MCQAItem
-    from experiments.varwidth.erase import load_model
+    from experiments.varwidth.erase import _locked_update, load_model
     res = json.loads(open(out).read()) if os.path.exists(out) else {}
     _, w = load_model()
     for p in drafts:
@@ -306,13 +306,13 @@ def basecheck(drafts, out):
                  if not item_problems(it) and (item_key(it) not in res or item_key(it) + "|test" not in res)}
         if not items:
             continue
-        keys = list(items)
+        keys, new = list(items), {}
         for split, suffix in (("val", ""), ("test", "|test")):   # amendment 8: each split's own option shuffle
             mc = prepare_mc_items([MCQAItem(d["concept"], "Collateral", split, items[k]["q"], items[k]["options"],
                                             items[k]["correct_answer"]) for k in keys], seed=42)
             _, _, recs = evaluate_mc_generation(w, mc)
-            res.update({k + suffix: bool(r["is_correct"]) for k, r in zip(keys, recs)})
-        open(out, "w").write(json.dumps(res))
+            new.update({k + suffix: bool(r["is_correct"]) for k, r in zip(keys, recs)})
+        res = _locked_update(Path(out), lambda x: x.update(new))   # merge: concurrent jobs share this file
         print(f"{p}: {sum(res[k] for k in keys)}/{len(keys)} correct", flush=True)
 
 

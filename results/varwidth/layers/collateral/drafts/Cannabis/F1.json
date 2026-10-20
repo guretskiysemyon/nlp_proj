@@ -1,0 +1,1833 @@
+{
+ "concept": "Cannabis",
+ "overall": "Checker is clean (237/237 items, all 82 pool tokens covered, 68 multi / 14 exclusive), and the exclusive calls (cannabin, Cannabis x3, hemp x3, huana, juana, marihuana/Marijuana/marijuana, THC x2) are sound. Facts check out and items are neutral: the drug, smoking, legalization, terpene, hydroponics, CBD/CBN and indica/sativa tokens are all tested through general pharmacology, history, chemistry, urban geography and botany that cannabis knowledge does not help with. Only one clear violation: the 'Mari' Mariinsky item gives its answer in the question. Minor non-drop notes: 'Kombucha' is a slightly leaky distractor for the Camellia sinensis item (Tea is still clearly the best answer), and a few items lean obscure for a 2B model (Mari Lwyd, Hortus botanicus of Leiden, Megasthenes) but have clear-cut distractors. Several multi tokens have fewer than 4 items ('Alcohol', ' bong', ' botan', ' canna', 'Canna', 'canna', 'CB', 'CBD', 'CBN', ' dispensary', 'Hash', ' Indica', ' indica', 'Mari', 'mari', ' Opium', 'penes', 'Smoking', ' tetra', 'Tetra', 'tetrahydro', ' κάν'); carriers are genuinely limited and the notes say so. Totals: 236 keep, 1 drop.",
+ "tokens": [
+  {
+   "token": " alcohol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US constitutional amendment banned the manufacture and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rubbing alcohol sold in pharmacies is usually which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Besides alcohol, which gas do yeast produce when",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which major world religion generally forbids its followers",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Alcohol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word \"Alcohol\" comes from the Arabic al-kuhl,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a drink label, \"Alcohol by volume\" gives",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A glass thermometer marked \"Alcohol thermometer\" usually contains",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "ativa",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Spanish phrase \"acción afirmativa\" corresponds to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spanish, \"Expectativa de vida\" refers to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spanish-speaking countries, an \"Asamblea Legislativa\" is what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Spanish firm \"Mondragón Corporación Cooperativa\" is a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " BCE",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Julius Caesar was assassinated in 44 BCE in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Battle of Marathon in 490 BCE was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Socrates was sentenced to death in 399 BCE",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Great Pyramid of Giza was built around",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bong",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Britain, the famous bong heard before the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The pair of small hand drums called bongos",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " botan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A naturalist who goes out to botanize in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hortus botanicus of Leiden, a historic garden,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " caffeine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pharmacologically, caffeine belongs to which class of drugs?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coffee's caffeine keeps people alert by blocking receptors",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which drink, rich in caffeine, is made from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Coffee, the world's main source of caffeine, was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "can",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The toucan is best known for its huge,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Etruscan civilization flourished in which modern country",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The high-kicking Cancan dance became famous in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Huracan is a sports car made by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " canna",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Star Trek, which engineer often protests \"I",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The canna lily is grown in gardens mainly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "Canna",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The shirt name \"Cannavaro\" belonged to the captain",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Garden plants of the genus \"Canna\" are grown",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "canna",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Wild cannas (canna lilies) are native to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "1 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " cannabin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cannabis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cannabis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Cannabis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Eric Cantona became a legend at which English",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cantatas for church services were written in huge",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The comedian Cantinflas was a film star from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Guitarist Jerry Cantrell is a founding member of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " CB",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The New York club CBGB is famous as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Honda CB750, launched in 1969, is what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1975 hit song 'Convoy' is about truckers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In American football, the defensive position abbreviated CB",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "CB",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The British company JCB is best known for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The IPL cricket team RCB is based in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Elvis Presley's motto TCB, shown with a lightning",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " CBD",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In urban geography, what does the abbreviation CBD",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a typical city's CBD, land prices are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hong Kong, the main CBD on the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The UN treaty known as the CBD was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "CBD",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Australians call the city centre the \"CBD\"; which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A gallstone stuck in the \"CBD\" blocks bile",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "CBN",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The American religious broadcaster \"CBN\" was founded by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The flagship talk show of the broadcaster \"CBN\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Nigeria, banknotes issued by the \"CBN\" are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " Christi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The city of Corpus Christi in Texas lies",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Catholic feast of Corpus Christi celebrates which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Latin phrase \"Anno Domini nostri Jesu Christi\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Colleges named Corpus Christi College exist at Oxford",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cigarettes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Marlboro cigarettes are made by which company?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2012, which country became the first to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Electronic cigarettes heat a liquid to produce what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Menthol cigarettes are flavoured with a compound from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cocaine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The drug cocaine is extracted from the leaves",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which soft drink originally contained small amounts of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Austrian founder of psychoanalysis wrote an early",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medicine, cocaine was historically used as what",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " culture",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a laboratory, a culture of bacteria is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The disorientation felt when moving to a very",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hip hop culture originated in the 1970s in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'kawaii' culture of cuteness originated in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dispens",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In nutrition, dispensable amino acids are also known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Henry VIII needed papal dispensations to marry Catherine",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a worker is called dispensable, what does",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the US, cash dispensers are usually called",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dispensary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A dispensary in a hospital or school is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which professional usually prepares prescriptions in a hospital",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 18th- and 19th-century British cities, a charitable",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " dron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Scottish instrument is known for its continuous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The didgeridoo, with its deep droning tone, comes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A teacher droning on during a lecture is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The droning of a flying mosquito is produced",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Drug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Drug resistance in bacteria is mainly driven by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drug trials often compare a new medicine against",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Food and Drug Administration is a government",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drugstore is the American word for the shop",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Aspirin is a drug originally derived from the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Penicillin, the first widely used antibiotic drug, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which drug, injected daily, is essential for people",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A drug that kills or stops the growth",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "drug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "MRSA is a multi-drug-resistant strain of which bacterium?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fruit juice is notorious for food-drug interactions",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Taking the drug-drug combination of warfarin and aspirin",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "WHO's multi-drug therapy has cured millions of people",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drugs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ibuprofen and aspirin belong to which class of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Statins are drugs prescribed mainly to lower what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antibiotic drugs are ineffective against infections caused by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Beta blockers are drugs mainly used to treat",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fruit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which fruit is the main ingredient of guacamole?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The kiwi fruit was named after the national",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In botany, a fruit develops from which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Genesis, who ate the forbidden fruit together",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fruits",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Citrus fruits are especially rich in which vitamin?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fruits are crushed and fermented to make",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which sweet fruits grow on palm trees and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Strawberries are unusual fruits because their seeds are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hash",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rosh Hashanah is the New Year festival of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hashtags were first popularised on which social network?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hash tables offer what average time complexity for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The members of the Hash House Harriers clubs",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hash",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If you 'make a hash of' a task,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The # symbol is called hash in Britain;",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Corned beef hash is traditionally made with corned",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bitcoin mining repeatedly computes which cryptographic hash function?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hash",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Ruby language a dictionary is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On Rosh-Hashanah, which ram's horn is traditionally blown",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " hemp",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hemp",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hemp",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " herb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which herb is the main ingredient of classic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The herb called coriander in Britain is usually",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which herb is traditionally made into a sauce",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The herb rosemary is native to which region?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " herbal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Chamomile herbal tea is traditionally drunk to help",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The herbal remedy St John's wort is taken",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Peppermint herbal tea is commonly used to soothe",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Echinacea is an herbal supplement often taken against",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " heroin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The drug heroin was first marketed as a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The opioid heroin is chemically made from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pharmacologically, heroin belongs to which class of drugs?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which medicine is used to reverse a heroin",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "huana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hydropon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The farming method called hydroponics grows plants without",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Indoor hydroponic farms often stack crops in layers,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aquaponics combines hydroponics with the farming of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a hydroponic system, air is bubbled through",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Indica",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Megasthenes, author of the Indica, was an envoy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Indica rice varieties such as basmati are known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Indica hatchback, launched in 1998, was made",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " indica",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mangifera indica is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Azadirachta indica, used in natural pesticides, is commonly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The varieties indica and japonica are the two",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "juana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " legalization",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The legalization of same-sex marriage across the US",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1989 legalization of the Solidarity trade union",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Under the Hague Convention, the legalization of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1990 legalization of the ANC in South",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " legalized",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US state legalized casino gambling in 1931?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Abortion was legalized nationwide in the US by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Roman emperor legalized Christianity with the Edict",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2019, which became the first place in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Mari",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mariupol is a port city in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Maribor is the second-largest city of which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ancient city of Mari, with its famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mari El is a republic within which country?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Mari",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The St Petersburg ballet company formerly called the Kirov is",
+     "verdict": "drop",
+     "comment": "Answer echoed in the question: it already calls the Mariinsky a ballet company, so 'Ballet and opera' is obvious without the token or any knowledge."
+    },
+    {
+     "q_start": "The Welsh midwinter custom \"Mari Lwyd\" features a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "mari",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In French, the word \"mari\" means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Italian, \"mari\" is the plural of mare,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Spanish, \"mariposa\" is the word for which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " marihuana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Marijuana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " marijuana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " medications",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Antidepressant medications such as Prozac belong to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Over-the-counter medications can be bought without what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antihypertensive medications are used to treat what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which organ breaks down most medications in the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nicotine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The alkaloid nicotine is found mainly in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Patches releasing nicotine are mainly used to help",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word nicotine is named after Jean Nicot,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the body, nicotine acts on receptors for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " oil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "OPEC, the organization of oil-exporting countries, has its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Olive oil is a staple of which regional",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 2010 Deepwater Horizon oil spill happened in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Crude oil is separated into petrol, diesel and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " oils",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Essential oils are usually extracted from plants by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Traditional oil painters mixed pigments with oils, most",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hydrogenating vegetable oils produces which spread?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Australian tree's leaves yield oils used in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Opium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Opium Wars were fought between China and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "After the First Opium War, which territory was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Opium, a perfume launched in 1977, was created",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " opium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Karl Marx called which institution 'the opium of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Raw opium is harvested from the seed pods",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which powerful painkiller is the main active compound",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Golden Triangle opium region is where Thailand,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "penes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Terpenes are built from repeating units of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Beta-carotene, one of the terpenes found in carrots,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which product, distilled from pine resin, is rich",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " plant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which carnivorous plant snaps its leaves shut to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which green pigment lets a plant capture light",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A nuclear power plant produces heat by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rafflesia, a parasitic plant with the world's largest",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " plants",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Green plants absorb which gas from the air",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gregor Mendel founded genetics through experiments on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Trees and other plants that shed all their",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cacti are plants adapted mainly to which habitat?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " psychedelic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which 1967 Beatles album is regarded as a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The psychedelic drug LSD was first synthesized by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Psilocybin is the psychedelic compound found in certain",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word psychedelic combines Greek roots meaning 'mind'",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sativa",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Oryza sativa is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The grain of Avena sativa is most commonly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lactuca sativa is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medicago sativa, like other legumes, enriches the soil",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " smoke",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During a papal conclave, which colour of smoke",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The saying 'there's no smoke without fire' suggests",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which colourless, deadly gas in smoke from fires",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In warfare, a smoke screen is laid mainly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " smoked",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The smoked salmon served on bagels in Jewish",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Kippers, a British breakfast dish, are smoked fillets",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Scottish island is famous for whiskies with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British wartime prime minister famously smoked cigars?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " smokers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "People who light one cigarette straight after another",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2004, which country became the first to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The yellow stains on smokers' fingers and teeth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Insurance companies usually charge smokers higher premiums for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Smoking",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Smoking is the leading cause of which lung",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 2005 satire Thank You for Smoking follows",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Smoking jackets, worn by Victorian gentlemen, were traditionally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Smoking bans in English pubs and workplaces came",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " smoking",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Quitting smoking 'cold turkey' means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In detective stories, the phrase smoking gun refers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The inhaling of others' tobacco smoke by non-smokers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which organ is most directly damaged by smoking",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Smoking",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In French and several European languages, a \"Smoking\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US official issued the landmark 1964 report",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " substance",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A substance that speeds up a chemical reaction",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which naturally occurring substance is the hardest known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pure substance made of only one kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase 'style over substance' criticizes favouring appearance",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tetra",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The neon tetra, a popular aquarium fish, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many faces does a regular tetrahedron have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Until it was phased out, tetraethyl lead was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "Tetra",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The packaging company \"Tetra Pak\" was founded in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The \"Tetragrammaton\" is the four-letter name of God",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": "tetrahydro",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In organic chemistry labs, THF (tetrahydrofuran) is mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lack of the vitamin that the body turns",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  },
+  {
+   "token": " THC",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "THC",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tobacco",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US state has long been the largest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sir Walter Raleigh is credited with popularising tobacco",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The tobacco plant belongs to which plant family,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cuba is especially famous for which tobacco product?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vapor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The change of liquid water into water vapor",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The white vapor trails left by high-flying jets",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A liquid boils when its vapor pressure equals",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sodium vapor street lamps give off light of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " κάν",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Modern Greek, the common greeting τι κάνεις",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The everyday Modern Greek verb κάνω most nearly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "2 items; accepted (carrier contexts are limited, as the note says)."
+  }
+ ]
+}

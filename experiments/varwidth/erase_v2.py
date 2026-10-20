@@ -203,7 +203,7 @@ def grid(concept, seed, group, qfile, pilot=False, variants=None):
     bc, bg = base[concept], base["_global"]
     ev = Evals(concept, 0)
     Q = load_questions(concept, qfile)
-    vs = variants or variant_list(sets, group, pilot)
+    vs = [v for v in variants if sets[v.split(":")[1]]["ids"]] if variants else variant_list(sets, group, pilot)
     t0 = time.time()
     if pilot:   # the unedited model on the collateral items, and the anchor's sparse EMBER at delta 200 (reproduction)
         d = OUT / slug(concept) / f"s{seed}" / "_pilot"
