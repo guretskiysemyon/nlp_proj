@@ -204,9 +204,9 @@ def configs(concept, seed, pilot=False):
     sc = OUT / "shape_choice.json"
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {"ember": 1.0, "cinder": 1.0}
     out = []
-    if concept in EXPANSION:                      # amendment 8: selected point and fixed r = 0.5 for the 5 variants
-        from experiments.varwidth.collateral import EXP_VARIANTS
-        names = [f"{v}@sel" for v in EXP_VARIANTS] + [f"{v}@0.5" for v in EXP_VARIANTS]
+    if concept in EXPANSION:                      # amendment 8: integrity at the selected point only (the endpoint;
+        from experiments.varwidth.collateral import EXP_VARIANTS   # @0.5 dropped for time, Oct 20)
+        names = [f"{v}@sel" for v in EXP_VARIANTS]
     else:
         names = None
     names = names or (PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
