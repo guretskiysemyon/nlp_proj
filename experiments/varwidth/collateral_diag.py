@@ -3,6 +3,7 @@
 
     python -m experiments.varwidth.collateral_diag mu      # median mu = |c|/|e| and cos(c, e), EMBER vs CS+GS, anchor seed 42
     python -m experiments.varwidth.collateral_diag pilot   # pilot grid with collateral on the variant's own edited tokens
+    python -m experiments.varwidth.collateral_diag a3z     # amendment 7 offline check (alignment, layer-0 read strength)
 
 Outputs results/varwidth/layers/collateral/diag/{mu_cos.json, pilot_own_tokens.json}.
 """
@@ -59,11 +60,58 @@ def pilot():
     print(f"{len(rows)} rows -> {DIAG / 'pilot_own_tokens.json'}")
 
 
+def a3z_offline():
+    """Amendment 7 offline check: per edit set, median cos(c, e), median mu = |c|/|e|, and layer-0 attention read
+    strength (|[W_q; W_k; W_v] (g * c_hat)|, g = 1 + input_layernorm weight) relative to 500 random directions; for
+    the A3z sets also the cosine to the parent's mapped-back edit. -> diag/a3z_offline.json"""
+    import glob as _glob
+
+    from safetensors import safe_open
+
+    from experiments.varwidth.collateral import POC, edit_sets, load_fit, seeds
+    snap = _glob.glob("/home/morg/NLP_2526b/oripetel/.cache/huggingface/hub/models--google--gemma-2-2b-it/snapshots/*/")[0]
+    W = {}
+    for f in _glob.glob(snap + "*.safetensors"):
+        with safe_open(f, "pt") as h:
+            for k in h.keys():
+                if k.startswith("model.layers.0.") and any(x in k for x in ("input_layernorm", "q_proj", "k_proj", "v_proj")):
+                    W[k] = h.get_tensor(k).double()
+    g = 1 + W["model.layers.0.input_layernorm.weight"]
+    Wcat = torch.cat([W[f"model.layers.0.self_attn.{x}_proj.weight"] for x in ("q", "k", "v")])
+
+    def read(u):
+        u = u / u.norm(dim=1, keepdim=True)
+        return (Wcat @ (g * u).T).norm(dim=0)
+    torch.manual_seed(0)
+    rnd = read(torch.randn(500, Wcat.shape[1], dtype=torch.float64)).mean().item()
+    out = {}
+    for c in POC:
+        for s in seeds(c):
+            st = edit_sets(c, s)
+            E = load_fit(c, "L0", s)[0]["A"].double().T
+            row = {}
+            for v in ("ember", "cinder", "cinder_z", "cinder_rs", "cinder_rs_z"):
+                x = st[v]
+                if not x["ids"]:
+                    continue
+                C, e = x["C"].double(), E[x["cols"]]
+                row[v] = [float(np.median(torch.nn.functional.cosine_similarity(C, e, dim=1).numpy())),
+                          float(np.median((C.norm(dim=1) / e.norm(dim=1)).numpy())), read(C).median().item() / rnd]
+            for a, b in (("cinder_z", "cinder"), ("cinder_rs_z", "cinder_rs")):
+                if a in row:
+                    row[a].append(torch.nn.functional.cosine_similarity(st[a]["C"].double(), st[b]["C"].double(),
+                                                                        dim=1).median().item())
+            out[f"{c} {s}"] = row
+    DIAG.mkdir(parents=True, exist_ok=True)
+    (DIAG / "a3z_offline.json").write_text(json.dumps(out, indent=1))
+    print(f"-> {DIAG / 'a3z_offline.json'}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=("mu", "pilot"))
+    ap.add_argument("what", choices=("mu", "pilot", "a3z"))
     a = ap.parse_args()
-    {"mu": mu_cos, "pilot": pilot}[a.what]()
+    {"mu": mu_cos, "pilot": pilot, "a3z": a3z_offline}[a.what]()
 
 
 if __name__ == "__main__":
