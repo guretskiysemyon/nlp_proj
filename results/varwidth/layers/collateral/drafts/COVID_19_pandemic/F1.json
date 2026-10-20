@@ -1,0 +1,1912 @@
+{
+ "concept": "COVID-19 pandemic",
+ "overall": "Clean final draft: checker ok_rate 1.0, all 75 pool tokens covered (71 multi, 4 exclusive), and the exclusive calls (COVID, COVID-no-space, avax, demic) hold up under the real prompt tokenization (academic/endemic/epidemic/Javax/javax do not produce demic or avax in normal text). Facts are accurate and the writer consistently steered core-concept tokens (coronavirus, CoV, SARS, pandemic, lockdown, mask, vaccine, Wuhan, Trump, Jinping, sonaro) to pre-2020 or unrelated uses. Only two items are dropped, both because pandemic coverage made the tested fact famous: ivermectin being an antiparasitic rather than an antiviral, and ritonavir boosting other drugs (Paxlovid). Borderline but kept: 2003 SARS facts, the pandemic-vs-epidemic definition, coronaviruses causing colds, and some moderately obscure trivia (MERS in South Korea 2015, Pandemic Studios/EA, Patrick Sarsfield). These are general or pre-COVID knowledge and are not clear violations. A few multi tokens have fewer than 4 items (coronav 2, Omicron 2, onavir 2 then 1, infec 1, several with 3), each justified in the notes.",
+ "tokens": [
+  {
+   "token": " antiviral",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which class of drug, unlike an antiviral, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aciclovir is an antiviral drug used against which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oseltamivir, sold as Tamiflu, is an antiviral used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drugs used against HIV are antiviral medicines known",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "avax",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " CCP",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "CCP Games, the studio behind the space game",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The first congress of the CCP met in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which leader of the CCP proclaimed the People's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Long March of 1934 was made by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " CDC",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The CDC grew out of a 1940s wartime",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which US city does the CDC have",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The CDC 6600, released in 1964, was designed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The CDC belongs to which US cabinet department?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "CDC",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Centers for Disease Control and Prevention (CDC)",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1981 the Centers for Disease Control (CDC)",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Control Data Corporation (CDC) competed in the 1960s",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 6600, built in 1964 by Control Data",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Corona",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Corona Extra, one of the world's best-selling beers,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Italian dance act Corona had a 1990s",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Smith Corona was an American manufacturer of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Corona, a family car sold from 1957",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " corona",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During a total solar eclipse, the corona seen",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A lunar corona, the coloured ring sometimes seen",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Around high-voltage power lines, a corona discharge shows",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a daffodil, the trumpet-shaped corona is surrounded",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " coronav",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which pet is affected by FIP, a deadly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Several coronaviruses circulating in people cause mild cases",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " coronavirus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "MERS, identified in 2012, is caused by a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A coronavirus must enter what in order to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scientists first saw a coronavirus in the 1960s",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A common cold may be caused by a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " COV",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In statistics, the COV of a sample is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The front page read COVENTRY BLITZED after a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The London district signposted COVENT GARDEN is home",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "CoV",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The largest MERS-CoV outbreak outside the Middle East,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "MERS-CoV was first reported in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "HCoV-229E is one of the viruses behind which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " COVID",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "COVID",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " crisis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 1962 Cuban missile crisis was a standoff",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A midlife crisis is a period of doubt",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1956 Suez crisis centred on a canal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word crisis comes from a Greek word",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "demic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "demics",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Academics at Oxford and Cambridge belong to self-governing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Academics normally publish their research in peer-reviewed what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Plague of Justinian, one of the earliest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which island is home to lemurs and many",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " disinfectant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Household bleach, a common disinfectant, is based on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Joseph Lister pioneered carbolic acid as a disinfectant",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A disinfectant is used on surfaces, while an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hospitals often use a disinfectant made from which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Donald",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Donald Duck's long-standing girlfriend in Disney cartoons is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Donald Bradman, often called the greatest batsman ever,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The actor Donald Sutherland and his son Kiefer",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The first name Donald comes from Gaelic and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ebola",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ebola is named after a river in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ebola was first identified in humans during which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ebola spreads between people mainly through contact with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which kind of pathogen causes Ebola?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " epidemic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which physician traced a cholera epidemic in 1854",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "During a polio epidemic, patients who could not",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Greek root demos in the word epidemic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A smallpox epidemic brought by Spanish conquistadors in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " epidemics",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Yellow fever epidemics among workers badly hampered the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cholera epidemics usually come from drinking contaminated what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The medieval epidemics known as the Black Death",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Measles epidemics are prevented by which routine childhood",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " epidemio",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Specialists called epidemiologists study how diseases are distributed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Most epidemiologists work in which broad branch of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 19th-century nurse, famous for her statistical charts",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 1950s, epidemiologists linked smoking to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fever",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Scarlet fever, a childhood illness, is caused by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hay fever is an allergic reaction most often",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Yellow fever is spread between people by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone with cabin fever has become restless after",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " flu",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word flu is a short name for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The joking term man flu suggests that men",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The strain H5N1 causes a kind of flu",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stomach flu is a misleading name for illness",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " immunity",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Diplomatic immunity means a diplomat cannot normally be",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the TV show Survivor, winning immunity saves",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lasting immunity after an illness is largely due",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Members of parliament in many countries have immunity",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Inf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Spain and Portugal, the royal title \"Infante\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On Wikipedia, the \"Infobox\" at the top of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Franklin D. Roosevelt's \"Infamy\" speech followed the attack",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In many programming languages, the value -Inf represents",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infec",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A microbe's infectivity describes how easily it can",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infect",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Malware that can infect a computer is best",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To say that laughter can infect a crowd",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tapeworms can infect people who eat which undercooked",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Viruses that infect bacteria are known as what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infected",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An infected cut often becomes red, swollen and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A computer infected with ransomware typically demands what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An infected tooth pulp is usually treated by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rabies is spread by the bite of an",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "infected",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A malware-infected laptop is often restored by reinstalling",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fungus-infected humans in the video game The",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bacteria-infected ticks spread which disease named after a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Malaria-infected mosquitoes carry a parasite of which genus?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infection",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A urinary tract infection most often affects which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Penicillin, which transformed the treatment of infection, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Washing hands with soap lowers the risk of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A middle-ear infection is especially common in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infections",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Athlete's foot and thrush are examples of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which organ is attacked by the infections known",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cuts and grazes are cleaned to prevent infections",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mosquito bites can pass on infections such as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " infectious",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The kissing disease, infectious mononucleosis, is usually caused",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone's laughter is described as infectious, what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these childhood diseases is highly infectious",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Besides bacteria, viruses and fungi, which organisms cause",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " inflamed",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An inflamed appendix is usually removed in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a speech inflamed tensions in a crowd,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gums that are inflamed and bleed when brushing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word inflamed comes from a Latin word",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " inflation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In economics, inflation measures the general rise in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In cosmology, inflation describes a rapid early expansion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Runaway inflation in Germany in 1923 destroyed the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which institution usually raises interest rates in order",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " influenza",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word influenza entered English from which language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In influenza A subtypes such as H1N1, the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which kind of pathogen causes influenza?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Northern Hemisphere, cases of seasonal influenza",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Jinping",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Xi Jinping has been the top leader of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Xi Jinping's flagship overseas infrastructure programme is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who preceded Xi Jinping as China's paramount leader?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the name Xi Jinping, which part is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Lock",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In cars, the Anti-Lock Braking System (ABS) stops",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1998 film \"Lock, Stock and Two Smoking",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The company \"Lockheed Martin\" is best known for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lockdown",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a prison, a lockdown means inmates are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A school lockdown drill prepares staff and pupils",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In basketball, a lockdown defender is a player",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lockdowns",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During the 2013 manhunt after the marathon bombing,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In prisons, lockdowns are most often ordered after",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Zoos order lockdowns of their grounds when which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In computer security, account lockdowns are usually triggered",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " mask",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The golden funeral mask of which pharaoh was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 1994 film The Mask, which actor",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In baseball, the catcher wears a mask to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At a Venetian masked ball, a mask is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " masks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Japanese Noh theatre is especially famous for performers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Welders wear masks mainly to shield their eyes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In ancient Greek theatre, actors used masks to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gas masks were issued to civilians across Britain",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Omicron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which animated series features aliens from the planet",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Greek letter Omicron corresponds to which letter",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " omicron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek, the name omicron literally means which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Is omicron a vowel or a consonant in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek letter shares the 'o' sound of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Greek letters such as omicron are also used",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "onavir",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ritonavir is an antiviral drug used mainly against",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Low-dose ritonavir is given alongside other HIV drugs mainly to",
+     "verdict": "drop",
+     "comment": "Ritonavir as a pharmacokinetic booster was made widely known by pandemic coverage of Paxlovid (nirmatrelvir/ritonavir); knowing COVID treatments helps, and the fact is niche for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " outbreaks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Tornado outbreaks are most frequent in which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Salmonella outbreaks are usually traced to contaminated what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the phrase 'outbreaks of violence', the word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Desert locust outbreaks most often threaten crops in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Pandemic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pandemic, a popular cooperative board game, asks players",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pandemic Studios developed which Star Wars video game",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pandemic Studios was bought in 2007, together with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pandemic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Black Death pandemic struck Europe in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The influenza pandemic of 1918 is popularly named",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The HIV/AIDS pandemic involves a virus that attacks",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pandemic differs from an epidemic chiefly because",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "pandemic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word \"pandemic\" comes from which ancient language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the phrase 'a \"pandemic\" of rumours', the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Like \"pandemonium\" and \"panorama\", the word \"pandemic\" begins",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " plague",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Book of Exodus, the final plague",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bubonic plague is caused by a bacterium carried",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If money troubles plague a company, what are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The plague that struck London in 1665 was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pneumonia",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which organs are damaged by pneumonia?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bacterial pneumonia is usually treated with which kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Legionnaires' disease is a pneumonia spread through which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A cough caused by pneumonia typically brings up",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " quarant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "When quarantining new fish before adding them to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antivirus software quarantines a suspicious file in order",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Countries impose quarantines on imported livestock in order",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " quarantine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Apollo 11 astronauts spent time in quarantine",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pets taken into some island countries must spend",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word quarantine comes from an Italian word",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " quarantined",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Leprosy patients were long quarantined at Kalaupapa on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Typhoid Mary, a cook who spread typhoid, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A dog quarantined on arrival in a rabies-free",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In earlier centuries, ships quarantined in a harbour",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " recession",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A recession is often defined as how many",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The global recession of 2008 followed the collapse",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In dentistry, gum recession exposes which part of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the business cycle, which phase is the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " reopening",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Before reopening a closed criminal case, prosecutors normally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The idiom about reopening old wounds means bringing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A shop's grand reopening usually comes after a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Diplomats speak of reopening talks after the talks",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " SARS",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Outside mainland China, which city was hit hardest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In South Africa, SARS is the national body",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 2003 SARS epidemic led to travel warnings",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sars",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sarsaparilla is an old-fashioned soft drink flavoured with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Peter Sarsgaard is married to which actress?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Patrick Sarsfield was a celebrated military commander in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sarsaparilla tastes most like which American soft drink?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "SARS",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Severe Acute Respiratory Syndrome (SARS) outbreak of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The South African Revenue Service (SARS) is headquartered",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Special Anti-Robbery Squad (SARS) was a police",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "sonaro",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The surname \"Bolsonaro\" belongs to a former president",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Supporters at pro-Bolsonaro rallies typically wore the yellow",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which anti-Bolsonaro candidate defeated him in Brazil's 2022",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " symptomatic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If long queues are symptomatic of poor planning,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medicine, symptomatic treatment relieves symptoms rather than",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A high fever is often symptomatic of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A patient described as symptomatic is showing what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " telehealth",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A telehealth appointment normally takes place using what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The prefix tele- in telehealth comes from a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Patients in which kind of area benefit most",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Using telehealth, a patient can consult a doctor",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Trump",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Trump cards in the game of bridge beat",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Trump Tower, opened by Donald Trump in 1983,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Donald Trump hosted which American reality television show?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Donald Trump co-wrote which 1987 business bestseller?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " unvaccinated",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Children who are unvaccinated are most at risk",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An unvaccinated dog bitten by a wild animal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Travellers to parts of Africa who are unvaccinated",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An unvaccinated person who steps on a rusty",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaccinated",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Edward Jenner vaccinated a boy in 1796 using",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Newborn babies are often vaccinated at birth against",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Children are commonly vaccinated against measles, mumps and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone vaccinated against a disease has been helped",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaccination",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which English doctor pioneered vaccination in 1796?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word vaccination comes from the Latin name",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A worldwide vaccination campaign had eradicated which disease",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which body system is trained by vaccination?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaccinations",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Travel vaccinations are often advised against yellow fever",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Childhood vaccinations are normally written down in what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pet dogs usually receive vaccinations against rabies and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "By which route are vaccinations most often given?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaccine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The first widely used polio vaccine was developed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The BCG vaccine protects mainly against which disease?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Louis Pasteur produced a vaccine against which disease",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A vaccine works by preparing the body to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " vaccines",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Many vaccines contain an adjuvant made from salts",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Live attenuated vaccines contain pathogens that have been",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How often are the vaccines against influenza reformulated?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before approval, vaccines are tested for safety in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "vermectin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ivermectin is used mainly to treat infections caused by which",
+     "verdict": "drop",
+     "comment": "Pandemic coverage made \"ivermectin is an antiparasitic (dewormer), not an antiviral\" famous; COVID knowledge directly gives this answer, with Viruses as the contrasting distractor."
+    },
+    {
+     "q_start": "Ivermectin comes from soil bacteria first collected by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The discovery of ivermectin shared the 2015 Nobel",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ivermectin is given in mass campaigns against river",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " viral",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A video that spreads rapidly across the internet",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A company using viral marketing relies on customers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medicine, viral load measures the amount of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " virulence",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The virulence of a political speech refers to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In microbiology, virulence measures how much harm a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word virulence comes from a Latin word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Features known as virulence factors help bacteria do",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Virus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which condition is caused by the Human Immunodeficiency",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Marburg Virus is named after a city",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Virus scanners installed on a computer are designed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Tobacco Mosaic Virus, studied since the 1890s,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " virus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A computer virus is a type of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rabies is caused by a virus usually passed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Is a virus larger or smaller than a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The chickenpox virus can return later in life",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Wuhan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which famous tower in Wuhan was celebrated by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which great river flows through Wuhan?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1911 uprising that began at Wuchang, now",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

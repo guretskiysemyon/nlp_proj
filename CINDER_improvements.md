@@ -47,6 +47,27 @@ All results so far measure the **features**, on Gemma-2-2b-it. Erasure after the
 - **CS may be partly circular at the feature level.** The sharpening target is the concept's Wikipedia page, which contains the very tokens our purity metrics score. With a target that excludes those tokens, the CS gains mostly disappear. The erasure evaluation does not depend on these labels, so it will tell, and a disjoint target is needed for a paper.
 - **TWJ's extra accepts are often broader than the concept.** With strict labels its gain shrinks from 21 to 7 runs. Its threshold was chosen on the same labeled set, and the 15 held-out concepts are not judged yet.
 
+### Ladder and erasure results (Oct 18)
+
+The cumulative ladder ran on 38 concepts (15 of them held out) at the feature level, and on 14 paper concepts with EMBER's erasure protocol. The analysis was pre-registered. Full numbers are in [results/varwidth/layers/SUMMARY.md](results/varwidth/layers/SUMMARY.md).
+
+| Rung | Concept acc. ↓ | Efficacy | H |
+| --- | --- | --- | --- |
+| EMBER | 54.3 | 0.36 | 0.52 |
+| +CS | 62.4 | 0.21 | 0.38 |
+| +CS+GS | 62.1 | 0.22 | 0.39 |
+| +CS+GS+TWJ (CINDER) | 59.7 | 0.28 | 0.49 |
+| EMBER + TJ∨WJ+share (exploratory) | **50.0** | **0.47** | **0.65** |
+
+- **CS hurts erasure** (Δ H −0.15). Its features absorb generic words that occur only in the concept sentences, such as get, win, heart and values. The feature-level purity gains above partly came from that label.
+- **GS is neutral for erasure.**
+- **The judge layer helps** (+0.10 on top of CS+GS, +0.12 on EMBER's own matrix, no concept worse). It rescues concepts where EMBER's judge selected nothing: Heroin, Uranium, Nazism, Halloween.
+- **On the 15 held-out concepts, EJ@5 does not generalize.** TJ ∨ WJ+share does: precision 0.71, recall 0.89.
+- **Fidelity checks pass.** Our EMBER matches the paper's Table 6, and the paper's own Alpaca-in-grid tuning gives the same result as our cheaper gate.
+- **The pre-registered feature-level endpoint (strict clean-hit) showed no gain.**
+
+What this means for the paper: the robust contribution is the judge diagnosis and fix. CS needs a stricter definition of concept tokens before it can help erasure. The judge-only configuration was chosen after seeing the results, so it needs confirmation on new concepts or seeds.
+
 ### Contributions and potential
 
 1. **A diagnosis.** EMBER's features miss concepts for three separate reasons (variance, allocation and verification), and each one has a measurable symptom.
@@ -72,7 +93,13 @@ EMBER is fit on English text, and its edit leaks to other languages. We will com
 2. **ML-EMBER with extrapolation.** Fit one factorization on a small multilingual sample, then keep its features fixed and compute coefficients for the full multilingual token set, so that tokens outside the sample are edited too.
 3. **ML-CINDER.** Approach 2 with the three CINDER layers.
 
-Approach 2 replaces one factorization per language with a single cheap fit. Approach 3 adds the layers, each of which addresses a risk specific to fitting across languages. So far we have proof-of-concept fits on Llama for two concepts, and no multilingual erasure numbers yet (details in Part 2).
+Approach 2 replaces one factorization per language with a single cheap fit. Approach 3 adds the layers, each of which addresses a risk specific to fitting across languages.
+
+**Results (Llama-3.1-8B-Instruct, 18 concepts, 8 languages, test split; details in Part 2).**
+
+- ML-EMBER comes within 0.05 of per-language EMBER on the concepts both edit (0.44 vs 0.49), with 1/8 of the factorizations and judge calls. Per-language EMBER's overall lead (0.35 vs 0.20 over all 18) comes from coverage: it finds features for 14 concepts, ML-EMBER for 8.
+- ML-CINDER as first built trails (0.28 on shared concepts). The cause is the edit, not the selection: mapped back from the whitened space, the edit points into directions the model barely reads.
+- Building the edit in the original space instead, with CINDER's selection kept, fixes this (A3z). It raises ML-CINDER on 9 of 11 concepts and is the best approach on 4 of the 8 shared concepts (6 of 8 if we ignore gates that failed only on test). It has the highest ungated mean there (0.56 vs 0.49–0.50). The lesson for CINDER: **whiten to select, edit in the original space.**
 
 ---
 
@@ -88,7 +115,7 @@ Approach 2 replaces one factorization per language with a single cheap fit. Appr
 2. **Whiten.** Map every row e of the matrix to ũ = W(e − μ\_B), with W = (Σ\_B + εI)^(−1/2). Every background direction now has unit variance. The small ridge ε = 10⁻⁴ · mean(Λ) damps only the smallest eigenvalues.
 3. **Sharpen.** Whiten the token types of the concept's English Wikipedia page in the same way, giving rows ũ\_1, …, ũ\_m. Their second moment, shrunk toward the identity, is S\_η = (1 − η) · (1/m) Σ ũ\_j ũ\_jᵀ + ηI. Map every row to x = S\_η^(γ/2) ũ.
 4. **Factorize** the transformed matrix with sparse MF, exactly as in EMBER.
-5. **Edit.** Map each concept token's part back exactly, c\_t = T⁻¹ c̃\_t with T⁻¹ = W⁻¹ S\_η^(−γ/2), and subtract it from the original embedding. The mean cancels in a difference, so the map is exact, and the notebook checks this numerically. As in EMBER, only concept-only tokens are edited.
+5. **Edit.** Map each concept token's part back exactly, c\_t = T⁻¹ c̃\_t with T⁻¹ = W⁻¹ S\_η^(−γ/2), and subtract it from the original embedding. The mean cancels in a difference, so the map is exact, and the notebook checks this numerically. As in EMBER, only concept-only tokens are edited. The mapped-back c\_t has a different norm from EMBER's, so δ is tuned again for each configuration on the validation grid, and every erasure run first checks that the transformed model rows equal the factorized matrix columns, stopping otherwise ([erase.py](experiments/varwidth/erase.py)).
 
 Defaults: η = 0.05 and γ = 1, chosen by a judge-free sweep on Harry Potter, Ancient Rome and Valentine's Day. η = 1 would mean whitening only, and γ sets how strongly the enriched directions are stretched.
 
@@ -277,7 +304,24 @@ What the numbers show:
    - *Select and edit.* Select the concept features on the full Y (ρ filter and judge), and edit every concept-only token of the full set.
 3. **ML-CINDER.** Approach 2 with the three layers. CS whitens against a background with the same number of sentences in each language and sharpens toward the pooled concept pages. GS replaces row sparsity in both the fit and the extrapolation. TWJ shows the judge each token's source word and language, and matches the feature against a lexicon in each language.
 
-**What exists already.**
+**Results (2026-10-20).** The full comparison ran on Llama-3.1-8B-Instruct (NF4; fp16 embeddings) for all 18 concepts in en, de, fr, it, pt, hi, es and th. Setup: a sample of 30 + 30 sentences per language, MC concept and similar-domain questions plus Global-MMLU in every language, a perplexity fluency gate instead of Alpaca. Full tables, protocol and caveats are on branch `orip-ml`: `experiments/ml/RESULTS.md`, `OBSERVATIONS.md` and `PLAN.md`.
+
+| | Per-language EMBER | ML-EMBER | ML-CINDER | ML-CINDER, original-space edit (A3z) |
+|---|---|---|---|---|
+| Concepts with an edit (of 18) | 14 | 8 | 11 | 11 |
+| Mean test score, all 18 (no edit = 0) | **0.35** | 0.20 | 0.17 | 0.26 |
+| Mean, the 8 concepts all approaches edit | **0.49** | 0.44 | 0.28 | 0.40 |
+| Same, ignoring gates that failed only on test | 0.49 | 0.50 | 0.28 | **0.56** |
+| Mean non-English efficacy, highest in | — | th | — | de, fr, it, pt, es |
+
+- **Why ML-CINDER needed the fix.** Llama's first layer reads ML-CINDER's mapped-back edits at 1.1–1.7× a random direction, against 2.6–7.6× for ML-EMBER, so erasure stalls near 0.1 even at δ = 200. A3z keeps CINDER's Y and selected features and re-solves Z on the raw embeddings: one k × k least-squares solve, no new fit and no new judge calls.
+- **Caveats.**
+  - A3z was defined after ML-CINDER's results were seen.
+  - Two of A3z's test rows failed a gate that passed on validation.
+  - Hindi cannot be erased by any approach (Llama's Hindi tokens are almost never concept-only).
+  - Feature selection varies with the fit seed as much as with the sample.
+
+**What existed before the full run** (kept for the record).
 
 | Piece | Status |
 | --- | --- |

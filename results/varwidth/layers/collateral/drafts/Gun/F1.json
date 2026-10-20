@@ -1,0 +1,3121 @@
+{
+ "concept": "Gun",
+ "overall": "Strong final draft: checker ok_rate 1.0, all 134 pool tokens covered, facts check out, and no item needs firearms knowledge (gun-brand and gun-word tokens such as Colt, Browning, Remington, Glock, barrel, cartridge, recoil are tested only through non-gun senses). Exclusive calls (firearm(s), handgun, holster, musket, ordnance, revolver, shotguns, rapnel, tillery, the CJK gun character) are reasonable. The only clear violations are 8 items where the token sits in a removable padding clause and the question is fully answerable without it (looters/theft, saloon/Prohibition, gunpowder/Bonfire Night, muzzle/Hannibal Lecter, Waffen-SS/Himmler, cartridge/Game Boy, bulb/tulip mania, Remington/QWERTY); these are dropped. Several multi tokens are thin (1-3 items: breech, calib, caliber, pistol(s), rifle variants, Rif, reload, Webster, ject, bore, Colt), which the notes justify. A few items are mildly harder for a 2B model (woodbine, forbore, Sholokhov, Severn bore) but stay within general knowledge and are kept.",
+ "tokens": [
+  {
+   "token": " armed",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which animal is armed with sharp quills for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek goddess sprang fully armed from the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country's armed forces are officially called the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Central American country abolished its armed forces",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " arrow",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, Paris killed Achilles with an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Swiss folk hero shot an arrow through",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Roman god of love shoots an arrow",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a computer keyboard, what are the arrow",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " attacked",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country attacked Pearl Harbor in December 1941?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 1975 film Jaws, swimmers are attacked",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In autoimmune diseases, the body's own tissues are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which ancient city was attacked by Greeks hiding",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bag",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If you 'let the cat out of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a car, an air bag is designed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In golf, who traditionally carries a player's bag",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which animal carries its young in a bag-like",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ball",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the fairy tale, Cinderella loses her glass",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which sport do players try to carry",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In soccer, which player may handle the ball",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A ball bearing is used to reduce what",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " balls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In snooker, how many red balls are on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In cricket, an over normally consists of how",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In baseball, four balls thrown outside the strike",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Japan, rice balls often wrapped in seaweed",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " barre",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which art form do students practise exercises",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On guitar, a barre chord requires one finger",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A guitar capo works like a fixed barre",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A barre class is a fitness workout that",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "barre",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these is an example of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In survey design, which of these is a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " barrel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1901, Annie Edson Taylor became the first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone 'has you over a barrel', what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A standard barrel of crude oil holds how",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fine wine is traditionally aged in a barrel",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Barrel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "\"Barrel roll\" is the name of an aerobatic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Barrel vault\" ceilings, continuous semicircular arches, were widely",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Barrel cactus\" plants naturally grow in what type",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Barrel of Monkeys\" is a classic toy in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "barrel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In politics, \"pork-barrel\" spending refers to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Something described as \"bottom-of-the-barrel\" is of what quality?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone described as \"barrel-chested\" has a chest that",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " barrels",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the arcade game Donkey Kong, the ape",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which American spirit must legally be aged in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A cooper is a craftsman who makes barrels",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oil production is commonly measured in barrels per",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "bine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Woodbine is a traditional common name for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When chromosomes recombine during meiosis, which process exchanges",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " blade",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The shoulder blade is the common name for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The blade of a modern ice skate is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The disposable safety razor blade was popularized by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Each rotating blade of a helicopter rotor mainly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " blow",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To blow the whistle on someone means to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the western Pacific, tropical storms whose winds",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which children's tale does a wolf threaten",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a birthday cake, children traditionally blow out",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bolt",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A lightning bolt is a sudden discharge of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A bolt from the blue describes what kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A threaded metal bolt is usually fastened with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek god is usually depicted holding a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bore",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A tidal bore, a wave travelling upriver, famously",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A person described as a bore is considered",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 'she bore the pain bravely', bore is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Engineers usually drill a bore hole in dry",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "bore",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the past tense of the verb",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " bores",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If a long lecture bores the audience, how",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which beetle larva bores into wooden furniture, leaving",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A drill bores holes using a rotating what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " box",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek myth, which woman opened a box",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What colour is an aircraft's 'black box' flight",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In British slang, 'the box' refers to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To 'think outside the box' means to think",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "boxes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Old diners often had jukeboxes that did what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gearboxes in cars transmit power from the engine",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the United States, residential mailboxes are serviced",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Victorian speakers stood on soapboxes in order to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " breech",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In obstetrics, a breech birth occurs when the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Browning",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Robert Browning was a major poet of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Elizabeth Barrett Browning's 'How do I love thee?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Browning of seared meat is caused mainly by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Browning wrote a poem about the Pied",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bulb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who is most often credited with inventing the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which flower, grown from a bulb, sparked a famous 17th-century",
+     "verdict": "drop",
+     "comment": "Token not needed: \"grown from a bulb\" is padding; the Dutch tulip mania is answerable without it."
+    },
+    {
+     "q_start": "A garlic bulb is made of segments called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In an incandescent bulb, the filament is usually",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bullet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Japan's famous high-speed bullet train network is called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To 'bite the bullet' means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In business, a 'silver bullet' refers to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a document, a bullet point is typically",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bullets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In word processors, bullets are used to mark",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1999 film showed its hero dodging bullets",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In folklore, which monster can only be killed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone who is 'sweating bullets' is feeling what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Bureau",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Federal Bureau of Investigation is part of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The US Census Bureau counts the national population",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was the first director of the Federal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Australia's Bureau of Meteorology mainly provides what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " burning",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Bible, who saw a burning bush",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone burning the midnight oil is doing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which greenhouse gas is mainly released by burning",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to legend, which Roman emperor fiddled while",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " calib",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If two job candidates are of very different",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " caliber",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If a job applicant is described as of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "caliber",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A \"high-caliber\" team is one with what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " cannon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A person described as a 'loose cannon' is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Police use a water cannon mainly for what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A cannonball jump into a swimming pool is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which London football club has a cannon on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cannons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which composer wrote the overture that famously calls",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Confetti cannons are typically used at what kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fireboats use powerful water cannons mainly to fight",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " cartridge",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which type of printer uses a toner cartridge?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Game Boy, which loaded games from a cartridge, was",
+     "verdict": "drop",
+     "comment": "Token not needed: \"which loaded games from a cartridge\" is padding; Game Boy maker is answerable without it."
+    },
+    {
+     "q_start": "In a record player, the cartridge holds which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A water filter cartridge commonly contains which form",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cartridges",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Colour printer ink cartridges usually come in cyan,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1985 Nintendo console used grey game cartridges?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fountain pens can use ink cartridges or be",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Soda siphons and home soda makers carbonate water",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chamber",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Originally, chamber music was written to be performed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The elected lower chamber of the UK Parliament",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A local chamber of commerce mainly represents whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which chamber of the heart pumps oxygenated blood",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chambers",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many chambers does the human heart have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A bicameral legislature has how many chambers?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The gas-filled chambers of a nautilus shell help",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Online echo chambers tend to reinforce what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cocked",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The three-cornered cocked hat of the 18th century",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a dog cocked its head while listening,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French emperor is famous for wearing a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If she cocked an eyebrow at a claim,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Colt",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Colt is the word for a young male",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Colt is the name of a small car",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played the stuntman Colt Seavers in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "Colt",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Mitsubishi \"Colt\" is what type of vehicle?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Confederation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Canadian Confederation took place in which year?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which city is the seat of government of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Articles of Confederation were the first constitution",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The German Confederation was created at which 1815",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cylinder",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The volume of a cylinder equals pi times",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a car engine, what moves up and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many flat faces does a cylinder have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Scuba divers breathe from a cylinder filled with",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dead",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In racing, a dead heat means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Latin is often called a dead language because",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In navigation, dead reckoning estimates position from speed,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does a dead end street lack?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " device",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A mnemonic device helps you do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which literary device repeats initial consonant sounds, as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Apple device did Steve Jobs introduce in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pacemaker is a medical device that regulates",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " devices",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bluetooth connects devices using what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Smoke detectors are devices that warn of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which South Korean company makes the Galaxy line",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Thermostats are devices that control what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " eject",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Fighter pilots who eject from a damaged aircraft",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Why should you eject a USB drive before",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Erupting volcanoes eject molten rock that, on the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pressing the eject button on a CD player",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " firearm",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Firearms",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " firearms",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " firing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In pottery, firing clay takes place inside what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When neurons are firing, what are they sending?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a team is said to be firing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which business magnate hosted the US version of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "firing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If a plan is backfiring, what is happening?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A car engine misfiring is often caused by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When a car is backfiring, the loud bang",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " flight",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Wright brothers' first powered flight took place",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'fight or flight' response is driven largely",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which mammal is the only one capable of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A flight of stairs is a series of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Glock",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Glockenspiel belongs to which family of musical instruments?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Glockenspiel figures above the Marienplatz perform daily in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Glockenspiel bars are usually made of what material?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Glockenspiel players strike the bars with what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "gon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The fictional town of Lake Wobegon was created",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these polygons has exactly twelve sides?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A decagon is a polygon with how many",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Gun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Top Gun (1986) starred which actor as the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Naked Gun comedy films starred which actor",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Man with the Golden Gun featured which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "'Happiness Is a Warm Gun' appears on which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To 'jump the gun' means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An electron gun was a key part of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Police use a radar gun to measure what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A 'smoking gun' in an investigation refers to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "gun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A flashgun is an accessory for which device?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A blowgun propels its dart using what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A spray-gun is commonly used to apply what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "Gun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the sitcom Friends, which coffee house employs",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the sitcom Friends, the barista \"Gunther\" is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "Guns",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who is the lead singer of the rock",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which top-hatted guitarist became famous as a member",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote the Pulitzer-winning book \"Guns, Germs, and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Guns versus butter\" is a classic economics example",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "guns",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Japan's Tokugawa shoguns ruled from which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Japanese shoguns were originally what kind of leaders?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Indigenous Amazon hunters use blowguns with darts tipped",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Children's popguns typically fire what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Gunn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Director James Gunn is best known for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Anna Gunn played Skyler White in which TV",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tim Gunn served as mentor on which fashion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ben Gunn is a marooned pirate in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gunpowder",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Guy Fawkes was caught guarding barrels of gunpowder",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chinese gunpowder tea is made from which kind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bonfire Night marks a failed 1605 plot to blow up",
+     "verdict": "drop",
+     "comment": "Token not needed: \"with gunpowder\" is padding; the date of Bonfire Night is answerable without it."
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " hammer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mjolnir is the hammer of which Norse god?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The hammer and sickle symbol is associated with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the human ear, the hammer bone is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In athletics, the hammer throw uses a metal",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " handgun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Heck",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hecklers at a comedy show do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heck, as in 'what the heck', is a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " hit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In baseball, a hit that lets the batter",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To hit the sack means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1998 debut single became Britney Spears's first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The asteroid that hit Earth and wiped out",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " holster",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hunting",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which big cat relies on bursts of speed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a lion pride, which sex does most",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Job hunting means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Most owls do their hunting at what time",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ject",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To interject during a conversation means to do",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " kill",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "'To kill two birds with one stone' means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To kill time means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A kill switch on a machine is used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pasteurization uses heat to kill what in milk?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " killing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To 'make a killing' means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In modern slang, if a performer is killing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antibiotics work by killing or slowing the growth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Khmer Rouge's notorious killing fields were in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " musk",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The musk ox is native to which region?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Natural musk, prized in perfumery, was traditionally obtained",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A muskmelon is another name for which fruit?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " musket",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " muzzle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A muzzle is placed over a dog's what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To muzzle the press means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Silence of the Lambs, which actor played Hannibal",
+     "verdict": "drop",
+     "comment": "Token not needed: the muzzle-like mask clause is padding; \"which actor played Hannibal Lecter\" answers it alone."
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " nickel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the US, a nickel coin is worth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the chemical symbol of nickel?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Besides iron and nickel, which element is ferromagnetic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The city of Sudbury, famous for nickel mining,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "nickel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pumpernickel bread is traditionally made from which grain?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cupro-nickel, used in many coins, is an alloy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To \"nickel-and-dime\" someone means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " ordnance",
+   "class_ok": true,
+   "class_comment": "Defensible: Ordnance Survey is capitalized (different token); lowercase use is military.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "oters",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "People who steal from shops during riots are called looters;",
+     "verdict": "drop",
+     "comment": "Token not needed: the question itself says \"steal\", so \"theft\" follows without the word looters (answer echoed)."
+    },
+    {
+     "q_start": "The restaurant chain Hooters uses which animal in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In IT support, troubleshooters work to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Parisian rioters stormed which fortress on 14 July",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the carol 'The Twelve Days of Christmas',",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Prickly pear is a type of what plant?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a plan has gone pear-shaped, what has",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the alcoholic drink made from fermented",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pellet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An owl pellet contains which undigested materials?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pellet stove burns compressed pellets made of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Pac-Man, eating a power pellet lets Pac-Man",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " pellets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hailstones are pellets of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Garden slug pellets are used to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nuclear reactor fuel rods contain small pellets of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pet rabbit food pellets are made mostly from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Pistol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pistol Pete was the nickname of which basketball",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pistol shrimp stun their prey using what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pistol, Bardolph and Nym are companions of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " pistol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A pistol squat is an exercise performed on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " pistols",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On a hot day, children armed with water",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " piston",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a car engine, the piston moves inside",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In early airliners, each piston engine typically turned",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a bicycle pump, the piston compresses what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a trumpet, pressing the piston valves changes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " projectile",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In physics, the path of a projectile under",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Galileo showed that a projectile's horizontal and vertical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A trebuchet is a medieval machine designed to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medicine, projectile vomiting is vomiting that is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " projectiles",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Medieval catapults launched projectiles such as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Near Earth's surface, projectiles in free fall accelerate",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Archers shoot which projectiles from their bows?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ignoring air resistance, projectiles launched at what angle",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " propellant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Liquid hydrogen is used as a rocket propellant",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which class of chemicals, once widely used as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Canned whipped cream uses which gas as its",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " pull",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To pull someone's leg means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Moon's gravitational pull causes which ocean phenomenon?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pull-up exercise mainly works which muscles?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To pull an all-nighter means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pulled",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which style of cooking is famous for pulled",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Arthurian legend, who pulled the sword from",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If an athlete pulled a hamstring, which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the fairy tale, Cinderella's pumpkin coach was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "rapnel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " recoil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "To recoil in disgust means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A skater who throws a heavy ball forward",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When a stretched spring is released it will",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " reload",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In most web browsers, which key do you",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Remington",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor starred as the title character in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The artist Frederic Remington is famous for depicting",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Remington Rand built which early commercial computer?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The QWERTY keyboard layout was popularized by which machine, sold",
+     "verdict": "drop",
+     "comment": "Token not needed: QWERTY alone gives \"typewriter\"; \"sold by Remington from 1874\" is padding."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " revol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Spartacus is famous for leading slave revolts against",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a smell is described as revolting, what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1776 the American colonies formally declared independence",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1381, English peasants revolted under which leader?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " revolver",
+   "class_ok": true,
+   "class_comment": "Defensible: the Beatles album is \"Revolver\" (capitalized, a different token); lowercase outside uses are thin.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " rif",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If a burglar rifled through your drawers, what",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "Rif",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The \"Rif\" mountain range lies in which North",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Rifle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rifle, when used as a verb about drawers",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " rifle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If someone is said to rifle through a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": "ringer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Quasimodo is the bellringer of which Paris cathedral?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To be 'put through the wringer' means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An old-fashioned laundry wringer was used to remove",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " saddle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In mathematics, a saddle point on a surface",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A horse's saddle is held in place by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In geography, a saddle is a low point",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a bicycle, the saddle is another name",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " saloon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What do Americans call the type of car",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the American Old West, a saloon was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US policy, pushed by activists opposing the saloon, banned",
+     "verdict": "drop",
+     "comment": "Token not needed: the saloon clause is padding; the question is fully answerable from \"banned alcohol from 1920 to 1933\"."
+    },
+    {
+     "q_start": "In British pubs, the saloon bar was traditionally",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sh",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who traditionally sang sea shanty songs while working?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tiny shrews are mammals that mainly eat what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Yiddish-derived word shtick refers to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When someone says shush, what do they want?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Shar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Al Sharpton is best known as an American",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "'My Sharona' was a 1979 hit by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Shar Pei, a dog breed known for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " Shaw",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "George Bernard Shaw wrote which play that inspired",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which country was playwright George Bernard Shaw",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Shaw played the shark hunter Quint in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Jazz bandleader Artie Shaw was famous for playing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " shells",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hermit crabs live in shells abandoned by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cowrie shells were once widely used in Africa",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which nuts have shells that split open naturally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bash and Zsh are command shells mostly used",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sho",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Shohei Ohtani is a baseball star from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mikhail Sholokhov, the Nobel laureate, wrote in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shoah is the Hebrew term for which event?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shoals are large groups of which animals?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " shock",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Culture shock is typically experienced when someone does",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a car, a shock absorber dampens what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fish can deliver an electric shock of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A defibrillator delivers an electric shock to restore",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " shoot",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In botany, a plant's shoot is the part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To shoot for the moon means to do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A photo shoot is a session for taking",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In basketball, a player fouled while trying to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " shooters",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Stephen Curry is regarded as one of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pea shooters are toy tubes that fire what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In bars, shooters are small servings of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which sport are the goal shooter and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Shooting",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Shooting stars are actually what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shooting guard is a position in which sport?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shooting a film on location means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shooting the breeze means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "shot",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bloodshot eyes look what colour?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A hotshot is someone who is what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Police take a mugshot of whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a plane overshot the runway, what did",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " shotgun",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Riding shotgun means sitting where in a car?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A shotgun wedding is traditionally one arranged because",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which field is shotgun sequencing a standard",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " shotguns",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " slaughter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The idiom 'like a lamb to the slaughter'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Upton Sinclair's novel The Jungle exposed conditions in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Kurt Vonnegut's novel, Billy Pilgrim survives the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " spear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The traditional Zulu stabbing spear is known by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Poseidon's three-pronged spear is called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which barbed spear on a line is traditionally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone is chosen to spearhead a campaign,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " stocks",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In New York, stocks are traded on an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medieval times, offenders were locked in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The FTSE 100 index tracks stocks listed in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chefs make soup stocks by simmering what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "stri",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ostriches are native to which continent?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If demand is outstripping supply, prices tend to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " striker",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In soccer, a striker's main job is to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a labour dispute, a striker refuses to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Brazilian striker, nicknamed 'O Fenomeno', won the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a box of safety matches, the rough",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " strikes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In baseball, how many strikes make an out?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The saying 'lightning never strikes twice' means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In ten-pin bowling, how many consecutive strikes make",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Labour strikes are usually organised by what kind",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " struck",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1912, the Titanic struck what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which scientist was supposedly inspired when an apple",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US city was struck by a devastating",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the nursery rhyme 'Hickory Dickory Dock', the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sword",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the name of King Arthur's sword?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "'The pen is mightier than the sword' means",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which large fish has a long flat bill",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the legend of Damocles, the sword above",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " throws",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In judo, high scores come from throws that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When someone throws in the towel, what are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In basketball, free throws are worth how many",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In darts, each player's turn normally consists of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "tillery",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "tomans",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Ottomans captured Constantinople in which year?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Ottomans originated in which region, now part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In furniture, ottomans are typically used for what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " trumpet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which jazz musician, nicknamed Satchmo, famously played the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The trumpet belongs to which family of instruments?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which animal is known for a loud call",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Miles Davis played the trumpet on which 1959",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tube",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A test tube is most commonly used in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Eustachian tube connects the middle ear to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a bicycle tyre, the inner tube is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Fallopian tube connects the ovary to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Waffen",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Reichsfuhrer commanded the SS, including the Waffen-SS?",
+     "verdict": "drop",
+     "comment": "Token not needed: \"including the Waffen-SS\" is padding; the SS commander is answerable without it."
+    },
+    {
+     "q_start": "The Waffen-SS fought during which war?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " weapon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which city was the first target of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Squids use ink as a defensive weapon to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Death Star is a weapon in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, which weapon did David use",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Webster",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Noah Webster is famous for compiling what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Daniel Webster represented which state in the US",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "John Webster's play The Duchess of Malfi belongs",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Noah Webster promoted American spellings; which of these",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Webster",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Merriam-Webster is best known for publishing what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; accepted as thin (writer note)."
+  },
+  {
+   "token": " wheel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The potter's wheel was first developed in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The first Ferris wheel debuted at the 1893",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To 'reinvent the wheel' means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a car, what does the steering wheel",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "銃",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  }
+ ]
+}

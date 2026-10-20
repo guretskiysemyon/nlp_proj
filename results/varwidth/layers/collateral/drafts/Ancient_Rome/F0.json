@@ -1,0 +1,3458 @@
+{
+ "concept": "Ancient Rome",
+ "overall": "The draft is solid overall: the checker passes all 467 items, all 141 pool tokens are covered, and I agree with all 11 exclusive calls and the multi calls (humus, gladiolus, Atticus and Leviticus don't contain the relevant tokens). Neutrality failures come from Rome's enemies and neighbours and its direct circle: Carthage's founding and location (also via 'thage'), the Etruscans, Gaulish, Cleopatra's dynasty and capital, Dante's Virgil (the Roman poet himself), Star Trek's Romulans, and the Remus Lupin wolf pun. The no-space variants (Anton, Antony, Marius, Nero, Latin, Romans, Caesar) mostly copy the facts of their leading-space siblings word for word, and several force the token with unnatural quotes or parentheses around names or words (\"molluscs\", \"tusks\", \"(mausoleum)\", \"(Roman Polanski)\", '\"Rome Fiumicino\"', 'Norse Pantheon'). Hyphenated compounds (Greco-Roman, Afro-Latin, Tunis-Carthage) give these tokens naturally. A second pattern is giveaways where the question contains the answer: four o'clock -> late afternoon, Death and the Maiden, Marcus Welby M.D., Times New Roman -> The Times, Thessalonica -> Thessalonians, consuls -> Consulates, 'like the Doctor', 'gliding rodent', and 1944 -> WWII. There are also a few near-paraphrase pairs within a token, and a handful of items that are obscure or trick-prone for a 2B model (Galerkin's birthplace, Thermaic Gulf, Kershner).",
+ "tokens": [
+  {
+   "token": " Aene",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Alexander",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Alexander the Great was tutored as a youth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alexander Graham Bell is best known for inventing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alexander Fleming discovered which antibiotic in 1928?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alexander Hamilton appears on which US banknote?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Alexandria",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Lighthouse of Alexandria stood on which small",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The city of Alexandria lies on the coast",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alexandria in Egypt was founded by which Macedonian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alexandria, Virginia lies across the Potomac River from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "alus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Greek mythology, Daedalus made wings of feathers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Daedalus built the labyrinth for which king of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The character Stephen Dedalus was created by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stephen Dedalus is a central character in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Anato",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Anatolia makes up most of the territory of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which sea borders Anatolia to the north?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Anatolia is also known by which other geographical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hittite Empire of Anatolia had its capital",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Antioch",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Monty Python and the Holy Grail, the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antioch was besieged and captured in 1098 during",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ancient city of Antioch corresponds to Antakya",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antioch was founded as a capital by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Anton",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Russian writer Anton Chekhov wrote which play",
+     "verdict": "fix",
+     "comment": "Distractor 'The Seagull's Nest' is a made-up title; use real plays (e.g. The Seagull, Uncle Vanya are Chekhov's own and fine as distractors, or Gorky/Gogol titles)."
+    },
+    {
+     "q_start": "Anton Bruckner was a composer from which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In No Country for Old Men, the hitman",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Anton Yelchin played which crew member in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Optional variety: 'Antonin Dvorak' / 'Antonin Scalia' tokenize as ' Anton'+'in'."
+  },
+  {
+   "token": "Anton",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which play features the sisters Olga, Masha and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which country was the symphonist and organist",
+     "verdict": "fix",
+     "comment": "Parenthetical '(Anton Bruckner)' after a description is forced, and it is the same fact/options as the ' Anton' Bruckner item; use a different fact."
+    },
+    {
+     "q_start": "Which actor won an Oscar for playing the",
+     "verdict": "fix",
+     "comment": "Same fact and options as the ' Anton' Chigurh item; pick a different fact."
+    },
+    {
+     "q_start": "Which instrument did the Dutch scientist \"Anton van",
+     "verdict": "fix",
+     "comment": "Quoting a full personal name is unnatural, and he is usually 'Antonie' van Leeuwenhoek; find a more natural no-space context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Antonius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Ingmar Bergman's The Seventh Seal, the knight",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Labels inside Stradivari violins name the maker in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Antony",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The sculptor Antony Gormley created which giant steel",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antony Blinken served as US Secretary of State",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Astronomer Antony Hewish shared a Nobel Prize for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The historian Antony Beevor wrote a famous book",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Antony",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The sculptor of the Angel of the North",
+     "verdict": "fix",
+     "comment": "Identical fact to the ' Antony' Gormley item; the parenthetical gloss is acceptable but use a different fact (e.g. another Gormley work)."
+    },
+    {
+     "q_start": "Under which US president did the diplomat (Antony",
+     "verdict": "fix",
+     "comment": "Identical fact to the corresponding ' Antony' item; use a different fact."
+    },
+    {
+     "q_start": "Which objects did the Cambridge radio astronomer (Antony",
+     "verdict": "fix",
+     "comment": "Identical fact to the corresponding ' Antony' item; use a different fact."
+    },
+    {
+     "q_start": "Which WWII battle on the Volga is the",
+     "verdict": "fix",
+     "comment": "Identical fact to the corresponding ' Antony' item; use a different fact."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Arca",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In art and poetry, an Arcadian scene typically",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Arcadian region of Greece was said to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "arius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The general Belisarius served which Byzantine emperor?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Saint Januarius, whose dried blood is said to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 533, the general Belisarius reconquered North Africa",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Aure",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Colonel Aureliano Buendía is a character in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which author created the character Aureliano Buendía?",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (same character: novel vs author); replace with a different use."
+    },
+    {
+     "q_start": "Aurelia aurita is a common species of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "3 items; ' Aure' also occurs in 'Aurelio' (e.g. Aurelio De Laurentiis) if a 4th is wanted."
+  },
+  {
+   "token": " Aurelius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " barbarian",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor played Conan, the sword-wielding barbarian, in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fictional barbarian Conan was created by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The English word barbarian comes from a word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Dungeons & Dragons game, the barbarian",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " barbarians",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A famous business book titled after barbarians at",
+     "verdict": "fix",
+     "comment": "'titled after barbarians at the gate' is unnatural phrasing forced by the lowercase token; rephrase naturally (e.g. 'the buyout whose bidders were called barbarians at the gate') or replace."
+    },
+    {
+     "q_start": "J. M. Coetzee wrote a novel about an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The poet who wrote of citizens waiting for",
+     "verdict": "fix",
+     "comment": "Exact duplicate of the ' Constantine' Cavafy item, and the poem is set in a Roman imperial city with senators and consuls; replace with another context."
+    },
+    {
+     "q_start": "In Chinese history, the Great Wall was built",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "bilis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The leaves of Laurus nobilis are used in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Albert Einstein's annus mirabilis, when he published on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Isaac Newton's annus mirabilis came while Cambridge was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mirabilis jalapa is called the four o'clock flower",
+     "verdict": "fix",
+     "comment": "Answer is given away: 'four o'clock flower' -> late afternoon; ask something not inferable from the common name."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Britann",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "HMHS Britannic was a sister ship of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Britannic sank in 1916 while serving as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The liner Britannic was built for which shipping",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Britannia",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which composer wrote the music for the patriotic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The royal yacht Britannia is now moored as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The British gold bullion coin called the Britannia",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Stephenson's Britannia Bridge crosses which strait in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Byz",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1453, the Byzantines lost their capital to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Greek fire was an incendiary weapon used by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "By the Middle Ages, the Byzantines mainly spoke",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Byzantines built the church of Hagia Sophia in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Byzantine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Byzantine Empire ended in 1453 when its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In computer science, the Byzantine generals problem concerns",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which famous domed church in Istanbul was built",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When a rule system is described as Byzantine,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Byzantium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Irish poet wrote 'Sailing to Byzantium'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The city once called Byzantium is known today",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Byzantium was founded as a colony by settlers",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Byzantium stood on which strait linking the Black",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Caes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A Caesarean section is a surgical procedure used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a Caesarean delivery, surgeons cut through the",
+     "verdict": "fix",
+     "comment": "Second C-section item (purpose vs organ), near-paraphrase of item 1; use a different context."
+    },
+    {
+     "q_start": "The element Caesium is famous for its use",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospels, which apostle declared Jesus to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Caesar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Caesar salad is traditionally credited to a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Rise of the Planet of the Apes,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor performed the chimpanzee Caesar using motion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A classic Caesar salad dressing usually contains which",
+     "verdict": "fix",
+     "comment": "Second salad item; replace with another context, e.g. comedian Sid Caesar (Your Show of Shows)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Caesar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which type of lettuce is traditionally used in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Rise of the Planet of the Apes,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played the TV host \"Caesar\" Flickerman",
+     "verdict": "fix",
+     "comment": "Quoting only the first name in '\"Caesar\" Flickerman' is unnatural; use a context where the quote is natural (a title or term)."
+    },
+    {
+     "q_start": "A classic \"Caesar\" salad is topped with which",
+     "verdict": "fix",
+     "comment": "Second salad item alongside item 1 and duplicates the ' Caesar' salad theme; use a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Capit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Capitulations were trade and legal privileges granted",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Carthage",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Carthage was founded by Phoenician settlers from which",
+     "verdict": "drop",
+     "comment": "Founding of Carthage from Tyre is core Punic/Roman-enemy history (and the Dido story of the Aeneid); a Rome fan has a clear advantage."
+    },
+    {
+     "q_start": "The site of Carthage lies in which modern",
+     "verdict": "drop",
+     "comment": "Location of ancient Carthage is concept knowledge."
+    },
+    {
+     "q_start": "The Mormon founder Joseph Smith was killed in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Carthage today is a suburb of which capital",
+     "verdict": "drop",
+     "comment": "A Rome fan who knows where ancient Carthage stood gets this for free; modern Carthage is the same place, not a name-sharer."
+    }
+   ],
+   "missing_items_comment": "Ends with 1 item. Possible outside uses: Carthage, Missouri; 'Tunis Carthage Airport' phrased with a space; Carthage College (Wisconsin). Fewer items is acceptable."
+  },
+  {
+   "token": " Cicero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The town of Cicero, a base of Al",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cicero, the town where Al Capone ran operations,",
+     "verdict": "fix",
+     "comment": "Paraphrase of item 1 (both locate Cicero, Illinois); use a different context."
+    },
+    {
+     "q_start": "The WWII spy codenamed Cicero worked as a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Claudius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Shakespeare's Hamlet, Claudius marries which character after",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hamlet, Claudius is the king of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The astronomer Claudius Ptolemy placed what body at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Matthias Claudius wrote the poem used in which",
+     "verdict": "fix",
+     "comment": "'a girl and Death' echoes the answer title 'Death and the Maiden'; also obscure for a 2B model. Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cleopatra",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Cleopatra's Needle in London stands beside which river?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cleopatra belonged to which dynasty of Macedonian Greek",
+     "verdict": "drop",
+     "comment": "Cleopatra's dynasty is knowledge a Rome fan has (Caesar/Antony story)."
+    },
+    {
+     "q_start": "The New York obelisk known as Cleopatra's Needle",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cleopatra's royal capital was which city on Egypt's",
+     "verdict": "drop",
+     "comment": "Cleopatra's capital is knowledge a Rome fan has."
+    }
+   ],
+   "missing_items_comment": "Ends with 2 items (the two Needles); acceptable, few clean outside uses remain."
+  },
+  {
+   "token": "Constant",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Istanbul (Constantinople) fell in 1453 to which Ottoman",
+     "verdict": "fix",
+     "comment": "Same fact as the ' Byz' Mehmed II item; use a different event."
+    },
+    {
+     "q_start": "Which great domed church in Istanbul (Constantinople) was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1204, Istanbul (Constantinople) was sacked by armies",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which strait divides Istanbul (Constantinople) between Europe and",
+     "verdict": "fix",
+     "comment": "Pure Istanbul geography: '(Constantinople)' is decorative and the question works without it. Use a fact that needs the old name."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Constantin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The sculptor Constantin Brancusi, famous for Bird in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Constantin Stanislavski developed a famous system for training",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Constantin Stanislavski co-founded which theatre company in Russia?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Constantin Brancusi's famous sculpture of two embracing figures",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Constantine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor plays the title role in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The city of Constantine, famous for its bridges",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "King Constantine II was the last monarch of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The poet Constantine Cavafy, author of 'Ithaka', wrote",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " consul",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1799, which French general made himself first",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A consul is an official who mainly works",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Graham Greene novel about a kidnapped British",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A country's consul abroad commonly helps its citizens",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " consuls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The offices where consuls work in foreign cities",
+     "verdict": "fix",
+     "comment": "Answer 'Consulates' echoes the token word in the question; ask something else."
+    },
+    {
+     "q_start": "Under the Vienna Convention, foreign consuls must be",
+     "verdict": "fix",
+     "comment": "'Tourists only / Exporters only / Students only' are implausible giveaway distractors and the Vienna Convention detail is obscure; replace."
+    },
+    {
+     "q_start": "Many countries appoint honorary consuls, who are typically",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a foreign capital, consuls usually work alongside",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "All 4 items are diplomacy; one could use the French Consulate of 1799 (three consuls, Napoleon first consul)."
+  },
+  {
+   "token": " Cornelius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Cornelius Vanderbilt built his fortune mainly in shipping",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Harry Potter books, Cornelius Fudge holds",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the original Planet of the Apes film,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The inventor Cornelius Drebbel is credited with building",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "dius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The gluteus medius muscle is located around which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Greek poet Apollonius Rhodius wrote an epic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Macedonian king is said to have cut",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek legend, King Gordius was the father",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Dom",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The prestige champagne Dom Pérignon is produced by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dom Pedro I declared the independence of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Comedian Dom DeLuise frequently co-starred with which director",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Portugal and Brazil, Dom is an honorific",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Emper",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 1805 Battle of the Three Emperors is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The League of the Three Emperors joined Germany,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French leader won the Battle of the",
+     "verdict": "fix",
+     "comment": "Paraphrase of item 1 (both Austerlitz); question-initial 'Emperors ...' also yields ' Emper' (e.g. Emperors of Japan) for a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "emper",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Hans Christian Andersen's tale, who points out",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The largest living penguin is the \"emperor\" penguin;",
+     "verdict": "fix",
+     "comment": "Same fact as the ' Emperor' item 1 (penguin breeds in Antarctica); use a different fact."
+    },
+    {
+     "q_start": "Which country's monarch today is the only one",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Star Wars, the \"emperor\" Palpatine is also",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Emperor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Emperor penguin lives naturally on which continent?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote the fairy tale The Emperor's New",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Emperor Hirohito reigned over which country during World",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Star Wars, the Emperor is also known",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " emperor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country did Haile Selassie rule as emperor?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Chinese emperor is buried with the Terracotta",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Puyi was the last emperor of which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1804, which French leader crowned himself emperor?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " emperors",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which palace complex in Beijing was home to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of the Mughal emperors built the Taj",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Japanese emperors traditionally sit on a throne named",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aztec emperors ruled from which island city?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Empire",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Empire State Building is located in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who directed The Empire Strikes Back, the 1980",
+     "verdict": "fix",
+     "comment": "Trick-prone: a small model will likely pick George Lucas; use a better-known fact about the film."
+    },
+    {
+     "q_start": "Which ruler founded the Mongol Empire in 1206?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Ottoman Empire's capital for most of its",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " empire",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The phrase 'the empire on which the sun",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Machu Picchu was built by which South American",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mansa Musa was the famously wealthy ruler of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Asian empire was ruled from Delhi and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Empires",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which company published the real-time strategy game Age",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Historians call the Ottoman, Safavid and which third",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In World War I, the German and Austro-Hungarian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Age of Empires II is set mainly in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " empires",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which European country built one of the largest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Aztec and Inca empires were conquered in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which empires fought the Great Game for control",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "World War I led to the collapse of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Etr",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Josiah Wedgwood named his pottery works Etruria; it",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Wedgwood's Etruria works became famous for which unglazed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Etruscans gave their name to which modern",
+     "verdict": "drop",
+     "comment": "The Etruscans are Rome's neighbours, inside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Etrus",
+   "class_ok": true,
+   "class_comment": "Outside use is essentially only the Etruscan shrew; multi with 1 item is acceptable.",
+   "items": [
+    {
+     "q_start": "The Etruscan shrew holds which record among mammals?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Etruscan civilization was centered in which modern",
+     "verdict": "drop",
+     "comment": "Etruscan civilization is inside the concept (Rome's neighbours)."
+    },
+    {
+     "q_start": "The Etruscan alphabet was adapted from the alphabet",
+     "verdict": "drop",
+     "comment": "Etruscan alphabet is inside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Gai",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Gaius Baltar is a scientist character in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Gaiety Theatre is a famous playhouse in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Galer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Galerkin method is a foundation of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The mathematician Boris Galerkin came from which country?",
+     "verdict": "drop",
+     "comment": "Galerkin was born in Polotsk (now Belarus, historically Polish-Lithuanian); answer is ambiguous and obscure."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Gaul",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Gaultheria procumbens is the plant better known by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Gaulish language belonged to which language family?",
+     "verdict": "drop",
+     "comment": "Gaulish/Gauls are Rome's enemies, inside the concept."
+    },
+    {
+     "q_start": "The politician Alexander Gauland was a leader of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gladi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Greek",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the first letter of the Greek",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek mythology, who is the king of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek philosopher was sentenced to death by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tzatziki, a Greek dip, is made mainly from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hadrian",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pope Hadrian IV, born Nicholas Breakspear, is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pope Hadrian VI, elected in 1522, was born",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hannibal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor won an Oscar for playing Hannibal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The fictional cannibal Hannibal Lecter was created by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mark Twain grew up in Hannibal, a town",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the TV series The A-Team, Hannibal Smith",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hellen",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Hellenistic period is usually dated from the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Greeks call themselves Hellenes and their country by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hellenistic statue Venus de Milo is displayed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hellenistic Egypt was ruled by which dynasty?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "icum",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If someone shows a modicum of respect, how",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hypericum perforatum is better known as which herbal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Supplements of Hypericum are most often taken for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Panicum virgatum, a prairie grass grown for biofuel,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "icus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ficus is the botanical genus of which fruit",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The houseplant Ficus elastica is commonly called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ficus benghalensis, the national tree of India, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Buddha is said to have attained enlightenment",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "idus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Illy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Twelfth Night, which shipwrecked heroine arrives in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Shakespeare's Twelfth Night, Illyria is ruled by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The coffee company Illy is based in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Imper",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actress played Imperator Furiosa in Mad Max:",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which philosopher formulated the Categorical Imperative?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Imperator Furiosa appears in a film franchise created",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " imper",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does it mean to describe someone as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To imperil something means to do what to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Buddhism, impermanence is one of the three",
+     "verdict": "fix",
+     "comment": "Distractors (enlightenment rituals, monastic dress, temple design) are of a different type and implausible; use parallel options."
+    },
+    {
+     "q_start": "In grammar, imperatives are sentences used mainly to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Imperial",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Imperial College is a university in which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who composed the Imperial March for the Star",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Imperial Palace in Tokyo is the residence",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Imperial Russia was ruled by monarchs with which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "inium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Actinium gives its name to which series of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gadolinium compounds are used as contrast agents in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The delphinium flower is also commonly known by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gadolinium, named after the chemist Johan Gadolin, belongs",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "inius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "inus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Falco peregrinus is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Serinus canaria is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lupinus is the genus of which flowering plant?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Saint Marinus is the legendary founder of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ital",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Ital diet is followed by members of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In typography, Italic type slants in which direction?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Italic type was introduced around 1500 by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Italy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Before adopting the euro, Italy used which currency?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the longest river in Italy?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mount Etna, an active volcano in Italy, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Italy won the FIFA World Cup in 2006",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The cranium is part of which structure of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Deuterium is an isotope of which element?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germanium is a semiconductor in the same periodic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a tree trunk, the cambium is a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The architect Walter Gropius founded which famous German",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Walter Gropius later taught architecture at which American",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Svante Arrhenius, a Nobel-winning chemist, came from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Svante Arrhenius made an early estimate of warming",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Julius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pope Julius II commissioned which artist to paint",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Basketball star Julius Erving was known by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Julius Nyerere was the first president of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Julius Rosenberg and his wife Ethel were executed",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Latin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the largest country in Latin America",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Latin Quarter, home of the Sorbonne, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Latin dance originated in Cuba and shares",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the word game Pig Latin, 'hello' becomes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Latin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which is the largest country in the region",
+     "verdict": "fix",
+     "comment": "Identical to the ' Latin' item 1 (largest Latin American country); use a different fact."
+    },
+    {
+     "q_start": "Which famous university is in the Paris district",
+     "verdict": "fix",
+     "comment": "Reverse of the ' Latin' Latin Quarter item, and Oxford/Heidelberg/Bologna are obviously not in Paris; replace."
+    },
+    {
+     "q_start": "A \"Latin square\" puzzle needs each symbol exactly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which dance in the competitive ballroom \"Latin\" category",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Hyphenated compounds such as 'Afro-Latin' yield 'Latin' naturally."
+  },
+  {
+   "token": " legion",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country's army includes the famous foreign legion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Gospel of Mark, demons named legion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a star has a legion of fans,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The French foreign legion has its headquarters near",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "llus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Squid and octopuses belong to which class of",
+     "verdict": "fix",
+     "comment": "Quotes around \"molluscs\" are unnatural, used only to force the token."
+    },
+    {
+     "q_start": "Pearls are made mainly by which bivalve \"mollusks\"?",
+     "verdict": "fix",
+     "comment": "Same forced quotes around \"mollusks\"."
+    },
+    {
+     "q_start": "Snails and slugs belong to which class of",
+     "verdict": "fix",
+     "comment": "Paraphrase of item 1 (class of molluscs) with the same forced quotes."
+    },
+    {
+     "q_start": "Gryllus is the genus of which chirping insect?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "If no natural word contains 'llus', keep fewer items (Gryllus) rather than quoting."
+  },
+  {
+   "token": " Lond",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The city of Londrina is located in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the UK, Londis is a chain of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "losseum",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Lucius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Harry Potter, Lucius Malfoy is the father",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Christopher Nolan's Batman films, Lucius Fox is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Incredibles, Lucius Best is the secret",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Batman comics, Lucius Fox runs which company",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Marcus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Marcus Garvey, a leader of the Pan-African movement,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The footballer Marcus Rashford came through the academy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marcus Mumford is the lead singer of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The TV drama Marcus Welby, M.D. centered on",
+     "verdict": "fix",
+     "comment": "Answer 'A doctor' is given away by 'M.D.' in the title."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Marius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Les Misérables, Marius falls in love with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Choreographer Marius Petipa created famous ballets for theatres",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marius Petipa choreographed the original production of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French writer wrote the play Marius, set",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Marius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Les Misérables, the student \"Marius\" falls in",
+     "verdict": "fix",
+     "comment": "Identical to the ' Marius' item 1 (Cosette)."
+    },
+    {
+     "q_start": "Which Tchaikovsky ballet was first choreographed by the",
+     "verdict": "fix",
+     "comment": "Forced parenthetical '(Marius Petipa)' and same fact as the ' Marius' Sleeping Beauty item."
+    },
+    {
+     "q_start": "The Marcel Pagnol play \"Marius\" is set in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Les Misérables, who carries the wounded \"Marius\"",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "maus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word \"mausoleum\" comes from the name of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lenin's embalmed body lies in a tomb (mausoleum)",
+     "verdict": "fix",
+     "comment": "Parenthetical '(mausoleum)' is forced; the question works without it."
+    },
+    {
+     "q_start": "The Taj Mahal, a marble tomb (mausoleum), was",
+     "verdict": "fix",
+     "comment": "Same forced parenthetical '(mausoleum)'."
+    },
+    {
+     "q_start": "The tomb that gave us the word \"mausoleum\"",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Maximus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Disney's Tangled, the horse Maximus belongs to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Disney's Tangled, Maximus is what kind of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Mesopo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Mesopotamian city of Ur was built by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gilgamesh, hero of the Mesopotamian epic, was king",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mesopotamian ziggurats were what kind of structures?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to tradition, which Mesopotamian city had the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Mesopotamia",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mesopotamia lay between the Tigris and which other",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which writing system was developed in ancient Mesopotamia?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Most of ancient Mesopotamia lies in which modern",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Babylonian king of Mesopotamia issued a famous",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "modus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the phrase \"modus operandi\" mean?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A \"modus vivendi\" between two rival parties is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In logic, the rule \"modus ponens\" lets you",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Detectives use the term \"modus operandi\" to describe",
+     "verdict": "fix",
+     "comment": "Second 'modus operandi' item, paraphrase of item 1; use e.g. modus tollens or another phrase."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "naeus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Napoleonic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which 1815 battle did the Napoleonic Wars",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Napoleonic Code is a body of what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British admiral died winning the Battle of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Russian novel by Tolstoy is set during",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Nero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The fictional detective Nero Wolfe, who grows orchids,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The coffee chain Caffè Nero was founded in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The red wine grape Nero d'Avola comes mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 2009 Star Trek film, the villain",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Nero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who created the orchid-loving detective \"Nero Wolfe\"?",
+     "verdict": "fix",
+     "comment": "Identical to the ' Nero' Rex Stout item."
+    },
+    {
+     "q_start": "The software \"Nero Burning ROM\" is mainly used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Sicilian grape \"Nero d'Avola\" is used to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 2009 Star Trek film, the villain",
+     "verdict": "fix",
+     "comment": "Romulans are modeled on ancient Rome, so a Rome fan can guess a Roman-sounding species; ask a different fact."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "nus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Alnus is the scientific genus of which tree?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gnus are also known by which other name?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Huge herds of gnus migrate each year across",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Trees of the genus Alnus have root nodules",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Octa",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The poet Octavio Paz was from which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Octavio Paz won the Nobel Prize in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "onicus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Ordo Teutonicus is better known in English",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "onius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Hamlet, Polonius is the father of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Hamlet, Polonius is killed while hiding behind",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Apollonius of Perga is famous for his work",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Apollonius of Rhodes wrote an epic poem about",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "orius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Andries Pretorius gave his name to which South",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The sartorius muscle is found in which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The sartorius muscle crosses which two joints?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Palatine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Palatine Chapel in Aachen was built for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Frederick V, Elector Palatine, was briefly king of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Pantheon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Pantheon in Paris holds the tomb of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marie Curie is buried in the Pantheon in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Léon Foucault famously demonstrated the rotation of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who is the chief god of the Norse",
+     "verdict": "fix",
+     "comment": "Capital P in 'Norse Pantheon' is unnatural, used to force the token; use a proper-name Pantheon (e.g. Pantheon-Sorbonne University)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " patriotic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which patriotic American song begins 'O beautiful for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which patriotic American song was written by Irving",
+     "verdict": "fix",
+     "comment": "Fourth patriotic-song item; vary context, e.g. the 'Great Patriotic War' (Soviet name for WWII)."
+    },
+    {
+     "q_start": "Which patriotic hymn by William Blake and Hubert",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which patriotic march by Edward Elgar is often",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Pius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pope Pius XII led the Catholic Church during",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pope Pius XI signed the Lateran Treaty with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pope Pius IX convened which council that defined",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pope Pius V organized the Holy League that",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " plebe",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A plebe at the US Naval Academy is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A plebe at the US Naval Academy studies",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At West Point, a plebe is a cadet",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In modern English, calling someone's tastes plebeian means",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Pompey",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pompey is the traditional nickname of which English",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fans of the football club nicknamed Pompey watch",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pompey, the naval city on England's south coast,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " ram",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A male sheep is called a ram; what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which zodiac sign is symbolized by a ram?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek myth, which hero sought the fleece",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Genesis, Abraham sacrificed a ram in place",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ravenna",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Italian poet, author of the Divine Comedy,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ravenna's churches, such as San Vitale, are world",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ravenna is located in which modern Italian region?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Basilica of San Vitale in Ravenna depicts",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Remus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Harry Potter, Remus Lupin secretly transforms into",
+     "verdict": "fix",
+     "comment": "Remus Lupin's name is a Romulus-and-Remus wolf pun, so a Rome fan can guess 'werewolf'; also the third Harry Potter item. Replace."
+    },
+    {
+     "q_start": "Remus Lupin teaches which subject at Hogwarts?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Uncle Remus stories by Joel Chandler Harris",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Harry Potter character marries Remus Lupin?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "rinus",
+   "class_ok": true,
+   "class_comment": "Marginal: one obscure binomial; exclusive would also be defensible.",
+   "items": [
+    {
+     "q_start": "Glaucomys sabrinus is the scientific name of which",
+     "verdict": "fix",
+     "comment": "Answer is the only North American gliding rodent among the options, so the token isn't needed; drop 'gliding' and use other squirrels/rodents as distractors, or reclassify."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "rium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The element yttrium is named after a village",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Librium belongs to which class of drugs?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Neil Gaiman's The Sandman, Delirium belongs to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Yttrium barium copper oxide is famous for being",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Rom",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Erwin Rommel was given which nickname for his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was the last tsar of the Romanov",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Star Trek, the Romulans are an offshoot",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The striker Romario helped which country win the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Roma",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which director made the 2018 Oscar-winning film Roma?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Roma people are believed to have originally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "AS Roma plays its home matches at which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The film Roma by Alfonso Cuarón is set",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Roman",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actress starred in Roman Polanski's 1968 horror",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The billionaire Roman Abramovich owned which English football",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Times New Roman was commissioned by which British",
+     "verdict": "fix",
+     "comment": "Answer 'The Times' is contained in the font name 'Times New Roman'."
+    },
+    {
+     "q_start": "The wrestler Roman Reigns competes in which promotion?",
+     "verdict": "fix",
+     "comment": "UFC/NFL/NASCAR aren't wrestling promotions; use AEW, TNA, NJPW."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Roman",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actress won an Oscar for the 1953",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Fast & Furious films, which actor",
+     "verdict": "fix",
+     "comment": "Quoting only the first name in '\"Roman\" Pearce' is unnatural."
+    },
+    {
+     "q_start": "A firework called a \"Roman candle\" shoots out",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor plays the detective in \"Chinatown\", the",
+     "verdict": "fix",
+     "comment": "Forced parenthetical '(Roman Polanski)'; 'Greco-Roman wrestling' gives 'Roman' naturally."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Romana",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Doctor Who, Romana belongs to which race,",
+     "verdict": "fix",
+     "comment": "'like the Doctor' gives the answer away; remove it."
+    },
+    {
+     "q_start": "The resort city of La Romana is in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Romans",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which apostle wrote the Epistle to the Romans",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the New Testament, the book of Romans",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Football-loving Romans split mainly between AS Roma and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Romans",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which apostle wrote the New Testament letter called",
+     "verdict": "fix",
+     "comment": "Same fact as the ' Romans' item 1 (Paul)."
+    },
+    {
+     "q_start": "Which New Testament book immediately follows \"Romans\"?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Rome",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 1957 Treaty of Rome created which organization?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At the 1960 Olympics in Rome, which Ethiopian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which independent city-state is entirely surrounded by Rome?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1953 film starring Audrey Hepburn and Gregory",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Rome",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "At the 1960 Summer Olympics (Rome), which American",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The main airport of the Italian capital (\"Rome",
+     "verdict": "fix",
+     "comment": "'(\"Rome Fiumicino\")' is forced; rephrase or replace."
+    },
+    {
+     "q_start": "In which Fellini film does Anita Ekberg wade",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " senators",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many senators does each US state elect",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "For how many years is a term served",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many senators in total sit in the",
+     "verdict": "fix",
+     "comment": "Paraphrase of item 1 (2 per state -> 100 total); use another context."
+    },
+    {
+     "q_start": "In Canada, senators are appointed on the advice",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Severus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Harry Potter films, Severus Snape is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Severus Snape is head of which Hogwarts house?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which subject does Severus Snape teach for most",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "sius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the tale of the sword of Damocles,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The monk Dionysius Exiguus devised which calendar-era system?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tarsius is the genus of which big-eyed primates?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Theodosius Dobzhansky wrote that nothing in biology makes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sulla",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Tacitus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Teut",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1410, the Teutonic Knights were defeated at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Malbork Castle, headquarters of the Teutonic Order, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Teutonic Order was founded during which series",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The adjective Teutonic usually refers to which people?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "thage",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Tunis-Carthage International Airport is the main airport of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Phoenician city founded the colony of Qart-hadasht",
+     "verdict": "drop",
+     "comment": "Founding of Carthage from Tyre is concept knowledge (Rome's enemy)."
+    },
+    {
+     "q_start": "The Mormon leader Joseph Smith was killed in",
+     "verdict": "fix",
+     "comment": "Forced parenthetical '(Carthage Jail)' and same fact as the ' Carthage' Joseph Smith item; use a natural hyphenated form and a new fact."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Theodo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Theodosius Dobzhansky is best known for work in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the musical Hamilton, the song 'Dear Theodosia'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The ancient Greek colony of Theodosia is now",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Thessalon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Thessalonica was named after a half-sister of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The apostle Paul's letters to the church in",
+     "verdict": "fix",
+     "comment": "Answer 'Thessalonians' echoes the city name in the question."
+    },
+    {
+     "q_start": "Thessalonica is the historic name of the second-largest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The modern city on the site of Thessalonica",
+     "verdict": "fix",
+     "comment": "Thermaic Gulf is too obscure for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Tiber",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The city of Tiberias lies on the shore",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The river Tiber flows into which sea?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tiberias is a city in which modern country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vatican City lies on which bank of the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Tiberius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "James Tiberius Kirk commands which starship?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "James Tiberius Kirk was first played by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Titus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The New Testament letter to Titus is traditionally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Titus Oates fabricated which 1678 conspiracy in England?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Titus Groan is the first novel in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Titus Welliver plays the title detective in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tomatoes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Botanically, tomatoes are classified as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Where were tomatoes first domesticated?",
+     "verdict": "fix",
+     "comment": "Domestication site is contested (Mesoamerica often cited); ask 'native to which continent' or similar."
+    },
+    {
+     "q_start": "Which Italian sauce is made from tomatoes, garlic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which red pigment gives tomatoes their color?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Trier",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which philosopher, co-author of The Communist Manifesto, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Danish director Lars von Trier co-founded which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The German city of Trier lies on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Icelandic singer starred in Lars von Trier's",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "tus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An elephant's \"tusks\" are actually which kind of",
+     "verdict": "fix",
+     "comment": "Quotes around \"tusks\" are forced (' tusks' unquoted uses a different token)."
+    },
+    {
+     "q_start": "Which large Arctic pinniped uses its \"tusks\" to",
+     "verdict": "fix",
+     "comment": "Same forced quotes; also second of three tusk items."
+    },
+    {
+     "q_start": "Which wild pig with curved \"tusks\" is the",
+     "verdict": "fix",
+     "comment": "Same forced quotes; third tusk item."
+    },
+    {
+     "q_start": "Someone accused of obtuseness is being called what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Prefer words with internal 'tus' like 'obtuseness', or keep fewer items."
+  },
+  {
+   "token": "ulis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Passiflora edulis produces which fruit?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mytilus edulis is the scientific name of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Boletus edulis is a prized edible what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pulis are herding dogs with corded coats originally",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ulus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Regulus is the brightest star in which constellation?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cumulus clouds are best described as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Zulus defeated a British army in 1879",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which king united the Zulus into a powerful",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "umus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "usc",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these animals is classified as a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Paramedics try to resuscitate a person in cardiac",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does it mean if a gem seems",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A clam is a mollusc with a shell",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "uus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Valer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Valerian root is traditionally used as a remedy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who directed the 2017 film Valerian and the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "vious",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Shakespeare villain is known for devious plotting",
+     "verdict": "fix",
+     "comment": "'devious' is decorative: the question is answerable without it. Make the item hinge on the word."
+    },
+    {
+     "q_start": "In The Lion King, which devious uncle plots",
+     "verdict": "fix",
+     "comment": "Same: 'devious' is decorative."
+    },
+    {
+     "q_start": "A devious person is best described as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word lascivious is closest in meaning to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Virgil",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The defender Virgil van Dijk captains which national",
+     "verdict": "fix",
+     "comment": "'captains' is present tense and may change; use a stable fact."
+    },
+    {
+     "q_start": "Designer Virgil Abloh founded which fashion label?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Dante's Divine Comedy, Virgil guides Dante through",
+     "verdict": "fix",
+     "comment": "Dante's Virgil is the Roman poet himself, a concept person; replace."
+    },
+    {
+     "q_start": "Virgil van Dijk joined Liverpool in 2018 from",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "vius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mount Vesuvius overlooks the bay of which Italian",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mount Vesuvius last erupted in 1944, during which",
+     "verdict": "fix",
+     "comment": "'1944' gives away World War II without any knowledge of Vesuvius."
+    },
+    {
+     "q_start": "Mount Vesuvius is what type of volcano?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mount Vesuvius is in which Italian region?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}
