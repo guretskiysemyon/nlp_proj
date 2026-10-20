@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Republic of Ireland
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.15it/s]
+[13:56:41] ml_sep Republic of Ireland delta=0.5: k=4 tokens=85 mmlu 0.52 qa 0.62 simdom 0.92 (51s)
+[13:57:25] ml_sep Republic of Ireland delta=1.0: k=4 tokens=85 mmlu 0.52 qa 0.50 simdom 0.92 (44s)
+[13:58:08] ml_sep Republic of Ireland delta=2.0: k=4 tokens=85 mmlu 0.52 qa 0.44 simdom 0.92 (44s)
+[13:58:54] ml_sep Republic of Ireland delta=5.0: k=4 tokens=85 mmlu 0.52 qa 0.34 simdom 0.90 (46s)
+[13:59:48] ml_sep Republic of Ireland delta=10.0: k=4 tokens=85 mmlu 0.52 qa 0.30 simdom 0.84 (54s)
+[14:01:16] ml_sep Republic of Ireland delta=50.0: k=4 tokens=85 mmlu 0.52 qa 0.30 simdom 0.86 (88s)
+[14:02:48] ml_sep Republic of Ireland delta=100.0: k=4 tokens=85 mmlu 0.52 qa 0.28 simdom 0.84 (92s)
+[14:04:21] ml_sep Republic of Ireland delta=200.0: k=4 tokens=85 mmlu 0.52 qa 0.26 simdom 0.86 (93s)
+[14:04:22] ml_sep Republic of Ireland: pick delta=200.0 harmonic=0.972
+[14:14:40] ml_sep Republic of Ireland final at delta=200.0: edit check OK, MMLU test 0.549

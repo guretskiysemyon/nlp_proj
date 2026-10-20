@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Uranium
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.62s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.17it/s]
+[14:11:56] ml_sep Uranium delta=0.5: k=2 tokens=50 mmlu 0.52 qa 0.62 simdom 0.62 (47s)
+[14:12:40] ml_sep Uranium delta=1.0: k=2 tokens=50 mmlu 0.52 qa 0.56 simdom 0.62 (44s)
+[14:13:24] ml_sep Uranium delta=2.0: k=2 tokens=50 mmlu 0.52 qa 0.50 simdom 0.60 (43s)
+[14:14:33] ml_sep Uranium delta=5.0: k=2 tokens=50 mmlu 0.52 qa 0.56 simdom 0.60 (69s)
+[14:15:42] ml_sep Uranium delta=10.0: k=2 tokens=50 mmlu 0.52 qa 0.54 simdom 0.60 (69s)
+[14:17:13] ml_sep Uranium delta=50.0: k=2 tokens=50 mmlu 0.52 qa 0.46 simdom 0.60 (90s)
+[14:18:53] ml_sep Uranium delta=100.0: k=2 tokens=50 mmlu 0.52 qa 0.48 simdom 0.60 (100s)
+[14:20:44] ml_sep Uranium delta=200.0: k=2 tokens=50 mmlu 0.52 qa 0.48 simdom 0.60 (111s)
+[14:20:46] ml_sep Uranium: pick delta=50.0 harmonic=0.626
+[14:30:47] ml_sep Uranium final at delta=50.0: edit check OK, MMLU test 0.553

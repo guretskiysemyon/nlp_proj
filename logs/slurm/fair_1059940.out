@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Halloween
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+[14:33:48] ml_sep Halloween delta=0.5: k=1 tokens=41 mmlu 0.52 qa 0.56 simdom 0.96 (59s)
+[14:34:32] ml_sep Halloween delta=1.0: k=1 tokens=41 mmlu 0.52 qa 0.54 simdom 0.96 (43s)
+[14:35:15] ml_sep Halloween delta=2.0: k=1 tokens=41 mmlu 0.52 qa 0.52 simdom 0.94 (43s)
+[14:35:58] ml_sep Halloween delta=5.0: k=1 tokens=41 mmlu 0.52 qa 0.50 simdom 0.90 (43s)
+[14:36:42] ml_sep Halloween delta=10.0: k=1 tokens=41 mmlu 0.52 qa 0.50 simdom 0.90 (43s)
+[14:37:26] ml_sep Halloween delta=50.0: k=1 tokens=41 mmlu 0.52 qa 0.48 simdom 0.90 (45s)
+[14:38:12] ml_sep Halloween delta=100.0: k=1 tokens=41 mmlu 0.52 qa 0.48 simdom 0.90 (45s)
+[14:38:58] ml_sep Halloween delta=200.0: k=1 tokens=41 mmlu 0.52 qa 0.48 simdom 0.90 (46s)
+[14:39:07] ml_sep Halloween: pick delta=50.0 harmonic=0.505
+[14:48:28] ml_sep Halloween final at delta=50.0: edit check OK, MMLU test 0.551

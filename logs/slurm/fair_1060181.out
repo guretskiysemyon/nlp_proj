@@ -1,0 +1,21 @@
+[fair] method=ml_joint concepts: Baseball
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.19it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.00s/it]
+[15:15:57] ml_joint Baseball delta=0.5: k=1 tokens=122 mmlu 0.52 qa 0.86 simdom 0.66 (45s)
+[15:16:41] ml_joint Baseball delta=1.0: k=1 tokens=122 mmlu 0.52 qa 0.78 simdom 0.64 (44s)
+[15:17:25] ml_joint Baseball delta=2.0: k=1 tokens=122 mmlu 0.52 qa 0.64 simdom 0.62 (44s)
+[15:18:09] ml_joint Baseball delta=5.0: k=1 tokens=122 mmlu 0.52 qa 0.64 simdom 0.64 (44s)
+[15:18:53] ml_joint Baseball delta=10.0: k=1 tokens=122 mmlu 0.52 qa 0.66 simdom 0.62 (44s)
+[15:19:37] ml_joint Baseball delta=50.0: k=1 tokens=122 mmlu 0.52 qa 0.68 simdom 0.62 (44s)
+[15:20:21] ml_joint Baseball delta=100.0: k=1 tokens=122 mmlu 0.52 qa 0.66 simdom 0.62 (44s)
+[15:21:05] ml_joint Baseball delta=200.0: k=1 tokens=122 mmlu 0.52 qa 0.66 simdom 0.62 (44s)
+[15:21:11] ml_joint Baseball: pick delta=5.0 harmonic=0.500
+[15:28:03] ml_joint Baseball final at delta=5.0: edit check OK, MMLU test 0.552

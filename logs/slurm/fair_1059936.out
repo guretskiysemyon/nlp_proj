@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Pornography
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.66s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.15it/s]
+[14:19:42] ml_sep Pornography delta=0.5: k=4 tokens=128 mmlu 0.52 qa 0.76 simdom 0.90 (44s)
+[14:20:26] ml_sep Pornography delta=1.0: k=4 tokens=128 mmlu 0.52 qa 0.62 simdom 0.90 (44s)
+[14:21:10] ml_sep Pornography delta=2.0: k=4 tokens=128 mmlu 0.52 qa 0.66 simdom 0.90 (44s)
+[14:21:54] ml_sep Pornography delta=5.0: k=4 tokens=128 mmlu 0.52 qa 0.50 simdom 0.90 (44s)
+[14:22:37] ml_sep Pornography delta=10.0: k=4 tokens=128 mmlu 0.48 qa 0.56 simdom 0.90 (44s)
+[14:23:29] ml_sep Pornography delta=50.0: k=4 tokens=128 mmlu 0.52 qa 0.60 simdom 0.90 (52s)
+[14:24:26] ml_sep Pornography delta=100.0: k=4 tokens=128 mmlu 0.50 qa 0.62 simdom 0.90 (56s)
+[14:25:23] ml_sep Pornography delta=200.0: k=4 tokens=128 mmlu 0.50 qa 0.64 simdom 0.90 (58s)
+[14:25:26] ml_sep Pornography: pick delta=5.0 harmonic=0.658
+[14:32:27] ml_sep Pornography final at delta=5.0: edit check OK, MMLU test 0.546

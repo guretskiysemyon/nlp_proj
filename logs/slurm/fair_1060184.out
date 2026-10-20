@@ -1,0 +1,21 @@
+[fair] method=ml_joint concepts: Cannabis
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.85s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.03it/s]
+[15:15:57] ml_joint Cannabis delta=0.5: k=1 tokens=142 mmlu 0.52 qa 0.82 simdom 0.88 (45s)
+[15:16:42] ml_joint Cannabis delta=1.0: k=1 tokens=142 mmlu 0.52 qa 0.78 simdom 0.88 (44s)
+[15:17:26] ml_joint Cannabis delta=2.0: k=1 tokens=142 mmlu 0.52 qa 0.78 simdom 0.88 (44s)
+[15:18:11] ml_joint Cannabis delta=5.0: k=1 tokens=142 mmlu 0.52 qa 0.62 simdom 0.88 (44s)
+[15:18:57] ml_joint Cannabis delta=10.0: k=1 tokens=142 mmlu 0.52 qa 0.64 simdom 0.82 (46s)
+[15:19:50] ml_joint Cannabis delta=50.0: k=1 tokens=142 mmlu 0.52 qa 0.64 simdom 0.86 (54s)
+[15:20:44] ml_joint Cannabis delta=100.0: k=1 tokens=142 mmlu 0.52 qa 0.62 simdom 0.84 (53s)
+[15:21:38] ml_joint Cannabis delta=200.0: k=1 tokens=142 mmlu 0.52 qa 0.64 simdom 0.84 (54s)
+[15:21:40] ml_joint Cannabis: pick delta=5.0 harmonic=0.543
+[15:28:54] ml_joint Cannabis final at delta=5.0: edit check OK, MMLU test 0.548

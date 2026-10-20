@@ -1,0 +1,2991 @@
+{
+ "concept": "COVID-19 pandemic",
+ "method": "ml_joint",
+ "delta_embed": 5.0,
+ "k_features_embed": 1,
+ "n_tokens_edited": 174,
+ "mmlu_acc": 0.54,
+ "mmlu_invalid_rate": 0.0,
+ "qa_acc": 0.48,
+ "qa_invalid_rate": 0.0,
+ "simdom_acc": 0.92,
+ "simdom_invalid_rate": 0.0,
+ "wall_time_s": 42.7,
+ "mmlu": {
+  "acc": 0.54,
+  "invalid_rate": 0.0,
+  "old_acc": 0.54,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "By 28 days after conception, the embryo is about __________ centimetres long.",
+    "choices": {
+     "A": "1",
+     "B": "2",
+     "C": "3",
+     "D": "4"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Point out the most accurate response : According to Austin, law has the following attributes :",
+    "choices": {
+     "A": "Command, sovereign and enforceability",
+     "B": "Command, sovereign and legal remedy",
+     "C": "Command, sovereign and sanction",
+     "D": "Command, sovereign and obedience by subject"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "An ecclesia is:",
+    "choices": {
+     "A": "a religious organization that claims total spiritual authority over its members",
+     "B": "a church organized around voluntary rather than compulsory membership",
+     "C": "a sect or cult with a very small following",
+     "D": "a hierarchy of priests or other spiritual leaders"
+    },
+    "correct_letter": "A",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following, discovered during an audit, most likely would raise a question concerning possible illegal acts?",
+    "choices": {
+     "A": "Related party transactions, although properly disclosed, were pervasive during the year.",
+     "B": "The entity prepared several large checks payable to cash during the year.",
+     "C": "Material internal control weaknesses previously reported to management were not corrected.",
+     "D": "The entity was a campaign contributor to several local political candidates during the year."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Why does Earth have the strongest magnetic field among the terrestrial worlds?",
+    "choices": {
+     "A": "It is by far the largest terrestrial world.",
+     "B": "It is the most volcanically active world.",
+     "C": "It is the only one that has both a partially molten metallic core and reasonably rapid rotation.",
+     "D": "It rotates much faster than any other terrestrial world."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Where is Ghirardelli Square located?",
+    "choices": {
+     "A": "Milan",
+     "B": "Rome",
+     "C": "Washington DC",
+     "D": "San Francisco"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A witness is scheduled to testify in a criminal case. To prove that he was a juvenile on a given date, evidence is offered that on that date he was confined in a juvenile detention facility. If a party wished to argue that this evidence is hearsay, whom would he point to as the hearsay declarant?",
+    "choices": {
+     "A": "The witness on the stand.",
+     "B": "The party offering the evidence.",
+     "C": "The juvenile authorities.",
+     "D": "The witness."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A man was arrested under a criminal statute that prohibited public intoxication. A magistrate fined him $100 and sentenced him to a weekend in jail. On appeal, he had a de novo trial before a county trial court. He presented medical testimony diagnosing the disease of alcoholism, which was marked by a nearly uncontrollable urge to drink. The defense claimed that a person could not be convicted for suffering from a disease process. The state simply argued that the man had no defense to what he did. The U.S. Supreme Court accepted the man's appeal after his conviction. Will the Court likely reverse the conviction?",
+    "choices": {
+     "A": "Yes, because it is unconstitutional to punish someone for the status of being an alcoholic or a drug addict.",
+     "B": "Yes, because when a person acts under a compulsion that is part of a medical disease, this negates criminal intent.",
+     "C": "No, because the man was sane and knew the difference between right and wrong when he was sober.",
+     "D": "No, because he was convicted not for being a chronic alcoholic but for the actions of being in public while drunk."
+    },
+    "correct_letter": "D",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | As I took my test, I wrote my answers. Scenario 2 | I cut many of the children's hair last week.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Chodorow (1978) argued that gender socialization occurred through:",
+    "choices": {
+     "A": "both boys and girls being closely attached to their mothers, but then boys breaking away",
+     "B": "girls being attached to their mothers but then breaking away",
+     "C": "boys being attached to their fathers and girls to their mothers",
+     "D": "both boys and girls being closely attached to their fathers, but girls breaking away"
+    },
+    "correct_letter": "A",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the Marshall Plan?",
+    "choices": {
+     "A": "A plan that provided economic assistance to rebuild Europe.",
+     "B": "A plan to provide aid to Greece and Turkey in their stand against Soviet and Soviet-assisted threats",
+     "C": "A plan that provided Europe with military assistance to counter the Soviet threat",
+     "D": "The plan designed to stop communism in Asia"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is true about the rectal examination?",
+    "choices": {
+     "A": "If the patient refuses a chaperone the doctor can overrule them",
+     "B": "The rectal examination is of no value in a neurological examination",
+     "C": "The optimum position of the patient is on their right side with their knees extended",
+     "D": "The rectal examination is indicated for the assessment of some gastrointestinal disorders"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following methods is/are used for reactive or voltage compensation",
+    "choices": {
+     "A": "shunt capacitor",
+     "B": "series capacitor",
+     "C": "generation excitation control",
+     "D": "all of the above"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "As more lamps are connected in parallel in a circuit, the current in the power source",
+    "choices": {
+     "A": "increases",
+     "B": "decreases",
+     "C": "remains the same",
+     "D": "Not enough information to say"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In which one of the following circumstances will the prevalence of a disease in the population increase, all else being constant?\n",
+    "choices": {
+     "A": "If the incidence rate of the disease falls.",
+     "B": "If survival time with the disease increases.",
+     "C": "If recovery of the disease is faster.",
+     "D": "If the population in which the disease is measured increases."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Select the best translation into predicate logic:: Some blue herons migrate.",
+    "choices": {
+     "A": "(∀x)[(Hx • Bx) • Mx]",
+     "B": "(∃x)[(Hx • Bx) ⊃ Mx]",
+     "C": "(∀x)[(Hx • Bx) ⊃ Mx]",
+     "D": "(∃x)[(Hx • Bx) • Mx]"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "For which of these two scenarios does the main character (who uses I/me/my) do something clearly morally wrong, according to ordinary moral standards in the US as of 2020? Scenario 1 | I took the towels from the hotel pool back to my room. Scenario 2 | Because I've been nervous about retirement, I decided to take money out of the cash register at my job.",
+    "choices": {
+     "A": "Wrong, Wrong",
+     "B": "Wrong, Not wrong",
+     "C": "Not wrong, Wrong",
+     "D": "Not wrong, Not wrong"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following sorting algorithms has average-case and worst-case running times of O(n log n)?",
+    "choices": {
+     "A": "Bubble sort",
+     "B": "Insertion sort",
+     "C": "Merge sort",
+     "D": "Quicksort"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease is sometimes referred to as the 'royaldisease'?",
+    "choices": {
+     "A": "rickets",
+     "B": "measles",
+     "C": "hemophilia",
+     "D": "tuberculosis"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "A female tenant repeatedly asked her landlord to make repairs necessary for her security, but the landlord ignored her. The tenant was later robbed and beaten by an intruder. She sued the landlord for negligence in causing her injuries. The landlord relied on an exculpatory clause in the lease. The clause, set in fine print on the reverse side of the multi-paged, mass-printed, form lease, was a comprehensive, legalistic waiver in which the tenant gave up virtually all of her rights and remedies against the landlord. She responded that the clause was unconscionable and should not be enforced. What will the court most likely rule with respect to the exculpatory clause?",
+    "choices": {
+     "A": "This is not a contract for the sale of goods  unconscionability is not available with respect to an agreement not covered by the UCC.",
+     "B": "The exculpatory clause must be enforced because the tenant voluntarily signed the lease and agreed to its terms instead of choosing another place to live.",
+     "C": "The clause is unenforceable because it discriminates against women who are unable to provide their own security.",
+     "D": "The clause is unenforceable because the tenant was burdened by a lack of bargaining power and the provision was obscure and oppressive."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following language features requires that stack-based storage allocation be used rather than static allocation?",
+    "choices": {
+     "A": "Recursive procedures",
+     "B": "Arbitrary goto's",
+     "C": "Two-dimensional arrays",
+     "D": "Integer-valued functions"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Bentham claims that actions are right or wrong in virtue of:",
+    "choices": {
+     "A": "the motives behind them.",
+     "B": "their consequences.",
+     "C": "both a and b.",
+     "D": "neither a nor b."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A 50-year-old female presents to the office with the complaints of chronic achiness, stiffness, and fatigue. Physical examination reveals multiple bilateral tender points in the trapezius, gluteal, and suboccipital muscle groups. Radiograph findings and laboratory study results are normal. The most likely diagnosis is",
+    "choices": {
+     "A": "ankylosing spondylitis",
+     "B": "fibromyalgia",
+     "C": "myofascial pain syndrome",
+     "D": "osteoarthritis"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The set of integers Z with the binary operation \"*\" defined as a*b =a +b+ 1 for a, b in Z, is a group. The identity element of this group is",
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "-1",
+     "D": "12"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The appropriateness and usefulness of pedestrian survey depends on:",
+    "choices": {
+     "A": "the presence of primary and secondary refuse.",
+     "B": "naturally exposed layers in which to search for artifacts, ecofacts, or bone.",
+     "C": "associations that can be established between artifacts, ecofacts, and bone.",
+     "D": "the existence of a cache or collection of artifacts."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements is the odd one out?",
+    "choices": {
+     "A": "Institutions that facilitate the reproduction of cultural values, such as churches and schools, can be used to control and strengthen those cultural values.",
+     "B": "Political-nationalist strategies can be employed by the state to boost nationalist interests.",
+     "C": "Engagement of military forces to expel certain social groups from within a state.",
+     "D": "Secession allows a societal group to withdraw from a larger entity where it may be under threat from dilution or destruction."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "If a catheter resists all attempts to unblock it and you are unable to remove it, what should you do?",
+    "choices": {
+     "A": "Try harder to remove it.",
+     "B": "Try harder to unblock it.",
+     "C": "Leave it until next time.",
+     "D": "Call for assistance from a medical practitioner."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Although corporate profit maximization is not directly prescribed by major normative theories to which normative theory is it most similar?",
+    "choices": {
+     "A": "hedonistic utilitarianism",
+     "B": "preference utilitarianism",
+     "C": "The Categorical Imperative",
+     "D": "ethics of care"
+    },
+    "correct_letter": "B",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A plaintiff sued a defendant in connection with the dissolution of a partnership they had formed to run a parcel delivery service. They had relied on a business attorney in establishing the business. After the business failed, the plaintiff and the defendant disagreed about their respective obligations. At trial, both have hired new counsel. The plaintiff calls the business attorney to testify to representations the defendant made in meetings she had with the plaintiff and the business attorney. The defendant objects to the business attorney's testimony, invoking the attorney-client privilege. Should the court uphold the defendant's privilege claim?",
+    "choices": {
+     "A": "No, because the business attorney's professional relationship with the plaintiff and the defendant has ended.",
+     "B": "No, because the plaintiff and the defendant consulted the business attorney jointly.",
+     "C": "Yes, because either the plaintiff or the defendant may block disclosure of statements made during such meetings.",
+     "D": "Yes, because either the plaintiff or the defendant may claim the privilege on behalf of the partnership."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following concepts can be defined, according to Moore?",
+    "choices": {
+     "A": "good",
+     "B": "yellow",
+     "C": "horse",
+     "D": "all of the above"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following is required for both paramagnetism and ferromagnetism?",
+    "choices": {
+     "A": "Strong oxidizing conditions",
+     "B": "Low-spin electron configuration",
+     "C": "Metallic physical properties",
+     "D": "Unpaired electrons"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"The law of love, peace and liberty in the states extending to Jews, Turks and Egyptians, as they are considered sonnes of Adam, which is the glory of the outward state of Holland, soe love, peace and liberty, extending to all in Christ Jesus, condemns hatred, war and bondage. And because our Saviour sayeth it is impossible but that offences will come, but woe unto him by whom they cometh, our desire is not to offend one of his little ones, in whatsoever form, name or title hee appears in, whether Presbyterian, Independent, Baptist or Quaker, but shall be glad to see anything of God in any of them, desiring to doe unto all men as we desire all men should doe unto us, which is the true law both of Church and State; for our Saviour sayeth this is the law and the prophets.\n\"Therefore if any of these said persons come in love unto us, we cannot in conscience lay violent hands upon them, but give them free egresse and regresse unto our Town, and houses, as God shall persuade our consciences, for we are bounde by the law of God and man to doe good unto all men and evil to noe man. And this is according to the patent and charter of our Towne, given unto us in the name of the States General, which we are not willing to infringe, and violate, but shall houlde to our patent and shall remaine, your humble subjects, the inhabitants of Vlishing (Flushing, part of the colony of New Netherlands).\"\n—The Flushing Remonstrance, 1657\nWhich of the following most accurately describes the context in which the above document was written?",
+    "choices": {
+     "A": "The Dutch West India Company had sought to establish a model community in the New World, based on Enlightenment principles; the document grew out of this mandate.",
+     "B": "The policies of the Dutch West Indian company had discouraged non-Dutch immigrants from settling in New Netherlands; the document was an attempt to diversify the colony.",
+     "C": "Religious toleration had become the norm in the neighboring New England colonies in the seventeenth century; the document was an attempt to bring New Amsterdam to the same levels of toleration.",
+     "D": "The director-general of the colony of New Netherlands, Peter Stuyvesant, was attempting to enforce conformity in New Netherlands despite the multi-ethnic makeup of the colony; the document was an attempt to accommodate the diverse population."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "All viruses contain at least these two principal components:",
+    "choices": {
+     "A": "DNA and proteins",
+     "B": "nucleic acid and a capsid",
+     "C": "DNA and cell membrane",
+     "D": "RNA and cell wall"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\n\"MAHATMA GANDHI'S MESSAGE.\nREMAIN NON-VIOLENT\nThe following message was sent by Mahatma Gandhi from Waltair:—\nMaulana Mohamed AH was arrested at Waltair under sections 107 and 108 to be called upon to give security, to be of good behaviour for one year. The place and date of trial is unknown.\nThe Begum Saheba and Mr. Hayat were permitted to see him after arrest.\nHe and I were going to address a meeting outside the station. He was arrested. I continued going to the meeting and addressed them. There is no cause for sorrow, but every cause for congratulation. There should be no hartal. Perfect peace and calmness should be observed. I regard the arrest as a prelude to Swaraj and the redress of the Khilafat and the Punjab wrongs, if we can remain non-violent. Retain Hindu-Muslim Unity despite the madness of some Moplahs, and fulfil the Swadeshi programme.\nI hope every Indian, man or woman, will completely boycott foreign cloth and take up spinning or weaving during every spare minute.\nBy striving like the Maulana, be insistent on religious and national rights.\nLet us earn imprisonment. I am conscious of the Maulana's innocence and I am sure the imprisonment of the innocent will enable the nation to reach the cherished goal.\"\nMohandas Gandhi, The Pilgrims' March, 1921\nThe instructions indicated in the fourth paragraph to remain nonviolent most likely inspired which of the following historical developments?",
+    "choices": {
+     "A": "The Zionist movement that created the modern state of Israel",
+     "B": "The independence movements that freed the states of southeast Asia from colonial rule",
+     "C": "The civil rights movements that changed the legal status of minorities in the United States",
+     "D": "The communist movement that changed the government of Cuba"
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "The conversion of one molecule of glucose to two molecules of pyruvate results in the net formation of:",
+    "choices": {
+     "A": "six molecules of water.",
+     "B": "two molecules of ATP.",
+     "C": "three molecules of ATP.",
+     "D": "thirty-eight molecules of ATP."
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "This question refers to the following information.\nThis ruler of Syria made me spend many years as commander of his army,\nEvery land to which I turned\nI overcame.\nI destroyed its green fields and its wells,\nI captured its cattle, I took captive its inhabitants, I deprived them of their provisions,\nand I slew [many] people…by my sword, my bow, my marchings, and my good devices.\nThus my excellence was in his heart; he loved me and he knew my valor;\n…he set me at the head of his sons, when he saw the success of my handiwork.\nThere came a champion of Syria\nto defy me in my tent;\na bold man without equal, for he had vanquished all his rivals.\nHe said, \"Let Sanehat fight with me.\"\nHe thought to overcome me; he designed to take my cattle, thus being counseled by his tribe.\nThe Tale of Sanehat, Egyptian poem written during the Middle Kingdom, ca.1800 B.C.E.\nThe text of this passage is best seen as evidence of which of the following in Egyptian society?",
+    "choices": {
+     "A": "Meritocratic appointments by rulers to their bureaucracies",
+     "B": "Long-distance contact between Egypt and other lands",
+     "C": "The clan as the basic political unit",
+     "D": "A lack of emphasis on martial ability"
+    },
+    "correct_letter": "B",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "According to Parfit, the obligation to give priority to the welfare of one’s children is:",
+    "choices": {
+     "A": "agent-relative.",
+     "B": "agent-neutral.",
+     "C": "absolute.",
+     "D": "none of the above."
+    },
+    "correct_letter": "A",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How is the parvovirus family targeted to reduce disease?",
+    "choices": {
+     "A": "Transfusion blood is screened",
+     "B": "Vaccine has been developed",
+     "C": "A range of new antivirals",
+     "D": "Social distancing"
+    },
+    "correct_letter": "A",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the market vision of transnational organized crime?",
+    "choices": {
+     "A": "Market place scholars argue that transnational crime operates like a capitalist marketplace in its scope and extensity of operations. Criminal organizations are thus very resilient to law enforcement efforts by virtue of their sheer size. Of comparative difference is the development of highly sophisticated networks of collaboration between criminal groups that has enabled them to survive under the conditions of the competitive logic of the marketplace.",
+     "B": "Market analysts argue that the criminal alliances create organizations with a high level of wealth and power that far underestimates what government and official estimates attribute to them. Within this perspective the threat to the licit economy is vastly increased.",
+     "C": "Market analysts believe that white-collar and corporate crimes contribute significantly to undermining the licit market. Those organized crime groups are more prone to use violence and corruption than ordinary criminal groups as a result of the extent of profits invested in their activities.",
+     "D": "Market analysts claim that organized crime is highly disorganized, and resembles more a market for illicit goods and services than an organization. Proponents of this view minimize the threat posed by organized criminals to states and societies."
+    },
+    "correct_letter": "D",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " ____________ describes the extrinsic properties of the product (the colour, the packaging, the product consistency, associations) and level to which these satisfy customers' psychological or social needs.",
+    "choices": {
+     "A": "Brand repositioning.",
+     "B": "Brand stretching.",
+     "C": "Brand equity.",
+     "D": "Brand imagery."
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Ballad opera, opera buffa and opéra comique shared which feature?",
+    "choices": {
+     "A": "They contained da capo arias",
+     "B": "They began with a French overture.",
+     "C": "They focused on everyday problems.",
+     "D": "They contained obbligato recitative."
+    },
+    "correct_letter": "C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "This question refers to the following information.\nQuestions to the passage below, an account given to a French officer in Algeria in the 1830s by a member of an Arab slave trade caravan.\nThe Slave Trade\nAll of you [soldiers], are summoned . . . to hunt the idolatrous Koholanes [a pejorative word for \"black Africans\"]. . . . The soldiery divided themselves into two companies . . . with orders to attack places without defenses and to carry off the inhabitants as well as seizing all peasants busy cultivating their fields. . . . Whilst waiting for the return of the companies despatched to hunt Negroes, we went every day to the slave market where we bought at the following prices:\nA Negro with beard………………10 or 15,000 cowries.\nThey are not considered as merchandise since one has little chance of preventing them from escaping.\nAn adult Negress………………..10 or 15,000 cowries for the same reasons\nAn adolescent Negro………………….30,000 cowries\nA young Negress ……………………50–60,000 cowries\nThe price varies according to whether she is more or less beautiful.\nA male Negro child……………………..45,000 cowries\nA female Negro child ……………………….35–40,000 cowries\nFinally, our caravan which had set out from Algeria with sixty-four camels and only sixteen persons, was now augmented by four hundred slaves, of whom three hundred were women. . . . It was at this point that suddenly a confused noise of cries and sobs passed from one group of slaves to another and reached our own. . . . Some rolled on the ground, clung to bushes and absolutely refused to walk. . . . They could only be got up with mighty lashes of the whip and by rendering them completely bloody.\nHow was the Arab trade in Africans different from the Atlantic slave trade?",
+    "choices": {
+     "A": "Unlike Arab slave merchants, those involved in the Atlantic slave trade were motivated by religion.",
+     "B": "Slaves taken for the Atlantic slave trade had no prospect of eventual liberty, but slaves taken by Arab merchants did.",
+     "C": "Slaves taken for the Atlantic trade were predominantly female; slaves taken by Arab merchants were mostly male.",
+     "D": "Slaves taken by Arab merchants were likely to have a shorter life span than those taken for the Atlantic trade."
+    },
+    "correct_letter": "B",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following procedures should a user auditor include in the audit plan to create that most efficient audit when an audit client uses a service organization for several processes?",
+    "choices": {
+     "A": "Review that service auditor’s report on controls placed in operations.",
+     "B": "Review the service auditor’s report and outline the accounting system in a memo to the working papers",
+     "C": "Audit the service organization’s controls, assess risk, and prepare the audit plan.",
+     "D": "Audit the service organization’s controls to test the work of the service auditor."
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "A college student and her boyfriend lived together in a one-bedroom apartment in Los Angeles. They were engaged to be married when they purchased an undeveloped parcel of land on a hillside overlooking the Pacific. The deed, which was properly executed and recorded, named the student and the boyfriend as grantees, \"not as tenants in common but as joint tenants with right of survivorship. \"Thereafter, the boyfriend, who was experiencing financial difficulties, offered to sell the property to his co-worker. Without the student's knowledge, the boyfriend executed a deed that purported to convey the hillside property to the co-worker in fee simple. The boyfriend signed his name and forged the student's name. He then delivered the deed of conveyance to the co-worker, who paid the boyfriend $150,000, which was the fair market value of the property. The co-worker immediately recorded the deed received from the boyfriend. The common law joint tenancy is unmodified by statute. Title to the property in question is now in",
+    "choices": {
+     "A": "the boyfriend and the student as joint tenants with right of survivorship.",
+     "B": "the co-worker and the student as joint tenants with right of survivorship.",
+     "C": "the co-worker and the student as tenants in common.",
+     "D": "the co-worker as owner in fee simple."
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": " Construct a complete truth table for the following argument. Then, using the truth table, determine whether the argument is valid or invalid. If the argument is invalid, choose an option which presents a counterexample. (There may be other counterexamples as well.)\n~X ⊃ Y\nY ⊃ Z\n~Z / ~X",
+    "choices": {
+     "A": "Valid",
+     "B": "Invalid. Counterexample when X, Y, and Z are true",
+     "C": "Invalid. Counterexample when Y and Z are true and Z is false",
+     "D": "Invalid. Counterexample when X is true and Y and Z are false"
+    },
+    "correct_letter": "D",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following is a biotic factor that could affect the growth rate of a population?",
+    "choices": {
+     "A": "Volcanic eruption",
+     "B": "Glacier melting",
+     "C": "Destruction of the ozone layer",
+     "D": "Sudden reduction in the animal food resource"
+    },
+    "correct_letter": "C",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following best describes a block grant?",
+    "choices": {
+     "A": "Money provided to individuals to fund research projects",
+     "B": "Funds with few restrictions that are provided to state or local governments for general purpose use",
+     "C": "Funds distributed among states according to a set formula",
+     "D": "Money that can only be used for a specific purpose"
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What would you do in PCA to get the same projection as SVD?",
+    "choices": {
+     "A": "Transform data to zero mean",
+     "B": "Transform data to zero median",
+     "C": "Not possible",
+     "D": "None of these"
+    },
+    "correct_letter": "A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Which of the following statements correctly describes what happens to the preRNA during RNA processing?",
+    "choices": {
+     "A": "Introns are removed in the nucleus. A 5′ cap and the poly-A tail are added after the preRNA leaves the nucleus.",
+     "B": "Introns are removed and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus.",
+     "C": "Exons are removed and a 5′ cap is added before the preRNA leaves the nucleus. After leaving the nucleus, the poly-A tail is added.",
+     "D": "Point mutations are repaired, exons are removed, and both a 5′ cap and a poly-A tail are added before the preRNA leaves the nucleus."
+    },
+    "correct_letter": "B",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Which of the following most accurately explains why a pool with water temperature of 82 degrees may feel cool to a person who has been sunbathing, yet warm to a person who has been inside in the air conditioning?",
+    "choices": {
+     "A": "Sensory restriction",
+     "B": "Perceptual constancy",
+     "C": "Relative clarity",
+     "D": "Sensory adaptation"
+    },
+    "correct_letter": "D",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "qa": {
+  "acc": 0.48,
+  "invalid_rate": 0.0,
+  "old_acc": 0.48,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What subgenus does the SARS-CoV-2 virus genetically cluster with?",
+    "options": {
+     "A": "Nobecovirus",
+     "B": "Embecovirus",
+     "C": "Merbecovirus",
+     "D": "Sarbecovirus"
+    },
+    "correct_letter": "D",
+    "correct_text": "Sarbecovirus",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How long do mild COVID-19 cases typically take to recover?",
+    "options": {
+     "A": "Within two weeks",
+     "B": "Three to four weeks",
+     "C": "Within 48 hours",
+     "D": "Exactly one month"
+    },
+    "correct_letter": "A",
+    "correct_text": "Within two weeks",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What country had the highest number of confirmed cases in the world by 26 March 2020?",
+    "options": {
+     "A": "Italy",
+     "B": "China",
+     "C": "Spain",
+     "D": "United States"
+    },
+    "correct_letter": "D",
+    "correct_text": "United States",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Genetic variants at what chromosomal region associated with Neanderthal heritage increase vulnerability to severe COVID-19?",
+    "options": {
+     "A": "Chromosomal region 21",
+     "B": "Chromosomal region 3",
+     "C": "Chromosomal region X",
+     "D": "Chromosomal region 12"
+    },
+    "correct_letter": "B",
+    "correct_text": "Chromosomal region 3",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What was the metaregression estimate of the infection fatality rate for an 85-year-old adult?",
+    "options": {
+     "A": "25%",
+     "B": "15%",
+     "C": "5%",
+     "D": "40%"
+    },
+    "correct_letter": "B",
+    "correct_text": "15%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What surface glycoprotein does the virus use to connect to the ACE2 receptor?",
+    "options": {
+     "A": "Envelope protein",
+     "B": "Nucleocapsid protein",
+     "C": "Membrane protein",
+     "D": "Spike protein"
+    },
+    "correct_letter": "D",
+    "correct_text": "Spike protein",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the critical diameter size that distinguishes large respiratory droplets from small aerosol particles?",
+    "options": {
+     "A": "5μm",
+     "B": "500μm",
+     "C": "100μm",
+     "D": "50μm"
+    },
+    "correct_letter": "C",
+    "correct_text": "100μm",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the marketed brand name of the nirmatrelvir/ritonavir medication used for mild to moderate symptoms?",
+    "options": {
+     "A": "Veklury",
+     "B": "Molnupiravir",
+     "C": "Paxlovid",
+     "D": "Remdesivir"
+    },
+    "correct_letter": "C",
+    "correct_text": "Paxlovid",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What trial did the WHO initiate in March 2020 to assess the treatment effects of promising drugs?",
+    "options": {
+     "A": "RECOVERY trial",
+     "B": "Unity trial",
+     "C": "Solidarity trial",
+     "D": "Discovery trial"
+    },
+    "correct_letter": "C",
+    "correct_text": "Solidarity trial",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "On what date did the WHO declare COVID-19 a Public Health Emergency of International Concern?",
+    "options": {
+     "A": "15 February 2020",
+     "B": "11 March 2020",
+     "C": "1 January 2020",
+     "D": "30 January 2020"
+    },
+    "correct_letter": "D",
+    "correct_text": "30 January 2020",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What percentage of acute cardiac injury was found in infected people admitted to the hospital in Wuhan?",
+    "options": {
+     "A": "2%",
+     "B": "25%",
+     "C": "12%",
+     "D": "5%"
+    },
+    "correct_letter": "C",
+    "correct_text": "12%",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "Men with what untreated condition were 2.4 times more likely to be hospitalized if they contracted COVID-19?",
+    "options": {
+     "A": "Hypothyroidism",
+     "B": "Hypertension",
+     "C": "Hypogonadism",
+     "D": "Type 2 Diabetes"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hypogonadism",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What was the metaregression estimate of the infection fatality rate for a 10-year-old child?",
+    "options": {
+     "A": "0.0001%",
+     "B": "0.1%",
+     "C": "0.002%",
+     "D": "0.02%"
+    },
+    "correct_letter": "C",
+    "correct_text": "0.002%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the median delay or incubation period for COVID-19?",
+    "options": {
+     "A": "One to two days",
+     "B": "Four to five days",
+     "C": "Ten to twelve days",
+     "D": "Seven to eight days"
+    },
+    "correct_letter": "B",
+    "correct_text": "Four to five days",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What updated vaccine doses are offered to combat new SARS-CoV-2 variants?",
+    "options": {
+     "A": "Live-attenuated vaccines",
+     "B": "Variant-adapted vaccines",
+     "C": "Universal boosters",
+     "D": "Protein subunit vaccines"
+    },
+    "correct_letter": "B",
+    "correct_text": "Variant-adapted vaccines",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What country overtook China as the country with the most COVID-19 deaths on 19 March 2020?",
+    "options": {
+     "A": "Brazil",
+     "B": "Italy",
+     "C": "Spain",
+     "D": "United States"
+    },
+    "correct_letter": "B",
+    "correct_text": "Italy",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What percentage of the SARS-CoV-2 genome is identical to the bat coronavirus sample BatCov RaTG13?",
+    "options": {
+     "A": "99.9%",
+     "B": "96%",
+     "C": "70%",
+     "D": "85%"
+    },
+    "correct_letter": "B",
+    "correct_text": "96%",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What animal, a major pelt producer in Denmark, was slaughtered over fears of viral mutations?",
+    "options": {
+     "A": "Mink",
+     "B": "Pangolin",
+     "C": "Civet",
+     "D": "Ferret"
+    },
+    "correct_letter": "A",
+    "correct_text": "Mink",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In patients requiring hospital admission, what percentage of CT scans show lung abnormalities after 28 days?",
+    "options": {
+     "A": "About 50%",
+     "B": "Up to 98%",
+     "C": "Less than 20%",
+     "D": "Exactly 75%"
+    },
+    "correct_letter": "B",
+    "correct_text": "Up to 98%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How long do severe or critical COVID-19 cases typically take to recover?",
+    "options": {
+     "A": "Two to three months",
+     "B": "Three to six weeks",
+     "C": "Exactly 14 days",
+     "D": "One to two weeks"
+    },
+    "correct_letter": "B",
+    "correct_text": "Three to six weeks",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the condition characterized by persistent symptoms for months or years after infection called?",
+    "options": {
+     "A": "Long COVID",
+     "B": "Chronic Fatigue Syndrome",
+     "C": "Post-Viral Syndrome",
+     "D": "Acute Respiratory Distress"
+    },
+    "correct_letter": "A",
+    "correct_text": "Long COVID",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What percentage of symptomatic cases report loss of taste combined with loss of smell?",
+    "options": {
+     "A": "88%",
+     "B": "25%",
+     "C": "50%",
+     "D": "10%"
+    },
+    "correct_letter": "A",
+    "correct_text": "88%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "In what month and year was the first known case identified?",
+    "options": {
+     "A": "November 2019",
+     "B": "October 2019",
+     "C": "January 2020",
+     "D": "December 2019"
+    },
+    "correct_letter": "D",
+    "correct_text": "December 2019",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "When did the World Health Organization declare COVID-19 a global health emergency?",
+    "options": {
+     "A": "May 2020",
+     "B": "December 2019",
+     "C": "January 2020",
+     "D": "March 2020"
+    },
+    "correct_letter": "D",
+    "correct_text": "March 2020",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What earliest date of symptom onset was reported by official publications from the WHO?",
+    "options": {
+     "A": "8 December 2019",
+     "B": "17 November 2019",
+     "C": "1 December 2019",
+     "D": "31 December 2019"
+    },
+    "correct_letter": "A",
+    "correct_text": "8 December 2019",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What interleukin-6 receptor antagonist underwent a Phase III clinical trial to assess its effectiveness on COVID-19?",
+    "options": {
+     "A": "Adalimumab",
+     "B": "Tocilizumab",
+     "C": "Infliximab",
+     "D": "Rituximab"
+    },
+    "correct_letter": "B",
+    "correct_text": "Tocilizumab",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "When did the World Health Organization declare the end of the global health emergency?",
+    "options": {
+     "A": "May 2023",
+     "B": "December 2022",
+     "C": "January 2024",
+     "D": "August 2023"
+    },
+    "correct_letter": "A",
+    "correct_text": "May 2023",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What percentage of symptomatic patients develop mild to moderate symptoms?",
+    "options": {
+     "A": "50%",
+     "B": "14%",
+     "C": "81%",
+     "D": "95%"
+    },
+    "correct_letter": "C",
+    "correct_text": "81%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What minimum fraction of infected people do not develop noticeable symptoms?",
+    "options": {
+     "A": "A quarter",
+     "B": "A half",
+     "C": "Three quarters",
+     "D": "A third"
+    },
+    "correct_letter": "D",
+    "correct_text": "A third",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "How many days can people remain contagious with the virus?",
+    "options": {
+     "A": "Exactly 5 days",
+     "B": "Over 60 days",
+     "C": "Up to 48 hours",
+     "D": "Up to 20 days"
+    },
+    "correct_letter": "D",
+    "correct_text": "Up to 20 days",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the minimum alcohol percentage recommended by the CDC for hand sanitizer?",
+    "options": {
+     "A": "95%",
+     "B": "70%",
+     "C": "40%",
+     "D": "60%"
+    },
+    "correct_letter": "D",
+    "correct_text": "60%",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "On what date was the first COVID-19 vaccine granted regulatory approval by the UK medicines regulator MHRA?",
+    "options": {
+     "A": "15 November 2020",
+     "B": "20 December 2020",
+     "C": "2 December 2020",
+     "D": "1 January 2021"
+    },
+    "correct_letter": "C",
+    "correct_text": "2 December 2020",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What mortality rate was found in a study of hospitalized kidney transplant recipients with COVID-19?",
+    "options": {
+     "A": "11%",
+     "B": "5%",
+     "C": "25%",
+     "D": "50%"
+    },
+    "correct_letter": "A",
+    "correct_text": "11%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What common household item destroys the virus outside the human body by bursting its protective bubble?",
+    "options": {
+     "A": "Vinegar",
+     "B": "Baking soda",
+     "C": "Household soap",
+     "D": "Lemon juice"
+    },
+    "correct_letter": "C",
+    "correct_text": "Household soap",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the primary target for neutralizing antibodies on the SARS-CoV-2 virus?",
+    "options": {
+     "A": "M-protein",
+     "B": "RNA polymerase",
+     "C": "E-protein",
+     "D": "Spike protein"
+    },
+    "correct_letter": "D",
+    "correct_text": "Spike protein",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What was the median time between the onset of symptoms and death reported by the Italian Istituto Superiore di Sanità?",
+    "options": {
+     "A": "Three weeks",
+     "B": "Five days",
+     "C": "Eight days",
+     "D": "Twelve days"
+    },
+    "correct_letter": "D",
+    "correct_text": "Twelve days",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What percentage of hospitalized children needed intensive care according to a European multinational study from June 2020?",
+    "options": {
+     "A": "About 8%",
+     "B": "Less than 1%",
+     "C": "About 20%",
+     "D": "Over 50%"
+    },
+    "correct_letter": "A",
+    "correct_text": "About 8%",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "On what date was human-to-human transmission confirmed by the WHO and Chinese authorities?",
+    "options": {
+     "A": "20 January 2020",
+     "B": "11 February 2020",
+     "C": "31 December 2019",
+     "D": "5 January 2020"
+    },
+    "correct_letter": "A",
+    "correct_text": "20 January 2020",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What percentage of healthy adults not exposed to SARS-CoV-2 have CD4+ T cells that recognize the S protein?",
+    "options": {
+     "A": "Nearly 100%",
+     "B": "About 10%",
+     "C": "About 35%",
+     "D": "Exactly 0%"
+    },
+    "correct_letter": "C",
+    "correct_text": "About 35%",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What liquid portion of the blood from recovered patients is used in passive antibody therapy?",
+    "options": {
+     "A": "Whole blood",
+     "B": "Convalescent serum",
+     "C": "Red blood cells",
+     "D": "Platelet-rich plasma"
+    },
+    "correct_letter": "B",
+    "correct_text": "Convalescent serum",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Up to what percentage of hospitalized people in China and New York experienced kidney injury early in the pandemic?",
+    "options": {
+     "A": "Up to 10%",
+     "B": "Less than 5%",
+     "C": "Up to 60%",
+     "D": "Up to 30%"
+    },
+    "correct_letter": "D",
+    "correct_text": "Up to 30%",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What percentage of symptomatic patients develop severe symptoms requiring hospitalization?",
+    "options": {
+     "A": "40%",
+     "B": "81%",
+     "C": "5%",
+     "D": "14%"
+    },
+    "correct_letter": "D",
+    "correct_text": "14%",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What humectant is added to WHO hand sanitizer formulations?",
+    "options": {
+     "A": "Aloe Vera",
+     "B": "Glycerol",
+     "C": "Lanolin",
+     "D": "Propylene glycol"
+    },
+    "correct_letter": "B",
+    "correct_text": "Glycerol",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What variant became dominant in the U.S. in December 2021?",
+    "options": {
+     "A": "Delta variant",
+     "B": "Omicron variant",
+     "C": "Alpha variant",
+     "D": "Gamma variant"
+    },
+    "correct_letter": "B",
+    "correct_text": "Omicron variant",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What laboratory method detects the presence of viral RNA fragments?",
+    "options": {
+     "A": "Antibody tests",
+     "B": "Protein sequencing",
+     "C": "Antigen tests",
+     "D": "Nucleic acid tests"
+    },
+    "correct_letter": "D",
+    "correct_text": "Nucleic acid tests",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the more accurate test that is typically analyzed in a laboratory?",
+    "options": {
+     "A": "Self-test kit",
+     "B": "Rapid antigen test",
+     "C": "Lateral flow test",
+     "D": "PCR test"
+    },
+    "correct_letter": "D",
+    "correct_text": "PCR test",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What UK trial showed in June 2020 that dexamethasone reduced mortality for critically ill patients?",
+    "options": {
+     "A": "PRINCIPLE Trial",
+     "B": "Solidarity Trial",
+     "C": "RECOVERY Trial",
+     "D": "COV-BOOST Trial"
+    },
+    "correct_letter": "C",
+    "correct_text": "RECOVERY Trial",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What percentage of COVID-19 cases are severe enough to cause hospitalization?",
+    "options": {
+     "A": "0.1-0.5%",
+     "B": "20-25%",
+     "C": "3-4%",
+     "D": "10-15%"
+    },
+    "correct_letter": "C",
+    "correct_text": "3-4%",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of infection are aspergillosis, candidiasis, and mucormycosis?",
+    "options": {
+     "A": "Parasitic infections",
+     "B": "Bacterial infections",
+     "C": "Fungal infections",
+     "D": "Viral co-infections"
+    },
+    "correct_letter": "C",
+    "correct_text": "Fungal infections",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many seconds does the WHO recommend washing hands with soap and water?",
+    "options": {
+     "A": "10 seconds",
+     "B": "At least 20 seconds",
+     "C": "Exactly 5 seconds",
+     "D": "At least 60 seconds"
+    },
+    "correct_letter": "B",
+    "correct_text": "At least 20 seconds",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ },
+ "simdom": {
+  "acc": 0.92,
+  "invalid_rate": 0.0,
+  "old_acc": 0.92,
+  "old_invalid_rate": 0.0,
+  "n": 50,
+  "records": [
+   {
+    "question": "What virus is usually transmitted through the bite of an infected, rabid animal?",
+    "options": {
+     "A": "Lyme disease",
+     "B": "Rabies",
+     "C": "Tetanus",
+     "D": "Malaria"
+    },
+    "correct_letter": "B",
+    "correct_text": "Rabies",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Is there a vaccine available for the common cold?",
+    "options": {
+     "A": "No",
+     "B": "Only for the elderly",
+     "C": "Only for children",
+     "D": "Yes"
+    },
+    "correct_letter": "A",
+    "correct_text": "No",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Does the flu usually cause a high fever?",
+    "options": {
+     "A": "Only in rare cases",
+     "B": "Yes",
+     "C": "Only in the summer",
+     "D": "No"
+    },
+    "correct_letter": "B",
+    "correct_text": "Yes",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What shape are cocci bacteria?",
+    "options": {
+     "A": "Spherical",
+     "B": "Rod-shaped",
+     "C": "Spiral",
+     "D": "Star-shaped"
+    },
+    "correct_letter": "A",
+    "correct_text": "Spherical",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What virus family causes the flu?",
+    "options": {
+     "A": "Coronavirus",
+     "B": "Adenovirus",
+     "C": "Influenza",
+     "D": "Rhinovirus"
+    },
+    "correct_letter": "C",
+    "correct_text": "Influenza",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What is the medical term for a runny nose?",
+    "options": {
+     "A": "Rhinorrhea",
+     "B": "Bronchitis",
+     "C": "Sinusitis",
+     "D": "Epistaxis"
+    },
+    "correct_letter": "A",
+    "correct_text": "Rhinorrhea",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is any foreign substance that triggers an immune response called?",
+    "options": {
+     "A": "Pathogen",
+     "B": "Platelet",
+     "C": "Antigen",
+     "D": "Antibody"
+    },
+    "correct_letter": "C",
+    "correct_text": "Antigen",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What shape are bacilli bacteria?",
+    "options": {
+     "A": "Rod-shaped",
+     "B": "Spherical",
+     "C": "Crescent-shaped",
+     "D": "Spiral"
+    },
+    "correct_letter": "A",
+    "correct_text": "Rod-shaped",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What are the beneficial bacteria that live in the human digestive tract called?",
+    "options": {
+     "A": "Parasites",
+     "B": "Antibodies",
+     "C": "Gut flora",
+     "D": "Pathogens"
+    },
+    "correct_letter": "C",
+    "correct_text": "Gut flora",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What viral infection of the liver is commonly spread through contaminated food or water?",
+    "options": {
+     "A": "Hepatitis B",
+     "B": "Cirrhosis",
+     "C": "Hepatitis A",
+     "D": "Hepatitis C"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hepatitis A",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the deadliest strain of malaria?",
+    "options": {
+     "A": "Plasmodium ovale",
+     "B": "Plasmodium falciparum",
+     "C": "Plasmodium malariae",
+     "D": "Plasmodium vivax"
+    },
+    "correct_letter": "B",
+    "correct_text": "Plasmodium falciparum",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What very common skin condition is caused by bacteria trapped in pores?",
+    "options": {
+     "A": "Acne",
+     "B": "Rosacea",
+     "C": "Psoriasis",
+     "D": "Eczema"
+    },
+    "correct_letter": "A",
+    "correct_text": "Acne",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the medical term for the swelling, redness, and heat at an injury site?",
+    "options": {
+     "A": "Infection",
+     "B": "Inflammation",
+     "C": "Necrosis",
+     "D": "Atrophy"
+    },
+    "correct_letter": "B",
+    "correct_text": "Inflammation",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the body's largest physical barrier and first line of defense against pathogens?",
+    "options": {
+     "A": "The liver",
+     "B": "The stomach",
+     "C": "The skin",
+     "D": "White blood cells"
+    },
+    "correct_letter": "C",
+    "correct_text": "The skin",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease causes a severe, hacking cough followed by a high-pitched intake of breath?",
+    "options": {
+     "A": "Asthma",
+     "B": "Whooping cough",
+     "C": "Tuberculosis",
+     "D": "Bronchitis"
+    },
+    "correct_letter": "B",
+    "correct_text": "Whooping cough",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Can the flu be transmitted before a person shows symptoms?",
+    "options": {
+     "A": "Yes",
+     "B": "Only through direct blood contact",
+     "C": "No",
+     "D": "Only in children"
+    },
+    "correct_letter": "A",
+    "correct_text": "Yes",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What part of the body does a cold primarily affect?",
+    "options": {
+     "A": "Circulatory system",
+     "B": "Lower respiratory tract",
+     "C": "Upper respiratory tract",
+     "D": "Digestive system"
+    },
+    "correct_letter": "C",
+    "correct_text": "Upper respiratory tract",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Who discovered the first antibiotic, penicillin?",
+    "options": {
+     "A": "Robert Koch",
+     "B": "Alexander Fleming",
+     "C": "Louis Pasteur",
+     "D": "Edward Jenner"
+    },
+    "correct_letter": "B",
+    "correct_text": "Alexander Fleming",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What organ filters blood and helps fight infections?",
+    "options": {
+     "A": "Pancreas",
+     "B": "Spleen",
+     "C": "Heart",
+     "D": "Gallbladder"
+    },
+    "correct_letter": "B",
+    "correct_text": "Spleen",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How long does a typical uncomplicated flu last?",
+    "options": {
+     "A": "One to two weeks",
+     "B": "Three to four weeks",
+     "C": "One to two days",
+     "D": "One month"
+    },
+    "correct_letter": "A",
+    "correct_text": "One to two weeks",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What simple hygiene habit is considered the most effective way to stop the spread of germs?",
+    "options": {
+     "A": "Handwashing",
+     "B": "Wearing gloves",
+     "C": "Using mouthwash",
+     "D": "Holding your breath"
+    },
+    "correct_letter": "A",
+    "correct_text": "Handwashing",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What classic warm liquid is a common home remedy for a cold?",
+    "options": {
+     "A": "Coffee",
+     "B": "Hot cocoa",
+     "C": "Chicken soup",
+     "D": "Orange juice"
+    },
+    "correct_letter": "C",
+    "correct_text": "Chicken soup",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the most frequent viral cause of the common cold?",
+    "options": {
+     "A": "Norovirus",
+     "B": "Influenza",
+     "C": "Coronavirus",
+     "D": "Rhinovirus"
+    },
+    "correct_letter": "D",
+    "correct_text": "Rhinovirus",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What are single-celled organisms that can live almost anywhere, some of which cause disease?",
+    "options": {
+     "A": "Bacteria",
+     "B": "Fungi",
+     "C": "Prions",
+     "D": "Viruses"
+    },
+    "correct_letter": "A",
+    "correct_text": "Bacteria",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What gland, located behind the sternum, is responsible for maturing T-cells?",
+    "options": {
+     "A": "Thyroid",
+     "B": "Pituitary",
+     "C": "Thymus",
+     "D": "Adrenal"
+    },
+    "correct_letter": "C",
+    "correct_text": "Thymus",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the medical term for muscle aches, which are common during the flu?",
+    "options": {
+     "A": "Insomnia",
+     "B": "Myalgia",
+     "C": "Neuralgia",
+     "D": "Arthralgia"
+    },
+    "correct_letter": "B",
+    "correct_text": "Myalgia",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What wild bird is a natural host for many influenza viruses?",
+    "options": {
+     "A": "Eagle",
+     "B": "Pigeon",
+     "C": "Penguin",
+     "D": "Duck"
+    },
+    "correct_letter": "D",
+    "correct_text": "Duck",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What scientist developed the first successful polio vaccine?",
+    "options": {
+     "A": "Jonas Salk",
+     "B": "Albert Sabin",
+     "C": "Sigmund Freud",
+     "D": "Marie Curie"
+    },
+    "correct_letter": "A",
+    "correct_text": "Jonas Salk",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What are the tiny hairs in the respiratory tract that sweep away mucus and dirt?",
+    "options": {
+     "A": "Cilia",
+     "B": "Villi",
+     "C": "Microvilli",
+     "D": "Flagella"
+    },
+    "correct_letter": "A",
+    "correct_text": "Cilia",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How many times a year does the average adult get a cold?",
+    "options": {
+     "A": "Ten to twelve times",
+     "B": "Never",
+     "C": "Once every five years",
+     "D": "Two to three times"
+    },
+    "correct_letter": "D",
+    "correct_text": "Two to three times",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What medical device is used to inject medicine or vaccines into the body?",
+    "options": {
+     "A": "Stethoscope",
+     "B": "Thermometer",
+     "C": "Scalpel",
+     "D": "Syringe"
+    },
+    "correct_letter": "D",
+    "correct_text": "Syringe",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What vitamin is popularly taken to try and shorten a cold?",
+    "options": {
+     "A": "Vitamin D",
+     "B": "Vitamin K",
+     "C": "Vitamin C",
+     "D": "Vitamin B12"
+    },
+    "correct_letter": "C",
+    "correct_text": "Vitamin C",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of severe, life-threatening allergic reaction requires immediate medical attention?",
+    "options": {
+     "A": "Hay fever",
+     "B": "Anaphylaxis",
+     "C": "Dermatitis",
+     "D": "Hives"
+    },
+    "correct_letter": "B",
+    "correct_text": "Anaphylaxis",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the process called when a white blood cell engulfs and digests a bacterium?",
+    "options": {
+     "A": "Photosynthesis",
+     "B": "Mitosis",
+     "C": "Osmosis",
+     "D": "Phagocytosis"
+    },
+    "correct_letter": "D",
+    "correct_text": "Phagocytosis",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What common foodborne illness is frequently associated with eating undercooked poultry?",
+    "options": {
+     "A": "Listeria",
+     "B": "Botulism",
+     "C": "E. coli",
+     "D": "Salmonella"
+    },
+    "correct_letter": "D",
+    "correct_text": "Salmonella",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What type of organism causes ringworm?",
+    "options": {
+     "A": "Fungus",
+     "B": "Virus",
+     "C": "Worm",
+     "D": "Bacterium"
+    },
+    "correct_letter": "A",
+    "correct_text": "Fungus",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "How is the flu primarily spread?",
+    "options": {
+     "A": "Skin-to-skin contact",
+     "B": "Contaminated water",
+     "C": "Insect bites",
+     "D": "Respiratory droplets"
+    },
+    "correct_letter": "D",
+    "correct_text": "Respiratory droplets",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What cells fight infection in the human body?",
+    "options": {
+     "A": "Skin cells",
+     "B": "Nerve cells",
+     "C": "Red blood cells",
+     "D": "White blood cells"
+    },
+    "correct_letter": "D",
+    "correct_text": "White blood cells",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What alcohol-based liquid is used to kill germs on hands when soap and water are unavailable?",
+    "options": {
+     "A": "Hydrogen peroxide",
+     "B": "Witch hazel",
+     "C": "Hand sanitizer",
+     "D": "Mouthwash"
+    },
+    "correct_letter": "C",
+    "correct_text": "Hand sanitizer",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What component of blood helps it clot to prevent infection in an open wound?",
+    "options": {
+     "A": "Plasma",
+     "B": "Platelets",
+     "C": "Lymph",
+     "D": "Hemoglobin"
+    },
+    "correct_letter": "B",
+    "correct_text": "Platelets",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What bacterial infection commonly causes a very sore, red throat and hurts to swallow?",
+    "options": {
+     "A": "Strep throat",
+     "B": "Tonsillitis",
+     "C": "Laryngitis",
+     "D": "Mumps"
+    },
+    "correct_letter": "A",
+    "correct_text": "Strep throat",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What disease famously paralyzed US President Franklin D. Roosevelt?",
+    "options": {
+     "A": "Polio",
+     "B": "Measles",
+     "C": "Smallpox",
+     "D": "Tuberculosis"
+    },
+    "correct_letter": "A",
+    "correct_text": "Polio",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What do we call a sudden, localized outbreak of a disease in a specific community?",
+    "options": {
+     "A": "Endemic",
+     "B": "Sporadic",
+     "C": "Pandemic",
+     "D": "Epidemic"
+    },
+    "correct_letter": "D",
+    "correct_text": "Epidemic",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": false,
+    "old_is_valid": true,
+    "old_is_correct": false
+   },
+   {
+    "question": "What type of immune cells remember past infections to respond faster next time?",
+    "options": {
+     "A": "Platelets",
+     "B": "Memory cells",
+     "C": "Red blood cells",
+     "D": "Stem cells"
+    },
+    "correct_letter": "B",
+    "correct_text": "Memory cells",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "Are colds more common in children or adults?",
+    "options": {
+     "A": "Children",
+     "B": "The elderly",
+     "C": "They are equally common",
+     "D": "Adults"
+    },
+    "correct_letter": "A",
+    "correct_text": "Children",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What is the common, informal name for the severe muscle spasms caused by tetanus?",
+    "options": {
+     "A": "Lockjaw",
+     "B": "Charley horse",
+     "C": "Cramp",
+     "D": "Seizure"
+    },
+    "correct_letter": "A",
+    "correct_text": "Lockjaw",
+    "model_raw": "A",
+    "model_letter": "A",
+    "old_raw": "A",
+    "old_letter": "A",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What sticky bodily secretion traps dust and pathogens in the nasal passage?",
+    "options": {
+     "A": "Saliva",
+     "B": "Mucus",
+     "C": "Sweat",
+     "D": "Earwax"
+    },
+    "correct_letter": "B",
+    "correct_text": "Mucus",
+    "model_raw": "B",
+    "model_letter": "B",
+    "old_raw": "B",
+    "old_letter": "B",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What famous nurse dramatically improved hygiene practices during the Crimean War?",
+    "options": {
+     "A": "Clara Barton",
+     "B": "Dorothea Dix",
+     "C": "Florence Nightingale",
+     "D": "Mary Seacole"
+    },
+    "correct_letter": "C",
+    "correct_text": "Florence Nightingale",
+    "model_raw": "C",
+    "model_letter": "C",
+    "old_raw": "C",
+    "old_letter": "C",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What small, bean-shaped structures filter lymph fluid throughout the body?",
+    "options": {
+     "A": "Alveoli",
+     "B": "Capillaries",
+     "C": "Kidneys",
+     "D": "Lymph nodes"
+    },
+    "correct_letter": "D",
+    "correct_text": "Lymph nodes",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   },
+   {
+    "question": "What action clears mucus from the lower airways?",
+    "options": {
+     "A": "Sneezing",
+     "B": "Swallowing",
+     "C": "Hiccuping",
+     "D": "Coughing"
+    },
+    "correct_letter": "D",
+    "correct_text": "Coughing",
+    "model_raw": "D",
+    "model_letter": "D",
+    "old_raw": "D",
+    "old_letter": "D",
+    "n_new_tokens": 4,
+    "is_valid": true,
+    "is_correct": true,
+    "old_is_valid": true,
+    "old_is_correct": true
+   }
+  ]
+ }
+}
