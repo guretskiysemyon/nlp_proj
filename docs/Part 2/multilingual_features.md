@@ -678,7 +678,7 @@ notice about hieroglyphs, de monument-list disclaimer), kept.
 (factorization, then the Gemini filter in the same job), World War II, rank 100:
 native `data_v2` → `mf_outputs/native/` (job 1046208), English only (pipeline check
 against the downloaded 1 + 15 features) → `mf_outputs/en_rerun/` (1046210). Results:
-`feature_search_<job>.out`. The translated sets are not used for now (native only).
+`logs/slurm/feature_search_<job>.out`. The translated sets are not used for now (native only).
 
 ## Translated sentence sets (option 6): plan and status
 

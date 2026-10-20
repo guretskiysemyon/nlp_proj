@@ -5,7 +5,7 @@
 #SBATCH --time=02:00:00
 #SBATCH --mem=16G
 #SBATCH --cpus-per-task=2
-#SBATCH --output=eval_%j.out
+#SBATCH --output=logs/slurm/eval_%j.out
 
 # Everything this job creates is group-writable (shared `benohayon` group),
 # so a teammate can resume or take over the run.

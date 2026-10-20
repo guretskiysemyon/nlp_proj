@@ -1,0 +1,83 @@
+{
+ "method": "ember",
+ "concept": "Baseball",
+ "delta": 200.0,
+ "no_edit": false,
+ "harmonic": 0.33512352309344795,
+ "efficacy": 0.2033898305084746,
+ "specificity": 0.9512195121951219,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.84,
+  "simdom_base": 0.68,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.88,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.88,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.86,
+   "efficacy": 0.0,
+   "specificity": 0.9761904761904762,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.8,
+   "efficacy": 0.06779661016949146,
+   "specificity": 0.9249999999999999,
+   "harmonic": 0.1263337601365769,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.8,
+   "efficacy": 0.06779661016949146,
+   "specificity": 0.9249999999999999,
+   "harmonic": 0.1263337601365769,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.76,
+   "efficacy": 0.13559322033898302,
+   "specificity": 0.9249999999999999,
+   "harmonic": 0.2365161805833,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.1694915254237288,
+   "specificity": 0.9512195121951219,
+   "harmonic": 0.28771670970121727,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.72,
+   "efficacy": 0.2033898305084746,
+   "specificity": 0.9512195121951219,
+   "harmonic": 0.33512352309344795,
+   "gate": null
+  }
+ ]
+}

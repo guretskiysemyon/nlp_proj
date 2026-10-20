@@ -1,0 +1,21 @@
+[fair] method=cinder concept=COVID-19 pandemic
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.09it/s]
+[15:49:18] cinder COVID-19 pandemic delta=0.5: k=1 tokens=63 mmlu 0.52 qa 0.58 simdom 1.00 (44s)
+[15:50:01] cinder COVID-19 pandemic delta=1.0: k=1 tokens=63 mmlu 0.52 qa 0.52 simdom 1.00 (43s)
+[15:50:44] cinder COVID-19 pandemic delta=2.0: k=1 tokens=63 mmlu 0.52 qa 0.44 simdom 1.00 (43s)
+[15:51:28] cinder COVID-19 pandemic delta=5.0: k=1 tokens=63 mmlu 0.52 qa 0.46 simdom 0.96 (43s)
+[15:52:11] cinder COVID-19 pandemic delta=10.0: k=1 tokens=63 mmlu 0.52 qa 0.46 simdom 0.90 (43s)
+[15:52:53] cinder COVID-19 pandemic delta=50.0: k=1 tokens=63 mmlu 0.52 qa 0.48 simdom 0.94 (42s)
+[15:53:37] cinder COVID-19 pandemic delta=100.0: k=1 tokens=63 mmlu 0.52 qa 0.48 simdom 0.94 (44s)
+[15:54:21] cinder COVID-19 pandemic delta=200.0: k=1 tokens=63 mmlu 0.52 qa 0.48 simdom 0.94 (44s)
+[15:54:21] cinder COVID-19 pandemic: pick delta=2.0 harmonic=0.596
+[16:01:11] cinder COVID-19 pandemic final at delta=2.0: edit check OK, MMLU test 0.549

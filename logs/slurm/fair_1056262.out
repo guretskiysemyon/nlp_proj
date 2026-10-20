@@ -1,0 +1,21 @@
+[fair] method=ember concept=Ancient Rome
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [02:15<02:15, 135.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 58.25s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 69.78s/it]
+[14:48:01] ember Ancient Rome delta=0.5: k=2 tokens=66 mmlu 0.52 qa 0.80 simdom 0.90 (54s)
+[14:48:45] ember Ancient Rome delta=1.0: k=2 tokens=66 mmlu 0.52 qa 0.74 simdom 0.90 (44s)
+[14:49:29] ember Ancient Rome delta=2.0: k=2 tokens=66 mmlu 0.52 qa 0.66 simdom 0.90 (44s)
+[14:50:13] ember Ancient Rome delta=5.0: k=2 tokens=66 mmlu 0.52 qa 0.60 simdom 0.90 (44s)
+[14:51:08] ember Ancient Rome delta=10.0: k=2 tokens=66 mmlu 0.52 qa 0.58 simdom 0.88 (55s)
+[14:52:06] ember Ancient Rome delta=50.0: k=2 tokens=66 mmlu 0.52 qa 0.58 simdom 0.88 (58s)
+[14:53:06] ember Ancient Rome delta=100.0: k=2 tokens=66 mmlu 0.52 qa 0.60 simdom 0.88 (60s)
+[14:54:07] ember Ancient Rome delta=200.0: k=2 tokens=66 mmlu 0.52 qa 0.58 simdom 0.88 (61s)
+[14:54:09] ember Ancient Rome: pick delta=10.0 harmonic=0.569
+[15:01:47] ember Ancient Rome final at delta=10.0: edit check OK, MMLU test 0.551

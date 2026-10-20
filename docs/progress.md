@@ -1,7 +1,10 @@
 # Progress log
 
-**Last updated:** 2026-10-17
-**Current step: Part 1 analysis.** Part 1's experiments are complete and
+**Last updated:** 2026-10-19
+**Current step: Part 2, all comparison arms done** (EMBER, CINDER, EMBER + Ori's judge, EMBER+X, CINDER+X on all 18 concepts, steps 8–9 below).
+The fair comparison (all 18 concepts, no Alpaca, 5-language test; EMBER, EMBER + Ori's judge, CINDER; step 8,
+`docs/Part 2/plan.md` "Fair comparison (option B)") is done, report `judge_rerun/Fair/report.md`; before it, the
+first CINDER vs EMBER run (done 2026-10-18/19, results below and in `Part 2 Experiments/README.md`). Part 1's experiments are complete and
 repaired: the three HP searches (EMBER, SNMF, SNMF+EMBER) and the cross-lingual
 MC test of all three methods, 18 concepts × 5 languages. **Decided 2026-10-17:
 open-QA judging, the final-test stage and relearning are out of scope for Part
@@ -13,9 +16,66 @@ specificity, `snmf_ember` erases English the most and leaks only into Russian
 Next: the analysis in [`crosslingual_next.md`](Part%201/crosslingual_next.md)
 §6, then Part 2.
 
-**Part 2 status (2026-10-17):** plan and results in
-[`docs/Part 2/plan.md`](Part%202/plan.md); data details in
-[`multilingual_features.md`](Part%202/multilingual_features.md).
+**Part 2 status (2026-10-19).** Plan: [`docs/Part 2/plan.md`](Part%202/plan.md),
+"Current plan". Review of Ori's code and the open decisions:
+[`docs/Part 2/cinder_code_review.md`](Part%202/cinder_code_review.md).
+
+**Current plan (decided 2026-10-18).** Compare **CINDER** (Ori's method) with **EMBER**, both fitted
+on **English only**, on 6 concepts, then ask the same held-out questions in en / de / es / fr / ru
+(querying only; no training on other languages). Concepts: **Cannabis, Gun** (EMBER erases
+strongly), **Nazism, Republic of Ireland** (medium), **Culture of Greece, Golf** (weak). All six
+keep exactly the same EMBER features under the paper's judge and gemini-3.5-flash-lite
+(`mf_outputs/en_rejudge35/embedding_judge_agreement.md`), so Part 1's EMBER results are the
+EMBER side as they are. Protocol for CINDER = Part 1's EMBER protocol: rank 100, seed 42, judge
+gemini-3.5-flash-lite, 8 strengths (0.5–200), multiple-choice grid, top 3 × 50 Alpaca with
+Qwen2.5-32B, the same gates, the fixed MC scoring.
+
+CINDER = Ori's whole method, his ladder rung L123 (sharpening + GS-norm `rn`, refit off, in his solver +
+his two-way judge TJ ∨ LO@5 on the top 20 by ρ); his newer code, judge data and seed-42 runs were copied
+from his folder on 2026-10-18 and reproduce here. We run the search and test ourselves (Ori's `erase.py`
+has no Alpaca judge in the search and uses the old MC scoring). Code: `cinder/`
+(module docstrings give the details); outputs: `judge_rerun/Cinder/` (tracked) and
+`mf_outputs/cinder/` (features in EMBER's format, git-ignored).
+
+| # | Step | Command | Status |
+|---|---|---|---|
+| 0 | Whitening data (background, `defaults.json`, page targets) | rebuilt with Ori's `experiments/whitening/background.py` (same seeded shard, 300k sentences); identical to his files (eigenvalues to 4·10⁻¹⁴); Gun target copied from his folder (built from the "Firearm" page) | **done** |
+| 1 | Decisions | `cinder_code_review.md` §5 | **done** |
+| 2 | Converter to EMBER's format; Ori's judge (`overlap_judge.py`, `layer_eval.py`, `j3_data/`) copied into the repo | `cinder/build_features.py` | **done** |
+| 3 | CINDER features, 6 concepts (CPU + Gemini, ~1 min each) | `python -m cinder.build_features` | **done**: 4 concepts get features (Cannabis, Gun, Culture of Greece, Golf); Nazism and Republic of Ireland get none (no edit) — table in `plan.md` |
+| 3b | Edit size vs EMBER → strength grid (CPU) | `python -m cinder.edit_size` | **done**: ratio 1.93 → EMBER's 8 values |
+| 4a | Strength grid: 8 δ × fixed MC scoring + Alpaca completions of the top 3 (1 GPU, ~20 min per concept) | `sbatch cinder/run_gemma.sbatch grid --concepts <C>` (one job per concept; the 4 edited concepts) | **done** |
+| 4b | Qwen2.5-32B judge on the top 3, pick δ (3 GPUs; Part 1 took ~2.5 h per δ, so ~7.5 h per concept) | `sbatch cinder/run_pick.sbatch --concepts <C>` (one job per concept) | **done** (picks: Cannabis 5, Gun 100, Culture of Greece 100, Golf 10) |
+| 5 | Final test at the pick: 5 languages × QA_test + SimdomQA_test, MMLU test (1 GPU, ~6 min per concept) | `sbatch cinder/run_gemma.sbatch final_test` | **done**, all 5 languages (post job 1051552) |
+| run | **Submitted 2026-10-18 18:36**, one chained job per concept (`cinder/run_pipeline.sbatch`: features → grid → Qwen pick → final test, **English only for now**; `LANGS="en de es fr ru"` later): Cannabis 1051382, Gun 1051383, Nazism 1051384, Republic of Ireland 1051385, Culture of Greece 1051386, Golf 1051387. Nazism and Ireland stopped after the feature step (no feature, no edit), as expected. Logs: `logs/slurm/cinder_pipeline_<id>.out` | | **running** |
+| 6 | Comparison table (CPU) | `python -m cinder.compare` → `judge_rerun/Cinder/comparison.md` | **done** |
+| 7 | Analyses X1–X9 + leak curves at every δ for EMBER, CINDER and their extrapolated variants (20 GPU jobs) | `Part 2 Experiments/` (README there) | **done** 2026-10-19, all jobs exit 0 |
+| 8 | **Fair comparison, all 18 concepts, no Alpaca** (regular EMBER with the gemini-3.5 judge vs CINDER; same grid, pick, tests; plan.md "Fair comparison (option B)") | `cinder/submit_fair.sh` → `python -m cinder.fair report` | **done** 2026-10-19 (all edit checks reproduce the grid; report generated 17:00): jobs 1056259–1056287 (14 EMBER + 15 CINDER; 7 no-feature cases written as no edit). Logs `logs/slurm/fair_<id>.out`. **+ third arm EMBER + Ori's judge** (`ember_hj`): same edit as EMBER for 14 concepts (reused), 4 new (Uranium, Heroin, Halloween, Valentine's Day) in jobs 1056525–1056526 |
+| 9 | **Extrapolation arms** `ember_x`, `cinder_x`: the fair run's features + native de/es/fr/ru tokens (Part 2 X5b/X11's "X", the winner of X11), the parent's edit kept exactly (checked), at the parent's picked δ (no new search), same final test | `python -m cinder.fair build-x` → `sbatch cinder/run_fair.sbatch ember_x|cinder_x <concepts>` → `python -m cinder.fair report` | **done** 2026-10-19 (all 6 jobs exit 0, 29 edit checks OK; `judge_rerun/Fair/report.md`). Leak, 18 concepts: EMBER 0.11 → EMBER+X 0.05 (lower in 12, higher in 2, Wilcoxon p = 0.001), CINDER 0.15 → CINDER+X 0.10 (10 vs 4, p = 0.02); English retention −0.01, MMLU unchanged, SimdomQA_test foreign −0.006 → −0.015 (EMBER) / −0.005 → −0.007 (CINDER); CINDER+X vs EMBER+X: no difference with all 4 languages (leak p = 0.27), but on de/es/fr alone CINDER+X leaks more (+0.07, higher in 13 of 18, p = 0.02; mostly German, p = 0.004; CINDER vs EMBER without X: German p = 0.08) — Russian is barely erased by any arm, so it dilutes the gap. Checks (2026-10-19): ember_x / cinder_x−parent gains hold without the 2 unreliable cells (Harry Potter ru, Valentine's Day ru: pristine QA_test < 0.40; Valentine's cinder_x ru retention 0 = 0.32 → 0.24) and without Russian; invalid answers ≤ 8% per cell (mean 0.3%), n = 50 everywhere; 98 of 100 cells shared with X9 identical, 2 differ by one question. Built 2026-10-19 17:04 (`judge_rerun/Fair/x_build.json`; the 6 Part 2 concepts identical to X5b's edits), jobs 1056885–1056887 (ember_x, 14 concepts) and 1056888–1056890 (cinder_x, 15); 7 parent no-edit cases written as no edit |
+| later | equal-strength comparison; Ori's full ladder; training on other languages (joint / per-language fits, see below) | | |
+
+**First CINDER vs EMBER results (2026-10-19, seed 42, Part 1 protocol).**
+- **CINDER does not erase better on these 6 concepts.** Mean retention on QA_test over the 4 concepts it edits
+  (lower = more erased): EMBER en 0.60 / de 0.72 / es 0.77 / fr 0.69, CINDER 0.66 / 0.78 / 0.84 / 0.76. Leak
+  about equal (+0.19 vs +0.18). Search score lower for CINDER on all 4; no feature, so no edit, for Nazism and
+  Republic of Ireland. MMLU unchanged (0.55) for both.
+- **Selection caveat:** the 6 concepts were chosen because EMBER's features did not change under the new judge,
+  i.e. where EMBER's judge works. On the 4 concepts where EMBER's current judge keeps nothing (Halloween, Heroin,
+  Uranium, Valentine's Day), CINDER finds a feature in all 5 of Ori's seeds. Not tested on erasure yet.
+- **Both methods erase only the questions their edit reaches** (correct answers lost: 30–46% on questions with an
+  edited token, 0–5% without, in en/de/es/fr alike). The leak is a coverage effect.
+- **Extrapolation** (same features, coefficients for native de/es/fr/ru tokens, `Part 2 Experiments` X5/X9)
+  raises coverage (Gun de/es/fr 0.04–0.12 → 0.28–0.66) and lowers the leak at the same δ for most concepts, both
+  methods (descriptive, test split, δ not re-tuned).
+- Next round: planning in `docs/Part 2/plan.md`, "Next round (plan, 2026-10-19)".
+
+Checks done (2026-10-18): the selection code (`cinder.grid.fast_top` + `cinder.pick`) run on
+EMBER's own grid and Qwen scores reproduces EMBER's Part 1 top 3 and best δ for all 6 concepts;
+the CINDER edit through EMBER's edit code changes exactly the tokens of Ori's own edit sets (34 / 67 /
+106 / 44) and restores exactly; the mapping F = (Z^T T⁻¹)^T, G = Y^T reproduces the fit's
+reconstruction to 5·10⁻⁶.
+
+**Earlier Part 2 findings** (details in `plan.md`):
 - **Plan decided:** two arms, both on native Wikipedia text only (translated sets
   parked). A: one joint factorization on en+ru+de+es+fr; B: one fit per language,
   union of the features. Same filter, judge gemini-3.5-flash-lite for all of Part 2
@@ -47,9 +107,18 @@ Next: the analysis in [`crosslingual_next.md`](Part%201/crosslingual_next.md)
   Russian coverage 0.04, leak +0.33). New fits reach Russian only for Cannabis joint
   (rank ≥ 400, via one piece " кан") and Gun per-language (rank ≥ 300, " оружие").
   Details: `plan.md`, "Edit coverage per language".
-- **Next:** re-judge
-  the Russian MLP features with whole words / snippets instead of bare pieces;
-  erasure code to read Part 2 feature lists; then erasure + leak test.
+- **Judge check (2026-10-18):** re-judging the paper's English embedding candidates
+  for all 18 concepts with gemini-3.5-flash-lite: 744 of 763 decisions agree, the kept
+  list is identical for 10 concepts; 3.5 is stricter and keeps nothing for Halloween,
+  Heroin, Uranium and Valentine's Day. `mf_outputs/en_rejudge35/embedding_judge_agreement.md`,
+  script `experiments/judge_agreement_embedding.py`.
+- **Parked** (the multilingual two-arm plan above): re-judge the Russian MLP features with
+  whole words; erasure for the joint / per-language features.
+- **Repo clean-up (2026-10-18):** Slurm logs moved to `logs/slurm/` (the root `.sbatch`
+  scripts now write there), the paper copy to `docs/references/`, Ori's
+  `Instructions.txt` / `instructions_new.txt` next to the code that cites them
+  (`experiments/whitening/`, `experiments/varwidth/`), `test.py` → `scripts/check_hf_token.py`.
+  Notebooks not moved (see `cinder_code_review.md` §6).
 
 **Status:**
 - **MC scoring repair (2026-10-15/16): done.** All three HP searches, the

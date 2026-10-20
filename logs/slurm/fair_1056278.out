@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Harry Potter
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.13it/s]
+[15:34:52] cinder Harry Potter delta=0.5: k=1 tokens=51 mmlu 0.52 qa 0.76 simdom 0.92 (44s)
+[15:35:35] cinder Harry Potter delta=1.0: k=1 tokens=51 mmlu 0.52 qa 0.64 simdom 0.92 (43s)
+[15:36:18] cinder Harry Potter delta=2.0: k=1 tokens=51 mmlu 0.52 qa 0.50 simdom 0.92 (43s)
+[15:37:01] cinder Harry Potter delta=5.0: k=1 tokens=51 mmlu 0.52 qa 0.56 simdom 0.92 (43s)
+[15:37:43] cinder Harry Potter delta=10.0: k=1 tokens=51 mmlu 0.52 qa 0.56 simdom 0.92 (42s)
+[15:38:26] cinder Harry Potter delta=50.0: k=1 tokens=51 mmlu 0.52 qa 0.50 simdom 0.92 (43s)
+[15:39:10] cinder Harry Potter delta=100.0: k=1 tokens=51 mmlu 0.52 qa 0.50 simdom 0.92 (44s)
+[15:39:56] cinder Harry Potter delta=200.0: k=1 tokens=51 mmlu 0.52 qa 0.50 simdom 0.92 (46s)
+[15:39:57] cinder Harry Potter: pick delta=2.0 harmonic=0.719
+[15:46:56] cinder Harry Potter final at delta=2.0: edit check OK, MMLU test 0.551

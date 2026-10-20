@@ -1,0 +1,21 @@
+[fair] method=ember concept=Artificial intelligence
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.12it/s]
+[15:17:07] ember Artificial intelligence delta=0.5: k=1 tokens=39 mmlu 0.52 qa 0.86 simdom 0.98 (45s)
+[15:17:51] ember Artificial intelligence delta=1.0: k=1 tokens=39 mmlu 0.52 qa 0.84 simdom 0.98 (44s)
+[15:18:35] ember Artificial intelligence delta=2.0: k=1 tokens=39 mmlu 0.52 qa 0.80 simdom 0.98 (44s)
+[15:19:19] ember Artificial intelligence delta=5.0: k=1 tokens=39 mmlu 0.52 qa 0.78 simdom 0.98 (44s)
+[15:20:02] ember Artificial intelligence delta=10.0: k=1 tokens=39 mmlu 0.50 qa 0.78 simdom 0.98 (44s)
+[15:20:47] ember Artificial intelligence delta=50.0: k=1 tokens=39 mmlu 0.50 qa 0.76 simdom 0.98 (45s)
+[15:21:34] ember Artificial intelligence delta=100.0: k=1 tokens=39 mmlu 0.50 qa 0.78 simdom 0.98 (47s)
+[15:22:22] ember Artificial intelligence delta=200.0: k=1 tokens=39 mmlu 0.52 qa 0.78 simdom 0.98 (48s)
+[15:22:22] ember Artificial intelligence: pick delta=50.0 harmonic=0.190
+[15:29:42] ember Artificial intelligence final at delta=50.0: edit check OK, MMLU test 0.547

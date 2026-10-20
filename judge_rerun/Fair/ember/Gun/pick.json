@@ -1,0 +1,83 @@
+{
+ "method": "ember",
+ "concept": "Gun",
+ "delta": 5.0,
+ "no_edit": false,
+ "harmonic": 0.5668772315297995,
+ "efficacy": 0.4067796610169492,
+ "specificity": 0.9347826086956522,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.84,
+  "simdom_base": 0.74,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.86,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.78,
+   "efficacy": 0.10169491525423724,
+   "specificity": 1.0,
+   "harmonic": 0.18461538461538454,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.72,
+   "efficacy": 0.2033898305084746,
+   "specificity": 0.9791666666666665,
+   "harmonic": 0.33681696028665276,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.6,
+   "efficacy": 0.4067796610169492,
+   "specificity": 0.9347826086956522,
+   "harmonic": 0.5668772315297995,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.3389830508474576,
+   "specificity": 0.9347826086956522,
+   "harmonic": 0.4975412207115996,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.3389830508474576,
+   "specificity": 0.9791666666666665,
+   "harmonic": 0.5036163943209214,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.3389830508474576,
+   "specificity": 0.9791666666666665,
+   "harmonic": 0.5036163943209214,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.3389830508474576,
+   "specificity": 0.9574468085106382,
+   "harmonic": 0.5006954102920723,
+   "gate": null
+  }
+ ]
+}

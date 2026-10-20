@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Baseball
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.12it/s]
+[15:24:38] cinder Baseball delta=0.5: k=3 tokens=61 mmlu 0.52 qa 0.88 simdom 0.66 (44s)
+[15:25:25] cinder Baseball delta=1.0: k=3 tokens=61 mmlu 0.52 qa 0.82 simdom 0.62 (48s)
+[15:26:09] cinder Baseball delta=2.0: k=3 tokens=61 mmlu 0.52 qa 0.72 simdom 0.64 (43s)
+[15:26:53] cinder Baseball delta=5.0: k=3 tokens=61 mmlu 0.52 qa 0.74 simdom 0.64 (44s)
+[15:27:37] cinder Baseball delta=10.0: k=3 tokens=61 mmlu 0.52 qa 0.76 simdom 0.64 (44s)
+[15:28:21] cinder Baseball delta=50.0: k=3 tokens=61 mmlu 0.54 qa 0.70 simdom 0.64 (44s)
+[15:29:06] cinder Baseball delta=100.0: k=3 tokens=61 mmlu 0.54 qa 0.72 simdom 0.64 (45s)
+[15:29:50] cinder Baseball delta=200.0: k=3 tokens=61 mmlu 0.54 qa 0.72 simdom 0.64 (44s)
+[15:29:51] cinder Baseball: pick delta=50.0 harmonic=0.380
+[15:37:04] cinder Baseball final at delta=50.0: edit check OK, MMLU test 0.552

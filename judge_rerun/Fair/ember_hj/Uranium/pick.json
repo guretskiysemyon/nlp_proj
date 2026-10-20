@@ -1,0 +1,83 @@
+{
+ "method": "ember_hj",
+ "concept": "Uranium",
+ "delta": 10.0,
+ "no_edit": false,
+ "harmonic": 0.5818181818181819,
+ "efficacy": 0.41025641025641035,
+ "specificity": 1.0,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.64,
+  "simdom_base": 0.62,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.66,
+   "efficacy": 0.0,
+   "specificity": 0.9722222222222223,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.0,
+   "specificity": 0.9722222222222223,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.56,
+   "efficacy": 0.20512820512820507,
+   "specificity": 1.0,
+   "harmonic": 0.3404255319148935,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.48,
+   "efficacy": 0.41025641025641035,
+   "specificity": 1.0,
+   "harmonic": 0.5818181818181819,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.56,
+   "efficacy": 0.20512820512820507,
+   "specificity": 1.0,
+   "harmonic": 0.3404255319148935,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.56,
+   "efficacy": 0.20512820512820507,
+   "specificity": 0.9615384615384615,
+   "harmonic": 0.33812341504649185,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.54,
+   "efficacy": 0.2564102564102564,
+   "specificity": 0.9615384615384615,
+   "harmonic": 0.4048582995951417,
+   "gate": null
+  }
+ ]
+}

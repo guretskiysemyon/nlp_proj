@@ -1,0 +1,83 @@
+{
+ "method": "ember",
+ "concept": "Ancient Rome",
+ "delta": 10.0,
+ "no_edit": false,
+ "harmonic": 0.5688487584650115,
+ "efficacy": 0.40000000000000013,
+ "specificity": 0.984375,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.8,
+  "simdom_base": 0.9,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.8,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.10909090909090913,
+   "specificity": 1.0,
+   "harmonic": 0.1967213114754099,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.66,
+   "efficacy": 0.2545454545454545,
+   "specificity": 1.0,
+   "harmonic": 0.40579710144927533,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.6,
+   "efficacy": 0.36363636363636376,
+   "specificity": 1.0,
+   "harmonic": 0.5333333333333334,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.40000000000000013,
+   "specificity": 0.984375,
+   "harmonic": 0.5688487584650115,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.40000000000000013,
+   "specificity": 0.984375,
+   "harmonic": 0.5688487584650115,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.6,
+   "efficacy": 0.36363636363636376,
+   "specificity": 0.984375,
+   "harmonic": 0.5310853530031614,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.40000000000000013,
+   "specificity": 0.984375,
+   "harmonic": 0.5688487584650115,
+   "gate": null
+  }
+ ]
+}

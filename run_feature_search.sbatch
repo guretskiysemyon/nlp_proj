@@ -17,7 +17,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=2
-#SBATCH --output=feature_search_%j.out
+#SBATCH --output=logs/slurm/feature_search_%j.out
 
 set -euo pipefail
 umask 002

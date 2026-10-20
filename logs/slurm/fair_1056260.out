@@ -1,0 +1,21 @@
+[fair] method=ember concept=Golf
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [02:15<02:15, 135.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 58.24s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 69.77s/it]
+[14:48:00] ember Golf delta=0.5: k=2 tokens=70 mmlu 0.52 qa 0.82 simdom 0.82 (53s)
+[14:48:44] ember Golf delta=1.0: k=2 tokens=70 mmlu 0.52 qa 0.80 simdom 0.82 (44s)
+[14:49:28] ember Golf delta=2.0: k=2 tokens=70 mmlu 0.52 qa 0.70 simdom 0.82 (44s)
+[14:50:11] ember Golf delta=5.0: k=2 tokens=70 mmlu 0.52 qa 0.62 simdom 0.82 (43s)
+[14:50:57] ember Golf delta=10.0: k=2 tokens=70 mmlu 0.52 qa 0.60 simdom 0.82 (46s)
+[14:51:42] ember Golf delta=50.0: k=2 tokens=70 mmlu 0.52 qa 0.64 simdom 0.80 (45s)
+[14:52:30] ember Golf delta=100.0: k=2 tokens=70 mmlu 0.52 qa 0.66 simdom 0.80 (48s)
+[14:53:17] ember Golf delta=200.0: k=2 tokens=70 mmlu 0.52 qa 0.66 simdom 0.80 (47s)
+[14:53:21] ember Golf: pick delta=10.0 harmonic=0.578
+[15:00:20] ember Golf final at delta=10.0: edit check OK, MMLU test 0.549

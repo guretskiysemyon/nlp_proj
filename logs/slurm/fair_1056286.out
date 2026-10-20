@@ -1,0 +1,21 @@
+[fair] method=cinder concept=Artificial intelligence
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]
+[15:49:21] cinder Artificial intelligence delta=0.5: k=1 tokens=31 mmlu 0.52 qa 0.84 simdom 0.98 (48s)
+[15:50:05] cinder Artificial intelligence delta=1.0: k=1 tokens=31 mmlu 0.52 qa 0.86 simdom 0.98 (44s)
+[15:50:49] cinder Artificial intelligence delta=2.0: k=1 tokens=31 mmlu 0.52 qa 0.78 simdom 0.98 (44s)
+[15:51:32] cinder Artificial intelligence delta=5.0: k=1 tokens=31 mmlu 0.52 qa 0.78 simdom 0.98 (43s)
+[15:52:16] cinder Artificial intelligence delta=10.0: k=1 tokens=31 mmlu 0.52 qa 0.78 simdom 0.98 (44s)
+[15:52:59] cinder Artificial intelligence delta=50.0: k=1 tokens=31 mmlu 0.52 qa 0.80 simdom 0.98 (43s)
+[15:53:44] cinder Artificial intelligence delta=100.0: k=1 tokens=31 mmlu 0.52 qa 0.80 simdom 0.98 (45s)
+[15:54:28] cinder Artificial intelligence delta=200.0: k=1 tokens=31 mmlu 0.52 qa 0.80 simdom 0.98 (44s)
+[15:54:28] cinder Artificial intelligence: pick delta=2.0 harmonic=0.131
+[16:01:28] cinder Artificial intelligence final at delta=2.0: edit check OK, MMLU test 0.551

@@ -1,8 +1,214 @@
-# Part 2 — main plan (baseline)
+# Part 2 — plan
 
-*Decided 2026-10-17. This is the baseline design for Part 2; other ideas (see
-[`ideas_and_discoveries.md`](ideas_and_discoveries.md)) come after it. Data and feature
-search details: [`multilingual_features.md`](multilingual_features.md).*
+## Current plan (decided 2026-10-18): CINDER vs EMBER, English only
+
+**Question.** Does CINDER (Ori: contrastive sharpening, global sparsity, two-way judge)
+erase a concept better than EMBER in English, and does the better English edit leak less
+when the same questions are asked in de / es / fr / ru?
+
+**Design.** Both methods fitted on English sentences only (`data/`), the same edit
+(EMBER's embedding edit; CINDER's features are mapped back into embedding space), the same
+judge (gemini-3.5-flash-lite), the same strength search and test as Part 1's EMBER.
+
+| | English erasure | leak in de / es / fr / ru |
+|---|---|---|
+| EMBER | Part 1 (done) | Part 1 (done) |
+| CINDER | strength search (`cinder.grid`, `cinder.pick`) | `cinder.final_test` (same cells as Part 1's repaired run) |
+
+**Concepts (6):**
+
+| EMBER English retention | Concept | Kind | Russian leak in Part 1 |
+|---|---|---|---|
+| strong | Cannabis (0.39), Gun (0.54) | substance, weapon | +0.51, +0.46 |
+| medium | Nazism (0.63), Republic of Ireland (0.67) | ideology, country | +0.37, +0.33 |
+| weak | Culture of Greece (0.73), Golf (0.75) | culture, sport | +0.27, +0.25 |
+
+Chosen from the 10 concepts whose EMBER features are identical under the paper's judge and
+3.5 (`mf_outputs/en_rejudge35/embedding_judge_agreement.md`), so no EMBER rerun is needed;
+spread over erasure strength and kinds of knowledge; all with reliable tests in 5 languages;
+none is a CINDER tuning concept (Harry Potter, Ancient Rome, Valentine's Day).
+
+**Steps, owners, status:** [`../progress.md`](../progress.md), "Part 2 status". Code review,
+decisions and the implementation: [`cinder_code_review.md`](cinder_code_review.md). Code: `cinder/`.
+
+**Decided 2026-10-18.** CINDER is Ori's whole method, not compared layer by layer: his ladder rung
+**L123** (`experiments/varwidth/layer_eval.py`): contrastive sharpening (page target, η 0.05, γ 1,
+ε 10⁻⁴), GS-norm (`rn`, `refit=False`, floor 0.2%, cap 3%), and his two-way judge HJ = TJ ∨ LO@5 on
+the top 20 features by ρ (LO = matches with his 20 concept words, `j3_data/concept_words_v1.json`).
+His newer code, judge data and seed-42 runs for the 6 concepts were copied from his folder
+(2026-10-18); refitting here reproduces his fits (same supports, |ΔY| ≤ 5·10⁻⁶). We run the strength
+search and the final test ourselves with Part 1's protocol: his `erase.py` picks δ without the Alpaca
+judge and scores MC with the old 4-token cut-off, so its numbers are not comparable to Part 1's EMBER.
+
+**CINDER features (L123, seed 42, `judge_rerun/Cinder/features/`):**
+
+| Concept | EMBER features / edited tokens | CINDER features (accepted by) / edited tokens |
+|---|---|---|
+| Cannabis | 1 / 45 | f42 (TJ and LO 9) / 34 |
+| Gun | 2 / 61 | f37 (TJ and LO 6), f40 (TJ) / 67 |
+| Nazism | 1 / 41 | **none**: the closest candidate is a broad "political ideologies" feature (LO 2, TJ no); no edit |
+| Republic of Ireland | 1 / 31 | **none**: the Irish tokens sit in a 111-token "countries and nationalities" feature outside the top 20 by ρ; no edit |
+| Culture of Greece | 1 / 52 | f10 (TJ; LO 4) / 106 |
+| Golf | 2 / 70 | f33 (TJ and LO 10) / 44 |
+
+So CINDER edits 4 of the 6 concepts. Caveat: Culture of Greece is one of the 4 example concepts in
+Ori's concept-word prompt (`j3_data/prompt_v1.txt`), so its LO count is not clean (it is accepted by TJ
+anyway). Ori's own results agree: no edit for Nazism and Republic of Ireland at seed 42
+(`results/varwidth/layers/erasure/` in his folder).
+
+**Strength grid (`python -m cinder.edit_size`, `judge_rerun/Cinder/delta_grid.json`).** At the
+same δ, CINDER's edit is about half of EMBER's: the median relative edit ‖c_t‖ / ‖e_t‖ is 0.24 for
+CINDER and 0.46 for EMBER (paired over the 4 concepts both edit; per concept the ratio is
+1.4–2.7). The ratio 1.93 is inside the agreed band (0.5–2), so **CINDER uses EMBER's grid,
+0.5, 1, 2, 5, 10, 50, 100, 200** (also the grid of Ori's `erase.py`). On CINDER's scale it spans
+relative edits 0.12–48; EMBER's QA
+accuracy stops falling at δ ≈ 5–10 (relative edit 2–5), i.e. δ ≈ 10–20 for CINDER, well inside.
+Edge rule: if the fast screen's best δ is the largest (smallest) value, one more δ (×2, or ÷2)
+is scored.
+
+**Report:** English erasure per concept grouped by EMBER's strength (CINDER's claim is
+strongest where EMBER is weak); leak only where both methods erase English; coverage vs leak
+for both methods; paired by question, bootstrap over concepts.
+
+**Later:** equal-strength comparison; Ori's full ladder (EMBER → +CS → +CS+GS → +TWJ);
+training on other languages (the two-arm design below).
+
+## First run: results (2026-10-19)
+
+Seed 42, Part 1's protocol, 6 concepts; details in `Part 2 Experiments/README.md` and
+`Part 2 Experiments/comparison_cinder_vs_ember.md`.
+
+| | en | de | es | fr | ru | mean leak |
+|---|---|---|---|---|---|---|
+| EMBER, 4 concepts CINDER edits | 0.60 | 0.72 | 0.77 | 0.69 | 0.98 | +0.19 |
+| CINDER, same 4 | 0.66 | 0.78 | 0.84 | 0.76 | 0.96 | +0.18 |
+
+(retention on QA_test; lower = more erased). CINDER erases English less on average (better only on Culture of
+Greece, 0.46 vs 0.73, which then leaks more), its search score is lower on all 4 concepts, and it makes no edit for
+Nazism and Republic of Ireland. Both methods erase only questions that contain an edited token (30–46% of correct
+answers lost vs 0–5%, every language), so the leak is set by coverage, and extrapolation to native tokens raises
+coverage and lowers the leak for both (descriptive).
+
+## Next round (options written 2026-10-19; chosen: the fair comparison below, which covers (a) and (b))
+
+### 1. Can CINDER be better in English? Where to look
+
+Ori's documents show **feature-level** gains (cleaner, more stable, found more often). On our 6 concepts these did
+not turn into better erasure. Fair places where CINDER's claims predict an English advantage:
+
+| Test | Why CINDER could win | Data / cost |
+|---|---|---|
+| **a. The concepts where EMBER's judge fails** — Halloween, Heroin, Uranium (and Valentine's Day, a CINDER tuning concept) | Our 6 were chosen where EMBER's judge works (features unchanged under the new judge), a selection that favours EMBER. With today's judge (gemini-3.5) EMBER keeps **no** feature for these 4, so it erases nothing; CINDER finds a feature in **5 of 5** of Ori's seeds for each. CINDER's two-way judge was built for exactly this. | CINDER fits exist (Ori's seed-42 runs). Same pipeline as the first run: ~1 night, 4 jobs. Report both EMBER with today's judge (no edit) and Part 1's EMBER with the paper's judge (2.5) as reference. |
+| **b. All 18 concepts** | The headline CINDER claim ("finds the concept far more often") is about the full set; 6 judge-stable concepts are the hardest case for it | 12 more concepts, ~2 nights on the GPUs (Qwen judging dominates) |
+| c. Relearning robustness | EMBER's paper claim; cleaner, more orthogonal directions might be harder to relearn | Needs a ≥ 40 GB GPU (A6000 / L40S / H100) for full fine-tuning; check our account |
+| d. Seed stability of erasure | CS makes features stable across seeds (Ori: Jaccard 0.69 vs 0.26 on Ancient Rome) | 5 seeds at a fixed δ: final test only, ~2 GPU-h per method |
+| e. Disjoint sharpening target | Ori's own caveat: with a target that excludes the matrix tokens the feature gains mostly disappear; a paper needs it | CPU fits + one erasure run |
+
+Caveats to keep: η, γ and the EJ threshold were tuned on Ori's concepts (Harry Potter, Ancient Rome, Valentine's
+Day; labels on 19 concepts), and Culture of Greece is an example in the lexicon prompt.
+
+**Test (a) in detail.** With the paper's judge (gemini-2.5, no longer available) EMBER kept features for all 18
+concepts, including these 4 (Halloween 2 features / 80 tokens, Heroin 1 / 46, Uranium 2 / 70, Valentine's Day
+2 / 71), and Part 1 has their full δ search and 5-language test. With today's judge (3.5) the same candidates
+give no feature; Ori's EMBER reimplementation with 3.5 finds one in only 1–2 of 5 seeds. CINDER finds one in 5 of
+5 seeds for each (Heroin and Uranium mostly through the lexicon half of its judge). Three arms, nothing to rerun
+for EMBER:
+
+| Arm | Source | Run needed |
+|---|---|---|
+| EMBER, paper's judge (2.5) | Part 1 results as they are (saved decisions; the judge cannot be rerun) | none |
+| EMBER, today's judge (3.5) | no feature at seed 42 → no edit, retention 1 | none |
+| CINDER (L123) | copy Ori's seed-42 runs + targets for the 4 concepts, then `cinder/run_pipeline.sbatch` with `LANGS="en de es fr ru"` (+ `cinder.edit_size` check of the grid) | ~5 h per concept, one night in parallel |
+
+CINDER vs EMBER-3.5 is the same-judge comparison; CINDER vs EMBER-2.5 asks whether CINDER recovers what the paper's
+EMBER achieved. Caveats: Valentine's Day is a CINDER tuning concept (report separately); the lexicon threshold was
+chosen on labels that include these concepts. Optional CPU ablation: apply the lexicon judge to EMBER's own
+candidates, to see whether the judge alone rescues EMBER.
+
+### 2. Asking CINDER in other languages — already done
+
+The post job ran CINDER's final test in en, de, es, fr and ru at its picked δ (table above,
+`results/crosslingual/google_gemma-2-2b-it/cinder/`), and G1 measured all 4 methods at every δ in all 5 languages.
+Nothing more is needed for "query only"; the open items are the extensions below.
+
+### 3. Extrapolation: where it enters the pipeline
+
+```
+English fit (unchanged) → judge (unchanged) → [extrapolation] → edit (unchanged) → δ search → final test
+```
+
+- **Input:** the selected features Z (English-only fit) and the native concept + neutral sentences of each language
+  (`data_v2`, de/es/fr/ru, plus English `data/`).
+- **Step:** keep Z fixed; for every token of those sentences solve its coefficients (ridge least squares), then apply
+  the method's own sparsity rule (EMBER: top 1% per feature; CINDER: GS-norm in its whitened space). A token is added
+  to the edit if it is concept-only (in some language's concept sentences, never in any neutral set) and loads on a
+  selected feature. The original English rows are kept as they are.
+- **Output:** the same EMBER file format with extra rows (`mf_outputs/extrap_EMBER`, `extrap_CINDER`), so the edit
+  code is unchanged. Built by `Part 2 Experiments/scripts/x5b_build_extrapolated.py`.
+
+So far "+X" was measured only **descriptively** (test split, at each method's original δ): X9. To make it a method
+in the comparison, both EMBER+X and CINDER+X need:
+1. their own δ search with Part 1's protocol (the added tokens also change English: some occur in English
+   questions), ~1 night;
+2. the 5-language final test at that δ (~30 min), plus MMLU and Alpaca like the others;
+3. an inspection of the added tokens (X5 lists them; there is some noise, e.g. trumpet, Tobacco);
+4. a statement in the report that foreign native *text* chooses the added tokens (the features stay English-only),
+   i.e. it is no longer "query only".
+
+The comparison then has four arms on the same concepts: EMBER, CINDER, EMBER+X, CINDER+X. This matches Ori's
+planned "ML-EMBER with extrapolation" / "ML-CINDER", but with an English-only fit.
+
+### Choice for the team (decided 2026-10-19)
+
+Options were: (a) the 4 judge-failure concepts for CINDER vs EMBER (English and 5 languages),
+(b) proper δ search for EMBER+X and CINDER+X on the 6 concepts, (c) all 18 concepts. **Decided:** (a) + (c) as
+one fair run on all 18 concepts without Alpaca (next section), with a third arm EMBER + Ori's judge.
+Extrapolation (b) comes after it, on the same pipeline.
+
+## Fair comparison (option B): all 18 concepts, no Alpaca (decided and submitted 2026-10-19)
+
+Regular EMBER vs CINDER on all 18 concepts, with everything identical except the method:
+Gemma-2-2b-it, English concept / neutral sentences, rank 100, seed 42, the **same judge model
+(gemini-3.5-flash-lite)** for feature selection, EMBER's edit code, the δ grid 0.5–200, the pick rule and the tests.
+
+- **EMBER** = the paper's method unchanged (factorization from `mf_outputs/`, EMBER's two-stage judge), only
+  the judge model is gemini-3.5 instead of the paper's 2.5 (no longer available). Kept features:
+  `judge_rerun/Fair/ember35_features.json` (same as 2.5 for 10 of 18; none for Halloween, Heroin, Uranium,
+  Valentine's Day → no edit). Built in `mf_outputs/ember35/` (`python -m cinder.fair build-ember35`).
+- **CINDER** = Ori's L123 (`cinder.build_features`), features for 15 of 18 (none for Nazism, Republic of
+  Ireland, World War II → no edit).
+- **Search without Alpaca**: per δ, MMLU (50 train), QA_train, SimdomQA_train with the fixed MC scoring; pick =
+  Part 1's fast screen (MMLU gate 0.9, best harmonic of efficacy and specificity, ties → smaller δ). No Qwen /
+  Alpaca judge, so the picks are not directly comparable to the first run's table (which used Alpaca).
+- **Final test** at the pick: QA_test + SimdomQA_test in en/de/es/fr/ru (the `baseline_fixed` items), MMLU
+  test (1000), and a check that the edit reproduces its grid row. No edit → the pristine model's numbers.
+- **Report**: per concept and means over all 18 and over the 12 "clean" concepts (without CINDER's tuning
+  concepts and the lexicon-prompt examples), paired CINDER − EMBER differences with a Wilcoxon test.
+
+Code `cinder/fair.py`; jobs `cinder/run_fair.sbatch` (one per method × concept), submitted with
+`cinder/submit_fair.sh`; then `python -m cinder.fair report` → `judge_rerun/Fair/report.md`.
+
+**Third arm: EMBER + Ori's judge (`ember_hj`, added 2026-10-19).** EMBER's factorization unchanged, only Ori's
+judge (CINDER's L3): candidates = top 20 by ρ, keep if TJ (EMBER's two-stage judge, gemini-3.5, member with
+confidence ≥ 0.85: the same verdicts as the `ember` arm, no new Gemini calls) or LO@5 (≥ 5 of the 20 concept
+words v1 among the feature's first 20 source words). Built on CPU by `python -m cinder.fair build-ember-hj` →
+`mf_outputs/ember_hj/`, `judge_rerun/Fair/ember_hj_features.json`. Result: the same features, and a
+token-by-token identical edit, for 14 of 18 concepts (their `ember` results are reused); it adds a feature
+exactly where EMBER-3.5 has none, all through LO and all features the paper's 2.5 judge also kept: Uranium f80,
+Heroin f98, Halloween f1, Valentine's Day f13. Only these 4 run on the GPU (jobs 1056525, 1056526, two
+concepts each). Comparisons: `ember_hj − ember` (does the judge alone rescue EMBER), `cinder − ember_hj` (same
+judge, so CINDER's sharpening + GS-norm alone). Caveats: the LO threshold and concept words were chosen on
+labels that include these concepts; Valentine's Day is a CINDER tuning concept and its f13 is weak ("Valentine
+and summer").
+
+---
+
+
+# Earlier design: training on other languages (parked, 2026-10-17)
+
+*Decided 2026-10-17 as the Part 2 baseline, parked on 2026-10-18 in favour of the plan above.
+The results below (feature search, rank sweeps, tokenization, coverage) stay valid.
+Data and feature search details: [`multilingual_features.md`](multilingual_features.md).*
 
 ## Question
 

@@ -1,0 +1,21 @@
+[fair] method=ember concept=Gun
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.19it/s]
+[15:03:14] ember Gun delta=0.5: k=2 tokens=61 mmlu 0.52 qa 0.86 simdom 0.74 (45s)
+[15:03:58] ember Gun delta=1.0: k=2 tokens=61 mmlu 0.52 qa 0.78 simdom 0.74 (44s)
+[15:04:41] ember Gun delta=2.0: k=2 tokens=61 mmlu 0.52 qa 0.72 simdom 0.72 (43s)
+[15:05:26] ember Gun delta=5.0: k=2 tokens=61 mmlu 0.52 qa 0.60 simdom 0.68 (45s)
+[15:06:14] ember Gun delta=10.0: k=2 tokens=61 mmlu 0.52 qa 0.64 simdom 0.68 (48s)
+[15:07:09] ember Gun delta=50.0: k=2 tokens=61 mmlu 0.52 qa 0.64 simdom 0.72 (55s)
+[15:08:12] ember Gun delta=100.0: k=2 tokens=61 mmlu 0.52 qa 0.64 simdom 0.72 (63s)
+[15:09:14] ember Gun delta=200.0: k=2 tokens=61 mmlu 0.52 qa 0.64 simdom 0.70 (62s)
+[15:09:15] ember Gun: pick delta=5.0 harmonic=0.567
+[15:16:47] ember Gun final at delta=5.0: edit check OK, MMLU test 0.553

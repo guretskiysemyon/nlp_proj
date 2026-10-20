@@ -1,0 +1,21 @@
+[fair] method=ember concept=Baseball
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.13it/s]
+[14:55:35] ember Baseball delta=0.5: k=1 tokens=39 mmlu 0.52 qa 0.88 simdom 0.68 (45s)
+[14:56:19] ember Baseball delta=1.0: k=1 tokens=39 mmlu 0.52 qa 0.88 simdom 0.68 (44s)
+[14:57:03] ember Baseball delta=2.0: k=1 tokens=39 mmlu 0.52 qa 0.86 simdom 0.66 (44s)
+[14:57:47] ember Baseball delta=5.0: k=1 tokens=39 mmlu 0.52 qa 0.80 simdom 0.62 (44s)
+[14:58:31] ember Baseball delta=10.0: k=1 tokens=39 mmlu 0.52 qa 0.80 simdom 0.62 (44s)
+[14:59:16] ember Baseball delta=50.0: k=1 tokens=39 mmlu 0.52 qa 0.76 simdom 0.62 (45s)
+[15:00:02] ember Baseball delta=100.0: k=1 tokens=39 mmlu 0.52 qa 0.74 simdom 0.64 (45s)
+[15:00:49] ember Baseball delta=200.0: k=1 tokens=39 mmlu 0.52 qa 0.72 simdom 0.64 (47s)
+[15:00:51] ember Baseball: pick delta=200.0 harmonic=0.335
+[15:08:12] ember Baseball final at delta=200.0: edit check OK, MMLU test 0.550

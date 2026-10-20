@@ -1,0 +1,21 @@
+[fair] method=ember concept=Republic of Ireland
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [02:15<02:15, 135.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 58.26s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:19<00:00, 69.79s/it]
+[14:48:01] ember Republic of Ireland delta=0.5: k=1 tokens=31 mmlu 0.52 qa 0.66 simdom 0.90 (54s)
+[14:48:45] ember Republic of Ireland delta=1.0: k=1 tokens=31 mmlu 0.52 qa 0.66 simdom 0.90 (44s)
+[14:49:29] ember Republic of Ireland delta=2.0: k=1 tokens=31 mmlu 0.52 qa 0.60 simdom 0.90 (44s)
+[14:50:16] ember Republic of Ireland delta=5.0: k=1 tokens=31 mmlu 0.52 qa 0.58 simdom 0.88 (47s)
+[14:51:05] ember Republic of Ireland delta=10.0: k=1 tokens=31 mmlu 0.52 qa 0.56 simdom 0.88 (49s)
+[14:51:58] ember Republic of Ireland delta=50.0: k=1 tokens=31 mmlu 0.52 qa 0.58 simdom 0.88 (53s)
+[14:52:53] ember Republic of Ireland delta=100.0: k=1 tokens=31 mmlu 0.52 qa 0.54 simdom 0.88 (55s)
+[14:53:50] ember Republic of Ireland delta=200.0: k=1 tokens=31 mmlu 0.52 qa 0.56 simdom 0.88 (57s)
+[14:53:50] ember Republic of Ireland: pick delta=100.0 harmonic=0.489
+[15:02:41] ember Republic of Ireland final at delta=100.0: edit check OK, MMLU test 0.551
