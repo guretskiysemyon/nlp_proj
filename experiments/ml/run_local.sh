@@ -11,7 +11,7 @@ set -a; source /home/morg/NLP_2526b/oripetel/nlp_proj/nlp_proj/.env; set +a
 export HF_HOME=/home/morg/NLP_2526b/oripetel/.cache/huggingface HF_HUB_OFFLINE=1 TOKENIZERS_PARALLELISM=false
 export TORCHDYNAMO_DISABLE=1 OMP_NUM_THREADS=3 MKL_NUM_THREADS=3 CUDA_VISIBLE_DEVICES=$GPU
 export LLAMA_LOCAL=/tmp/claude-21644/-home-morg-NLP-2526b-oripetel-nlp-proj-nlp-proj/c5e716de-a1fa-45a5-9267-5521d11b2fe1/scratchpad/llama
-export GEMINI_USAGE_LOG=$ROOT/results/ml/gemini_usage.jsonl GEMINI_BUDGET_NIS=15 GEMINI_PRICE_IN_USD=0.25 GEMINI_PRICE_OUT_USD=2.50
+export GEMINI_USAGE_LOG=$ROOT/results/ml/gemini_usage.jsonl GEMINI_BUDGET_NIS=30 GEMINI_PRICE_IN_USD=0.25 GEMINI_PRICE_OUT_USD=2.50
 export PYTHONPATH=/home/morg/NLP_2526b/oripetel/.cache/pylib_ml
 PY=/home/morg/NLP_2526b/oripetel/nlp_proj/nlp_proj/.venv/bin/python
 SLUG=$(echo "$CONCEPT" | sed -E 's/[^[:alnum:]]+/_/g; s/^_|_$//g')

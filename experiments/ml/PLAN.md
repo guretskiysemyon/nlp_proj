@@ -30,7 +30,7 @@ Which pipeline erases a concept best in all 8 languages that Llama-3.1 officiall
     200 test items;
   - fluency text: 100 held-out native neutral sentences per language (disjoint from every neutral set).
 - **Gemini** is used only for feature judging and lexicons (no translations): own log
-  `results/ml/gemini_usage.jsonl`, hard stop 15 NIS (`GEMINI_BUDGET_NIS=15`, prices 0.25 / 2.50 USD per 1M).
+  `results/ml/gemini_usage.jsonl`, hard stop 15 NIS (`GEMINI_BUDGET_NIS=30`, prices 0.25 / 2.50 USD per 1M).
 
 ## Sample size
 
