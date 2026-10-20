@@ -110,6 +110,39 @@ Evaluation, 1–4 GPU-hours per unit, costs the same for every approach. Total G
 - **Protocol deviations from EMBER's code:** a perplexity fluency gate instead of Alpaca, the δ sweep stops at the
   first gated δ, and the eligibility cutoff is computed from the split's own baseline (PLAN, OBSERVATIONS).
 
+## Assessment
+
+A qualified success: a strong pilot, not yet a statistically established claim.
+
+**Supported:**
+- **A single multilingual fit approaches per-language EMBER.** On the concepts both edit, A2 scores 0.44 vs 0.49 strict (0.50 vs 0.49 ungated), at 1/8 of the selection cost. Confidence: moderate to high.
+- **The whitening diagnosis and the A3z fix.** It is mechanistic, measurable (read gain) and cheap, and it improves A3 on 9 of 11 concepts. Confidence: high for the diagnosis, moderate for the size of the gain.
+- **Two limits of embedding erasure:**
+  - high-fertility scripts (Hindi);
+  - selection instability across fit seeds, which affects EMBER itself.
+
+  Confidence: high.
+
+**Not yet supported:**
+- **Coverage.** A2 edits 8 of 18 concepts, against 14 for A1, and over all 18 A1 wins (0.35 vs 0.20 for A2 and 0.26 for A3z). The pipeline today trades coverage for cost.
+- **The cost argument.** The savings are judge calls and constant cost in the number of languages, not GPU time: fits take seconds, and evaluation dominates.
+- **A3z beating A2 strictly.** Under the strict protocol it does not on the 8 shared concepts (0.40 vs 0.44). It wins ungated (0.56 vs 0.50), by outright concept wins (4 of 8) and by coverage (11 vs 8).
+- **Statistical significance.** With n = 8 shared concepts and one seed:
+  - A3z vs A2, ungated: better on 6 of 8, mean +0.06, sign test p ≈ 0.3;
+  - A2 vs A1: mean −0.05.
+
+  Neither difference is significant.
+- **A3z is post hoc,** and it needs a planned re-run.
+
+**What would make it a strong claim**, in order of value:
+1. Seed-robust selection, which attacks coverage.
+2. 3 seeds per approach, with paired confidence intervals.
+3. A δ margin rule fixed in advance.
+4. A planned re-run of A3z.
+5. An fp16 check and the noise and mean-token baselines.
+
+Items 1–3 take about 2–3 days of our GPU share.
+
 ## Suggested next steps (not run)
 
 1. A δ rule with a margin below the gate, especially for A3z. This needs no new fits, only re-scoring.
