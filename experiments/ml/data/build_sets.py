@@ -1,7 +1,8 @@
 """Full and sample sentence sets per concept (results/ml/data/full/, results/ml/data/sample/).
 
 full/<slug>.json  {lang: {"concept": [{"text","source"[, "src_en"]}], "neutral": [{"text","source","url"}]}}
-    concept  en: EMBER's 300 English concept sentences (data/concept_sentences.json), source "native".
+    concept  en: the concept's 300 English concept sentences (common.english_set: data/concept_sentences.json for
+             EMBER's 18, data/concept_sentences_extra.json for the 20 new concepts), source "native".
              others: random.Random(SEED).sample of min(N_FULL, pool) native page sentences (pools/<slug>/<lang>.json);
              if the pool is short, NLLB translations (translations/nllb_<lang>.jsonl) of the queued English sources
              (translations/tasks.json, in queue order) that pass QA, are not duplicates of a sentence already in the
@@ -9,9 +10,10 @@ full/<slug>.json  {lang: {"concept": [{"text","source"[, "src_en"]}], "neutral":
     neutral  en: EMBER's data/neutral_sentences.json (all 300), source "native".
              others: as many as the concept side, from the neutral pages of neutral/partition_<lang>.json (page order):
              pass 1 takes per page its first sentence without a concept term (common.concept_terms of this
-             concept), pass 2 the second, ... ("one or few per page").
+             concept), pass 2 the second, ... ("one or few per page"); pages titled like one of this concept's
+             pages and sentences of its concept side are skipped (only the new concepts have such cases).
 sample/<slug>_N<N>.json  same layout, first N items of a Random(SEED) permutation of each list (so N20 ⊂ N30 ⊂ ...).
-full/_summary.json  per concept and language: native / translated / neutral counts.
+full/_summary.json  per concept and language: native / translated / neutral counts (merged: other concepts kept).
 
 QA for a translation: target-script share of letters >= 0.6 (hi Devanagari, th Thai, others Latin);
 character ratio target/source in [0.3, 3.0]; no degenerate repetition (a word making up > 30% of >= 10 words).
@@ -26,7 +28,8 @@ import random
 import re
 
 from experiments.ml.data.common import (FULL, LANGS, N_FULL, NEUTRAL, PAGES_PATH, POOLS, REPO, SAMPLE, SAMPLE_NS, SEED,
-                                        concept_terms, concepts, dump_json, load_json, slug, term_matcher)
+                                        concept_terms, concepts, dump_json, english_set, load_json, slug,
+                                        term_matcher)
 from experiments.ml.data.translate_nllb import TASKS_PATH, load_cache
 
 SCRIPT = {"hi": re.compile(r"[ऀ-ॿ]"), "th": re.compile(r"[฀-๿]")}
@@ -71,12 +74,16 @@ def concept_side(concept: str, lang: str, ember, tasks, caches, qa_stats):
     return out
 
 
-def neutral_side(concept: str, lang: str, n: int, titles, partitions, ember_neutral):
+def neutral_side(concept: str, lang: str, n: int, titles, partitions, ember_neutral, concept_texts=frozenset()):
     if lang == "en":
         return [{"text": x["sentence"], "source": "native", "url": x["url"]} for x in ember_neutral]
     has_term = term_matcher(concept_terms(concept, titles[concept]))
-    pages = partitions[lang]["neutral_pages"]
-    eligible = [[s for s in p["sentences"] if not has_term(s)] for p in pages]
+    # The partition (neutral.py) dropped pages titled like the 18 concepts' pages; it predates the new concepts, so a
+    # page titled like this concept's own pages, and any sentence of this concept's side, are skipped here
+    # (no-ops for the 18).
+    own_titles = {t.casefold() for t in titles[concept].values() if t}
+    pages = [p for p in partitions[lang]["neutral_pages"] if p["title"].casefold() not in own_titles]
+    eligible = [[s for s in p["sentences"] if not has_term(s) and s not in concept_texts] for p in pages]
     out, depth = [], 0
     while len(out) < n and any(depth < len(e) for e in eligible):
         for p, e in zip(pages, eligible):
@@ -106,7 +113,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--concepts", nargs="*", default=None)
     sel = ap.parse_args().concepts
-    ember = {e["concept"]: e["sentences"] for e in load_json(REPO / "data" / "concept_sentences.json")}
+    ember = english_set()
     ember_neutral = load_json(REPO / "data" / "neutral_sentences.json")
     tasks = load_json(TASKS_PATH) if TASKS_PATH.exists() else {}
     caches = {l: load_cache(l) for l in LANGS if l != "en"}
@@ -120,7 +127,7 @@ def main():
         for lang in LANGS:
             qa_stats = {"failed": 0, "missing": 0}
             cs = concept_side(c, lang, ember, tasks, caches, qa_stats)
-            ns = neutral_side(c, lang, len(cs), titles, partitions, ember_neutral)
+            ns = neutral_side(c, lang, len(cs), titles, partitions, ember_neutral, frozenset(x["text"] for x in cs))
             full[lang] = {"concept": cs, "neutral": ns}
             n_tr = sum(1 for x in cs if x["source"] == "translated")
             summary[c][lang] = {"native": len(cs) - n_tr, "translated": n_tr, "neutral": len(ns),
@@ -137,7 +144,9 @@ def main():
             dump_json(SAMPLE / f"{slug(c)}_N{n}.json", subsample(full, n))
         print(f"[{c}] " + " ".join(f"{l}:{s['native']}+{s['translated']}t/{s['neutral']}n"
                                    for l, s in summary[c].items()), flush=True)
-    dump_json(summary_path, {c: summary[c] for c in concepts() if c in summary})
+    # merge: concepts outside the current set keep their entries; order = the 18, then the new concepts
+    order = [c for c in concepts("all") if c in summary] + [c for c in summary if c not in concepts("all")]
+    dump_json(summary_path, {c: summary[c] for c in order})
 
 
 if __name__ == "__main__":

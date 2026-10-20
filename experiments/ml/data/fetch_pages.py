@@ -1,10 +1,11 @@
-"""Concept pages for the 18 concepts x 8 languages (Wikipedia API, cached).
+"""Concept pages for the concepts ($ML_CONCEPTS, common.concepts) x 8 languages (Wikipedia API, cached).
 
     fetch   one langlinks call per concept on its English page (common.EN_TITLES), one parse call per language
             -> raw/<slug>/<lang>.json  {"concept","lang","title","revid","url","html"}  (never re-fetched unless
             --force); a missing langlink is recorded in raw/<slug>/_langlinks.json
     split   raw HTML -> top-level <p> paragraphs -> multilingual_hp.splitting.split_sentences -> usable filter
-            -> pools/<slug>/<lang>.json, and pages.json (title, revid, n_words, n_sentences, exists per page)
+            -> pools/<slug>/<lang>.json, and pages.json (title, revid, n_words, n_sentences, exists per page; merged:
+            other concepts' entries are kept)
 
 Usable filter: <= MAX_CHARS characters; hi/th: >= 60% of letters in the native script (drops English citations).
 n_words counts the words of all <p> paragraphs (whitespace words; Thai: pythainlp newmm words).
@@ -77,7 +78,8 @@ def fetch(force: bool):
 
 
 def split():
-    pages = {}
+    # merge: entries of concepts outside the current set ($ML_CONCEPTS) are kept as they are
+    pages = load_json(PAGES_PATH) if PAGES_PATH.exists() else {}
     for concept in concepts():
         d = RAW / slug(concept)
         pages[concept] = {}

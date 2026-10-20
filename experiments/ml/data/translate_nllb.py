@@ -1,11 +1,12 @@
 """NLLB-200 top-up translations for concept pages shorter than N_FULL usable sentences.
 
     tasks   (CPU) per (concept, lang != en) the deficit N_FULL - min(N_FULL, native pool) (N_FULL if no page);
-            sources = sentences of the English concept page (pools/<slug>/en.json) that are NOT among EMBER's 300
-            English concept sentences (the English set), in a seeded order (random.Random(SEED), one order per
-            concept, shared by all languages); EMBER's own sentences are appended last as a fallback.
+            sources = sentences of the English concept page (pools/<slug>/en.json) that are NOT among the 300
+            English concept sentences (the English set, common.english_set), in a seeded order
+            (random.Random(SEED), one order per concept, shared by all languages); the English set's own sentences
+            are appended last as a fallback.
             deficit * (1 + SURPLUS) + 5 sources are queued, so QA failures can be skipped.
-            -> translations/tasks.json  {lang: {slug: [english sentence, ...]}}
+            -> translations/tasks.json  {lang: {slug: [english sentence, ...]}} (merged: other concepts kept)
     run     (GPU) facebook/nllb-200-3.3B, fp16, beam 4; resumable cache translations/nllb_<lang>.jsonl, one line
             {"src","tgt"} per unique English sentence (already cached sentences are skipped).
 
@@ -20,7 +21,8 @@ import random
 import re
 import time
 
-from experiments.ml.data.common import LANGS, N_FULL, POOLS, REPO, SEED, TRANS, concepts, dump_json, load_json, slug
+from experiments.ml.data.common import (LANGS, N_FULL, POOLS, SEED, TRANS, concepts, dump_json, english_set, load_json,
+                                        slug)
 
 MODEL = "facebook/nllb-200-3.3B"
 NLLB_CODE = {"en": "eng_Latn", "de": "deu_Latn", "fr": "fra_Latn", "it": "ita_Latn", "pt": "por_Latn",
@@ -34,7 +36,7 @@ def norm(s: str) -> str:
 
 
 def ember_en():
-    return {e["concept"]: e["sentences"] for e in load_json(REPO / "data" / "concept_sentences.json")}
+    return english_set()
 
 
 def english_sources(concept: str, ember):
@@ -54,9 +56,13 @@ def native_count(concept: str, lang: str) -> int:
 
 def make_tasks():
     ember = ember_en()
-    tasks = {l: {} for l in LANGS if l != "en"}
+    # merge: the queues of concepts outside the current set ($ML_CONCEPTS) are kept as they are
+    tasks = load_json(TASKS_PATH) if TASKS_PATH.exists() else {}
+    tasks = {l: tasks.get(l, {}) for l in LANGS if l != "en"}
     summary = {}
     for c in concepts():
+        for lang in tasks:
+            tasks[lang].pop(slug(c), None)
         fresh, rest = english_sources(c, ember)
         srcs = fresh + rest
         for lang in tasks:

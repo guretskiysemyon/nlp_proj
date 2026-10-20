@@ -49,6 +49,10 @@ EN_TITLES = {
     "Heroin": "Heroin", "Nazism": "Nazism", "Pornography": "Pornography", "Republic of Ireland": "Republic of Ireland",
     "Uranium": "Uranium", "Valentine's Day": "Valentine's Day", "World War II": "World War II",
 }
+# The 20 new concepts (PREREG_NEW.md): the English page their 300 English sentences were taken from
+# (data/concept_sentences_extra.json, field "title").
+EXTRA_PATH = REPO / "data" / "concept_sentences_extra.json"
+EN_TITLES.update({e["concept"]: e["title"] for e in json.loads(EXTRA_PATH.read_text(encoding="utf-8"))})
 
 # Obvious concept terms (lower-cased stems) in addition to the content words of the page titles; a neutral sentence
 # containing any of them (stem at a word start; Thai/Hindi: substring) is not used as a neutral for that concept.
@@ -80,25 +84,79 @@ EXTRA_TERMS = {
     "Valentine's Day": ["valentin", "valentine", "san valentino", "वैलेंटाइन", "วาเลนไทน์"],
     "World War II": ["world war", "weltkrieg", "guerre mondiale", "guerra mondiale", "guerra mundial", "wehrmacht",
                      "विश्व युद्ध", "विश्वयुद्ध", "สงครามโลก"],
+    # the 20 new concepts (PREREG_NEW.md)
+    "French Revolution": ["french revolution", "französische revolution", "révolution française",
+                          "rivoluzione francese", "revolução francesa", "revolución francesa", "robespierre",
+                          "फ्रांसीसी क्रांति", "फ्रांसीसी क्रान्ति", "फ़्रांसीसी क्रांति", "ปฏิวัติฝรั่งเศส"],
+    "Tuberculosis": ["tubercul", "tuberkul", "tubercol", "mycobacter", "micobatter", "micobact", "टीबी", "तपेदिक",
+                     "क्षय रोग", "क्षयरोग", "यक्ष्मा", "วัณโรค"],
+    "Cricket": ["cricket", "críquet", "críquete", "wicket", "क्रिकेट", "คริกเกต", "คริกเก็ต"],
+    "Buddhism": ["buddh", "bouddh", "buddis", "budis", "बौद्ध", "बुद्ध", "พุทธ"],
+    "Plutonium": ["plutoni", "plutôni", "plutóni", "प्लूटोनियम", "พลูโทเนียม", "พลูโตเนียม"],
+    "Judaism": ["judaism", "judentum", "judaïsme", "judaísmo", "ebraismo", "jüdisch", "jude", "juden", "juif", "juive",
+                "ebrei", "ebraic", "judeu", "judia", "judío", "judía", "jewish", "torah", "torá", "thora", "synagog",
+                "sinagog", "rabbi", "rabbin", "rabino", "यहूदी", "ยิว", "ยูดาห์"],
+    "Karate": ["karate", "karaté", "caratê", "carate", "कराटे", "คาราเต"],
+    "Existentialism": ["existential", "existentiel", "existenzial", "existenziell", "esistenzial", "existencial",
+                       "sartre", "kierkegaard", "अस्तित्ववाद", "อัตถิภาวนิยม"],
+    "Prime number": ["prime number", "primzahl", "nombre premier", "nombres premiers", "numero primo", "numeri primi",
+                     "número primo", "números primos", "अभाज्य", "जनक संख्या", "จำนวนเฉพาะ"],
+    "The Matrix": ["matrix", "wachowski", "मैट्रिक्स", "मेट्रिक्स", "เมทริกซ์"],
+    "Louvre": ["louvre", "लूव्र", "लौवर", "ลูฟวร์", "ลูวร์"],
+    "American Revolutionary War": ["revolutionary war", "american revolution", "amerikanische revolution",
+                                   "unabhängigkeitskrieg", "révolution américaine", "guerre d'indépendance",
+                                   "rivoluzione americana", "guerra d'indipendenza", "revolução americana",
+                                   "guerra de independência", "revolución estadounidense",
+                                   "guerra de independencia", "continental army", "kontinentalarmee",
+                                   "armée continentale", "esercito continentale", "exército continental",
+                                   "ejército continental", "अमेरिकी क्रांति", "अमेरिकी क्रान्ति",
+                                   "สงครามปฏิวัติอเมริกา", "สงครามประกาศอิสรภาพ"],
+    "Robot": ["robot", "robô", "robóti", "रोबोट", "หุ่นยนต์"],
+    "Sigmund Freud": ["freud", "psychoanaly", "psychanaly", "psicoanali", "psicanáli", "psicoanáli", "psicanali",
+                      "फ्रायड", "फ्रॉयड", "ฟรอยด์", "ฟร็อยท์"],
+    "Giraffe": ["giraf", "jiraf", "जिराफ़", "जिराफ", "ยีราฟ"],
+    "Surfing": ["surfing", "surfer", "surfen", "surfeur", "surfeuse", "surfista", "surfe", "wellenreit",
+                "सर्फिंग", "लहरबाज़ी", "โต้คลื่น", "เซิร์ฟ"],
+    "Flush toilet": ["flush toilet", "toilet", "toilette", "spülkasten", "wasserspülung", "chasse d'eau",
+                     "sciacquone", "descarga sanitária", "autoclismo", "vaso sanitário", "inodoro", "cisterna del",
+                     "शौचालय", "ชักโครก", "โถส้วม", "ส้วม"],
+    "Cloud": ["cloud", "wolke", "nuage", "nuvol", "nuvem", "nuvens", "nube", "बादल", "เมฆ"],
+    "Doctor of Philosophy": ["phd", "ph.d", "ph. d", "doctor of philosophy", "doctorat", "doctorado", "dottorato",
+                             "doutorado", "doutoramento", "doktor", "पीएचडी", "डॉक्टरेट", "ปริญญาเอก",
+                             "ปรัชญาดุษฎีบัณฑิต"],
+    "Tourism": ["touris", "turis", "पर्यटन", "पर्यटक", "ท่องเที่ยว"],
 }
 NOSPACE = {"th"}            # substring matching (no word boundaries)
 _TITLE_STOP = {"of", "the", "de", "la", "le", "les", "del", "da", "do", "di", "du", "des", "dos", "e", "et", "und",
                "y", "als", "and", "del", "della", "der", "die", "das", "il", "lo", "usage", "pays", "drug", "sport",
                "elemento", "élément", "element", "(sport)", "cultura", "culture", "kultur", "día", "dia", "jeu",
-               "seconda", "segunda", "seconde", "zweiter", "repubblica", "república", "république", "republik"}
+               "seconda", "segunda", "seconde", "zweiter", "repubblica", "república", "république", "republik",
+               # generic words of the 20 new concepts' titles (the concept itself is covered by EXTRA_TERMS)
+               "number", "prime", "nombre", "premier", "numero", "número", "primo", "museum", "musée", "museo",
+               "museu", "estados", "unidos", "états", "unis", "d'indépendance", "d'indipendenza", "independência",
+               "independencia", "ricerca", "philosophy", "philosophiæ", "filosofia", "filosofía", "descarga",
+               "rinçage", "2199", "धर्म", "संख्या", "संग्रहालय", "เดอะ"}
 
 
 def slug(concept: str) -> str:
     return re.sub(r"\W+", "_", concept).strip("_")
 
 
-def concepts():
-    """The concept set chosen by $ML_CONCEPTS: "orig" (default, EMBER's 18, data/mc_questions.json), "new" (the 20
-    of data/concept_sentences_extra.json, PREREG_NEW.md) or "all" (orig then new)."""
+def concepts(which=None):
+    """The concept set chosen by $ML_CONCEPTS (or `which`): "orig" (default, EMBER's 18, data/mc_questions.json),
+    "new" (the 20 of data/concept_sentences_extra.json, PREREG_NEW.md) or "all" (orig then new)."""
     import os
     orig = list(json.loads((REPO / "data" / "mc_questions.json").read_text(encoding="utf-8")))
     new = [e["concept"] for e in json.loads((REPO / "data" / "concept_sentences_extra.json").read_text(encoding="utf-8"))]
-    return {"orig": orig, "new": new, "all": orig + new}[os.environ.get("ML_CONCEPTS", "orig")]
+    return {"orig": orig, "new": new, "all": orig + new}[which or os.environ.get("ML_CONCEPTS", "orig")]
+
+
+def english_set() -> dict:
+    """{concept: its 300 English concept sentences}: data/concept_sentences.json (EMBER's 18) and
+    data/concept_sentences_extra.json (the 20 new concepts)."""
+    out = {e["concept"]: e["sentences"] for e in load_json(REPO / "data" / "concept_sentences.json")}
+    out.update({e["concept"]: e["sentences"] for e in load_json(EXTRA_PATH)})
+    return out
 
 
 def dump_json(path: Path, obj, indent=1):
