@@ -111,3 +111,27 @@ round trip x·unmap + μ_B vs e has relative error 3.0e-8, and ‖unmap·M − I
 Reconstruction error, for scale (1%-sparse fits explain little variance by design): EMBER per language (A1 en)
 0.92; A2 sample 0.93 → full 0.96 after extrapolation; A3 0.95 → 0.98 (in the whitened space, not comparable to A1/A2
 directly). Extrapolating Y with Z fixed costs about 3 points of relative error.
+
+## 7. A3's weak edits: diagnosed and fixed (A3z)
+
+A3 selects well but its mapped-back edit points into directions layer 0 barely reads (read gain 1.1–1.7× random vs
+2.6–7.6× for A2; results/ml/diagnose_a3/DIAGNOSIS.md), so efficacy plateaus near 0.1 up to δ = 200 and no gate fires.
+A3z keeps A3's selection and re-solves Z on the raw embeddings with Y fixed; it improves A3 on 9 of 11 concepts
+(0.28 → 0.42) and is the best approach on 4 of the 8 concepts all approaches edit (6 of 8 ungated). See RESULTS.md.
+
+## 8. The validation δ can fail a gate on test
+
+Three test rows failed a gate after passing it on validation: AI A2 (en MMLU 0.80), AI A3z (en 0.87), Pornography
+A3z (fr/es 0.85). They score 0 by protocol; ungated 0.48, 0.52, 0.76. 50 validation MMLU items per language are a
+noisy gate, and the steep A3z curves put the chosen δ close to the edge. A margin rule is the obvious fix (not run).
+
+## 9. Eligibility on test uses the test baseline
+
+`evaluate.score` decides eligibility (unedited concept accuracy ≥ 0.40) from the baseline of the split it scores, so
+test rows use the QA_test baseline, not QA_train as PLAN.md words it. The same rule is applied to every approach and
+in the v2 re-score (which also stores the train-based flag).
+
+## 10. Cleaned translations barely move results
+
+Re-scoring it/pt/hi/th on results/ml/data/qa_v2 at the chosen δ changes unit scores by about ±0.03 (largest:
+Republic of Ireland A1 0.33 → 0.24); means over 18 concepts move ≤ 0.006; no ranking changes.
