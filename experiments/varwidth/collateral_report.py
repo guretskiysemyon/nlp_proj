@@ -14,7 +14,7 @@ import os
 
 import numpy as np
 
-from experiments.varwidth.collateral import OUT, POC, seeds
+from experiments.varwidth.collateral import ALL, EXPANSION, OUT, POC, seeds
 from experiments.varwidth.common import slug
 from experiments.varwidth.erase import hm
 from experiments.varwidth.erase_v2 import COLL_GATE, MIN_MMLU
@@ -38,7 +38,7 @@ def name(v):
 
 def runs():
     """[(concept, seed)] of the stage."""
-    return [(c, s) for c in POC for s in seeds(c)]
+    return [(c, s) for c in ALL for s in seeds(c)]
 
 
 def grids():
@@ -110,6 +110,10 @@ def unedited_test_acc():
     filter ran on items shuffled as "val"; test items are shuffled differently, so the unedited test accuracy is
     < 1 for some tokens (erratum, amendment 6)."""
     out = {}
+    for c in ALL:                                   # amendment 8: explicit per-concept file when present
+        f = OUT / slug(c) / "unedited_test_coll.json"
+        if f.exists():
+            out[c] = json.loads(f.read_text())
     for (c, s, v), r in results().items():
         if r.get("param") is None and r.get("n_edit", 1) == 0 and c not in out:
             out[c] = r["coll_tok"]

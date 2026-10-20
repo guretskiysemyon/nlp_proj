@@ -37,11 +37,23 @@ SEEDS = (42, 43)
 EXTRA_SEED = {"Ancient Rome": 44, "Valentine's Day": 46}
 
 
+# Confirmatory expansion (amendment 8): the 12 anchor concepts not used for development, seeds 42-46
+EXPANSION = ["Baseball", "Cannabis", "COVID-19 pandemic", "Gambling", "Golf", "Gun", "Halloween", "Heroin", "Nazism",
+             "Pornography", "Republic of Ireland", "Uranium"]
+EXP_SEEDS = (42, 43, 44, 45, 46)
+EXP_VARIANTS = ["sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z"]
+ALL = POC + EXPANSION
+QFILE_X = None  # set below (needs ROOT)
+
+
 def seeds(concept):
+    if concept in EXPANSION:
+        return EXP_SEEDS
     return SEEDS + ((EXTRA_SEED[concept],) if concept in EXTRA_SEED else ())
 OUT = RESULTS / "layers" / "collateral"
 V1R = {"Ancient Rome"}          # concepts whose EJ uses the plan-B prompt v1r (prompt example removed)
 QFILE = ROOT / "data" / "collateral_questions.json"
+QFILE_X = ROOT / "data" / "collateral_questions_expansion.json"
 
 
 def fc_rows(concept, rung, seed):
@@ -181,7 +193,7 @@ def relative_mu(concept, seed, s):
     return (s["C"].double().norm(dim=1) / E.norm(dim=1)).numpy()
 
 
-def pool(concepts=POC):
+def pool(concepts=POC, variants=None):
     from experiments.varwidth.prep import get_tokenizer
     tok = get_tokenizer()
     for c in concepts:
@@ -189,7 +201,7 @@ def pool(concepts=POC):
         for s in seeds(c):
             sets = edit_sets(c, s)
             for v, st in sets.items():
-                if v.startswith("_"):
+                if v.startswith("_") or (variants and v not in variants):
                     continue
                 for t in st["ids"]:
                     member.setdefault(t, set()).add(f"{v}_s{s}")
@@ -291,14 +303,15 @@ def basecheck(drafts, out):
     for p in drafts:
         d = json.loads(open(p).read())
         items = {item_key(it): it for e in d["tokens"] for it in e.get("items", [])
-                 if not item_problems(it) and item_key(it) not in res}
+                 if not item_problems(it) and (item_key(it) not in res or item_key(it) + "|test" not in res)}
         if not items:
             continue
         keys = list(items)
-        mc = prepare_mc_items([MCQAItem(d["concept"], "Collateral", "val", items[k]["q"], items[k]["options"],
-                                        items[k]["correct_answer"]) for k in keys], seed=42)
-        _, _, recs = evaluate_mc_generation(w, mc)
-        res.update({k: bool(r["is_correct"]) for k, r in zip(keys, recs)})
+        for split, suffix in (("val", ""), ("test", "|test")):   # amendment 8: each split's own option shuffle
+            mc = prepare_mc_items([MCQAItem(d["concept"], "Collateral", split, items[k]["q"], items[k]["options"],
+                                            items[k]["correct_answer"]) for k in keys], seed=42)
+            _, _, recs = evaluate_mc_generation(w, mc)
+            res.update({k + suffix: bool(r["is_correct"]) for k, r in zip(keys, recs)})
         open(out, "w").write(json.dumps(res))
         print(f"{p}: {sum(res[k] for k in keys)}/{len(keys)} correct", flush=True)
 
@@ -328,7 +341,7 @@ def stats(draft_path, base_path=None):
     return s
 
 
-def freeze(chosen: dict, base_path, out_path=None):
+def freeze(chosen: dict, base_path, out_path=None, strict=False):
     """chosen: {concept: draft path}. Keep usable items (token id present, base model correct), at most 4 per
     multi-meaning token, 2 validation / 2 test (alternating in key order); drop tokens with < 2 usable items."""
     from experiments.varwidth.prep import get_tokenizer
@@ -353,7 +366,8 @@ def freeze(chosen: dict, base_path, out_path=None):
             if e.get("class") != "multi" or e["token"] not in pool_tok:
                 continue
             tid = pool_tok[e["token"]]
-            ok = [it for it in e["items"] if not item_problems(it) and token_hits(tok, tid, it) and base.get(item_key(it))]
+            ok = [it for it in e["items"] if not item_problems(it) and token_hits(tok, tid, it) and base.get(item_key(it))
+                  and base.get(item_key(it) + "|test", not strict)]
             ok = sorted(ok, key=item_key)[:4]
             if len(ok) < 2:
                 dropped.append(e["token"])
@@ -442,13 +456,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("what", choices=("pool", "tokcheck", "basecheck", "stats", "freeze", "premise"))
     ap.add_argument("--concepts", nargs="*", default=POC)
+    ap.add_argument("--variants", nargs="*", default=None, help="edit sets whose tokens form the pool")
     ap.add_argument("--draft", nargs="*", default=[])
     ap.add_argument("--base", default=str(OUT / "drafts" / "base_answers.json"))
     ap.add_argument("--chosen", help="json {concept: draft path}")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--strict", action="store_true", help="require base-correct under both val and test shuffles")
     a = ap.parse_args()
     if a.what == "pool":
-        pool(a.concepts)
+        pool(a.concepts, a.variants)
     elif a.what == "tokcheck":
         for p in a.draft:
             rep = tokcheck(p)
@@ -469,7 +485,7 @@ def main():
     elif a.what == "premise":
         premise(str(OUT / "premise_generations.json"))
     elif a.what == "freeze":
-        freeze(json.loads(open(a.chosen).read()), a.base, a.out)
+        freeze(json.loads(open(a.chosen).read()), a.base, a.out, a.strict)
 
 
 if __name__ == "__main__":

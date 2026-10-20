@@ -34,7 +34,7 @@ from dataclasses import replace
 import numpy as np
 import torch
 
-from experiments.varwidth.collateral import OUT, POC, seeds
+from experiments.varwidth.collateral import ALL, EXPANSION, OUT, POC, seeds
 from experiments.varwidth.common import slug
 
 IOUT = OUT / "integrity"
@@ -204,10 +204,15 @@ def configs(concept, seed, pilot=False):
     sc = OUT / "shape_choice.json"
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {"ember": 1.0, "cinder": 1.0}
     out = []
-    names = PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
+    if concept in EXPANSION:                      # amendment 8: selected point and fixed r = 0.5 for the 5 variants
+        from experiments.varwidth.collateral import EXP_VARIANTS
+        names = [f"{v}@sel" for v in EXP_VARIANTS] + [f"{v}@0.5" for v in EXP_VARIANTS]
+    else:
+        names = None
+    names = names or (PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
         [f"{v}@{r}" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z")
          for r in SWEEP] + \
-        [f"{v}@paper" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b")]
+        [f"{v}@paper" for v in ("sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b")])
     for nm in names:
         v, p = nm.split("@")
         if (concept, seed, v) not in G:
@@ -315,7 +320,8 @@ def summarize(d, name):
 
 
 # ---------------------------------------------------------------- judge export / import, report
-JUDGE_RUNS = [("Harry Potter", 42), ("Ancient Rome", 44), ("Valentine's Day", 42)]
+JUDGE_RUNS = [("Harry Potter", 42), ("Ancient Rome", 44), ("Valentine's Day", 42)] + \
+    [(c, 42) for c in EXPANSION]                  # amendment 8: seed 42 of every expansion concept
 JDIR = IOUT / "judge"
 BATCH = 150
 
@@ -443,7 +449,7 @@ def report():
     L += ["| Concept | Seed | Config | " + " | ".join(cols) + " | graceful | leak | destruction |",
           "|" + "---|" * (len(cols) + 6)]
     agg = {}
-    for c, s in [(c, s) for c in POC for s in seeds(c)]:
+    for c, s in [(c, s) for c in ALL for s in seeds(c)]:
         d = IOUT / slug(c) / f"s{s}"
         if not (d / "ref_orig.json").exists():
             continue
@@ -495,7 +501,7 @@ def report():
     # R11: exclusive vs multi-meaning words (class of the word's tokens in the chosen question-set version; a word
     # counts as multi if any of its tokens is multi)
     split = {}
-    for c, s in [(c, s) for c in POC for s in seeds(c)]:
+    for c, s in [(c, s) for c in ALL for s in seeds(c)]:
         d = IOUT / slug(c) / f"s{s}"
         if not (d / "meta.json").exists():
             continue

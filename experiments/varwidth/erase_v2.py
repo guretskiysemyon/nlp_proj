@@ -268,21 +268,30 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
     ev = Evals(concept, 50)
     Q = load_questions(concept, qfile)
     assert Q, "final needs the frozen collateral set"
+    bfile = OUT / slug(concept) / "unedited_test_coll.json"     # amendment 8: unedited per-token test accuracy
+    if not bfile.exists():
+        ed.restore()
+        save(bfile, coll_score(w, Q, "test"))
     sc = OUT / "shape_choice.json"           # pooled alpha per token set (collateral_report shapes)
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {}
     for v in variant_list(sets):
         d = out_dir(concept, seed, v)
-        fname = "result.json" if rule == "collateral" else "result_paper.json"
+        fname = {"collateral": "result.json", "paper": "result_paper.json", "fixed05": "result_fixed05.json"}[rule]
         if not (d / "grid.json").exists() or (d / fname).exists():
             continue
-        if rule == "paper" and v not in PAPER_VARIANTS:
+        if rule in ("paper", "fixed05") and v not in PAPER_VARIANTS:
             continue
         rows = json.loads((d / "grid.json").read_text())
         if v.startswith("proj:"):
             assert alpha, "run collateral_report shapes first (pooled alpha)"
             rows = [x for x in rows if x["param"] == float(alpha[v.split(':')[1]])]
         assert all("collateral" in x for x in rows), f"{v}: grid rows without collateral (run the phase-2 pass)"
-        best = select(rows, gate) if rule == "collateral" else select_paper(rows)
+        if rule == "collateral":
+            best = select(rows, gate)
+        elif rule == "paper":
+            best = select_paper(rows)
+        else:                                    # fixed r = 0.5 (amendment 8)
+            best = next((x for x in rows if x["param"] == 0.5), None)
         res = {"concept": concept, "seed": seed, "variant": v, "gate": gate, "rule": rule}
         if best is None:
             ed.restore()
@@ -326,7 +335,7 @@ def main():
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--alpaca", nargs="*", default=[])
     ap.add_argument("--gate", type=float, default=COLL_GATE)
-    ap.add_argument("--rule", choices=("collateral", "paper"), default="collateral")
+    ap.add_argument("--rule", choices=("collateral", "paper", "fixed05"), default="collateral")
     a = ap.parse_args()
     if a.what == "grid":
         grid(a.concept, a.seed, a.group, a.qfile, a.pilot, a.variants)

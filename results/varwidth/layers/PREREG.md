@@ -315,3 +315,49 @@ low-variance directions that layer 0 barely reads.
   no Alpaca, to stay within budget), plus E2 judge-free tests at that point.
 
 **Status:** exploratory. Gemini ≈ 2 NIS, total ≈ 23.6 of 25 NIS.
+
+## Amendment 8 (2026-10-20): confirmatory expansion (written before any expansion data exists)
+
+**Question.** Do the CINDER variants differ from EMBER under the new evaluation?
+
+**Concepts and seeds.** The 12 anchor concepts never used for development: Baseball, Cannabis, COVID-19 pandemic,
+Gambling, Golf, Gun, Halloween, Heroin, Nazism, Pornography, Republic of Ireland, Uranium. Seeds 42–46 (60 runs).
+
+**Variants.** EMBER (L0), CINDER (L123), CINDER-RS (L13), CINDER-z, CINDER-RS-z. Definitions and settings are
+unchanged (frozen on the development concepts): r grid {0.05, …, 100}; gates MMLU ≥ 0.9
+and collateral ≥ 0.8.
+
+**Question set.**
+- **Blind union pool** of the tokens edited by EMBER, CINDER and CINDER-RS (the A3z sets share CINDER's / CINDER-RS's
+  tokens) over seeds 42–46.
+- **Protocol:** writer v0 → reviewer F0 → writer v1 → reviewer F1. F1 flags residual violations, and its "drop"
+  items are removed mechanically.
+- **Shortened from the development protocol:** no v2 and no selector, for time. Every development selector chose
+  the latest version, and the main gains came in round 1.
+- **Checks and freeze:** token-id check; base filter (unedited model correct), applied with each split's own option
+  shuffle, which fixes the cause of the amendment 6 erratum; 2 validation / 2 test items per token; tokens with
+  < 2 items dropped; frozen as data/collateral_questions_expansion.json with its hash recorded in the commit before
+  any edited model is scored.
+
+**Arms (test split, MC).**
+1. **Collateral rule (primary):** cheaper-rule selection on validation by HM(efficacy, specificity, collateral) under
+   the gates.
+2. **Fixed strength:** r = 0.5 for every variant, so there is no selection noise.
+3. **Paper rule (secondary):** max HM(efficacy, specificity), MMLU gate only.
+
+No Alpaca, because about 1.5 NIS of Gemini is left; H3v replaces H4. Test collateral is normalized by the unedited
+model's per-token test accuracy, computed in each run.
+
+**Primary endpoints, with Holm correction over the 4 comparisons.** Paired H3v (collateral rule) for CINDER − EMBER,
+CINDER-RS − EMBER, CINDER-z − EMBER and CINDER-RS-z − EMBER, on runs where both edit. Unit = concept: mean over seeds
+within a concept, then a two-sided Wilcoxon signed-rank test across concepts, plus a 95% cluster-bootstrap CI.
+
+**Secondary endpoints.**
+- The same contrasts at fixed r = 0.5 and under the paper rule.
+- Failure rate (H3v < 0.25).
+- E2 integrity at the selected point (judge-free copy and echo on all runs; T3 destruction and leak on seed 42 via
+  blind agent labels with the same brief).
+- Exclusive vs multi-meaning destruction.
+
+**Development numbers it is meant to confirm or refute:** CINDER-RS − EMBER +0.09 overall but +0.01 without the
+failure run; integrity destruction EMBER 0.30 vs CINDER 0.21 and CINDER-RS 0.19.
