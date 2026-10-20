@@ -18,6 +18,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Ancient Rome | 42 | 2×2: CINDER top-N × CINDER dir (1a) | 0.250 | 48 | 0.11 | 1.00 | 0.98 | 0.96 | 0.99 | 0.28 | 0.34 | 0.28 |
 | Ancient Rome | 42 | CINDER | 0.500 | 92 | 0.26 | 1.00 | 0.87 | 0.86 | 0.98 | 0.52 | 0.58 | 0.51 |
 | Ancient Rome | 42 | CINDER-RS (CS + RS-1% + TWJ) | 0.250 | 41 | 0.19 | 1.00 | 0.94 | 0.92 | 0.99 | 0.41 | 0.48 | 0.41 |
+| Ancient Rome | 42 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 41 | 0.19 | 1.00 | 0.80 | 0.80 | 0.99 | 0.41 | 0.47 | 0.40 |
+| Ancient Rome | 42 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 92 | 0.26 | 1.00 | 0.89 | 0.86 | 0.99 | 0.52 | 0.58 | 0.51 |
 | Ancient Rome | 42 | EMBER + TJ∨WJ+share | 0.500 | 56 | 0.00 | 0.98 | 0.93 | 0.92 | 0.98 | 0.00 | 0.00 | 0.00 |
 | Ancient Rome | 43 | Exclusivity-weighted (EMBER tok) | 0.500 | 59 | 0.19 | 1.00 | 0.93 | 0.93 | — | — | — | 0.41 |
 | Ancient Rome | 43 | Mean (EMBER tok) | 0.000 | 0 | 0.00 | 1.00 | 1.00 | 0.98 | — | — | — | 0.00 |
@@ -26,6 +28,7 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Ancient Rome | 43 | Power m=2 (EMBER tok) | 0.500 | 59 | 0.19 | 1.00 | 0.95 | 0.94 | — | — | — | 0.41 |
 | Ancient Rome | 43 | Projection (EMBER tok) | 0.000 | 0 | 0.00 | 1.00 | 1.00 | 0.98 | — | — | — | 0.00 |
 | Ancient Rome | 43 | CINDER-RS (CS + RS-1% + TWJ) | 0.250 | 44 | 0.19 | 1.00 | 0.95 | 0.93 | 0.97 | 0.41 | 0.48 | 0.41 |
+| Ancient Rome | 43 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 44 | 0.15 | 1.00 | 0.85 | 0.83 | 0.98 | 0.35 | 0.41 | 0.34 |
 | Ancient Rome | 43 | 2×2: EMBER tok × EMBER dir (dense) | 0.500 | 59 | 0.15 | 1.00 | 0.98 | 0.96 | — | — | — | 0.35 |
 | Ancient Rome | 43 | EMBER | 0.500 | 59 | 0.19 | 1.00 | 0.98 | 0.96 | 0.98 | 0.41 | 0.48 | 0.41 |
 | Ancient Rome | 44 | Exclusivity-weighted (CINDER tok) | 1.000 | 103 | 0.34 | 0.96 | 0.88 | 0.85 | — | — | — | 0.59 |
@@ -44,6 +47,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Ancient Rome | 44 | 2×2: EMBER tok × CINDER dir (1b) | 0.500 | 38 | 0.11 | 0.98 | 0.89 | 0.90 | 0.97 | 0.28 | 0.33 | 0.27 |
 | Ancient Rome | 44 | CINDER | 0.500 | 103 | 0.38 | 0.98 | 0.91 | 0.90 | 0.96 | 0.64 | 0.69 | 0.63 |
 | Ancient Rome | 44 | CINDER-RS (CS + RS-1% + TWJ) | 0.250 | 41 | 0.26 | 1.00 | 0.94 | 0.92 | 0.97 | 0.52 | 0.58 | 0.51 |
+| Ancient Rome | 44 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.050 | 41 | 0.08 | 1.00 | 1.00 | 0.98 | 0.99 | 0.20 | 0.25 | 0.20 |
+| Ancient Rome | 44 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 103 | 0.23 | 0.96 | 0.91 | 0.89 | 0.99 | 0.46 | 0.53 | 0.46 |
 | Ancient Rome | 44 | 2×2: CINDER top-N × EMBER dir | 0.500 | 38 | 0.04 | 1.00 | 0.94 | 0.89 | — | — | — | 0.11 |
 | Ancient Rome | 44 | 2×2: EMBER tok × EMBER dir (dense) | 0.050 | 38 | 0.00 | 1.00 | 1.00 | 0.96 | — | — | — | 0.00 |
 | Ancient Rome | 44 | EMBER | 0.050 | 38 | 0.00 | 1.00 | 1.00 | 0.96 | 0.99 | 0.00 | 0.00 | 0.00 |
@@ -63,6 +68,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Harry Potter | 42 | 2×2: EMBER tok × CINDER dir (1b) | 0.500 | 31 | 0.25 | 1.00 | 0.96 | 0.90 | 1.00 | 0.51 | 0.57 | 0.50 |
 | Harry Potter | 42 | CINDER | 0.250 | 51 | 0.25 | 1.00 | 0.96 | 0.93 | 1.00 | 0.51 | 0.57 | 0.50 |
 | Harry Potter | 42 | CINDER-RS (CS + RS-1% + TWJ) | 0.500 | 46 | 0.29 | 1.00 | 0.92 | 0.89 | 1.00 | 0.55 | 0.61 | 0.54 |
+| Harry Potter | 42 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 46 | 0.29 | 1.00 | 0.92 | 0.93 | 0.99 | 0.54 | 0.61 | 0.54 |
+| Harry Potter | 42 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 51 | 0.32 | 1.00 | 0.94 | 0.94 | 0.98 | 0.58 | 0.64 | 0.57 |
 | Harry Potter | 42 | 2×2: CINDER top-N × EMBER dir | 2.000 | 31 | 0.29 | 1.00 | 0.88 | 0.89 | — | — | — | 0.53 |
 | Harry Potter | 42 | 2×2: EMBER tok × EMBER dir (dense) | 2.000 | 31 | 0.32 | 1.00 | 0.76 | 0.77 | — | — | — | 0.55 |
 | Harry Potter | 42 | EMBER | 2.000 | 31 | 0.32 | 1.00 | 0.76 | 0.77 | 0.98 | 0.58 | 0.62 | 0.55 |
@@ -82,6 +89,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Harry Potter | 43 | 2×2: EMBER tok × CINDER dir (1b) | 0.500 | 47 | 0.25 | 1.00 | 0.93 | 0.90 | 0.99 | 0.50 | 0.57 | 0.50 |
 | Harry Potter | 43 | CINDER | 0.250 | 63 | 0.22 | 1.00 | 0.97 | 0.95 | 0.98 | 0.46 | 0.53 | 0.46 |
 | Harry Potter | 43 | CINDER-RS (CS + RS-1% + TWJ) | 0.500 | 46 | 0.29 | 1.00 | 0.93 | 0.89 | 0.98 | 0.54 | 0.61 | 0.54 |
+| Harry Potter | 43 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 46 | 0.25 | 1.00 | 0.93 | 0.93 | 0.95 | 0.50 | 0.57 | 0.50 |
+| Harry Potter | 43 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 63 | 0.35 | 1.00 | 0.95 | 0.95 | 1.00 | 0.62 | 0.68 | 0.61 |
 | Harry Potter | 43 | 2×2: CINDER top-N × EMBER dir | 0.500 | 47 | 0.25 | 1.00 | 0.96 | 0.92 | — | — | — | 0.50 |
 | Harry Potter | 43 | 2×2: EMBER tok × EMBER dir (dense) | 1.000 | 47 | 0.32 | 1.00 | 0.90 | 0.90 | — | — | — | 0.57 |
 | Harry Potter | 43 | EMBER | 1.000 | 47 | 0.32 | 1.00 | 0.90 | 0.90 | 1.00 | 0.58 | 0.64 | 0.57 |
@@ -101,6 +110,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Valentine's Day | 42 | 2×2: EMBER tok × CINDER dir (1b) | 0.500 | 45 | 0.30 | 1.00 | 0.97 | 0.86 | 0.98 | 0.56 | 0.62 | 0.55 |
 | Valentine's Day | 42 | CINDER | 0.500 | 52 | 0.22 | 1.00 | 0.96 | 0.90 | 0.97 | 0.46 | 0.53 | 0.46 |
 | Valentine's Day | 42 | CINDER-RS (CS + RS-1% + TWJ) | 0.500 | 44 | 0.22 | 1.00 | 0.98 | 0.94 | 0.97 | 0.46 | 0.53 | 0.46 |
+| Valentine's Day | 42 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 44 | 0.22 | 1.00 | 0.95 | 0.91 | 0.99 | 0.46 | 0.53 | 0.46 |
+| Valentine's Day | 42 | CINDER-z (A3z: CINDER selection, original-space Z) | 1.000 | 52 | 0.44 | 1.00 | 0.91 | 0.90 | 0.98 | 0.70 | 0.75 | 0.69 |
 | Valentine's Day | 42 | 2×2: CINDER top-N × EMBER dir | 0.500 | 45 | 0.22 | 1.00 | 0.98 | 0.96 | — | — | — | 0.46 |
 | Valentine's Day | 42 | 2×2: EMBER tok × EMBER dir (dense) | 0.500 | 45 | 0.30 | 1.00 | 0.98 | 0.86 | — | — | — | 0.56 |
 | Valentine's Day | 42 | EMBER | 0.500 | 45 | 0.22 | 1.00 | 0.98 | 0.86 | 0.99 | 0.46 | 0.53 | 0.46 |
@@ -113,6 +124,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Valentine's Day | 43 | 2×2: CINDER top-N × CINDER dir (1a) | 5.000 | 39 | 0.00 | 1.00 | 0.69 | 0.66 | 0.96 | 0.00 | 0.00 | 0.00 |
 | Valentine's Day | 43 | CINDER | 5.000 | 33 | 0.07 | 1.00 | 0.68 | 0.63 | 0.96 | 0.19 | 0.24 | 0.19 |
 | Valentine's Day | 43 | CINDER-RS (CS + RS-1% + TWJ) | 1.000 | 40 | 0.07 | 1.00 | 0.81 | 0.77 | 0.98 | 0.19 | 0.24 | 0.19 |
+| Valentine's Day | 43 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.500 | 40 | 0.07 | 1.00 | 0.89 | 0.85 | 0.99 | 0.19 | 0.24 | 0.19 |
+| Valentine's Day | 43 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 33 | 0.00 | 1.00 | 0.87 | 0.83 | 0.98 | 0.00 | 0.00 | 0.00 |
 | Valentine's Day | 46 | Exclusivity-weighted (CINDER tok) | 2.000 | 32 | 0.07 | 1.00 | 0.76 | 0.71 | — | — | — | 0.19 |
 | Valentine's Day | 46 | Exclusivity-weighted (EMBER tok) | 0.250 | 34 | 0.37 | 1.00 | 1.00 | 0.93 | — | — | — | 0.64 |
 | Valentine's Day | 46 | Mean (CINDER tok) | 0.000 | 0 | 0.00 | 1.00 | 1.00 | 0.96 | — | — | — | 0.00 |
@@ -129,6 +142,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | Valentine's Day | 46 | 2×2: EMBER tok × CINDER dir (1b) | 1.000 | 34 | 0.22 | 0.98 | 0.91 | 0.85 | 0.99 | 0.46 | 0.52 | 0.45 |
 | Valentine's Day | 46 | CINDER | 5.000 | 32 | 0.07 | 1.00 | 0.72 | 0.68 | 0.95 | 0.19 | 0.24 | 0.19 |
 | Valentine's Day | 46 | CINDER-RS (CS + RS-1% + TWJ) | 5.000 | 77 | 0.44 | 0.97 | 0.73 | 0.71 | 0.93 | 0.69 | 0.70 | 0.65 |
+| Valentine's Day | 46 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 1.000 | 77 | 0.37 | 0.98 | 0.82 | 0.80 | 0.97 | 0.63 | 0.67 | 0.61 |
+| Valentine's Day | 46 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.500 | 32 | 0.00 | 1.00 | 0.87 | 0.82 | 0.95 | 0.00 | 0.00 | 0.00 |
 | Valentine's Day | 46 | 2×2: CINDER top-N × EMBER dir | 2.000 | 34 | 0.00 | 1.00 | 0.86 | 0.82 | — | — | — | 0.00 |
 | Valentine's Day | 46 | 2×2: EMBER tok × EMBER dir (dense) | 0.500 | 34 | 0.30 | 0.98 | 0.97 | 0.90 | — | — | — | 0.55 |
 | Valentine's Day | 46 | EMBER | 0.500 | 34 | 0.30 | 0.98 | 0.97 | 0.90 | 0.99 | 0.56 | 0.62 | 0.55 |
@@ -147,6 +162,8 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | EMBER | 6 | 0.22 | 0.93 | 0.42 | 0.48 | 0.42 | 0.76 |
 | Power m=1.5 (CINDER tok) | 7 | 0.22 | 0.87 | 0.42 | — | 0.42 | 0.89 |
 | CINDER | 7 | 0.21 | 0.87 | 0.42 | 0.48 | 0.42 | 1.71 |
+| CINDER-z (A3z: CINDER selection, original-space Z) | 7 | 0.23 | 0.91 | 0.41 | 0.45 | 0.40 | 0.57 |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 8 | 0.20 | 0.90 | 0.40 | 0.47 | 0.40 | 0.51 |
 | Noise (EMBER tok) | 6 | 0.22 | 0.91 | 0.40 | — | 0.39 | 1.09 |
 | Projection (CINDER tok) | 7 | 0.21 | 0.95 | 0.39 | — | 0.39 | 0.30 |
 | Power m=2 (CINDER tok) | 7 | 0.19 | 0.86 | 0.37 | 0.43 | 0.37 | 1.21 |
@@ -208,10 +225,33 @@ Collateral (rn) is normalized by the unedited model's test accuracy per token (e
 | 2×2: EMBER tok × CINDER dir (1b) | 0.59 | 0.59 | 0.54 |
 | CINDER | 0.61 | 0.61 | 0.41 |
 | CINDER-RS (CS + RS-1% + TWJ) | 0.60 | 0.49 | 0.38 |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.58 | 0.48 | 0.27 |
+| CINDER-z (A3z: CINDER selection, original-space Z) | 0.62 | 0.52 | 0.38 |
 | 2×2: CINDER top-N × EMBER dir | 0.55 | 0.45 | 0.42 |
 | 2×2: EMBER tok × EMBER dir (dense) | 0.59 | 0.46 | 0.43 |
 | EMBER | 0.61 | 0.45 | 0.42 |
 | EMBER + TJ∨WJ+share | 0.69 | 0.44 | 0.10 |
+
+## Old evaluation: the paper-style rule (max HM(efficacy, specificity), MMLU >= 0.9, no collateral)
+
+| Variant | runs | Efficacy | Specificity | H2 (paper, no coherence) | Collateral (rn) | mean selected r | paired ΔH2 vs EMBER (wins/losses) |
+|---|---|---|---|---|---|---|---|
+| EMBER | 6 | 0.46 | 0.98 | 0.60 | 0.67 | 50.00 | — |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 8 | 0.47 | 0.98 | 0.60 | 0.68 | 35.19 | +0.063 (3/3, n=6) |
+| CINDER-z (A3z: CINDER selection, original-space Z) | 7 | 0.47 | 0.96 | 0.55 | 0.72 | 22.43 | +0.059 (4/1, n=5) |
+| 2×2: EMBER tok × CINDER dir (1b) | 5 | 0.23 | 0.99 | 0.37 | 0.93 | 0.60 | -0.195 (1/4, n=5) |
+| CINDER-RS (CS + RS-1% + TWJ) | 8 | 0.21 | 1.00 | 0.34 | 0.87 | 3.06 | -0.236 (1/5, n=6) |
+| CINDER | 7 | 0.21 | 0.99 | 0.33 | 0.78 | 21.57 | -0.208 (1/4, n=5) |
+
+## New evaluation, paired vs EMBER (H3v rn; collateral-aware rule)
+
+| Variant | paired ΔH3v vs EMBER (wins/losses, n) | ΔH4 vs EMBER (n) |
+|---|---|---|
+| CINDER | +0.021 (1/3, n=5) | +0.030 (n=5) |
+| CINDER-RS (CS + RS-1% + TWJ) | +0.093 (2/2, n=6) | +0.102 (n=6) |
+| CINDER-z (A3z: CINDER selection, original-space Z) | +0.040 (4/1, n=5) | +0.037 (n=5) |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | +0.016 (2/3, n=6) | +0.023 (n=6) |
+| 2×2: EMBER tok × CINDER dir (1b) | +0.030 (2/3, n=5) | +0.043 (n=5) |
 
 ## Pooled edit-shape choice (validation)
 

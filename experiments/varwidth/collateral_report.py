@@ -173,6 +173,50 @@ def pareto_png(G):
     return paths
 
 
+def results_paper():
+    out = {}
+    for c, s in runs():
+        for f in glob.glob(str(OUT / slug(c) / f"s{s}" / "*" / "result_paper.json")):
+            r = json.load(open(f))
+            out[(c, s, r["variant"])] = r
+    return out
+
+
+def paper_section(R):
+    """Old evaluation (amendment 7): the paper-style rule's point, test split; H2 = HM(efficacy, specificity);
+    collateral (rn) reported but not used by the rule."""
+    P = renorm(results_paper())
+    L = ["", "## Old evaluation: the paper-style rule (max HM(efficacy, specificity), MMLU >= 0.9, no collateral)", "",
+         "| Variant | runs | Efficacy | Specificity | H2 (paper, no coherence) | Collateral (rn) | mean selected r | "
+         "paired ΔH2 vs EMBER (wins/losses) |", "|---|---|---|---|---|---|---|---|"]
+    by = {}
+    for (c, s, v), r in P.items():
+        r["H2t"] = hm([r["efficacy"], r["specificity"]])
+        by.setdefault(v, {})[(c, s)] = r
+    em = by.get("sub:ember", {})
+    for v, d in sorted(by.items(), key=lambda kv: -np.mean([r["H2t"] for r in kv[1].values()])):
+        rs = list(d.values())
+        sh = [k for k in d if k in em]
+        diff = [d[k]["H2t"] - em[k]["H2t"] for k in sh]
+        pd = (f"{np.mean(diff):+.3f} ({sum(x > 0.005 for x in diff)}/{sum(x < -0.005 for x in diff)}, n={len(diff)})"
+              if diff and v != "sub:ember" else "—")
+        L.append(f"| {name(v)} | {len(rs)} | {fmt(np.mean([r['efficacy'] for r in rs]))} | "
+                 f"{fmt(np.mean([r['specificity'] for r in rs]))} | {fmt(np.mean([r['H2t'] for r in rs]))} | "
+                 f"{fmt(np.mean([r['collateral_rn'] for r in rs]))} | {fmt(np.mean([r.get('r') or 0 for r in rs]), 2)} | {pd} |")
+    # the same variants under the new rule, paired vs EMBER
+    L += ["", "## New evaluation, paired vs EMBER (H3v rn; collateral-aware rule)", "",
+          "| Variant | paired ΔH3v vs EMBER (wins/losses, n) | ΔH4 vs EMBER (n) |", "|---|---|---|"]
+    emn = {(c, s): r for (c, s, v), r in R.items() if v == "sub:ember"}
+    for v in ("sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b"):
+        d = {(c, s): r for (c, s, vv), r in R.items() if vv == v}
+        sh = [k for k in d if k in emn]
+        dh = [d[k]["H3v_rn"] - emn[k]["H3v_rn"] for k in sh]
+        d4 = [d[k]["H4_rn"] - emn[k]["H4_rn"] for k in sh if "H4_rn" in d[k] and "H4_rn" in emn[k]]
+        L.append(f"| {name(v)} | {np.mean(dh):+.3f} ({sum(x > 0.005 for x in dh)}/{sum(x < -0.005 for x in dh)}, n={len(dh)}) | "
+                 + (f"{np.mean(d4):+.3f} (n={len(d4)})" if d4 else "—") + " |")
+    return L
+
+
 def report():
     G, R = grids(), renorm(results())
     sh = json.loads((OUT / "shape_choice.json").read_text()) if (OUT / "shape_choice.json").exists() else shapes(G, False)
@@ -245,6 +289,7 @@ def report():
             vals = [(h3v(b) if (b := select(G[k], g)) else 0.0) for k in G if k[2] == v and complete(G[k])]
             row.append(fmt(np.mean(vals)) if vals else "—")
         L.append(f"| {name(v)} | " + " | ".join(row) + " |")
+    L += paper_section(R)
     L += ["", "## Pooled edit-shape choice (validation)", "", "```json", json.dumps(sh, indent=1, default=str), "```", ""]
     paths = pareto_png(G)
     L += ["## Pareto curves (validation)", ""] + [f"![{p.stem}](pareto/{p.name})" for p in paths]
