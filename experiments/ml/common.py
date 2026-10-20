@@ -41,8 +41,13 @@ def save_json(path: Path, obj) -> None:
     tmp.replace(path)
 
 
-def concepts() -> list[str]:
-    return list(json.loads((ROOT / "data" / "mc_questions.json").read_text()))
+def concepts():
+    """The concept set chosen by $ML_CONCEPTS: "orig" (default, EMBER's 18, data/mc_questions.json), "new" (the 20
+    of data/concept_sentences_extra.json, PREREG_NEW.md) or "all" (orig then new)."""
+    import os
+    orig = list(json.loads((ROOT / "data" / "mc_questions.json").read_text(encoding="utf-8")))
+    new = [e["concept"] for e in json.loads((ROOT / "data" / "concept_sentences_extra.json").read_text(encoding="utf-8"))]
+    return {"orig": orig, "new": new, "all": orig + new}[os.environ.get("ML_CONCEPTS", "orig")]
 
 
 @lru_cache(maxsize=1)

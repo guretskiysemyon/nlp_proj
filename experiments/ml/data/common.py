@@ -93,7 +93,12 @@ def slug(concept: str) -> str:
 
 
 def concepts():
-    return list(json.loads((REPO / "data" / "mc_questions.json").read_text(encoding="utf-8")).keys())
+    """The concept set chosen by $ML_CONCEPTS: "orig" (default, EMBER's 18, data/mc_questions.json), "new" (the 20
+    of data/concept_sentences_extra.json, PREREG_NEW.md) or "all" (orig then new)."""
+    import os
+    orig = list(json.loads((REPO / "data" / "mc_questions.json").read_text(encoding="utf-8")))
+    new = [e["concept"] for e in json.loads((REPO / "data" / "concept_sentences_extra.json").read_text(encoding="utf-8"))]
+    return {"orig": orig, "new": new, "all": orig + new}[os.environ.get("ML_CONCEPTS", "orig")]
 
 
 def dump_json(path: Path, obj, indent=1):
