@@ -162,6 +162,26 @@ The multilingual work found on Llama that ML-CINDER's edits, mapped back from th
 
 "Whiten to select, edit in the original space" holds for erasure strength under the paper's rule. Under an evaluation that charges for destruction it buys nothing: the extra strength appears at r ≥ 1, where mean validation collateral is already below the 0.8 gate (0.77 and 0.75 at r = 1), so the collateral rule does not reach it.
 
+### Confirmatory expansion (amendment 8, running)
+
+All development results above are within noise, so the 5 main variants (EMBER, CINDER, CINDER-RS, CINDER-z,
+CINDER-RS-z) are being re-tested on the 12 anchor concepts never used for development, seeds 42–46 (60 runs).
+
+**Design.**
+- New blind collateral question sets, made with a shortened protocol (writer v0 → reviewer → v1 → reviewer check). The
+  base filter is applied under both splits' option orders, which fixes the amendment 6 issue at the source.
+- Arms: the collateral rule (primary), fixed r = 0.5 and the paper rule.
+- Primary endpoint: paired H3v against EMBER, with concepts as the unit, a Wilcoxon test with Holm correction and a
+  cluster-bootstrap CI.
+- E2 integrity at the selected point and at r = 0.5, with T3 labels on seed 42.
+- No Alpaca (Gemini budget).
+
+**Already visible, from the edit sets alone.** EMBER's judge selects no feature in 19 of the 60 runs, mostly
+Halloween, Heroin, Nazism and Uranium. CINDER selects none in 8 and CINDER-RS in 5: the TWJ judge rescues most of
+EMBER's empty runs. The edit rate is reported as its own endpoint.
+
+**Status:** the question sets are being written; phase-1 grids are running on SLURM.
+
 ### Where we stand
 
 - **Done:** the premise check, the pipeline pilot and the frozen question set (D5). **E1:** 1,035 grid points on 8 concept-seeds with collateral at every point, the pooled shape choice (α = 1; best shape power m = 2 on CINDER's tokens), selection, the test split and Alpaca for the primaries, with test collateral renormalized after the erratum of amendment 6 ([poc.md](results/varwidth/layers/collateral/poc.md), D4, D9). **E2:** the pilot and two T2 fixes (amendments 4b and 4c), judge-free tests on 8 concept-seeds, blind T3 labels on 3 of them (3,641 before amendment 7, 5,883 now, with 0.97 agreement on 473 cross-agent duplicates), and the split by token class ([integrity/report.md](results/varwidth/layers/collateral/integrity/report.md), D14, R11). **CINDER-RS** (amendment 5) through E1 and E2 with unchanged settings (D15). **A3z** (amendment 7): the offline read-strength check, CINDER-z and CINDER-RS-z through E1 (with Alpaca) and E2, and the paper-rule arm with a test pass and E2 at its point for 6 variants; 2,242 new T3 labels in all (D16). Gemini spend: 23.5 of 25 NIS, shared with the multilingual work.
