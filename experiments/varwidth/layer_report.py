@@ -35,7 +35,7 @@ NEW = ["Judaism", "Karate", "Existentialism", "Prime number", "The Matrix", "Lou
        "Robot", "Sigmund Freud", "Giraffe", "Surfing", "Flush toilet", "Cloud", "Doctor of Philosophy", "Tourism"]
 WIDE = ["Cloud", "Doctor of Philosophy", "Tourism"]
 ERASE = ["Baseball", "COVID-19 pandemic", "Gambling", "Golf", "Gun", "Halloween", "Harry Potter", "Heroin",
-         "Pornography", "Uranium"]
+         "Pornography", "Uranium", "Cannabis", "Nazism", "Republic of Ireland", "Valentine's Day"]   # + PREREG amendment 1
 FIDELITY = ["Baseball", "Culture of Greece", "Gambling", "Harry Potter", "COVID-19 pandemic"]
 PAPER_T6 = {"Con": 52.1, "Sim": 84.6, "MM": 53.6}   # EMBER, Gemma-2-2B-it, Table 6 (5 seeds, 5 concepts)
 
@@ -184,7 +184,8 @@ def run_rows(lab: dict) -> pd.DataFrame:
         for rung, (cfg, jd) in RUNGS.items():
             for s in SEEDS:
                 ca = load(c, cfg, s)
-                if not ca or (jd == "TJ" and any(x["tj"] is None for x in ca["candidates"])):
+                if not ca or any(x["tj"] is None for x in ca["candidates"]) or \
+                        (jd == "TW" and any(x["cj"] is None for x in ca["candidates"])):
                     continue
                 F = fc(ca, jd)
                 ls = [lab.get(x["key"]) for x in F]
@@ -261,7 +262,8 @@ def per_concept(R: pd.DataFrame, col: str) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------- report
-RUNG_NAMES = {"L0": "EMBER", "L1": "+CS", "L12": "+CS+GS", "L123": "+CS+GS+TWJ (CINDER)"}
+RUNG_NAMES = {"L0": "EMBER", "L1": "+CS", "L12": "+CS+GS", "L123": "+CS+GS+TWJ (CINDER)",
+              "L0H": "EMBER+TWJ (expl.)", "L0W": "EMBER+TJ∨WJ+share (expl.)", "L12W": "+CS+GS+TJ∨WJ+share (expl.)"}
 PAIRS = [("L0", "L1"), ("L1", "L12"), ("L12", "L123")]
 
 
@@ -295,9 +297,11 @@ def ladder(R: pd.DataFrame) -> list:
         S = R[R.concept.isin(cs)]
         if S.empty:
             continue
-        L += [f"## Scope: {name} ({S.concept.nunique()} concepts, {len(S) // 4} runs per rung)", ""]
+        L += [f"## Scope: {name} ({S.concept.nunique()} concepts, {len(S[S.rung == 'L0'])} runs per main rung)", ""]
         rows = []
         for rung in RUNGS:
+            if not (S.rung == rung).any():
+                continue
             G = S[S.rung == rung].groupby("concept")[cols].mean()
             row = {"rung": RUNG_NAMES[rung]}
             for c in cols:
@@ -493,7 +497,7 @@ def erasure() -> list:
          "H = HM(efficacy, specificity, coherence). Alpaca is not in the grid (Gemini budget): a deviation from the "
          "paper applied identically to every rung.", ""]
     rows = []
-    for p in sorted((OUT / "erasure").glob("*/*_s42/result.json")):
+    for p in sorted((OUT / "erasure").glob("*/*_s42/result.json")):  # not *_papergrid
         r = json.loads(p.read_text())
         rows.append(r)
     if not rows:
@@ -540,6 +544,14 @@ def erasure() -> list:
             row[y] = spearmanr(ok[x], ok[y]).statistic if len(ok) > 3 and ok[x].nunique() > 1 else float("nan")
         rows.append(row)
     L += mdt(pd.DataFrame(rows)) + [""]
+    pg = OUT / "erasure" / "Harry_Potter" / "L0_s42_papergrid" / "result.json"
+    if pg.exists():
+        r = json.loads(pg.read_text())
+        mine = D[(D.rung == "L0") & (D.concept == "Harry Potter")].iloc[0]
+        L += ["## Paper-grid check (Harry Potter, L0): Alpaca in the grid vs our MMLU-only gate", "",
+              f"Paper grid: δ = {r['delta']:g}, Con {100 * r['qa_acc']:.1f}, Sim {100 * r['simdom_acc']:.1f}, "
+              f"MM {100 * r['mmlu_acc']:.1f}, H {r.get('H', float('nan')):.3f}. Our gate: δ = {mine.delta:g}, "
+              f"Con {mine.Con:.1f}, Sim {mine.Sim:.1f}, MM {mine.MM:.1f}, H {mine.H:.3f}.", ""]
     F0 = D[(D.rung == "L0") & D.concept.isin(FIDELITY)]
     if len(F0):
         L += ["## Fidelity of L0 (our EMBER reimplementation vs the paper)", "",

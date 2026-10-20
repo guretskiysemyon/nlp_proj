@@ -1,0 +1,3101 @@
+{
+ "concept": "Heroin",
+ "overall": "Checker is clean (428/428 items ok, all 120 pool tokens covered: 115 multi, 5 exclusive). The large majority of items are true, neutral, single-answer school-level facts with same-type distractors, and the drug-adjacent tokens (cocaine, meth, coca, DEA, cartel, Opium Wars, overdose of non-opioids, poppies) are handled with non-opioid facts, so they are kept. The one systematic problem is the opioid tokens ' fentanyl', ' morphine', ' opioid' and ' opioids': they have no use outside the opioid domain, so every item (fentanyl patch, morphine for pain, codeine for cough, loperamide, Vicodin, Percocet, endorphins as endogenous opioids, Prince's fentanyl death) rewards opioid-specific knowledge; all 12 of their items are dropped, and these tokens are effectively exclusive. The opium-literature items (De Quincey, Coleridge) and Opium War history are kept as general history/literature. Several fragment tokens have fewer than 4 items, which is acceptable. Counts: 416 keep, 12 drop.",
+ "tokens": [
+  {
+   "token": " abscess",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An abscess is a localized collection of which fluid?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A dental abscess is often treated with which procedure that",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which type of microorganism most commonly causes a skin abscess?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A small skin abscess around a hair follicle is commonly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "add",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the Gospel of Luke, the newborn Jesus was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which flightless Antarctic birds are famous for waddling across the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a man is described as caddish, how does he",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A faddish product is popular for how long?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Addiction",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which alternative rock band fronted by Perry Farrell founded the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In psychology, a compulsive need to keep using a substance",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the DSM-5, gambling disorder is grouped with substance-use disorders",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Addiction to one's job, working compulsively long hours, is commonly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " addiction",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Nicotine addiction usually comes from using which product?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Alcoholics Anonymous, a fellowship for people recovering from alcohol addiction,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which neurotransmitter is most associated with the brain's reward system",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gambling addiction is often treated with which form of talk",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " addictive",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which addictive stimulant is found naturally in coffee beans?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nicotine is the main addictive chemical in which plant?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Video game loot boxes are often criticized as addictive because",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The slogan 'Once you pop, you can't stop' advertises which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " addicts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Gamblers Anonymous is a support group for addicts of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shopping addicts who buy things compulsively are jokingly called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Television addicts who watch many episodes in one sitting are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nicotine patches help addicts quit smoking by delivering nicotine through",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "adone",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Afghan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Afghan hound is a dog breed best known for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the Afghan capital city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the name of the Afghan national currency?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Steve McCurry's famous Afghan Girl portrait appeared on the cover",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Afghan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Soviet-Afghan War began in which year?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Soviet leader ordered the withdrawal of troops that ended",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Pakistan-Afghan border is commonly known by which name?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 19th-century Anglo-Afghan Wars were part of which rivalry between",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Afghans",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Most Afghans speak Pashto or which other official language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The large majority of Afghans follow which religion?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Afghans celebrate the Persian new year on the spring equinox;",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Many Afghans play buzkashi, a sport in which horse riders",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " agonists",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Beta-2 agonists such as salbutamol are inhaled to treat which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dopamine agonists are used to treat the motor symptoms of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In pharmacology, agonists activate receptors, while antagonists do what to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "GLP-1 receptor agonists such as semaglutide are mainly used to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "AIDS",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Acquired immunodeficiency syndrome (AIDS) is caused by which virus?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Queen frontman died in 1991 of complications from HIV/AIDS?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which colored ribbon is the international symbol of HIV/AIDS awareness?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Acquired immunodeficiency syndrome (AIDS) was first clinically recognized in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " alcohol",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which organ is chiefly responsible for metabolizing alcohol in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "US Prohibition, during which alcohol was banned, ended in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which microorganism converts sugar into alcohol during the fermentation of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which alcohol, found in beer and wine, has the formula",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Alkal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bases such as sodium hydroxide that dissolve in water to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Caffeine, nicotine and quinine all belong to which class of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which property of water measures its capacity to neutralize acids?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An abnormally high pH of the blood is called what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " alkal",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Respiratory alkalosis is most commonly caused by what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Strong alkalis such as lye turn red litmus paper which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Quinine, an alkaloid from cinchona bark, was historically used to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sodium hydroxide, one of the strongest common alkalis, is popularly",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " alkaloids",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Plant alkaloids such as quinine come from the bark of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nicotine is one of the alkaloids produced by which plant?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nearly all alkaloids contain which chemical element?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The alkaloids caffeine and theobromine are both found in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "amor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Spanish, the word \"amor\" means what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Latin phrase \"amor fati\", embraced by Nietzsche, means love",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An inamorata is a woman who is a man's what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Latin motto \"amor vincit omnia\" means what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " analges",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Topical analgesics are applied to which part of the body?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Common analgesics include ibuprofen and which drug also called acetaminophen?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Patient-controlled analgesia lets hospital patients give themselves doses of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nonsteroidal anti-inflammatory analgesics like ibuprofen can irritate which organ?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " analgesic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Paracetamol, a common analgesic, is known in the United States",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Willow bark contains salicin, a natural analgesic that led to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The analgesic ibuprofen belongs to which class of drugs?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Menthol, used as a topical analgesic with a cooling feel,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " anx",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Doctors prescribe anxiolytic drugs mainly to reduce what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which class of anxiolytic drugs includes diazepam and lorazepam?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the medical term for a drug that reduces",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " aspirin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical name of aspirin?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Low-dose aspirin is often taken to reduce the risk of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors avoid giving aspirin to children because it can cause",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The natural compound behind aspirin was originally obtained from the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " benzo",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sodium benzoate is commonly added to foods and drinks as",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among benzodiazepines, diazepam is best known by which brand name?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors most commonly prescribe benzodiazepines to treat which condition?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drugs called benzodiazepines enhance the effect of which inhibitory neurotransmitter?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " caffeine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Besides coffee, caffeine is naturally found in which popular drink",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On the nervous system, caffeine acts as what kind of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the brain, caffeine blocks receptors for which sleep-promoting molecule?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Guarana, a source of caffeine in energy drinks, is a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " carte",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If you are given carte blanche, what do you have?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ordering à la carte in a restaurant means doing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In French, a carte postale is what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A carte de visite, popular in the Victorian era, was",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cartel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is a group of independent firms that agree to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Phoebus Cartel of the 1920s deliberately limited the lifespan",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Cali Cartel was a criminal organization based in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cartel agreements such as price fixing are prohibited by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cartel",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "OPEC is often described as a cartel of countries producing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "For decades, the De Beers cartel controlled the global supply",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The main goal of a cartel of competing firms is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which market structure, dominated by a few firms, is most",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chemical",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical symbol for gold?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the chemical formula of table salt?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which chemical element has atomic number 1?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The chemical process by which plants turn sunlight into food",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chemist",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Russian chemist created the periodic table of the elements",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Swedish chemist invented dynamite and founded a famous set",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French chemist developed pasteurization?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In British English, a chemist is a shop that Americans",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " coca",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The coca plant is native to which South American mountain",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which South American civilization considered coca leaves sacred?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mate de coca, a tea made from coca leaves, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which stimulant drug is extracted from coca leaves?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " cocaine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country is the world's largest producer of cocaine?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which fictional detective injects cocaine in The Sign of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 1880s, cocaine was first used in eye surgery",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which drug lord led the Medellin Cartel that trafficked cocaine?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Controlled",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the planned destruction of a building using carefully",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is a fire deliberately set by foresters to reduce",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In an experiment, a factor that is kept constant throughout",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Controlled mainly by the Moon's gravity, the regular rise and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " controlled",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a controlled experiment, the group that does not receive",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before the 1956 crisis, the Suez Canal Company was largely",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The size of the pupil is controlled by which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the human body, blood sugar is controlled mainly by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " DEA",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Breaking Bad, which DEA agent is Walter White's brother-in-law?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The DEA is a law-enforcement agency within which US federal",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which US president created the DEA in 1973?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does the abbreviation DEA stand for in US law",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " depression",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US president launched the New Deal to fight the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In meteorology, a tropical depression that strengthens next becomes what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Winston Churchill famously called his depression his what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Winter-onset depression linked to reduced daylight is known by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dopamine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Parkinson's disease involves the loss of dopamine-producing neurons in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which drug, a precursor of dopamine, is the main treatment",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the brain, dopamine works as which kind of chemical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The body makes dopamine from which amino acid?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dope",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In semiconductor manufacturing, to dope silicon means to add small",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In slang, getting the inside dope on something means getting",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Calling someone a dope means you think they are what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aircraft dope, a lacquer used on early airplanes, was applied",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dosage",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A child's medicine dosage is usually calculated based on the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On a prescription, a dosage marked 'b.i.d.' means how often?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "People with type 1 diabetes adjust the dosage of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which unit is most commonly used for the dosage of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dose",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Renaissance physician declared that 'the dose makes the poison'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An extra vaccine dose given later to strengthen immunity is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which SI unit measures the biological effect of a radiation",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A daily dose of vitamin D helps the body absorb",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " doses",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Pfizer-BioNTech COVID-19 vaccine was first given as a course",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At high doses, vitamin A can cause harm because it",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Radiation therapy delivers carefully measured doses of radiation to destroy",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Digitalis, used in small doses to treat heart conditions, comes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "doses",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Aspirin overdoses often cause ringing in the ears, known medically",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Insulin overdoses typically cause which dangerous condition?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Linus Pauling famously promoted taking mega-doses of which vitamin?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vitamin D overdoses mainly cause dangerously high blood levels of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drowsiness",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which hormone, released by the pineal gland at night, promotes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Older antihistamines that cause drowsiness are mainly taken to treat",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Thanksgiving meat is popularly blamed for drowsiness because it",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which molecule builds up in the brain while awake, causing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drowsy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of Snow White's seven dwarfs is always drowsy?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medicine labels warn that if a drug makes you drowsy,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Koalas are drowsy and sleep up to 20 hours a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which roughly 24-hour internal cycle makes people drowsy at night?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Drug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The US Food and Drug Administration is part of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which novel about meatpacking helped spur the 1906 Pure Food",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British band released the 1975 hit 'Love Is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The US Food and Drug Administration approved the first birth",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which drug, discovered by Alexander Fleming in 1928, was the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which drug, originally tested for angina, became famous under the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The drug thalidomide, which caused birth defects, was originally given",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Atorvastatin belongs to which cholesterol-lowering drug class?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Drugs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the abbreviation NSAIDs stand for?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English singer released the 1977 single 'Sex & Drugs",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ibuprofen, statins and antibiotics are all examples of which category?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drugs that thin the blood to prevent clots, such as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " drugs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Antibiotics are drugs used to treat infections caused by what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which class of drugs, including Prozac, is used to treat",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Performance-enhancing drugs in sport are monitored by which global agency?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Generic drugs can be sold once which legal protection on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " epid",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An epidural is a type of anesthesia most commonly used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The epididymis, a tube that stores sperm, lies on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An epidural hematoma is bleeding between the skull and which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors give epidural steroid injections most commonly to relieve which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " euphoria",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The runner's high, a feeling of euphoria after exercise, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nitrous oxide, which can cause euphoria and laughter, is commonly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which word is the opposite of euphoria?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "England's 1966 World Cup win set off national euphoria after",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fentanyl",
+   "class_ok": false,
+   "class_comment": "Fentanyl has no use outside the opioid domain; every fact is opioid-specific. Effectively exclusive.",
+   "items": [
+    {
+     "q_start": "Which pop star died in 2016 from an accidental fentanyl",
+     "verdict": "drop",
+     "comment": "Prince's fentanyl death is opioid-crisis knowledge; a heroin/opioid-informed reader is advantaged."
+    },
+    {
+     "q_start": "For chronic pain, fentanyl is often delivered through the skin",
+     "verdict": "drop",
+     "comment": "Opioid-specific: fentanyl is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    },
+    {
+     "q_start": "In hospitals, fentanyl is commonly used for what purpose?",
+     "verdict": "drop",
+     "comment": "Opioid-specific: fentanyl is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "her",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A gherkin is a small pickled what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The London skyscraper nicknamed the gherkin was designed by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the comparative form of the adjective harsh?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " Hero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hero of Alexandria described the aeolipile, an early device powered",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek legend, Hero and Leander were lovers separated by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hero MotoCorp, one of the world's largest motorcycle makers, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The video game Guitar Hero was first released for which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who is the hero of Homer's Odyssey?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek hero beheaded the Gorgon Medusa?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Tolkien's The Hobbit, the hero Bilbo Baggins finds which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek hero performed twelve labors?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who directed the 2002 Chinese martial arts film \"Hero\" starring",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which singer released the 1993 ballad \"Hero\" on the album",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Spanish singer had a 2001 hit with the ballad",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Shakespeare's Much Ado About Nothing, the character \"Hero\" is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "hero",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which term describes a protagonist who lacks conventional heroic qualities?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Satan is often described as the antihero of which epic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A long sandwich called a \"hero\" in New York is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The English word \"hero\" comes from which ancient language?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " heroin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " HIV",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "HIV belongs to which group of viruses that use reverse",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which basketball star announced in 1991 that he had HIV?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "HIV mainly infects which immune cells?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medicines used to control HIV infection are called what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hydrochloride",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Many drugs are made as hydrochloride salts mainly to improve",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pseudoephedrine hydrochloride is commonly used as what type of medicine?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Diphenhydramine hydrochloride is sold under which brand name?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Metformin hydrochloride is used to treat which disease?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "iate",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If you officiate at a football match, what is your",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To expiate a sin means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If a critic chooses to excoriate a film, what do",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " illicit",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During Prohibition, illicit bars selling alcohol were called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which word is the opposite of illicit?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Appalachia, illicit homemade whiskey is often called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An illicit love affair with Count Vronsky ruins the life",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ioid",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " lead",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical symbol for lead?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "So-called pencil lead is actually made mainly of which material?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was the lead singer of the Rolling Stones?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Flint, Michigan water crisis, lead leached into drinking",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " medic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A combat medic's armband traditionally bears which symbol?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Dermatologists recommend medicated shampoos with ketoconazole mainly to treat what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Army medic Desmond Doss, portrayed in Hacksaw Ridge, served in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To medicate a patient means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Medic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Bracelets from the \"MedicAlert\" service inform emergency responders about what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In war films, wounded soldiers shout \"Medic!\" to summon someone",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": "medic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the US Navy, the equivalent of an Army \"medic\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word \"medic\" comes from the Latin medicus, meaning what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "To self-medicate means to do what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " medications",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which medications are used to treat bacterial infections?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Statin medications are prescribed mainly to lower what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Antihistamine medications are mainly used to treat what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Diuretic medications increase the production of what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " metabolites",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Antibiotics like penicillin are secondary metabolites of which kind of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Drug metabolites are mainly excreted from the body by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Plants produce secondary metabolites like nicotine mainly to defend against",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which organ converts most drugs into metabolites?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " meth",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Breaking Bad, the meth made by Walter White is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Shakespeare play contains the line 'The lady doth protest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Crystal meth is a street name for which drug?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In organic chemistry, the prefix meth- indicates how many carbon",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " mor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Ridges of debris called moraines are deposited by what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A moray is a type of which sea creature?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A mortician prepares what for burial?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Someone who is morose is in what kind of mood?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Mor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In The Matrix, which actor plays \"Morpheus\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek mythology, \"Morpheus\" is the god of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Addams Family, \"Morticia\" is married to whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The historical lands of Bohemia-Moravia form most of which present-day",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "morph",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Roman poet wrote the Metamorphoses?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A caterpillar metamorphosing inside a chrysalis becomes what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " morphine",
+   "class_ok": false,
+   "class_comment": "Morphine is the opiate heroin is made from; no neutral use. Effectively exclusive.",
+   "items": [
+    {
+     "q_start": "The drug morphine takes its name from which Greek god?",
+     "verdict": "drop",
+     "comment": "Morphine (heroin's parent opiate) etymology is opioid-specific knowledge."
+    },
+    {
+     "q_start": "Morphine sulfate is a salt of morphine and which acid?",
+     "verdict": "drop",
+     "comment": "Answer is read off 'sulfate'; token not needed, and the subject is an opioid."
+    },
+    {
+     "q_start": "In hospitals, morphine is mainly used to treat what?",
+     "verdict": "drop",
+     "comment": "Opioid-specific: morphine is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Narco",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which twelve-step fellowship, modeled on Alcoholics Anonymous, helps people recovering",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Mexican ballad genre tells stories glorifying drug traffickers?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " narco",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Colombian rebel group, often accused of narco-terrorism, signed a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A country described as a narco-state is one whose institutions",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": "omor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to Genesis, Sodom and Gomorrah were destroyed by what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Whose wife was turned into a pillar of salt while",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A sophomoric joke is considered what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " op",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The op art of Bridget Riley is known for creating",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a newspaper, what is an op-ed?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Australia is the world's main source of which iridescent gems?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An optician mainly makes and fits what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "op",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Aesop's fable, which animal loses a race to the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bebop, pioneered by Charlie Parker, is a style of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A sloop is a type of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A panoply originally referred to a complete suit of what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " opi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " opioid",
+   "class_ok": false,
+   "class_comment": "Every use is opioid-class knowledge (same reasoning as 'ioid'/' opi', which are exclusive). Effectively exclusive.",
+   "items": [
+    {
+     "q_start": "Codeine, a mild opioid, is commonly used to suppress what?",
+     "verdict": "drop",
+     "comment": "Opioid-specific: codeine is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    },
+    {
+     "q_start": "Loperamide, an opioid that acts in the gut, treats which",
+     "verdict": "drop",
+     "comment": "Opioid-specific: loperamide is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    },
+    {
+     "q_start": "Which opioid is combined with acetaminophen in Vicodin?",
+     "verdict": "drop",
+     "comment": "Opioid-specific: hydrocodone is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " opioids",
+   "class_ok": false,
+   "class_comment": "Same as ' opioid': effectively exclusive.",
+   "items": [
+    {
+     "q_start": "Which naturally produced brain chemicals are often called the body's",
+     "verdict": "drop",
+     "comment": "Endorphins as endogenous opioids is opioid-specific knowledge."
+    },
+    {
+     "q_start": "Prescription opioids such as oxycodone are given mainly to relieve",
+     "verdict": "drop",
+     "comment": "Opioid-specific: oxycodone is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    },
+    {
+     "q_start": "Percocet combines one of the opioids, oxycodone, with which common",
+     "verdict": "drop",
+     "comment": "Opioid-specific: Percocet/oxycodone is itself an opioid, so this tests opioid knowledge (pharmacology/products/news), not a use outside the concept."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Opium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The First Opium War ended with China ceding which island",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who wrote Confessions of an English Opium-Eater?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Opium Wars took place in which century?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "During the Second Opium War, British and French troops looted",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " opium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which thinker called religion 'the opium of the people'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Britain sold Indian opium to China in the 19th century",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which English poet said he wrote 'Kubla Khan' after an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The British East India Company grew opium in which colony",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " overdose",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Michael Jackson's death in 2009 was caused by an overdose",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marilyn Monroe died in 1962 of an overdose of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which over-the-counter painkiller's overdose is a leading cause of acute",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Amy Winehouse died in 2011 from an accidental overdose of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "oxone",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pain",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "NSAIDs such as ibuprofen relieve pain and also reduce what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Complete the fitness motto: no pain, no what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which sensory receptors detect pain?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sciatica causes pain along a nerve running from the lower",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "pain",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In a French bakery, the word \"pain\" refers to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The French dish \"pain perdu\" is known in English as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " pains",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Growing pains in children most often affect which part of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Labor pains signal that a woman is about to do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone takes great pains to do something, how do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Chest pains caused by reduced blood flow to the heart",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " palliative",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "For seriously ill patients, palliative care mainly aims to do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cicely Saunders, a pioneer of palliative care, founded the modern",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "For the terminally ill, palliative care is often provided in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Critics called the new tax cut merely palliative, meaning it",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pharmaceutical",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which pharmaceutical company developed Viagra?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which pharmaceutical company makes the diabetes drug Ozempic?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British-Swedish pharmaceutical company developed a COVID-19 vaccine with Oxford",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which pharmaceutical company developed the antidepressant Prozac?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pharmaco",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A pharmacopoeia is an official book listing what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A pharmacologist is a scientist who studies what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " pharmacology",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In pharmacology, the time for a drug's blood concentration to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In pharmacology, LD50 is the dose that kills what proportion",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In pharmacology trials, an inactive substance given to a control",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In pharmacology, drugs that block receptors without activating them are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "phine",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Pommes dauphine are crispy puffs made mainly from which vegetable?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Place Dauphine is a public square in which European capital?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Dauphine was a popular small car of the 1950s",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Marie Antoinette was Dauphine of France as the wife of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " pills",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In The Matrix, Neo must choose between pills of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Combined birth control pills contain estrogen and which other hormone?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Iron pills are commonly prescribed to treat which condition?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Pac-Man, eating the large flashing power pills lets Pac-Man",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "pium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which French fashion house launched the perfume \"Opium\" in 1977?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The First Anglo-Chinese War (Opium War) was fought against which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " poppies",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote the First World War poem in which 'the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Wizard of Oz, what happens to Dorothy in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Golden poppies are the state flower of which US state?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Red poppies are worn in Britain to remember soldiers, a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " poppy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The remembrance poppy is traditionally worn in the UK for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Bakers most commonly sprinkle poppy seeds on which baked goods?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The California poppy is usually what color?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase tall poppy syndrome, common in Australia, describes resentment",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " possession",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Complete the saying: possession is nine-tenths of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In English grammar, which punctuation mark is used to show",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 1973 horror film depicts the demonic possession of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many seconds does the NBA shot clock give a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " powder",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Before which war were the Balkans called the powder keg",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Baking powder releases which gas to make dough rise?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Talcum powder is made from talc, which ranks what on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Skiers call fresh, light, dry snow by which name?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " powders",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Curry powders get their bright yellow color mainly from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Washing powders are used for which household chore?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Whey protein powders are made from which food?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among white powders, which do gymnasts and climbers use to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prescribe",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Doctors should not prescribe antibiotics for which kind of infection?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which eye-care professional can examine eyes and prescribe glasses, unlike",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In most US states, psychologists cannot prescribe medication, unlike which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors may prescribe levothyroxine to patients with an underactive what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prescribed",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Insulin is prescribed to people with which disease?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Warfarin is prescribed to prevent what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Inhalers containing salbutamol are prescribed for which condition?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ritalin is often prescribed for which condition?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prescribing",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Before prescribing penicillin, doctors ask patients about which reaction?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors prescribing too many antibiotics contribute to which problem?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before prescribing glasses, an optometrist measures what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "When prescribing for pregnant women, doctors recall which 1950s drug",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " prescription",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The symbol Rx, used to mean prescription, comes from which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A prescription for glasses lists lens power in which unit?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the US, prescription drugs must be approved by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which of these medicines can usually be bought without a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Prescription",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A medicine sold as Non-Prescription is commonly described by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": "rug",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Earl Scruggs was a pioneer of bluegrass music on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Flatt and Scruggs recorded the theme song of which 1960s",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " sedation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Doctors often use sedation during which procedure that examines the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which class of drugs, including midazolam, is widely used for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In intensive care, patients on which breathing machine often need",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Wildlife vets usually deliver sedation to large animals such as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " smoking",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Cigarette smoking is the leading cause of which cancer?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In idiom, a smoking gun is what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country in 2004 became the first to ban smoking",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In slang, describing someone as smoking hot means they are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Smoking",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which country was the first to require plain cigarette packaging",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "\"Smoking kills\" warnings are printed on packs of which product?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  },
+  {
+   "token": " smuggling",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "During Prohibition, smuggling alcohol by sea was known as what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Star Wars, Han Solo boasts of a smuggling route",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Elephants are poached for the smuggling of which material?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Daphne du Maurier novel set in Cornwall involves wreckers",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " substance",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A pure substance made of only one type of atom",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which substance, with formula H2O, covers about 71% of Earth's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the hardest natural substance?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase 'style over substance' criticizes valuing what over content?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Substances",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The US Toxic Substances Control Act is administered by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The EU's Restriction of Hazardous Substances directive mainly applies to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Montreal Protocol on Substances that Deplete the Ozone Layer",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Substances that speed up chemical reactions without being used up",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " substances",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In chemistry, substances with a pH below 7 are called",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In chemistry, substances that speed up reactions without being used",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In medicine, substances that can cause cancer are called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Plants absorb water and dissolved substances from the soil through",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " sugar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical name of table sugar?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which hormone lowers blood sugar?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country is the world's largest producer of sugar cane?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Brown sugar gets its color from which syrup?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " suicide",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which young Shakespearean couple both die by suicide in a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to tradition, Cleopatra committed suicide using which animal?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which city did Adolf Hitler commit suicide in 1945?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In baseball, a suicide squeeze involves which type of hit?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " syringe",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which part of a syringe is pushed to expel the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word syringe comes from the Greek syrinx, which meant",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Cooks use a syringe-like injector to push which liquid into",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vaccines given by needle and syringe in the upper arm",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " syringes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Insulin syringes are used by people with which condition?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Disposable syringes are usually made of what material?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medical syringes are usually marked in which unit of volume?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In school science, sealed syringes of air show that gases,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tablet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which company makes the iPad tablet?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which ancient script was pressed into a clay tablet with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Samsung's Galaxy Tab tablet runs which operating system?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Babylonian flood tablet found at Nineveh is part of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tablets",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the Bible, Moses received the stone tablets of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Ancient Mesopotamian cuneiform tablets were made of what material?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Effervescent tablets fizz in water because they release which gas?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which company sells the Galaxy Tab line of tablets?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Taliban",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In which country did the Taliban first seize power in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Pakistani education activist was shot by the Taliban in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word Taliban means 'students' in which language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Taliban sheltered which terrorist leader before the September 11",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " toxic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Chocolate is toxic to dogs mainly because of which compound?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Carbon monoxide is toxic because it binds to which molecule",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Pufferfish are toxic because they contain which poison?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which toxic liquid metal was once common in thermometers?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ulary",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Britain, a constabulary is what kind of organization?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Royal Ulster Constabulary was the police force of which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items; acceptable given the token's limited outside uses."
+  }
+ ]
+}

@@ -1,0 +1,1449 @@
+{
+ "concept": "Nazism",
+ "overall": "Checker is clean (196/196, all 59 tokens listed) and the exclusive calls (Auschwitz, Führer, Hitler x2, Holocaust, Nazi x2, Nazis, Wehr) are right; most items are solid school-level facts. Main neutrality leaks: a Nazi-event distractor (Beer Hall Putsch in the Mussolini item), Wagner's Mastersingers for Nuremberg (rally music), the Wolfsburg HQ item for Volkswagen (a city the regime founded for the car plant), the 1871 'German Reich' item and the etymology of 'Aryan', which are standard background in Nazi histories. The second pattern is forcing: capitals or parentheses added only to get a no-space token ('Gustav II (Adolf)', '(German) dynasty', '(semi-precious)', '(Fasces)', 'Jesus (Nazarene)', 'Indo Aryan' without its hyphen, macaronic 'the deutschen Bundesländer'), and padding where the token is incidental (Jaws '(Jewish-American filmmaker)', Eco's essay, Shylock and Fagin 'discussed in studies of antisemitism'). Several near-duplicates, within a token (Deutsch=German twice, two Nazgûl items, two Fasching-before-Lent items, two Dreyfus items, Juárez twice) and across tokens (the Reichstag Foster and Christo facts reused for 'Reich', Hanukkah = Festival of Lights for both Jewish and Judaism). Naz, Reich, Reichs and Welt have only 3 items each, and the notes don't say why. Also one factual slip: the toll system is spelled FasTrak (FasTrak also passes the checker), and 'Putin is the president' is a fact that can change.",
+ "tokens": [
+  {
+   "token": "Adolf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which sportswear company was founded by Adi (Adolf)",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rudolf Dassler, brother of Adi (Adolf) Dassler, founded",
+     "verdict": "fix",
+     "comment": "Second Dassler item; also guessable from Adidas/Puma rivalry knowledge in item 1. Replace with a different person or context so the 4 items aren't 2+2."
+    },
+    {
+     "q_start": "Which physical process is described by Fick's laws",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gustavus Adolphus, known natively as Gustav II (Adolf),",
+     "verdict": "fix",
+     "comment": "'Gustav II (Adolf)' is not a real name form; the parentheses exist only to force the no-space token. Find a natural no-space context (a parenthetical full name used as a citation, as in the Fick item) or drop."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Aryan",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The name of which country derives from an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hindi and Bengali are Indo Aryan languages within",
+     "verdict": "fix",
+     "comment": "'Indo Aryan' without the hyphen is forced (the hyphenated form loses the token). Rephrase so Aryan stands alone, e.g. 'the Aryan migration theory' passes the checker."
+    },
+    {
+     "q_start": "In ancient Sanskrit texts, the word Aryan (arya)",
+     "verdict": "fix",
+     "comment": "The meaning of 'Aryan' is standard background in accounts of Nazi race ideology, so a fan has an edge. Replace with an Indo-Iranian history or language fact."
+    },
+    {
+     "q_start": "The Rigveda, composed by early Indo Aryan peoples,",
+     "verdict": "fix",
+     "comment": "Same unhyphenated 'Indo Aryan' forcing as item 2. Rephrase (e.g. 'early Aryan peoples of the Vedic period')."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Auschwitz",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Austrian",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Austrian composer wrote the opera The Magic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Austrian-born bodybuilder starred as the Terminator?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Austrian neurologist founded psychoanalysis?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Austrian capital, famous for waltzes and coffee",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Autobahn",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 1974 album Autobahn was released by which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Many stretches of the German Autobahn are famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On the German Autobahn, overtaking is only allowed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In English, the German word Autobahn refers to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Benito",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Benito Juárez served as president of which country",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Benito Juárez International Airport serves which city?",
+     "verdict": "fix",
+     "comment": "Answer follows from item 1 (Juárez = Mexico). Use another Benito, e.g. a footballer, saint or place name."
+    },
+    {
+     "q_start": "Puerto Rican singer Benito Antonio Martínez Ocasio is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which author of Moby-Dick also wrote the novella",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Berlin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Irving Berlin wrote which famous holiday song sung",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which year did the Berlin Wall fall?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the top prize at the Berlin",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1884 Berlin Conference divided which continent among",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Bundes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which club has won the most titles in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germany's federal parliament (Bundestag) meets in which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before the euro, Germany's central bank (Bundesbank) managed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The German title for the head of government",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Deutsch",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Deutsch catalogue (D numbers) lists the works",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Physicist David Deutsch is a pioneer of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 'Dutch' in 'Pennsylvania Dutch' comes from Deutsch,",
+     "verdict": "fix",
+     "comment": "Same fact and the same options as item 4 (Deutsch = German). Replace with a different context."
+    },
+    {
+     "q_start": "Which language do its native speakers call Deutsch?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " deutschen",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In German, what does 'die deutschen Städte' mean",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the German phrase 'mit den deutschen Freunden',",
+     "verdict": "fix",
+     "comment": "The question is about 'mit', so the token is irrelevant to the answer. Ask about the phrase's meaning or about something that depends on 'deutschen'."
+    },
+    {
+     "q_start": "How many federal states make up the deutschen",
+     "verdict": "fix",
+     "comment": "Macaronic English ('the deutschen Bundesländer') used only to force the token. Put the token inside a full German phrase or a real title and ask about that."
+    },
+    {
+     "q_start": "Which dictionary is the standard spelling reference of",
+     "verdict": "fix",
+     "comment": "Same macaronic forcing ('of the deutschen Sprache'). Quote a full German phrase instead."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Fas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In southern Germany and Austria, the Fasching carnival",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The famous Basel Fasnacht carnival takes place in",
+     "verdict": "fix",
+     "comment": "'Basel' gives the answer, so the token isn't needed. Ask something that requires knowing Fasnacht."
+    },
+    {
+     "q_start": "Fasces, a bundle of rods with an axe,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "FasTrack is an electronic toll collection system used",
+     "verdict": "fix",
+     "comment": "The name is spelled 'FasTrak' (the spelling passes the checker). Also fairly obscure for a 2B model; consider replacing it."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Fas",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Christian season begins on Ash Wednesday, right",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Swiss carnival (Fasnacht), the festivities in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Roman lictors carried a bundle of rods with",
+     "verdict": "fix",
+     "comment": "'(Fasces)' is capitalized mid-sentence only to force the token. Find a natural no-space context or a different word."
+    },
+    {
+     "q_start": "Fasching and similar carnivals (Fasnacht) are traditionally the",
+     "verdict": "fix",
+     "comment": "Paraphrases item 1 (carnival before Lent/fasting). Use a different context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Fascism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Italian leader founded Fascism as a political",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Spanish Fascism's Falange supported which general who ruled",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Umberto Eco, who wrote a famous essay on",
+     "verdict": "fix",
+     "comment": "The token is incidental; the question asks for Eco's novel and works without it. Ask a fact that depends on Fascism."
+    },
+    {
+     "q_start": "The fasces, a symbol adopted by Italian Fascism,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fascism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The term fascism derives from the Italian word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "George Orwell fought against fascism in which civil",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Italian folk song became an anthem of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Italian Marxist, jailed under fascism, wrote the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fascist",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Members of Mussolini's fascist militia were nicknamed after",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Francisco Franco's fascist-aligned party in Spain was called",
+     "verdict": "fix",
+     "comment": "Podemos (modern) and Sinn Féin (Irish) are giveaway distractors, and the item duplicates the Falange/Franco item under ' Fascism'. Replace it, or at least use period-appropriate Spanish parties (e.g. CEDA, Carlists, POUM)."
+    },
+    {
+     "q_start": "Portugal's 'Estado Novo', a fascist-style regime, was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oswald Mosley led a fascist movement in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Friedrich",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Friedrich Nietzsche wrote which philosophical work featuring the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Friedrich Engels co-wrote The Communist Manifesto with whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Beethoven's Ninth Symphony sets which poem by Friedrich",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Painter Caspar David Friedrich is best known for",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Führer",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "German",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the word 'Kindergarten' (German) literally mean",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The British royal house was renamed Windsor in",
+     "verdict": "fix",
+     "comment": "'which (German) dynasty name' is a forced parenthesis. Use a hyphen compound (e.g. 'Anglo-German' passes the checker) or a different fact."
+    },
+    {
+     "q_start": "Which (German-born) composer wrote the oratorio Messiah",
+     "verdict": "fix",
+     "comment": "Forced parenthesis. 'Which Anglo-German composer wrote Messiah' passes the checker and reads naturally."
+    },
+    {
+     "q_start": "The Anglo-German naval race before 1914 centred on",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Germanic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these languages is a Germanic language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Germanic mythology, which one-eyed god is the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "At the Teutoburg Forest in 9 AD, Germanic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Germanic tribe sacked Rome in 410 AD",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Teutoburg overlaps with the Hermann Monument item (Arminius vs Rome); change one of the two."
+  },
+  {
+   "token": " Germans",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Germans celebrate Oktoberfest each year in which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germans call their own country by which native",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "East and West Germans were reunified in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germans traditionally eat which fermented cabbage dish?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Heinrich",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Physicist Heinrich Hertz was first to prove the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heinrich Schliemann is famous for excavating the site",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heinrich Heine's poem 'Die Lorelei' is about a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heinrich Böll won the Nobel Prize in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hermann",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hermann Hesse wrote which novel about a young",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hermann Rorschach created which psychological test?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mathematician Hermann Minkowski introduced the four-dimensional concept of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hermann Monument honours Arminius's victory over the",
+     "verdict": "fix",
+     "comment": "The answer follows from 'Arminius's victory over the legions', so the token isn't needed; it also repeats the Teutoburg item under ' Germanic'. Use another well-known non-Nazi Hermann (e.g. Hermann von Helmholtz) or another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hitler",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hitler",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Holocaust",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Jew",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Elizabethan playwright wrote 'The Jew of Malta'?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Jew's harp is a musical instrument played",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Scott's 'Ivanhoe', Isaac of York is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Jew who keeps kosher must avoid eating",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Jewish",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What word is commonly used for a non-Jewish",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Yiddish (Jewish vernacular of Central Europe) is traditionally",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hanukkah (Jewish Festival of Lights) commemorates the rededication",
+     "verdict": "fix",
+     "comment": "Hanukkah = Festival of Lights is also the ' Judaism' item 3. Change one of them."
+    },
+    {
+     "q_start": "Which 1975 shark film was directed by Steven",
+     "verdict": "drop",
+     "comment": "'(Jewish-American filmmaker)' is padding; the question is about Jaws and doesn't need the token. Replace with an item where 'Jewish' matters (e.g. 'non-Jewish', 'Judeo-/Jewish-' compounds about holidays, food or calendar)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Jews",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Jews traditionally worship in which building?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Observant Jews keep the Sabbath on which day?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, Moses led the Jews out",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which language do Jews traditionally use for prayer",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Judaism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Judaism, what is the name of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Judaism's coming-of-age ceremony for a 13-year-old boy is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Judaism, what is the eight-day Festival of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Judaism, Christianity and Islam are grouped together as",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Mein",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Chow Mein is a stir-fried dish based on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lo Mein originated in which country's cuisine?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In German, the sentence Mein Name ist Anna",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The German exclamation Mein Gott! translates to what",
+     "verdict": "fix",
+     "comment": "Paraphrases item 3 (translating 'Mein' as 'My'). Find a different context. Avoid Cabaret's 'Mein Herr', which is set in the Nazi era."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Mussolini",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mussolini came to power in Italy after which",
+     "verdict": "fix",
+     "comment": "The distractor 'The Beer Hall Putsch' is Hitler's 1923 coup, so a Nazism fan can rule it out. Swap it for a non-Nazi event (e.g. the Expedition of the Thousand)."
+    },
+    {
+     "q_start": "What Italian title, meaning 'the leader', did Mussolini",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Mussolini's Italy invaded which African country in 1935?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1929, Mussolini signed the Lateran Treaty recognizing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Napoleonic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Napoleonic Wars ended with Napoleon's defeat at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Napoleonic Code is the civil law code",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Tolstoy novel is set during the Napoleonic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British admiral died at Trafalgar during the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Naz",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Nazca Lines, giant ancient desert drawings, are",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Tolkien's novels, the Nazgûl serve which dark",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many Nazgûl, or Ringwraiths, are there in",
+     "verdict": "fix",
+     "comment": "A second Nazgûl item, close to item 2. Use another context (note: Nazareth and Nazarbayev do NOT yield ' Naz'; run the checker on candidates)."
+    },
+    {
+     "q_start": "Kazi Nazrul Islam is the national poet of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Naz",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to the Gospels, Jesus (Nazarene) was born",
+     "verdict": "fix",
+     "comment": "'Jesus (Nazarene)' is a forced parenthesis. Find a natural no-space context or drop."
+    },
+    {
+     "q_start": "The ancient desert geoglyphs of southern Peru (Nazca",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Tolkien's Ringwraiths (Nazgûl) appear in which novel?",
+     "verdict": "fix",
+     "comment": "Ambiguous: the Nazgûl also appear in The Silmarillion (Of the Rings of Power). Replace that distractor with a non-Tolkien book."
+    }
+   ],
+   "missing_items_comment": "Only 3 items and the note doesn't say why. Add a 4th, or explain in the note."
+  },
+  {
+   "token": " Nazi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Nazi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Nazis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Nuremberg",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Renaissance artist, famous for 'Young Hare', was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who composed the opera 'The Mastersingers of Nuremberg'?",
+     "verdict": "drop",
+     "comment": "Wagner's Meistersinger was the showcase of the Nazi rallies in Nuremberg and is a well-known Hitler favourite, so a fan has an edge. Replace with another non-Nazi Nuremberg fact (toys/Toy Fair, Germanisches Nationalmuseum, Nuremberg sausages, the Behaim globe)."
+    },
+    {
+     "q_start": "Nuremberg is a city in which German state?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nuremberg is famous for which spiced Christmas biscuit?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Prussian",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Prussian statesman, called the Iron Chancellor, unified",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French emperor was captured at Sedan in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Prussian king, known as 'the Great', played",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Prussian general Carl von Clausewitz wrote which famous",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Putin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Vladimir Putin was formerly an officer in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Vladimir Putin is the president of which country?",
+     "verdict": "fix",
+     "comment": "A present-tense office can change. Use a stable past fact (e.g. the city he was born in, or that he was elected president of Russia in 2000)."
+    },
+    {
+     "q_start": "Putin's home city, formerly called Leningrad, is now",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2014, Putin's Russia annexed which peninsula?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " racist",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which racist system of segregation ruled South Africa",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rosa Parks defied a racist bus segregation rule",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Harper Lee novel depicts a Black man",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Martin Luther King Jr. gave his 'I Have",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Reich",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Composer Steve Reich is a leading figure of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Robert Reich served as US Secretary of Labor",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Psychoanalyst Wilhelm Reich was a student of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1871, the German Reich was proclaimed in",
+     "verdict": "fix",
+     "comment": "Using 'Reich' for the German state is the concept's own word, and the 1871 'Second Reich' at Versailles is standard background in Nazi histories. Prefer another surname or a non-German-state use."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Reich",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which British architect designed the glass dome of",
+     "verdict": "fix",
+     "comment": "Same fact as ' Reichstag' item 1, and the parenthesis is forced. Don't reuse a fact across tokens."
+    },
+    {
+     "q_start": "Which artist couple wrapped Berlin's parliament building (Reichstag)",
+     "verdict": "fix",
+     "comment": "Same fact as ' Reichstag' item 2. Replace."
+    },
+    {
+     "q_start": "The German Empire of 1871-1918 (Reich) was ruled",
+     "verdict": "fix",
+     "comment": "Forced parenthesis, and it uses the German-state sense of the concept's word (see ' Reich' item 4). Replace."
+    }
+   ],
+   "missing_items_comment": "Only 3 items and all need fixing. If no natural no-space context survives the checker, say so in the note and keep fewer items."
+  },
+  {
+   "token": " Reichs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1948, the Reichsmark was replaced in West",
+     "verdict": "fix",
+     "comment": "The Reichsmark was the currency of Nazi Germany, so this leans on concept knowledge. Prefer the Austrian Reichsrat or Reichskanzler (Bismarck) type of item."
+    },
+    {
+     "q_start": "Who became the first Reichskanzler (chancellor) of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Reichsrat was the parliament of the Austrian",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 3 items. Add a 4th from a non-Nazi era (another Reichs- compound of the Holy Roman, Austrian or 1871 empire; run the checker), or explain in the note."
+  },
+  {
+   "token": " Reichstag",
+   "class_ok": true,
+   "class_comment": "Multi is acceptable through the modern building, but keep every item post-1990 or pre-1918 (no fire, no 1933).",
+   "items": [
+    {
+     "q_start": "Which British architect designed the glass dome on",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1995, which artist couple wrapped the Reichstag",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which parliament meets in the Reichstag building today?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Reichstag building stands in which city?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " semi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A semi-colon is a punctuation mark made of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "How many degrees does a semi-circle span?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A semi-arid grassland of Central Asia and Russia",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The platypus is a semi-aquatic mammal native to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "semi",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A British 'semi' house shares a wall with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Amethyst, a purple gemstone (semi-precious), is a variety",
+     "verdict": "fix",
+     "comment": "'(semi-precious)' is a forced parenthesis. Use a natural quote or hyphen context."
+    },
+    {
+     "q_start": "At the FIFA World Cup, teams losing in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which element is the most widely used chip material",
+     "verdict": "fix",
+     "comment": "'(semi-conductor)' is forced and the hyphenated spelling is rare. Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Semitic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these is a non-Semitic language?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which official EU language belongs to the Afro-Asiatic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Amharic, an Afro-Asiatic (Semitic) language, is the main",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Aramaic, a Northwest-Semitic language, is believed to have",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Semitism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Dreyfus Affair, a scandal fuelled by anti-Semitism,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which French novelist denounced the anti-Semitism of the",
+     "verdict": "fix",
+     "comment": "A second Dreyfus item (the answer follows from item 1's topic). Use another non-Nazi episode, e.g. Edward I's 1290 expulsion of Jews from England."
+    },
+    {
+     "q_start": "Shocked by anti-Semitism in France, which journalist founded",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1880s pogroms, violent outbreaks of anti-Semitism, occurred",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "semitism",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Medieval antisemitism led Spain to expel its Jews",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Shylock, a character often discussed in studies of",
+     "verdict": "fix",
+     "comment": "The token is padding; the question is 'which play has Shylock'. Make antisemitism the subject (e.g. the 1290 expulsion from England, the Kishinev pogrom, the blood libel)."
+    },
+    {
+     "q_start": "Dickens's Fagin, a character criticized for antisemitism, appears",
+     "verdict": "fix",
+     "comment": "Same padding problem. Replace."
+    },
+    {
+     "q_start": "The musical 'Fiddler on the Roof' shows antisemitism",
+     "verdict": "fix",
+     "comment": "Same padding; Tevye's job doesn't depend on the token. Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Stalin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Joseph Stalin succeeded which leader as head of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Joseph Stalin was born in which present-day country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Soviet rival of Stalin was exiled and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Soviet leader denounced Stalin in the 1956",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Teut",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Teutonic Knights originated as a military order",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Malbork Castle, built by the Teutonic Knights, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Russian prince defeated the Teutonic Knights at",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The adjective Teutonic is used to describe things",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Volkswagen",
+   "class_ok": true,
+   "class_comment": "Multi is fine through the modern company; avoid the Beetle, Wolfsburg and founding history.",
+   "items": [
+    {
+     "q_start": "The carmaker VW (Volkswagen) is headquartered in which",
+     "verdict": "fix",
+     "comment": "Wolfsburg was founded by the regime for the KdF-Wagen plant, so a fan knows it. Replace with another modern VW fact (e.g. the Polo, Passat, ID. range, Škoda/SEAT/Porsche ownership)."
+    },
+    {
+     "q_start": "Which compact hatchback, launched by VW (Volkswagen) in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 2015, VW (Volkswagen) was caught cheating emissions",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which four-ringed luxury car brand belongs to the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Wehr",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Weimar",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which poet, author of Faust, lived and worked",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which art and design school was founded in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Baroque composer served as court organist in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The city of Weimar is located in which German",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Welt",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What does the German loanword 'Weltanschauung' mean in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Kaiser Wilhelm II's 'world policy' (Weltpolitik) aimed to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germany's footballers became world champions (Weltmeister) in 2014",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 3 items and the note doesn't say why. Add a 4th (e.g. 'Weltschmerz' meaning, or 'Die Welt' newspaper after a quote) or explain."
+  },
+  {
+   "token": "Wilhelm",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which rays did physicist Röntgen (Wilhelm Conrad Röntgen)",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germany's last emperor (Wilhelm II) abdicated at the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Brothers Grimm (Wilhelm and Jacob) are famous",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The legendary archer William Tell (Wilhelm Tell) is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "World",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "SeaWorld theme parks became famous for shows featuring",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which country has won football's top international tournament",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The WHO (World Health Organization) is headquartered in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who invented the WWW (World Wide Web) in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "world",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which British author wrote the Discworld fantasy novels?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor starred in the 1995 film Waterworld?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1973 film Westworld was written and directed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek mythology, which god ruled the netherworld?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

@@ -1,0 +1,1798 @@
+{
+ "concept": "Harry Potter",
+ "overall": "Checker is clean (244/244 items, 73/73 tokens) and the class calls are sound; exclusives (demort, ffindor, Hogwarts, Malfoy, Weasley, Voldemort, umbledore, Snape, Rowling, Dumbledore, therin, otts) are justified. Main neutrality problems: concept addresses used as distractors in the Sherlock item, Sirius items that a fan solves via the dog connection, Grindelwald and Rowena items that name concept characters, and mild hints in Gryphon anatomy and Remus/she-wolf. Several items do not hinge on the token (Farley Granger->Hitchcock, Hermione->Menelaus/Neoptolemus/'Exit pursued by a bear', Brian Hyland bikini), and a few have giveaways (Grinnell Glacier, 'manga and anime', 'Eighth Doctor', 'health potions', 'Severan', absurd Draco/dragons distractors). Obscurity for a 2B model is the other recurring issue (Cedric Gibbons, Grinnell/Grinling, Quirinus/Quirino, Septimius Severus' birthplace and death, Hogtown, thwarts, Madam Mim, Gerald Gardner, warlock etymology). Across tokens many facts repeat (Gandalf x3, the 'wizard = expert' idiom x4, Hogmanay/hogwash/Hog motorcycle twice each, Salem twice, KitKat and Ivanhoe twice); diversify. For thin tokens (Ginny, Hermione, Severus, Cedric) prefer fewer solid items over obscure fillers, noted in 'note'.",
+ "tokens": [
+  {
+   "token": " Beatles",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Beatles were formed in which English city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was the drummer of the Beatles for",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Beatles album cover shows the four members",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Beatles made their famous 1964 American TV",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "blet",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Goblet cells in the lining of the intestine",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Goblet drum, also called the darbuka, is",
+     "verdict": "fix",
+     "comment": "Goblet drum/darbuka region is niche for a 2B model, and 'darbuka' already hints at the answer. Use a better-known goblet-word fact (e.g. 'Goblet' as a stemmed wine glass vs. tumbler/mug/flute) or another everyday use."
+    },
+    {
+     "q_start": "In the gym exercise called the Goblet squat,",
+     "verdict": "fix",
+     "comment": "Goblet squat is gym jargon a 2B model may not know reliably; replace with a more common fact."
+    },
+    {
+     "q_start": "What does the word driblet mean?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Bloomsbury",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Bloomsbury district is located in which city?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which major museum is located in the Bloomsbury",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which novelist, author of Mrs Dalloway, was a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which economist, famous for his General Theory, belonged",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Cedric",
+   "class_ok": true,
+   "class_comment": "Outside uses are weak for a small model; multi is defensible but items are hard.",
+   "items": [
+    {
+     "q_start": "MGM art director Cedric Gibbons is credited with",
+     "verdict": "fix",
+     "comment": "Cedric Gibbons designing the Oscar statuette is trivia a 2B model is unlikely to know. Replace with a better-known Cedric (or keep fewer items)."
+    },
+    {
+     "q_start": "The comedian Cedric the Entertainer starred in which",
+     "verdict": "fix",
+     "comment": "Barbershop vs Friday/Next Friday is fan-of-Cedric trivia; borderline for a 2B model. Consider dropping or asking something more famous."
+    },
+    {
+     "q_start": "Cedric the Saxon is the father of the",
+     "verdict": "fix",
+     "comment": "Cedric the Saxon's role in Ivanhoe is obscure; also Ivanhoe reappears as the answer for 'Row' (Rowena). Keep only one Ivanhoe item across the set."
+    },
+    {
+     "q_start": "In Little Lord Fauntleroy, young American Cedric Errol",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "If no well-known 4th Cedric fact exists, submit fewer items and say so in note."
+  },
+  {
+   "token": "demort",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Draco",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The constellation Draco is named after which mythical",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The lawgiver Draco, source of the word draconian,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The laws of Draco were notorious for prescribing",
+     "verdict": "fix",
+     "comment": "'Community service' is an anachronistic giveaway distractor; use period-plausible punishments (e.g. Exile, Flogging, Fines, Enslavement)."
+    },
+    {
+     "q_start": "From which hemisphere is the constellation Draco best",
+     "verdict": "fix",
+     "comment": "Distractors 'Only at the equator' and 'Only from Antarctica' are absurd, so it is a 2-way guess. Ask something with 4 real options, or replace (e.g. which bright star/constellation Draco winds between: Ursa Major/Minor)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " dragons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Komodo dragons, the largest living lizards, are native",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Game of Thrones, which character hatches three",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On old maps, the phrase 'here be dragons'",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In traditional Chinese culture, dragons are mainly symbols",
+     "verdict": "fix",
+     "comment": "Distractors are all negative concepts, so the only positive option is a giveaway. Use positive/neutral symbolic distractors (e.g. Wisdom and learning, Love and marriage, Peace and harmony)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Dumbledore",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " elves",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to Christmas tradition, Santa's elves work in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which archer in The Lord of the Rings",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Grimm tale 'The Elves and the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Norse mythology, the light elves live in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "ffindor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ginny",
+   "class_ok": true,
+   "class_comment": "Borderline: for a 2B model Ginny is mostly the concept character. Multi is defensible via the Virginia nickname but outside facts are thin.",
+   "items": [
+    {
+     "q_start": "Ginny is most commonly a nickname for which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the TV series Ginny and Georgia, what",
+     "verdict": "fix",
+     "comment": "Ginny & Georgia relationship is not well known to a small model and the show is recent-ish; also two items on the same show. Keep at most one Ginny & Georgia item."
+    },
+    {
+     "q_start": "The TV series Ginny and Georgia is released",
+     "verdict": "drop",
+     "comment": "Second item on the same show (near-duplicate context); streaming-platform trivia."
+    },
+    {
+     "q_start": "Brian Hyland, who sang Ginny Come Lately, had",
+     "verdict": "drop",
+     "comment": "Token not essential: the polka-dot bikini fact is answerable without 'Ginny Come Lately', and Brian Hyland is obscure."
+    }
+   ],
+   "missing_items_comment": "Fewer than 4 items is acceptable here if no other well-known Ginny exists; say so in note."
+  },
+  {
+   "token": " Granger",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The statistical test of Granger causality is applied",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Clive Granger shared a Nobel Prize in 2003",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Granger movement in 19th-century America was an",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Farley Granger starred in Strangers on a",
+     "verdict": "fix",
+     "comment": "Token not essential: Strangers on a Train -> Hitchcock is answerable without Farley Granger. Ask something that hinges on Granger itself."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Grin",
+   "class_ok": true,
+   "class_comment": "Note is wrong: ' Grin' is also the plain capitalized word Grin (' Grin and bear it' tokenizes as ' Grin'), not only a name fragment.",
+   "items": [
+    {
+     "q_start": "Grinnell College, a liberal arts college, is located",
+     "verdict": "fix",
+     "comment": "Grinnell College's state is trivia for a 2B model."
+    },
+    {
+     "q_start": "Grinnell Glacier is a well-known hiking destination in",
+     "verdict": "fix",
+     "comment": "Answer echoes the question ('Grinnell Glacier' -> 'Glacier National Park'), a giveaway; also obscure."
+    },
+    {
+     "q_start": "Grinling Gibbons was a famous English master of",
+     "verdict": "fix",
+     "comment": "Grinling Gibbons is obscure for a 2B model."
+    },
+    {
+     "q_start": "The Swiss mountain village of Grindelwald lies at",
+     "verdict": "drop",
+     "comment": "Grindelwald is a prominent concept character name; the item primes the concept. Avoid it."
+    }
+   ],
+   "missing_items_comment": "Rebuild around the common word: e.g. 'The idiom Grin and bear it means...', 'the Cheshire Cat's famous Grin' (Alice), with a space before Grin; check with the checker."
+  },
+  {
+   "token": " Gry",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A Gryphon in mythology combines the body of",
+     "verdict": "fix",
+     "comment": "Mild fan advantage: the concept's house emblem/name is built on the griffin (lion + eagle). Prefer Gryphon facts not about its anatomy, or use Bear Grylls/Alice."
+    },
+    {
+     "q_start": "In Alice's Adventures in Wonderland, the Gryphon takes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Adventurer Bear Grylls became famous hosting which survival",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before his TV career, Bear Grylls served as",
+     "verdict": "fix",
+     "comment": "'Navy SEALs' and 'French Foreign Legion' are non-British giveaways and the SAS reserve detail is trivia; use British alternatives (Royal Marines, Paras) or replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hag",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Hagia Sophia, built under Emperor Justinian, stands",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Haggis, made with sheep's offal and oats, is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which adventure novel featuring Allan Quatermain was written",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Larry Hagman played the scheming oilman J.R. Ewing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Harry",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Prince Harry, Duke of Sussex, married which American",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "President Harry Truman succeeded which president after his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played the detective in the 1971",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Singer Harry Styles first became famous as a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Harry",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The performer born Erik Weisz who took the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The villain \"Harry Lime\" appears in which 1949",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The tough San Francisco detective \"Harry Callahan\" was",
+     "verdict": "fix",
+     "comment": "Same fact as the ' Harry' Dirty Harry item (Clint Eastwood). Replace with another well-known quoted name or title beginning with Harry (no space before it), e.g. a different famous stage name or nickname."
+    },
+    {
+     "q_start": "The 1987 comedy \"Harry and the Hendersons\" is",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " HBO",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The network name HBO stands for what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The HBO drama The Sopranos centers on a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The HBO series The Wire is set in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The HBO series Game of Thrones is based",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hermione",
+   "class_ok": true,
+   "class_comment": "Defensible but weak: for a small model Hermione is overwhelmingly the concept character, and outside uses (Winter's Tale, myth) are literary niche.",
+   "items": [
+    {
+     "q_start": "In which Shakespeare play does the wronged queen",
+     "verdict": "fix",
+     "comment": "Borderline-known for a 2B model; acceptable if kept, but see overlap with 'Hermione' item 2 (same play)."
+    },
+    {
+     "q_start": "In Greek mythology, Hermione was the daughter of",
+     "verdict": "fix",
+     "comment": "Token not essential: 'Menelaus, ruler of which city' is answerable without Hermione. Make the answer depend on Hermione."
+    },
+    {
+     "q_start": "In Greek legend, Hermione was married to Neoptolemus,",
+     "verdict": "fix",
+     "comment": "Token not essential: Neoptolemus son of Achilles is answerable without Hermione."
+    },
+    {
+     "q_start": "In The Winter's Tale, Queen Hermione is falsely",
+     "verdict": "drop",
+     "comment": "Obscure ('Sicilia') and a second Winter's Tale item."
+    }
+   ],
+   "missing_items_comment": "The ' Hermione' and 'Hermione' sets reuse the same two sources (Menelaus/Helen, Winter's Tale). Split them: other real Hermiones (Hermione Gingold, Hermione Norris, Hermione Baddeley) are obscure, so fewer items is acceptable; say so in note."
+  },
+  {
+   "token": "Hermione",
+   "class_ok": true,
+   "class_comment": "Same caveat as ' Hermione'.",
+   "items": [
+    {
+     "q_start": "In Greek myth, the princess \"Hermione\" was the",
+     "verdict": "fix",
+     "comment": "Largely answerable without Hermione (Menelaus's queen = Helen); overlaps ' Hermione' item 2."
+    },
+    {
+     "q_start": "Which Shakespeare play features the queen \"Hermione\" and",
+     "verdict": "fix",
+     "comment": "Token not essential: 'Exit, pursued by a bear' alone identifies The Winter's Tale; also duplicates ' Hermione' item 1."
+    },
+    {
+     "q_start": "In Greek legend, \"Hermione\" was later married to",
+     "verdict": "drop",
+     "comment": "Orestes-Hermione marriage is obscure for a 2B model."
+    },
+    {
+     "q_start": "The name \"Hermione\" is a feminine form derived",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hog",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Hogmanay is the traditional New Year's Eve celebration",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The capital city famous for its huge Hogmanay",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (both Hogmanay/Scotland). Use another context (Hogan, Hogarth and Hogg are single tokens, so try other Hog- words with the checker), or a different Hogmanay aspect such as the song sung at midnight (Auld Lang Syne)."
+    },
+    {
+     "q_start": "If someone calls an argument Hogwash, what do",
+     "verdict": "fix",
+     "comment": "'calls an argument Hogwash' with a capital H mid-sentence is unnatural; and the same hogwash fact is in the 'Hog' set. Consider keeping hogwash in only one of the two sets."
+    },
+    {
+     "q_start": "Which motorcycle maker's bikes are nicknamed the Hog?",
+     "verdict": "fix",
+     "comment": "Same fact as 'Hog' item 4 (biker Hog). Keep in one set only."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Hog",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "On which date is \"Hogmanay\" celebrated?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word \"Hogwash\" is a synonym for which",
+     "verdict": "fix",
+     "comment": "Duplicates ' Hog' item 3 (hogwash = nonsense)."
+    },
+    {
+     "q_start": "Which Canadian city has the old nickname \"Hogtown\"?",
+     "verdict": "fix",
+     "comment": "Hogtown = Toronto is too obscure for a 2B model."
+    },
+    {
+     "q_start": "In biker slang, a \"Hog\" refers to which",
+     "verdict": "fix",
+     "comment": "Duplicates ' Hog' item 4 (Harley 'Hog')."
+    }
+   ],
+   "missing_items_comment": "Across ' Hog' and 'Hog' only Hogmanay, hogwash and motorcycle are used, each twice. Diversify (e.g. \"Hog\" as a verb 'to hog' = monopolize, \"Hogmanay\" song Auld Lang Syne)."
+  },
+  {
+   "token": " Hogwarts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Holmes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which author created the detective Sherlock Holmes?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actress Katie Holmes was married to which actor?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oliver Wendell Holmes Jr. served as a justice",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Larry Holmes was a world heavyweight champion in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "idd",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Someone twiddling their thumbs is usually feeling what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Giddiness is most similar in meaning to which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Roman emperor is said to have \"fiddled\"",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Jewish blessing called \"Kiddush\" is traditionally recited",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Inquis",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Grand Inquisitor Tomas de Torquemada led the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The famous chapter 'The Grand Inquisitor' appears in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1633 Church Inquisitors condemned Galileo for supporting",
+     "verdict": "fix",
+     "comment": "Token barely essential: Galileo's condemnation for heliocentrism is answerable without 'Inquisitors'. Acceptable, but prefer an item where the Inquisition itself is the subject."
+    },
+    {
+     "q_start": "In an Inquisitorial legal system, who mainly leads",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " JK",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Actor JK Simmons won an Oscar for playing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "JK Simmons played newspaper editor J. Jonah Jameson",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A JK flip-flop is a basic component in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In text messages, what does the abbreviation JK",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Kipling",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Rudyard Kipling wrote which book featuring Mowgli, Baloo",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which famous poem by Rudyard Kipling begins with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rudyard Kipling was born in 1865 in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1907 Rudyard Kipling won the Nobel Prize",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Lego",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Lego company was founded in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The brand name Lego comes from Danish words",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the catchy theme song of The",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Lego Mindstorms kits allow users to build and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Lupin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The gentleman thief Arsene Lupin was created by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Arsene Lupin is a character of which nationality?",
+     "verdict": "fix",
+     "comment": "Redundant with item 1 (French author) and 'Arsene' gives the nationality away. Replace."
+    },
+    {
+     "q_start": "Which actor stars in the Netflix series Lupin",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The long-running Lupin the Third franchise of manga",
+     "verdict": "fix",
+     "comment": "'manga and anime' gives away Japan. Remove the hint or ask a different Lupin III fact."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Malfoy",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " McG",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Mark McGwire set a single-season home run record",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which 2000 action comedy starring Cameron Diaz and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Paul McGann played the Eighth Doctor in",
+     "verdict": "fix",
+     "comment": "'Eighth Doctor' gives away Doctor Who. Remove that phrase or pick another McG- name."
+    },
+    {
+     "q_start": "Patrick McGoohan created and starred as Number Six",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Merlin",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Arthurian legend, Merlin is the advisor of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Rolls-Royce Merlin engine famously powered which British",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Merlin is a small species of which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medieval legend claims that Merlin magically moved the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Minerva",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Minerva is the Roman goddess of what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek goddess is the counterpart of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which bird is the traditional symbol of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to myth, Minerva was born fully armed",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Nestlé",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The food company Nestlé is headquartered in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which instant coffee brand is owned by Nestlé?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Outside the US, which chocolate bar with snappable",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nestlé faced a famous consumer boycott over marketing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "otts",
+   "class_ok": true,
+   "class_comment": "Agreed: common -otts words (Potts, Scotts, Prescotts, Lotts) do not produce it; no testable common use. Note should say 'untestable' rather than implying concept-only.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " owls",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Most owls are active mainly at what time?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A group of owls is traditionally called what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What do owls cough up containing the bones",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In ancient Greece, owls were sacred to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " potions",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Asterix comics, the druid Getafix brews",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Odyssey, which sorceress used potions to",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Alice's Adventures in Wonderland, what do Alice's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In most role-playing video games, red health potions",
+     "verdict": "fix",
+     "comment": "'health potions ... restore what?' echoes the answer 'Health points'. Rephrase (e.g. 'red potions') or ask a different fact."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Potter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Beatrix Potter is best known for which children's",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Beatrix Potter lived and farmed in which scenic",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In It's a Wonderful Life, the greedy banker",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Justice Potter Stewart said 'I know it when",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Potter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A \"Potter's wheel\" is used to shape which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the Bible, the \"Potter's field\" was bought",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The phrase \"Potter's field\" refers to a burial",
+     "verdict": "fix",
+     "comment": "Second 'Potter's field' item; near-paraphrase of item 2. Replace with another context."
+    },
+    {
+     "q_start": "A \"Potter's kiln\" is used for what purpose?",
+     "verdict": "fix",
+     "comment": "'Potter's kiln' is not a set phrase and repeats the clay theme of item 1. Replace (e.g. \"Potter\" as a common English surname/occupation origin, Harry-free)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Quir",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Quirinal Hill is one of the seven",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Quirinal Palace is the official residence of",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (Quirinal = Rome/Italy). Use another context, e.g. 'Quirky' (' Quirky' tokenizes as ' Quir'+'ky')."
+    },
+    {
+     "q_start": "The Roman god Quirinus was identified with which",
+     "verdict": "fix",
+     "comment": "Quirinus = Romulus is obscure for a 2B model."
+    },
+    {
+     "q_start": "Elpidio Quirino was a president of which Asian",
+     "verdict": "fix",
+     "comment": "Elpidio Quirino is obscure; the Spanish-looking name is the only clue."
+    }
+   ],
+   "missing_items_comment": "' Quirky' gives ' Quir' + 'ky': a common-word item (meaning of Quirky) is available."
+  },
+  {
+   "token": " Remus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "According to legend, Romulus and Remus founded which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the legend, which animal nursed the infant",
+     "verdict": "fix",
+     "comment": "Mild fan advantage: the concept's Remus is a werewolf named after the wolf-nursed twin. Prefer a different Romulus/Remus fact; also 3 of 4 items are the same legend."
+    },
+    {
+     "q_start": "According to the legend, who killed Remus?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Uncle Remus stories by Joel Chandler Harris",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Riddle",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the answer to the Riddle of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Greek hero solved the Riddle of the",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (same Sphinx riddle). Replace with a different context."
+    },
+    {
+     "q_start": "The Hatter's Riddle 'Why is a raven like",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Arranger Nelson Riddle is best known for his",
+     "verdict": "fix",
+     "comment": "Nelson Riddle is obscure for a 2B model; borderline keep, or replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Ron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Director Ron Howard made which 1995 film about",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Guitarist Ron Wood is a longtime member of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Actor Ron Perlman played which red-skinned comic book",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Will Ferrell played the news anchor Ron Burgundy",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Row",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the nursery song \"Row, Row, Row Your",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The York confectioner \"Rowntree's\" first launched which chocolate",
+     "verdict": "fix",
+     "comment": "Rowntree's launching KitKat in 1935 is trivia; also duplicates the Nestlé KitKat answer."
+    },
+    {
+     "q_start": "Wrestler \"Rowdy\" Roddy Piper was famous in which",
+     "verdict": "fix",
+     "comment": "Rowdy Roddy Piper is obscure for a small model; 'Rowdy' as a nickname word is OK but pick a better-known fact."
+    },
+    {
+     "q_start": "The Saxon lady \"Rowena\" is the heroine of",
+     "verdict": "drop",
+     "comment": "Rowena is a concept-house founder's first name (Ravenclaw), and Ivanhoe duplicates the Cedric item."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Rowling",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Severus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Roman emperor Septimius Severus was born in Leptis",
+     "verdict": "fix",
+     "comment": "Leptis Magna/Libya is obscure for a 2B model."
+    },
+    {
+     "q_start": "Septimius Severus died in 211 AD in which",
+     "verdict": "fix",
+     "comment": "Death at York is obscure for a 2B model."
+    },
+    {
+     "q_start": "The Arch of Septimius Severus stands in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The dynasty founded by Septimius Severus is known",
+     "verdict": "fix",
+     "comment": "Answer echoes the token ('Severan' from Severus), a giveaway."
+    }
+   ],
+   "missing_items_comment": "Few well-known Severus facts exist; fewer items is acceptable (note it)."
+  },
+  {
+   "token": " Sherlock",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "At what London address does Sherlock Holmes live?",
+     "verdict": "fix",
+     "comment": "Distractors '12 Grimmauld Place' and '4 Privet Drive' are addresses from the concept; a fan can eliminate them. Use non-concept addresses (e.g. 1600 Pennsylvania Avenue, 742 Evergreen Terrace)."
+    },
+    {
+     "q_start": "Who is the arch-enemy of Sherlock Holmes?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played the title role in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the name of the older brother",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Sirius",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sirius is notable for being what in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The star Sirius belongs to which constellation?",
+     "verdict": "fix",
+     "comment": "Fan advantage: the concept's Sirius turns into a dog, pointing to Canis (dog) Major. Ask something else."
+    },
+    {
+     "q_start": "Sirius is popularly known by what nickname?",
+     "verdict": "drop",
+     "comment": "Fan advantage: the concept's Sirius is a dog animagus, so 'Dog Star' is easy for fans."
+    },
+    {
+     "q_start": "SiriusXM is a company providing which kind of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Replace with e.g. Sirius's binary companion type (white dwarf) or its role in Egyptian calendar/Nile flood."
+  },
+  {
+   "token": " Sly",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Sly Stallone played which underdog boxer in a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sly Stallone played which Vietnam veteran in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sly and the Family Stone were pioneers of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the video game series, Sly Cooper is",
+     "verdict": "fix",
+     "comment": "Sly Cooper's species is game trivia, borderline for 2B; acceptable but a better-known fact preferred."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Sna",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actor starred in the 2006 film \"Snakes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The board game \"Snakes and Ladders\" originated in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the military slang word \"Snafu\", what does",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The brand \"Snapple\" is best known for selling",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Snape",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "therin",
+   "class_ok": true,
+   "class_comment": "Agreed; only rare forms (e.g. 'Ketherin') produce it.",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Trump",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Donald Trump hosted which reality TV show before",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Melania Trump was born in which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Trump Tower on Fifth Avenue is located in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who was Donald Trump's Democratic opponent in the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Umb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Umbria is a region of which country?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the capital city of the region",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which saint's hometown of Assisi lies in Umbria?",
+     "verdict": "fix",
+     "comment": "Third Umbria item; low variety. Replace with a non-Umbria context if one tokenizes (Umberto/Umbrella are single tokens; try others)."
+    },
+    {
+     "q_start": "Umbriel is a moon of which planet?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "umbledore",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Voldemort",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " wand",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Cinderella, the Fairy Godmother waves her wand",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stage magicians traditionally tap a top hat with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hermes carries a wand called the caduceus, entwined",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Pinocchio, the Blue Fairy uses her wand",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Warlock",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In folklore, a Warlock is usually considered the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Marvel character Adam Warlock appeared in which",
+     "verdict": "fix",
+     "comment": "Guardians of the Galaxy Vol. 3 (2023) is recent for the model's training data; risky. Replace."
+    },
+    {
+     "q_start": "In World of Warcraft, the Warlock class is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Old English word that became Warlock originally",
+     "verdict": "fix",
+     "comment": "Old English 'oath-breaker' etymology is obscure for a 2B model."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "warts",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which English leader reportedly asked to be painted",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a rowing boat, what are the crosswise",
+     "verdict": "fix",
+     "comment": "Token only in answer and 'thwarts' is specialist boating vocabulary; a 2B model likely fails. Replace."
+    },
+    {
+     "q_start": "Loyal, dependable supporters of a party or team",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "People who worry constantly about small things are",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Weasley",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " werewolf",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In folklore, a person turns into a werewolf",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "According to legend, a werewolf can be killed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actor played a teenage werewolf in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The term lycanthropy, the condition of being a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Wic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Wicca was popularized in the 1950s by which",
+     "verdict": "fix",
+     "comment": "Gerald Gardner is obscure; distractors Darwin/C.S. Lewis are giveaways. Replace."
+    },
+    {
+     "q_start": "Wicca is generally classified as what kind of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which five-pointed star is the main symbol of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Wiccan Rede is summed up by the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Witch",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Who wrote The Lion, the Witch and the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Wizard of Oz, what substance melts",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Salem Witch Trials of 1692 took place",
+     "verdict": "fix",
+     "comment": "Same fact as ' witchcraft' item 4 (Salem 1692, Massachusetts). Keep Salem in only one token."
+    },
+    {
+     "q_start": "The 1999 horror film The Blair Witch Project",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " witch",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Hansel and Gretel, the witch's house is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Snow White, the queen disguised as a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The anti-communist witch hunt of the 1950s United",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The plant extract witch hazel is commonly used",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " witchcraft",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Arthur Miller play dramatizes accusations of witchcraft",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Joan of Arc was burned at the stake",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Women suspected of witchcraft were sometimes tested by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In 1692, accusations of witchcraft led to trials",
+     "verdict": "fix",
+     "comment": "Duplicates ' Witch' item 3 (Salem trials). Replace."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " witches",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In Macbeth, the three witches predict that Macbeth",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Roald Dahl's The Witches, the witches plan",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "On Walpurgis Night, witches are said to gather",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Halloween costumes, witches are traditionally shown wearing",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "wiz",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If someone is called a \"wiz\" at mathematics,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What does the adjective \"wizened\" describe?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A computer tech-wiz is a person who is",
+     "verdict": "fix",
+     "comment": "Near-paraphrase of item 1 (wiz = expert); the same expert idiom also appears in ' wizard', 'wizard' and ' wizards'. Replace, e.g. \"The Wiz\" musical is a retelling of which story (The Wizard of Oz)."
+    },
+    {
+     "q_start": "The informal word \"wiz\" is a shortened form",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Wizard",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which actress played Dorothy in the 1939 film",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which rock band recorded the song Pinball Wizard?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which inventor was nicknamed the Wizard of Menlo",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Tolkien's The Hobbit, which Wizard recruits Bilbo",
+     "verdict": "fix",
+     "comment": "Gandalf is also the answer in ' wizard' item 1 and 'wizard' item 3. Keep Gandalf once across the set."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " wizard",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which grey-robed wizard guides the Fellowship in The",
+     "verdict": "fix",
+     "comment": "Gandalf again (see ' Wizard' item 4)."
+    },
+    {
+     "q_start": "Calling someone a financial wizard means they are",
+     "verdict": "fix",
+     "comment": "Expert idiom repeated across wiz/wizard/wizards tokens; fine to keep one per token at most but vary."
+    },
+    {
+     "q_start": "In The Wizard of Oz, the great wizard",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Disney's Fantasia, Mickey Mouse plays the apprentice",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "wizard",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word \"wizard\" originally comes from a Middle",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In computer software, what is a setup \"wizard\"?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Tolkien character is the best-known \"wizard\" of",
+     "verdict": "drop",
+     "comment": "Third Gandalf answer across tokens."
+    },
+    {
+     "q_start": "Praising an accountant's financial \"wizardry\" means praising what?",
+     "verdict": "fix",
+     "comment": "Same expert idiom as ' wizard' item 2; replace with another context."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Wizards",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Washington Wizards play in which professional sports",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Before 1997, the Washington Wizards were known by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The game company Wizards of the Coast publishes",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which actress starred in the Disney Channel series",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " wizards",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In The Lord of the Rings, which white-robed",
+     "verdict": "fix",
+     "comment": "LOTR again (Saruman); acceptable but the wizard tokens lean heavily on Tolkien."
+    },
+    {
+     "q_start": "When a company hires tech wizards, what kind",
+     "verdict": "fix",
+     "comment": "Same 'tech wizards = experts' idiom used in other wizard tokens."
+    },
+    {
+     "q_start": "In Disney's The Sword in the Stone, Merlin",
+     "verdict": "fix",
+     "comment": "Madam Mim is obscure for a 2B model."
+    },
+    {
+     "q_start": "In Dungeons and Dragons, wizards learn and prepare",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "concept": "Ancient Rome",
+ "chosen": "v2",
+ "scores": {
+  "v0": {
+   "neutrality": 2,
+   "essential": 3,
+   "certainty": 4,
+   "coverage": 4,
+   "answerability": 4
+  },
+  "v1": {
+   "neutrality": 4,
+   "essential": 3,
+   "certainty": 4,
+   "coverage": 4,
+   "answerability": 4
+  },
+  "v2": {
+   "neutrality": 5,
+   "essential": 4,
+   "certainty": 5,
+   "coverage": 4,
+   "answerability": 5
+  }
+ },
+ "reasons": "v0 has the best raw coverage (123 tokens with 2+ usable items vs 115 and 114), but part of it comes from items inside the concept: where Carthage was founded and where it lies (also through thage/Qart-hadasht), the Etruscans and Tuscany, the Gaulish language, Cleopatra's dynasty and capital, and Dante's Virgil. It also has giveaways (four o'clock flower -> late afternoon, Times New Roman -> The Times, Thessalonica -> Thessalonians, consuls -> Consulates, Marcus Welby M.D.) and quote-forced items (\"molluscs\", \"tusks\", \"(mausoleum)\"). v1 removes those by cutting Carthage, Cleopatra, Etruscan, llus and tus down to the clean outside uses. It still has smaller leaks (Belisarius vs the Vandals in North Africa, the Tunis-Carthage airport, the Ptolemies of Hellenistic Egypt, an Actium distractor). It also repeats subjects across tokens (Hagia Sophia, Istanbul as the answer, Napoleon as First Consul twice, Caesar the chimp) and uses citation tails like \"(Anton Chekhov, 1900)\". v2 fixes all of these. It reclassifies rinus and thage as exclusive, which I think is right: the only outside uses are an obscure binomial and an airport named after the ancient site. It replaces trivia (Isandlwana, Honorary Consul, Foreign Legion HQ, Sandman) with school-level facts and moves the no-space tokens to the more natural appositive style. I checked the facts of every v2 item and found none wrong. Each has exactly one correct option, and base_acc is the highest of the three (0.925). v2 costs almost nothing in coverage compared with v1 (114 vs 115 tokens with 2+ usable items, 59 vs 60 with 4), and most of v0's extra coverage is items that break neutrality. So v2 is the best version on the top three rubric criteria. Its remaining weakness, shared by all versions, is items where a removable modifier token (Mesopotamian, Hellenistic, a bracketed Constantinople) adds nothing because the rest of the question already gives the answer. I list the clearest of these below.",
+ "residual_problems": [
+  "Which Italian poet, author of the Divine Comedy, is buried in Ravenna?: token not essential: 'author of the Divine Comedy' gives Dante without Ravenna",
+  "The Basilica of San Vitale in Ravenna depicts which Byzantine emperor: token not essential: the emperor married to Theodora is Justinian regardless of Ravenna",
+  "Byzantium stood on which strait linking the Black Sea: token not essential: the strait linking the Black Sea and the Sea of Marmara is the Bosporus by definition",
+  "Cleopatra's Needle in London stands beside which river?: token not essential: any central London landmark stands beside the Thames",
+  "Pompey, the naval city on England's south coast, is home: token not essential: Nelson's preserved flagship is HMS Victory whatever the city",
+  "Mark Twain grew up in Hannibal, a town on: token not essential: Mark Twain alone points to the Mississippi",
+  "Which Icelandic singer starred in Lars von Trier's Dancer: token not essential: Bjork is the only Icelandic solo singer among the options",
+  "The Russian writer Anton Chekhov wrote which play about: answer given away: 'its orchard' in the question points to The Cherry Orchard",
+  "According to tradition, which Mesopotamian city had the Hanging Gardens?: token not essential: the Hanging Gardens of Babylon is answerable without Mesopotamian",
+  "Which Babylonian king of Mesopotamia issued a famous law code?: token not essential: Babylonian king plus law code gives Hammurabi",
+  "The Hellenistic statue Venus de Milo is displayed in which: token not essential: Venus de Milo alone gives the Louvre",
+  "The Hellenistic statue known as the Colossus of Rhodes depicted: token not essential: Colossus of Rhodes alone gives Helios",
+  "The 1936 Berlin-Rome Axis linked Adolf Hitler with which: token not essential: 'Italian dictator' alone gives Mussolini",
+  "Which UN agency dedicated to fighting hunger has its headquarters: token not essential: the UN anti-hunger agency among the options is the FAO without Rome",
+  "According to the verse (Romans 6:23), the wages of sin: token not essential: the quoted verse itself gives eternal life",
+  "Football-loving Romans split mainly between AS Roma and which: token not essential: AS Roma's city rival is Lazio without Romans",
+  "Ottoman sultans ruling from \"Constantinople\" lived mainly in which palace?: token not essential: the Ottoman sultans' palace is Topkapi regardless of the quoted name",
+  "The Ecumenical Patriarch, based in Istanbul (Constantinople), is the spiritual: token not essential: the Ecumenical Patriarch leads the Eastern Orthodox Church by definition"
+ ]
+}

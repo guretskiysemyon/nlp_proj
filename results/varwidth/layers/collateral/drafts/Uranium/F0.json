@@ -1,0 +1,1619 @@
+{
+ "concept": "Uranium",
+ "overall": "Checker is clean (227/227 ok, all 60 pool tokens present) and most items are true, school-level and outside the concept; the two exclusive calls (Uranium/uranium) are right. Main neutrality problems: the Oppenheimer film items (Manhattan Project, plus a 2024 Oscar) must go, and a few items quietly lean on uranium lore (Becquerel, Hahn/Meitner as distractors, actinides, Pluto naming chain, Herschel/Uranus). Forced wording to hit no-space tokens is the second pattern: quoted capitals for 'Nuclear', 'Uran' and 'Radio', and 'Isotope ...' sentence starts for 'tope'; where no natural frame exists, keep fewer items and say so rather than forcing. Third, heavy cross-token repetition (deuterium+tritium fusion x5, Sun fusion x4, carbon-14 x3, iodine-131 and ice-core items duplicated nearly verbatim) and two mirrored items that answer each other (deuter 4 / tritium 4). Minor giveaways: PET acronym, CND name, D2O formula. Missing items: radionuc, Reactor and reactors have 3 items without justification (checker-verified fillers suggested).",
+ "tokens": [
+  {
+   "token": " atom",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A neutral carbon atom contains how many electrons?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The word atom comes from a Greek word",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rutherford's gold foil experiment showed that an atom",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An atom that gains an extra electron becomes",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Atomic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Atomic number 6 belongs to which element?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Atomic Habits, the bestselling self-help book, was written",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1980 hit song Atomic was recorded by",
+     "verdict": "fix",
+     "comment": "\"fronted by Debbie Harry\" makes the token unnecessary (Debbie Harry -> Blondie). Drop that clue and give the song a different hook, e.g. year plus genre, or pick another Atomic use."
+    },
+    {
+     "q_start": "Atomic clocks keep time using the vibrations of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " atomic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which element has atomic number 8?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An element's atomic number equals the number of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Russian chemist arranged the first periodic table",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which element has the atomic symbol K?",
+     "verdict": "fix",
+     "comment": "\"atomic symbol\" is unnatural (the usual term is \"chemical symbol\"); it also repeats the chemical-symbol items. Use a natural phrase such as \"atomic mass\" or \"atomic radius\" (avoid atomic bomb/energy)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "atomic",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which of these gases exists as diatomic molecules",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which subatomic particle carries a negative electric charge?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Sulfate, SO4 2-, is an example of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which group of elements, including neon and argon,",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " atoms",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A water molecule contains how many hydrogen atoms?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which ancient Greek philosopher proposed that all matter",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An ozone molecule consists of how many oxygen",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Avogadro's number gives the number of atoms in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "bom",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "If a new movie \"bombed\" at the box",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which German city was firebombed by Allied air",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "If someone photobombed your picture, what did they",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The insect called the \"bombardier beetle\" defends itself",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bomb",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A bath bomb fizzes in water because citric",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In American football slang, a bomb is a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In British slang, something that costs a bomb",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which classic Windows game asks players to clear",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bombardment",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The heavy bombardment of the inner solar system",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The naval bombardment of Fort McHenry in 1814",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Confederate bombardment of Fort Sumter in 1861",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rutherford's gold foil experiment involved the bombardment of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bombings",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The 2005 London bombings targeted which transport system?",
+     "verdict": "fix",
+     "comment": "Correct option \"The Underground and buses\" is longer and more compound than the distractors; make all four similar, e.g. \"Trains and buses\" vs \"Airports and ferries\" style."
+    },
+    {
+     "q_start": "The 2013 Boston Marathon bombings took place in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Blitz bombings of British cities in 1940",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1998 US embassy bombings in Kenya and",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " bombs",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the video game Bomberman, the player places",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Germany's V-1 flying bombs of WWII were launched",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Volcanic bombs are formed from what material ejected",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Looney Tunes cartoons, Wile E. Coyote often",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " chemical",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical symbol for gold?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the chemical formula of table salt?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A chemical reaction that releases heat is described",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which chemical element is a liquid metal at",
+     "verdict": "fix",
+     "comment": "All four items are school chemistry (symbol, formula, reaction, element); replace this one with a non-chemistry use the note already names (My Chemical Romance) or chemical weapons/chemical engineering. Gallium as distractor is also near-borderline (melts at 30 C)."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " deton",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Alfred Nobel invented the blasting-cap detonator and which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Engine knock happens when fuel detonates too early",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The explosive TNT, which can detonate when triggered,",
+     "verdict": "fix",
+     "comment": "\"which can detonate when triggered\" is inserted only to carry the token; the question works without it. Find an item where detonate/detonator is the natural verb."
+    },
+    {
+     "q_start": "In old cartoons, a plunger box used to",
+     "verdict": "fix",
+     "comment": "Not a known fact (wire vs rope is a guess, not knowledge). Replace with a real fact, e.g. a famous controlled detonation or detonator in mining."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " deuter",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many neutrons does a deuterium nucleus contain?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Heavy water is water in which ordinary hydrogen",
+     "verdict": "fix",
+     "comment": "The formula giveaway: only D2O and HDO2 contain D, so the deuterium mention points straight at the answer. Use distractors that all contain D (HDO, D2O2, DO2). Note heavy water is best known as a reactor moderator for natural-uranium reactors; keep the item about chemistry only."
+    },
+    {
+     "q_start": "The colour-vision deficiency called deuteranopia is a form",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fusion experiments often fuse deuterium with which other",
+     "verdict": "fix",
+     "comment": "Mirror of the tritium item 4 (deuterium<->tritium answer each other) and the 5th deuterium-tritium fusion item in the set (also isotopes, reactors). Use another context, e.g. deuterium in heavy water ice sinking, or deuterium in comets/oceans."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " disarmament",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The UN-linked forum for multilateral arms disarmament talks",
+     "verdict": "fix",
+     "comment": "\"arms disarmament\" is unnatural, and the Conference on Disarmament is obscure and mostly about nuclear weapons. Use a clearly non-nuclear disarmament fact."
+    },
+    {
+     "q_start": "The Treaty of Versailles imposed disarmament on which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "IRA weapons disarmament in Northern Ireland followed which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The 1922 Washington Naval Conference was a disarmament",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " electron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which British physicist discovered the electron in 1897?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the electric charge of an electron?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An electron microscope uses a beam of electrons",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The electron volt is a unit of what?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " electrons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In an ionic bond, electrons are transferred; in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What are the outermost electrons of an atom",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The first electron shell of an atom can",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Rubbing a balloon on hair transfers electrons, giving",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " fission",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Binary fission is the main way which organisms",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An amoeba reproducing by binary fission splits into",
+     "verdict": "fix",
+     "comment": "Paraphrase of item 1 (both binary fission in microbes). Use a different context, e.g. fission in planarian/flatworm regeneration or the word sense in politics (party fission) if well known; or fission vs budding in yeast."
+    },
+    {
+     "q_start": "Unlike fission, which process powers the Sun by",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Both fission yeast and baker's yeast belong to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " gamma",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In the Greek alphabet, which letter comes right",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Among electromagnetic waves, gamma rays have the highest",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Marvel character gained his powers from exposure",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Astronomers detect the most energetic explosions in the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Hiroshima",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which car maker has its headquarters in the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Hiroshima Toyo Carp compete in which sport?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Itsukushima Shrine near Hiroshima is famous for its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hiroshima lies on which of Japan's main islands?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Nagasaki",
+   "class_ok": true,
+   "class_comment": "Multi is right (port city, opera, Kyushu); items correctly avoid the 1945 bombing.",
+   "items": [
+    {
+     "q_start": "During Japan's isolation period, Nagasaki was the main",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Puccini opera is set in Nagasaki?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Nagasaki lies on which of Japan's main islands?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Nagasaki sponge cake called castella was introduced",
+     "verdict": "fix",
+     "comment": "Castella-from-Portugal is trivia for a 2B model and repeats the European-traders theme of item 1. Use another non-war Nagasaki fact (e.g. Glover Garden, Nagasaki Prefecture capital, Chinatown) at school level."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " hydrogen",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical formula of hydrogen peroxide?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Water forms when hydrogen combines with which other",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which element is the second most abundant in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the atomic number of hydrogen?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " isotope",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Carbon-14, a radioactive isotope, is used to estimate",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An isotope of an element differs from another",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which isotope of hydrogen has one proton and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the most common isotope of carbon?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " isotopes",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Different isotopes of the same element always have",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Hydrogen's three natural isotopes are protium, deuterium and",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Oxygen isotopes in polar ice cores help scientists",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which medical scanning technique uses short-lived isotopes such",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " missile",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In 1962, the standoff over Soviet missile sites",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A heat-seeking missile tracks its target using what",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which company released the 1980 arcade game in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Patriot surface-to-air missile system was developed in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " molecular",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the molecular formula of glucose?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In molecular biology, DNA is transcribed into which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the approximate molecular mass of water",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the molecular shape of a methane",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " munitions",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The word munitions mainly refers to what?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "David Lloyd George, who ran Britain's wartime munitions",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "WWI British munitions workers were nicknamed 'canaries' because",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which iconic WWII poster figure represented American women",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " neutron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the electric charge of a neutron?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which British physicist discovered the neutron in 1932?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A neutron star typically forms after which stellar",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A rapidly rotating neutron star that emits beams",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " neutrons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "An atom of carbon-12 contains how many neutrons?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Protons and neutrons are each made of three",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Protons and neutrons are found in which part",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A helium-4 atom has two protons and how",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nuc",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which US president was often mocked for pronouncing",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A chart of nuclides plots the number of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Two items is acceptable: checker confirms nucleotide, nucleic, nucleolus, nucleophile and nucleation do not yield \" nuc\"; only nucular/nuclide do."
+  },
+  {
+   "token": " nuclear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "In sociology, a nuclear family consists of whom?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In a eukaryotic cell, the nuclear envelope surrounds",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The strong nuclear force holds together which particles?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Sun produces its energy mainly by which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Nuclear",
+   "class_ok": true,
+   "class_comment": "No-space capital Nuclear only arises after \"(\" or a quote/hyphen, so natural contexts are scarce.",
+   "items": [
+    {
+     "q_start": "NMR (Nuclear Magnetic Resonance) spectroscopy is used mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In The Simpsons, who owns the \"Nuclear Power",
+     "verdict": "fix",
+     "comment": "Quoting a truncated \"Nuclear Power Plant\" is forced (the name is Springfield Nuclear Power Plant, which gives the leading-space token). Drop or replace."
+    },
+    {
+     "q_start": "The term \"Nuclear winter\" describes predicted global cooling",
+     "verdict": "fix",
+     "comment": "Capitalising Nuclear inside quotes (\"Nuclear winter\") is unnatural; lowercase would be natural but does not yield the token. Drop or replace."
+    },
+    {
+     "q_start": "In US politics, the Senate's \"Nuclear option\" refers",
+     "verdict": "fix",
+     "comment": "Same forced capital-in-quotes pattern (\"Nuclear option\"). Drop or replace."
+    }
+   ],
+   "missing_items_comment": "Natural contexts are mostly acronym expansions in parentheses, like the NMR item. If no more natural ones exist, keep fewer items and say so in the note rather than forcing quotes."
+  },
+  {
+   "token": "nuclear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The peace symbol was created in 1958 for",
+     "verdict": "fix",
+     "comment": "Answer giveaway: \"Campaign for Nuclear Disarmament\" is the only option echoing \"anti-nuclear\" and is much longer. Keep the peace-symbol hook but ask something else, e.g. which flag-signalling system its lines come from (Semaphore)."
+    },
+    {
+     "q_start": "In 1987, which Pacific country passed a law",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Unlike \"nuclear\" DNA, mitochondrial DNA is inherited from",
+     "verdict": "fix",
+     "comment": "Quoted \"nuclear\" is forced. The checker accepts \"Mitochondrial (non-nuclear) DNA is inherited from which parent?\", which reads naturally."
+    },
+    {
+     "q_start": "The sociological term \"nuclear family\" refers to which",
+     "verdict": "drop",
+     "comment": "Paraphrase of \" nuclear\" item 1 (nuclear family) with forced quotes."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "uclear",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Thermonuclear fusion in the Sun's core converts which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A positive antinuclear antibody (ANA) test is associated",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which 1983 film does a computer offer",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A Type Ia supernova is the thermonuclear explosion",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nuclei",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which mature mammalian blood cells lack nuclei?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Organisms whose cells lack nuclei, such as bacteria,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In stars like the Sun, the fusion of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Skeletal muscle fibers are unusual cells because they",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " nucleus",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which molecule carrying genetic information is stored mainly",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which scientist discovered the atomic nucleus through his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The brain's nucleus accumbens is mainly associated with",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A comet's solid nucleus is made mostly of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Oppenheimer",
+   "class_ok": true,
+   "class_comment": "Borderline: the dominant referents (Robert Oppenheimer, the 2023 film) are the Manhattan Project itself. Multi only via Ernest/Harry Oppenheimer (De Beers, Anglo American); fewer than 4 items is acceptable if noted.",
+   "items": [
+    {
+     "q_start": "Which Irish actor won the Best Actor Oscar",
+     "verdict": "drop",
+     "comment": "The film is about the Manhattan Project (inside the concept), and the Oscar (March 2024) is a recent event."
+    },
+    {
+     "q_start": "Businessman Ernest Oppenheimer chaired which diamond company?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Who directed the 2023 biographical film Oppenheimer?",
+     "verdict": "drop",
+     "comment": "The 2023 film is a Manhattan Project biopic; a uranium/Manhattan Project fan is helped."
+    },
+    {
+     "q_start": "The film Oppenheimer was released on the same",
+     "verdict": "drop",
+     "comment": "Same film; \"Barbenheimer\" is 2023 pop-culture, recent and about the concept work."
+    }
+   ],
+   "missing_items_comment": "Add 1-2 items on Ernest or Harry Oppenheimer (De Beers, Anglo American, South Africa) only if school-level; otherwise keep 1-2 items and say so in the note."
+  },
+  {
+   "token": " plutonium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The element plutonium was named after which celestial",
+     "verdict": "fix",
+     "comment": "Answer is echoed in the word (pluto-nium -> Pluto), and the Uranus->uranium / Neptune->neptunium / Pluto->plutonium naming chain is uranium lore. Replace."
+    },
+    {
+     "q_start": "What is the chemical symbol of plutonium?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Back to the Future, plutonium powers a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Generators powered by plutonium-238 have supplied electricity to",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " positron",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The positron is the antiparticle of which particle?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which physicist's equation predicted the existence of the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Medical scans based on positron emission tomography are",
+     "verdict": "fix",
+     "comment": "Answer is the acronym of words in the question (Positron Emission Tomography -> PET). Ask what PET scans are used to detect, or which radioactive tracer they use."
+    },
+    {
+     "q_start": "What is the electric charge of a positron?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " proton",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the electric charge of a proton?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Brønsted-Lowry theory, what does an acid do",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which physicist is credited with discovering the proton?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The nucleus of ordinary hydrogen consists of a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " protons",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Large Hadron Collider, which smashes protons together,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which element has exactly 79 protons in its",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Each of the protons in a nucleus is",
+     "verdict": "fix",
+     "comment": "\"Each of the protons in a nucleus\" is forced wording, and the 3-quarks fact duplicates \" neutrons\" item 2. Use another protons context."
+    },
+    {
+     "q_start": "A neutral atom always has equal numbers of",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Radiation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Radiation is one of three ways heat transfers,",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Radiation from the Sun that causes sunburn is",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Cosmic Microwave Background Radiation was discovered in",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Stephen Hawking predicted that Hawking Radiation is emitted",
+     "verdict": "fix",
+     "comment": "\"Hawking Radiation\" capitalised only to force the token. Checker accepts \"Radiation predicted by Stephen Hawking is emitted by what?\""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " radiation",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Thermal imaging cameras detect which type of radiation?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Doctors use radiation therapy mainly to treat which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which SI unit measures the biological effect of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Earth's magnetic field shields us from radiation by",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Radio",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The band \"Radiohead\" released which acclaimed album in",
+     "verdict": "fix",
+     "comment": "Quotes around a band name (\"Radiohead\") are forced. Quoted song titles are natural: checker accepts \"Radioactive\" (Imagine Dragons, 2012) and \"Radio Free Europe\" (R.E.M.)."
+    },
+    {
+     "q_start": "The 1984 song \"Radio Ga Ga\" was recorded",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which technology's name comes from \"Radio Detection And",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "New York's \"Radio City Music Hall\" is home",
+     "verdict": "fix",
+     "comment": "Quoting the venue name only to force the token. Replace with a quoted song/album title as above."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " radioactive",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Archaeologists date ancient bones using which radioactive form",
+     "verdict": "fix",
+     "comment": "Duplicates \" isotope\" item 1 and \"tope\" item 3 (carbon-14 dating). Pick another context, e.g. radioactive tracers in medicine or Godzilla/comics."
+    },
+    {
+     "q_start": "Peter Parker gained his powers after being bitten",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The time it takes for half of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which radioactive noble gas can seep from the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " radioactivity",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the SI unit of radioactivity?",
+     "verdict": "fix",
+     "comment": "Becquerel is the discoverer of radioactivity via uranium salts, so a uranium fan is helped. Use another radioactivity fact."
+    },
+    {
+     "q_start": "Which handheld device clicks to detect radioactivity?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which common fruit has slight natural radioactivity because",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "An older unit of radioactivity, the curie, honours",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " radionuc",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The radionuclide technetium-99m is mainly used in which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The radionuclide iodine-131 is used to treat disorders",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which former Russian agent was poisoned in London",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 3 items and the note does not justify it. Checker accepts \"radionuclides\" in e.g. \"Smoke detectors contain small amounts of radionuclides such as americium-241\" (ask what device/element). Keep iodine-131 here and change the \"tope\" duplicate."
+  },
+  {
+   "token": " radium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "What is the chemical symbol of radium?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which scientists discovered radium in 1898?",
+     "verdict": "fix",
+     "comment": "Distractor \"Otto Hahn and Lise Meitner\" are the uranium-fission discoverers, which a fan eliminates at once; \"Wilhelm Röntgen\" is a single name among pairs. Use non-uranium pairs/names of the same shape."
+    },
+    {
+     "q_start": "The 'Radium Girls' were factory workers who painted",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the periodic table, radium belongs to which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " radon",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The gas radon belongs to which group of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Long-term exposure to radon gas mainly increases the",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In which part of a house does radon",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the chemical symbol of radon?",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Reactor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Which Marvel hero is powered by an Arc",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The International Thermonuclear Experimental Reactor (ITER) is being",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Tokamak Fusion Test Reactor confined plasma in",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 3 items, no justification. Question-initial \"Reactor ...\" yields the token (checker-verified), e.g. a chemical-engineering or fiction use. Avoid nuclear power plants (uranium fuel)."
+  },
+  {
+   "token": " reactor",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "A tokamak is a type of reactor designed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Iron Man (2008), Tony Stark builds his",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Star Trek, a starship's warp reactor combines",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "A continuous stirred-tank reactor is a standard piece",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " reactors",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Tokamak fusion reactors were first developed in which",
+     "verdict": "fix",
+     "comment": "Which country built the first tokamaks is trivia for a 2B model; all three items are fusion."
+    },
+    {
+     "q_start": "Fusion reactors aim to fuse deuterium and tritium,",
+     "verdict": "fix",
+     "comment": "Fifth deuterium-tritium item in the set (deuter, tritium, isotopes, isotope). Use a non-fusion context."
+    },
+    {
+     "q_start": "Fusion reactors confine superhot plasma mainly with strong",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": "Only 3 items. Checker accepts \"chemical reactors\" (e.g. Haber process/ammonia) and \"arc reactors\" (Iron Man); use them to add variety and reach 4."
+  },
+  {
+   "token": " supernova",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The Crab Nebula is the remnant of a",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "After a massive star's supernova, which object can",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Observations of distant supernova explosions in 1998 revealed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The red supergiant Betelgeuse, expected to become a",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " thorium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The element thorium is named after which mythological",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "What is the chemical symbol of thorium?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the periodic table, thorium belongs to which",
+     "verdict": "fix",
+     "comment": "Uranium is the archetypal actinide, so a uranium fan is helped. Replace with another non-uranium thorium fact."
+    },
+    {
+     "q_start": "Compounds of thorium were traditionally used in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " tritium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "How many neutrons does a tritium nucleus contain?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The radioactive substance tritium is an isotope of",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Gaseous tritium is often used to make which",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Fusion reactor designs typically pair tritium with which",
+     "verdict": "fix",
+     "comment": "Mirror of \" deuter\" item 4: the two answer each other. Choose a non-fusion context, e.g. tritium night sights on guns or tritium watch dials if not already used by item 3."
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "tope",
+   "class_ok": true,
+   "class_comment": "Multi is fine (general isotope science), but the token appears only in capitalised \"Isotope\"; checker rejects \"Isotopes\", \"antelope\" and \"tope\" shark.",
+   "items": [
+    {
+     "q_start": "Isotope ratios of oxygen in ice cores help",
+     "verdict": "fix",
+     "comment": "Near-verbatim duplicate of \" isotopes\" item 3 (same question and distractors). Change one."
+    },
+    {
+     "q_start": "Isotope hydrogen-2 is better known by what name?",
+     "verdict": "fix",
+     "comment": "\"Isotope hydrogen-2 is ...\" is unnatural, forced to start with Isotope; also repeats the deuterium theme."
+    },
+    {
+     "q_start": "Isotope dating with carbon-14 is used to estimate",
+     "verdict": "fix",
+     "comment": "Repeats carbon-14 dating (\" isotope\" 1, \" radioactive\" 1)."
+    },
+    {
+     "q_start": "Isotope iodine-131 is used to treat diseases of",
+     "verdict": "fix",
+     "comment": "\"Isotope iodine-131 is used ...\" is forced wording and duplicates \" radionuc\" item 2."
+    }
+   ],
+   "missing_items_comment": "Only natural sentence-initial \"Isotope ...\" phrasings count (e.g. \"Isotope ratios ...\", \"Isotope analysis ...\"). If you cannot find 4 natural and non-duplicate ones, keep fewer and say so."
+  },
+  {
+   "token": " Uran",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "Urania was the Greek Muse of which subject?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In Greek mythology, the sky god Uranos was",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Uraniborg was the observatory of which Danish astronomer?",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "The Uranian moon Titania is named after the",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  },
+  {
+   "token": "Uran",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "The planet \"Uranus\" was discovered in 1781 by",
+     "verdict": "fix",
+     "comment": "Forced quotes around \"Uranus\". Also Herschel/1781 is part of uranium's naming story (Klaproth named it after the new planet), so a fan is helped. Drop this one."
+    },
+    {
+     "q_start": "Which planet orbits next beyond \"Uranus\" from the",
+     "verdict": "fix",
+     "comment": "Forced quotes. Checker accepts parentheses, e.g. \"the seventh planet (Uranus)\", but only if it reads naturally."
+    },
+    {
+     "q_start": "The blue-green colour of \"Uranus\" comes mainly from",
+     "verdict": "fix",
+     "comment": "Forced quotes; same fix as above."
+    },
+    {
+     "q_start": "In Greek mythology, the sky god \"Uranus\" was",
+     "verdict": "fix",
+     "comment": "Forced quotes. Natural rewrite that passes the checker: \"In Greek mythology, the sky god Ouranos (Uranus) was overthrown by which of his sons?\""
+    }
+   ],
+   "missing_items_comment": "Natural no-space contexts are rare (parenthetical glosses). Keep fewer items rather than quoting."
+  },
+  {
+   "token": " Uranium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " uranium",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [],
+   "missing_items_comment": ""
+  },
+  {
+   "token": " Westinghouse",
+   "class_ok": true,
+   "class_comment": "",
+   "items": [
+    {
+     "q_start": "George Westinghouse invented which safety device for railway",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "In the 'War of the Currents', Westinghouse backed",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Which Serbian-American inventor licensed his AC motor patents",
+     "verdict": "keep",
+     "comment": ""
+    },
+    {
+     "q_start": "Westinghouse Electric was founded in 1886 in which",
+     "verdict": "keep",
+     "comment": ""
+    }
+   ],
+   "missing_items_comment": ""
+  }
+ ]
+}
