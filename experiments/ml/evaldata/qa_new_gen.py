@@ -109,6 +109,7 @@ Items:
 
 _VER = re.compile(r"^(\d+)\s*[:\-]\s*([ABCDabcd])\s*[:\-]\s*([01])\s*[:\-]\s*([01])$")
 _VER_ANY = re.compile(r"\b\d+\s*:\s*[ABCDabcd]\s*:\s*[01]\s*:\s*[01]\b")
+_GARBLED = re.compile(r"\b(no,?\s+)?wait\b|\u2014\s*(what|which|who|no)\b", re.I)
 _STOP = set("a an the of in on at to for by with from and or is was were are be been what which who whom whose when "
             "where why how did does do that this these those as its it his her their than into during after before "
             "name called term known most first one".split())
@@ -226,8 +227,15 @@ def item_problems(it: dict) -> List[str]:
         out.append("dup_options")
     if any(re.search(r"\b(all|none|both) of the (above|options)\b", o, re.I) for o in opts):
         out.append("above_option")
+    if norm(key) in ("none", "nothing", "no one", "neither", "null"):
+        out.append("none_key")           # "None" as the key (e.g. 'heavier than the African elephant?' -> None)
+    if any(o.strip().startswith(("[", "{")) for o in opts):
+        out.append("list_option")        # a distractor returned as a nested list and stringified
     if any(_foreign(x) for x in [mc["q"]] + opts):
         out.append("non_latin_text")
+    unquoted = re.sub(r"'[^']*'|\"[^\"]*\"|\u2018[^\u2019]*\u2019|\u201c[^\u201d]*\u201d", "", mc["q"])  # titles may end in '?'
+    if _GARBLED.search(mc["q"]) or unquoted.count("?") > 1:
+        out.append("garbled_question")   # generator self-corrections ("... Corning—wait, which ...")
     k = norm(key)
     if len(k) >= 4 and re.search(rf"\b{re.escape(k)}\b", norm(mc["q"])):
         out.append("answer_in_question")
@@ -561,6 +569,38 @@ def final(concepts: List[str]) -> None:
     print(f"wrote {EN_FINAL}: {len(order)} concepts")
 
 
+def patch(concepts: List[str]) -> None:
+    """Replace, in place, final items that fail a check added after the split (garbled_question), by the first valid
+    unused items of the same concept and set (generation order); everything else stays as split. Logged in
+    work/en_patch.json."""
+    out = json.loads(EN_FINAL.read_text(encoding="utf-8"))
+    log = []
+    for c in concepts:
+        st = load_state(c)
+        classify(st["items"])
+        by_id = {it["id"]: it for it in st["items"]}
+        used = {it["_id"] for sp in SPLITS for it in out[c][sp]}
+        for sp in SPLITS:
+            s = "QA" if sp.startswith("QA") else "Simdom"
+            for i, it in enumerate(out[c][sp]):
+                if by_id[it["_id"]]["drop"] == []:
+                    continue
+                spare = next(x for x in sorted(st["items"], key=lambda x: x["n"])
+                             if x["set"] == s and x["drop"] == [] and x["id"] not in used)
+                used.add(spare["id"])
+                opts = list(spare["mc"]["options"])
+                random.Random(f"{spare['id']}/order").shuffle(opts)
+                out[c][sp][i] = {"q": spare["mc"]["q"], "correct_answer": spare["mc"]["correct_answer"],
+                                 "options": opts, "_id": spare["id"], "_topic": spare["topic"]}
+                log.append({"concept": c, "split": sp, "index": i, "old": it["_id"], "old_q": it["q"],
+                            "reasons": by_id[it["_id"]]["drop"], "new": spare["id"], "new_q": spare["mc"]["q"]})
+        save_state(st)
+    EN_FINAL.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (WORK / "en_patch.json").write_text(json.dumps(log, ensure_ascii=False, indent=1), encoding="utf-8")
+    for r in log:
+        print("replaced", r["concept"], r["split"], r["index"], r["reasons"], "|", r["old_q"][:70], "->", r["new_q"][:70])
+
+
 def stats(concepts: List[str]) -> dict:
     rows = {}
     for c in concepts:
@@ -601,7 +641,7 @@ def spend() -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["run", "final", "stats"])
+    ap.add_argument("cmd", choices=["run", "final", "patch", "stats"])
     ap.add_argument("--concepts", nargs="+", default=None)
     ap.add_argument("--max-rounds", type=int, default=4)
     ap.add_argument("--workers", type=int, default=8)
@@ -617,6 +657,8 @@ def main() -> None:
         run(concepts, args.max_rounds, args.workers, args.first_n, args.first_n_qa)
     elif args.cmd == "final":
         final(concepts)
+    elif args.cmd == "patch":
+        patch(concepts)
     s = stats(concepts)
     for c, r in s.items():
         print(c, json.dumps(r))

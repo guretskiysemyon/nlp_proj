@@ -96,6 +96,8 @@ def cmd_gen1(args) -> None:
     eng = T.Engine("nllb")
     for lang in args.langs:
         for name, todo in (("nllb", segs), ("ctx", lists)):
+            if name not in args.phases:
+                continue
             path = TR_WORK / f"{name}_{lang}.jsonl"
             done = C.cache_map(path)
             T.run_batches(eng, [s for s in todo if s not in done], lambda b, l=lang: eng.translate(b, l),
@@ -105,9 +107,19 @@ def cmd_gen1(args) -> None:
 
 
 # --------------------------------------------------------------------------- targets (CPU)
+class Stage1Chooser(CV2.Chooser2):
+    """Chooser2 over the stage-1 candidates only (NLLB, in-context lists): targets are defined on stage 1, as v2
+    defined them on v1, also when the command is re-run after stage 2 exists."""
+
+    def __init__(self, lang: str):
+        super().__init__(lang)
+        self.cand = {e: (v if e in ("nllb", "ctx") else {}) for e, v in self.cand.items()}
+
+
 def cmd_targets(args) -> None:
+    """Writes work/tr/targets_<lang>.json; on a re-run (new segments) the old targets are kept (union)."""
     for lang in args.langs:
-        ch = CV2.Chooser2(lang)
+        ch = Stage1Chooser(lang)
         segs: Dict[str, None] = {}
         for s in segments():
             best = ch.ranked(s)[0]
@@ -132,13 +144,27 @@ def cmd_targets(args) -> None:
                     if CV2.short_list(opts) and (dup or any(o in segs for o in opts)) \
                             and any(C.needs_translation(o) for o in opts):
                         lists.setdefault(CTX_SEP.join(opts), None)
+        prev = TR_WORK / f"targets_{lang}.json"
+        if prev.exists():
+            p = json.loads(prev.read_text(encoding="utf-8"))
+            segs = {**dict.fromkeys(p["segments"]), **segs}
+            lists = {**dict.fromkeys(p["lists"]), **lists}
         (TR_WORK / f"targets_{lang}.json").write_text(
             json.dumps({"segments": list(segs), "lists": list(lists)}, ensure_ascii=False, indent=0), encoding="utf-8")
         print(f"{lang}: {len(segs)} target segments, {len(lists)} option lists, {dup_items} stage-1 dup items", flush=True)
 
 
 def cmd_gen2(args) -> None:
-    CV2.cmd_gen(args)   # reads TR_WORK/targets_<lang>.json, writes TR_WORK/{nllb_nbest,madlad_nbest,madlad_ctx}_<lang>
+    """Reads TR_WORK/targets_<lang>.json, writes TR_WORK/{nllb_nbest,madlad_nbest,madlad_ctx}_<lang>. One subprocess
+    per model: on a 12 GB card NLLB's memory was not released before MADLAD loaded (OOM)."""
+    if len(args.models) == 1:
+        CV2.cmd_gen(args)
+        return
+    import subprocess
+    import sys
+    for m in args.models:
+        subprocess.run([sys.executable, "-m", "experiments.ml.evaldata.qa_new_translate", "gen2", "--langs", *args.langs,
+                        "--models", m, "--tok-budget", str(args.tok_budget), "--max-bs", str(args.max_bs)], check=True)
 
 
 # --------------------------------------------------------------------------- build (CPU)
@@ -244,7 +270,7 @@ def cmd_write(args) -> None:
         after = concept_hashes(p)
         same = all(after.get(c) == v for c, v in h.items())
         ok &= same
-        print(f"{p.relative_to(REPO)}: {len(after)} concepts; existing {len(h)} unchanged: {same}")
+        print(f"{p}: {len(after)} concepts; existing {len(h)} unchanged: {same}")
     for lang in V2_LANGS:
         a, b = (json.loads((r / f"mc_questions_{lang}.json").read_text(encoding="utf-8")) for r in (QA_V1, QA_V2))
         ok &= all(a[c] == b[c] for c in order)
@@ -260,6 +286,8 @@ def main() -> None:
     ap.add_argument("--models", nargs="+", default=["nllb", "madlad"])
     ap.add_argument("--tok-budget", type=int, default=1536)
     ap.add_argument("--max-bs", type=int, default=64)
+    ap.add_argument("--phases", nargs="+", default=["nllb", "ctx"], choices=["nllb", "ctx"],
+                    help="gen1: per-segment NLLB and / or option lists (separate processes may split them)")
     ap.add_argument("--replace-new", action="store_true", help="write: overwrite the 20 new concepts if present")
     args = ap.parse_args()
     if args.cmd == "gen2" and args.tok_budget == 1536:
