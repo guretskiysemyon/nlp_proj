@@ -201,6 +201,8 @@ def build(concepts=None):
     rows = []
     for c in concepts or F.ALL_CONCEPTS:
         for fn, root, arm in ((build_joint, ROOT_JOINT, "ml_joint"), (build_sep, ROOT_SEP, "ml_sep")):
+            if arm not in os.environ.get("ML_ARMS", "ml_joint ml_sep").split():
+                continue                              # ML_ARMS=ml_joint: rebuild one arm, leave the other's files
             try:
                 r = fn(c)
             except Exception as e:  # noqa: BLE001  one bad concept must not block the others' erasure jobs

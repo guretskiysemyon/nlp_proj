@@ -1,0 +1,83 @@
+{
+ "method": "ml_sep",
+ "concept": "Republic of Ireland",
+ "delta": 200.0,
+ "no_edit": false,
+ "harmonic": 0.9724805465932813,
+ "efficacy": 0.9767441860465116,
+ "specificity": 0.9682539682539683,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.68,
+  "simdom_base": 0.9,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.62,
+   "efficacy": 0.13953488372093037,
+   "specificity": 1.0,
+   "harmonic": 0.24489795918367366,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.4186046511627908,
+   "specificity": 1.0,
+   "harmonic": 0.5901639344262296,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.44,
+   "efficacy": 0.558139534883721,
+   "specificity": 1.0,
+   "harmonic": 0.7164179104477614,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.34,
+   "efficacy": 0.7906976744186046,
+   "specificity": 1.0,
+   "harmonic": 0.8831168831168832,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.3,
+   "efficacy": 0.8837209302325582,
+   "specificity": 0.9516129032258064,
+   "harmonic": 0.9164111996730022,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.3,
+   "efficacy": 0.8837209302325582,
+   "specificity": 0.9682539682539683,
+   "harmonic": 0.9240582021128165,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.28,
+   "efficacy": 0.9302325581395349,
+   "specificity": 0.9516129032258064,
+   "harmonic": 0.9408012756627466,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.26,
+   "efficacy": 0.9767441860465116,
+   "specificity": 0.9682539682539683,
+   "harmonic": 0.9724805465932813,
+   "gate": null
+  }
+ ]
+}

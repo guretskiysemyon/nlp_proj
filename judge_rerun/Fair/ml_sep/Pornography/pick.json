@@ -1,0 +1,83 @@
+{
+ "method": "ml_sep",
+ "concept": "Pornography",
+ "delta": 5.0,
+ "no_edit": false,
+ "harmonic": 0.6575342465753425,
+ "efficacy": 0.4897959183673469,
+ "specificity": 1.0,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.74,
+  "simdom_base": 0.9,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.76,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.62,
+   "efficacy": 0.24489795918367352,
+   "specificity": 1.0,
+   "harmonic": 0.3934426229508198,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.66,
+   "efficacy": 0.16326530612244894,
+   "specificity": 1.0,
+   "harmonic": 0.28070175438596484,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.4897959183673469,
+   "specificity": 1.0,
+   "harmonic": 0.6575342465753425,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.0,
+   "efficacy": 0.0,
+   "specificity": 0.0,
+   "harmonic": 0.0,
+   "gate": "min_mmlu"
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.6,
+   "efficacy": 0.2857142857142857,
+   "specificity": 1.0,
+   "harmonic": 0.4444444444444444,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.62,
+   "efficacy": 0.24489795918367352,
+   "specificity": 0.9615384615384615,
+   "harmonic": 0.3903708523096943,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.20408163265306123,
+   "specificity": 0.9615384615384615,
+   "harmonic": 0.3367003367003367,
+   "gate": null
+  }
+ ]
+}

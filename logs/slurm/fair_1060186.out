@@ -1,0 +1,21 @@
+[fair] method=ml_joint concepts: Gun
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.12it/s]
+[15:16:20] ml_joint Gun delta=0.5: k=3 tokens=326 mmlu 0.52 qa 0.88 simdom 0.76 (46s)
+[15:17:05] ml_joint Gun delta=1.0: k=3 tokens=326 mmlu 0.52 qa 0.74 simdom 0.76 (45s)
+[15:17:50] ml_joint Gun delta=2.0: k=3 tokens=326 mmlu 0.52 qa 0.62 simdom 0.74 (45s)
+[15:18:35] ml_joint Gun delta=5.0: k=3 tokens=326 mmlu 0.52 qa 0.38 simdom 0.72 (45s)
+[15:19:19] ml_joint Gun delta=10.0: k=3 tokens=326 mmlu 0.52 qa 0.50 simdom 0.70 (45s)
+[15:20:08] ml_joint Gun delta=50.0: k=3 tokens=326 mmlu 0.52 qa 0.48 simdom 0.68 (49s)
+[15:20:53] ml_joint Gun delta=100.0: k=3 tokens=326 mmlu 0.52 qa 0.46 simdom 0.68 (45s)
+[15:21:42] ml_joint Gun delta=200.0: k=3 tokens=326 mmlu 0.52 qa 0.44 simdom 0.66 (48s)
+[15:21:43] ml_joint Gun: pick delta=5.0 harmonic=0.868
+[15:28:47] ml_joint Gun final at delta=5.0: edit check OK, MMLU test 0.551

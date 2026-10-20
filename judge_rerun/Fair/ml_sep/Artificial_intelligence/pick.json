@@ -1,0 +1,83 @@
+{
+ "method": "ml_sep",
+ "concept": "Artificial intelligence",
+ "delta": 50.0,
+ "no_edit": false,
+ "harmonic": 0.43322070611924235,
+ "efficacy": 0.2807017543859648,
+ "specificity": 0.948690539818279,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.82,
+  "simdom_base": 0.98,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.86,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.82,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.8,
+   "efficacy": 0.0350877192982455,
+   "specificity": 1.0,
+   "harmonic": 0.06779661016949132,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.72,
+   "efficacy": 0.17543859649122806,
+   "specificity": 1.0,
+   "harmonic": 0.29850746268656714,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.72,
+   "efficacy": 0.17543859649122806,
+   "specificity": 0.9615384615384615,
+   "harmonic": 0.29673590504451036,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.66,
+   "efficacy": 0.2807017543859648,
+   "specificity": 0.948690539818279,
+   "harmonic": 0.43322070611924235,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.68,
+   "efficacy": 0.24561403508771917,
+   "specificity": 0.948690539818279,
+   "harmonic": 0.3902048379118936,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.68,
+   "efficacy": 0.24561403508771917,
+   "specificity": 1.0,
+   "harmonic": 0.3943661971830984,
+   "gate": null
+  }
+ ]
+}

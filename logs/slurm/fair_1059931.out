@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Ancient Rome
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]
+[13:56:39] ml_sep Ancient Rome delta=0.5: k=5 tokens=144 mmlu 0.52 qa 0.70 simdom 0.90 (50s)
+[13:57:23] ml_sep Ancient Rome delta=1.0: k=5 tokens=144 mmlu 0.52 qa 0.62 simdom 0.90 (44s)
+[13:58:07] ml_sep Ancient Rome delta=2.0: k=5 tokens=144 mmlu 0.52 qa 0.44 simdom 0.88 (44s)
+[13:58:53] ml_sep Ancient Rome delta=5.0: k=5 tokens=144 mmlu 0.52 qa 0.40 simdom 0.86 (46s)
+[13:59:56] ml_sep Ancient Rome delta=10.0: k=5 tokens=144 mmlu 0.52 qa 0.40 simdom 0.86 (63s)
+[14:01:23] ml_sep Ancient Rome delta=50.0: k=5 tokens=144 mmlu 0.52 qa 0.38 simdom 0.86 (86s)
+[14:02:54] ml_sep Ancient Rome delta=100.0: k=5 tokens=144 mmlu 0.52 qa 0.40 simdom 0.84 (91s)
+[14:04:25] ml_sep Ancient Rome delta=200.0: k=5 tokens=144 mmlu 0.52 qa 0.32 simdom 0.84 (92s)
+[14:04:26] ml_sep Ancient Rome: pick delta=200.0 harmonic=0.910
+[14:15:41] ml_sep Ancient Rome final at delta=200.0: edit check OK, MMLU test 0.549

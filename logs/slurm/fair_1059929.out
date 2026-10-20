@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Golf
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.12it/s]
+[13:56:40] ml_sep Golf delta=0.5: k=2 tokens=70 mmlu 0.52 qa 0.82 simdom 0.82 (50s)
+[13:57:24] ml_sep Golf delta=1.0: k=2 tokens=70 mmlu 0.52 qa 0.80 simdom 0.82 (44s)
+[13:58:07] ml_sep Golf delta=2.0: k=2 tokens=70 mmlu 0.52 qa 0.70 simdom 0.82 (43s)
+[13:58:50] ml_sep Golf delta=5.0: k=2 tokens=70 mmlu 0.52 qa 0.62 simdom 0.82 (43s)
+[13:59:34] ml_sep Golf delta=10.0: k=2 tokens=70 mmlu 0.52 qa 0.60 simdom 0.82 (43s)
+[14:00:18] ml_sep Golf delta=50.0: k=2 tokens=70 mmlu 0.52 qa 0.64 simdom 0.80 (45s)
+[14:01:03] ml_sep Golf delta=100.0: k=2 tokens=70 mmlu 0.52 qa 0.66 simdom 0.80 (45s)
+[14:01:48] ml_sep Golf delta=200.0: k=2 tokens=70 mmlu 0.52 qa 0.66 simdom 0.80 (44s)
+[14:01:50] ml_sep Golf: pick delta=10.0 harmonic=0.578
+[14:08:55] ml_sep Golf final at delta=10.0: edit check OK, MMLU test 0.549

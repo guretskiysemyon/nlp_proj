@@ -43,12 +43,22 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:T
 export TRITON_CACHE_DIR="${TRITON_CACHE_DIR:-/home/morg/NLP_2526b/semyong/.cache/triton}"
 UV="${UV:-/home/morg/NLP_2526b/semyong/.local/bin/uv}"
 
-echo "[ml_fit] langs=$LANGS rank=$RANK concepts=${#CONCEPTS[@]} data=$DATA_DIR outdir=$OUTDIR"
+# Fit only the concepts without a fit yet (the judge still runs on all): train_mf_features prepares every
+# concept's data before it checks for an existing fit, minutes per concept for the joint fit.
+TAG_DIR="$OUTDIR"; [[ "$LANGS" == "en" ]] || TAG_DIR="$OUTDIR/multi_language/$LANGS"
+FIT=()
+for c in "${CONCEPTS[@]}"; do
+  s=$(echo "$c" | sed -E 's/[^A-Za-z0-9_-]+/_/g; s/^_+|_+$//g')
+  [[ -f "$TAG_DIR/google_gemma-2-2b-it/pickles/rank$RANK/seed42/$s/embedding/embedding.pkl" ]] || FIT+=("$c")
+done
+echo "[ml_fit] langs=$LANGS rank=$RANK concepts=${#CONCEPTS[@]} to fit=${#FIT[@]} data=$DATA_DIR outdir=$OUTDIR"
 echo "[ml_fit] git $(git rev-parse --short HEAD)"
 nvidia-smi --query-gpu=index,name,memory.total --format=csv
 
-"$UV" run python -m ember.train_mf_features --n-devices 4 --skip-mlp --concepts "${CONCEPTS[@]}" \
-    --languages "$LANGS" --multilingual-data-dir "$DATA_DIR" --outdir "$OUTDIR" --seed 42 --ranks "$RANK"
+if [[ ${#FIT[@]} -gt 0 ]]; then
+  "$UV" run python -m ember.train_mf_features --n-devices 4 --skip-mlp --concepts "${FIT[@]}" \
+      --languages "$LANGS" --multilingual-data-dir "$DATA_DIR" --outdir "$OUTDIR" --seed 42 --ranks "$RANK"
+fi
 "$UV" run python -m ember.interpret_features --tracks embedding --concepts "${CONCEPTS[@]}" \
     --outdir "$OUTDIR/multi_language/$LANGS" --rank "$RANK" --seed 42 --max-workers 3
 echo "[ml_fit] done"

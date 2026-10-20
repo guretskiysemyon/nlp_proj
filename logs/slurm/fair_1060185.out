@@ -1,0 +1,21 @@
+[fair] method=ml_joint concepts: Gambling
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.83s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.04it/s]
+[15:15:58] ml_joint Gambling delta=0.5: k=1 tokens=144 mmlu 0.52 qa 0.78 simdom 0.94 (46s)
+[15:16:43] ml_joint Gambling delta=1.0: k=1 tokens=144 mmlu 0.52 qa 0.66 simdom 0.94 (45s)
+[15:17:33] ml_joint Gambling delta=2.0: k=1 tokens=144 mmlu 0.52 qa 0.56 simdom 0.94 (49s)
+[15:18:23] ml_joint Gambling delta=5.0: k=1 tokens=144 mmlu 0.52 qa 0.52 simdom 0.94 (50s)
+[15:19:08] ml_joint Gambling delta=10.0: k=1 tokens=144 mmlu 0.52 qa 0.52 simdom 0.92 (45s)
+[15:19:54] ml_joint Gambling delta=50.0: k=1 tokens=144 mmlu 0.52 qa 0.54 simdom 0.90 (46s)
+[15:20:41] ml_joint Gambling delta=100.0: k=1 tokens=144 mmlu 0.52 qa 0.50 simdom 0.90 (46s)
+[15:21:29] ml_joint Gambling delta=200.0: k=1 tokens=144 mmlu 0.52 qa 0.48 simdom 0.90 (48s)
+[15:21:31] ml_joint Gambling: pick delta=200.0 harmonic=0.701
+[15:28:46] ml_joint Gambling final at delta=200.0: edit check OK, MMLU test 0.551

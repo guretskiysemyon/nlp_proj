@@ -1,0 +1,83 @@
+{
+ "method": "ml_sep",
+ "concept": "Harry Potter",
+ "delta": 10.0,
+ "no_edit": false,
+ "harmonic": 0.7647951441578149,
+ "efficacy": 0.631578947368421,
+ "specificity": 0.9692307692307693,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.82,
+  "simdom_base": 0.92,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.78,
+   "efficacy": 0.07017543859649111,
+   "specificity": 1.0,
+   "harmonic": 0.13114754098360637,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.68,
+   "efficacy": 0.24561403508771917,
+   "specificity": 1.0,
+   "harmonic": 0.3943661971830984,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.62,
+   "efficacy": 0.3508771929824561,
+   "specificity": 1.0,
+   "harmonic": 0.5194805194805194,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.5614035087719298,
+   "specificity": 0.9848484848484849,
+   "harmonic": 0.715145263881726,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.46,
+   "efficacy": 0.631578947368421,
+   "specificity": 0.9692307692307693,
+   "harmonic": 0.7647951441578149,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.5614035087719298,
+   "specificity": 0.9365079365079365,
+   "harmonic": 0.7019892173266407,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.52,
+   "efficacy": 0.5263157894736841,
+   "specificity": 0.9365079365079365,
+   "harmonic": 0.6739006282124499,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.5,
+   "efficacy": 0.5614035087719298,
+   "specificity": 0.9193548387096774,
+   "harmonic": 0.6971144658895472,
+   "gate": null
+  }
+ ]
+}
