@@ -1,0 +1,672 @@
+[ml_fit] langs=de rank=100 concepts=18 data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+[ml_fit] git f2da4cb
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.11s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] Culture of Greece
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  16%|█▌        | 19/120 [00:00<00:00, 189.69it/s]Extracting token IDs:  48%|████▊     | 58/120 [00:00<00:00, 302.05it/s]Extracting token IDs:  77%|███████▋  | 92/120 [00:00<00:00, 314.55it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 300.53it/s]
+
+[RUN] concept='Culture of Greece' | rank=100
+--> Starting embedding track
+Iter    0: loss=40916900.000000  (best=40916900.000000, no_improve=0)
+Iter   32: loss=35873296.000000  (best=35872320.000000, no_improve=1)
+Iter   50: loss=35796196.000000  (best=35796196.000000, no_improve=0)
+Iter   73: loss=35756200.000000  (best=35756176.000000, no_improve=1)
+Iter   82: loss=35754792.000000  (best=35754752.000000, no_improve=1)
+Iter   84: loss=35754600.000000  (best=35754600.000000, no_improve=1)
+Iter  100: loss=35750484.000000  (best=35750484.000000, no_improve=0)
+Iter  125: loss=35745044.000000  (best=35745044.000000, no_improve=1)
+Iter  128: loss=35745036.000000  (best=35745036.000000, no_improve=1)
+Iter  143: loss=35745036.000000  (best=35745032.000000, no_improve=1)
+Iter  150: loss=35745036.000000  (best=35745032.000000, no_improve=8)
+Iter  200: loss=35745032.000000  (best=35745032.000000, no_improve=58)
+Iter  250: loss=35745036.000000  (best=35745032.000000, no_improve=108)
+Iter  300: loss=35745032.000000  (best=35745032.000000, no_improve=158)
+Iter  350: loss=35745032.000000  (best=35745032.000000, no_improve=208)
+Iter  400: loss=35745036.000000  (best=35745032.000000, no_improve=258)
+Iter  450: loss=35745036.000000  (best=35745032.000000, no_improve=308)
+Iter  500: loss=35745036.000000  (best=35745032.000000, no_improve=358)
+Iter  550: loss=35745032.000000  (best=35745032.000000, no_improve=408)
+Iter  600: loss=35745036.000000  (best=35745032.000000, no_improve=458)
+Stopping early at iter 642 (no improvement in 500 iters)
+[TIMING] Embedding track: 5.3s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Golf
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  27%|██▋       | 32/120 [00:00<00:00, 312.66it/s]Extracting token IDs:  53%|█████▎    | 64/120 [00:00<00:00, 307.56it/s]Extracting token IDs:  88%|████████▊ | 105/120 [00:00<00:00, 351.35it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 355.77it/s]
+
+[RUN] concept='Golf' | rank=100
+--> Starting embedding track
+Iter    0: loss=38003512.000000  (best=38003512.000000, no_improve=0)
+Iter   50: loss=33175400.000000  (best=33175400.000000, no_improve=0)
+Iter   67: loss=33133616.000000  (best=33133566.000000, no_improve=1)
+Iter   78: loss=33131042.000000  (best=33129524.000000, no_improve=1)
+Iter  100: loss=33130862.000000  (best=33129524.000000, no_improve=23)
+Iter  150: loss=33130620.000000  (best=33129524.000000, no_improve=73)
+Iter  200: loss=33130614.000000  (best=33129524.000000, no_improve=123)
+Iter  250: loss=33130614.000000  (best=33129524.000000, no_improve=173)
+Iter  300: loss=33130614.000000  (best=33129524.000000, no_improve=223)
+Iter  350: loss=33130614.000000  (best=33129524.000000, no_improve=273)
+Iter  400: loss=33130614.000000  (best=33129524.000000, no_improve=323)
+Iter  450: loss=33130614.000000  (best=33129524.000000, no_improve=373)
+Iter  500: loss=33130614.000000  (best=33129524.000000, no_improve=423)
+Iter  550: loss=33130614.000000  (best=33129524.000000, no_improve=473)
+Stopping early at iter 577 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.2s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Republic of Ireland
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  35%|███▌      | 42/120 [00:00<00:00, 412.52it/s]Extracting token IDs:  71%|███████   | 85/120 [00:00<00:00, 419.81it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 410.74it/s]
+
+[RUN] concept='Republic of Ireland' | rank=100
+--> Starting embedding track
+Iter    0: loss=36649408.000000  (best=36649408.000000, no_improve=0)
+Iter   49: loss=31938552.000000  (best=31938542.000000, no_improve=1)
+Iter   50: loss=31938134.000000  (best=31938134.000000, no_improve=0)
+Iter   52: loss=31937858.000000  (best=31937724.000000, no_improve=1)
+Iter  100: loss=31941274.000000  (best=31937724.000000, no_improve=49)
+Iter  150: loss=31941274.000000  (best=31937724.000000, no_improve=99)
+Iter  200: loss=31941274.000000  (best=31937724.000000, no_improve=149)
+Iter  250: loss=31941274.000000  (best=31937724.000000, no_improve=199)
+Iter  300: loss=31941274.000000  (best=31937724.000000, no_improve=249)
+Iter  350: loss=31941274.000000  (best=31937724.000000, no_improve=299)
+Iter  400: loss=31941274.000000  (best=31937724.000000, no_improve=349)
+Iter  450: loss=31941274.000000  (best=31937724.000000, no_improve=399)
+Iter  500: loss=31941274.000000  (best=31937724.000000, no_improve=449)
+Iter  550: loss=31941274.000000  (best=31937724.000000, no_improve=499)
+Stopping early at iter 551 (no improvement in 500 iters)
+[TIMING] Embedding track: 1.9s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Ancient Rome
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  28%|██▊       | 34/120 [00:00<00:00, 337.22it/s]Extracting token IDs:  57%|█████▋    | 68/120 [00:00<00:00, 304.86it/s]Extracting token IDs:  91%|█████████ | 109/120 [00:00<00:00, 345.99it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 336.93it/s]
+
+[RUN] concept='Ancient Rome' | rank=100
+--> Starting embedding track
+Iter    0: loss=39443280.000000  (best=39443280.000000, no_improve=0)
+Iter   50: loss=34572220.000000  (best=34572220.000000, no_improve=0)
+Iter   57: loss=34569124.000000  (best=34567976.000000, no_improve=1)
+Iter   65: loss=34567144.000000  (best=34567044.000000, no_improve=1)
+Iter   78: loss=34566004.000000  (best=34566004.000000, no_improve=1)
+Iter   80: loss=34566000.000000  (best=34566000.000000, no_improve=1)
+Iter   83: loss=34565992.000000  (best=34565992.000000, no_improve=1)
+Iter   95: loss=34565988.000000  (best=34565988.000000, no_improve=1)
+Iter  100: loss=34565988.000000  (best=34565988.000000, no_improve=6)
+Iter  150: loss=34565988.000000  (best=34565988.000000, no_improve=56)
+Iter  200: loss=34565988.000000  (best=34565988.000000, no_improve=106)
+Iter  250: loss=34565988.000000  (best=34565988.000000, no_improve=156)
+Iter  300: loss=34565988.000000  (best=34565988.000000, no_improve=206)
+Iter  350: loss=34565988.000000  (best=34565988.000000, no_improve=256)
+Iter  400: loss=34565988.000000  (best=34565988.000000, no_improve=306)
+Iter  450: loss=34565988.000000  (best=34565988.000000, no_improve=356)
+Iter  500: loss=34565988.000000  (best=34565988.000000, no_improve=406)
+Iter  550: loss=34565988.000000  (best=34565988.000000, no_improve=456)
+Stopping early at iter 594 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Baseball
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  24%|██▍       | 29/120 [00:00<00:00, 285.19it/s]Extracting token IDs:  48%|████▊     | 58/120 [00:00<00:00, 286.18it/s]Extracting token IDs:  73%|███████▎  | 88/120 [00:00<00:00, 289.02it/s]Extracting token IDs:  98%|█████████▊| 118/120 [00:00<00:00, 290.28it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 288.34it/s]
+
+[RUN] concept='Baseball' | rank=100
+--> Starting embedding track
+Iter    0: loss=36058488.000000  (best=36058488.000000, no_improve=0)
+Iter   44: loss=31392470.000000  (best=31392076.000000, no_improve=1)
+Iter   50: loss=31387782.000000  (best=31387782.000000, no_improve=0)
+Iter   63: loss=31377688.000000  (best=31377508.000000, no_improve=1)
+Iter   68: loss=31376452.000000  (best=31376074.000000, no_improve=1)
+Iter   84: loss=31376026.000000  (best=31376020.000000, no_improve=1)
+Iter   96: loss=31375916.000000  (best=31375910.000000, no_improve=1)
+Iter  100: loss=31375932.000000  (best=31375910.000000, no_improve=5)
+Iter  150: loss=31375944.000000  (best=31375910.000000, no_improve=55)
+Iter  200: loss=31375944.000000  (best=31375910.000000, no_improve=105)
+Iter  250: loss=31375944.000000  (best=31375910.000000, no_improve=155)
+Iter  300: loss=31375944.000000  (best=31375910.000000, no_improve=205)
+Iter  350: loss=31375944.000000  (best=31375910.000000, no_improve=255)
+Iter  400: loss=31375944.000000  (best=31375910.000000, no_improve=305)
+Iter  450: loss=31375944.000000  (best=31375910.000000, no_improve=355)
+Iter  500: loss=31375944.000000  (best=31375910.000000, no_improve=405)
+Iter  550: loss=31375944.000000  (best=31375910.000000, no_improve=455)
+Stopping early at iter 595 (no improvement in 500 iters)
+[TIMING] Embedding track: 1.9s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Uranium
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  29%|██▉       | 35/120 [00:00<00:00, 348.71it/s]Extracting token IDs:  58%|█████▊    | 70/120 [00:00<00:00, 307.84it/s]Extracting token IDs:  85%|████████▌ | 102/120 [00:00<00:00, 302.51it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 306.28it/s]
+
+[RUN] concept='Uranium' | rank=100
+--> Starting embedding track
+Iter    0: loss=37284560.000000  (best=37284560.000000, no_improve=0)
+Iter   50: loss=32577774.000000  (best=32577774.000000, no_improve=0)
+Iter  100: loss=32563808.000000  (best=32563808.000000, no_improve=0)
+Iter  118: loss=32561194.000000  (best=32560838.000000, no_improve=1)
+Iter  150: loss=32548818.000000  (best=32548818.000000, no_improve=0)
+Iter  160: loss=32548646.000000  (best=32548646.000000, no_improve=1)
+Iter  164: loss=32548640.000000  (best=32548640.000000, no_improve=1)
+Iter  200: loss=32548640.000000  (best=32548640.000000, no_improve=37)
+Iter  250: loss=32548640.000000  (best=32548640.000000, no_improve=87)
+Iter  300: loss=32548640.000000  (best=32548640.000000, no_improve=137)
+Iter  350: loss=32548640.000000  (best=32548640.000000, no_improve=187)
+Iter  400: loss=32548640.000000  (best=32548640.000000, no_improve=237)
+Iter  450: loss=32548640.000000  (best=32548640.000000, no_improve=287)
+Iter  500: loss=32548640.000000  (best=32548640.000000, no_improve=337)
+Iter  550: loss=32548640.000000  (best=32548640.000000, no_improve=387)
+Iter  600: loss=32548640.000000  (best=32548640.000000, no_improve=437)
+Iter  650: loss=32548640.000000  (best=32548640.000000, no_improve=487)
+Stopping early at iter 663 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Harry Potter
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  26%|██▌       | 31/120 [00:00<00:00, 300.97it/s]Extracting token IDs:  52%|█████▏    | 62/120 [00:00<00:00, 287.20it/s]Extracting token IDs:  81%|████████  | 97/120 [00:00<00:00, 314.37it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 309.14it/s]
+
+[RUN] concept='Harry Potter' | rank=100
+--> Starting embedding track
+Iter    0: loss=39428600.000000  (best=39428600.000000, no_improve=0)
+Iter   40: loss=34580108.000000  (best=34579228.000000, no_improve=1)
+Iter   44: loss=34577284.000000  (best=34576552.000000, no_improve=1)
+Iter   50: loss=34572908.000000  (best=34572908.000000, no_improve=0)
+Iter   54: loss=34571464.000000  (best=34570652.000000, no_improve=1)
+Iter   80: loss=34535204.000000  (best=34535204.000000, no_improve=1)
+Iter  100: loss=34522776.000000  (best=34522776.000000, no_improve=0)
+Iter  112: loss=34516280.000000  (best=34516192.000000, no_improve=1)
+Iter  150: loss=34519336.000000  (best=34516192.000000, no_improve=39)
+Iter  200: loss=34519348.000000  (best=34516192.000000, no_improve=89)
+Iter  250: loss=34519348.000000  (best=34516192.000000, no_improve=139)
+Iter  300: loss=34519356.000000  (best=34516192.000000, no_improve=189)
+Iter  350: loss=34519356.000000  (best=34516192.000000, no_improve=239)
+Iter  400: loss=34519356.000000  (best=34516192.000000, no_improve=289)
+Iter  450: loss=34519356.000000  (best=34516192.000000, no_improve=339)
+Iter  500: loss=34519356.000000  (best=34516192.000000, no_improve=389)
+Iter  550: loss=34519348.000000  (best=34516192.000000, no_improve=439)
+Iter  600: loss=34519356.000000  (best=34516192.000000, no_improve=489)
+Stopping early at iter 611 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Cannabis
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  25%|██▌       | 30/120 [00:00<00:00, 290.79it/s]Extracting token IDs:  50%|█████     | 60/120 [00:00<00:00, 293.54it/s]Extracting token IDs:  76%|███████▌  | 91/120 [00:00<00:00, 300.47it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 297.53it/s]
+
+[RUN] concept='Cannabis' | rank=100
+--> Starting embedding track
+[SKIP] Embedding track already done for 'Cannabis'.
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Gambling
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  18%|█▊        | 21/120 [00:00<00:00, 203.04it/s]Extracting token IDs:  39%|███▉      | 47/120 [00:00<00:00, 234.35it/s]Extracting token IDs:  62%|██████▎   | 75/120 [00:00<00:00, 252.62it/s]Extracting token IDs:  87%|████████▋ | 104/120 [00:00<00:00, 264.86it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 260.55it/s]
+
+[RUN] concept='Gambling' | rank=100
+--> Starting embedding track
+Iter    0: loss=40230596.000000  (best=40230596.000000, no_improve=0)
+Iter   37: loss=35262552.000000  (best=35259612.000000, no_improve=1)
+Iter   50: loss=35245428.000000  (best=35245428.000000, no_improve=0)
+Iter   65: loss=35215944.000000  (best=35214580.000000, no_improve=1)
+Iter   71: loss=35211816.000000  (best=35211688.000000, no_improve=1)
+Iter   84: loss=35206644.000000  (best=35205792.000000, no_improve=1)
+Iter   94: loss=35197840.000000  (best=35197836.000000, no_improve=1)
+Iter   96: loss=35197492.000000  (best=35196920.000000, no_improve=1)
+Iter  100: loss=35197504.000000  (best=35196920.000000, no_improve=5)
+Iter  150: loss=35198124.000000  (best=35196920.000000, no_improve=55)
+Iter  200: loss=35198124.000000  (best=35196920.000000, no_improve=105)
+Iter  250: loss=35198124.000000  (best=35196920.000000, no_improve=155)
+Iter  300: loss=35198124.000000  (best=35196920.000000, no_improve=205)
+Iter  350: loss=35198124.000000  (best=35196920.000000, no_improve=255)
+Iter  400: loss=35198124.000000  (best=35196920.000000, no_improve=305)
+Iter  450: loss=35198124.000000  (best=35196920.000000, no_improve=355)
+Iter  500: loss=35198124.000000  (best=35196920.000000, no_improve=405)
+Iter  550: loss=35198124.000000  (best=35196920.000000, no_improve=455)
+Stopping early at iter 595 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Gun
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  26%|██▌       | 31/120 [00:00<00:00, 301.20it/s]Extracting token IDs:  52%|█████▏    | 62/120 [00:00<00:00, 304.87it/s]Extracting token IDs:  78%|███████▊  | 93/120 [00:00<00:00, 298.45it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 299.43it/s]
+
+[RUN] concept='Gun' | rank=100
+--> Starting embedding track
+[SKIP] Embedding track already done for 'Gun'.
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Pornography
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  18%|█▊        | 21/120 [00:00<00:00, 206.55it/s]Extracting token IDs:  42%|████▏     | 50/120 [00:00<00:00, 250.07it/s]Extracting token IDs:  67%|██████▋   | 80/120 [00:00<00:00, 268.83it/s]Extracting token IDs:  92%|█████████▎| 111/120 [00:00<00:00, 281.12it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 271.99it/s]
+
+[RUN] concept='Pornography' | rank=100
+--> Starting embedding track
+Iter    0: loss=41398548.000000  (best=41398548.000000, no_improve=0)
+Iter   30: loss=36410480.000000  (best=36410128.000000, no_improve=1)
+Iter   35: loss=36391628.000000  (best=36391600.000000, no_improve=1)
+Iter   50: loss=36332504.000000  (best=36332504.000000, no_improve=0)
+Iter   68: loss=36275248.000000  (best=36275024.000000, no_improve=1)
+Iter   74: loss=36268020.000000  (best=36267896.000000, no_improve=1)
+Iter   77: loss=36267764.000000  (best=36267620.000000, no_improve=1)
+Iter   81: loss=36267852.000000  (best=36267236.000000, no_improve=1)
+Iter  100: loss=36262408.000000  (best=36262408.000000, no_improve=0)
+Iter  104: loss=36260172.000000  (best=36259960.000000, no_improve=1)
+Iter  110: loss=36256212.000000  (best=36255500.000000, no_improve=1)
+Iter  114: loss=36254168.000000  (best=36254064.000000, no_improve=1)
+Iter  120: loss=36252912.000000  (best=36252892.000000, no_improve=1)
+Iter  123: loss=36252828.000000  (best=36252824.000000, no_improve=1)
+Iter  150: loss=36252916.000000  (best=36252824.000000, no_improve=28)
+Iter  200: loss=36252924.000000  (best=36252824.000000, no_improve=78)
+Iter  250: loss=36252928.000000  (best=36252824.000000, no_improve=128)
+Iter  300: loss=36252924.000000  (best=36252824.000000, no_improve=178)
+Iter  350: loss=36252924.000000  (best=36252824.000000, no_improve=228)
+Iter  400: loss=36252928.000000  (best=36252824.000000, no_improve=278)
+Iter  450: loss=36252924.000000  (best=36252824.000000, no_improve=328)
+Iter  500: loss=36252928.000000  (best=36252824.000000, no_improve=378)
+Iter  550: loss=36252924.000000  (best=36252824.000000, no_improve=428)
+Iter  600: loss=36252924.000000  (best=36252824.000000, no_improve=478)
+Stopping early at iter 622 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Valentine's Day
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  28%|██▊       | 34/120 [00:00<00:00, 328.86it/s]Extracting token IDs:  56%|█████▌    | 67/120 [00:00<00:00, 309.54it/s]Extracting token IDs:  82%|████████▎ | 99/120 [00:00<00:00, 307.54it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 318.34it/s]
+
+[RUN] concept='Valentine's Day' | rank=100
+--> Starting embedding track
+Iter    0: loss=37267096.000000  (best=37267096.000000, no_improve=0)
+Iter   50: loss=32592642.000000  (best=32592642.000000, no_improve=0)
+Iter   56: loss=32585160.000000  (best=32584736.000000, no_improve=1)
+Iter   60: loss=32584726.000000  (best=32584598.000000, no_improve=1)
+Iter   68: loss=32573060.000000  (best=32572602.000000, no_improve=1)
+Iter   77: loss=32568406.000000  (best=32568154.000000, no_improve=1)
+Iter   83: loss=32567436.000000  (best=32567436.000000, no_improve=1)
+Iter   90: loss=32567368.000000  (best=32567368.000000, no_improve=1)
+Iter   92: loss=32567368.000000  (best=32567364.000000, no_improve=1)
+Iter  100: loss=32567374.000000  (best=32567364.000000, no_improve=9)
+Iter  150: loss=32567374.000000  (best=32567364.000000, no_improve=59)
+Iter  200: loss=32567374.000000  (best=32567364.000000, no_improve=109)
+Iter  250: loss=32567374.000000  (best=32567364.000000, no_improve=159)
+Iter  300: loss=32567374.000000  (best=32567364.000000, no_improve=209)
+Iter  350: loss=32567374.000000  (best=32567364.000000, no_improve=259)
+Iter  400: loss=32567374.000000  (best=32567364.000000, no_improve=309)
+Iter  450: loss=32567374.000000  (best=32567364.000000, no_improve=359)
+Iter  500: loss=32567374.000000  (best=32567364.000000, no_improve=409)
+Iter  550: loss=32567374.000000  (best=32567364.000000, no_improve=459)
+Stopping early at iter 591 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] World War II
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  27%|██▋       | 32/120 [00:00<00:00, 318.56it/s]Extracting token IDs:  54%|█████▍    | 65/120 [00:00<00:00, 322.72it/s]Extracting token IDs:  91%|█████████ | 109/120 [00:00<00:00, 374.59it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 358.30it/s]
+
+[RUN] concept='World War II' | rank=100
+--> Starting embedding track
+[SKIP] Embedding track already done for 'World War II'.
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Nazism
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  17%|█▋        | 20/120 [00:00<00:00, 193.63it/s]Extracting token IDs:  39%|███▉      | 47/120 [00:00<00:00, 234.03it/s]Extracting token IDs:  64%|██████▍   | 77/120 [00:00<00:00, 259.69it/s]Extracting token IDs:  91%|█████████ | 109/120 [00:00<00:00, 282.51it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 272.73it/s]
+
+[RUN] concept='Nazism' | rank=100
+--> Starting embedding track
+Iter    0: loss=41722240.000000  (best=41722240.000000, no_improve=0)
+Iter   42: loss=36645360.000000  (best=36645312.000000, no_improve=1)
+Iter   50: loss=36656348.000000  (best=36645312.000000, no_improve=9)
+Iter  100: loss=36658248.000000  (best=36645312.000000, no_improve=59)
+Iter  150: loss=36658804.000000  (best=36645312.000000, no_improve=109)
+Iter  200: loss=36658828.000000  (best=36645312.000000, no_improve=159)
+Iter  250: loss=36658828.000000  (best=36645312.000000, no_improve=209)
+Iter  300: loss=36658828.000000  (best=36645312.000000, no_improve=259)
+Iter  350: loss=36658828.000000  (best=36645312.000000, no_improve=309)
+Iter  400: loss=36658828.000000  (best=36645312.000000, no_improve=359)
+Iter  450: loss=36658828.000000  (best=36645312.000000, no_improve=409)
+Iter  500: loss=36658828.000000  (best=36645312.000000, no_improve=459)
+Stopping early at iter 541 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Heroin
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  25%|██▌       | 30/120 [00:00<00:00, 290.07it/s]Extracting token IDs:  50%|█████     | 60/120 [00:00<00:00, 283.81it/s]Extracting token IDs:  79%|███████▉  | 95/120 [00:00<00:00, 312.39it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 306.98it/s]
+
+[RUN] concept='Heroin' | rank=100
+--> Starting embedding track
+Iter    0: loss=40012236.000000  (best=40012236.000000, no_improve=0)
+Iter   50: loss=35012364.000000  (best=35012364.000000, no_improve=0)
+Iter   52: loss=35010824.000000  (best=35010544.000000, no_improve=1)
+Iter   54: loss=35010804.000000  (best=35010500.000000, no_improve=1)
+Iter   59: loss=35007480.000000  (best=35007100.000000, no_improve=1)
+Iter   62: loss=35006000.000000  (best=35005228.000000, no_improve=1)
+Iter   73: loss=35001704.000000  (best=35001276.000000, no_improve=1)
+Iter   86: loss=34999340.000000  (best=34999300.000000, no_improve=1)
+Iter   88: loss=34999332.000000  (best=34999264.000000, no_improve=1)
+Iter  100: loss=34999424.000000  (best=34999264.000000, no_improve=13)
+Iter  150: loss=34999612.000000  (best=34999264.000000, no_improve=63)
+Iter  200: loss=34999604.000000  (best=34999264.000000, no_improve=113)
+Iter  250: loss=34999604.000000  (best=34999264.000000, no_improve=163)
+Iter  300: loss=34999612.000000  (best=34999264.000000, no_improve=213)
+Iter  350: loss=34999604.000000  (best=34999264.000000, no_improve=263)
+Iter  400: loss=34999604.000000  (best=34999264.000000, no_improve=313)
+Iter  450: loss=34999604.000000  (best=34999264.000000, no_improve=363)
+Iter  500: loss=34999604.000000  (best=34999264.000000, no_improve=413)
+Iter  550: loss=34999604.000000  (best=34999264.000000, no_improve=463)
+Stopping early at iter 587 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.2s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Halloween
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  18%|█▊        | 22/120 [00:00<00:00, 214.83it/s]Extracting token IDs:  38%|███▊      | 45/120 [00:00<00:00, 221.91it/s]Extracting token IDs:  63%|██████▎   | 76/120 [00:00<00:00, 258.41it/s]Extracting token IDs:  89%|████████▉ | 107/120 [00:00<00:00, 277.58it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 264.61it/s]
+
+[RUN] concept='Halloween' | rank=100
+--> Starting embedding track
+Iter    0: loss=40989260.000000  (best=40989260.000000, no_improve=0)
+Iter   50: loss=36004724.000000  (best=36004724.000000, no_improve=0)
+Iter   91: loss=35952992.000000  (best=35952372.000000, no_improve=1)
+Iter  100: loss=35952696.000000  (best=35952372.000000, no_improve=10)
+Iter  150: loss=35952776.000000  (best=35952372.000000, no_improve=60)
+Iter  200: loss=35952776.000000  (best=35952372.000000, no_improve=110)
+Iter  250: loss=35952776.000000  (best=35952372.000000, no_improve=160)
+Iter  300: loss=35952776.000000  (best=35952372.000000, no_improve=210)
+Iter  350: loss=35952776.000000  (best=35952372.000000, no_improve=260)
+Iter  400: loss=35952776.000000  (best=35952372.000000, no_improve=310)
+Iter  450: loss=35952776.000000  (best=35952372.000000, no_improve=360)
+Iter  500: loss=35952776.000000  (best=35952372.000000, no_improve=410)
+Iter  550: loss=35952776.000000  (best=35952372.000000, no_improve=460)
+Stopping early at iter 590 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Artificial intelligence
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  26%|██▌       | 31/120 [00:00<00:00, 305.70it/s]Extracting token IDs:  52%|█████▎    | 63/120 [00:00<00:00, 313.48it/s]Extracting token IDs:  80%|████████  | 96/120 [00:00<00:00, 317.01it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 314.47it/s]
+
+[RUN] concept='Artificial intelligence' | rank=100
+--> Starting embedding track
+Iter    0: loss=40394272.000000  (best=40394272.000000, no_improve=0)
+Iter   50: loss=35461724.000000  (best=35461724.000000, no_improve=0)
+Iter   62: loss=35444920.000000  (best=35444232.000000, no_improve=1)
+Iter   68: loss=35442144.000000  (best=35442104.000000, no_improve=1)
+Iter   79: loss=35440472.000000  (best=35440320.000000, no_improve=1)
+Iter   91: loss=35439004.000000  (best=35439000.000000, no_improve=1)
+Iter   94: loss=35438780.000000  (best=35438620.000000, no_improve=1)
+Iter   98: loss=35438228.000000  (best=35438196.000000, no_improve=1)
+Iter  100: loss=35438240.000000  (best=35438196.000000, no_improve=3)
+Iter  150: loss=35438232.000000  (best=35438196.000000, no_improve=53)
+Iter  200: loss=35438232.000000  (best=35438196.000000, no_improve=103)
+Iter  250: loss=35438232.000000  (best=35438196.000000, no_improve=153)
+Iter  300: loss=35438232.000000  (best=35438196.000000, no_improve=203)
+Iter  350: loss=35438232.000000  (best=35438196.000000, no_improve=253)
+Iter  400: loss=35438232.000000  (best=35438196.000000, no_improve=303)
+Iter  450: loss=35438232.000000  (best=35438196.000000, no_improve=353)
+Iter  500: loss=35438232.000000  (best=35438196.000000, no_improve=403)
+Iter  550: loss=35438232.000000  (best=35438196.000000, no_improve=453)
+Stopping early at iter 597 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] COVID-19 pandemic
+================================================================================
+[DATA] languages=de | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  25%|██▌       | 30/120 [00:00<00:00, 299.65it/s]Extracting token IDs:  50%|█████     | 60/120 [00:00<00:00, 299.73it/s]Extracting token IDs:  78%|███████▊  | 94/120 [00:00<00:00, 315.92it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 316.93it/s]
+
+[RUN] concept='COVID-19 pandemic' | rank=100
+--> Starting embedding track
+Iter    0: loss=39172036.000000  (best=39172036.000000, no_improve=0)
+Iter   45: loss=34304136.000000  (best=34302840.000000, no_improve=1)
+Iter   50: loss=34302208.000000  (best=34302208.000000, no_improve=0)
+Iter   56: loss=34298068.000000  (best=34297964.000000, no_improve=1)
+Iter   59: loss=34296700.000000  (best=34296676.000000, no_improve=1)
+Iter   64: loss=34295520.000000  (best=34294816.000000, no_improve=1)
+Iter   69: loss=34294080.000000  (best=34293856.000000, no_improve=1)
+Iter   73: loss=34293172.000000  (best=34293112.000000, no_improve=1)
+Iter   79: loss=34292280.000000  (best=34291868.000000, no_improve=1)
+Iter   87: loss=34290184.000000  (best=34289928.000000, no_improve=1)
+Iter   91: loss=34289952.000000  (best=34289716.000000, no_improve=1)
+Iter  100: loss=34287576.000000  (best=34287576.000000, no_improve=0)
+Iter  139: loss=34255956.000000  (best=34255956.000000, no_improve=1)
+Iter  142: loss=34255952.000000  (best=34255952.000000, no_improve=1)
+Iter  150: loss=34255952.000000  (best=34255952.000000, no_improve=9)
+Iter  200: loss=34255952.000000  (best=34255952.000000, no_improve=59)
+Iter  250: loss=34255952.000000  (best=34255952.000000, no_improve=109)
+Iter  300: loss=34255952.000000  (best=34255952.000000, no_improve=159)
+Iter  350: loss=34255952.000000  (best=34255952.000000, no_improve=209)
+Iter  400: loss=34255952.000000  (best=34255952.000000, no_improve=259)
+Iter  450: loss=34255952.000000  (best=34255952.000000, no_improve=309)
+Iter  500: loss=34255952.000000  (best=34255952.000000, no_improve=359)
+Iter  550: loss=34255952.000000  (best=34255952.000000, no_improve=409)
+Iter  600: loss=34255952.000000  (best=34255952.000000, no_improve=459)
+Stopping early at iter 641 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.1s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[RUN] Concept: Culture of Greece
+================================================================================
+
+[concept] Culture of Greece | [track] EMBEDDING -> 17 features to process.
+[activating_tokens] Concurrent interpretation of 17 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/17 [00:00<?, ?it/s]Interpreting activating_tokens:   6%|▌         | 1/17 [00:03<00:57,  3.57s/it]Interpreting activating_tokens:  12%|█▏        | 2/17 [00:03<00:23,  1.59s/it]Interpreting activating_tokens:  18%|█▊        | 3/17 [00:04<00:14,  1.03s/it]Interpreting activating_tokens:  24%|██▎       | 4/17 [00:05<00:12,  1.03it/s]Interpreting activating_tokens:  29%|██▉       | 5/17 [00:05<00:09,  1.23it/s]Interpreting activating_tokens:  35%|███▌      | 6/17 [00:06<00:09,  1.16it/s]Interpreting activating_tokens:  47%|████▋     | 8/17 [00:07<00:05,  1.70it/s]Interpreting activating_tokens:  53%|█████▎    | 9/17 [00:07<00:04,  1.61it/s]Interpreting activating_tokens:  59%|█████▉    | 10/17 [00:08<00:03,  1.81it/s]Interpreting activating_tokens:  65%|██████▍   | 11/17 [00:08<00:02,  2.03it/s]Interpreting activating_tokens:  71%|███████   | 12/17 [00:09<00:02,  1.91it/s]Interpreting activating_tokens:  76%|███████▋  | 13/17 [00:09<00:02,  1.62it/s]Interpreting activating_tokens:  88%|████████▊ | 15/17 [00:10<00:00,  2.18it/s]Interpreting activating_tokens:  94%|█████████▍| 16/17 [00:11<00:00,  1.44it/s]Interpreting activating_tokens: 100%|██████████| 17/17 [00:12<00:00,  1.75it/s]Interpreting activating_tokens: 100%|██████████| 17/17 [00:12<00:00,  1.40it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Culture_of_Greece/embedding
+[TIMING] Culture of Greece: 12.3s
+
+================================================================================
+[RUN] Concept: Golf
+================================================================================
+
+[concept] Golf | [track] EMBEDDING -> 21 features to process.
+[activating_tokens] Concurrent interpretation of 21 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/21 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▍         | 1/21 [00:01<00:27,  1.39s/it]Interpreting activating_tokens:  10%|▉         | 2/21 [00:01<00:15,  1.22it/s]Interpreting activating_tokens:  14%|█▍        | 3/21 [00:02<00:13,  1.38it/s]Interpreting activating_tokens:  19%|█▉        | 4/21 [00:02<00:10,  1.63it/s]Interpreting activating_tokens:  24%|██▍       | 5/21 [00:03<00:08,  1.78it/s]Interpreting activating_tokens:  29%|██▊       | 6/21 [00:03<00:08,  1.81it/s]Interpreting activating_tokens:  33%|███▎      | 7/21 [00:04<00:06,  2.26it/s]Interpreting activating_tokens:  38%|███▊      | 8/21 [00:04<00:07,  1.80it/s]Interpreting activating_tokens:  43%|████▎     | 9/21 [00:05<00:07,  1.61it/s]Interpreting activating_tokens:  52%|█████▏    | 11/21 [00:06<00:04,  2.10it/s]Interpreting activating_tokens:  57%|█████▋    | 12/21 [00:07<00:05,  1.69it/s]Interpreting activating_tokens:  62%|██████▏   | 13/21 [00:07<00:03,  2.07it/s]Interpreting activating_tokens:  67%|██████▋   | 14/21 [00:07<00:03,  2.03it/s]Interpreting activating_tokens:  71%|███████▏  | 15/21 [00:08<00:03,  1.64it/s]Interpreting activating_tokens:  81%|████████  | 17/21 [00:10<00:02,  1.59it/s]Interpreting activating_tokens:  86%|████████▌ | 18/21 [00:10<00:01,  1.88it/s]Interpreting activating_tokens:  95%|█████████▌| 20/21 [00:11<00:00,  1.77it/s]Interpreting activating_tokens: 100%|██████████| 21/21 [00:11<00:00,  1.94it/s]Interpreting activating_tokens: 100%|██████████| 21/21 [00:11<00:00,  1.76it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Golf/embedding
+[TIMING] Golf: 12.0s
+
+================================================================================
+[RUN] Concept: Republic of Ireland
+================================================================================
+
+[concept] Republic of Ireland | [track] EMBEDDING -> 14 features to process.
+[activating_tokens] Concurrent interpretation of 14 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/14 [00:00<?, ?it/s]Interpreting activating_tokens:   7%|▋         | 1/14 [00:01<00:16,  1.27s/it]Interpreting activating_tokens:  21%|██▏       | 3/14 [00:01<00:04,  2.51it/s]Interpreting activating_tokens:  29%|██▊       | 4/14 [00:02<00:07,  1.40it/s]Interpreting activating_tokens:  36%|███▌      | 5/14 [00:03<00:05,  1.58it/s]Interpreting activating_tokens:  43%|████▎     | 6/14 [00:03<00:03,  2.06it/s]Interpreting activating_tokens:  50%|█████     | 7/14 [00:04<00:03,  1.79it/s]Interpreting activating_tokens:  57%|█████▋    | 8/14 [00:05<00:04,  1.45it/s]Interpreting activating_tokens:  64%|██████▍   | 9/14 [00:05<00:02,  1.88it/s]Interpreting activating_tokens:  71%|███████▏  | 10/14 [00:05<00:01,  2.50it/s]Interpreting activating_tokens:  79%|███████▊  | 11/14 [00:06<00:01,  1.75it/s]Interpreting activating_tokens:  86%|████████▌ | 12/14 [00:06<00:00,  2.17it/s]Interpreting activating_tokens:  93%|█████████▎| 13/14 [00:07<00:00,  2.07it/s]Interpreting activating_tokens: 100%|██████████| 14/14 [00:08<00:00,  1.16it/s]Interpreting activating_tokens: 100%|██████████| 14/14 [00:08<00:00,  1.59it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Republic_of_Ireland/embedding
+[TIMING] Republic of Ireland: 8.9s
+
+================================================================================
+[RUN] Concept: Ancient Rome
+================================================================================
+
+[concept] Ancient Rome | [track] EMBEDDING -> 18 features to process.
+[activating_tokens] Concurrent interpretation of 18 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/18 [00:00<?, ?it/s]Interpreting activating_tokens:   6%|▌         | 1/18 [00:01<00:30,  1.82s/it]Interpreting activating_tokens:  17%|█▋        | 3/18 [00:02<00:08,  1.70it/s]Interpreting activating_tokens:  22%|██▏       | 4/18 [00:03<00:10,  1.32it/s]Interpreting activating_tokens:  28%|██▊       | 5/18 [00:03<00:07,  1.77it/s]Interpreting activating_tokens:  33%|███▎      | 6/18 [00:04<00:08,  1.37it/s]Interpreting activating_tokens:  39%|███▉      | 7/18 [00:04<00:05,  1.85it/s]Interpreting activating_tokens:  44%|████▍     | 8/18 [00:05<00:05,  1.77it/s]Interpreting activating_tokens:  50%|█████     | 9/18 [00:05<00:05,  1.60it/s]Interpreting activating_tokens:  56%|█████▌    | 10/18 [00:06<00:04,  1.87it/s]Interpreting activating_tokens:  61%|██████    | 11/18 [00:07<00:04,  1.62it/s]Interpreting activating_tokens:  67%|██████▋   | 12/18 [00:07<00:03,  1.79it/s]Interpreting activating_tokens:  72%|███████▏  | 13/18 [00:08<00:03,  1.50it/s]Interpreting activating_tokens:  78%|███████▊  | 14/18 [00:08<00:02,  1.78it/s]Interpreting activating_tokens:  83%|████████▎ | 15/18 [00:08<00:01,  2.22it/s]Interpreting activating_tokens:  89%|████████▉ | 16/18 [00:09<00:01,  1.76it/s]Interpreting activating_tokens:  94%|█████████▍| 17/18 [00:10<00:00,  1.58it/s]Interpreting activating_tokens: 100%|██████████| 18/18 [00:10<00:00,  1.95it/s]Interpreting activating_tokens: 100%|██████████| 18/18 [00:10<00:00,  1.66it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Ancient_Rome/embedding
+[TIMING] Ancient Rome: 10.9s
+
+================================================================================
+[RUN] Concept: Baseball
+================================================================================
+
+[concept] Baseball | [track] EMBEDDING -> 31 features to process.
+[activating_tokens] Concurrent interpretation of 31 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/31 [00:00<?, ?it/s]Interpreting activating_tokens:   3%|▎         | 1/31 [00:01<00:38,  1.29s/it]Interpreting activating_tokens:   6%|▋         | 2/31 [00:01<00:17,  1.69it/s]Interpreting activating_tokens:  10%|▉         | 3/31 [00:02<00:24,  1.15it/s]Interpreting activating_tokens:  16%|█▌        | 5/31 [00:02<00:11,  2.31it/s]Interpreting activating_tokens:  19%|█▉        | 6/31 [00:04<00:18,  1.37it/s]Interpreting activating_tokens:  23%|██▎       | 7/31 [00:04<00:13,  1.82it/s]Interpreting activating_tokens:  29%|██▉       | 9/31 [00:05<00:13,  1.60it/s]Interpreting activating_tokens:  32%|███▏      | 10/31 [00:06<00:12,  1.66it/s]Interpreting activating_tokens:  39%|███▊      | 12/31 [00:07<00:12,  1.57it/s]Interpreting activating_tokens:  42%|████▏     | 13/31 [00:07<00:09,  1.83it/s]Interpreting activating_tokens:  45%|████▌     | 14/31 [00:08<00:08,  2.01it/s]Interpreting activating_tokens:  48%|████▊     | 15/31 [00:09<00:11,  1.44it/s]Interpreting activating_tokens:  52%|█████▏    | 16/31 [00:10<00:09,  1.52it/s]Interpreting activating_tokens:  55%|█████▍    | 17/31 [00:10<00:08,  1.62it/s]Interpreting activating_tokens:  58%|█████▊    | 18/31 [00:11<00:08,  1.45it/s]Interpreting activating_tokens:  61%|██████▏   | 19/31 [00:11<00:06,  1.85it/s]Interpreting activating_tokens:  65%|██████▍   | 20/31 [00:12<00:07,  1.44it/s]Interpreting activating_tokens:  71%|███████   | 22/31 [00:13<00:04,  2.01it/s]Interpreting activating_tokens:  74%|███████▍  | 23/31 [00:14<00:05,  1.51it/s]Interpreting activating_tokens:  77%|███████▋  | 24/31 [00:14<00:03,  1.86it/s]Interpreting activating_tokens:  81%|████████  | 25/31 [00:15<00:03,  1.96it/s]Interpreting activating_tokens:  84%|████████▍ | 26/31 [00:16<00:03,  1.52it/s]Interpreting activating_tokens:  87%|████████▋ | 27/31 [00:16<00:02,  1.92it/s]Interpreting activating_tokens:  94%|█████████▎| 29/31 [00:17<00:01,  1.68it/s]Interpreting activating_tokens:  97%|█████████▋| 30/31 [00:17<00:00,  1.86it/s]Interpreting activating_tokens: 100%|██████████| 31/31 [00:18<00:00,  2.23it/s]Interpreting activating_tokens: 100%|██████████| 31/31 [00:18<00:00,  1.71it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Baseball/embedding
+[TIMING] Baseball: 18.2s
+
+================================================================================
+[RUN] Concept: Uranium
+================================================================================
+
+[concept] Uranium | [track] EMBEDDING -> 20 features to process.
+[activating_tokens] Concurrent interpretation of 20 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/20 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▌         | 1/20 [00:01<00:28,  1.51s/it]Interpreting activating_tokens:  10%|█         | 2/20 [00:01<00:14,  1.29it/s]Interpreting activating_tokens:  15%|█▌        | 3/20 [00:02<00:09,  1.71it/s]Interpreting activating_tokens:  20%|██        | 4/20 [00:03<00:12,  1.26it/s]Interpreting activating_tokens:  30%|███       | 6/20 [00:04<00:11,  1.24it/s]Interpreting activating_tokens:  40%|████      | 8/20 [00:04<00:05,  2.07it/s]Interpreting activating_tokens:  45%|████▌     | 9/20 [00:06<00:07,  1.38it/s]Interpreting activating_tokens:  50%|█████     | 10/20 [00:06<00:06,  1.61it/s]Interpreting activating_tokens:  55%|█████▌    | 11/20 [00:07<00:04,  1.83it/s]Interpreting activating_tokens:  60%|██████    | 12/20 [00:07<00:04,  1.81it/s]Interpreting activating_tokens:  65%|██████▌   | 13/20 [00:08<00:03,  1.83it/s]Interpreting activating_tokens:  70%|███████   | 14/20 [00:08<00:03,  1.94it/s]Interpreting activating_tokens:  75%|███████▌  | 15/20 [00:09<00:02,  1.82it/s]Interpreting activating_tokens:  80%|████████  | 16/20 [00:10<00:02,  1.55it/s]Interpreting activating_tokens:  85%|████████▌ | 17/20 [00:10<00:01,  1.80it/s]Interpreting activating_tokens:  90%|█████████ | 18/20 [00:11<00:01,  1.57it/s]Interpreting activating_tokens:  95%|█████████▌| 19/20 [00:11<00:00,  1.79it/s]Interpreting activating_tokens: 100%|██████████| 20/20 [00:12<00:00,  1.97it/s]Interpreting activating_tokens: 100%|██████████| 20/20 [00:12<00:00,  1.65it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Uranium/embedding
+[TIMING] Uranium: 12.2s
+
+================================================================================
+[RUN] Concept: Harry Potter
+================================================================================
+
+[concept] Harry Potter | [track] EMBEDDING -> 17 features to process.
+[activating_tokens] Concurrent interpretation of 17 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/17 [00:00<?, ?it/s]Interpreting activating_tokens:   6%|▌         | 1/17 [00:01<00:20,  1.31s/it]Interpreting activating_tokens:  12%|█▏        | 2/17 [00:01<00:10,  1.37it/s]Interpreting activating_tokens:  18%|█▊        | 3/17 [00:01<00:07,  1.83it/s]Interpreting activating_tokens:  24%|██▎       | 4/17 [00:02<00:08,  1.55it/s]Interpreting activating_tokens:  29%|██▉       | 5/17 [00:03<00:07,  1.55it/s]Interpreting activating_tokens:  35%|███▌      | 6/17 [00:03<00:05,  2.10it/s]Interpreting activating_tokens:  41%|████      | 7/17 [00:04<00:07,  1.31it/s]Interpreting activating_tokens:  47%|████▋     | 8/17 [00:05<00:05,  1.58it/s]Interpreting activating_tokens:  53%|█████▎    | 9/17 [00:05<00:04,  1.93it/s]Interpreting activating_tokens:  59%|█████▉    | 10/17 [00:06<00:05,  1.33it/s]Interpreting activating_tokens:  65%|██████▍   | 11/17 [00:07<00:03,  1.70it/s]Interpreting activating_tokens:  71%|███████   | 12/17 [00:07<00:02,  2.25it/s]Interpreting activating_tokens:  76%|███████▋  | 13/17 [00:08<00:02,  1.47it/s]Interpreting activating_tokens:  82%|████████▏ | 14/17 [00:08<00:01,  1.52it/s]Interpreting activating_tokens:  88%|████████▊ | 15/17 [00:09<00:01,  1.57it/s]Interpreting activating_tokens:  94%|█████████▍| 16/17 [00:10<00:00,  1.56it/s]Interpreting activating_tokens: 100%|██████████| 17/17 [00:10<00:00,  1.64it/s]Interpreting activating_tokens: 100%|██████████| 17/17 [00:10<00:00,  1.58it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Harry_Potter/embedding
+[TIMING] Harry Potter: 11.0s
+
+================================================================================
+[RUN] Concept: Cannabis
+================================================================================
+
+[concept] Cannabis | [track] EMBEDDING -> 23 features to process.
+[activating_tokens] All features already interpreted. Skipping.
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Cannabis/embedding
+[TIMING] Cannabis: 0.1s
+
+================================================================================
+[RUN] Concept: Gambling
+================================================================================
+
+[concept] Gambling | [track] EMBEDDING -> 24 features to process.
+[activating_tokens] Concurrent interpretation of 24 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/24 [00:00<?, ?it/s]Interpreting activating_tokens:   4%|▍         | 1/24 [00:01<00:32,  1.40s/it]Interpreting activating_tokens:  12%|█▎        | 3/24 [00:01<00:10,  1.94it/s]Interpreting activating_tokens:  17%|█▋        | 4/24 [00:03<00:15,  1.30it/s]Interpreting activating_tokens:  21%|██        | 5/24 [00:03<00:12,  1.48it/s]Interpreting activating_tokens:  25%|██▌       | 6/24 [00:03<00:09,  1.99it/s]Interpreting activating_tokens:  29%|██▉       | 7/24 [00:04<00:09,  1.74it/s]Interpreting activating_tokens:  33%|███▎      | 8/24 [00:05<00:09,  1.63it/s]Interpreting activating_tokens:  38%|███▊      | 9/24 [00:05<00:09,  1.60it/s]Interpreting activating_tokens:  42%|████▏     | 10/24 [00:06<00:08,  1.72it/s]Interpreting activating_tokens:  46%|████▌     | 11/24 [00:06<00:08,  1.58it/s]Interpreting activating_tokens:  50%|█████     | 12/24 [00:07<00:06,  2.00it/s]Interpreting activating_tokens:  54%|█████▍    | 13/24 [00:08<00:07,  1.41it/s]Interpreting activating_tokens:  58%|█████▊    | 14/24 [00:08<00:05,  1.76it/s]Interpreting activating_tokens:  62%|██████▎   | 15/24 [00:09<00:05,  1.52it/s]Interpreting activating_tokens:  67%|██████▋   | 16/24 [00:10<00:05,  1.47it/s]Interpreting activating_tokens:  71%|███████   | 17/24 [00:10<00:04,  1.72it/s]Interpreting activating_tokens:  75%|███████▌  | 18/24 [00:10<00:03,  1.95it/s]Interpreting activating_tokens:  79%|███████▉  | 19/24 [00:11<00:03,  1.61it/s]Interpreting activating_tokens:  83%|████████▎ | 20/24 [00:12<00:02,  1.64it/s]Interpreting activating_tokens:  88%|████████▊ | 21/24 [00:12<00:01,  1.94it/s]Interpreting activating_tokens:  92%|█████████▏| 22/24 [00:13<00:01,  1.71it/s]Interpreting activating_tokens:  96%|█████████▌| 23/24 [00:13<00:00,  1.92it/s]Interpreting activating_tokens: 100%|██████████| 24/24 [00:14<00:00,  1.98it/s]Interpreting activating_tokens: 100%|██████████| 24/24 [00:14<00:00,  1.68it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Gambling/embedding
+[TIMING] Gambling: 14.4s
+
+================================================================================
+[RUN] Concept: Gun
+================================================================================
+
+[concept] Gun | [track] EMBEDDING -> 19 features to process.
+[activating_tokens] All features already interpreted. Skipping.
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Gun/embedding
+[TIMING] Gun: 0.1s
+
+================================================================================
+[RUN] Concept: Pornography
+================================================================================
+
+[concept] Pornography | [track] EMBEDDING -> 22 features to process.
+[activating_tokens] Concurrent interpretation of 22 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/22 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▍         | 1/22 [00:01<00:29,  1.41s/it]Interpreting activating_tokens:   9%|▉         | 2/22 [00:01<00:13,  1.45it/s]Interpreting activating_tokens:  14%|█▎        | 3/22 [00:02<00:11,  1.68it/s]Interpreting activating_tokens:  18%|█▊        | 4/22 [00:02<00:12,  1.47it/s]Interpreting activating_tokens:  23%|██▎       | 5/22 [00:03<00:10,  1.59it/s]Interpreting activating_tokens:  27%|██▋       | 6/22 [00:03<00:07,  2.16it/s]Interpreting activating_tokens:  32%|███▏      | 7/22 [00:04<00:09,  1.54it/s]Interpreting activating_tokens:  36%|███▋      | 8/22 [00:05<00:08,  1.59it/s]Interpreting activating_tokens:  41%|████      | 9/22 [00:05<00:08,  1.49it/s]Interpreting activating_tokens:  50%|█████     | 11/22 [00:07<00:07,  1.53it/s]Interpreting activating_tokens:  55%|█████▍    | 12/22 [00:07<00:05,  1.73it/s]Interpreting activating_tokens:  59%|█████▉    | 13/22 [00:07<00:04,  2.19it/s]Interpreting activating_tokens:  64%|██████▎   | 14/22 [00:08<00:04,  1.64it/s]Interpreting activating_tokens:  68%|██████▊   | 15/22 [00:09<00:04,  1.68it/s]Interpreting activating_tokens:  73%|███████▎  | 16/22 [00:09<00:03,  1.96it/s]Interpreting activating_tokens:  77%|███████▋  | 17/22 [00:09<00:02,  2.11it/s]Interpreting activating_tokens:  82%|████████▏ | 18/22 [00:11<00:02,  1.43it/s]Interpreting activating_tokens:  86%|████████▋ | 19/22 [00:11<00:01,  1.75it/s]Interpreting activating_tokens:  91%|█████████ | 20/22 [00:12<00:01,  1.72it/s]Interpreting activating_tokens:  95%|█████████▌| 21/22 [00:12<00:00,  1.54it/s]Interpreting activating_tokens: 100%|██████████| 22/22 [00:13<00:00,  2.01it/s]Interpreting activating_tokens: 100%|██████████| 22/22 [00:13<00:00,  1.69it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Pornography/embedding
+[TIMING] Pornography: 13.2s
+
+================================================================================
+[RUN] Concept: Valentine's Day
+================================================================================
+
+[concept] Valentine's Day | [track] EMBEDDING -> 19 features to process.
+[activating_tokens] Concurrent interpretation of 19 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/19 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▌         | 1/19 [00:01<00:24,  1.35s/it]Interpreting activating_tokens:  11%|█         | 2/19 [00:01<00:11,  1.53it/s]Interpreting activating_tokens:  16%|█▌        | 3/19 [00:02<00:11,  1.37it/s]Interpreting activating_tokens:  21%|██        | 4/19 [00:02<00:09,  1.57it/s]Interpreting activating_tokens:  26%|██▋       | 5/19 [00:03<00:07,  1.98it/s]Interpreting activating_tokens:  32%|███▏      | 6/19 [00:04<00:09,  1.31it/s]Interpreting activating_tokens:  37%|███▋      | 7/19 [00:04<00:06,  1.77it/s]Interpreting activating_tokens:  42%|████▏     | 8/19 [00:04<00:04,  2.29it/s]Interpreting activating_tokens:  47%|████▋     | 9/19 [00:06<00:07,  1.38it/s]Interpreting activating_tokens:  53%|█████▎    | 10/19 [00:06<00:05,  1.54it/s]Interpreting activating_tokens:  58%|█████▊    | 11/19 [00:06<00:03,  2.03it/s]Interpreting activating_tokens:  63%|██████▎   | 12/19 [00:07<00:04,  1.55it/s]Interpreting activating_tokens:  68%|██████▊   | 13/19 [00:08<00:03,  1.59it/s]Interpreting activating_tokens:  74%|███████▎  | 14/19 [00:08<00:02,  2.11it/s]Interpreting activating_tokens:  79%|███████▉  | 15/19 [00:09<00:02,  1.61it/s]Interpreting activating_tokens:  84%|████████▍ | 16/19 [00:09<00:01,  1.67it/s]Interpreting activating_tokens:  89%|████████▉ | 17/19 [00:11<00:01,  1.09it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:11<00:00,  1.65it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Valentine_s_Day/embedding
+[TIMING] Valentine's Day: 11.6s
+
+================================================================================
+[RUN] Concept: World War II
+================================================================================
+
+[concept] World War II | [track] EMBEDDING -> 15 features to process.
+[activating_tokens] All features already interpreted. Skipping.
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/World_War_II/embedding
+[TIMING] World War II: 0.1s
+
+================================================================================
+[RUN] Concept: Nazism
+================================================================================
+
+[concept] Nazism | [track] EMBEDDING -> 24 features to process.
+[activating_tokens] Concurrent interpretation of 24 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/24 [00:00<?, ?it/s]Interpreting activating_tokens:   4%|▍         | 1/24 [00:01<00:38,  1.68s/it]Interpreting activating_tokens:  12%|█▎        | 3/24 [00:02<00:12,  1.72it/s]Interpreting activating_tokens:  17%|█▋        | 4/24 [00:03<00:16,  1.25it/s]Interpreting activating_tokens:  25%|██▌       | 6/24 [00:04<00:13,  1.37it/s]Interpreting activating_tokens:  29%|██▉       | 7/24 [00:04<00:10,  1.66it/s]Interpreting activating_tokens:  33%|███▎      | 8/24 [00:05<00:09,  1.62it/s]Interpreting activating_tokens:  38%|███▊      | 9/24 [00:06<00:09,  1.54it/s]Interpreting activating_tokens:  42%|████▏     | 10/24 [00:06<00:08,  1.71it/s]Interpreting activating_tokens:  46%|████▌     | 11/24 [00:07<00:07,  1.63it/s]Interpreting activating_tokens:  50%|█████     | 12/24 [00:07<00:06,  1.87it/s]Interpreting activating_tokens:  54%|█████▍    | 13/24 [00:08<00:06,  1.78it/s]Interpreting activating_tokens:  58%|█████▊    | 14/24 [00:08<00:05,  1.75it/s]Interpreting activating_tokens:  62%|██████▎   | 15/24 [00:09<00:05,  1.66it/s]Interpreting activating_tokens:  67%|██████▋   | 16/24 [00:09<00:04,  1.85it/s]Interpreting activating_tokens:  71%|███████   | 17/24 [00:10<00:03,  1.94it/s]Interpreting activating_tokens:  75%|███████▌  | 18/24 [00:11<00:04,  1.35it/s]Interpreting activating_tokens:  83%|████████▎ | 20/24 [00:12<00:02,  1.89it/s]Interpreting activating_tokens:  88%|████████▊ | 21/24 [00:13<00:01,  1.67it/s]Interpreting activating_tokens:  92%|█████████▏| 22/24 [00:13<00:01,  1.51it/s]Interpreting activating_tokens: 100%|██████████| 24/24 [00:14<00:00,  1.84it/s]Interpreting activating_tokens: 100%|██████████| 24/24 [00:14<00:00,  1.63it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Nazism/embedding
+[TIMING] Nazism: 14.9s
+
+================================================================================
+[RUN] Concept: Heroin
+================================================================================
+
+[concept] Heroin | [track] EMBEDDING -> 22 features to process.
+[activating_tokens] Concurrent interpretation of 22 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/22 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▍         | 1/22 [00:01<00:34,  1.65s/it]Interpreting activating_tokens:  14%|█▎        | 3/22 [00:02<00:10,  1.77it/s]Interpreting activating_tokens:  18%|█▊        | 4/22 [00:03<00:13,  1.32it/s]Interpreting activating_tokens:  23%|██▎       | 5/22 [00:03<00:09,  1.79it/s]Interpreting activating_tokens:  27%|██▋       | 6/22 [00:03<00:09,  1.77it/s]Interpreting activating_tokens:  32%|███▏      | 7/22 [00:04<00:09,  1.65it/s]Interpreting activating_tokens:  36%|███▋      | 8/22 [00:04<00:07,  1.99it/s]Interpreting activating_tokens:  41%|████      | 9/22 [00:05<00:07,  1.83it/s]Interpreting activating_tokens:  45%|████▌     | 10/22 [00:06<00:07,  1.58it/s]Interpreting activating_tokens:  50%|█████     | 11/22 [00:06<00:07,  1.56it/s]Interpreting activating_tokens:  55%|█████▍    | 12/22 [00:07<00:06,  1.62it/s]Interpreting activating_tokens:  59%|█████▉    | 13/22 [00:07<00:04,  1.83it/s]Interpreting activating_tokens:  64%|██████▎   | 14/22 [00:08<00:04,  1.81it/s]Interpreting activating_tokens:  68%|██████▊   | 15/22 [00:10<00:06,  1.15it/s]Interpreting activating_tokens:  77%|███████▋  | 17/22 [00:10<00:02,  2.01it/s]Interpreting activating_tokens:  82%|████████▏ | 18/22 [00:11<00:02,  1.39it/s]Interpreting activating_tokens:  91%|█████████ | 20/22 [00:11<00:00,  2.24it/s]Interpreting activating_tokens:  95%|█████████▌| 21/22 [00:13<00:00,  1.55it/s]Interpreting activating_tokens: 100%|██████████| 22/22 [00:13<00:00,  1.91it/s]Interpreting activating_tokens: 100%|██████████| 22/22 [00:13<00:00,  1.67it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Heroin/embedding
+[TIMING] Heroin: 13.3s
+
+================================================================================
+[RUN] Concept: Halloween
+================================================================================
+
+[concept] Halloween | [track] EMBEDDING -> 19 features to process.
+[activating_tokens] Concurrent interpretation of 19 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/19 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▌         | 1/19 [00:01<00:25,  1.42s/it]Interpreting activating_tokens:  16%|█▌        | 3/19 [00:01<00:07,  2.24it/s]Interpreting activating_tokens:  21%|██        | 4/19 [00:02<00:09,  1.50it/s]Interpreting activating_tokens:  26%|██▋       | 5/19 [00:03<00:07,  1.75it/s]Interpreting activating_tokens:  32%|███▏      | 6/19 [00:03<00:08,  1.55it/s]Interpreting activating_tokens:  37%|███▋      | 7/19 [00:04<00:07,  1.65it/s]Interpreting activating_tokens:  42%|████▏     | 8/19 [00:04<00:06,  1.69it/s]Interpreting activating_tokens:  47%|████▋     | 9/19 [00:05<00:06,  1.49it/s]Interpreting activating_tokens:  53%|█████▎    | 10/19 [00:06<00:05,  1.60it/s]Interpreting activating_tokens:  58%|█████▊    | 11/19 [00:07<00:06,  1.20it/s]Interpreting activating_tokens:  63%|██████▎   | 12/19 [00:07<00:04,  1.62it/s]Interpreting activating_tokens:  68%|██████▊   | 13/19 [00:07<00:02,  2.07it/s]Interpreting activating_tokens:  74%|███████▎  | 14/19 [00:09<00:03,  1.51it/s]Interpreting activating_tokens:  79%|███████▉  | 15/19 [00:09<00:02,  1.76it/s]Interpreting activating_tokens:  84%|████████▍ | 16/19 [00:09<00:01,  2.16it/s]Interpreting activating_tokens:  89%|████████▉ | 17/19 [00:10<00:01,  1.45it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:11<00:00,  1.93it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:11<00:00,  1.66it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Halloween/embedding
+[TIMING] Halloween: 11.5s
+
+================================================================================
+[RUN] Concept: Artificial intelligence
+================================================================================
+
+[concept] Artificial intelligence | [track] EMBEDDING -> 26 features to process.
+[activating_tokens] Concurrent interpretation of 26 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/26 [00:00<?, ?it/s]Interpreting activating_tokens:   4%|▍         | 1/26 [00:01<00:32,  1.28s/it]Interpreting activating_tokens:  12%|█▏        | 3/26 [00:01<00:13,  1.69it/s]Interpreting activating_tokens:  15%|█▌        | 4/26 [00:02<00:15,  1.38it/s]Interpreting activating_tokens:  19%|█▉        | 5/26 [00:03<00:11,  1.88it/s]Interpreting activating_tokens:  23%|██▎       | 6/26 [00:03<00:10,  1.85it/s]Interpreting activating_tokens:  27%|██▋       | 7/26 [00:04<00:11,  1.69it/s]Interpreting activating_tokens:  31%|███       | 8/26 [00:05<00:11,  1.60it/s]Interpreting activating_tokens:  38%|███▊      | 10/26 [00:06<00:09,  1.69it/s]Interpreting activating_tokens:  42%|████▏     | 11/26 [00:06<00:07,  1.91it/s]Interpreting activating_tokens:  46%|████▌     | 12/26 [00:06<00:05,  2.35it/s]Interpreting activating_tokens:  50%|█████     | 13/26 [00:08<00:09,  1.44it/s]Interpreting activating_tokens:  54%|█████▍    | 14/26 [00:08<00:06,  1.83it/s]Interpreting activating_tokens:  62%|██████▏   | 16/26 [00:09<00:06,  1.56it/s]Interpreting activating_tokens:  65%|██████▌   | 17/26 [00:10<00:05,  1.74it/s]Interpreting activating_tokens:  69%|██████▉   | 18/26 [00:10<00:03,  2.05it/s]Interpreting activating_tokens:  73%|███████▎  | 19/26 [00:11<00:03,  1.75it/s]Interpreting activating_tokens:  77%|███████▋  | 20/26 [00:11<00:02,  2.14it/s]Interpreting activating_tokens:  81%|████████  | 21/26 [00:11<00:02,  2.43it/s]Interpreting activating_tokens:  85%|████████▍ | 22/26 [00:12<00:02,  1.59it/s]Interpreting activating_tokens:  88%|████████▊ | 23/26 [00:13<00:01,  1.70it/s]Interpreting activating_tokens:  92%|█████████▏| 24/26 [00:13<00:00,  2.00it/s]Interpreting activating_tokens:  96%|█████████▌| 25/26 [00:14<00:00,  1.87it/s]Interpreting activating_tokens: 100%|██████████| 26/26 [00:14<00:00,  1.62it/s]Interpreting activating_tokens: 100%|██████████| 26/26 [00:14<00:00,  1.74it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/Artificial_intelligence/embedding
+[TIMING] Artificial intelligence: 15.1s
+
+================================================================================
+[RUN] Concept: COVID-19 pandemic
+================================================================================
+
+[concept] COVID-19 pandemic | [track] EMBEDDING -> 19 features to process.
+[activating_tokens] Concurrent interpretation of 19 features with 3 workers.
+Interpreting activating_tokens:   0%|          | 0/19 [00:00<?, ?it/s]Interpreting activating_tokens:   5%|▌         | 1/19 [00:01<00:28,  1.56s/it]Interpreting activating_tokens:  16%|█▌        | 3/19 [00:02<00:11,  1.39it/s]Interpreting activating_tokens:  21%|██        | 4/19 [00:02<00:09,  1.53it/s]Interpreting activating_tokens:  26%|██▋       | 5/19 [00:03<00:08,  1.59it/s]Interpreting activating_tokens:  32%|███▏      | 6/19 [00:04<00:09,  1.43it/s]Interpreting activating_tokens:  37%|███▋      | 7/19 [00:04<00:06,  1.86it/s]Interpreting activating_tokens:  42%|████▏     | 8/19 [00:05<00:06,  1.78it/s]Interpreting activating_tokens:  47%|████▋     | 9/19 [00:06<00:06,  1.53it/s]Interpreting activating_tokens:  58%|█████▊    | 11/19 [00:06<00:04,  1.79it/s]Interpreting activating_tokens:  63%|██████▎   | 12/19 [00:07<00:04,  1.56it/s]Interpreting activating_tokens:  74%|███████▎  | 14/19 [00:09<00:03,  1.54it/s]Interpreting activating_tokens:  79%|███████▉  | 15/19 [00:09<00:02,  1.80it/s]Interpreting activating_tokens:  84%|████████▍ | 16/19 [00:09<00:01,  2.16it/s]Interpreting activating_tokens:  89%|████████▉ | 17/19 [00:10<00:01,  1.67it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:11<00:00,  1.92it/s]Interpreting activating_tokens: 100%|██████████| 19/19 [00:11<00:00,  1.67it/s]
+[done] Saved interpretations to mf_outputs/rank_search/multi_language/de/google_gemma-2-2b-it/interpretations/rank100/seed42/COVID-19_pandemic/embedding
+[TIMING] COVID-19 pandemic: 11.5s
+[ml_fit] done

@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Cannabis
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.18it/s]
+[22:44:50] ml_sep Cannabis delta=0.5: k=4 tokens=109 mmlu 0.52 qa 0.84 simdom 0.88 (44s)
+[22:45:34] ml_sep Cannabis delta=1.0: k=4 tokens=109 mmlu 0.52 qa 0.74 simdom 0.88 (44s)
+[22:46:17] ml_sep Cannabis delta=2.0: k=4 tokens=109 mmlu 0.52 qa 0.66 simdom 0.88 (43s)
+[22:47:00] ml_sep Cannabis delta=5.0: k=4 tokens=109 mmlu 0.52 qa 0.56 simdom 0.84 (42s)
+[22:47:48] ml_sep Cannabis delta=10.0: k=4 tokens=109 mmlu 0.52 qa 0.58 simdom 0.86 (48s)
+[22:48:50] ml_sep Cannabis delta=50.0: k=4 tokens=109 mmlu 0.52 qa 0.60 simdom 0.86 (62s)
+[22:49:55] ml_sep Cannabis delta=100.0: k=4 tokens=109 mmlu 0.52 qa 0.56 simdom 0.86 (65s)
+[22:51:01] ml_sep Cannabis delta=200.0: k=4 tokens=109 mmlu 0.52 qa 0.56 simdom 0.86 (65s)
+[22:51:03] ml_sep Cannabis: pick delta=100.0 harmonic=0.640
+[23:00:53] ml_sep Cannabis final at delta=100.0: edit check OK, MMLU test 0.549

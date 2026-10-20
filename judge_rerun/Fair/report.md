@@ -31,6 +31,7 @@ Same model, data, seed 42, judge model (gemini-3.5-flash-lite), grid, pick rule 
 | Cannabis | ember | 1 | 45 | 200.0 | 0.468 | 0.391 | 0.397 | 0.446 | 0.382 | 0.902 | 0.141 | -0.02 | 0.55 | True |  |
 | Cannabis | ember_hj | 1 | 45 | 200.0 | 0.468 | 0.391 | 0.397 | 0.446 | 0.382 | 0.902 | 0.141 | -0.02 | 0.55 | True | ember |
 | Cannabis | ember_x | 1 | 120 | 200.0 | 0.578 | 0.333 | 0.302 | 0.446 | 0.418 | 0.463 | 0.074 | -0.08 | 0.55 | True |  |
+| Cannabis | ml_sep | 4 | 109 | 100.0 | 0.64 | 0.304 | 0.302 | 0.354 | 0.309 | 0.902 | 0.163 | -0.08 | 0.549 | True |  |
 | Culture of Greece | cinder | 1 | 106 | 100.0 | 0.755 | 0.459 | 0.63 | 0.892 | 0.793 | 1.0 | 0.37 | -0.06 | 0.549 | True |  |
 | Culture of Greece | cinder_x | 1 | 231 | 100.0 | 0.78 | 0.459 | 0.407 | 0.676 | 0.448 | 0.852 | 0.137 | -0.06 | 0.547 | True |  |
 | Culture of Greece | ember | 1 | 52 | 200.0 | 0.91 | 0.73 | 0.63 | 0.946 | 0.862 | 1.0 | 0.13 | -0.02 | 0.545 | True |  |
@@ -51,6 +52,7 @@ Same model, data, seed 42, judge model (gemini-3.5-flash-lite), grid, pick rule 
 | Gun | ember | 2 | 61 | 5.0 | 0.567 | 0.544 | 1.0 | 0.949 | 0.892 | 1.0 | 0.416 | -0.1 | 0.553 | True |  |
 | Gun | ember_hj | 2 | 61 | 5.0 | 0.567 | 0.544 | 1.0 | 0.949 | 0.892 | 1.0 | 0.416 | -0.1 | 0.553 | True | ember |
 | Gun | ember_x | 2 | 191 | 5.0 | 0.659 | 0.544 | 0.902 | 0.846 | 0.892 | 0.805 | 0.317 | -0.1 | 0.553 | True |  |
+| Gun | ml_sep | 5 | 157 | 5.0 | 0.659 | 0.579 | 0.902 | 1.0 | 0.784 | 1.0 | 0.343 | -0.1 | 0.553 | True |  |
 | Halloween | cinder | 1 | 76 | 10.0 | 0.625 | 0.543 | 0.652 | 0.826 | 0.739 | 1.0 | 0.261 | -0.04 | 0.551 | True |  |
 | Halloween | cinder_x | 1 | 178 | 10.0 | 0.615 | 0.543 | 0.652 | 0.652 | 0.913 | 1.0 | 0.261 | -0.06 | 0.551 | True |  |
 | Halloween | ember | 0 | 0 | 0.0 | 0.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 0.553 | None |  |
@@ -96,6 +98,7 @@ Same model, data, seed 42, judge model (gemini-3.5-flash-lite), grid, pick rule 
 | World War II | ember | 1 | 36 | 5.0 | 0.564 | 0.878 | 0.846 | 0.892 | 0.892 | 1.0 | 0.029 | 0.0 | 0.55 | True |  |
 | World War II | ember_hj | 1 | 36 | 5.0 | 0.564 | 0.878 | 0.846 | 0.892 | 0.892 | 1.0 | 0.029 | 0.0 | 0.55 | True | ember |
 | World War II | ember_x | 1 | 101 | 5.0 | 0.564 | 0.878 | 0.692 | 0.784 | 1.0 | 1.0 | -0.009 | 0.0 | 0.551 | True |  |
+| World War II | ml_sep | 1 | 36 | 5.0 | 0.564 | 0.878 | 0.846 | 0.892 | 0.892 | 1.0 | 0.029 | 0.0 | 0.55 | True |  |
 
 ## Means, all 18 concepts
 
@@ -106,6 +109,7 @@ Same model, data, seed 42, judge model (gemini-3.5-flash-lite), grid, pick rule 
 | ember | 18 | 4 | 0.754 | 0.821 | 0.851 | 0.823 | 0.963 | 0.11 | -0.024 | 0.55 | 0.429 |
 | ember_hj | 18 | 0 | 0.674 | 0.765 | 0.806 | 0.801 | 0.963 | 0.16 | -0.027 | 0.55 | 0.555 |
 | ember_x | 18 | 4 | 0.743 | 0.746 | 0.754 | 0.765 | 0.916 | 0.052 | -0.033 | 0.55 | 0.449 |
+| ml_sep | 3 | 0 | 0.587 | 0.683 | 0.749 | 0.662 | 0.967 | 0.178 | -0.06 | 0.551 | 0.621 |
 
 Paired over concepts (all 18 concepts), cinder − ember:
 
@@ -143,6 +147,18 @@ Paired over concepts (all 18 concepts), cinder_x − ember_x:
 - leak: mean +0.047, cinder_x lower in 7, higher in 11, equal in 0 of 18 concepts (Wilcoxon p = 0.267)
 - train_harmonic: mean +0.015, cinder_x lower in 9, higher in 9, equal in 0 of 18 concepts (Wilcoxon p = 0.913)
 
+Paired over concepts (all 18 concepts), ml_sep − ember:
+
+- ret_en: mean -0.017, ml_sep lower in 1, higher in 1, equal in 1 of 3 concepts
+- leak: mean -0.017, ml_sep lower in 1, higher in 1, equal in 1 of 3 concepts
+- train_harmonic: mean +0.088, ml_sep lower in 0, higher in 2, equal in 1 of 3 concepts
+
+Paired over concepts (all 18 concepts), ml_sep − ember_x:
+
+- ret_en: mean +0.002, ml_sep lower in 1, higher in 1, equal in 1 of 3 concepts
+- leak: mean +0.051, ml_sep lower in 0, higher in 3, equal in 0 of 3 concepts
+- train_harmonic: mean +0.021, ml_sep lower in 0, higher in 1, equal in 2 of 3 concepts
+
 ## Means, clean 12 (no CINDER tuning / lexicon-prompt concepts)
 
 | method | concepts | no_edit | ret_en | ret_de | ret_es | ret_fr | ret_ru | leak | simdom_en | mmlu_test | train_harmonic |
@@ -152,6 +168,7 @@ Paired over concepts (all 18 concepts), cinder_x − ember_x:
 | ember | 12 | 3 | 0.728 | 0.804 | 0.84 | 0.793 | 0.944 | 0.118 | -0.027 | 0.551 | 0.399 |
 | ember_hj | 12 | 0 | 0.623 | 0.721 | 0.791 | 0.769 | 0.944 | 0.184 | -0.03 | 0.55 | 0.551 |
 | ember_x | 12 | 3 | 0.714 | 0.723 | 0.775 | 0.756 | 0.892 | 0.073 | -0.038 | 0.55 | 0.429 |
+| ml_sep | 2 | 0 | 0.442 | 0.602 | 0.677 | 0.546 | 0.951 | 0.253 | -0.09 | 0.551 | 0.65 |
 
 Paired over concepts (clean 12 (no CINDER tuning / lexicon-prompt concepts)), cinder − ember:
 
@@ -188,6 +205,18 @@ Paired over concepts (clean 12 (no CINDER tuning / lexicon-prompt concepts)), ci
 - ret_en: mean -0.004, cinder_x lower in 5, higher in 7, equal in 0 of 12 concepts (Wilcoxon p = 0.970)
 - leak: mean +0.069, cinder_x lower in 4, higher in 8, equal in 0 of 12 concepts (Wilcoxon p = 0.151)
 - train_harmonic: mean +0.033, cinder_x lower in 6, higher in 6, equal in 0 of 12 concepts (Wilcoxon p = 0.952)
+
+Paired over concepts (clean 12 (no CINDER tuning / lexicon-prompt concepts)), ml_sep − ember:
+
+- ret_en: mean -0.026, ml_sep lower in 1, higher in 1, equal in 0 of 2 concepts
+- leak: mean -0.025, ml_sep lower in 1, higher in 1, equal in 0 of 2 concepts
+- train_harmonic: mean +0.132, ml_sep lower in 0, higher in 2, equal in 0 of 2 concepts
+
+Paired over concepts (clean 12 (no CINDER tuning / lexicon-prompt concepts)), ml_sep − ember_x:
+
+- ret_en: mean +0.003, ml_sep lower in 1, higher in 1, equal in 0 of 2 concepts
+- leak: mean +0.058, ml_sep lower in 0, higher in 2, equal in 0 of 2 concepts
+- train_harmonic: mean +0.031, ml_sep lower in 0, higher in 1, equal in 1 of 2 concepts
 
 Lower ret_en = more English erasure; lower leak = less leak; higher train_harmonic = better search score.
 

@@ -16,6 +16,8 @@ Only the method differs:
              ridge solve and the method's sparsity rule; the English rows are kept, so the edit is the parent's edit
              (checked) + native tokens -> mf_outputs/fair_x_<method>/. No new δ search: one grid row at the parent's
              pick, then the same final test (X11: the picked δ works for X on the train split).
+    ml_joint ml_sep  features fitted on native text (cinder/ml_arms.py): one joint en+ru+de+es+fr fit (rank 500), or
+             one fit per language (rank 100) with the union of the five EMBER edits; full δ search like ember.
 
 Per (method, concept), `run` does on one GPU:
     grid    every delta: the edit, MMLU (50 train), QA_train, SimdomQA_train with the fixed MC scoring
@@ -34,6 +36,7 @@ Outputs: judge_rerun/Fair/<method>/<Concept>/{grid.csv, records/, pick.json}
     python -m cinder.fair build-ember35                       # CPU, once
     python -m cinder.fair build-ember-hj                      # CPU, once (after build-ember35)
     python -m cinder.fair build-x                             # CPU, once (after the ember / cinder picks)
+    python -m cinder.fair build-ml                            # CPU, after cinder/run_ml_fit.sbatch
     python -m cinder.fair run --method cinder --concept Golf  # GPU (cinder/run_fair.sbatch)
     python -m cinder.fair run --method ember_hj --concepts Uranium Heroin   # one model load, several concepts
     python -m cinder.fair pick --method ember               # CPU, all concepts with a grid
@@ -65,11 +68,13 @@ NOT_CLEAN = {"Harry Potter", "Ancient Rome", "Valentine's Day", "Culture of Gree
              "World War II"}
 ROOTS = {"ember": C.ROOT / "mf_outputs" / "ember35", "cinder": C.MF_ROOT,
          "ember_hj": C.ROOT / "mf_outputs" / "ember_hj",
-         "ember_x": C.ROOT / "mf_outputs" / "fair_x_ember", "cinder_x": C.ROOT / "mf_outputs" / "fair_x_cinder"}
+         "ember_x": C.ROOT / "mf_outputs" / "fair_x_ember", "cinder_x": C.ROOT / "mf_outputs" / "fair_x_cinder",
+         "ml_joint": C.ROOT / "mf_outputs" / "ml_joint", "ml_sep": C.ROOT / "mf_outputs" / "ml_sep"}
 # extrapolated arms (build-x): the parent's features and English edit + native de/es/fr/ru tokens, at the parent's δ
 X_PARENT = {"ember_x": "ember", "cinder_x": "cinder"}
 PAIRS = [("cinder", "ember"), ("ember_hj", "ember"), ("cinder", "ember_hj"),
-         ("ember_x", "ember"), ("cinder_x", "cinder"), ("cinder_x", "ember_x")]     # (a, b): report a − b
+         ("ember_x", "ember"), ("cinder_x", "cinder"), ("cinder_x", "ember_x"),
+         ("ml_joint", "ember"), ("ml_sep", "ember"), ("ml_sep", "ember_x"), ("ml_joint", "ml_sep")]  # report a − b
 GRID = list(C.EMBER_GRID)
 SETS = ("mmlu", "qa", "simdom")
 LANGS = ["en", "de", "es", "fr", "ru"]
@@ -599,7 +604,8 @@ def md(df) -> str:
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("stage", choices=("build-ember35", "build-ember-hj", "build-x", "run", "pick", "report"))
+    ap.add_argument("stage", choices=("build-ember35", "build-ember-hj", "build-x", "build-ml", "run", "pick",
+                                      "report"))
     ap.add_argument("--method", choices=list(ROOTS))
     ap.add_argument("--concept")
     ap.add_argument("--concepts", nargs="+", help="several concepts in one job (one model load)")
@@ -613,6 +619,9 @@ def main(argv=None):
         build_ember_hj()
     elif a.stage == "build-x":
         build_x()
+    elif a.stage == "build-ml":
+        from cinder import ml_arms
+        ml_arms.build(a.concepts)
     elif a.stage == "run":
         run(a.method, a.concepts or [a.concept], a.deltas)
     elif a.stage == "pick":

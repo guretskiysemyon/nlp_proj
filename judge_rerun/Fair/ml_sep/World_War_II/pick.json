@@ -1,0 +1,83 @@
+{
+ "method": "ml_sep",
+ "concept": "World War II",
+ "delta": 5.0,
+ "no_edit": false,
+ "harmonic": 0.5639913232104123,
+ "efficacy": 0.40000000000000013,
+ "specificity": 0.9558823529411766,
+ "rule": "fast harmonic (efficacy, specificity), MMLU gate 0.9, no Alpaca",
+ "baselines": {
+  "mmlu_base": 0.52,
+  "qa_base": 0.8,
+  "simdom_base": 0.96,
+  "alp_instr_base": 1.9266666666666667,
+  "alp_flu_base": 1.6866666666666668
+ },
+ "all": [
+  {
+   "delta_embed": 0.5,
+   "qa_acc": 0.8,
+   "efficacy": 0.0,
+   "specificity": 1.0,
+   "harmonic": 0.0,
+   "gate": null
+  },
+  {
+   "delta_embed": 1.0,
+   "qa_acc": 0.74,
+   "efficacy": 0.10909090909090913,
+   "specificity": 1.0,
+   "harmonic": 0.1967213114754099,
+   "gate": null
+  },
+  {
+   "delta_embed": 2.0,
+   "qa_acc": 0.62,
+   "efficacy": 0.3272727272727274,
+   "specificity": 0.9710144927536231,
+   "harmonic": 0.48954739192206226,
+   "gate": null
+  },
+  {
+   "delta_embed": 5.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.40000000000000013,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.5639913232104123,
+   "gate": null
+  },
+  {
+   "delta_embed": 10.0,
+   "qa_acc": 0.58,
+   "efficacy": 0.40000000000000013,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.5639913232104123,
+   "gate": null
+  },
+  {
+   "delta_embed": 50.0,
+   "qa_acc": 0.62,
+   "efficacy": 0.3272727272727274,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.48760158366326334,
+   "gate": null
+  },
+  {
+   "delta_embed": 100.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.2909090909090909,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.44606476517263566,
+   "gate": null
+  },
+  {
+   "delta_embed": 200.0,
+   "qa_acc": 0.64,
+   "efficacy": 0.2909090909090909,
+   "specificity": 0.9558823529411766,
+   "harmonic": 0.44606476517263566,
+   "gate": null
+  }
+ ]
+}

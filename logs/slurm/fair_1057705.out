@@ -1,0 +1,21 @@
+[fair] method=ml_sep concepts: Gun
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.69s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.13it/s]
+[22:44:53] ml_sep Gun delta=0.5: k=5 tokens=157 mmlu 0.52 qa 0.86 simdom 0.74 (44s)
+[22:45:36] ml_sep Gun delta=1.0: k=5 tokens=157 mmlu 0.52 qa 0.78 simdom 0.74 (43s)
+[22:46:19] ml_sep Gun delta=2.0: k=5 tokens=157 mmlu 0.52 qa 0.66 simdom 0.72 (43s)
+[22:47:02] ml_sep Gun delta=5.0: k=5 tokens=157 mmlu 0.52 qa 0.54 simdom 0.68 (43s)
+[22:47:44] ml_sep Gun delta=10.0: k=5 tokens=157 mmlu 0.52 qa 0.60 simdom 0.68 (42s)
+[22:48:35] ml_sep Gun delta=50.0: k=5 tokens=157 mmlu 0.52 qa 0.64 simdom 0.72 (52s)
+[22:49:31] ml_sep Gun delta=100.0: k=5 tokens=157 mmlu 0.52 qa 0.60 simdom 0.72 (56s)
+[22:50:30] ml_sep Gun delta=200.0: k=5 tokens=157 mmlu 0.52 qa 0.62 simdom 0.70 (59s)
+[22:50:34] ml_sep Gun: pick delta=5.0 harmonic=0.659
+[22:57:42] ml_sep Gun final at delta=5.0: edit check OK, MMLU test 0.553

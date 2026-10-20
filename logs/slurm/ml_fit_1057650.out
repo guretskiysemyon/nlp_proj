@@ -1,0 +1,38 @@
+[ml_fit] langs=fr rank=100 concepts=18 data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+[ml_fit] git f2da4cb
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.44s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.42s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.87s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 308, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 105, in main
+    act_generator = ActivationGenerator(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 87, in __init__
+    _split_model_across_devices(self.model)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 51, in _split_model_across_devices
+    model.embed.to(first)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.20 GiB. GPU 0 has a total capacity of 10.57 GiB of which 968.00 MiB is free. Process 3244865 has 9.47 GiB memory in use. Including non-PyTorch memory, this process has 154.00 MiB memory in use. Of the allocated memory 0 bytes is allocated by PyTorch, and 0 bytes is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer

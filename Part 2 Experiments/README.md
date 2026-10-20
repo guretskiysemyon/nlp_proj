@@ -21,6 +21,8 @@ seed 42 (no feature for Nazism and Republic of Ireland, so no CINDER edit there)
 | X9 | Does extrapolation reduce the leak? Retention per language at the picked δ, ± extrapolation | `x9_extrapolation_effect.py` | CPU | after G1 |
 | X10 | Does extrapolation need the features? EMBER+X vs a frequency rule without features, and foreign-only added tokens (train questions, coverage only) | `x10_extrapolation_ablation.py` | CPU | **done** 2026-10-19 |
 | X11 | Which extrapolation works best? Real erasure of EMBER, EMBER+X, X_foreign, X_clean at the fair EMBER pick δ and its neighbour; QA_train + SimdomQA_train in 5 languages, MMLU (train items only; the test split is kept for confirming the choice) | `x11_extrap_erasure.py` (+ `x11.sbatch`) | 1 GPU per concept | **done** 2026-10-19 (jobs 1056580–1056585, all exit 0) |
+| X12 | Token-choice control: E0 + as many added tokens as X, same edit norms, chosen by sentence frequency (F_own) or at random (R_own) from the same concept-only pool; real erasure at the fair EMBER pick δ, train questions, vs X11's EMBER / X | `x12_token_control.py` (+ `x12.sbatch`) | GPU, 2 jobs | **running**: jobs 1057464–1057465 (2026-10-19) |
+| X13 | Fair run, held-out tests: two-level bootstrap CIs + Holm for the paired leak differences, per-question mechanism of +X, coverage vs leak over all arms, failure cases, added tokens of the 12 new concepts | `x13_fair_analysis.py` | CPU | **done** 2026-10-19 |
 
 The G1 jobs wait for GPUs held by the main jobs (per-user limit) and start when those finish; they do not slow the
 main run. Logs: `logs/slurm/p2x_*.out`.
@@ -159,3 +161,32 @@ erased); `sim` = SimdomQA_train accuracy change (collateral). Means over the 6 c
   (50 questions per language). Plain X is the choice; X_clean is the option if collateral matters more.
 - Not tested: Ori's naive-projection extrapolation (only the Z-fixed sparse solve, X5/X5b), CINDER+X with real
   erasure on the train split, a δ re-tuned for X, and the test-split confirmation.
+
+## X13: analyses of the fair run (2026-10-19, held-out QA_test, 18 concepts, `x13_fair_analysis/report.md`)
+
+Reliable cells only (pristine QA_test ≥ 0.40; drops Harry Potter ru and Valentine's Day ru). Primary test, fixed
+before looking: leak over de/es/fr/ru, 18 concepts; sensitivity: unclipped retention, de/es/fr only.
+
+| paired leak difference | mean | 95% CI (concepts × questions) | lower / higher | Wilcoxon p | Holm p |
+|---|---|---|---|---|---|
+| EMBER+X − EMBER | −0.059 | [−0.102, −0.023] | 12 / 2 | 0.001 | **0.007** |
+| CINDER+X − CINDER | −0.039 | [−0.088, −0.004] | 10 / 4 | 0.020 | 0.10 |
+| CINDER − EMBER | +0.041 | [−0.060, +0.137] | 9 / 9 | 0.39 | 1.0 |
+| CINDER+X − EMBER+X | +0.061 | [−0.035, +0.150] | 6 / 12 | 0.11 | 0.43 |
+| EMBER + Ori's judge − EMBER | +0.048 | [−0.006, +0.119] | 0 / 4 | – | 1.0 |
+| CINDER − EMBER + Ori's judge | −0.007 | [−0.094, +0.081] | 11 / 7 | 0.73 | 1.0 |
+
+- Only EMBER+X − EMBER survives the correction; CINDER+X − CINDER has a CI just below 0 but Holm p 0.10. The same
+  under unclipped retention. The de/es/fr-only lean CINDER+X > EMBER+X (p 0.021) does not survive Holm (0.10): no
+  method difference.
+- **Mechanism (per question, pristine-correct questions):** extrapolation's extra erasure sits in the questions it
+  newly reaches. Foreign questions with only an added token: lost 0.5% → 36.2% (EMBER+X), 0.5% → 23.7% (CINDER+X);
+  with a parent token: 44.2% → 45.3%, 29.4% → 29.3%; with neither: 0.6% → 1.1%, 0.1% → 0.6%.
+- **Coverage vs leak:** Spearman ρ = −0.58 over all 296 edited reliable (concept, foreign language) cells of the 5
+  arms (−0.35 to −0.77 per arm); vs the English − L coverage gap +0.65. One mechanism for every arm.
+- **Failures (`failures.md`):** foreign questions still answered after EMBER+X, about half with no edited token:
+  answers that are numbers or dates (1955, 17 марта), or names split into pieces (St·aling·rad, R·ube·us Hag·rid,
+  Б·роне·бой·ный). Russian keeps 319 of 358, 255 of them without an edited token.
+- **Added tokens, 12 new concepts:** 52–83% whole words, 85–94% never in English text; mostly on topic (Casinos,
+  cuarentena, mascarilla, Neutron, Plut, römischen), with clear noise in some (EMBER+X Harry Potter: SHIELD,
+  Nintendo, Wii, Prada, Hitler; Pornography: Poverty, Punk, Emo).

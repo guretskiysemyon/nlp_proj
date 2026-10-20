@@ -1,0 +1,339 @@
+[ml_fit] langs=es rank=100 concepts=18 data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+/var/spool/slurmd/job1057691/slurm_script: line 47: git: command not found
+[ml_fit] git 
+index, name, memory.total [MiB]
+0, NVIDIA TITAN Xp, 12288 MiB
+1, NVIDIA TITAN Xp, 12288 MiB
+2, NVIDIA TITAN Xp, 12288 MiB
+3, NVIDIA TITAN Xp, 12288 MiB
+4, NVIDIA TITAN Xp, 12288 MiB
+5, NVIDIA TITAN Xp, 12288 MiB
+6, NVIDIA TITAN Xp, 12288 MiB
+7, NVIDIA TITAN Xp, 12288 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [02:32<02:32, 152.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:42<00:00, 68.73s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:42<00:00, 81.35s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model google/gemma-2-2b-it into HookedTransformer
+
+================================================================================
+[CONCEPT] Culture of Greece
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:   7%|▋         | 8/120 [00:00<00:01, 78.60it/s]Extracting token IDs:  28%|██▊       | 34/120 [00:00<00:00, 180.96it/s]Extracting token IDs:  49%|████▉     | 59/120 [00:00<00:00, 211.09it/s]Extracting token IDs:  71%|███████   | 85/120 [00:00<00:00, 229.37it/s]Extracting token IDs:  92%|█████████▏| 110/120 [00:00<00:00, 236.34it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 219.86it/s]
+
+[RUN] concept='Culture of Greece' | rank=100
+--> Starting embedding track
+Iter    0: loss=38016136.000000  (best=38016136.000000, no_improve=0)
+Iter   50: loss=32962664.000000  (best=32962664.000000, no_improve=0)
+Iter   97: loss=32929278.000000  (best=32929278.000000, no_improve=1)
+Iter   99: loss=32929272.000000  (best=32929272.000000, no_improve=1)
+Iter  100: loss=32929268.000000  (best=32929268.000000, no_improve=0)
+Iter  102: loss=32929262.000000  (best=32929262.000000, no_improve=1)
+Iter  113: loss=32929256.000000  (best=32929256.000000, no_improve=1)
+Iter  150: loss=32929256.000000  (best=32929256.000000, no_improve=38)
+Iter  200: loss=32929256.000000  (best=32929256.000000, no_improve=88)
+Iter  250: loss=32929256.000000  (best=32929256.000000, no_improve=138)
+Iter  300: loss=32929256.000000  (best=32929256.000000, no_improve=188)
+Iter  350: loss=32929256.000000  (best=32929256.000000, no_improve=238)
+Iter  400: loss=32929256.000000  (best=32929256.000000, no_improve=288)
+Iter  450: loss=32929256.000000  (best=32929256.000000, no_improve=338)
+Iter  500: loss=32929256.000000  (best=32929256.000000, no_improve=388)
+Iter  550: loss=32929256.000000  (best=32929256.000000, no_improve=438)
+Iter  600: loss=32929256.000000  (best=32929256.000000, no_improve=488)
+Stopping early at iter 612 (no improvement in 500 iters)
+[TIMING] Embedding track: 6.2s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Golf
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  22%|██▎       | 27/120 [00:00<00:00, 260.71it/s]Extracting token IDs:  45%|████▌     | 54/120 [00:00<00:00, 251.82it/s]Extracting token IDs:  67%|██████▋   | 80/120 [00:00<00:00, 249.69it/s]Extracting token IDs:  89%|████████▉ | 107/120 [00:00<00:00, 254.76it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 259.08it/s]
+
+[RUN] concept='Golf' | rank=100
+--> Starting embedding track
+Iter    0: loss=31730342.000000  (best=31730342.000000, no_improve=0)
+Iter   34: loss=27480448.000000  (best=27479470.000000, no_improve=1)
+Iter   50: loss=27452018.000000  (best=27452018.000000, no_improve=0)
+Iter   58: loss=27447300.000000  (best=27447294.000000, no_improve=1)
+Iter   80: loss=27433422.000000  (best=27433422.000000, no_improve=1)
+Iter  100: loss=27433422.000000  (best=27433422.000000, no_improve=21)
+Iter  150: loss=27434628.000000  (best=27433422.000000, no_improve=71)
+Iter  200: loss=27434010.000000  (best=27433422.000000, no_improve=121)
+Iter  250: loss=27434004.000000  (best=27433422.000000, no_improve=171)
+Iter  300: loss=27434004.000000  (best=27433422.000000, no_improve=221)
+Iter  350: loss=27434004.000000  (best=27433422.000000, no_improve=271)
+Iter  400: loss=27434004.000000  (best=27433422.000000, no_improve=321)
+Iter  450: loss=27434004.000000  (best=27433422.000000, no_improve=371)
+Iter  500: loss=27434004.000000  (best=27433422.000000, no_improve=421)
+Iter  550: loss=27434004.000000  (best=27433422.000000, no_improve=471)
+Stopping early at iter 579 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.2s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Republic of Ireland
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  29%|██▉       | 35/120 [00:00<00:00, 346.27it/s]Extracting token IDs:  58%|█████▊    | 70/120 [00:00<00:00, 301.88it/s]Extracting token IDs:  84%|████████▍ | 101/120 [00:00<00:00, 296.61it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 305.45it/s]
+
+[RUN] concept='Republic of Ireland' | rank=100
+--> Starting embedding track
+Iter    0: loss=36756884.000000  (best=36756884.000000, no_improve=0)
+Iter   37: loss=31774514.000000  (best=31773864.000000, no_improve=1)
+Iter   50: loss=31742534.000000  (best=31742534.000000, no_improve=0)
+Iter   59: loss=31731784.000000  (best=31731130.000000, no_improve=1)
+Iter   74: loss=31702932.000000  (best=31702778.000000, no_improve=1)
+Iter   79: loss=31699930.000000  (best=31699016.000000, no_improve=1)
+Iter   82: loss=31699028.000000  (best=31698532.000000, no_improve=1)
+Iter   94: loss=31691238.000000  (best=31688444.000000, no_improve=1)
+Iter   98: loss=31686252.000000  (best=31686190.000000, no_improve=1)
+Iter  100: loss=31684162.000000  (best=31684162.000000, no_improve=0)
+Iter  113: loss=31676050.000000  (best=31675922.000000, no_improve=1)
+Iter  117: loss=31675396.000000  (best=31675252.000000, no_improve=1)
+Iter  120: loss=31675066.000000  (best=31675032.000000, no_improve=1)
+Iter  124: loss=31675126.000000  (best=31674978.000000, no_improve=1)
+Iter  130: loss=31674280.000000  (best=31673758.000000, no_improve=1)
+Iter  150: loss=31675868.000000  (best=31673758.000000, no_improve=21)
+Iter  200: loss=31674560.000000  (best=31673758.000000, no_improve=71)
+Iter  250: loss=31674554.000000  (best=31673758.000000, no_improve=121)
+Iter  300: loss=31674560.000000  (best=31673758.000000, no_improve=171)
+Iter  350: loss=31674554.000000  (best=31673758.000000, no_improve=221)
+Iter  400: loss=31674560.000000  (best=31673758.000000, no_improve=271)
+Iter  450: loss=31674560.000000  (best=31673758.000000, no_improve=321)
+Iter  500: loss=31674554.000000  (best=31673758.000000, no_improve=371)
+Iter  550: loss=31674554.000000  (best=31673758.000000, no_improve=421)
+Iter  600: loss=31674560.000000  (best=31673758.000000, no_improve=471)
+Stopping early at iter 629 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.6s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Ancient Rome
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  21%|██        | 25/120 [00:00<00:00, 245.43it/s]Extracting token IDs:  44%|████▍     | 53/120 [00:00<00:00, 264.42it/s]Extracting token IDs:  69%|██████▉   | 83/120 [00:00<00:00, 276.87it/s]Extracting token IDs:  95%|█████████▌| 114/120 [00:00<00:00, 288.51it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 280.40it/s]
+
+[RUN] concept='Ancient Rome' | rank=100
+--> Starting embedding track
+Iter    0: loss=34387680.000000  (best=34387680.000000, no_improve=0)
+Iter   37: loss=29840080.000000  (best=29839290.000000, no_improve=1)
+Iter   50: loss=29805112.000000  (best=29805112.000000, no_improve=0)
+Iter   58: loss=29795638.000000  (best=29794140.000000, no_improve=1)
+Iter  100: loss=29792046.000000  (best=29792046.000000, no_improve=0)
+Iter  106: loss=29791342.000000  (best=29791342.000000, no_improve=1)
+Iter  109: loss=29791336.000000  (best=29791336.000000, no_improve=1)
+Iter  150: loss=29791336.000000  (best=29791336.000000, no_improve=42)
+Iter  200: loss=29791336.000000  (best=29791336.000000, no_improve=92)
+Iter  250: loss=29791336.000000  (best=29791336.000000, no_improve=142)
+Iter  300: loss=29791336.000000  (best=29791336.000000, no_improve=192)
+Iter  350: loss=29791336.000000  (best=29791336.000000, no_improve=242)
+Iter  400: loss=29791336.000000  (best=29791336.000000, no_improve=292)
+Iter  450: loss=29791336.000000  (best=29791336.000000, no_improve=342)
+Iter  500: loss=29791336.000000  (best=29791336.000000, no_improve=392)
+Iter  550: loss=29791336.000000  (best=29791336.000000, no_improve=442)
+Iter  600: loss=29791336.000000  (best=29791336.000000, no_improve=492)
+Stopping early at iter 608 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.4s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Baseball
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  28%|██▊       | 33/120 [00:00<00:00, 325.56it/s]Extracting token IDs:  55%|█████▌    | 66/120 [00:00<00:00, 289.61it/s]Extracting token IDs:  80%|████████  | 96/120 [00:00<00:00, 284.92it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 299.36it/s]
+
+[RUN] concept='Baseball' | rank=100
+--> Starting embedding track
+Iter    0: loss=33898764.000000  (best=33898764.000000, no_improve=0)
+Iter   50: loss=29432734.000000  (best=29432734.000000, no_improve=0)
+Iter   72: loss=29414904.000000  (best=29414692.000000, no_improve=1)
+Iter   80: loss=29410878.000000  (best=29410810.000000, no_improve=1)
+Iter   83: loss=29410746.000000  (best=29410602.000000, no_improve=1)
+Iter   92: loss=29401976.000000  (best=29401950.000000, no_improve=1)
+Iter   97: loss=29401696.000000  (best=29401658.000000, no_improve=1)
+Iter  100: loss=29401854.000000  (best=29401658.000000, no_improve=4)
+Iter  106: loss=29401414.000000  (best=29401394.000000, no_improve=1)
+Iter  150: loss=29401442.000000  (best=29401394.000000, no_improve=45)
+Iter  186: loss=29400938.000000  (best=29400938.000000, no_improve=1)
+Iter  189: loss=29400928.000000  (best=29400928.000000, no_improve=1)
+Iter  191: loss=29400922.000000  (best=29400922.000000, no_improve=1)
+Iter  193: loss=29400916.000000  (best=29400916.000000, no_improve=1)
+Iter  195: loss=29400912.000000  (best=29400912.000000, no_improve=1)
+Iter  197: loss=29400906.000000  (best=29400906.000000, no_improve=1)
+Iter  200: loss=29400906.000000  (best=29400906.000000, no_improve=4)
+Iter  203: loss=29400900.000000  (best=29400900.000000, no_improve=1)
+Iter  206: loss=29400896.000000  (best=29400896.000000, no_improve=1)
+Iter  224: loss=29400890.000000  (best=29400890.000000, no_improve=1)
+Iter  250: loss=29400890.000000  (best=29400890.000000, no_improve=27)
+Iter  300: loss=29400890.000000  (best=29400890.000000, no_improve=77)
+Iter  350: loss=29400890.000000  (best=29400890.000000, no_improve=127)
+Iter  400: loss=29400890.000000  (best=29400890.000000, no_improve=177)
+Iter  450: loss=29400890.000000  (best=29400890.000000, no_improve=227)
+Iter  500: loss=29400890.000000  (best=29400890.000000, no_improve=277)
+Iter  550: loss=29400890.000000  (best=29400890.000000, no_improve=327)
+Iter  600: loss=29400890.000000  (best=29400890.000000, no_improve=377)
+Iter  650: loss=29400890.000000  (best=29400890.000000, no_improve=427)
+Iter  700: loss=29400890.000000  (best=29400890.000000, no_improve=477)
+Stopping early at iter 723 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.7s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Uranium
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  24%|██▍       | 29/120 [00:00<00:00, 282.41it/s]Extracting token IDs:  48%|████▊     | 58/120 [00:00<00:00, 274.51it/s]Extracting token IDs:  73%|███████▎  | 88/120 [00:00<00:00, 281.79it/s]Extracting token IDs:  98%|█████████▊| 118/120 [00:00<00:00, 285.64it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 282.79it/s]
+
+[RUN] concept='Uranium' | rank=100
+--> Starting embedding track
+Iter    0: loss=33456142.000000  (best=33456142.000000, no_improve=0)
+Iter   45: loss=28986446.000000  (best=28986400.000000, no_improve=1)
+Iter   50: loss=28976658.000000  (best=28976658.000000, no_improve=0)
+Iter   62: loss=28964164.000000  (best=28963968.000000, no_improve=1)
+Iter   82: loss=28945450.000000  (best=28945398.000000, no_improve=1)
+Iter   85: loss=28944784.000000  (best=28944468.000000, no_improve=1)
+Iter  100: loss=28944778.000000  (best=28944468.000000, no_improve=16)
+Iter  150: loss=28944794.000000  (best=28944468.000000, no_improve=66)
+Iter  200: loss=28944794.000000  (best=28944468.000000, no_improve=116)
+Iter  250: loss=28944794.000000  (best=28944468.000000, no_improve=166)
+Iter  300: loss=28944794.000000  (best=28944468.000000, no_improve=216)
+Iter  350: loss=28944794.000000  (best=28944468.000000, no_improve=266)
+Iter  400: loss=28944794.000000  (best=28944468.000000, no_improve=316)
+Iter  450: loss=28944794.000000  (best=28944468.000000, no_improve=366)
+Iter  500: loss=28944794.000000  (best=28944468.000000, no_improve=416)
+Iter  550: loss=28944794.000000  (best=28944468.000000, no_improve=466)
+Stopping early at iter 584 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.3s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Harry Potter
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  22%|██▎       | 27/120 [00:00<00:00, 263.53it/s]Extracting token IDs:  47%|████▋     | 56/120 [00:00<00:00, 276.09it/s]Extracting token IDs:  71%|███████   | 85/120 [00:00<00:00, 282.10it/s]Extracting token IDs:  96%|█████████▌| 115/120 [00:00<00:00, 289.08it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 284.17it/s]
+
+[RUN] concept='Harry Potter' | rank=100
+--> Starting embedding track
+Iter    0: loss=34096280.000000  (best=34096280.000000, no_improve=0)
+Iter   46: loss=29526726.000000  (best=29526318.000000, no_improve=1)
+Iter   49: loss=29524710.000000  (best=29524690.000000, no_improve=1)
+Iter   50: loss=29525194.000000  (best=29524690.000000, no_improve=2)
+Iter   56: loss=29519674.000000  (best=29519080.000000, no_improve=1)
+Iter   60: loss=29518974.000000  (best=29518974.000000, no_improve=1)
+Iter   64: loss=29518614.000000  (best=29518306.000000, no_improve=1)
+Iter  100: loss=29519680.000000  (best=29518306.000000, no_improve=37)
+Iter  150: loss=29519702.000000  (best=29518306.000000, no_improve=87)
+Iter  200: loss=29519702.000000  (best=29518306.000000, no_improve=137)
+Iter  250: loss=29519702.000000  (best=29518306.000000, no_improve=187)
+Iter  300: loss=29519702.000000  (best=29518306.000000, no_improve=237)
+Iter  350: loss=29519702.000000  (best=29518306.000000, no_improve=287)
+Iter  400: loss=29519702.000000  (best=29518306.000000, no_improve=337)
+Iter  450: loss=29519702.000000  (best=29518306.000000, no_improve=387)
+Iter  500: loss=29519702.000000  (best=29518306.000000, no_improve=437)
+Iter  550: loss=29519702.000000  (best=29518306.000000, no_improve=487)
+Stopping early at iter 563 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.3s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Cannabis
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  25%|██▌       | 30/120 [00:00<00:00, 290.57it/s]Extracting token IDs:  50%|█████     | 60/120 [00:00<00:00, 281.61it/s]Extracting token IDs:  77%|███████▋  | 92/120 [00:00<00:00, 294.98it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 303.36it/s]
+
+[RUN] concept='Cannabis' | rank=100
+--> Starting embedding track
+[SKIP] Embedding track already done for 'Cannabis'.
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Gambling
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  18%|█▊        | 21/120 [00:00<00:00, 202.88it/s]Extracting token IDs:  40%|████      | 48/120 [00:00<00:00, 237.68it/s]Extracting token IDs:  72%|███████▎  | 87/120 [00:00<00:00, 303.38it/s]Extracting token IDs:  98%|█████████▊| 118/120 [00:00<00:00, 299.26it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 284.39it/s]
+
+[RUN] concept='Gambling' | rank=100
+--> Starting embedding track
+Iter    0: loss=35802944.000000  (best=35802944.000000, no_improve=0)
+Iter   50: loss=31131250.000000  (best=31131250.000000, no_improve=0)
+Iter   51: loss=31131916.000000  (best=31131250.000000, no_improve=1)
+Iter   64: loss=31119466.000000  (best=31119374.000000, no_improve=1)
+Iter   73: loss=31117352.000000  (best=31117352.000000, no_improve=1)
+Iter   86: loss=31116508.000000  (best=31116280.000000, no_improve=1)
+Iter  100: loss=31114258.000000  (best=31114258.000000, no_improve=0)
+Iter  112: loss=31114172.000000  (best=31113986.000000, no_improve=1)
+Iter  127: loss=31111540.000000  (best=31111540.000000, no_improve=1)
+Iter  150: loss=31111546.000000  (best=31111540.000000, no_improve=24)
+Iter  200: loss=31111546.000000  (best=31111540.000000, no_improve=74)
+Iter  250: loss=31111546.000000  (best=31111540.000000, no_improve=124)
+Iter  300: loss=31111546.000000  (best=31111540.000000, no_improve=174)
+Iter  350: loss=31111546.000000  (best=31111540.000000, no_improve=224)
+Iter  400: loss=31111546.000000  (best=31111540.000000, no_improve=274)
+Iter  450: loss=31111546.000000  (best=31111540.000000, no_improve=324)
+Iter  500: loss=31111546.000000  (best=31111540.000000, no_improve=374)
+Iter  550: loss=31111546.000000  (best=31111540.000000, no_improve=424)
+Iter  600: loss=31111546.000000  (best=31111540.000000, no_improve=474)
+Stopping early at iter 626 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.5s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Gun
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  24%|██▍       | 29/120 [00:00<00:00, 281.59it/s]Extracting token IDs:  49%|████▉     | 59/120 [00:00<00:00, 287.99it/s]Extracting token IDs:  75%|███████▌  | 90/120 [00:00<00:00, 297.36it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 298.04it/s]
+
+[RUN] concept='Gun' | rank=100
+--> Starting embedding track
+[SKIP] Embedding track already done for 'Gun'.
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Pornography
+================================================================================
+[DATA] languages=es | samples=600
+Extracting token IDs:   0%|          | 0/120 [00:00<?, ?it/s]Extracting token IDs:  18%|█▊        | 22/120 [00:00<00:00, 213.15it/s]Extracting token IDs:  41%|████      | 49/120 [00:00<00:00, 244.35it/s]Extracting token IDs:  66%|██████▌   | 79/120 [00:00<00:00, 267.51it/s]Extracting token IDs:  94%|█████████▍| 113/120 [00:00<00:00, 294.37it/s]Extracting token IDs: 100%|██████████| 120/120 [00:00<00:00, 278.61it/s]
+
+[RUN] concept='Pornography' | rank=100
+--> Starting embedding track
+Iter    0: loss=39014100.000000  (best=39014100.000000, no_improve=0)
+Iter   50: loss=33884332.000000  (best=33884332.000000, no_improve=0)
+Iter   51: loss=33884392.000000  (best=33884332.000000, no_improve=1)
+Iter   66: loss=33869636.000000  (best=33869608.000000, no_improve=1)
+Iter   74: loss=33869096.000000  (best=33869080.000000, no_improve=1)
+Iter   84: loss=33868764.000000  (best=33868764.000000, no_improve=1)
+Iter  100: loss=33868804.000000  (best=33868764.000000, no_improve=17)
+Iter  150: loss=33868804.000000  (best=33868764.000000, no_improve=67)
+Iter  200: loss=33868804.000000  (best=33868764.000000, no_improve=117)
+Iter  250: loss=33868804.000000  (best=33868764.000000, no_improve=167)
+Iter  300: loss=33868804.000000  (best=33868764.000000, no_improve=217)
+Iter  350: loss=33868804.000000  (best=33868764.000000, no_improve=267)
+Iter  400: loss=33868804.000000  (best=33868764.000000, no_improve=317)
+Iter  450: loss=33868804.000000  (best=33868764.000000, no_improve=367)
+Iter  500: loss=33868804.000000  (best=33868764.000000, no_improve=417)
+Iter  550: loss=33868804.000000  (best=33868764.000000, no_improve=467)
+Stopping early at iter 583 (no improvement in 500 iters)
+[TIMING] Embedding track: 2.5s
+--> Skipping MLP track (--skip-mlp)
+
+================================================================================
+[CONCEPT] Valentine's Day
+================================================================================
+[DATA] languages=es | samples=576
+Extracting token IDs:   0%|          | 0/116 [00:00<?, ?it/s]Extracting token IDs:  28%|██▊       | 32/116 [00:00<00:00, 317.13it/s]Extracting token IDs:  55%|█████▌    | 64/116 [00:00<00:00, 293.24it/s]Extracting token IDs:  81%|████████  | 94/116 [00:00<00:00, 290.89it/s]Extracting token IDs:  99%|█████████▉| 115/116 [00:00<00:00, 288.51it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 308, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/ember/train_mf_features.py", line 135, in main
+    token_ids_all, sample_ids, labels_all = extract_token_ids_sample_ids_and_labels(dataset, act_generator)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/external/snmf/llm_utils/activation_generator.py", line 399, in extract_token_ids_sample_ids_and_labels
+    for n, label in zip(num_non_padding, labels):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/.venv/lib/python3.12/site-packages/torch/_tensor.py", line 1185, in __iter__
+    raise TypeError("iteration over a 0-d tensor")
+TypeError: iteration over a 0-d tensor

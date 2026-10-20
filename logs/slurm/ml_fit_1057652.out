@@ -1,0 +1,15 @@
+[ml_fit] langs=en+ru+de+es+fr rank=500 concepts=18 data=experiments/multilingual_fit/data_v2 outdir=mf_outputs/rank_search
+/var/spool/slurmd/job1057652/slurm_script: line 47: git: command not found
+[ml_fit] git 
+index, name, memory.total [MiB]
+0, NVIDIA TITAN Xp, 12288 MiB
+1, NVIDIA TITAN Xp, 12288 MiB
+2, NVIDIA TITAN Xp, 12288 MiB
+3, NVIDIA TITAN Xp, 12288 MiB
+4, NVIDIA TITAN Xp, 12288 MiB
+5, NVIDIA TITAN Xp, 12288 MiB
+6, NVIDIA TITAN Xp, 12288 MiB
+7, NVIDIA TITAN Xp, 12288 MiB
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+WARNING:root:You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]slurmstepd: error: *** JOB 1057652 ON s-003 CANCELLED AT 2026-10-19T21:53:07 ***

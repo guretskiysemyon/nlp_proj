@@ -1,0 +1,23 @@
+[fair] method=ml_sep concepts: Halloween
+index, name, memory.total [MiB]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+4, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+5, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+6, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+7, NVIDIA GeForce RTX 2080 Ti, 11264 MiB
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/cinder/fair.py", line 636, in <module>
+    main()
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/cinder/fair.py", line 626, in main
+    run(a.method, a.concepts or [a.concept], a.deltas)
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/cinder/fair.py", line 497, in run
+    if not kept_features(method, concept):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/cinder/fair.py", line 111, in kept_features
+    raise FileNotFoundError(p)
+FileNotFoundError: /home/morg/NLP_2526b/semyong/EMBER-Embedding-Erasure/mf_outputs/ml_sep/google_gemma-2-2b-it/interpretations/rank100/seed42/Halloween/embedding/potential_features.csv
