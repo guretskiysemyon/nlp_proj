@@ -425,3 +425,108 @@ GEMINI_BUDGET_NIS = 32 for these jobs (23.49 spent before). Reported per variant
   near the development δ = 1 rate (0–1 of 20).
 - Alpaca seed 42: coherence 0.97–0.98 at every point (none below 0.9), paper-rule points included. H4 paired vs
   EMBER: CINDER-z +0.140 (7/0), CINDER-RS-z +0.064, CINDER −0.015, CINDER-RS −0.032. Gemini 8.33 NIS.
+
+## Amendment 11 (2026-10-21, evening): word-free efficacy and integrity-gated selection (post hoc; one day left)
+
+Written before either result exists. The powered CINDER-z test on new concepts does not fit in the remaining day
+(only 3 unused concepts have efficacy questions), so both checks reuse the 60 expansion runs.
+1. **Word-free efficacy.** New efficacy questions per concept (blind Claude writers, 60 drafts each) that avoid every
+   token edited by any variant at any seed of that concept, kept only if (a) no question or option contains such a
+   token id (tokenizer check) and (b) the unedited model answers correctly (option order seed 42). Plus the
+   existing qa_test items that contain none of the (run, variant)'s edited token ids. Efficacy_wf = 1 −
+   normalized accuracy on these items, at the collateral-rule and paper-rule points. Endpoints: efficacy_wf per
+   variant; paired CINDER-z − EMBER on efficacy_wf and on H3v with efficacy_wf (unit = concept, Wilcoxon).
+   Question: does each method's efficacy survive when the edited words are absent?
+2. **E3, integrity-gated selection.** T1 copy (2 carriers, ≤ 60 words) at every grid point with r ≤ 2.5; points
+   above have copy ≈ 0 (F9) and are excluded. Rule: the collateral rule (MMLU ≥ 0.9, collateral ≥ 0.8, max H3v on
+   validation) restricted to points with copy ≥ 0.9; test pass at that point (`result_e3.json`). Endpoints: paired
+   H3v vs EMBER as amendment 8 (Holm over 4), edit rate under the gate, exclusive-word copy at the selected point.
+   Prediction (S2): CINDER variants beat EMBER under E3.
+No Gemini.
+
+## Amendment 13 (2026-10-21, night): the nonce-matching edit (post hoc; defined after amendment 11)
+
+Written before any evaluation result of this method exists. Motivation: embedding edits only block access through the
+edited tokens (the output head is untied, so prompts without them are unchanged). The achievable target is "the
+concept tokens become unknown but intact words": the nonce reference (copy 1.00, T3 destruction 0.06, mostly
+CONFAB / IGNORANT) at efficacy near the nonce floor. All methods at r ≈ 1 reach the floor's efficacy only by
+destroying the words (copy 0.40–0.44, T3 destruction 0.49–0.61).
+
+**Method.** Only the edited rows change: e'_t = e_t + Δ_t (TL-scaled space), Δ_t learned with the model frozen.
+Loss = w_f · forget + copy + retain + 1e-3 · Σ‖Δ_t‖² / ‖e_t‖².
+- forget: KL(unedited model with the token replaced by its nonce ‖ edited model with the token), at every position
+  from the token on (top-64 + rest approximation of the target), on (i) concept sentences containing the token (the
+  SNMF training data of the concept, not evaluation data) and (ii) 3 new definitional chat prompts (not the T3 prompt),
+  teacher-forcing the unedited model's greedy answer to the nonce prompt.
+- copy: KL(unedited ‖ edited) on the response to 4 new copy carriers with a new instruction (not the evaluation's two
+  carriers or instruction), teacher-forcing the unedited model's greedy answer.
+- retain: multi-meaning tokens only; KL(unedited ‖ edited) from the token on, on 3 sentences per token that the unedited
+  model writes with the word in a sense unrelated to the concept.
+- Never trained on: the collateral question sets, qa / simdom / MMLU items, the COPY carriers, the ASK prompt, the
+  neutral generation prompts.
+
+**Variants** (seed 42, 12 expansion concepts; a variant with an empty set does not edit):
+NM-CINDER (CINDER-z token set; Δ_t in the span of that set's concept components, rank ≤ number of concept features),
+NM-free (CINDER-z token set; Δ_t unconstrained), NM-EMBER (EMBER's set and subspace).
+**Knob:** w_f ∈ {0.5, 2, 8}; fixed steps and learning rate, tuned on one pilot run (Baseball s42, training loss and
+copy only; no evaluation metric used).
+**Selection** (validation, as E3): MMLU-frac ≥ 0.9, validation collateral ≥ 0.8, copy (COPY carriers) ≥ 0.9, max
+validation H3v. Test pass at the selected point (`result_nm.json`).
+
+**Endpoints.** Primary: nonce-point attainment per run = test efficacy ≥ (per-run nonce floor of the set − 0.05) and
+copy ≥ 0.9 and test collateral ≥ 0.8; attainment rate per variant. Secondary: paired test H3v vs the E3-selected
+EMBER and CINDER-z (unit = concept, Wilcoxon), exclusive-word copy, echo and context-MC (judge-free), T3 destruction
+vs the nonce reference and generation broken rate at the selected points (seed 42, blind labels).
+**Predictions.** (a) NM-CINDER reaches the nonce point in most runs where it edits. (b) NM-free ≥ NM-CINDER.
+(c) NM-EMBER edits fewer runs (empty sets) and is no better where it edits. No Gemini.
+
+**Note (2026-10-21, 21:30): amendment 11 item 1 stopped early (by construction).** The model loader unties Gemma's
+lm_head (`ember/erasure/model_loader.py`), so every edit changes input rows only. A prompt with no edited token id
+runs exactly as in the unedited model, so word-free efficacy is 0 unless the MC frame contains an edited token. A CPU
+check finds none of the frame's 34 token ids in any of the 255 run-variant edit sets. The word-free jobs were stopped
+after 9 run-variants (Golf s44, Gun s43) confirmed it: accuracy on 43–51 new items and 4–6 old items equals the
+unedited model at both the collateral-rule and the paper-rule point (efficacy 0.000 in all 18 configs).
+
+## Amendment 12 (2026-10-21, 21:30): Alpaca coherence at the E3 points (user-approved, about 6 NIS)
+
+Written before any E3 result exists. Alpaca coherence (50 prompts, the development scorer) at seed 42's E3 point
+(amendment 11 item 2) of each of the 5 variants that edit under E3. A point equal to the collateral-rule or
+paper-rule point reuses that score. Reported: coherence per variant, H4 = HM(efficacy, specificity, coherence,
+collateral) under E3, and paired H4 vs EMBER on seed 42 (descriptive). Gemini hard stop GEMINI_BUDGET_NIS = 38 for
+these jobs (31.82 spent before). Prediction: coherence ≥ 0.95 at every E3 point (smaller r than the collateral rule).
+
+**Amendment 13 addendum (2026-10-21, 22:15; after the pilot, before any efficacy or collateral result).** The pilot
+(Baseball s42, training losses and evaluation-carrier copy only) showed the rank-≤3 CINDER subspace barely lowers the
+forget loss, while the free edit does (KL 2.70 → 0.28, copy 0.98) at a large move (r = 3.5 at w_f = 0.5). Changes:
+(1) variant NM-free-EMBER (EMBER's token set, unconstrained Δ) added, so NM-free (CINDER-z set) vs NM-free-EMBER
+isolates the token set; (2) the knob path is w_f = 0.05 → 0.15 → 0.5 → 2 (120, 60, 60, 60 steps), adding weaker forget
+weights that keep r near or below 1, so the selection can find points with collateral ≥ 0.8. Grid rows report r,
+validation collateral and copy per knob. Prediction for the token set: NM-free ≥ NM-free-EMBER, and NM-free edits more
+runs.
+
+**Amendment 13 addendum 2 (2026-10-21, 23:00; before any result of the variant below).** Follow-up variant
+**NM-QA**: NM-free on the CINDER-z set plus forget data from concept questions written by the unedited model itself
+(3 per token: "Write 3 short quiz questions about {concept} that use the word '{w}'"), target = the unedited model's
+greedy answer to the nonce version of each question (KL per answer position, as the definitional prompts). Questions
+that match any qa / simdom / collateral item exactly or nearly (difflib ratio ≥ 0.8 after normalisation, or word
+Jaccard ≥ 0.6, or word containment ≥ 0.8, added before any data was generated) are dropped. Same knob path and selection, learning rate 0.003 (instead of 0.01) so r can stay near 1.
+**Launch rule:** NM-QA runs only if, in at least 2 of the first 3 concepts completed by NM-free, the selected point's
+test efficacy is below its nonce floor by more than 0.1. **Scoring caveat:** NM-QA trains on the efficacy test's format
+(held-out items), so it is judged on the other formats as well (copy, T3, generation, echo, context-MC); an efficacy
+gain without them is not the nonce point.
+
+**Addendum 2 launch (2026-10-22, 00:05).** First 3 NM-free concepts (test efficacy vs nonce floor): Baseball 0.05 vs
+0.51, Cannabis 0.34 vs 0.52, COVID-19 0.00 vs 0.00. Rule met (2 of 3 below by > 0.1); NM-QA submitted to start at
+01:30 (GPU share).
+
+**Results of amendment 11 (2026-10-22; last_mile.md, doc F36–F38 and D19).**
+- Word-free efficacy: 0 by construction (untied output head; frame tokens never edited), confirmed on 9 run-variants
+  at both points (efficacy 0.000 in 18 configs); jobs stopped early (note above).
+- E3 (copy ≥ 0.9): paired H3v vs EMBER CINDER +0.096, CINDER-RS +0.092, CINDER-z +0.029, CINDER-RS-z +0.026 (Holm p
+  0.42, 0.42, 0.75, 0.75): not significant. Intention-to-treat (post hoc, amendment 9's definition): +0.134, +0.166,
+  +0.053, +0.063 (Holm 0.015, 0.006, 0.33, 0.33). Efficacy at the E3 point 0.06 (EMBER), 0.12, 0.14, 0.07, 0.07;
+  exclusive-word copy 0.94–0.98. Prediction (CINDER variants beat EMBER under E3): supported in direction for CINDER
+  and CINDER-RS, significant only under intention-to-treat; not for A3z.
+- Context damage at the collateral-rule point (existing E2 outputs, post hoc): context-MC below the real-word
+  reference for CINDER-z (9 of 11 concepts, p 0.024) and CINDER-RS-z (10 of 12, p 0.003), not for EMBER, CINDER or
+  CINDER-RS.
