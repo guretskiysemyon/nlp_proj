@@ -1,0 +1,292 @@
+{
+ "115": {
+  "tokens": [
+   "ึ้",
+   "ลง",
+   "ไว",
+   "ไป",
+   "ออก",
+   " ไป",
+   "ู่",
+   "มา",
+   "่อไป",
+   "มาก",
+   "ันออก",
+   "ัว",
+   " ม",
+   "ใส",
+   "มาร",
+   "ไปย",
+   " Ré",
+   "ลงท",
+   "วไป",
+   "มาย"
+  ],
+  "description": "This feature vector represents common Thai script characters, diacritics, and short word fragments.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "145": {
+  "tokens": [
+   "otine",
+   "pine",
+   "คล",
+   " sal",
+   "arde",
+   "แท",
+   " คล",
+   "แทน",
+   "ote",
+   " ร",
+   "ังคม",
+   "ot",
+   "ante",
+   "iss",
+   "ูแล",
+   "ระยะ",
+   "าก",
+   "แรง",
+   "โ",
+   "ัวอย"
+  ],
+  "description": "This vector fires on sub-word character n-grams and mixed-script fragments across multiple languages without a unified semantic theme.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "39": {
+  "tokens": [
+   " ส",
+   "ส",
+   "์ส",
+   "ีส",
+   "้ส",
+   "็นส",
+   "งส",
+   "นส",
+   "ัดส",
+   "าส",
+   "ับส",
+   "อส",
+   "้าส",
+   "และส",
+   "การส",
+   "ในส",
+   "่าส",
+   "ิส",
+   "ักส",
+   "่อส"
+  ],
+  "description": "This feature vector activates strongly on the Thai letter 'ส' (So Suea) and common Thai words or sub-word tokens beginning or ending with it.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "160": {
+  "tokens": [
+   "ความ",
+   " ความ",
+   "ีความ",
+   "ับความ",
+   "วาม",
+   "ความร",
+   "ความค",
+   "ระยะ",
+   " contre",
+   "agn",
+   "แนว",
+   "เอก",
+   "จร",
+   "ักษณะ",
+   "ักส",
+   "ประสบ",
+   "ประส",
+   "้ว",
+   "เศรษฐ",
+   "เพลง"
+  ],
+  "description": "This vector activates on common Thai noun prefixes, morphemes, and recurring subwords found in abstract terminology.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "59": {
+  "tokens": [
+   "ผ",
+   " ผ",
+   "้ผ",
+   "็นผ",
+   "ีผ",
+   "าผ",
+   "ับผ",
+   "ของผ",
+   "แผ",
+   "เผ",
+   "มาก",
+   "ฉ",
+   " ฉ",
+   "เค",
+   "หญ",
+   "่วง",
+   "ญ",
+   "เหต",
+   "้าหน",
+   "ิทธ"
+  ],
+  "description": "These tokens represent fragments of common Thai words and syllables used in natural language text processing.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "102": {
+  "tokens": [
+   "ัว",
+   " foi",
+   "ออก",
+   "610",
+   "ลง",
+   "ุ่",
+   "ี่",
+   " é",
+   "ูน",
+   "ิธ",
+   "ใต",
+   "ัวร",
+   "สาม",
+   "รด",
+   "าอ",
+   "179",
+   "ุม",
+   "ิ่",
+   "177",
+   "178"
+  ],
+  "description": "This feature vector activates on a random assortment of unrelated characters, numbers, and sub-word tokens from various non-English scripts, likely serving as noise or padding.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "109": {
+  "tokens": [
+   "าต",
+   "าส",
+   "าท",
+   "าค",
+   "าก",
+   "า",
+   "าจ",
+   "าอ",
+   "าน",
+   "าด",
+   "าพ",
+   "าช",
+   "าร",
+   "าม",
+   "าซ",
+   " perman",
+   "าล",
+   "à¸²à¸",
+   "าว",
+   "าป"
+  ],
+  "description": "This vector represents Thai script characters and associated encoding artifacts.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "110": {
+  "tokens": [
+   "ใน",
+   " ใน",
+   "์ใน",
+   "งใน",
+   "ในช",
+   "้ใน",
+   "ในส",
+   "ในร",
+   "ในท",
+   "ในว",
+   "ในป",
+   "ในการ",
+   "ายใน",
+   "ภายใน",
+   "สำหร",
+   " สำหร",
+   "ระหว",
+   "ใต",
+   "ใกล",
+   "์,"
+  ],
+  "description": "This feature vector represents Thai locational and relational prepositions, particularly words meaning \"in,\" \"within,\" or \"among.\"",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "35": {
+  "tokens": [
+   "La",
+   " La",
+   " la",
+   " le",
+   "Des",
+   " des",
+   " du",
+   " l",
+   " de",
+   " en",
+   " Da",
+   "las",
+   " Un",
+   "The",
+   " lég",
+   " fr",
+   " et",
+   "L",
+   " the",
+   "l"
+  ],
+  "description": "This feature vector activates on common French and English grammatical articles, prepositions, and high-frequency function words.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "94": {
+  "tokens": [
+   " Bri",
+   "ปล",
+   " ล",
+   "Jac",
+   "ล",
+   "ri",
+   "ูล",
+   "าล",
+   "ิ",
+   "ภาษ",
+   "์ล",
+   "l",
+   "L",
+   " l",
+   "โรง",
+   "สาว",
+   "ุ",
+   "ใต",
+   "ลาด",
+   "โด"
+  ],
+  "description": "This vector activates on various Thai script characters, sub-word tokens, and Latin letters related to Thai language text.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}

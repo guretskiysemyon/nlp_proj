@@ -24,38 +24,58 @@ Test score = mean over eligible languages of H_L = HM(efficacy, specificity, flu
 | Heroin | — | — | — | — |
 | Halloween | — | — | — | — |
 | Artificial intelligence | 0.16 [0.22] δ2 | 0.00* (0.48) [0.00] δ10 | 0.32 [0.33] δ200 | 0.00* (0.52) [0.00] δ10 |
+| French Revolution | — | — | — | — |
+| Tuberculosis | — | — | 0.12 δ5 | 0.11 δ1 |
+| Cricket | 0.56 δ100 | — | — | — |
+| Buddhism | 0.02 δ1 | — | 0.10 δ100 | 0.67 δ100 |
+| Plutonium | — | — | 0.41 δ10 | 0.31 δ5 |
+| Judaism | 0.07 δ2 | — | 0.29 δ50 | 0.00* (0.64) δ5 |
+| Karate | 0.00 δ0 | — | — | — |
+| Existentialism | 0.47 δ5 | — | — | — |
+| Prime number | 0.00 δ0 | — | 0.16 δ200 | 0.52 δ10 |
+| The Matrix | — | — | — | — |
+| Louvre | — | — | — | — |
+| American Revolutionary War | 0.56 δ100 | — | — | — |
+| Robot | 0.57 δ5 | 0.80 δ50 | 0.35 δ100 | 0.70 δ5 |
+| Sigmund Freud | — | — | — | — |
+| Giraffe | — | — | — | — |
+| Surfing | 0.50 δ5 | — | 0.31 δ200 | 0.76 δ5 |
+| Flush toilet | — | — | — | — |
+| Cloud | 0.00* (0.17) δ50 | — | 0.04 δ2 | 0.08 δ1 |
+| Doctor of Philosophy | 0.18 δ5 | — | 0.38 δ50 | 0.75 δ10 |
+| Tourism | 0.29 δ2 | 0.00* (0.63) δ50 | 0.12 δ200 | 0.32 δ2 |
 
 ## Summary
 
 | | A1 | A2 | A3 | A3z |
 |---|---|---|---|---|
-| concepts finished | 18 | 18 | 18 | 18 |
-| concepts with an edit | 14 | 8 | 11 | 11 |
-| mean test score, all 18 (no edit = 0) | 0.350 | 0.196 | 0.170 | 0.257 |
-| mean v2 score, all 18 | 0.344 | 0.194 | 0.166 | 0.253 |
+| concepts finished | 38 | 38 | 38 | 38 |
+| concepts with an edit | 26 | 10 | 21 | 21 |
+| mean test score, all 18 (no edit = 0) | 0.251 | 0.114 | 0.141 | 0.232 |
+| mean v2 score, all 18 | partial | partial | partial | partial |
 
-Shared concepts for A1/A2/A3 (n=8: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence): A1 0.492, A2 0.442, A3 0.278; wins A1 5, A2 2, A3 1
+Shared concepts for A1/A2/A3 (n=10: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence, Robot, Tourism): A1 0.479, A2 0.434, A3 0.269; wins A1 6, A2 3, A3 1
 
-Shared concepts for A1/A2/A3/A3z (n=8: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence): A1 0.492, A2 0.442, A3 0.278, A3z 0.404; wins A1 2, A2 1, A3 1, A3z 4
+Shared concepts for A1/A2/A3/A3z (n=10: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence, Robot, Tourism): A1 0.479, A2 0.434, A3 0.269, A3z 0.425; wins A1 2, A2 2, A3 1, A3z 5
 
-Shared concepts for A2/A3z (n=8: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence): A2 0.442, A3z 0.404; wins A2 4, A3z 4
+Shared concepts for A2/A3z (n=10: Culture of Greece, Baseball, Harry Potter, Gambling, Gun, Pornography, COVID-19 pandemic, Artificial intelligence, Robot, Tourism): A2 0.434, A3z 0.425; wins A2 5, A3z 5
 
-Shared concepts for A3/A3z (n=11: Culture of Greece, Baseball, Uranium, Harry Potter, Cannabis, Gambling, Gun, Pornography, COVID-19 pandemic, Nazism, Artificial intelligence): A3 0.279, A3z 0.420; wins A3 2, A3z 9
+Shared concepts for A3/A3z (n=21: Culture of Greece, Baseball, Uranium, Harry Potter, Cannabis, Gambling, Gun, Pornography, COVID-19 pandemic, Nazism, Artificial intelligence, Tuberculosis, Buddhism, Plutonium, Judaism, Prime number, Robot, Surfing, Cloud, Doctor of Philosophy, Tourism): A3 0.255, A3z 0.421; wins A3 5, A3z 16
 
 ## Efficacy per language at the chosen δ (mean over concepts with an edit, test)
 
 | | en | de | fr | it | pt | hi | es | th |
 |---|---|---|---|---|---|---|---|---|
-| A1 | 0.48 | 0.32 | 0.31 | 0.40 | 0.34 | 0.06 | 0.30 | 0.09 |
-| A2 | 0.72 | 0.28 | 0.29 | 0.43 | 0.36 | 0.08 | 0.40 | 0.19 |
-| A3 | 0.21 | 0.16 | 0.13 | 0.15 | 0.13 | 0.02 | 0.16 | 0.09 |
-| A3z | 0.65 | 0.41 | 0.44 | 0.53 | 0.47 | 0.08 | 0.44 | 0.15 |
+| A1 | 0.40 | 0.30 | 0.27 | 0.32 | 0.28 | 0.03 | 0.26 | 0.06 |
+| A2 | 0.77 | 0.37 | 0.43 | 0.46 | 0.40 | 0.07 | 0.43 | 0.29 |
+| A3 | 0.21 | 0.14 | 0.14 | 0.14 | 0.12 | 0.01 | 0.17 | 0.06 |
+| A3z | 0.67 | 0.39 | 0.47 | 0.48 | 0.43 | 0.05 | 0.48 | 0.16 |
 
 ## Selection cost per concept (mean)
 
 | | factorizations | rows factorized | ALS iterations | judged candidates |
 |---|---|---|---|---|
-| A1 | 8 | 30,793 | 3,136 | 80 |
-| A2 | 1 | 6,540 | 357 | 10 |
-| A3 | 1 | 6,540 | 355 | 10 |
+| A1 | 8 | 30,598 | 3,119 | 80 |
+| A2 | 1 | 6,474 | 342 | 10 |
+| A3 | 1 | 6,474 | 365 | 10 |
 | A3z | A3's fit + one k×k ridge solve | | | as A3 |

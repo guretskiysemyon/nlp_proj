@@ -135,3 +135,25 @@ in the v2 re-score (which also stores the train-based flag).
 
 Re-scoring it/pt/hi/th on results/ml/data/qa_v2 at the chosen δ changes unit scores by about ±0.03 (largest:
 Republic of Ireland A1 0.33 → 0.24); means over 18 concepts move ≤ 0.006; no ranking changes.
+
+## 11. Held-out confirmation (20 new concepts, pre-registered)
+
+See RESULTS.md "Held-out confirmation". H2 (A3z > A3) is confirmed on the new concepts and over all 38
+(+0.17 strict, 16–5, Wilcoxon p = 0.007). Where A2 and A3z both edit they are equal (H3 not supported); CINDER's
+advantage is coverage: A2 edits 2 of 20 new concepts, A3/A3z 10. Counting coverage, A3z beats A2 (p ≈ 0.01) and
+ties per-language EMBER (A1) at 1/8 of its selection cost.
+
+## 12. Coverage is seed-robust; the union over seeds nearly reaches A1
+
+Fit seeds 42 / 1 / 2 on all 38 concepts (selection only, results/ml/seeds/COVERAGE.md): concepts with an edit
+A1 26 / 24 / 28, A2 10 / 9 / 12, A3 21 / 17 / 20. A2's collapse is structural (generic language/grammar features pass
+ρ ≥ 2 and are correctly rejected by the judge), not a bad draw. Which concepts get an edit still flips between seeds
+for all approaches; the union over three seeds edits 31 (A1), 13 (A2), 29 (A3) concepts — seed-union selection
+would close most of CINDER's coverage gap to A1 (not evaluated).
+
+## 13. Admissible-δ failures and the shared usage log
+
+Two A1 units (Karate, Prime number) find features but fail a gate already at δ = 0.5, so no δ is admissible (score
+0). Separately, the Gemini usage log on NFS was NUL-padded by concurrent appends from several hosts; all 24,789
+records were recovered by stripping NULs (a few may be lost; total ≈ 17 NIS). Future runs should log per job and
+merge.

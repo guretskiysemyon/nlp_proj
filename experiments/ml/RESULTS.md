@@ -110,6 +110,80 @@ Evaluation, 1–4 GPU-hours per unit, costs the same for every approach. Total G
 - **Protocol deviations from EMBER's code:** a perplexity fluency gate instead of Alpaca, the δ sweep stops at the
   first gated δ, and the eligibility cutoff is computed from the split's own baseline (PLAN, OBSERVATIONS).
 
+## Held-out confirmation: 20 new concepts, 38 pooled (2026-10-21)
+
+Pre-registered in [PREREG_NEW.md](PREREG_NEW.md) before any data for the new concepts existed. The protocol is
+identical to the 18-concept run. The 18 enter the pooled numbers with their v2 (cleaned-question) scores. Full
+tables are in `results/ml/PREREG_RESULTS.md` (`python -m experiments.ml.analyze_prereg`) and
+`results/ml/seeds/COVERAGE.md`.
+
+Test score per new concept ("—" = no edit; \* = gated on test):
+
+| Concept | A1 | A2 | A3 | A3z |
+|---|---|---|---|---|
+| Robot | 0.57 | **0.80** | 0.35 | 0.70 |
+| Surfing | 0.50 | — | 0.31 | **0.76** |
+| Doctor of Philosophy | 0.18 | — | 0.38 | **0.75** |
+| Buddhism | 0.02 | — | 0.10 | **0.67** |
+| Prime number | 0† | — | 0.16 | **0.52** |
+| Cricket | **0.56** | — | — | — |
+| American Revolutionary War | **0.56** | — | — | — |
+| Existentialism | **0.47** | — | — | — |
+| Plutonium | — | — | **0.41** | 0.31 |
+| Tourism | 0.29 | 0\* (0.63) | 0.12 | **0.32** |
+| Judaism | 0.07 | — | **0.29** | 0\* |
+| Tuberculosis | — | — | **0.12** | 0.11 |
+| Cloud | 0\* | — | 0.04 | **0.08** |
+| Karate | 0† | — | — | — |
+| French Revolution, The Matrix, Louvre, Sigmund Freud, Giraffe, Flush toilet | — | — | — | — |
+
+† A1 found features, but its edit fails a gate already at δ = 0.5 on validation, so no δ is admissible (score 0).
+Exact values for every unit are in `results/ml/REPORT_tables.md`.
+
+| | A1 | A2 | A3 | A3z |
+|---|---|---|---|---|
+| New 20: concepts with an edit | **12** | 2 | 10 | 10 |
+| New 20: mean strict / ungated | 0.162 / 0.170 | 0.040 / 0.071 | 0.114 / 0.114 | **0.210 / 0.243** |
+| All 38: concepts with an edit | **26** | 10 | 21 | 21 |
+| All 38: mean strict / ungated | **0.248** / 0.252 | 0.113 / 0.143 | 0.139 / 0.139 | 0.231 / **0.282** |
+| Coverage over fit seeds 42 / 1 / 2 (union) | 26 / 24 / 28 (31) | 10 / 9 / 12 (13) | 21 / 17 / 20 (29) | as A3 |
+
+Pre-registered hypotheses, all 38 concepts, strict score; mean difference [bootstrap 95% CI], wins–losses,
+Wilcoxon p (ungated in parentheses):
+
+| | n | Difference | Wins–losses | p | Verdict |
+|---|---|---|---|---|---|
+| **H1:** A2 − A1, concepts both edit | 10 | −0.051 [−0.156, +0.057] (+0.063) | 3–7 | 0.38 | **Partly supported.** The gap is about 0.05 and the CI includes 0, but A2 edits only 10 concepts. On the new 20 it cannot be tested (n = 2). |
+| **H2:** A3z − A3, concepts A3 edits | 21 | **+0.166 [+0.054, +0.268]** (+0.259) | 16–5 (19–2) | **0.007** (<0.001) | **Confirmed.** It also holds on the new 20 alone: +0.19 [+0.03, +0.35], 7–3, p = 0.06 (ungated +0.26, p = 0.014). |
+| **H3:** A3z − A2, concepts all four edit | 10 | −0.005 [−0.22, +0.17] (+0.011) | 5–4 | 0.73 | **Not supported:** no difference where both edit. |
+| A3z − A2, concepts either edits | 21 | **+0.213 [+0.053, +0.366]** (+0.252) | 15–4 | **0.011** (0.004) | **A3z is better, through coverage.** On the new 20: +0.34, 8–1, p = 0.012. |
+| A3z − A1, concepts either edits | 29 | −0.023 [−0.156, +0.110] (+0.039) | 15–13 | 0.78 | **Tie.** |
+
+**What the confirmation shows.**
+
+1. **The A3z fix generalizes.** On unseen concepts, the original-space edit beats the mapped-back one, and over all
+   38 concepts the effect is large and significant. This is the most solid result of the study.
+2. **CINDER's advantage is coverage, not per-concept strength.** Where A2 and A3z both edit, they are equal.
+   A2's selection collapses on unseen concepts: it edits 2 of 20, against 10 for CINDER. Across 3 fit seeds A2 edits
+   9–12 of 38 concepts and CINDER 17–21, so the gap is not a seed accident. Counting coverage, A3z clearly beats
+   multilingual EMBER (p ≈ 0.01).
+3. **A3z matches per-language EMBER** at 1/8 of its selection cost. The means are within 0.02 strict over 38
+   concepts, and A3z is ahead ungated (0.28 vs 0.25). A1 still edits more concepts (26 vs 21). Taking the union of
+   CINDER's selections over 3 fit seeds (29 concepts) would close most of that gap; this union has not been
+   evaluated.
+4. **Gates that pass on validation and fail on test** occur for every approach. There are 6 cases (A1 Cloud, A2
+   AI and Tourism, A3z AI, Pornography and Judaism), so we report the ungated score alongside the strict one.
+
+**Caveats specific to the new concepts.**
+- The questions were generated with Gemini 3.5 Flash-Lite and verified automatically by a blind verifier, without
+  human review.
+- German, French and Spanish were machine-translated (for the 18 they came from existing sets).
+- The single-language held-out text mentions some new concepts in 2–7 of 100 sentences.
+- The usage log was NUL-padded by concurrent NFS writes. The records were recovered, and the total is about
+  17 NIS, possibly slightly more.
+
+See `results/ml/data/qa_new/MANIFEST.md` and `results/ml/data/SAMPLE.md`.
+
 ## Assessment
 
 A qualified success: a strong pilot, not yet a statistically established claim.

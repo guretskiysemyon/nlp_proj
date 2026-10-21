@@ -1,0 +1,292 @@
+{
+ "89": {
+  "tokens": [
+   "),(",
+   " (((",
+   "((",
+   ")(",
+   "=(",
+   "(n",
+   "(x",
+   "(",
+   ",a",
+   ",n",
+   ")/",
+   " (\\",
+   " (",
+   "}),",
+   "),",
+   ")=",
+   ",\\",
+   "ี,",
+   ",-",
+   "์,"
+  ],
+  "description": "This vector represents punctuation marks, parentheses, and comma characters often used in syntax or formatting.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "198": {
+  "tokens": [
+   ")=",
+   "=\\",
+   "!=",
+   "=",
+   "=r",
+   "=(",
+   "=x",
+   " =",
+   "equiv",
+   "+\\",
+   " (((",
+   " ≤",
+   "+",
+   ">",
+   " ^{",
+   " {\\",
+   "loor",
+   " +",
+   "}-",
+   "arrow"
+  ],
+  "description": "Mathematical symbols, operators, and LaTeX formatting commands.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "107": {
+  "tokens": [
+   "้",
+   "์",
+   "่",
+   "ี่",
+   "ี",
+   "มา",
+   "า",
+   "็น",
+   "่า",
+   "นา",
+   "ς",
+   "ับ",
+   "ัน",
+   "อ",
+   "น",
+   "ῶ",
+   ",-",
+   "าศ",
+   " Dick",
+   ".ศ"
+  ],
+  "description": "This vector activates on Thai script characters, diacritics, and sub-word tokens.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "115": {
+  "tokens": [
+   "}}}",
+   "}},",
+   "}}",
+   "})",
+   ")}",
+   "}),",
+   " })",
+   "},",
+   "}",
+   "}-",
+   "}:",
+   " }",
+   "}\\",
+   "}.",
+   "}{",
+   ")\"",
+   ")/",
+   ")=",
+   " )",
+   "),"
+  ],
+  "description": "This vector activates on closing curly brackets and parentheses, often accompanied by punctuation marks used in code syntax.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "183": {
+  "tokens": [
+   "^{",
+   "^{-",
+   " _{",
+   " ^{",
+   "_{",
+   "^",
+   "{",
+   "{\\",
+   "}{",
+   " {",
+   " {\\",
+   "(",
+   "\\",
+   " −",
+   " (",
+   "}",
+   "-",
+   "Ġ",
+   ")(",
+   "/"
+  ],
+  "description": "This vector activates on mathematical symbols, punctuation, and LaTeX formatting tokens used in equations and expressions.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "160": {
+  "tokens": [
+   "/\\",
+   " {}\\",
+   " {\\",
+   ",\\",
+   " (\\",
+   "+\\",
+   "{\\",
+   "=\\",
+   " \\",
+   "}\\",
+   "\\",
+   "\\t",
+   "ĠâĪ",
+   "Ġâ",
+   " {",
+   "}{",
+   " /",
+   "/",
+   "{",
+   ")/"
+  ],
+  "description": "This feature activates on backslashes, curly braces, and other forward-slash or formatting punctuation characters used in code syntax.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "29": {
+  "tokens": [
+   " pseud",
+   "seud",
+   " hashing",
+   " Eu",
+   "ierre",
+   " Frontier",
+   "ether",
+   "เหต",
+   "display",
+   "ัดส",
+   "ึ",
+   "ื้",
+   "้าร",
+   "สถ",
+   " pr",
+   "ัตว",
+   " ét",
+   "เปอร",
+   "ued",
+   "hash"
+  ],
+  "description": "This feature vector activates on mixed-script character sequences and word fragments, particularly involving pseudonyms, hashing terms, and multilingual text segments.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "144": {
+  "tokens": [
+   " ม",
+   "ม",
+   "่ม",
+   "นม",
+   "์ม",
+   "้ม",
+   "งม",
+   "าม",
+   "อม",
+   "และม",
+   "้าม",
+   "ันม",
+   "ีม",
+   "่าม",
+   "จะม",
+   "ังม",
+   "็ม",
+   "ับม",
+   "ยม",
+   " μ"
+  ],
+  "description": "This vector activates strongly for the Thai consonant 'ม' (Mo Ma) and related Thai character sequences containing it.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "55": {
+  "tokens": [
+   " ×",
+   "ĠâĪ",
+   " ≤",
+   "Ġâ",
+   " ±",
+   " −",
+   " x",
+   " π",
+   " μ",
+   " X",
+   " ζ",
+   "(x",
+   "=x",
+   " q",
+   "x",
+   " ε",
+   " +",
+   "π",
+   " >",
+   "q"
+  ],
+  "description": "This vector activates on mathematical operators, variables, and Greek letters commonly used in equations.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "153": {
+  "tokens": [
+   " ζ",
+   " ε",
+   " rho",
+   " μ",
+   " π",
+   "ρ",
+   "psilon",
+   "π",
+   " ἀ",
+   " Vegas",
+   "mu",
+   " congr",
+   "eta",
+   "Chicago",
+   "ς",
+   "pi",
+   "θμ",
+   " heuristic",
+   " comm",
+   "武"
+  ],
+  "description": "This feature vector represents Greek letters and their English phonetic spellings.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}

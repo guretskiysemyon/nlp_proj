@@ -1,0 +1,292 @@
+{
+ "164": {
+  "tokens": [
+   " ม",
+   "ม",
+   "์ม",
+   "้ม",
+   "่ม",
+   "นม",
+   "งม",
+   "าม",
+   "และม",
+   "้าม",
+   "อม",
+   "ันม",
+   "ีม",
+   "่าม",
+   "จะม",
+   "ังม",
+   "ับม",
+   " comm",
+   "-M",
+   " M"
+  ],
+  "description": "This feature vector activates strongly on the Thai consonant letter 'ม' (Mo Ma) and related sub-word tokens containing it.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "35": {
+  "tokens": [
+   " ต",
+   "ต",
+   "าต",
+   "นต",
+   "้ต",
+   "็นต",
+   "ันต",
+   "ิดต",
+   "์ต",
+   "การต",
+   "ีต",
+   "่ต",
+   "อต",
+   "งต",
+   "กต",
+   "มต",
+   "้าต",
+   "จะต",
+   "ับต",
+   "่าต"
+  ],
+  "description": "This vector represents the Thai consonant character 'ต' (to tao) and its various character combinations.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "74": {
+  "tokens": [
+   "^{",
+   "^{-",
+   " _{",
+   " ^{",
+   "_{",
+   "^",
+   "{",
+   "{\\",
+   "}{",
+   "equiv",
+   " {",
+   " {}\\",
+   " {\\",
+   "(",
+   "\\",
+   "+",
+   " −",
+   "่าว",
+   ".-",
+   "}"
+  ],
+  "description": "This vector is related to mathematical and logical symbols used in formatted equations.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "198": {
+  "tokens": [
+   "seud",
+   " pseud",
+   " congr",
+   " Eu",
+   "ierre",
+   " ราย",
+   " Euler",
+   "ราย",
+   "มา",
+   "เหต",
+   " Bro",
+   "ether",
+   "โค",
+   "สล",
+   "Let",
+   "ือน",
+   "บร",
+   "้าร",
+   "win",
+   "eur"
+  ],
+  "description": "This vector fires on proper nouns and multilingual name fragments, particularly historical and European names.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "70": {
+  "tokens": [
+   "/\\",
+   " {}\\",
+   " {\\",
+   ",\\",
+   "{\\",
+   " (\\",
+   "+\\",
+   "=\\",
+   " \\",
+   "}\\",
+   "\\",
+   "\\t",
+   "ĠâĪ",
+   "Ġâ",
+   " congr",
+   " {",
+   "}{",
+   "{",
+   "/",
+   " /"
+  ],
+  "description": "This feature vector activates on LaTeX formatting commands, mathematical symbols, and curly brace syntax used in document typesetting.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "111": {
+  "tokens": [
+   "}}}",
+   "}},",
+   "}}",
+   "})",
+   "}),",
+   ")}",
+   " })",
+   "},",
+   "}-",
+   "}:",
+   "}",
+   " }",
+   "}\\",
+   "}.",
+   "}{",
+   ")/",
+   ")=",
+   " )",
+   "),",
+   ")"
+  ],
+  "description": "These tokens represent closing punctuation marks, brackets, and parentheses commonly found at the ends of code blocks or statements.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "156": {
+  "tokens": [
+   "=x",
+   ")=",
+   "=\\",
+   "=r",
+   "=",
+   "=(",
+   "!=",
+   " =",
+   "+i",
+   "+\\",
+   "equiv",
+   "+",
+   " (((",
+   "(x",
+   " +",
+   " ^{",
+   " x",
+   "}-",
+   "x",
+   ">"
+  ],
+  "description": "This vector activates on common mathematical operators and algebraic symbols used in equations.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "14": {
+  "tokens": [
+   " ζ",
+   " μ",
+   " π",
+   " ε",
+   "π",
+   "psilon",
+   "mu",
+   "pi",
+   "eta",
+   "ρ",
+   " z",
+   " q",
+   " x",
+   " k",
+   " b",
+   " t",
+   " r",
+   " c",
+   " p",
+   " n"
+  ],
+  "description": "This vector represents isolated Greek letters and phonetic consonant symbols used in linguistic or mathematical notation.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "176": {
+  "tokens": [
+   "sqrt",
+   "frac",
+   "equiv",
+   "prod",
+   "fty",
+   "sum",
+   "cdot",
+   "loor",
+   "mu",
+   "武",
+   "log",
+   "pi",
+   "pm",
+   "imes",
+   "^{-",
+   "็อต",
+   " ε",
+   "prime",
+   "text",
+   "dot"
+  ],
+  "description": "This feature vector activates strongly on LaTeX mathematical symbols, commands, and formatting tokens used for typesetting equations.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "165": {
+  "tokens": [
+   ",-",
+   ",-",
+   ",.",
+   ",...",
+   ",a",
+   ".-",
+   ",n",
+   ",\\",
+   "),(",
+   "!",
+   "!=",
+   "์,",
+   ",",
+   "!",
+   "...",
+   "ี,",
+   "ี.",
+   ".",
+   ",",
+   "์:"
+  ],
+  "description": "This vector represents punctuation marks and typographic symbols used in text processing.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ }
+}

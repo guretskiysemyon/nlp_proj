@@ -1,0 +1,292 @@
+{
+ "75": {
+  "tokens": [
+   " cette",
+   " ces",
+   " Cette",
+   " cet",
+   " ce",
+   "Cette",
+   "Ce",
+   "-ce",
+   " cela",
+   " cess",
+   " notre",
+   " ses",
+   " leurs",
+   " chaque",
+   " Cer",
+   " mon",
+   "Son",
+   "ces",
+   " cel",
+   "ce"
+  ],
+  "description": "This feature vector activates on French demonstrative and possessive determiners and pronouns.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "164": {
+  "tokens": [
+   "’acc",
+   "’int",
+   "'acc",
+   "’app",
+   "'app",
+   "'int",
+   "’av",
+   "'av",
+   "’es",
+   "’aut",
+   "’é",
+   "’ex",
+   "’en",
+   "'ex",
+   "'aut",
+   "'aff",
+   "'é",
+   "'es",
+   "'en",
+   "’est"
+  ],
+  "description": "These tokens represent truncated French words following elided apostrophes (like \"l'\", \"d'\", or \"qu'\").",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "52": {
+  "tokens": [
+   " donc",
+   " également",
+   " ainsi",
+   " surtout",
+   " plutôt",
+   " encore",
+   " notamment",
+   " aussi",
+   " alors",
+   " toujours",
+   " ensuite",
+   " vraiment",
+   " jamais",
+   " seulement",
+   " assez",
+   " bien",
+   " déjà",
+   " beaucoup",
+   " rien",
+   " même"
+  ],
+  "description": "These tokens represent common French adverbial modifiers of degree, time, and logical relation.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "184": {
+  "tokens": [
+   " objet",
+   "objet",
+   "Ge",
+   "jet",
+   " Ge",
+   "jets",
+   " sujet",
+   " ge",
+   "ujet",
+   "object",
+   " object",
+   " obj",
+   " objective",
+   " projet",
+   " objectives",
+   " subjective",
+   "ject",
+   " rej",
+   " jet",
+   " proj"
+  ],
+  "description": "This feature vector represents words and subwords containing or related to the root \"-ject\" (meaning to throw or cast).",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "70": {
+  "tokens": [
+   " celui",
+   " celle",
+   " ceux",
+   " chac",
+   " individ",
+   " parce",
+   " nour",
+   " dess",
+   " cel",
+   "ivid",
+   " sujet",
+   " lieu",
+   " penalty",
+   "ujet",
+   " surtout",
+   "ancement",
+   "'aut",
+   " seulement",
+   " Marcel",
+   " cela"
+  ],
+  "description": "This vector represents French pronouns and demonstrative determiners used to refer to specific individuals, objects, or concepts.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "56": {
+  "tokens": [
+   " Exist",
+   "Exist",
+   "exist",
+   " exist",
+   "existence",
+   " existence",
+   " existe",
+   " existential",
+   "iste",
+   "istes",
+   "istent",
+   "ist",
+   "ista",
+   "isme",
+   "chest",
+   "istance",
+   " correspond",
+   "Effect",
+   " absence",
+   " exig"
+  ],
+  "description": "This feature vector activates on tokens related to the concept of existence, being, and related morphological roots across multiple languages.",
+  "verdict": [
+   true,
+   0.95
+  ]
+ },
+ "132": {
+  "tokens": [
+   " doit",
+   " ait",
+   "agit",
+   " pourrait",
+   "ait",
+   " vient",
+   " soit",
+   " peut",
+   "rait",
+   " serait",
+   " avait",
+   "nit",
+   " faut",
+   "ît",
+   "roit",
+   " veut",
+   "it",
+   " dit",
+   " vit",
+   " peuvent"
+  ],
+  "description": "This vector represents French third-person singular verb forms and suffixes, primarily involving auxiliary and modal verbs.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "47": {
+  "tokens": [
+   " elle",
+   " elles",
+   "'elle",
+   "’elle",
+   " eux",
+   " nous",
+   "'ils",
+   " ils",
+   " lui",
+   "’il",
+   "Nous",
+   "'il",
+   " él",
+   " moi",
+   "’on",
+   " celle",
+   "elles",
+   " She",
+   "'on",
+   " celui"
+  ],
+  "description": "This vector represents personal and demonstrative pronouns across different grammatical cases and languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "1": {
+  "tokens": [
+   "'un",
+   "’un",
+   "'une",
+   "’une",
+   " un",
+   " Un",
+   "Un",
+   " nihil",
+   "un",
+   " une",
+   "-Un",
+   " dernier",
+   " Miguel",
+   " avec",
+   " jun",
+   " brun",
+   " était",
+   " été",
+   "uno",
+   " comme"
+  ],
+  "description": "This feature activates on the French indefinite article \"un\" and \"une,\" as well as similarly spelled subwords and tokens in multilingual or noisy contexts.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "92": {
+  "tokens": [
+   "essential",
+   " essential",
+   "Ess",
+   " ess",
+   " essence",
+   "ordial",
+   "ential",
+   " existential",
+   " important",
+   " immigrant",
+   " tentative",
+   "ensemble",
+   " importante",
+   "Sel",
+   " principal",
+   " dominant",
+   "ital",
+   " util",
+   "gré",
+   " réal"
+  ],
+  "description": "This vector represents core importance, essential nature, or fundamental significance across multiple languages.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ }
+}
