@@ -184,43 +184,33 @@ Wilcoxon p (ungated in parentheses):
 
 See `results/ml/data/qa_new/MANIFEST.md` and `results/ml/data/SAMPLE.md`.
 
-## Assessment
+## Assessment (final, after the held-out confirmation)
 
-A qualified success: a strong pilot, not yet a statistically established claim.
+**Established** (38 concepts, pre-registered tests on 20 unseen concepts):
+- **Whiten to select, edit in the original space.** A3z beats A3 by +0.17 strict (16–5, p = 0.007), and the gain
+  also holds on the unseen concepts alone. The cause is mechanistic: A3's mapped-back edit points into directions
+  layer 0 barely reads. Confidence: high.
+- **CINDER's selection finds concept features where multilingual EMBER does not.** A2 edits 9–12 of 38 concepts
+  across 3 fit seeds, CINDER 17–21. On the unseen concepts A2 edits 2 of 20, CINDER 10. Counting coverage,
+  A3z beats A2 by +0.21 (p ≈ 0.01). Confidence: high.
+- **A single multilingual fit with fixed CINDER matches per-language EMBER** (0.23 vs 0.25 strict, 0.28 vs 0.25
+  ungated, 15–13, p = 0.78) at 1/8 of its selection cost. This is a tie, not a win. Confidence: moderate.
+- **Limits of embedding-only erasure:**
+  - Hindi (and mostly Thai) cannot be erased, because almost no Hindi token is concept-only;
+  - per-concept selection is unstable across fit seeds for every approach;
+  - δ chosen on 50 validation questions sometimes fails a gate on test (6 units).
 
-**Supported:**
-- **A single multilingual fit approaches per-language EMBER.** On the concepts both edit, A2 scores 0.44 vs 0.49 strict (0.50 vs 0.49 ungated), at 1/8 of the selection cost. Confidence: moderate to high.
-- **The whitening diagnosis and the A3z fix.** It is mechanistic, measurable (read gain) and cheap, and it improves A3 on 9 of 11 concepts. Confidence: high for the diagnosis, moderate for the size of the gain.
-- **Two limits of embedding erasure:**
-  - high-fertility scripts (Hindi);
-  - selection instability across fit seeds, which affects EMBER itself.
-
-  Confidence: high.
-
-**Not yet supported:**
-- **Coverage.** A2 edits 8 of 18 concepts, against 14 for A1, and over all 18 A1 wins (0.35 vs 0.20 for A2 and 0.26 for A3z). The pipeline today trades coverage for cost.
-- **The cost argument.** The savings are judge calls and constant cost in the number of languages, not GPU time: fits take seconds, and evaluation dominates.
-- **A3z beating A2 strictly.** Under the strict protocol it does not on the 8 shared concepts (0.40 vs 0.44). It wins ungated (0.56 vs 0.50), by outright concept wins (4 of 8) and by coverage (11 vs 8).
-- **Statistical significance.** With n = 8 shared concepts and one seed:
-  - A3z vs A2, ungated: better on 6 of 8, mean +0.06, sign test p ≈ 0.3;
-  - A2 vs A1: mean −0.05.
-
-  Neither difference is significant.
-- **A3z is post hoc,** and it needs a planned re-run.
-
-**What would make it a strong claim**, in order of value:
-1. Seed-robust selection, which attacks coverage.
-2. 3 seeds per approach, with paired confidence intervals.
-3. A δ margin rule fixed in advance.
-4. A planned re-run of A3z.
-5. An fp16 check and the noise and mean-token baselines.
-
-Items 1–3 take about 2–3 days of our GPU share.
+**Not established:**
+- **A3z vs A2 per concept:** where both edit, they are equal (H3 not supported, n = 10).
+- **A2 within 0.05 of A1 (H1):** consistent with the data but untestable on the new concepts (n = 2).
+- **Scores across seeds:** only selection was replicated; every score is one draw.
+- **The new concepts' questions:** verified automatically, not by a person.
 
 ## Suggested next steps (not run)
 
 1. A δ rule with a margin below the gate, especially for A3z. This needs no new fits, only re-scoring.
-2. Seed-robust selection: union or vote over 3 fit seeds. This also attacks A2/A3z coverage.
+2. Seed-robust selection: union or vote over 3 fit seeds. The selections exist (results/ml/seeds/); the union
+   reaches 29 concepts for CINDER vs 31 for A1. It still needs evaluation, about half a day of GPU time and no Gemini.
 3. The A3z idea on the single-language CINDER ladder (Gemma).
 4. An fp16 confirmation on 2–3 RTX 2080s for 4–5 concepts.
 5. Noise and mean-token baselines, as in the EMBER paper.
