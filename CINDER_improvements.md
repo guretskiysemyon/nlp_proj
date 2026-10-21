@@ -100,6 +100,10 @@ Approach 2 replaces one factorization per language with a single cheap fit. Appr
 - ML-EMBER comes within 0.05 of per-language EMBER on the concepts both edit (0.44 vs 0.49), with 1/8 of the factorizations and judge calls. Per-language EMBER's overall lead (0.35 vs 0.20 over all 18) comes from coverage: it finds features for 14 concepts, ML-EMBER for 8.
 - ML-CINDER as first built trails (0.28 on shared concepts). The cause is the edit, not the selection: mapped back from the whitened space, the edit points into directions the model barely reads.
 - Building the edit in the original space instead, with CINDER's selection kept, fixes this (A3z). It raises ML-CINDER on 9 of 11 concepts and is the best approach on 4 of the 8 shared concepts (6 of 8 if we ignore gates that failed only on test). It has the highest ungated mean there (0.56 vs 0.49–0.50). The lesson for CINDER: **whiten to select, edit in the original space.**
+- **Held-out confirmation** on 20 new concepts, pre-registered with the same protocol, 38 concepts pooled:
+  - The fix generalizes: over 38 concepts it adds +0.17 (16–5, Wilcoxon p = 0.007).
+  - Where ML-EMBER and fixed ML-CINDER both edit, they score the same. CINDER's edge is coverage: ML-EMBER edits only 2 of the 20 new concepts, CINDER 10. This holds across 3 fit seeds (9–12 vs 17–21 of 38 concepts).
+  - Counting coverage, fixed ML-CINDER beats ML-EMBER (p ≈ 0.01) and ties per-language EMBER (0.23 vs 0.25 strict, 0.28 vs 0.25 ungated) at 1/8 of its selection cost.
 
 ---
 
