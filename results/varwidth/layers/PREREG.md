@@ -384,3 +384,44 @@ were random, and cross-agent agreement on 202 duplicates is 0.97 exact and 0.99 
   exclusive words 0.65–0.81; no significant paired difference.
 - Against the development numbers: CINDER-RS − EMBER is +0.03 (development +0.09, +0.01 without the failure run);
   the integrity advantage of CINDER and CINDER-RS (0.21 and 0.19 vs 0.30) is refuted (0.52 and 0.60 vs 0.49).
+
+## Amendment 9 (2026-10-21): last-mile checks (post hoc; defined after the amendment 8 results were seen)
+
+Written before any result of items 2–4 exists. Item 1 was computed while writing this amendment.
+1. **Intention-to-treat primary.** All 60 runs; a variant with no edit set, or no point passing the gates, scores as
+   the unedited model (efficacy 0, so H3v 0). Same unit, test, Holm and bootstrap as amendment 8.
+   **Leave one concept out** for the primary contrast.
+2. **Gate sensitivity.** The collateral rule re-run on the saved grids at gate 0.7 and 0.9 (MMLU gate unchanged),
+   test pass at the new point (`result_g0.7.json`, `result_g0.9.json`); paired as in amendment 8.
+3. **Unreadability floor of efficacy.** The unedited model on the efficacy test questions with each (run, variant)
+   edit set's tokens made unreadable in the text: replaced by a nonce, or removed. Compared with the efficacy at the
+   collateral-rule and paper-rule points. Prediction (the token-destruction thesis): at the paper-rule point, EMBER's
+   and CINDER-z's efficacy is close to the deletion floor; at the collateral-rule point, efficacy is mostly below it.
+4. **Generation damage.** 20 neutral prompts per concept (blind Claude writer, edited multi-meaning tokens in outside
+   meanings), at the concept's first seed where EMBER edits; greedy, 80 tokens; unedited, the 5 variants at their
+   collateral-rule point, EMBER and CINDER-z at the paper-rule point. Blind agents label each answer OK or BROKEN
+   against the unedited answer (D3's rule). Endpoint: broken rate per config. Prediction: paper-rule points break far
+   more prompts than collateral-rule points (development: 3–12 of 20 at δ = 200, 0–1 at δ = 1).
+No Gemini.
+
+## Amendment 10 (2026-10-21): Alpaca coherence on seed 42 (user-approved Gemini extension, about 8 NIS)
+
+Alpaca coherence (50 prompts, the development scorer) at seed 42's collateral-rule point of each variant that edits
+(48 points), and at the paper-rule points of EMBER and CINDER-z (about 19), for H4 = HM(efficacy, specificity,
+coherence, collateral) on one full concept sweep, and for coherence at the destruction regime. Hard stop
+GEMINI_BUDGET_NIS = 32 for these jobs (23.49 spent before). Reported per variant and as paired H4 vs EMBER on seed 42
+(descriptive, 12 concepts × 1 seed). Prediction: coherence ≥ 0.9 at the collateral-rule points; lower at r = 30–100.
+
+**Results of amendments 9 and 10 (2026-10-21; last_mile.md, confirm.md "Sensitivity", doc F30–F35 and D18).**
+- ITT (all 60 runs): CINDER +0.123, CINDER-RS +0.133, CINDER-z +0.167, CINDER-RS-z +0.178 (Holm p 0.103, 0.103,
+  0.103, 0.049). LOO: A3z contrasts p ≤ 0.049 with any concept left out; CINDER and CINDER-RS p 0.08–0.70.
+- Gate 0.9: +0.174, +0.147, +0.195, +0.102 (p 0.004, 0.004, 0.002, 0.014; all below 0.05 after Holm). Gate 0.7:
+  −0.019, −0.041, +0.121, +0.070 (p 0.70, 0.37, 0.07, 0.24).
+- Floor: deletion floor 0.23–0.28. Collateral-rule efficacy 0.29–0.39, at or below the floor in 17–53% of runs.
+  Paper-rule efficacy EMBER 0.47, CINDER-z 0.68, above the floor in 83% and 98% of runs. Prediction for the paper
+  rule (close to the floor) refuted; prediction for the collateral rule (mostly below) not met either (about at it).
+- Generation (9 matched concepts): broken 0.15–0.27 at the collateral-rule points, 0.24 (EMBER) and 0.34 (CINDER-z)
+  at the paper-rule points. Prediction (paper far worse) supported in direction; the collateral-rule points are not
+  near the development δ = 1 rate (0–1 of 20).
+- Alpaca seed 42: coherence 0.97–0.98 at every point (none below 0.9), paper-rule points included. H4 paired vs
+  EMBER: CINDER-z +0.140 (7/0), CINDER-RS-z +0.064, CINDER −0.015, CINDER-RS −0.032. Gemini 8.33 NIS.

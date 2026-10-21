@@ -70,6 +70,17 @@
 | CINDER-z (A3z: CINDER selection, original-space Z) | 0.71 | 0.87 | 0.87 | 0.13 | 0.00 |
 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 0.65 | 0.92 | 0.92 | 0.10 | 0.02 |
 
+## Sensitivity (amendment 9, post hoc)
+
+Intention-to-treat: all 60 runs; a variant with no edit scores as the unedited model (H3v 0). Gates: the collateral rule re-run at gate 0.7 and 0.9 (paired, runs where both edit). LOO: the primary contrast with one concept left out (range of mean and p).
+
+| Variant − EMBER | ITT mean Δ [95% CI] (w/l, p) | gate 0.7 mean Δ (p) | gate 0.9 mean Δ (p) | LOO mean range | LOO p range |
+|---|---|---|---|---|---|
+| CINDER | +0.123 [+0.003, +0.249] (9/3, p 0.092, Holm 0.103) | -0.019 (0.700) | +0.174 (0.004) | +0.028 to +0.057 | 0.084 to 0.375 |
+| CINDER-RS (CS + RS-1% + TWJ) | +0.133 [+0.013, +0.256] (10/2, p 0.042, Holm 0.103) | -0.041 (0.365) | +0.147 (0.004) | +0.008 to +0.058 | 0.160 to 0.695 |
+| CINDER-z (A3z: CINDER selection, original-space Z) | +0.167 [+0.031, +0.305] (10/2, p 0.034, Holm 0.103) | +0.121 (0.067) | +0.195 (0.002) | +0.111 to +0.163 | 0.004 to 0.037 |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | +0.178 [+0.046, +0.310] (11/1, p 0.012, Holm 0.049) | +0.070 (0.240) | +0.102 (0.014) | +0.062 to +0.103 | 0.004 to 0.049 |
+
 ## Secondary: E2 integrity at the selected point (judge-free)
 
 | Variant | copy | echo | runs |

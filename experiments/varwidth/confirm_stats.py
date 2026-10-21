@@ -77,6 +77,42 @@ def contrast(R, v, metric):
     return out
 
 
+def contrast_itt(R, v, metric):
+    """Intention-to-treat (amendment 9): every run counts; a variant with no edit scores as the unedited model
+    (efficacy 0, so H3v 0). Per-concept mean over all seeds of (v - EMBER)."""
+    val = lambda r: r[metric] if edits(r) else 0.0          # noqa: E731
+    x = np.array([np.mean([val(R.get((c, s, v))) - val(R.get((c, s, "sub:ember"))) for s in seeds(c)])
+                  for c in EXPANSION])
+    rng = np.random.default_rng(0)
+    boot = rng.choice(x, (B, len(x)), replace=True).mean(1)
+    return {"n_concepts": len(x), "mean": float(x.mean()), "ci": [float(np.percentile(boot, 2.5)),
+            float(np.percentile(boot, 97.5))], "p": float(wilcoxon(x).pvalue) if np.any(x != 0) else 1.0,
+            "wins": int((x > 0).sum()), "losses": int((x < 0).sum())}
+
+
+def loo(R, v, metric):
+    """Leave one concept out: (dropped concept, mean, p) of the primary contrast."""
+    full = contrast(R, v, metric)["per_concept"]
+    out = []
+    for c in full:
+        x = np.array([m for cc, (m, _) in full.items() if cc != c])
+        out.append((c, float(x.mean()), float(wilcoxon(x).pvalue) if np.any(x != 0) else 1.0))
+    return out
+
+
+def load_gate(g):
+    """Collateral-rule results at another gate (result_g<g>.json; amendment 9)."""
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in EXP_VARIANTS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / f"result_g{g:g}.json"
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    return R
+
+
 def by_variant(R, metric):
     """Mean of a metric per variant over the runs where it edits, and over concept means."""
     out = {}
@@ -206,6 +242,28 @@ def main():
             lines.append(f"| {NAMES[v]} | {fmt(mn[v])} | {fmt(rt[v]['has_set'])} | {fmt(rt[v]['edit_rate'])} | "
                          f"{fmt(rt[v]['fail_rate'])} | {fmt(rt[v]['fail_rate_when_edits'])} |")
         lines.append("")
+    R = load("collateral")
+    lines += ["## Sensitivity (amendment 9, post hoc)", "",
+              "Intention-to-treat: all 60 runs; a variant with no edit scores as the unedited model (H3v 0). Gates: "
+              "the collateral rule re-run at gate 0.7 and 0.9 (paired, runs where both edit). LOO: the primary "
+              "contrast with one concept left out (range of mean and p).", "",
+              "| Variant − EMBER | ITT mean Δ [95% CI] (w/l, p) | gate 0.7 mean Δ (p) | gate 0.9 mean Δ (p) | "
+              "LOO mean range | LOO p range |", "|---|---|---|---|---|---|"]
+    res["sensitivity"] = {}
+    G = {g: load_gate(g) for g in (0.7, 0.9)}
+    itts = {v: contrast_itt(R, v, "H3v_rn") for v in CONTRASTS}
+    adj = holm(np.array([itts[v]["p"] for v in CONTRASTS]))
+    for v, a in zip(CONTRASTS, adj):
+        it = dict(itts[v], p_holm=float(a))
+        gs = {g: contrast(G[g], v, "H3v_rn") if G[g] else {} for g in G}
+        lo = loo(R, v, "H3v_rn")
+        res["sensitivity"][v] = {"itt": it, "gates": gs, "loo": lo}
+        gtxt = [f"{x['mean']:+.3f} ({x['p']:.3f})" if "mean" in x else "pending" for x in gs.values()]
+        lines.append(f"| {NAMES[v]} | {it['mean']:+.3f} [{it['ci'][0]:+.3f}, {it['ci'][1]:+.3f}] ({it['wins']}/"
+                     f"{it['losses']}, p {it['p']:.3f}, Holm {it['p_holm']:.3f}) | {gtxt[0]} | {gtxt[1]} | "
+                     f"{min(m for _, m, _ in lo):+.3f} to {max(m for _, m, _ in lo):+.3f} | "
+                     f"{min(p for _, _, p in lo):.3f} to {max(p for _, _, p in lo):.3f} |")
+    lines.append("")
     I, IC = integrity()
     res["integrity"], res["integrity_contrast"] = I, IC
     lines += ["## Secondary: E2 integrity at the selected point (judge-free)", "",

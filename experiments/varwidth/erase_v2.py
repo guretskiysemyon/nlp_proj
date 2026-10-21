@@ -277,6 +277,8 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
     for v in variant_list(sets):
         d = out_dir(concept, seed, v)
         fname = {"collateral": "result.json", "paper": "result_paper.json", "fixed05": "result_fixed05.json"}[rule]
+        if rule == "collateral" and gate != COLL_GATE:          # gate sensitivity: its own file, result.json untouched
+            fname = f"result_g{gate:g}.json"
         if not (d / "grid.json").exists() or (d / fname).exists():
             continue
         if rule in ("paper", "fixed05") and v not in PAPER_VARIANTS:
@@ -294,7 +296,8 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
             best = next((x for x in rows if x["param"] == 0.5), None)
         res = {"concept": concept, "seed": seed, "variant": v, "gate": gate, "rule": rule}
         par = None if best is None else best["param"]
-        same = [json.loads((d / f).read_text()) for f in ("result.json", "result_paper.json", "result_fixed05.json")
+        same = [json.loads((d / f).read_text()) for f in ("result.json", "result_paper.json", "result_fixed05.json",
+                                                          "result_g0.7.json", "result_g0.9.json")
                 if f != fname and (d / f).exists()]
         same = [x for x in same if x.get("param") == par and "alpaca_instr" not in x]
         if same and v not in alpaca_variants:   # another rule chose the same point: deterministic eval, reuse it
