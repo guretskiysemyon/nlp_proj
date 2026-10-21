@@ -22,26 +22,36 @@ OUT = RESULTS / "seeds"
 APPS = ("A2", "A3")
 
 
-def sdir(concept, seed, approach):
-    return run_dir(concept, approach) if seed == 42 else OUT / f"fs{seed}" / slug(concept) / approach
+def sdir(concept, seed, approach, lang=None):
+    if seed == 42:
+        return run_dir(concept, approach, lang)
+    d = OUT / f"fs{seed}" / slug(concept) / approach
+    return d / lang if lang else d
 
 
 def edited(concept, seed, approach):
-    import torch
+    from experiments.ml.common import LANGS
     from experiments.ml.evaluate import run_edit
+    if approach == "A1":
+        ds = [sdir(concept, seed, "A1", L) for L in LANGS]
+        if not all((d / "selection.json").exists() for d in ds):
+            return None
+        return set().union(*(set(run_edit(d / "fit.pt", d / "selection.json")) for d in ds))
     d = sdir(concept, seed, approach)
     if not (d / "selection.json").exists():
         return None
     return set(run_edit(d / "fit.pt", d / "selection.json"))
 
 
-def run(seed, device):
+def run(seed, device, apps=APPS):
+    from experiments.ml.common import LANGS
     F.SEED = seed
-    F.run_dir = lambda c, a, lang=None: sdir(c, seed, a)
+    F.run_dir = lambda c, a, lang=None: sdir(c, seed, a, lang)
     S.run_dir = F.run_dir
     for c in concepts():
-        for a in APPS:
-            if (sdir(c, seed, a) / "selection.json").exists():
+        for a in apps:
+            last = sdir(c, seed, a, LANGS[-1] if a == "A1" else None)
+            if (last / "selection.json").exists():
                 continue
             F.run(c, a, N=30, device=device)
             S.run(c, a)
@@ -51,23 +61,23 @@ def report():
     import os
     os.environ.setdefault("ML_CONCEPTS", "all")
     seeds = [42] + sorted(int(p.name[2:]) for p in OUT.glob("fs*"))
-    rows, cov = [], {(a, s): 0 for a in APPS for s in seeds}
+    apps = ("A1",) + APPS
+    rows, cov = [], {(a, s): 0 for a in apps for s in seeds}
     for c in concepts():
         cells = []
-        for a in APPS:
+        for a in apps:
             sets = {s: edited(c, s, a) for s in seeds}
             for s in seeds:
                 cov[a, s] += bool(sets[s])
-            n = [len(json.loads((sdir(c, s, a) / "selection.json").read_text())["F_C"]) if sets[s] is not None else "–"
-                 for s in seeds]
+            n = [len(sets[s]) if sets[s] is not None else "–" for s in seeds]
             cells.append("/".join(map(str, n)))
         rows.append(f"| {c} | " + " | ".join(cells) + " |")
     out = ["# Coverage across fit seeds (A2, A3; A3z = A3's selection)", "",
-           f"Selected concept features per fit seed ({', '.join(map(str, seeds))}); 0 = no edit.", "",
-           "| Concept | A2 | A3 / A3z |", "|---|---|---|", *rows, "",
+           f"Edited tokens per fit seed ({', '.join(map(str, seeds))}); 0 = no edit, – = not run.", "",
+           "| Concept | A1 | A2 | A3 / A3z |", "|---|---|---|---|", *rows, "",
            "| Concepts with an edit | " + " | ".join(f"seed {s}" for s in seeds) + " | any seed |",
            "|---|" + "---|" * (len(seeds) + 1)]
-    for a in APPS:
+    for a in apps:
         anys = sum(any(edited(c, s, a) for s in seeds) for c in concepts())
         out.append(f"| {a} | " + " | ".join(str(cov[a, s]) for s in seeds) + f" | {anys} |")
     (OUT / "COVERAGE.md").write_text("\n".join(out) + "\n")
@@ -78,9 +88,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int)
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--apps", nargs="+", default=list(APPS))
     ap.add_argument("--report", action="store_true")
     a = ap.parse_args()
-    report() if a.report else run(a.seed, a.device)
+    report() if a.report else run(a.seed, a.device, a.apps)
 
 
 if __name__ == "__main__":
