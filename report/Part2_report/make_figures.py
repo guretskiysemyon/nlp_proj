@@ -179,7 +179,7 @@ def fig_english(df):
     ax.scatter([], [], s=46, facecolor=BLUE, edgecolor=BLUE, label="both methods edit")
     ax.scatter([], [], s=46, facecolor=SURFACE, edgecolor=BLUE, lw=1.4, label="one method makes no edit (retention 1)")
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=1)
-    save(fig, "fig2_english_retention.png")
+    save(fig, "fig4_english_retention.png")
 
 
 # ---------------------------------------------------------------- figure 3: retention by language, arms
@@ -206,7 +206,7 @@ def fig_retention(df):
     ax.set_title("Concept retention by question language, 18 concepts")
     grid(ax)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=4)
-    save(fig, "fig8_retention_by_language.png")
+    save(fig, "fig2_retention_by_language.png")
 
 
 # ---------------------------------------------------------------- figure 9: paired differences (X14)
@@ -235,7 +235,7 @@ def fig_paired():
     axes[1].scatter([], [], color=BLUE, s=40, label="survives Holm correction (p < 0.05)")
     axes[1].scatter([], [], color=GRAY, s=40, label="does not")
     axes[1].legend(loc="upper center", bbox_to_anchor=(-0.05, -0.2), ncol=2)
-    save(fig, "fig9_paired_leak.png")
+    save(fig, "fig3_paired_differences.png")
 
 
 # ---------------------------------------------------------------- figure 10: all arms, English vs foreign
@@ -290,37 +290,39 @@ def fig_all_arms(df):
         print(f"  {LABEL[r[0]]:20s} ret_en {r[1]:.3f} foreign {r[2]:.3f} leak {r[2]-r[1]:+.3f} no_edit {r[3]}")
 
 
-# ---------------------------------------------------------------- figure 5: touched vs untouched
+# ---------------------------------------------------------------- touched vs untouched (all edited concepts)
 def fig_touched():
-    d = pd.read_csv(P2X / "x8_test_mechanism" / "split.csv")
-    d = d[d.n.notna() & (d.n > 0)].copy()
-    d["correct"] = d.n * d.pristine_acc
-    d["flip"] = d.correct * d["flipped_to_wrong_%"].fillna(0) / 100
-    g = d.groupby(["method", "language", "group"])[["correct", "flip"]].sum()
-    g["rate"] = 100 * g.flip / g.correct
+    """Parent edits (EMBER, CINDER) on the held-out QA_test of every concept they edit, from the question-level records
+    of the extrapolated arms: a question is touched when the parent's edit changes a token of its text or correct answer."""
+    d = pd.read_csv(P2X / "x13_fair_analysis" / "mechanism.csv")
+    d["touched"] = d.group.eq("old")
     fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.1), sharey=True, gridspec_kw={"wspace": 0.08})
     langs = ["en", "de", "es", "fr", "ru"]
-    for ax, m in zip(axes, ["EMBER", "CINDER"]):
-        for j, (grp, col) in enumerate([("touched", BLUE), ("untouched", GRAY)]):
-            vals = [g.loc[(m, l, grp), "rate"] if (m, l, grp) in g.index else np.nan for l in langs]
-            ns = [g.loc[(m, l, grp), "correct"] if (m, l, grp) in g.index else 0 for l in langs]
+    summary = []
+    for ax, (arm, name) in zip(axes, [("ember_x", "EMBER"), ("cinder_x", "CINDER")]):
+        a = d[d.arm == arm]
+        for j, (flag, col, lab) in enumerate([(True, BLUE, "question touched"), (False, GRAY, "question untouched")]):
+            vals, ns = [], []
+            for l in langs:
+                x = a[(a.lang == l) & (a.touched == flag)]
+                vals.append(100 * x.lost_parent.mean() if len(x) else np.nan)
+                ns.append(len(x))
             xs = np.arange(5) + (j - 0.5) * 0.36
             ok = np.array([n >= 10 for n in ns])
-            ax.bar(xs[ok], np.array(vals)[ok], width=0.32, color=col, zorder=3, label=f"question {grp}")
+            ax.bar(xs[ok], np.array(vals)[ok], width=0.32, color=col, zorder=3, label=lab)
             for xx, v, n in zip(xs, vals, ns):
                 if n >= 10:
                     ax.text(xx, v + 1.2, f"{v:.0f}", ha="center", fontsize=7.5, color=INK)
-                else:
-                    ax.text(xx, 1.5, "n<10", ha="center", fontsize=6.6, color=MUTED, rotation=90, va="bottom")
+            summary += [(name, l, "touched" if flag else "untouched", n, v) for l, n, v in zip(langs, ns, vals)]
         ax.set_xticks(range(5), langs)
-        ax.set_title(m)
+        ax.set_title(f"{name} ({a.concept.nunique()} concepts)")
         grid(ax)
     axes[0].set_ylabel("Correct answers turned wrong (%)")
     axes[1].legend(loc="upper right")
     fig.suptitle("The edit only changes questions that contain an edited token", x=0.125, ha="left", y=1.02,
                  fontsize=10, fontweight="bold")
-    save(fig, "fig3_touched_untouched.png")
-    print(g.round(1).to_string())
+    save(fig, "fig5_touched_untouched.png")
+    print(pd.DataFrame(summary, columns=["parent", "lang", "group", "n", "lost%"]).round(1).to_string())
 
 
 # ---------------------------------------------------------------- figure 6: coverage vs leak
@@ -341,7 +343,7 @@ def fig_coverage():
     ax.set_title(f"Less coverage, more leak (Spearman {rho:+.2f})")
     ax.set_xlim(-0.03, 1.03)
     grid(ax, "both")
-    save(fig, "fig4_coverage_leak.png")
+    save(fig, "fig6_coverage_leak.png")
     print(f"  coverage vs leak: n={len(c)}, rank correlation {rho:+.3f}")
     print(b.round(3).to_string())
 
@@ -367,7 +369,7 @@ def fig_extrap_coverage():
     ax.set_title("Extrapolation lets the edit reach foreign questions")
     grid(ax)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=4)
-    save(fig, "fig5_extrapolation_coverage.png")
+    save(fig, "fig7_extrapolation_coverage.png")
 
 
 # ---------------------------------------------------------------- figure 8: mechanism of +X
@@ -394,7 +396,7 @@ def fig_extrap_mechanism():
     axes[1].legend(loc="upper right", ncol=1)
     fig.suptitle("The extra erasure sits in the questions that extrapolation newly reaches", x=0.125, ha="left",
                  y=1.02, fontsize=10, fontweight="bold")
-    save(fig, "fig6_extrapolation_mechanism.png")
+    save(fig, "fig8_extrapolation_mechanism.png")
 
 
 # ---------------------------------------------------------------- figure 9: token control
@@ -421,7 +423,7 @@ def fig_control():
         grid(ax)
     axes[0].set_ylim(0, 1.0)
     axes[1].set_ylim(-0.06, 0.005)
-    save(fig, "fig7_token_control.png")
+    save(fig, "fig9_token_control.png")
 
 
 # ---------------------------------------------------------------- tables for the text
