@@ -24,6 +24,8 @@ STALE = 90 * 60
 
 def has_edit(c, a):
     from experiments.ml.common import LANGS
+    if a.endswith("U"):
+        return json.loads((run_dir(c, a) / "union.json").read_text())["n_edited"] > 0
     sel = [run_dir(c, a, L) / "selection.json" for L in LANGS] if a == "A1" else [run_dir(c, a) / "selection.json"]
     return any(json.loads(p.read_text())["F_C"] for p in sel if p.exists())
 

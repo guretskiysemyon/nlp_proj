@@ -241,6 +241,9 @@ def run_edit(fit_path, sel_path) -> dict:
 
 
 def edits(concept, approach):
+    if approach in ("A1U", "A3zU"):            # seed-union approaches (union.py, PREREG_NEW.md amendment 1)
+        from experiments.ml.union import pooled
+        return pooled(concept, approach)[0], {}
     if approach != "A1":
         d = run_dir(concept, approach)
         return run_edit(d / "fit.pt", d / "selection.json"), {}
