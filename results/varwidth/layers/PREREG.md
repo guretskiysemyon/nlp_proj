@@ -361,3 +361,26 @@ within a concept, then a two-sided Wilcoxon signed-rank test across concepts, pl
 
 **Development numbers it is meant to confirm or refute:** CINDER-RS − EMBER +0.09 overall but +0.01 without the
 failure run; integrity destruction EMBER 0.30 vs CINDER 0.21 and CINDER-RS 0.19.
+
+**Note (2026-10-20): freeze.** `data/collateral_questions_expansion.json` frozen in commit 8423d03, sha256[:16]
+5ba1d287f3b405b1 (12 concepts, 1,026 multi-meaning tokens, 3,501 items), before any edited model was scored on it.
+
+**Note (2026-10-21): deviations.** (1) E2 integrity is measured at the selected point only, the endpoint named above;
+the extra configs at r = 0.5 were dropped for time (two early runs have them; unused). (2) Variants with an empty edit
+set are skipped (no result file), as "runs where both edit" implies. (3) The finals reuse another rule's test result
+when that rule chose the same point (deterministic evaluation). (4) The T3 brief left two cases open (same-referent
+proper nouns without a concept link; hedged look-alike corrections), and the agents resolved them differently; batches
+were random, and cross-agent agreement on 202 duplicates is 0.97 exact and 0.99 on destruction.
+
+**Results (2026-10-21; confirm.md, CINDER_collateral_evaluation.md D17 and F24–F29).**
+- Primary (collateral rule, paired H3v vs EMBER, 11 concepts): CINDER +0.042 (CI −0.009, +0.096; Holm p 0.41),
+  CINDER-RS +0.034 (−0.043, +0.112; 0.41), CINDER-z +0.132 (+0.048, +0.212; 0.074), CINDER-RS-z +0.084
+  (+0.020, +0.153; 0.074). No contrast is significant after Holm.
+- Fixed r = 0.5: +0.151, +0.141, +0.086, +0.115 (Holm p 0.012, 0.037, 0.054, 0.012), 10 of 11 concepts each.
+- Paper rule, H2: −0.134, −0.153, +0.161, +0.088 (Holm p 0.056, 0.084, 0.004, 0.084).
+- Edit rate: EMBER 41/60, CINDER and CINDER-z 52/60, CINDER-RS and CINDER-RS-z 55/60. Failure rate (no edit
+  counts as failure): 0.37, 0.17, 0.17, 0.18, 0.15.
+- Integrity at the selected point: copy 0.40–0.44, T3 destruction 0.49–0.61 (EMBER 0.49, CINDER 0.52, CINDER-RS 0.60),
+  exclusive words 0.65–0.81; no significant paired difference.
+- Against the development numbers: CINDER-RS − EMBER is +0.03 (development +0.09, +0.01 without the failure run);
+  the integrity advantage of CINDER and CINDER-RS (0.21 and 0.19 vs 0.30) is refuted (0.52 and 0.60 vs 0.49).

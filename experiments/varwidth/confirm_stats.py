@@ -119,6 +119,56 @@ def integrity():
     return out, {v: contrast(R, v, "copy") for v in CONTRASTS}
 
 
+AGENTS_X = {b: a for a, bs in enumerate([(41, 42, 43), (44, 45, 46), (47, 48, 49), (50, 51, 52), (53, 54, 55),
+                                         (56, 57)]) for b in bs}     # amendment 8 labellers: batches per agent
+
+
+def t3():
+    """Expansion T3 (seed 42, selected point): per variant graceful / leak / confab / destruction, destruction of
+    exclusive vs multi-meaning words, the paired destruction contrast (unit = concept), and cross-agent agreement
+    on the expansion duplicates."""
+    from collections import Counter
+
+    from experiments.varwidth.integrity import DESTR, GRACEFUL, JDIR, LEAK, labels, token_class
+    key, lab = json.loads((JDIR / "key.json").read_text()), labels()
+    rows = {}
+    for i, k in key.items():
+        if k["concept"] in EXPANSION and i in lab and k["config"].endswith("@sel"):
+            rows.setdefault(k["concept"], []).append((k["config"][:-4], k["key"], lab[i]))
+    out, per = {}, {}
+    for c, rs in rows.items():
+        cls_tok = token_class(c)
+        meta = json.loads((IOUT / slug(c) / "s42" / "meta.json").read_text())["words"]
+        wcls = {w: "multi" if any(cls_tok.get(t) == "multi" for t in v["tokens"]) else
+                "exclusive" if any(cls_tok.get(t) == "exclusive" for t in v["tokens"]) else "unclassified"
+                for w, v in meta.items()}
+        for v, w, lb in rs:
+            out.setdefault(v, {"all": Counter(), "exclusive": [], "multi": []})["all"][lb] += 1
+            if wcls.get(w) in ("exclusive", "multi"):
+                out[v][wcls[w]].append(lb in DESTR)
+            per.setdefault((c, v), []).append(lb in DESTR)
+    summ = {}
+    for v, g in out.items():
+        n = sum(g["all"].values())
+        summ[v] = {"n": n, "graceful": sum(g["all"][x] for x in GRACEFUL) / n,
+                   "leak": sum(g["all"][x] for x in LEAK) / n, "confab": g["all"]["CONFAB"] / n,
+                   "destruction": sum(g["all"][x] for x in DESTR) / n,
+                   "destr_exclusive": float(np.mean(g["exclusive"])) if g["exclusive"] else float("nan"),
+                   "n_exclusive": len(g["exclusive"]),
+                   "destr_multi": float(np.mean(g["multi"])) if g["multi"] else float("nan"), "n_multi": len(g["multi"])}
+    R = {(c, 42, v): {"destr": float(np.mean(x)), "n_edit": 1} for (c, v), x in per.items()}
+    con = {v: contrast(R, v, "destr") for v in CONTRASTS}
+    batch_of = {it["id"]: int(f.stem.split("_")[1]) for f in JDIR.glob("batch_*.json")
+                for it in json.loads(f.read_text())}
+    dups = [(i, i + "d") for i in key if key[i]["concept"] in EXPANSION and i in lab and i + "d" in lab
+            and AGENTS_X.get(batch_of.get(i)) != AGENTS_X.get(batch_of.get(i + "d"))]
+    agree = {"n": len(dups), "exact": float(np.mean([lab[a] == lab[b] for a, b in dups])) if dups else float("nan"),
+             "destruction": float(np.mean([(lab[a] in DESTR) == (lab[b] in DESTR) for a, b in dups]))
+             if dups else float("nan"),
+             "leak": float(np.mean([(lab[a] in LEAK) == (lab[b] in LEAK) for a, b in dups])) if dups else float("nan")}
+    return summ, con, agree
+
+
 def fmt(x, n=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{n}f}"
 
@@ -167,6 +217,22 @@ def main():
         if "mean" in x:
             lines.append(f"| {NAMES[v]} | {x['n_concepts']} ({x['n_pairs']}) | {x['mean']:+.3f} | "
                          f"[{x['ci'][0]:+.3f}, {x['ci'][1]:+.3f}] | {x['p']:.3f} |")
+    T, TC, AG = t3()
+    res["t3"], res["t3_contrast"], res["t3_agreement"] = T, TC, AG
+    lines += ["", "## Secondary: T3 labels at the selected point (seed 42, blind agents)", "",
+              f"Cross-agent agreement on {AG['n']} expansion duplicates: exact label {fmt(AG['exact'])}, destruction "
+              f"yes/no {fmt(AG['destruction'])}, leak yes/no {fmt(AG['leak'])}.", "",
+              "| Variant | n | graceful | leak | confab | destruction | destruction, exclusive (n) | "
+              "destruction, multi (n) |", "|---|---|---|---|---|---|---|---|"]
+    lines += [f"| {NAMES[v]} | {T[v]['n']} | {fmt(T[v]['graceful'])} | {fmt(T[v]['leak'])} | {fmt(T[v]['confab'])} | "
+              f"{fmt(T[v]['destruction'])} | {fmt(T[v]['destr_exclusive'])} ({T[v]['n_exclusive']}) | "
+              f"{fmt(T[v]['destr_multi'])} ({T[v]['n_multi']}) |" for v in EXP_VARIANTS if v in T]
+    lines += ["", "| Variant − EMBER, destruction | concepts | mean Δ | 95% CI | Wilcoxon p |", "|---|---|---|---|---|"]
+    for v in CONTRASTS:
+        x = TC[v]
+        if "mean" in x:
+            lines.append(f"| {NAMES[v]} | {x['n_concepts']} | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['p']:.3f} |")
     (OUT / "confirm.json").write_text(json.dumps(res, indent=1, default=str))
     (OUT / "confirm.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))

@@ -418,8 +418,15 @@ GRACEFUL, LEAK, DESTR = {"IGNORANT", "KNOWS_OTHER"}, {"KNOWS_CONCEPT"}, {"BLIND"
 
 def token_class(concept):
     """{slot-key word: 'multi' | 'exclusive'} from the chosen question-set version (via the token strings)."""
-    sel = json.loads((OUT / "drafts" / slug(concept) / "selection.json").read_text())["chosen"]
-    d = json.loads((OUT / "drafts" / slug(concept) / f"{sel}.json").read_text())
+    D = OUT / "drafts" / slug(concept)
+    if concept in EXPANSION:   # amendment 8: no selector; v1, with the classes the F1 check flipped
+        out = {e["token"]: e["class"] for e in json.loads((D / "v1.json").read_text())["tokens"]}
+        for t in json.loads((D / "F1.json").read_text())["tokens"]:
+            if t.get("class_ok") is False and t["token"] in out:
+                out[t["token"]] = "exclusive" if out[t["token"]] == "multi" else "multi"
+        return out
+    sel = json.loads((D / "selection.json").read_text())["chosen"]
+    d = json.loads((D / f"{sel}.json").read_text())
     return {e["token"]: e["class"] for e in d["tokens"]}
 
 
