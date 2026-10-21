@@ -56,3 +56,34 @@ Each is reported on the 20 new concepts alone (the confirmation) and on all 38. 
 
 - **Gemini:** 15 NIS allocated for this extension, on the shared log `results/ml/gemini_usage.jsonl`; the guard is raised to 30 NIS in total.
 - **GPU:** at most 6 SLURM GPUs, shared fairly with the single-language CINDER session (cl_* jobs), plus the local c-001 GPUs.
+
+## Amendment 1 (2026-10-21, before any seed-union evaluation): seed-union selection
+
+**Why.** In the 3-seed coverage study (results/ml/seeds/COVERAGE.md, selection only), the concepts edited over any
+of fit seeds 42, 1 and 2 are 31 (A1) and 29 (A3/A3z), against 26 and 21 at seed 42 alone. This amendment tests
+whether pooling selections over seeds changes the comparison between fixed CINDER and per-language EMBER. Both
+approaches get the same treatment, so neither benefits from extra draws alone.
+
+**New approaches** (only the fit seed differs between draws; data sample, settings and judging are unchanged):
+- **A1U:** per seed s ∈ {42, 1, 2}, A1's merged edit for that seed, using the existing edit-once rule by page
+  priority. The three per-seed edits are then pooled.
+- **A3zU:** per seed, A3's selection with Z re-solved on the original embeddings (the A3z construction). The three
+  per-seed edits are then pooled.
+- **Pooling rule:** a token edited by any seed is edited. Its edit vector is the mean of the c_t from the seeds
+  that edit it.
+- **Evaluation:** the frozen protocol, unchanged (δ grid and stop, δ on validation, strict and ungated test score,
+  gates, v2 questions for the 18 original concepts).
+  - When only seed 42 edits a concept, the pooled edit equals the seed-42 edit. The existing A1 or A3z result is
+    reused, since evaluation is deterministic.
+  - When no seed edits a concept, it scores 0.
+
+**Hypotheses** (all 38 concepts; unit score = strict test score, no edit = 0; ungated reported alongside):
+- **H4 (main):** A3zU vs A1U over all 38 concepts, mean difference. Reported either way, with a paired
+  Wilcoxon test, a sign test and a bootstrap 95% CI. "A3zU ≥ A1U" is supported if the CI's lower bound is above
+  −0.05.
+- **H5:** pooling helps both approaches. A1U − A1 and A3zU − A3z, over all 38 concepts.
+- **Coverage:** concepts with an edit under A1U and A3zU.
+- Also reported: these results on the 20 new concepts alone, and on concepts both pooled approaches edit.
+
+**Budget.** No Gemini, since all selections exist. GPUs: the 3 local c-001 GPUs from now on, plus SLURM GPUs once
+the single-language session releases them (about 02:00), up to the 12-GPU per-user cap as agreed with it.
