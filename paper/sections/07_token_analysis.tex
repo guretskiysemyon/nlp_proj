@@ -14,12 +14,12 @@ At the operating points selected by our rule, efficacy lies close to the floor t
 
 \paragraph{Removing more costs the words}
 At these operating points, about half of the edited words can no longer be read (\expnum{0.49--0.61}), and most of the concept-exclusive ones (\expnum{0.65--0.81}), with no significant difference between methods.
-Requiring the words to remain copyable caps efficacy at \expnum{0.06--0.14}; under this constraint \cinder{} removes about twice as much as \ember{}, whereas the advantage of \cinderz{} disappears, since part of it came from damage to the surrounding prompt, consistent with its extra component being a direction that every token shares (\S\ref{sec:cinderz}).
+Requiring the words to remain copyable (a post hoc rule) caps efficacy at \expnum{0.06--0.14}; under this constraint \cinder{} removes about twice as much as \ember{}, whereas the advantage of \cinderz{} disappears, since part of it came from damage to the surrounding prompt, consistent with its extra component being a direction that every token shares (\S\ref{sec:cinderz}).
 Table~\ref{tab:examples} shows what destruction looks like in free text.
 
 \paragraph{A nonce-like edit is only partly reachable}
 An erased concept word should behave like a nonce: copyable, but meaningless.
-A learned edit that pushes each edited word toward the behaviour of its nonce keeps the words copyable and removes \expnum{2--3$\times$} more than subtraction at readable strength, but it reaches a substantial nonce floor in only \expnum{2} of 12 concepts, and the model often can no longer name the word (\S\ref{app:nonce}).
+A learned edit (post hoc) that pushes each edited word toward the behaviour of its nonce keeps the words copyable and removes more than any subtraction at readable strength (\expnum{2--3$\times$} \ember{}'s, \expnum{1.3--1.6$\times$} \cinder{}'s), but it reaches a substantial nonce floor in only \expnum{2} of 12 concepts, and the model often can no longer name the word (\S\ref{app:nonce}).
 This suggests that, within a single embedding row, the concept and the word's identity share the same few directions.
 \expfill{Figure: efficacy against word integrity (copy) along the $r$ grid for each method, with the nonce and deletion floors.}
 

@@ -3,8 +3,15 @@
 \label{app:examples}
 %=====================================================================
 
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/hp_rho.pdf}
+  \caption{The top 12 of 100 sparse-MF features for Harry Potter on Gemma-2-2B-it at seed 42, ranked by \ember{}'s mass ratio $\rho$ (Eq.~\ref{eq:rho}); labels paraphrase each feature's LLM description. (a)~Raw embeddings: eleven generic topics outrank the concept feature. (b)~Sharpened matrix, same 1\% row sparsity: the concept feature ranks first and has no neutral token. The raw rank varies with the seed (12, 1, 28, 48, 1 at seeds 42--46), while sharpening ranks the concept first at all five; across concepts, the raw rank is usually already near the top (\S\ref{sec:analysis}). The dotted line marks $\tau = 2$.}
+  \label{fig:hp}
+\end{figure*}
+
 \paragraph{The Harry Potter feature, before and after sharpening}
-Table~\ref{tab:hp-tokens} lists the 48 tokens of the Harry Potter feature (1\% row sparsity, seed 42) on \ember{}'s raw matrix and on the sharpened matrix, by decreasing coefficient, written as the words they come from.
+Table~\ref{tab:hp-tokens} lists the 48 tokens of the Harry Potter feature (1\% row sparsity, seed 42) on \ember{}'s raw matrix and on the sharpened matrix, by decreasing coefficient, written as the words they come from. It is taken from our exploratory notebook fits, which differ slightly from the saved fits of Figure~\ref{fig:hp} (there, ranks 20--30 of the raw feature hold 3 Harry Potter tokens, and the sharpened feature has no neutral token).
 Both features open with 19 unmistakable Harry Potter tokens.
 After that, the raw feature drifts into unrelated names, places and taxonomic suffixes, while the sharpened feature continues into the fictional world (Gringotts, Hogsmeade, Quidditch, McGonagall, Hagrid) and is more consistent across fragments of the same word (\textit{Gry}, \textit{Hog}, \textit{warts}).
 

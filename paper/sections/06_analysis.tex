@@ -3,42 +3,57 @@
 \label{sec:analysis}
 %=====================================================================
 
-A natural question is why \cinder{} finds concepts that \ember{} misses, and why its directions remove more per unit of edit.
-We expect sharpening to make the concept the strongest direction of the matrix, which should make its feature cleaner, more stable and more distinct from its neighbours, and should let \gs{} set its width from the data.
+A natural question is why \cinder{} finds concepts that \ember{} misses, and why its directions remove more at moderate edit size.
+We expect sharpening to separate the concept from the other rare tokens and make it worth a feature, and \gs{} to set the feature's width from the data.
 To test this, we analyze the features themselves, before any edit, on \expnum{38} concepts with 5 factorization seeds each (\ember{}'s 18 and 20 more, 15 of which were added only after the method was frozen), using judge-free measures wherever possible.
 Definitions and full results are in \S\ref{app:analyses}.
 
-\paragraph{Sharpening makes the concept the strongest direction}
-Sharpening raises the separability of concept and neutral tokens in every one of the \expnum{38} concepts (AUC \expnum{0.69 $\to$ 0.80}), and on Harry Potter it moves the concept feature from 12th to 1st place by $\rho$ (Figure~\ref{fig:hp}).
-The sharpened matrix is also less dominated by a few directions: the rank at which truncated SVD matches the sparse-MF error rises from \expnum{5} to \expnum{49} on Harry Potter.
-\pending{WP1: the energy rank of a selection-free concept direction, raw vs.\ sharpened, across concepts; $\rho$-rank under raw / whitening only / sharpening; whether concept tokens are rarer and lower in variance.}
+\paragraph{Sharpening makes the concept pure and valuable}
+To see what each step does, we seed a single sparse feature on each concept's lexicon tokens and run it to its fixed point in five matrices: raw, raw with the mean direction $\hat\mu_B$ projected out, centred, whitened only, and sharpened (Figure~\ref{fig:mechanism}b; 38 concepts, 5 seeds).
+In the raw matrix the feature drifts toward other rare tokens and ends up only \expnum{24\%} concept-only, although it is among the most valuable features of the fit.
+Whitening makes it pure (\expnum{86\%}) but ordinary (\expnum{70th} percentile of feature energies), and sharpening keeps it pure and makes it valuable (\expnum{91st} percentile, higher in \expnum{37 of 38} concepts).
+Full fits agree: a lexicon-matching concept feature appears in \expnum{56\%} of raw runs, \expnum{49\%} of whitened-only runs and \expnum{69\%} of sharpened runs (better in \expnum{15} concepts, worse in \expnum{3}), and it carries fewer neutral tokens (\expnum{3.0} vs.\ \expnum{4.5}).
+Centring alone, or removing $\hat\mu_B$, does not change how often the concept is found.
+Two observations from Harry Potter do not generalize: the raw concept feature usually already ranks near the top by $\rho$ (median \expnum{2}; Harry Potter's 12th place at seed 42 varies from 1st to 48th across seeds), and no selection-free concept direction rises to the top of the spectrum.
+Sharpening helps by making a clean cluster worth a feature, not by moving one direction to the top (\S\ref{app:energy}).
 
-\paragraph{Features become clean, stable and distinct}
-On Ancient Rome across 20 seeds, sharpening raises the concept share of the concept feature from \expnum{0.72 $\pm$ 0.15} to \expnum{0.92 $\pm$ 0.04}, reduces its neutral tokens from \expnum{13.8} to \expnum{1.7}, and raises the overlap of its tokens across seeds from \expnum{0.26} to \expnum{0.69}; every seed now finds exactly one Ancient Rome feature.
-The features also separate.
-On Harry Potter, the nearest neighbour of the sharpened concept feature is magic, at \expnum{68$^\circ$}, and all other features lie beyond \expnum{82$^\circ$}, whereas the raw feature's nearest neighbours, at \expnum{35--54$^\circ$}, are punctuation and plural nouns.
-Interestingly, the raw Harry Potter feature has the largest norm of all features, and the sharpened one an ordinary norm.
-\pending{WP2: orthogonality and whether cosines track semantic relatedness, across concepts; the explanation of the norm reversal; how often a concept is split across several features.}
+\paragraph{The concept's neighbours become related topics}
+In the sharpened space, the nearest neighbour of the concept feature is a related topic (magic for Harry Potter, empire for Ancient Rome, computing for Artificial intelligence) at about \expnum{74$^\circ$}, at the \expnum{94th} percentile of an independent word-similarity measure, and the most similar 0.5\% of feature pairs are semantically related (\expnum{75--79th} percentile, against chance for \ember{}; 38 of 38 concepts).
+In \ember{}'s matrix the nearest neighbour, at about \expnum{51$^\circ$}, is a feature of unrelated rare tokens, and projecting out the mean direction alone opens the angle to \expnum{74$^\circ$}.
+The same direction explains the raw concept feature's large norm, which first drew our attention on Harry Potter (3rd--6th of 100 features): \expnum{97\%} of its excess over a typical feature lies along $\hat\mu_B$.
+Orthogonality as such is a property of the metric: each fit is near-orthogonal in its own space, and with $\hat\mu_B$ removed the two dictionaries are equally orthogonal in the embedding space (mean $|\cos|$ \expnum{0.08}).
+Concepts rarely split over several features, and when they do the parts are distinct sub-topics, such as Rome and empire for Ancient Rome, which \gs{} keeps apart (\S\ref{app:geometry}).
 
 \paragraph{Widths follow the data}
-Under \gs{}, concept features range from \expnum{15} tokens (Baseball) to \expnum{113} (Culture of Greece) instead of a fixed 48, change by only \expnum{$\pm$4} tokens across seeds, and stay as clean as \ember{}'s (\expnum{76} vs.\ \expnum{75} of 90 runs with at most five neutral tokens).
-Simply widening every feature to 2\% loses more than half of the clean runs (\expnum{31 of 90}), and no concept feature reaches the cap.
-\gs{} depends on \cs{}: on the raw matrix, the extra width fills with neutral tokens (\expnum{11--44\%} neutral, against \expnum{1--9\%} with \cs{}).
-\pending{WP3: the natural tail of each concept feature in the dense re-solve, against the 1\% cut and the \gs{} width; width against concept breadth.}
+To test whether a \gs{} width is real, we fix the dictionary, re-solve the coefficients densely, and rank all tokens by their share of the concept feature; the natural tail is where tokens stop being specific to the concept's page (\S\ref{app:gs}).
+The natural tail is a property of the direction: doubling the fit's sparsity budget moves it by only \expnum{3} tokens.
+On the sharpened matrix, \ember{}'s 1\% cut stops before it for \expnum{25 of 38} concepts, \gs{} widens \expnum{26} of the \expnum{28} features that are cut short, and \gs{} widths follow the tail (Spearman \expnum{0.67} vs.\ \expnum{0.27} for the fixed width; mean error \expnum{30} vs.\ \expnum{42} tokens, $p < 0.001$), robustly across 45 definitions of the tail, though they compress its range and cut the broadest concepts short.
+\gs{} changes which tokens a feature keeps, not its direction (cosine \expnum{0.97} with the row-sparse feature, within seed noise), and it helps only after \cs{}: on the raw matrix, the width it adds is mostly neutral tokens and does not track the tail better.
+The width varies by about \expnum{4} tokens across seeds when the same feature is found and is unrelated to the feature's index.
 
 \paragraph{The two-way judge recovers concepts lost in the summary}
 On 19 concepts, \twj{} accepts a feature that is the concept or a broader version of it in \expnum{82 of 91} runs, against \expnum{61} for \ember{}'s judge, and only \expnum{1 of its 110} acceptances is unrelated.
 Most of the added features are broader than the concept (with strict labels, the gain shrinks from \expnum{21} to \expnum{7} runs), and on 15 concepts added after the lexicon prompt was fixed, the lexicon path alone generalizes poorly, while showing the judge each token's source word does generalize (\S\ref{app:twj}).
 
-\paragraph{Abstract concepts and blurred contrast}
-If concepts are missed because they are quiet, \ember{} should fail most on abstract concepts that lie between louder topics, such as Stoicism between ancient Rome and philosophy, and any method should degrade when the contrast between concept and neutral text is blurred.
-\pending{WP4: abstract vs.\ entity concepts under \ember{} and \cinder{}; degradation when the concept sentences are diluted with sentences from adjacent pages (e.g., Magic, The Lord of the Rings).}
+\paragraph{Abstract concepts stay out of reach}
+If concepts are missed because they are quiet, \ember{} should fail most on abstract concepts that lie between louder topics.
+On 13 such concepts (e.g., Stoicism, Gnosticism, Gothic architecture) and 4 entity concepts, with blind labels of the top 10 features ($\kappa = \expnum{0.88}$), the top-ranked feature is specific to the concept in \expnum{0 of 65} \ember{} runs and \expnum{0 of 65} \cs{} runs, against \expnum{13} and \expnum{23 of 40} for entity concepts.
+For six of the abstract concepts no method places a specific feature in the top 10 in any run; their top features are the parent topics (architecture, religion, painting) and discourse vocabulary.
+Sharpening does not recover them (\expnum{$+0.04$} in top-10 presence, n.s.).
+We read this as a limit of embedding-level features: an abstract concept is written in a register rather than around a vocabulary of names, and the register is shared with its parent topics.
 
-\paragraph{The gain is not only circular}
-The sharpening target is the concept's own page, which contains the tokens our purity measures count, and the concept-only label admits generic words that appear only in the concept sentences (\emph{get}, \emph{win}, \emph{heart}), which sharpened features absorb.
-With a target that excludes every token of the matrix, most feature-level gains disappear (Harry Potter: $\rho_{\max}$ \expnum{125 $\to$ 14}).
-Erasure is measured on held-out questions and does not depend on these labels, so \S\ref{sec:experiments} is the fair test; here we ask whether the feature-level gain survives targets disjoint from the scored text.
-\pending{WP7: sharpening toward held-out page sentences, related pages, the leak-free control and a wrong concept's page; strict purity under an exclusivity label; sensitivity to $\eta$ and $\gamma$ on concepts outside the tuning set. Retitle this paragraph according to the result.}
+\paragraph{Sharpening is robust to a blurred contrast}
+When up to half of the concept sentences are replaced by sentences from adjacent pages (The Lord of the Rings and Magic for Harry Potter), the sharpened concept feature stays in the top 10 in \expnum{80--93\%} of runs at a mean $\rho$-rank of \expnum{1.8--3.3}, while \ember{}'s mean rank falls from \expnum{4.1} to \expnum{6.9}, as much as with sentences from unrelated pages: the loss is dilution rather than lost contrast.
+What adjacency does cause is intrusion: neighbouring tokens (\emph{Tolkien}, \emph{Gandalf}) make up \expnum{14--25\%} of \ember{}'s concept feature and \expnum{5--14\%} of the sharpened one (\S\ref{app:robustness}).
+
+\paragraph{The gain is not circular}
+The sharpening target is the concept's own page, which contains the sampled sentences whose tokens we score.
+We therefore sharpened toward page sentences outside the sample, toward four other Wikipedia pages about the concept, and, as a control, toward another concept's page (18 concepts, 3 seeds, pre-registered), and scored the features with a strict label (concept-only and either a lexicon word or strongly over-represented on the page relative to Wikipedia).
+Both disjoint targets raise the strict purity of the concept feature as much as the page does (\expnum{$+0.06$} vs.\ \expnum{$+0.05$} over \ember{}'s matrix; $p = \expnum{0.003}$ and \expnum{0.009}), keep \expnum{66--75\%} of its gain in concept-vs-neutral separation, and help even on tokens that never occur in the target.
+Another concept's page destroys the feature (strict purity \expnum{0.57 $\to$ 0.12}; found in \expnum{2 of 54} runs).
+The effect is therefore specific to the concept and does not come from scoring the sharpening text.
+Two weaker signals were circular or did not generalize: the coverage measure used to choose $\eta$ improves only with the page target, and the $\rho$-rank of the concept feature does not change on average (the page lifts Harry Potter, Ancient Rome and Halloween but buries Republic of Ireland and Golf under broader co-topics).
+On 15 concepts outside the tuning set, every $(\eta, \gamma)$ we tried beats the raw matrix; the default is mid-pack, and $\gamma = 2$ is slightly better (\S\ref{app:cs-circ}).
 
 \paragraph{Features extrapolate only to a few unsampled tokens}
 \ember{} edits only tokens of the 300 sampled sentences, and the multilingual pipeline samples 30 per language, so concept tokens that occur only in unsampled sentences are missed unless the fixed dictionary extends to them.

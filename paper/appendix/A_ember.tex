@@ -25,4 +25,4 @@ Re-judging 230 candidates flipped 0.4\% of decisions.
 \paragraph{Fidelity}
 On \ember{}'s protocol our reproduction reaches concept, similar-domain and MMLU accuracy of \expnum{48.4}, \expnum{83.2} and \expnum{55.1}, against \expnum{52.1}, \expnum{84.6} and \expnum{53.6} in the paper's Table~6.
 Tuning with Alpaca coherence inside the $\delta$ grid, as the paper does, gives the same $\delta$ and result as our cheaper MMLU gate on Harry Potter ($H = \expnum{0.727}$ vs.\ \expnum{0.726}).
-In an earlier phase we found that a 4-token answer budget in the original multiple-choice scorer counted many correct answers as wrong at large edit strengths, inflating \ember{}'s efficacy; all numbers here use the repaired scorer.
+In an earlier phase we found that a 4-token answer budget in the original multiple-choice scorer counted many correct answers as wrong at large edit strengths, inflating \ember{}'s efficacy. All erasure numbers here use the repaired scorer, except the cross-lingual leakage of the first study (App.~\ref{app:ml}), which we report with the original scorer and with unparseable answers dropped.

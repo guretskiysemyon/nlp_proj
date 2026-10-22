@@ -322,6 +322,15 @@ What the numbers show:
 | Same, ignoring gates that failed only on test | 0.49 | 0.50 | 0.28 | **0.56** |
 | Mean non-English efficacy, highest in | — | th | — | de, fr, it, pt, es |
 
+  > **Correction (2026-10-22, paper analysis WP6, `results/paper_analysis/edit_direction/REPORT.md`).** The diagnosis
+  > "whitening puts the edit into low-variance directions the first layer barely reads" is wrong. For fixed Y the
+  > least-squares dictionary does not depend on the metric, so the mapped-back dictionary is the Euclidean optimum for the
+  > *centred* embeddings (the CS fit subtracts μ_B). A3z / CINDER-z re-solve on *uncentred* embeddings, which adds exactly
+  > β_t μ_B to every edit (≥ 0.9995 of the difference lies on μ̂_B in all 137 Gemma runs and 21 Llama concepts). The
+  > first layer reads μ̂_B at 2.9× random (Gemma) and 20× (Llama); with μ̂_B projected out, EMBER and CINDER edits are read
+  > alike (1.31 vs 1.32) and have the same spectral profile, and EMBER re-solved on centred embeddings drops to 1.09.
+  > Low-variance directions are read *more* strongly than average. Open: whether the mean term erases the concept or only
+  > makes the word atypical (WP6 S1; consistent with CINDER-z's context damage).
 - **Why ML-CINDER needed the fix.** Llama's first layer reads ML-CINDER's mapped-back edits at 1.1–1.7× a random direction, against 2.6–7.6× for ML-EMBER, so erasure stalls near 0.1 even at δ = 200. A3z keeps CINDER's Y and selected features and re-solves Z on the raw embeddings: one k × k least-squares solve, no new fit and no new judge calls.
 - **Caveats.**
   - A3z was defined after ML-CINDER's results were seen.

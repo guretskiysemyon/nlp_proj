@@ -5,7 +5,7 @@
 
 \paragraph{English erasure leaks}
 In a first study we erased \ember{}'s 18 concepts from Gemma-2-2B-it with \ember{}, SNMF \citep{shafran2026constructing} and their combination, tuned every edit in English, and asked the held-out questions in English, German, Spanish, French and Russian.
-Retention, the share of the concept knowledge left (1 = as before, 0 = chance), was on average \expnum{0.24} higher in the four other languages than in English under \ember{} (95\% CI \expnum{[0.15, 0.32]}), and \expnum{0.41} higher in Russian, where the English edit touches none of the concept's tokens.
+Retention, the share of the concept knowledge left (1 = as before, 0 = chance), was on average \expnum{0.24} higher in the four other languages than in English under \ember{} (95\% CI \expnum{[0.15, 0.32]}; \expnum{0.19 [0.12, 0.27]} with unparseable answers dropped), and \expnum{0.41} (\expnum{0.31}) higher in Russian, where the English edit touches none of the concept's tokens. These numbers use the original scorer of App.~\ref{app:ember}.
 SNMF, which edits MLP weights, erased all five languages about equally (\expnum{$+0.01$}), and adding \ember{} to it brought the gap back (\expnum{$+0.16$}).
 
 \paragraph{Languages, model and data}
@@ -42,6 +42,19 @@ A3z & as A3 & as A3 & $Z$ re-solved on raw $E$ \\
 
 \paragraph{Results}
 \expfill{Development table (18 concepts) and the pre-registered hypotheses H1--H3 on the 20 held-out concepts, with paired differences, CIs, win--loss counts and Wilcoxon $p$ (source: \texttt{results/ml/PREREG\_RESULTS.md}); the seed-coverage table; the seed-union follow-up (pooling selections over 3 fit seeds: \expnum{$+0.08$} for A3z, \expnum{19--4}, $p < 0.001$; pooled A1 and A3z tie at \expnum{0.30} vs.\ \expnum{0.31}).}
+
+\paragraph{Language identity in the single fit}
+Each token of the multilingual $\vs$ is assigned to a language when at least 80\% of its occurrences, normalized by each language's token count, come from that language.
+In the raw sample matrix, the language means carry \expnum{1.6\%} of the centred energy against \expnum{0.047\%} for the concept-vs-neutral mean (median ratio \expnum{34$\times$}), the concept is \expnum{2.9$\times$} quieter than in an English-only matrix (38 of 38 concepts), and the top principal directions are explained by language (\expnum{$\eta^2 = 0.25$}) rather than by the concept (\expnum{0.004}).
+Whitening against the eight-language background halves the language share (\expnum{1.6\% $\to$ 0.8\%}) and cuts the enrichment of the top contrastive directions from \expnum{8.2} (English background) to \expnum{2.6}, but those directions remain single-language clusters.
+\expnum{8.6\%} of the raw fit's features and \expnum{13.7\%} of its judged candidates are dominated by one language (mostly German and English function words), against \expnum{4.9\%} and \expnum{0\%} for the sharpened fit.
+The raw fit nevertheless contains a lexicon-matching concept feature in \expnum{25--27} of 38 concepts per seed (sharpened: \expnum{23--28}); the token judge accepts such features far less often when they come from the raw fit (\expnum{5\%} vs.\ \expnum{30\%} at 3--4 lexicon words), e.g.\ describing Cannabis's \emph{marijuana, cannabis, alcohol, tobacco, THC} as ``psychoactive substances''.
+Blind labels of the features accepted only by the lexicon path are specific or broader, never unrelated, for both fits.
+
+\paragraph{Selection cost}
+Per concept (fit seed 42), per-language \ember{} runs 8 factorizations over about \expnum{30{,}600} rows with \expnum{160} judge calls (\expnum{0.055} NIS); the single fits run one factorization over about \expnum{6{,}500} sampled rows plus a coefficient solve for the full set, with \expnum{20} judge calls (\ember{}: \expnum{0.007} NIS) or \expnum{20} calls and one lexicon call (\cinder{}: \expnum{0.017} NIS, \expnum{0.007} once the lexicon is cached across seeds).
+Factorization work (rows $\times$ iterations) drops about fivefold, but \cinder{}'s wall-clock fit time (\expnum{40} s on a GPU) matches \ember{}'s eight fits (\expnum{44} s) because of the sharpening transform.
+Evaluation takes \expnum{2.5--3.5} GPU-hours per concept and approach, about 250 times the fit stage, and is the same for every approach.
 
 \paragraph{Why Hindi and Thai resist}
 \ember{} edits only concept-only tokens, which never occur in the neutral sentences.

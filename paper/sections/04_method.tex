@@ -41,8 +41,10 @@ In the original coordinates, this is the ratio
 \end{equation}
 where $\mu_C$ and $\Sigma_C$ are the mean and covariance of the page's embeddings.
 Its stationary directions solve a generalized eigenproblem, as in Fisher's discriminant and contrastive PCA \citep{fisher1936use,abid2018exploring}, and sharpening multiplies the energy along each of them by its ratio raised to $\gamma$ (Proposition~\ref{prop:cs}, \S\ref{app:cs}).
-Thus the directions that distinguish the concept become the strongest in the matrix.
-Whitening alone does not suffice: it makes every direction equally strong, noise included, and on Harry Potter it yields no concept feature at all.
+The two steps do different jobs (\S\ref{sec:analysis}).
+Whitening removes the component that rare tokens share, so the concept's tokens separate from other rare tokens into a pure cluster; but it also makes every direction equally strong, so the cluster becomes ordinary and is found less often than before.
+Sharpening then raises the cluster's value, so that the concept is both pure and worth a feature.
+When a page yields few directions that rise above sampling noise, as single English pages do on a model with a larger embedding dimension, we sharpen only those directions; this adds no hyperparameter (\S\ref{app:cs-llama}).
 
 Because $T$ is linear and invertible and the mean cancels in a difference, the factorization maps back exactly: each token's concept part in the original space is $\cvec_t = T^{-1}\tilde\cvec_t$.
 We revisit this mapping in \S\ref{sec:cinderz}.
@@ -96,10 +98,10 @@ Erasing a concept in every language a model serves requires editing the tokens o
 \cinder{} does so with a single fit.
 It samples 30 concept and 30 neutral sentences in each of eight languages, the fewest that yield a full-rank matrix, and builds one matrix from all of them.
 In such a matrix the concept competes not only with generic topics but also with language and script identity, which a multilingual model encodes in a few dominant directions \citep{chang2022geometry,libovicky2020language}.
-\cinder{} therefore whitens against a background with equal amounts of text in every language, so that language identity no longer dominates, and sharpens toward the concept's pages pooled over all languages, which also gives $S_\eta$ enough tokens for a model with a larger embedding dimension (\S\ref{app:cs-llama}).
+\cinder{} therefore whitens against a background with equal amounts of text in every language, which weakens the language directions about threefold, and sharpens toward the concept's pages pooled over all languages, which gives $S_\eta$ many more directions that rise above sampling noise than a single page does (\S\ref{app:cs-llama}).
 After the fit, it keeps the dictionary fixed and solves the coefficients of every token in the full multilingual sentence sets, so that tokens outside the sample can be edited as well.
 Features are selected with \twj{}, whose lexicon covers all languages in a single LLM call, and the edit is built as in \cinderz{}.
 
 The saving is in selection.
-Per-language \ember{} runs eight factorizations and eight judging passes per concept; \cinder{} runs one of each, plus one lexicon call.
-Evaluation costs the same for every approach, since each language must still be tested.
+Per-language \ember{} runs eight factorizations and eight judging passes per concept (\expnum{160} judge calls); \cinder{} runs one of each (\expnum{20} calls) plus one lexicon call, about a fifth of the factorization work and a third of the LLM cost of selection.
+The sharpening transform makes \cinder{}'s single fit about as slow in wall-clock time as \ember{}'s eight, and evaluation, which dominates the total (\expnum{2.5--3.5} GPU-hours per concept), costs the same for every approach, since each language must still be tested.

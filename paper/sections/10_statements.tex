@@ -6,6 +6,9 @@
 Single-language results use one small model (Gemma-2-2B-it) in English, and multilingual results use one model (Llama-3.1-8B-Instruct) with a 4-bit quantized transformer and fp16 embeddings.
 Whether the findings transfer to other models remains to be tested.
 
+\paragraph{Abstract concepts}
+Concepts defined by a register rather than by names, such as Stoicism or Gothic architecture, yield no concept-specific embedding feature under \ember{} or \cinder{} (\S\ref{sec:analysis}); embedding-level erasure, with either method, does not reach them.
+
 \paragraph{Embedding edits in isolation}
 We evaluate embedding edits on their own, not ensembled with MLP-based methods as \ember{} recommends, and we do not test robustness to relearning, \ember{}'s main strength.
 Whether relearning robustness also depends on the edit size ($r \approx 1$ vs.\ $r \approx 100$) is an open question.
@@ -18,7 +21,7 @@ Collateral questions, neutral prompts and free-text labels were written and chec
 With 11--12 held-out concepts as the unit of analysis, differences below about 0.08 are hard to resolve, and several supporting analyses were defined after the primary result was known; we label them post hoc.
 
 \paragraph{Sharpening target}
-Contrastive Sharpening uses the concept's own Wikipedia page as its target, which overlaps the concept sentences, so feature-level gains may be partly circular (\S\ref{sec:analysis}); erasure is measured on held-out questions and does not depend on this overlap.
+Contrastive Sharpening uses the concept's own Wikipedia page as its target, which overlaps the concept sentences. Targets disjoint from the sample keep the feature-level gains (\S\ref{sec:analysis}), but the erasure experiments use the page target, and $\eta$ and $\gamma$ were chosen with it.
 
 %=====================================================================
 \section*{Ethical Considerations}

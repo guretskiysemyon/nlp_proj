@@ -20,7 +20,7 @@ In column form, $\mathbf x_t = T(\e_t - \mu_B)$ with $T = S_\eta^{\gamma/2}W$, w
 If sparse MF gives $\mathbf x_t \approx \sum_i Y_{i,t}\tilde\z_i$, then $\e_t - \mu_B \approx \sum_i Y_{i,t}\,T^{-1}\tilde\z_i$: the same coefficients reconstruct the original embedding with the mapped-back dictionary $\z_i = T^{-1}\tilde\z_i = W^{-1}S_\eta^{-\gamma/2}\tilde\z_i$, and the mean cancels in any difference.
 Every erasure run checks numerically that the transformed embedding rows equal the factorized matrix columns before editing.
 
-\subsection{Why sharpening ranks the concept first}
+\subsection{Why sharpening finds the concept}
 
 Let $M = \frac1m\sum_j \tilde{\mathbf u}_j\tilde{\mathbf u}_j^{\top} = P\,\mathrm{diag}(\lambda_j)\,P^{\top}$ be the whitened second moment of the target, so that $S_\eta = P\,\mathrm{diag}(g_j)\,P^{\top}$ with $g_j = (1-\eta)\lambda_j + \eta$.
 
@@ -37,42 +37,74 @@ In particular, background tokens, for which $G = I$ up to $\varepsilon$, carry t
 \end{proof}
 
 Since the error that a sparse-MF feature removes is the energy of its support along it, the proposition says which directions sparse MF will find profitable.
-In the raw matrix they are the directions most used by many tokens.
-After whitening, all background directions are equally profitable, so the fit is driven by sampling noise and by the composition of $\vs$; this is why whitening alone finds no Harry Potter feature.
+In the raw matrix they include the mean direction that rare tokens share, so a concept's rare tokens are grouped with other rare tokens.
+After whitening, all background directions are equally profitable, so the concept's tokens form a pure cluster of ordinary value; whitening alone finds a concept feature less often than the raw matrix (on Harry Potter it merges the concept with magic).
 After sharpening, they are ordered by the concept-to-background ratio, raised to the power $1+\gamma$ for the concept's own tokens.
-\pending{WP1: tighten the link between energy and the sparse-MF objective under a fixed width, and add the measured energy ranks.}
+Two further facts make this precise.
+First, \ember{}'s alternating fit depends on $A$ only through the token Gram matrix $K = A^{\top}A$: with $G_Y = YY^{\top}+\lambda I$, the dictionary update gives $Z^{\top}Z = G_Y^{-1}YKY^{\top}G_Y^{-1}$ and $Z^{\top}A = G_Y^{-1}YK$, so the dense solve, the masks and the error are functions of $K$ (verified numerically: identical supports for $A$ and $QA$, $Q$ orthogonal).
+Under \cs{} with $\gamma = 1$, $K$ becomes a \emph{page kernel}, $K(s,t) = (1-\eta)\frac{1}{m}\sum_{j\in\text{page}} k(s,j)\,k(t,j) + \eta\,k(s,t)$, with $k$ the background-Mahalanobis inner product: two tokens are similar when they resemble the same tokens of the concept page.
+Second, with the other features fixed, the best feature on a support $S$ of fixed size lowers the error by $\sigma_1(R_S)^2 = \big(\sum_{t\in S}\|\mathbf r_t\|^2\big)\,\kappa(S)$, the support's energy times its coherence $\kappa(S) \in [1/|S|, 1]$.
+A concept can therefore fail in two ways: it is \emph{impure} if other tokens project more strongly along its best direction (the raw case, where rare tokens share $\hat\mu_B$), or \emph{unprofitable} if its energy times coherence is below what other directions offer (the whitened-only case).
+Across concepts the largest gain is $g_1 = \expnum{15.7}$ (median; range \expnum{10.9--29.3}), and \expnum{870} of 2{,}304 directions have $g_j > 1$.
 
-\subsection{Hyperparameter sensitivity}
-\label{app:cs-sens}
-\pending{WP7: $\eta \in \{0.05, 0.2, 0.5\} \times \gamma \in \{0.5, 1, 2\}$ on concepts outside the tuning set.}
-
-\subsection{Is the gain circular?}
-\label{app:cs-circ}
-
-The default target, the concept's page, contains the sentences $\Sc$ is sampled from.
-A control that removes every token of $\vs$ from the target (``leak-free'') removes most of the feature-level gains:
+\paragraph{Decomposition}
+Medians over 38 concepts $\times$ 5 seeds, row sparsity:
 
 \begin{center}
 \footnotesize
 \setlength{\tabcolsep}{2pt}
-\begin{tabular}{@{}lccc@{}}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-$\rho_{\max}$ / purity / AUC & Raw & \cs{}, page & \cs{}, leak-free \\
+ & raw & $\perp\hat\mu_B$ & centred & whit. & \cs{} \\
 \midrule
-Harry Potter & 26 / .88 / .64 & 125 / .94 / .70 & 14 / .67 / .64 \\
-Ancient Rome & 11 / .88 / .65 & 49 / .88 / .68 & 9 / .79 / .62 \\
-Valentine's Day & 45 / .94 / .63 & 50 / .90 / .67 & 7 / .73 / .58 \\
+Concept found (\% runs) & \expnum{56} & \expnum{61} & \expnum{59} & \expnum{49} & \expnum{69} \\
+Its neutral tokens & \expnum{4.5} & \expnum{4.5} & \expnum{4.5} & \expnum{4.0} & \expnum{3.0} \\
+Its $\|\z\|^2$ percentile & \expnum{86} & \expnum{66} & \expnum{41} & \expnum{54} & \expnum{58} \\
+Seeded: purity & \expnum{.24} & \expnum{.27} & \expnum{.04} & \expnum{.86} & \expnum{.86} \\
+Seeded: value pct. & \expnum{100} & \expnum{97} & \expnum{100} & \expnum{70} & \expnum{91} \\
+SVD rank matching & \expnum{4} & \expnum{22} & \expnum{4} & \expnum{66} & \expnum{49} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent The leak-free target is harsher than a disjoint one: it keeps only the page's tokens that never occur in the 600 sampled sentences, which are its rarest words.
-\pending{WP7: targets made of held-out page sentences, of related pages, and of another concept's page; strict purity under an exclusivity label.}
+\noindent The seeded feature starts on the concept's lexicon tokens and alternates between the top singular vector of its support and the top tokens along it until the support repeats.
+
+\subsection{Is the gain circular?}
+\label{app:cs-circ}
+\label{app:cs-sens}
+
+\paragraph{Design}
+18 \ember{} concepts, seeds 42--44, row sparsity (global sparsity as a secondary analysis), everything fixed except the sharpening target, pre-registered before any new fit.
+Targets: the page (default); \emph{disjoint}, page sentences that are not near-duplicates of any sampled sentence; \emph{related}, four other Wikipedia pages about the concept, taken by rule from the page's ``Main'', ``Further'' and ``See also'' links and size-matched; a random page subset as large as \emph{disjoint}; the leak-free control (page minus every token of $\vs$); and \emph{wrong}, the page of an unrelated concept.
+A token is \emph{strict} if it is concept-only and either a lexicon word or occurs at least twice in $\Sc$ and is at least ten times more frequent there than in Wikipedia.
+
+\paragraph{Results}
+Strict purity of the best concept feature (raw \expnum{.568}): page \expnum{$+.052$} ($p = \expnum{.088}$), disjoint \expnum{$+.060$} (\expnum{.003}; Holm \expnum{.034}), related \expnum{$+.062$} (\expnum{.009}), page subset \expnum{$+.046$}, leak-free \expnum{$-.064$} (n.s.), wrong \expnum{$-.445$} ($p < 10^{-4}$).
+Separability of strict and neutral tokens (AUC, raw \expnum{.576}): page \expnum{$+.055$} (17 of 18 concepts), related \expnum{$+.041$} (17 of 18), disjoint \expnum{$+.037$} (15 of 18); on tokens absent from the target, related still gives \expnum{$+.034$} ($p = \expnum{.0003}$).
+With the wrong page the concept feature is found in \expnum{2 of 54} runs (raw \expnum{39}).
+The coverage measure used to choose $\eta$ rises only with the page target (\expnum{$+.033$}) and falls with the disjoint and related ones, so it was the circular quantity.
+The target also steers which side of the concept is amplified: for Harry Potter, the page keeps the proper-name feature, while the disjoint and related targets yield a ``magic'' feature, both ranked first.
+Under global sparsity the purity gain disappears for every target, page included, while the separability gains remain.
+
+\paragraph{Sensitivity to $\eta$ and $\gamma$}
+On the 15 concepts outside the tuning set (page target, 3 seeds), every setting of $\eta \in \{0.05, 0.2, 0.5\}$ and $\gamma \in \{0.5, 1, 2\}$ beats the raw matrix on strict purity, separability and $\rho$-rank; the default ranks 6th of 9, $\gamma = 2$ is slightly better (\expnum{$+.024$} purity), and $\gamma = 0.5$ is worst on every measure.
 
 \subsection{Models with a larger embedding dimension}
 \label{app:cs-llama}
 
+\paragraph{The question}
 $S_\eta$ is estimated from the $m$ token types of one page.
-On Gemma ($d = 2304$) a page usually has $m > d$; on Llama-3.1-8B ($d = 4096$) many pages do not, and $(1-\eta)M$ then has a null space of dimension at least $d - m$, whose directions sharpening shrinks to $\eta^{\gamma/2}$.
-The multilingual pipeline avoids the issue by pooling the pages of eight languages.
-\pending{WP8: page sizes vs.\ $d$ for both models; whether the problem is rank or estimation noise; $\eta, \gamma$ on single-language Llama; a rule for choosing them.}
+On Llama-3.1-8B ($d = 4096$), 15 of the 18 English pages have $m < d$ (median $m/d = \expnum{0.77}$; Gemma \expnum{1.29}), so $(1-\eta)M$ has a null space that sharpening shrinks to $\eta^{\gamma/2}$.
+
+\paragraph{Rank is not the problem}
+The fitted features put under \expnum{0.5\%} of their mapped-back norm into these floor directions; the three Llama pages with $m > d$ fail like the others; and Gemma pages cut below $d$, or Gemma's own pages with $m < d$, work as before.
+
+\paragraph{Noise is}
+Only about \expnum{12} eigenvalues of Llama's whitened page moment exceed the largest eigenvalue of the same moment computed from $m$ random background types (Gemma: \expnum{74}), and in the noise-dominated bulk each page token's own outer product supplies about half of its sharpened energy (predicted $d/(d+m)$; measured median \expnum{0.54}, correlation \expnum{0.99} across 36 model--concept pairs).
+Since almost every concept-only token of $\vs$ is on the page, sharpening then amplifies page membership rather than the concept: on Llama, \expnum{92\%} of features pass $\rho \ge 2$ (\ember{} \expnum{32\%}), their words are close to incoherent, and the concept feature falls from a $\rho$-rank of about \expnum{10} to about \expnum{38} ($p = \expnum{10^{-4}}$, 18 concepts $\times$ 3 seeds).
+No $\eta \in [0.05, 0.5]$ or $\gamma \in \{0.5, 1\}$ changes this, since the echo sits in the bulk, not on the floor.
+
+\paragraph{Rule}
+Sharpen only the resolvable directions, $S = I + \sum_{j:\lambda_j > \hat\lambda_{\text{edge}}} \big((1-\eta)\lambda_j + \eta - 1\big)\,\mathbf p_j\mathbf p_j^{\top}$, with $\hat\lambda_{\text{edge}}$ the largest eigenvalue of the random-type moment (the Marchenko--Pastur edge $(1+\sqrt{d/m})^2$ is a close closed form).
+On Llama this gives a concept-feature rank of about \expnum{5} against \expnum{10} for \ember{} ($p = \expnum{0.015}$) with \ember{}'s coherence, though no better than whitening alone; on Gemma it keeps 47--98 directions and changes nothing.
+Pooling the concept's text over eight languages raises the number of resolvable directions to about \expnum{85}, which, with the same rule, also works (rank \expnum{4.5}).

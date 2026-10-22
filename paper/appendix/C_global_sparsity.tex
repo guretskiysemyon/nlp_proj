@@ -21,7 +21,7 @@
 \paragraph{Algorithm}
 Algorithm~\ref{alg:gs} replaces \ember{}'s per-row top-$k$ step; everything else is unchanged.
 The budget equals \ember{}'s total ($1\%$ of all entries); the floor is $0.2\%$ and the cap $3\%$ of the tokens per feature ($m_{\min} = 10$, $m_{\max} = 144$ on Harry Potter).
-The cap exists for generic features; no concept feature reached it in \expnum{116} runs over \expnum{24} concepts.
+The cap exists for generic features; no concept feature reached it in \expnum{190} runs over \expnum{38} concepts (widest: Culture of Greece, \expnum{120} of 156 tokens).
 
 \paragraph{Variants}
 All five rules below share the matrix, the budget and the fitting loop.
@@ -54,8 +54,8 @@ On the sharpened matrix, 18 concepts $\times$ 5 seeds (cap 5\% in this sweep):
 \toprule
  & RS-1\% & RS-2\% & GS-norm & GS-gain & GS-ent. \\
 \midrule
-Width (tokens) & 43--52 & 86--104 & 15--113 & 9--143 & 25--121 \\
-Width, seed s.d. & 0 & 0 & 4.1 & 8.1 & 7.9 \\
+Width & 43--52 & 86--104 & 15--113 & 9--143 & 25--121 \\
+Seed MAD & 0 & 0 & 4.1 & 8.1 & 7.9 \\
 Clean runs (/90) & 75 & 31 & 76 & 55 & 61 \\
 Neutral share & 5.8\% & 8.2\% & 5.6\% & 8.0\% & 8.2\% \\
 Seed Jaccard & .719 & .726 & .735 & .717 & .733 \\
@@ -63,9 +63,20 @@ Seed Jaccard & .719 & .726 & .735 & .717 & .733 \\
 \end{tabular}
 \end{center}
 
-\noindent A run is clean when its concept feature has at most five neutral tokens.
+\noindent MAD: mean absolute deviation of a concept's width across seeds. A run is clean when its concept feature has at most five neutral tokens.
 Only GS-norm adapts the width per concept while staying as clean and stable as \ember{}'s rule.
-On the raw matrix (3 concepts), GS-norm's concept features are 11--44\% neutral, against 15--25\% for RS-1\%; with \cs{} they are 1--9\% neutral.
+This sweep used a 5\% cap; with the current 3\% cap, concept widths range over \expnum{21--114} tokens (concept means).
 
 \paragraph{Width, tails and breadth}
-\pending{WP3: seed stability and independence of the feature index; the dense re-solve ($Y'=Y$ on the support), the natural tail of each concept feature against the RS cut and the GS width; width against breadth; RS vs.\ GS directions; GS on the raw matrix for all concepts.}
+We use the saved fits of 38 concepts $\times$ 5 seeds (\ember{}; \cs{} with row sparsity; \cs{}+\gs{}; raw \gs{}; \cs{} with 2\% row sparsity), 950 fits in all.
+\emph{Dense re-solve.} With the saved dictionary fixed, $Y' = (Z^{\top}Z+\lambda I)^{-1}Z^{\top}A$ equals $Y$ on the support in every fit (maximum error \expnum{$2.2\cdot10^{-6}$}), and every \gs{} support is exactly the set of tokens whose share exceeds a single threshold per fit.
+\emph{Natural tail.} Along the dense ranking of the concept feature (identified by lexicon hits), a token is \emph{page-enriched} if it occurs in $\Sc$ and is at least 20 times more frequent there than in Wikipedia; the natural tail $T$ is the first rank at which fewer than half of the next 20 tokens are page-enriched, fixed before any width statistic was computed.
+\emph{Results.} On the sharpened matrix the median $T$ is \expnum{69} tokens against a row-sparse width of \expnum{47}; the 1\% cut is short for \expnum{25}, long for \expnum{8} and about right for \expnum{5} of 38 concepts (raw matrix: \expnum{15}, \expnum{15}, \expnum{8}).
+Doubling the budget moves $T$ by \expnum{$+3$} tokens (rank correlation \expnum{0.96}).
+\gs{} widens \expnum{26} of the \expnum{28} features cut short; its width correlates with $T$ at \expnum{0.67 [0.42, 0.84]} against \expnum{0.27} for the row-sparse width, with mean error \expnum{30} vs.\ \expnum{42} tokens ($p = \expnum{0.0009}$).
+This holds for all 45 non-degenerate definitions of the tail in a grid of 72, but \gs{} compresses the range (slope \expnum{0.30}): it overshoots narrow concepts by \expnum{24} tokens and undershoots broad ones by \expnum{44} (e.g., Buddhism \expnum{100} vs.\ \expnum{182}).
+\emph{Stability.} The width's seed deviation is \expnum{4} tokens when the same feature is identified (\expnum{7.7} overall), and the width is unrelated to the feature's index ($\rho = \expnum{-0.004}$).
+\emph{Breadth.} \gs{} width does not correlate with counts of concept tokens (\expnum{0.05}); that count ranks concepts exactly like $|\vs|$, since $\Sn$ is shared.
+\emph{Direction.} The \gs{} and row-sparse concept features have cosine \expnum{0.97} (within seed noise); raw and sharpened features, mapped back, only \expnum{0.75}.
+\emph{\gs{} needs \cs{}.} On the raw matrix, the width that \gs{} adds beyond the row-sparse width is \expnum{16\%} neutral (against \expnum{7\%} for its first 47 tokens), and raw \gs{} does not track $T$ better than row sparsity ($p = \expnum{0.39}$).
+Under \gs{} the concept feature ranks first by $\rho$ less often than under \cs{} with row sparsity (\expnum{18\%} vs.\ \expnum{38\%} of runs), although its wider support holds more concept tokens (\expnum{54} vs.\ \expnum{41.5}).

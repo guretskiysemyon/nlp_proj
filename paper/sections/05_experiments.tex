@@ -44,7 +44,7 @@ The multilingual study uses \ember{}'s 18 concepts and 20 new ones, held out und
 Each method selects one operating point per run on validation questions and is scored once on test questions.
 Besides the primary rule ($\Hthree$ under both gates), we report the paper's rule (no collateral), a fixed equal edit size ($r = 0.5$) and an integrity-gated rule (edited words must remain copyable).
 Comparisons are paired by run, with the concept as the unit of analysis; we use two-sided Wilcoxon signed-rank tests with Holm correction and bootstrap 95\% confidence intervals over concepts.
-All analyses were pre-registered before their results existed; those defined after earlier results were seen are labelled post hoc.
+Every analysis was written into a pre-registration before its results existed; analyses defined after earlier results were seen are marked \emph{post hoc} below.
 
 \subsection{Erasure Methods and Baselines}
 \label{sec:methods-compared}
@@ -85,22 +85,24 @@ Under the paper's rule, the original ranking reappears through destruction, with
     \cinderz{}, ours & \expnum{1} & \expnum{0.39} & \expnum{0.86} & \expnum{0.16} & \expnum{0.98} \\
     \bottomrule
   \end{tabular}
-  \caption{Operating points selected by the paper's rule (no collateral) and by ours, on 12 held-out concepts (test split). $r$: median edit size; Broken: share of neutral prompts whose answer breaks; Alp.: normalized Alpaca coherence.}
+  \caption{Operating points selected by the paper's rule (no collateral) and by ours, on 12 held-out concepts (test split). $r$: median edit size; Broken: share of neutral prompts whose answer breaks (9 concepts where every configuration exists, one seed); Alp.: normalized Alpaca coherence (seed 42).}
   \label{tab:destruction}
 \end{table}
 
 \paragraph{\cinder{} erases concepts that \ember{} misses}
 \label{sec:exp-head}
 \ember{} edits in \expnum{41} of the 60 held-out runs and \cinder{} in \expnum{52}.
-In runs where only one of the two edits, \cinder{} does so in \expnum{14} and \ember{} in \expnum{3} (exact McNemar $p = \expnum{0.013}$); \ember{}'s empty runs concentrate on Heroin, Nazism and Uranium.
+In runs where only one of the two edits, \cinder{} does so in \expnum{14} and \ember{} in \expnum{3} (exact McNemar $p = \expnum{0.013}$, post hoc); \ember{}'s empty runs concentrate on Heroin, Nazism and Uranium.
 
-\paragraph{\cinder{}'s direction removes more per unit of edit}
+\paragraph{At moderate edit size, \cinder{}'s direction removes more}
 At equal edit size ($r = 0.5$), every \cinder{} variant removes more than \ember{} at the same collateral (efficacy \expnum{0.25--0.30} vs.\ \expnum{0.20}); for \cinder{} the gain is \expnum{$+0.15$} $\Hthree$, on \expnum{10 of 11} concepts (Holm $p = \expnum{0.012}$).
-Crossing the two token sets with the two directions attributes this gain to the direction: \cinder{}'s direction adds \expnum{$+0.07$} efficacy on \expnum{10 of 11} concepts, while its token set, at matched size, adds \expnum{$+0.02$}.
+Crossing the two token sets with the two directions (post hoc) attributes this gain to the direction: \cinder{}'s direction adds \expnum{$+0.07$} efficacy on \expnum{10 of 11} concepts, while its token set, at matched size, adds \expnum{$+0.02$}.
+At twice the edit size ($r = 1$), the direction effect vanishes (\expnum{$-0.02$} efficacy, $p = \expnum{0.97}$; secondary analysis).
+One reading, consistent with \S\ref{sec:cinderz}, is that \ember{}'s uncentred edit gains from its mean component as edits grow, while \cinder{}'s centred edit does not; the mean-edit test of \S\ref{app:edit} addresses it.
 
 \paragraph{At their own operating points, the methods tie}
 When each method picks its own strength, the pre-registered primary comparison shows no significant difference (\expnum{$+0.04$}, Holm $p = \expnum{0.41}$): \ember{} catches up with larger edits, which cost word integrity (\S\ref{sec:token}).
-\cinder{}'s advantage becomes significant when runs without an edit count as failures or when the collateral gate is tightened (\S\ref{app:eval}).
+With a stricter collateral gate (0.9), all four \cinder{} variants beat \ember{} significantly, and when runs without an edit count as failures, \cinder{} gains \expnum{$+0.12$} (Holm $p = \expnum{0.10}$; both post hoc, \S\ref{app:eval}).
 
 \begin{figure}[t]
   \centering
@@ -117,14 +119,33 @@ When each method picks its own strength, the pre-registered primary comparison s
 Counting concepts without an edit as failures, the single \cinderz{} fit (A3z) ties per-language \ember{} (A1): \expnum{0.23} vs.\ \expnum{0.25} strict and \expnum{0.28} vs.\ \expnum{0.25} ungated, \expnum{15--13} in wins and losses ($p = \expnum{0.78}$; Table~\ref{tab:ml}), with one factorization and one judging pass per concept instead of eight.
 Pooling the selections of three fit seeds, which costs three fits instead of 24, helps \cinderz{} reliably (\expnum{$+0.08$}, \expnum{19--4}, $p < 0.001$) and per-language \ember{} not (\expnum{$+0.05$}, n.s.), and the two still tie.
 
-\paragraph{A multilingual \ember{} fit rarely finds the concept}
-Where the multilingual \ember{} fit (A2) finds a concept feature, it erases as well as \cinderz{}; but it finds one for only \expnum{10} of the 38 concepts, and for only \expnum{2} of the 20 held-out ones, against \expnum{21} and \expnum{10} for \cinder{}, consistently across three fit seeds (\expnum{9--12} vs.\ \expnum{17--21}).
+\paragraph{A multilingual \ember{} fit rarely accepts the concept}
+Where the multilingual \ember{} fit (A2) selects a concept feature, it erases as well as \cinderz{}; but it selects one for only \expnum{10} of the 38 concepts, and for only \expnum{2} of the 20 held-out ones, against \expnum{21} and \expnum{10} for \cinder{}, consistently across three fit seeds (\expnum{9--12} vs.\ \expnum{17--21}).
 Counting coverage, \cinderz{} beats it by \expnum{$+0.21$} (\expnum{15--4}, $p = \expnum{0.011}$).
-\pending{WP9: language identity in the features of A2 vs.\ A3, and whether \cinder{}'s concept features span languages and scripts.}
+The loss happens at the judge more than in the fit (Table~\ref{tab:ml-2x2}).
+The raw multilingual fit contains a lexicon-matching concept feature about as often as \cinder{}'s (\expnum{25--27} vs.\ \expnum{23--28} of 38 concepts per seed), but \ember{}'s judge accepts only \expnum{5\%} of its candidates with 3--4 lexicon words among their top tokens, against \expnum{30\%} for \cinder{}'s and for per-language \ember{}'s; the raw fit also gives \expnum{14\%} of its candidates to single-language features, \cinder{}'s none.
+Either half of \cinder{}'s selection closes most of the gap, and together they close it fully (counterfactual coverage on the saved fits).
+\cinder{}'s concept features also span more scripts (\expnum{34\%} use two or more, against none for \ember{}'s), although much of their non-Latin mass is generic words.
+
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    Concepts covered (of 38) & \ember{} judge & two-way judge \\
+    \midrule
+    Raw fit & \expnum{10 / 9 / 12} & \expnum{18 / 20 / 18} \\
+    Sharpened fit (\cs{}+\gs{}) & \expnum{16 / 16 / 16} & \expnum{21 / 17 / 20} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Multilingual coverage on Llama-3.1-8B by fit and judge, for fit seeds 42 / 1 / 2. The off-diagonal cells re-judge the saved fits; the diagonal cells are multilingual \ember{} (A2) and \cinder{} (A3) as run.}
+  \label{tab:ml-2x2}
+\end{table}
 
 \paragraph{The mean term matters across languages}
 Multilingual \cinder{} (A3), whose edit is centred, erases weakly.
-Re-solving its dictionary on the uncentred embeddings (A3z) adds \expnum{$+0.17$} (\expnum{16 of 21} concepts, $p = \expnum{0.007}$), and the gain holds on the 20 held-out concepts.
+Re-solving its dictionary on the uncentred embeddings (A3z, defined after the development results) adds \expnum{$+0.17$} (\expnum{16 of 21} concepts, $p = \expnum{0.007}$), and the gain has the same direction on the 20 pre-registered held-out concepts (\expnum{$+0.19$}, \expnum{7--3}, $p = \expnum{0.064}$).
 On Llama, the first layer reads the shared mean direction \expnum{20} times more strongly than a random one, so even a small mean term changes the edit's effect (\S\ref{app:edit}); all other approaches, like \ember{}, edit uncentred.
 
 \paragraph{Some languages are out of reach}
@@ -140,6 +161,8 @@ Hindi and Thai words split into short pieces that also occur in everyday text, s
      & A1 & A2 & A3 & A3z \\
     \midrule
     Fits per concept & 8 & 1 & 1 & 1 \\
+    Judge calls per concept & \expnum{160} & \expnum{20} & \expnum{20} & \expnum{20} \\
+    LLM cost per concept (NIS) & \expnum{.055} & \expnum{.007} & \expnum{.017} & \expnum{.017} \\
     Concepts edited (of 38) & \expnum{26} & \expnum{10} & \expnum{21} & \expnum{21} \\
     Score, strict & \expnum{0.25} & \expnum{0.11} & \expnum{0.14} & \expnum{0.23} \\
     Score, ungated & \expnum{0.25} & \expnum{0.14} & \expnum{0.14} & \expnum{0.28} \\

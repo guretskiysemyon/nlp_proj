@@ -1,0 +1,58 @@
+{
+ "written": "2026-10-22 19:28:24",
+ "status": "written before any WP7 fit with a new target was run or any WP7 metric was computed",
+ "concepts": "18 EMBER paper concepts (data/concept_sentences.json); eta/gamma grid: the 15 outside {Harry Potter, Ancient Rome, Valentine's Day}",
+ "seeds": [
+  42,
+  43,
+  44
+ ],
+ "fit": "experiments/varwidth/core.fit_varwidth, VWConfig(method='fixed', refit=False) = RS-1% (tag fixed_refit-False); GS (method='rn') as a secondary if time allows",
+ "conditions": {
+  "raw": "A = E_V*^T (EMBER)",
+  "page": "default CS target (experiments/whitening/data/gemma/targets/<Slug>.json['page'])",
+  "disjoint": "page sentences minus near-duplicates of S_C or S_N (exact / shared word 8-gram / word-set Jaccard >= 0.5)",
+  "related": "first 4 qualifying pages from the main page's Main/Further/See also hatnotes; near-duplicates of S_C/S_N removed; pooled; subsampled (seed 0) to the main page's sentence count if larger",
+  "leakfree": "page minus every V* token type",
+  "wrong": "page target of a fixed unrelated concept (common.WRONG)",
+  "pagesub": "size control for disjoint: random page sentences (seed 0), as many as the disjoint set"
+ },
+ "eta_gamma_default": [
+  0.05,
+  1.0
+ ],
+ "eta_grid": [
+  0.05,
+  0.2,
+  0.5
+ ],
+ "gamma_grid": [
+  0.5,
+  1,
+  2
+ ],
+ "concept_feature": "f* = argmax over features of (lexicon hits among top-20 source words, rho); lexicon = concept_words_v1",
+ "strict_label": "concept-only AND (lexicon word OR (n_SC >= 2 AND log(p_SC / p_Wiki) >= log 10)); p_Wiki = (n_W + 1) / (N_W + V) over 40k articles of the cached wikimedia/wikipedia shard 00040",
+ "strict_sensitivity": [
+  "strict_any: no n_SC >= 2 requirement",
+  "lexonly: concept-only AND lexicon word"
+ ],
+ "primary_metrics": [
+  "rho_rank of f* (lower = better)",
+  "purity_strict of supp(f*)"
+ ],
+ "secondary_metrics": [
+  "purity_C",
+  "lex_top20",
+  "lex_tok",
+  "auc_C",
+  "auc_S (dense f* code)",
+  "auc_tau",
+  "log_dom",
+  "found5",
+  "held-out-token auc_S / purity_strict for tokens not in each target"
+ ],
+ "unit_and_tests": "concept = unit (mean over seeds); each target vs raw: paired Wilcoxon signed-rank (two-sided), bootstrap 95% CI of the mean difference (10,000 resamples over concepts, seed 0); Holm over the primary family (2 metrics x 6 targets); retention = mean(target - raw) / mean(page - raw) with bootstrap CI",
+ "interpretation_rule": "gain is concept-specific and not circular if disjoint and/or related keep most (>= 50%) of the page gain over raw on the primary metrics while wrong does not improve over raw; if only page works, report that plainly",
+ "eta_gamma_rule": "per concept rank the 9 configs on rho_rank (low better), purity_strict, purity_C, auc_S, lex_top20 (ties averaged); mean rank over metrics x concepts; report the default's rank and its gap to the best config per metric with bootstrap CI"
+}
