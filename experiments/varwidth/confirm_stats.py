@@ -297,6 +297,57 @@ def twobytwo_report():
     print("\n".join(L))
 
 
+COVERAGE_SETTINGS = [("Own selected point (collateral rule, primary)", "result.json"),
+                     ("Equal strength (fixed r = 0.5)", "result_fixed05.json"),
+                     ("Collateral gate 0.9", "result_g0.9.json"), ("Collateral gate 0.7", "result_g0.7.json"),
+                     ("Integrity-gated (copy ≥ 0.9)", "result_e3.json"), ("Paper rule (old evaluation)", "result_paper.json")]
+NI_MARGIN = 0.05      # non-inferiority margin on H3v (post hoc, about 10% of EMBER's mean)
+
+
+def load_file(fname):
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in EXP_VARIANTS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / fname
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    return R
+
+
+def coverage_report():
+    """Every selection setting both ways (post hoc): runs where both methods edit (both judges accept a concept
+    feature) and all runs (no edit = H3v 0), with non-inferiority at NI_MARGIN on the first.
+    -> results/varwidth/layers/collateral/coverage_split.md and .json"""
+    res, L = {}, ["# CINDER vs EMBER by coverage (post hoc)", "",
+                  "Paired H3v difference (variant − EMBER), unit = concept, two-sided Wilcoxon, Holm over the 4 variants "
+                  "within each setting and view, 95% cluster bootstrap. Both edit = runs where both judges accept at least "
+                  f"one concept feature. All runs = all 60, no edit scored as H3v 0. Non-inferior = lower CI bound above "
+                  f"−{NI_MARGIN}.", ""]
+    for name, fname in COVERAGE_SETTINGS:
+        R = load_file(fname)
+        A = {v: contrast(R, v, "H3v_rn") for v in CONTRASTS}
+        B = {v: contrast_itt(R, v, "H3v_rn") for v in CONTRASTS}
+        ha = holm(np.array([A[v].get("p", 1.0) for v in CONTRASTS]))
+        hb = holm(np.array([B[v]["p"] for v in CONTRASTS]))
+        res[name] = {}
+        L += [f"## {name}", "", "| Variant − EMBER | both edit: concepts (pairs) | mean [95% CI] | w/l | Holm p | "
+              "non-inferior | all runs: mean [95% CI] | w/l | Holm p |", "|---|---|---|---|---|---|---|---|---|"]
+        for v, a1, b1 in zip(CONTRASTS, ha, hb):
+            a, b = A[v], B[v]
+            ni = a["ci"][0] > -NI_MARGIN
+            res[name][v] = {"both": {k: x for k, x in a.items() if k != "per_concept"} | {"p_holm": float(a1),
+                            "non_inferior": bool(ni)}, "all": b | {"p_holm": float(b1)}}
+            L.append(f"| {NAMES[v]} | {a['n_concepts']} ({a['n_pairs']}) | {a['mean']:+.3f} [{a['ci'][0]:+.3f}, "
+                     f"{a['ci'][1]:+.3f}] | {a['wins']}/{a['losses']} | {a1:.3f} | {'yes' if ni else 'no'} | "
+                     f"{b['mean']:+.3f} [{b['ci'][0]:+.3f}, {b['ci'][1]:+.3f}] | {b['wins']}/{b['losses']} | {b1:.3f} |")
+        L.append("")
+    (OUT / "coverage_split.json").write_text(json.dumps(res, indent=1, default=str))
+    (OUT / "coverage_split.md").write_text("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
 def fmt(x, n=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{n}f}"
 
@@ -390,4 +441,4 @@ def main():
 
 if __name__ == "__main__":
     import sys
-    twobytwo_report() if sys.argv[1:] == ["2x2"] else main()
+    {"2x2": twobytwo_report, "coverage": coverage_report}.get(sys.argv[1] if sys.argv[1:] else "", main)()
