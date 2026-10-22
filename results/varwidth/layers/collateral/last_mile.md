@@ -44,16 +44,16 @@ Matched concepts (every config present: Baseball, COVID-19 pandemic, Cannabis, G
 |---|---|---|---|---|---|---|---|---|
 | EMBER | sel | 8 | 1.00 | 0.95 | 0.97 | 0.00 | 0.53 | 0.58 |
 | EMBER | paper | 8 | 0.99 | 0.96 | 0.97 | 0.00 | 0.76 | 0.74 |
-| EMBER | e3 | 4 | 1.00 | 0.96 | 0.98 | 0.00 | 0.21 | 0.24 |
+| EMBER | e3 | 8 | 1.00 | 0.97 | 0.98 | 0.00 | 0.16 | 0.18 |
 | CINDER | sel | 10 | 1.00 | 0.97 | 0.98 | 0.00 | 0.53 | 0.57 |
-| CINDER | e3 | 4 | 0.99 | 0.95 | 0.97 | 0.00 | 0.28 | 0.33 |
+| CINDER | e3 | 10 | 1.00 | 0.95 | 0.97 | 0.00 | 0.30 | 0.35 |
 | CINDER-RS (CS + RS-1% + TWJ) | sel | 10 | 1.00 | 0.96 | 0.98 | 0.00 | 0.53 | 0.57 |
-| CINDER-RS (CS + RS-1% + TWJ) | e3 | 4 | 1.00 | 0.95 | 0.97 | 0.00 | 0.00 | 0.00 |
+| CINDER-RS (CS + RS-1% + TWJ) | e3 | 10 | 1.00 | 0.96 | 0.98 | 0.00 | 0.17 | 0.20 |
 | CINDER-z (A3z: CINDER selection, original-space Z) | sel | 10 | 1.00 | 0.96 | 0.98 | 0.00 | 0.70 | 0.72 |
 | CINDER-z (A3z: CINDER selection, original-space Z) | paper | 10 | 0.99 | 0.95 | 0.97 | 0.00 | 0.81 | 0.76 |
-| CINDER-z (A3z: CINDER selection, original-space Z) | e3 | 4 | 1.00 | 0.96 | 0.98 | 0.00 | 0.00 | 0.00 |
+| CINDER-z (A3z: CINDER selection, original-space Z) | e3 | 10 | 1.00 | 0.96 | 0.98 | 0.00 | 0.14 | 0.16 |
 | CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | sel | 10 | 1.00 | 0.95 | 0.97 | 0.00 | 0.61 | 0.65 |
-| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | e3 | 4 | 1.00 | 0.98 | 0.99 | 0.00 | 0.20 | 0.23 |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | e3 | 10 | 1.00 | 0.96 | 0.98 | 0.00 | 0.22 | 0.25 |
 
 Paired H4 vs EMBER at the collateral-rule point, seed 42 (concepts where both edit):
 
@@ -68,10 +68,10 @@ Paired H4 vs EMBER at the E3 point (amendment 12), seed 42 (concepts where both 
 
 | Variant − EMBER | concepts | mean ΔH4 | wins/losses |
 |---|---|---|---|
-| CINDER | 4 | +0.093 | 3/1 |
-| CINDER-RS (CS + RS-1% + TWJ) | 4 | -0.239 | 0/2 |
-| CINDER-z (A3z: CINDER selection, original-space Z) | 4 | -0.239 | 0/2 |
-| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 4 | -0.011 | 1/2 |
+| CINDER | 7 | +0.169 | 6/1 |
+| CINDER-RS (CS + RS-1% + TWJ) | 6 | -0.086 | 2/2 |
+| CINDER-z (A3z: CINDER selection, original-space Z) | 7 | -0.026 | 3/2 |
+| CINDER-RS-z (A3z: CINDER-RS selection, original-space Z) | 6 | +0.038 | 3/2 |
 
 ## Word-free efficacy (amendment 11)
 

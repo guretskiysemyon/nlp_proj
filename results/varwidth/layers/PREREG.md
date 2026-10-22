@@ -530,3 +530,8 @@ gain without them is not the nonce point.
 - Context damage at the collateral-rule point (existing E2 outputs, post hoc): context-MC below the real-word
   reference for CINDER-z (9 of 11 concepts, p 0.024) and CINDER-RS-z (10 of 12, p 0.003), not for EMBER, CINDER or
   CINDER-RS.
+
+**Results of amendment 12 (2026-10-22).** All 48 seed-42 E3 points (45 scored, 3 reused), 5.68 NIS (total 37.50 of the
+38 stop). Coherence 0.97–0.98 for every variant, none below 0.9 (prediction ≥ 0.95: met). H4 at the E3 point: EMBER
+0.18, CINDER 0.35, CINDER-RS 0.20, CINDER-z 0.16, CINDER-RS-z 0.25; paired vs EMBER CINDER +0.169 (6/1), CINDER-RS
+−0.086, CINDER-z −0.026, CINDER-RS-z +0.038 (descriptive).
