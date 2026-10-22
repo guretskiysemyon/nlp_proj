@@ -1,0 +1,83 @@
+%=====================================================================
+\section{Collateral-Aware Evaluation: Details}
+\label{app:eval}
+%=====================================================================
+
+\subsection{Collateral Questions}
+For every edited token with a common meaning outside the concept (e.g., \emph{Harry}, \emph{Caesar}, \emph{club}), LLM agents (Claude) wrote four-option multiple-choice questions that use the token in that meaning, and other agents reviewed them, both without knowing which methods would be scored.
+Items that the unedited model answers incorrectly under either option order were dropped, and each split was frozen with a hash before any edited model was scored.
+The held-out set has \expnum{3{,}501} items on \expnum{1{,}026} tokens.
+Collateral accuracy is normalized against the unedited model per token, like \ember{}'s metrics.
+
+\subsection{Scores, Gates and Selection Rules}
+$\Hthree$ is the harmonic mean of efficacy, specificity and collateral; $H_4$ adds Alpaca coherence.
+A point is admissible only if MMLU stays at or above 0.9 and validation collateral at or above 0.8 of the unedited model.
+Each rule selects one grid point per run on validation and scores it once on test:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lP{3.4cm}l@{}}
+\toprule
+Rule & Selects & Role \\
+\midrule
+Collateral & max $\Hthree$, both gates & primary \\
+Paper & max $\hmean$(efficacy, specificity), MMLU gate & the old protocol \\
+Fixed & the point $r = 0.5$ & equal edit size \\
+Integrity & collateral rule, copy $\geq 0.9$ & words stay readable \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Word Integrity Tests}
+\begin{center}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lP{4.6cm}@{}}
+\toprule
+Test & Question asked \\
+\midrule
+Copy & Can the model repeat a sentence containing the word? \\
+What is X? & Free answer, labelled blindly as knowing the concept (leak), knowing another meaning or not knowing (graceful), inventing a meaning (confabulation), or not registering the word (destruction) \\
+Context & Is an unrelated MMLU question placed after a sentence with the word still answered? \\
+Generation & Do 20 neutral prompts per concept that use the edited words keep their answer? \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Free-text answers were labelled by LLM agents that never saw which method produced them; 10\% of items were duplicated across agents, with agreement \expnum{0.92--0.97} on the exact label and \expnum{0.97--1.00} on the decisive class.
+Each test is also run on the real word, the word deleted, and a nonce.
+The \emph{nonce floor} and the \emph{deletion floor} are the efficacies of the unedited model on the concept questions with the edited words replaced by their nonces or deleted.
+
+\subsection{Pre-registration and Robustness}
+Every analysis plan was written into a pre-registration with amendments before its results existed.
+\expfill{Robustness table: paired $\Delta\Hthree$ vs.\ \ember{} for the four \cinder{} variants (all 60 runs with no edit scored as no erasure; collateral gate 0.9 and 0.7; leave-one-concept-out $p$ range); the table of development claims and their held-out verdicts; Mean and Noise baselines (development only).}
+
+\subsection{Integrity-Gated Selection}
+\expfill{Table: runs edited, efficacy, collateral, $\Hthree$, median $r$, copy (exclusive / multi-meaning words) and $H_4$ for each method at the integrity-gated point (\cinder{} \expnum{0.12} and \cinder{}-RS \expnum{0.14} efficacy vs.\ \ember{} \expnum{0.06}).}
+
+\subsection{Direction or Token Set}
+Four cells cross the token set with the direction at a fixed $r = 0.5$, on the runs where \ember{} has a token set; ``\cinder{}'s tokens'' are \cinder{}'s top concept-only tokens, as many as \ember{} edits.
+All cells use dense coefficients so that every token has a coefficient on $\Fc$.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Efficacy / $\Hthree$ & \ember{} direction & \cinder{} direction \\
+\midrule
+\ember{} tokens & \expnum{.20 / .39} & \expnum{.26 / .46} \\
+\cinder{} tokens & \expnum{.20 / .39} & \expnum{.26 / .48} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The direction effect (mean of the row differences) is \expnum{$+0.073$} efficacy and \expnum{$+0.097$} $\Hthree$, on \expnum{10 of 11} concepts (Holm $p$ \expnum{0.097} and \expnum{0.055}); the token-set effect is \expnum{$+0.016$} and \expnum{$+0.024$} (n.s.); the direction costs \expnum{0.02} collateral.
+\expfill{The same 2$\times$2 at $r = 1$ (running).}
+
+\subsection{The Nonce-Matching Edit}
+\label{app:nonce}
+We keep the model frozen and learn a change to each edited row.
+The loss pushes the edited model, on concept sentences and new definitional prompts, toward what the unedited model does when the word is replaced by its nonce, while two further terms keep the word copyable (new carrier sentences) and keep the other meanings of multi-meaning tokens (sentences the model generated itself); no evaluation item is used for training.
+\expfill{Table: runs at the nonce target, efficacy, collateral, copy, destroyed words and neutral prompts broken, for the edit inside \cinder{}'s and \ember{}'s concept subspace and for free edits (seed 42, 12 held-out concepts).}

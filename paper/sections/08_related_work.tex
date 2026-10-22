@@ -1,0 +1,26 @@
+%=====================================================================
+\section{Related Work}
+\label{sec:related}
+%=====================================================================
+
+\paragraph{Concept Erasure and Its Evaluation}
+Most unlearning methods optimize a forget objective while retaining performance on other data \citep{eldan2023harry,li2024wmdp,ashuach2026crisp}, and a parallel line localizes and edits the parameters that store the concept \citep{gurarieh2025precise,shafran2026constructing,suslik2026ember}.
+Across both, erasure is often shallow: knowledge returns after relearning \citep{deeb2024unlearning}, under adversarial prompting \citep{lynch2024eight}, or in another format \citep{ye2025formindependent,hong2025intrinsic}.
+Erasure is usually scored on efficacy, specificity and coherence, with LLM judges for free text \citep{zheng2023judging}.
+Knowledge editing has long tested specificity on \emph{neighborhood} prompts that share surface form with the edit \citep{meng2022locating}; our collateral term brings this idea to the edited tokens of embedding erasure, and our nonce reference follows the classic \emph{wug} test of word knowledge \citep{berko1958child}.
+
+\paragraph{Sparse Dictionaries and Their Interpretation}
+Sparse factorizations recover interpretable parts of data \citep{lee1999nmf,hoyer2004nmf} and of model activations \citep{bricken2023monosemanticity,huben2024sparse,gao2025scaling,shafran2026constructing}.
+How the sparsity budget is allocated shapes what is found: top-$k$ constraints fix the support of each code \citep{makhzani2014ksparse}, BatchTopK shares it across a batch \citep{bussmann2024batchtopk}, and both are projections onto an $\ell_0$ ball as in iterative hard thresholding \citep{blumensath2009iht}.
+Features are commonly named by an LLM that explains them and scores the explanation \citep{bills2023language,paulo2024automatically}; since verbalized LLM confidence is poorly calibrated \citep{xiong2024can}, fixed confidence cutoffs are fragile, which motivates our second, lexical path.
+
+\paragraph{Geometry of Token Embeddings}
+Embedding spaces are anisotropic, with a few common directions dominating their variance \citep{ethayarajh2019contextual,mu2018allbutthetop}, and frequency shapes their geometry, rare tokens being trained less \citep{gao2019representation}.
+Removing or whitening the dominant directions improves semantic similarity \citep{mu2018allbutthetop,su2021whitening}, and whitening is standard before sparse coding and ICA \citep{hyvarinen2000ica}.
+Directions that separate a target from a background are classically found with Fisher's discriminant \citep{fisher1936use} and contrastive PCA \citep{abid2018exploring}; we use the same contrast to reshape the matrix before factorizing it.
+Linear concept erasure methods such as INLP and LEACE \citep{ravfogel2020null,belrose2023leace} also whiten, but they remove a concept from representations at inference time, whereas we use whitening to find concept directions in the weights.
+
+\paragraph{Multilingual Knowledge and Unlearning}
+Multilingual LMs encode language identity in a few dominant directions separate from meaning \citep{chang2022geometry,libovicky2020language} and share much of their conceptual knowledge across languages in their middle layers \citep{wendler2024llamas}.
+Unlearning in one language often fails to carry over to others \citep{choi2024crosslingual,lu2025learn}.
+For embedding-level erasure the failure is structural, since an edit to English token rows cannot reach the tokens of another script; \citet{suslik2026ember} name multilingual extension as future work, and to our knowledge no prior work erases a concept at the embedding level in more than one language. We do so with a single multilingual fit.

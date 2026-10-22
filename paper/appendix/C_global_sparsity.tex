@@ -1,0 +1,71 @@
+%=====================================================================
+\section{Global Sparsity: Details}
+\label{app:gs}
+%=====================================================================
+
+\begin{algorithm}[t]
+\caption{Sparse MF with Global Sparsity (one iteration)}
+\label{alg:gs}
+\small
+\begin{algorithmic}[1]
+\Require $A \in \R^{d\times n}$, $Z \in \R^{d\times k}$, budget $K = \lceil s\,n\rceil k$, floor $m_{\min}$, cap $m_{\max}$
+\State $Y^{\mathrm{d}} \gets (Z^{\top}Z + \lambda I)^{-1}Z^{\top}A$ \Comment{dense update}
+\State $s_{ij} \gets |Y^{\mathrm{d}}_{ij}| \,/\, \|Y^{\mathrm{d}}_{i,:}\|_2$ \Comment{scale-free share}
+\State $\mathcal S \gets$ the top $m_{\min}$ entries of every row by $s_{ij}$
+\State add the remaining entries in decreasing $s_{ij}$, skipping rows with $m_{\max}$ entries, until $|\mathcal S| = K$
+\State $Y \gets Y^{\mathrm{d}} \odot \mathbb 1_{\mathcal S}$; rescale rows of $Y$ to unit norm, absorb scales in $Z$
+\State $Z \gets AY^{\top}(YY^{\top} + \lambda I)^{-1}$
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Algorithm}
+Algorithm~\ref{alg:gs} replaces \ember{}'s per-row top-$k$ step; everything else is unchanged.
+The budget equals \ember{}'s total ($1\%$ of all entries); the floor is $0.2\%$ and the cap $3\%$ of the tokens per feature ($m_{\min} = 10$, $m_{\max} = 144$ on Harry Potter).
+The cap exists for generic features; no concept feature reached it in \expnum{116} runs over \expnum{24} concepts.
+
+\paragraph{Variants}
+All five rules below share the matrix, the budget and the fitting loop.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lP{2.9cm}P{2.1cm}@{}}
+\toprule
+Rule & Support & Role \\
+\midrule
+RS-1\% & top 1\% of each row & \ember{} \\
+RS-2\% & top 2\% of each row & more tokens, no reallocation \\
+GS-norm & global top-$K$ of $|y_{ij}|/\|\mathbf y_i\|$ & \cinder{} \\
+GS-gain & global top-$K$ of $|y_{ij}|\,\|\z_i\|$ & favours loud features \\
+GS-entropy & width $\propto$ effective support $e^{H(\mathbf y_i)}$ & ablation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent An $\ell_1$-penalized variant (the Lasso, \citealt{tibshirani1996lasso}), tuned to the same number of nonzeros, never produced a clean Ancient Rome feature in 5 seeds and was dropped.
+
+\paragraph{Results}
+On the sharpened matrix, 18 concepts $\times$ 5 seeds (cap 5\% in this sweep):
+
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+ & RS-1\% & RS-2\% & GS-norm & GS-gain & GS-ent. \\
+\midrule
+Width (tokens) & 43--52 & 86--104 & 15--113 & 9--143 & 25--121 \\
+Width, seed s.d. & 0 & 0 & 4.1 & 8.1 & 7.9 \\
+Clean runs (/90) & 75 & 31 & 76 & 55 & 61 \\
+Neutral share & 5.8\% & 8.2\% & 5.6\% & 8.0\% & 8.2\% \\
+Seed Jaccard & .719 & .726 & .735 & .717 & .733 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent A run is clean when its concept feature has at most five neutral tokens.
+Only GS-norm adapts the width per concept while staying as clean and stable as \ember{}'s rule.
+On the raw matrix (3 concepts), GS-norm's concept features are 11--44\% neutral, against 15--25\% for RS-1\%; with \cs{} they are 1--9\% neutral.
+
+\paragraph{Width, tails and breadth}
+\pending{WP3: seed stability and independence of the feature index; the dense re-solve ($Y'=Y$ on the support), the natural tail of each concept feature against the RS cut and the GS width; width against breadth; RS vs.\ GS directions; GS on the raw matrix for all concepts.}

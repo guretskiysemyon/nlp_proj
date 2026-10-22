@@ -1,0 +1,43 @@
+%=====================================================================
+\section{Embedding-Space Analyses: Details}
+\label{app:analyses}
+%=====================================================================
+
+All analyses in this section use the saved factorizations of 38 concepts $\times$ 5 seeds on Gemma-2-2B-it: \ember{}'s matrix with row sparsity (\ember{}), the sharpened matrix with row sparsity (\cs{}), and the sharpened matrix with global sparsity (\cs{}+\gs{}).
+Unless stated otherwise, the concept feature of a run is identified without the judge, as the feature whose words match the concept's lexicon most often.
+
+\subsection{Where the Concept's Energy Lies}
+\label{app:energy}
+\pending{WP1: definition of the selection-free concept direction; its share of matrix energy and its rank in the PCA spectrum, raw vs.\ sharpened, per concept; $\rho$-rank of the concept feature under raw / whitening only / sharpening; SVD-rank matching across concepts; token frequency vs.\ norm and variance for concept-only and neutral tokens. Figures and table.}
+
+\subsection{Feature Geometry and Norms}
+\label{app:geometry}
+\pending{WP2: distribution of pairwise $|\cos|$ between features (in the fit space and mapped back), mutual coherence, nearest-neighbour angle of the concept feature; correlation of cosines with the semantic relatedness of feature descriptions; norm of the concept feature and its predictors; concepts split across several features.}
+
+\subsection{Feature Widths and Tails}
+\label{app:widths}
+\pending{WP3: dense re-solve and the natural tail; RS and GS cut points; width vs.\ breadth; RS vs.\ GS directions; GS on the raw matrix.}
+
+\subsection{Abstract Concepts and Contamination}
+\label{app:robustness}
+\pending{WP4: the abstract and entity concepts, how their pages and sentences were collected, blind labels, and results; the contamination protocol (adjacent pages, fractions $0$--$0.5$) and degradation curves.}
+
+\subsection{Extrapolation Beyond the Sample}
+\label{app:extrapolation}
+\paragraph{Benchmark}
+17 concepts with at least 80 page sentences outside the 300 sampled ones and a concept feature for both \ember{} and \cinder{} in some seed; on average \expnum{734} new concept-only token types per concept, plus new neutral token types from a 1{,}000-page Wikipedia sample (balanced: as many new neutral as new concept-only tokens; natural: one neutral sentence per new page sentence).
+Three saved dictionaries, kept fixed (\ember{}; \cs{} with row sparsity; \cinder{}), 5 seeds.
+Ground truth: blind labels as concept-specific (S), adjacent (A) or unrelated (U) on \expnum{5{,}196} tokens, written by LLM agents that saw only the concept, the token, its source words and a short context; agreement on 300 double-labelled items \expnum{0.90} ($\kappa = \expnum{0.82}$).
+
+\paragraph{Rules}
+Scores: projection on the concept feature, cosine, the coefficient of the joint dense least-squares solve, and the code share $y_{ft}|y_{ft}|/\|\mathbf y_{\cdot t}\|^2$.
+Admission: the fit's own sparsity rule over the extended set (1\%), the saved absolute width, an in-sample cut-off ($|y_{ft}|$ at least the weakest coefficient of the saved support), the token's dominant feature, and share $\ge 0.5$.
+
+\paragraph{Results}
+Top-10 precision among new concept-only tokens is \expnum{0.18--0.27} for every dictionary and score (random \expnum{0.065}); counting adjacent tokens it is \expnum{0.49--0.69}, and no score separates concept-specific from adjacent tokens (AUC \expnum{0.40--0.48}).
+The 1\% re-solve admits \expnum{15--22} tokens per run at precision \expnum{0.22--0.25}, about 37\% of them unrelated; fixed width and cut-off give the same precision, but fixing the width pushes out \expnum{13--15\%} of the original support, and Harry Potter's width grows from 48 to 59 under the 1\% rule.
+Routing a token's shared meaning to other features (dominant feature or code share) does not help.
+\cinder{}'s wider features admit more concept-specific tokens per run at equal precision (\expnum{6.1} vs.\ \expnum{3.9}), and the sharpened dictionaries rank lexicon words higher (AUC \expnum{0.91} vs.\ \expnum{0.67} with projection).
+Precision rises with a token's page frequency, from \expnum{0.28--0.30} at one occurrence to \expnum{0.59--0.71} at ten or more, for in-sample and extrapolated tokens alike.
+We recommend ranking by the joint solve, admitting with the in-sample cut-off, and preferring \cinder{}'s dictionary.
+\expfill{Figure: precision@$k$ per score and dictionary; precision by page frequency (\path{results/paper_analysis/extrapolation/figures/}).}

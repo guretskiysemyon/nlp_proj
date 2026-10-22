@@ -1,0 +1,38 @@
+%=====================================================================
+\section{Preliminaries and Notation}
+\label{sec:prelim}
+%=====================================================================
+
+We follow the notation of \citet{suslik2026ember}.
+We consider autoregressive transformer LMs \citep{vaswani2017attention} with hidden dimension $d$, vocabulary $\mathcal V$ and input embedding matrix $E \in \R^{|\mathcal V| \times d}$, and denote by $\e_t \in \R^d$ the row of $E$ for token $t \in \mathcal V$.
+
+\paragraph{Concept Erasure in Language Models}
+We follow the common setup of persistent concept erasure \citep{eldan2023harry,li2024wmdp,gurarieh2025precise,suslik2026ember}: given a model $M$ and a target concept $C$ (e.g., Harry Potter), we update the parameters of $M$ so that it no longer answers questions about $C$ better than chance, while maintaining its performance on other concepts and tasks.
+To this end, we assume access to a target set $\Sc$ of sentences about $C$, taken from its Wikipedia page, and a neutral set $\Sn$ of sentences from unrelated Wikipedia pages.
+
+\paragraph{EMBER}
+\ember{} follows a localize-then-edit approach with three stages.
+(1)~\emph{Decomposing.}
+Let $\vs \subset \mathcal V$ be the token types that appear in $\Sc \cup \Sn$, $n = |\vs|$, and $A = E_{\vs}^{\top} \in \R^{d \times n}$ their embeddings as columns.
+\ember{} factorizes $A \approx ZY$, with a factor dictionary $Z \in \R^{d \times k}$ whose columns $\z_i$ are \emph{embedding features}, and a coefficient matrix $Y \in \R^{k \times n}$.
+Sparsity is imposed on $Y$ with a winner-takes-all constraint that keeps the 1\% largest entries of each row, and the factors are optimized with alternating least squares; the authors call this Sparse MF.
+(2)~\emph{Identifying.}
+Each token is labelled concept, neutral or both, according to whether it appears in $\Sc$, $\Sn$ or both; let $T_C$ and $T_N$ be the concept- and neutral-labelled tokens.
+Each feature is scored by its mass ratio
+\begin{equation}
+  \rho_i = \frac{\sum_{t\in T_C} |Y_{i,t}|}{\sum_{t \in T_N} |Y_{i,t}|},
+  \label{eq:rho}
+\end{equation}
+and features with $\rho_i > \tau = 2$ are verified by an LLM in two stages: it first describes the feature's top tokens without seeing the concept, then decides from the description alone whether the feature is the concept, accepting at confidence $\geq 0.85$.
+The accepted features form $\Fc$.
+(3)~\emph{Erasing.}
+Each concept token $t \in T_C$ with $Y_{i,t} \neq 0$ for some $i \in \Fc$ is edited as
+\begin{equation}
+  \e_t' = \e_t - \delta\, \cvec_t, \qquad \cvec_t = \sum_{i \in \Fc} Y_{i,t}\, \z_i ,
+  \label{eq:edit}
+\end{equation}
+where $\cvec_t$ is the token's \emph{concept part} and $\delta \geq 0$ controls the erasure strength; all other embeddings remain unchanged.
+
+\paragraph{Evaluating Erasure}
+\ember{} is evaluated on efficacy (accuracy on multiple-choice questions about $C$, which should drop to chance), specificity (accuracy on similar-domain questions and on MMLU; \citealp{hendrycks2021mmlu}), coherence (AlpacaEval, judged by an LLM; \citealp{taori2023alpaca}) and robustness to relearning \citep{deeb2024unlearning}.
+Each metric is normalized by the unedited model, and their harmonic mean $H$ selects the erasure strength $\delta \in \{0.5, 1, 2, 5, 10, 50, 100, 200\}$ on validation questions.

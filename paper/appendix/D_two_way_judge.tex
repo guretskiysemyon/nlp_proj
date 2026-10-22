@@ -1,0 +1,69 @@
+%=====================================================================
+\section{Two-Way Judge: Details}
+\label{app:twj}
+%=====================================================================
+
+\paragraph{Lexicon}
+Once per concept, before any feature is judged, the LLM receives:
+\begin{quote}
+\small\itshape
+Given the concept `\{concept\}', list the \{n\} words most strongly associated with it. Rules: Start with the concept's own name and its basic word forms when they are single words [\dots]. Then the entities, people, places, objects, actions and terms that an ordinary person with general knowledge would immediately connect to this concept. Prefer well-known words over expert or niche terminology. Every word must be specific to this concept: avoid words that fit its broader category just as well (e.g.\ for `World War II' not `war', `battle' or `soldier'). Single words, lowercase, no duplicates or mere plural variants. Return ONLY a JSON list of \{n\} strings.
+\end{quote}
+with $n = 20$.
+The prompt's examples name four concepts (Culture of Greece, Ancient Rome, Artificial Intelligence, World War II), which we exclude when evaluating the judge.
+In the multilingual pipeline the same call returns 20 words in each of the eight languages.
+
+\paragraph{Feature words}
+For each of a feature's top tokens we take the word in $\Sc$ that most often produces it (\textit{ffindor} $\to$ \textit{gryffindor}), lowercase and deduplicate the words, and keep the first 20; EJ@$t$ accepts when at least $t$ of them are lexicon words.
+
+\paragraph{Variants}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lP{4.3cm}@{}}
+\toprule
+Rule & Accepts when \\
+\midrule
+TJ & \ember{}'s two-stage judge accepts \\
+WJ & TJ, shown each token's source words \\
+WJ+share & WJ, and the concept share is $\geq 0.5$ \\
+EJ@$t$ & $\geq t$ lexicon words among the feature's words \\
+\twj{} & TJ $\vee$ EJ@5 \\
+\twj{}-R & WJ+share $\vee$ EJ@4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Labelled evaluation}
+Every rule scored every candidate feature of the \cs{}+\gs{} fits (23 concepts $\times$ 5 seeds, 7{,}105 candidates).
+Every feature accepted by some rule was labelled, without seeing the rules' decisions, as P (specific to the concept), B (broader or adjacent, e.g.\ nuclear physics for Uranium) or N (unrelated).
+Excluding the four prompt-example concepts leaves 19 concepts and 95 runs; a run is hit when an accepted feature is positive.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{P only} & \multicolumn{3}{c}{P + B} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+Rule & Prec. & Rec. & Hit/72 & Prec. & Rec. & Hit/91 \\
+\midrule
+TJ & .85 & .69 & 60 & 1.00 & .41 & 61 \\
+WJ & .56 & .81 & 61 & .77 & .55 & 66 \\
+EJ@5 & .74 & .64 & 64 & .99 & .43 & 81 \\
+\twj{} & .71 & .77 & 67 & .99 & .54 & 82 \\
+\twj{}-R & .61 & .90 & 71 & .91 & .68 & 84 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Recall counts only positives that some rule accepted.
+The threshold $t = 5$ was chosen on this set.
+On the 15 concepts added after the prompt was fixed, EJ@5 does not generalize (precision \expnum{0.46}, recall \expnum{0.26}) and \twj{} falls to \expnum{0.53}/\expnum{0.56}, whereas TJ $\vee$ WJ+share keeps precision \expnum{0.71} and recall \expnum{0.89} (\expnum{49} of 75 runs hit, against \expnum{33} for TJ).
+In erasure the two judges perform the same.
+\expfill{Final judge comparison table on the held-out concepts, and a per-concept list of TJ's wrong rejections.}
+
+\paragraph{Cost}
+TJ makes two LLM calls per candidate feature (up to 20 per run).
+The lexicon path makes one call per concept, shared by all seeds and fits, and its matching is deterministic, so its decisions are reproducible and free to recompute after any change to the factorization.

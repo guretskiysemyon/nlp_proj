@@ -1,0 +1,64 @@
+%=====================================================================
+\section{Embedding-Space Analysis}
+\label{sec:analysis}
+%=====================================================================
+
+A natural question is why \cinder{} finds concepts that \ember{} misses, and why its directions remove more per unit of edit.
+We expect sharpening to make the concept the strongest direction of the matrix, which should make its feature cleaner, more stable and more distinct from its neighbours, and should let \gs{} set its width from the data.
+To test this, we analyze the features themselves, before any edit, on \expnum{38} concepts with 5 factorization seeds each (\ember{}'s 18 and 20 more, 15 of which were added only after the method was frozen), using judge-free measures wherever possible.
+Definitions and full results are in \S\ref{app:analyses}.
+
+\paragraph{Sharpening makes the concept the strongest direction}
+Sharpening raises the separability of concept and neutral tokens in every one of the \expnum{38} concepts (AUC \expnum{0.69 $\to$ 0.80}), and on Harry Potter it moves the concept feature from 12th to 1st place by $\rho$ (Figure~\ref{fig:hp}).
+The sharpened matrix is also less dominated by a few directions: the rank at which truncated SVD matches the sparse-MF error rises from \expnum{5} to \expnum{49} on Harry Potter.
+\pending{WP1: the energy rank of a selection-free concept direction, raw vs.\ sharpened, across concepts; $\rho$-rank under raw / whitening only / sharpening; whether concept tokens are rarer and lower in variance.}
+
+\paragraph{Features become clean, stable and distinct}
+On Ancient Rome across 20 seeds, sharpening raises the concept share of the concept feature from \expnum{0.72 $\pm$ 0.15} to \expnum{0.92 $\pm$ 0.04}, reduces its neutral tokens from \expnum{13.8} to \expnum{1.7}, and raises the overlap of its tokens across seeds from \expnum{0.26} to \expnum{0.69}; every seed now finds exactly one Ancient Rome feature.
+The features also separate.
+On Harry Potter, the nearest neighbour of the sharpened concept feature is magic, at \expnum{68$^\circ$}, and all other features lie beyond \expnum{82$^\circ$}, whereas the raw feature's nearest neighbours, at \expnum{35--54$^\circ$}, are punctuation and plural nouns.
+Interestingly, the raw Harry Potter feature has the largest norm of all features, and the sharpened one an ordinary norm.
+\pending{WP2: orthogonality and whether cosines track semantic relatedness, across concepts; the explanation of the norm reversal; how often a concept is split across several features.}
+
+\paragraph{Widths follow the data}
+Under \gs{}, concept features range from \expnum{15} tokens (Baseball) to \expnum{113} (Culture of Greece) instead of a fixed 48, change by only \expnum{$\pm$4} tokens across seeds, and stay as clean as \ember{}'s (\expnum{76} vs.\ \expnum{75} of 90 runs with at most five neutral tokens).
+Simply widening every feature to 2\% loses more than half of the clean runs (\expnum{31 of 90}), and no concept feature reaches the cap.
+\gs{} depends on \cs{}: on the raw matrix, the extra width fills with neutral tokens (\expnum{11--44\%} neutral, against \expnum{1--9\%} with \cs{}).
+\pending{WP3: the natural tail of each concept feature in the dense re-solve, against the 1\% cut and the \gs{} width; width against concept breadth.}
+
+\paragraph{The two-way judge recovers concepts lost in the summary}
+On 19 concepts, \twj{} accepts a feature that is the concept or a broader version of it in \expnum{82 of 91} runs, against \expnum{61} for \ember{}'s judge, and only \expnum{1 of its 110} acceptances is unrelated.
+Most of the added features are broader than the concept (with strict labels, the gain shrinks from \expnum{21} to \expnum{7} runs), and on 15 concepts added after the lexicon prompt was fixed, the lexicon path alone generalizes poorly, while showing the judge each token's source word does generalize (\S\ref{app:twj}).
+
+\paragraph{Abstract concepts and blurred contrast}
+If concepts are missed because they are quiet, \ember{} should fail most on abstract concepts that lie between louder topics, such as Stoicism between ancient Rome and philosophy, and any method should degrade when the contrast between concept and neutral text is blurred.
+\pending{WP4: abstract vs.\ entity concepts under \ember{} and \cinder{}; degradation when the concept sentences are diluted with sentences from adjacent pages (e.g., Magic, The Lord of the Rings).}
+
+\paragraph{The gain is not only circular}
+The sharpening target is the concept's own page, which contains the tokens our purity measures count, and the concept-only label admits generic words that appear only in the concept sentences (\emph{get}, \emph{win}, \emph{heart}), which sharpened features absorb.
+With a target that excludes every token of the matrix, most feature-level gains disappear (Harry Potter: $\rho_{\max}$ \expnum{125 $\to$ 14}).
+Erasure is measured on held-out questions and does not depend on these labels, so \S\ref{sec:experiments} is the fair test; here we ask whether the feature-level gain survives targets disjoint from the scored text.
+\pending{WP7: sharpening toward held-out page sentences, related pages, the leak-free control and a wrong concept's page; strict purity under an exclusivity label; sensitivity to $\eta$ and $\gamma$ on concepts outside the tuning set. Retitle this paragraph according to the result.}
+
+\paragraph{Features extrapolate only to a few unsampled tokens}
+\ember{} edits only tokens of the 300 sampled sentences, and the multilingual pipeline samples 30 per language, so concept tokens that occur only in unsampled sentences are missed unless the fixed dictionary extends to them.
+On 17 concepts with about \expnum{730} such tokens each, labelled blindly, roughly one in four extrapolated tokens is concept-specific under every rule we tried (top-10 precision \expnum{0.18--0.27}, against \expnum{0.065} at random), about a third are unrelated, and re-solving the sparse codes recovers only \expnum{4\%} of the concept-specific tokens the sample missed.
+On \ember{}'s raw dictionary, projecting onto the concept feature mostly ranks token rarity (Spearman \expnum{0.70} with Wikipedia rarity), so a joint least-squares solve is needed; in the sharpened space the concept feature is nearly orthogonal to the rest of the dictionary (largest $|\cos|$ \expnum{0.28} vs.\ \expnum{0.64}) and the two agree.
+The low precision is a property of rare tokens rather than of extrapolation: \expnum{87\%} of unsampled page tokens occur once on the page, and at one occurrence the in-sample support is no more precise.
+Extrapolation is therefore a small supplement; for the multilingual pipeline, sampling more sentences is the better lever (\S\ref{app:extrapolation}).
+
+\paragraph{The first layer reads the shared mean, not low-variance directions}
+\cinder{}'s edit is read by the model's first layer about as strongly as a random direction, while \ember{}'s and \cinderz{}'s edits are read about twice as strongly (Figure~\ref{fig:read}).
+A natural explanation would be that whitening moves the edit into directions of low background variance, which the model ignores.
+The data reject it.
+The first layer reads low-variance directions \emph{more} strongly than average (\expnum{3.4$\times$} for the lowest 1\% of the eigendirections of $\Sigma_B$), and once the background mean $\mu_B$ is projected out, \ember{}'s and \cinder{}'s edits lie in the same part of the spectrum and are read alike (\expnum{1.31$\times$} vs.\ \expnum{1.32$\times$}, 27 concepts).
+The whole gap is the mean term of \S\ref{sec:cinderz}: re-solving \ember{}'s own dictionary on centred embeddings lowers its read strength to \cinder{}'s level (\expnum{1.09$\times$}), and the same holds on Llama, where the mean direction is read at \expnum{20$\times$}.
+Whitening thus decides which tokens an edit touches and by how much, not where in the embedding space the edit lies.
+The mean term is also most of what aligns an edit with the token it changes (cosine \expnum{0.50} vs.\ \expnum{0.30}, but \expnum{0.31} vs.\ \expnum{0.29} without it), which suggests that part of what makes uncentred edits strong is generic rather than conceptual (\S\ref{app:edit}).
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/read_decomposition.pdf}
+  \caption{First-layer read strength of each edit, relative to a random direction, per concept (dots) with medians (bars). Re-solving \ember{}'s dictionary on centred embeddings brings its read strength down to \cinder{}'s, and adding the mean term back (\cinderz{}, A3z) raises it again, on Gemma-2-2B (left; concepts with an edit, mean over seeds) and in the multilingual Llama-3.1-8B fits (right). Filled markers: uncentred edits; open markers: centred edits.}
+  \label{fig:read}
+\end{figure*}

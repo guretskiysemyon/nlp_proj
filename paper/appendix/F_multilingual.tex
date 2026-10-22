@@ -1,0 +1,53 @@
+%=====================================================================
+\section{Multilingual Erasure: Details}
+\label{app:ml}
+%=====================================================================
+
+\paragraph{English erasure leaks}
+In a first study we erased \ember{}'s 18 concepts from Gemma-2-2B-it with \ember{}, SNMF \citep{shafran2026constructing} and their combination, tuned every edit in English, and asked the held-out questions in English, German, Spanish, French and Russian.
+Retention, the share of the concept knowledge left (1 = as before, 0 = chance), was on average \expnum{0.24} higher in the four other languages than in English under \ember{} (95\% CI \expnum{[0.15, 0.32]}), and \expnum{0.41} higher in Russian, where the English edit touches none of the concept's tokens.
+SNMF, which edits MLP weights, erased all five languages about equally (\expnum{$+0.01$}), and adding \ember{} to it brought the gap back (\expnum{$+0.16$}).
+
+\paragraph{Languages, model and data}
+Llama-3.1-8B-Instruct in its eight supported languages: English, German, French, Italian, Portuguese, Hindi, Spanish and Thai.
+The transformer runs in 4-bit NF4 and the edited embeddings in fp16, identically for every approach.
+Concept sentences come from the concept's native Wikipedia page (via interlanguage links), up to 300 per language, topped up with NLLB translations of English sentences for short pages; neutral sentences come from native Wikipedia pages.
+Shared fits use 30 concept and 30 neutral sentences per language.
+The 20 held-out concepts are French Revolution, Tuberculosis, Cricket, Buddhism, Plutonium, Judaism, Karate, Existentialism, Prime number, The Matrix, Louvre, American Revolutionary War, Robot, Sigmund Freud, Giraffe, Surfing, Flush toilet, Cloud, Doctor of Philosophy and Tourism.
+\ember{}'s English questions are used as published; German, French and Spanish come from existing translations; Italian, Portuguese, Hindi and Thai are machine-translated (NLLB and MADLAD candidates ranked by LaBSE, with script and number checks).
+Questions for the new concepts were generated from the English page in \ember{}'s format, checked by a blind verifier and by automatic checks, and translated the same way.
+
+\paragraph{Metrics and gates}
+Per language $L$: efficacy (chance-corrected concept accuracy driven to chance), specificity (harmonic mean of Global-MMLU and similar-domain retention), fluency ($\min(1, \text{ppl}_{\text{orig}}/\text{ppl}_{\text{edit}})$ on 100 held-out native sentences), and $H_L$, their harmonic mean.
+A concept's score is the mean $H_L$ over eligible languages (unedited accuracy $\geq 0.4$).
+$\delta \in \{0.5, \dots, 200\}$ is chosen on validation, one value for all languages, and fails if MMLU or fluency drops below 0.9 of the unedited model in any language.
+We report the \emph{strict} score (0 if a gate fails on test) and the \emph{ungated} one.
+
+\paragraph{Approaches}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lP{2.05cm}P{1.7cm}P{1.95cm}@{}}
+\toprule
+ & Fit & Selection & Edit \\
+\midrule
+A1 & 8 per-language \ember{} fits & TJ per language & each language's; overlaps resolved by page length \\
+A2 & 1 fit on the 8-language sample, $Y$ extrapolated & TJ & \ember{}'s \\
+A3 & A2 with \cs{} (8-language background) and \gs{} & \twj{} & mapped back \\
+A3z & as A3 & as A3 & $Z$ re-solved on raw $E$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Results}
+\expfill{Development table (18 concepts) and the pre-registered hypotheses H1--H3 on the 20 held-out concepts, with paired differences, CIs, win--loss counts and Wilcoxon $p$ (source: \texttt{results/ml/PREREG\_RESULTS.md}); the seed-coverage table; the seed-union follow-up (pooling selections over 3 fit seeds: \expnum{$+0.08$} for A3z, \expnum{19--4}, $p < 0.001$; pooled A1 and A3z tie at \expnum{0.30} vs.\ \expnum{0.31}).}
+
+\paragraph{Why Hindi and Thai resist}
+\ember{} edits only concept-only tokens, which never occur in the neutral sentences.
+Llama splits Hindi and Thai words into short pieces that also occur in everyday text, so almost none qualify: on Baseball, \expnum{32\%} of English question tokens are concept-only, against \expnum{13\%} in German, \expnum{6\%} in Thai and \expnum{5\%} in Hindi, and the share of questions containing an edited token falls from \expnum{0.94} (English) to \expnum{0.00} (Hindi).
+The same mechanism lets an edit made for one language act in every language that shares its pieces: Golf's per-language fit found its only feature in Thai, whose tokens cover \expnum{76\%} of the English questions.
+
+\paragraph{Robustness}
+Counts of concepts with an edit are stable across three fit seeds (A2: \expnum{9--12}; A3: \expnum{17--21} of 38), but which concepts are edited is not, and the edited token sets of one concept overlap by a Jaccard index of only \expnum{$\approx$0.2} across seeds, for every approach.
+In \expnum{6} runs, across all approaches, a $\delta$ that passed both gates on validation failed one on test.

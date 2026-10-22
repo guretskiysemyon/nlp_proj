@@ -1,0 +1,31 @@
+%=====================================================================
+\section{Qualitative Examples}
+\label{app:examples}
+%=====================================================================
+
+\paragraph{The Harry Potter feature, before and after sharpening}
+Table~\ref{tab:hp-tokens} lists the 48 tokens of the Harry Potter feature (1\% row sparsity, seed 42) on \ember{}'s raw matrix and on the sharpened matrix, by decreasing coefficient, written as the words they come from.
+Both features open with 19 unmistakable Harry Potter tokens.
+After that, the raw feature drifts into unrelated names, places and taxonomic suffixes, while the sharpened feature continues into the fictional world (Gringotts, Hogsmeade, Quidditch, McGonagall, Hagrid) and is more consistent across fragments of the same word (\textit{Gry}, \textit{Hog}, \textit{warts}).
+
+\begin{table}[h]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}lP{2.85cm}P{2.85cm}@{}}
+    \toprule
+    Ranks & \ember{} (raw) & \cinder{} (sharpened) \\
+    \midrule
+    1--19 & all Harry Potter (Gryffindor, Dumbledore, Slytherin, Rowling, Voldemort, Weasley, \dots) & all Harry Potter (Gryffindor, Slytherin, Dumbledore, Weasley, Hogwarts, \dots) \\
+    \addlinespace
+    20--30 & Kipling, \textbf{Ginny}, \textbf{Lupin}, Beatles, Arrondissement, Escondido, vice-chancellor, Cerambycidae, Alamos, Sherlock, Balompi\'e & \textbf{Hogwarts}, \textbf{Gryffindor}, \textbf{Ginny}, \textbf{Hogsmeade}, \textbf{Gringotts}, \textbf{Hogwarts}, \textbf{Lupin}, \textbf{Remus}, \textbf{Granger}, \textbf{Slytherin}, \textbf{JK} \\
+    \addlinespace
+    31--48 & \textbf{Remus}, Chrysomelidae, Trump, Nestl\'e, Bloomsbury, tesla, Fiennes, Polygyridae, Cerambycidae, Picasso, Assassins, Steelers, \textbf{Gryffindor}, Chhattisgarh, Lego, Kinect, Reagan, HBO & \textbf{Sirius}, \textbf{wand}, \textbf{McGonagall}, \textbf{Muggle}, \textbf{Ron}, \textbf{Goblet}, Sherlock, \textbf{Hagrid}, \textbf{Quidditch}, \textbf{Beauxbatons}, \textbf{potions}, \textbf{Rowling}, \textbf{Riddle}, \textbf{Grindelwald}, \textbf{Quirrell}, Holmes, \textbf{Merlin}, NHP \\
+    \bottomrule
+  \end{tabular}
+  \caption{Tokens of the Harry Potter feature in \ember{}'s raw matrix and in the sharpened matrix (seed 42), shown as their source words. Bold: clearly Harry Potter tokens beyond rank 19. Ranks 20--30 hold 2 of 11 Harry Potter tokens before sharpening and 11 of 11 after.}
+  \label{tab:hp-tokens}
+\end{table}
+
+\paragraph{Judge rejections}
+\expfill{The descriptions and confidences of TJ's wrong rejections (Valentine's Day, Heroin, World War II; all at confidence 0.85), with the feature's top tokens.}

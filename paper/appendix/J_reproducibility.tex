@@ -1,0 +1,18 @@
+%=====================================================================
+\section{Reproducibility and Cost}
+\label{app:repro}
+%=====================================================================
+
+\paragraph{Code and results}
+All code, pre-registrations and result files are in our repository.\note{Paths for the experiments pass; shorten for the final version.}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
+\item Single-language fits and features: \path{experiments/varwidth/} (fitting \path{core.py}, data \path{prep.py}, selection \path{select.py}); sharpening \path{experiments/whitening/sharpen.py}.
+\item Collateral-aware evaluation: \path{experiments/varwidth/erase_v2.py}, \path{collateral.py}, \path{integrity.py}, \path{last_mile.py}, \path{nonce_edit.py}, \path{confirm_stats.py}; pre-registration \path{results/varwidth/layers/PREREG.md}; results in \path{results/varwidth/layers/collateral/} (\path{confirm.md}, \path{last_mile.md}, \path{twobytwo.md}, \path{nonce_edit.md}).
+\item Feature-level ladder and judges: \path{results/varwidth/layers/SUMMARY.md}, \path{experiments/varwidth/j3_eval.py}.
+\item Multilingual study (branch \path{orip-ml}): \path{experiments/ml/}, \path{results/ml/PREREG_RESULTS.md}, \path{results/ml/UNION_RESULTS.md}.
+\item Embedding-space analyses: \path{experiments/paper_analysis/}, \path{results/paper_analysis/}.
+\item Figures: \path{paper/figures/src/}.
+\end{itemize}
+
+\paragraph{Compute and cost}
+\expfill{GPU types and hours (NVIDIA TITAN Xp, RTX 2080 Ti and others on the university cluster); Gemini spend for feature judging, lexicons and question generation (about \expnum{16} NIS for the single-language ladder and about \expnum{17} NIS for the multilingual study).}

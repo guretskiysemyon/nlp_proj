@@ -1,0 +1,78 @@
+%=====================================================================
+\section{Contrastive Sharpening: Details}
+\label{app:cs}
+%=====================================================================
+
+\subsection{Construction}
+
+\paragraph{Background}
+The background is the set of token types in a sample of English Wikipedia, each type counted once (\expnum{107{,}472} types for Gemma), so that a direction is loud in the background because many \emph{different} tokens use it, not because a few frequent ones do.
+We compute its mean $\mu_B$ and covariance $\Sigma_B = Q\Lambda Q^{\top}$ once per model.
+The ridge $\varepsilon = 10^{-4}\cdot\operatorname{mean}(\Lambda)$ only damps the smallest eigenvalues.
+
+\paragraph{Target}
+The sharpening target is the set of token types of the concept's English Wikipedia page ($m = \expnum{3{,}124}$ for Harry Potter), whitened with Eq.~\ref{eq:whiten}.
+$\eta = 0.05$ and $\gamma = 1$ were chosen by a judge-free sweep on Harry Potter, Ancient Rome and Valentine's Day: each of five values of $\eta$ was ranked by concept-vs-neutral AUC, concept-only purity of the top feature, concept-token coverage and $\rho_{\max}$, and the lowest mean rank won.
+$\eta = 1$ is whitening only; $\gamma$ sets how strongly enriched directions are stretched.
+
+\paragraph{Exact inverse}
+In column form, $\mathbf x_t = T(\e_t - \mu_B)$ with $T = S_\eta^{\gamma/2}W$, which is invertible because $S_\eta \succeq \eta I$ and $W \succ 0$.
+If sparse MF gives $\mathbf x_t \approx \sum_i Y_{i,t}\tilde\z_i$, then $\e_t - \mu_B \approx \sum_i Y_{i,t}\,T^{-1}\tilde\z_i$: the same coefficients reconstruct the original embedding with the mapped-back dictionary $\z_i = T^{-1}\tilde\z_i = W^{-1}S_\eta^{-\gamma/2}\tilde\z_i$, and the mean cancels in any difference.
+Every erasure run checks numerically that the transformed embedding rows equal the factorized matrix columns before editing.
+
+\subsection{Why sharpening ranks the concept first}
+
+Let $M = \frac1m\sum_j \tilde{\mathbf u}_j\tilde{\mathbf u}_j^{\top} = P\,\mathrm{diag}(\lambda_j)\,P^{\top}$ be the whitened second moment of the target, so that $S_\eta = P\,\mathrm{diag}(g_j)\,P^{\top}$ with $g_j = (1-\eta)\lambda_j + \eta$.
+
+\begin{proposition}
+\label{prop:cs}
+(i) The eigenvalues of $M$ are the generalized eigenvalues of the pair $(\Sigma_C + \bm\delta\bm\delta^{\top},\, \Sigma_B + \varepsilon I)$, i.e.\ the stationary values of the ratio $R$ of Eq.~\ref{eq:rayleigh}, attained at $\mathbf v_j = W\mathbf p_j$.
+(ii) For any set of tokens with whitened second moment $G$, the second moment of the sharpened tokens along $\mathbf p_j$ is $g_j^{\gamma}\,\mathbf p_j^{\top}G\,\mathbf p_j$.
+In particular, background tokens, for which $G = I$ up to $\varepsilon$, carry the same energy along every direction after whitening and $g_j^{\gamma}$ after sharpening, and the target's own energy along $\mathbf p_j$ becomes $g_j^{\gamma}\lambda_j \approx (1-\eta)^{\gamma}\lambda_j^{1+\gamma}$ for $\lambda_j \gg \eta$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+(i) $\mathbf p^{\top}M\mathbf p = \mathbf p^{\top}W(\Sigma_C + \bm\delta\bm\delta^{\top})W\mathbf p$, since the target's second moment around $\mu_B$ is $\Sigma_C + \bm\delta\bm\delta^{\top}$; with $\mathbf v = W\mathbf p$ and $\mathbf p^{\top}\mathbf p = \mathbf v^{\top}W^{-2}\mathbf v = \mathbf v^{\top}(\Sigma_B + \varepsilon I)\mathbf v$, the Rayleigh quotient of $M$ equals $R(\mathbf v)$.
+(ii) $S_\eta^{\gamma/2}\mathbf p_j = g_j^{\gamma/2}\mathbf p_j$, so $\mathbf p_j^{\top}S_\eta^{\gamma/2}GS_\eta^{\gamma/2}\mathbf p_j = g_j^{\gamma}\,\mathbf p_j^{\top}G\mathbf p_j$.
+\end{proof}
+
+Since the error that a sparse-MF feature removes is the energy of its support along it, the proposition says which directions sparse MF will find profitable.
+In the raw matrix they are the directions most used by many tokens.
+After whitening, all background directions are equally profitable, so the fit is driven by sampling noise and by the composition of $\vs$; this is why whitening alone finds no Harry Potter feature.
+After sharpening, they are ordered by the concept-to-background ratio, raised to the power $1+\gamma$ for the concept's own tokens.
+\pending{WP1: tighten the link between energy and the sparse-MF objective under a fixed width, and add the measured energy ranks.}
+
+\subsection{Hyperparameter sensitivity}
+\label{app:cs-sens}
+\pending{WP7: $\eta \in \{0.05, 0.2, 0.5\} \times \gamma \in \{0.5, 1, 2\}$ on concepts outside the tuning set.}
+
+\subsection{Is the gain circular?}
+\label{app:cs-circ}
+
+The default target, the concept's page, contains the sentences $\Sc$ is sampled from.
+A control that removes every token of $\vs$ from the target (``leak-free'') removes most of the feature-level gains:
+
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+$\rho_{\max}$ / purity / AUC & Raw & \cs{}, page & \cs{}, leak-free \\
+\midrule
+Harry Potter & 26 / .88 / .64 & 125 / .94 / .70 & 14 / .67 / .64 \\
+Ancient Rome & 11 / .88 / .65 & 49 / .88 / .68 & 9 / .79 / .62 \\
+Valentine's Day & 45 / .94 / .63 & 50 / .90 / .67 & 7 / .73 / .58 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The leak-free target is harsher than a disjoint one: it keeps only the page's tokens that never occur in the 600 sampled sentences, which are its rarest words.
+\pending{WP7: targets made of held-out page sentences, of related pages, and of another concept's page; strict purity under an exclusivity label.}
+
+\subsection{Models with a larger embedding dimension}
+\label{app:cs-llama}
+
+$S_\eta$ is estimated from the $m$ token types of one page.
+On Gemma ($d = 2304$) a page usually has $m > d$; on Llama-3.1-8B ($d = 4096$) many pages do not, and $(1-\eta)M$ then has a null space of dimension at least $d - m$, whose directions sharpening shrinks to $\eta^{\gamma/2}$.
+The multilingual pipeline avoids the issue by pooling the pages of eight languages.
+\pending{WP8: page sizes vs.\ $d$ for both models; whether the problem is rank or estimation noise; $\eta, \gamma$ on single-language Llama; a rule for choosing them.}

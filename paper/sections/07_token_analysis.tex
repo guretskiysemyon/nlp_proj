@@ -1,0 +1,43 @@
+%=====================================================================
+\section{Token-Level Analysis: What an Embedding Edit Removes}
+\label{sec:token}
+%=====================================================================
+
+A natural concern with any embedding edit is whether it removes the concept from a word or the word from the model.
+Since the input embedding is where the model first reads a token, we expect an edit to control \emph{access} to the concept through the edited words rather than the knowledge itself, and we expect stronger erasure to cost word integrity.
+To test this, we probe every edited word with the integrity tests of \S\ref{sec:setup} and compare each method with two references: the word deleted, and the word replaced by a nonce.
+
+\paragraph{Embedding erasure blocks access}
+On efficacy questions that contain none of the edited tokens, every edited model answers exactly like the unedited one (efficacy \expnum{0.000} in all \expnum{18} configurations checked, including $r = 100$).
+The concept's knowledge thus remains in the weights and is only cut off from the edited words.
+At the operating points selected by our rule, efficacy lies close to the floor that deleting the edited words from the questions would produce.
+
+\paragraph{Removing more costs the words}
+At these operating points, about half of the edited words can no longer be read (\expnum{0.49--0.61}), and most of the concept-exclusive ones (\expnum{0.65--0.81}), with no significant difference between methods.
+Requiring the words to remain copyable caps efficacy at \expnum{0.06--0.14}; under this constraint \cinder{} removes about twice as much as \ember{}, whereas the advantage of \cinderz{} disappears, since part of it came from damage to the surrounding prompt, consistent with its extra component being a direction that every token shares (\S\ref{sec:cinderz}).
+Table~\ref{tab:examples} shows what destruction looks like in free text.
+
+\paragraph{A nonce-like edit is only partly reachable}
+An erased concept word should behave like a nonce: copyable, but meaningless.
+A learned edit that pushes each edited word toward the behaviour of its nonce keeps the words copyable and removes \expnum{2--3$\times$} more than subtraction at readable strength, but it reaches a substantial nonce floor in only \expnum{2} of 12 concepts, and the model often can no longer name the word (\S\ref{app:nonce}).
+This suggests that, within a single embedding row, the concept and the word's identity share the same few directions.
+\expfill{Figure: efficacy against word integrity (copy) along the $r$ grid for each method, with the nonce and deletion floors.}
+
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}P{2.0cm}P{2.45cm}P{2.45cm}@{}}
+    \toprule
+    Prompt & $\delta = 1$ ($r \approx 0.6$) & $\delta = 200$ (selected by $H$) \\
+    \midrule
+    Who is Prince \textbf{Harry}, and who is his wife? & \textit{Prince Harry is the second son of King Charles III [\dots] His wife is Meghan Markle} & \textit{Prince was an American singer, songwriter [\dots] Prince's wife was Mayte} \\
+    \addlinespace
+    What country does the toy company \textbf{Lego} come from [\dots]? & \textit{Lego comes from Denmark.} & \textit{Please provide me with the name of the toy company!} \\
+    \addlinespace
+    In which year was Donald \textbf{Trump} first elected President? & \textit{[\dots] in 2016.} & \textit{Donald Trump} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Responses of Gemma-2-2B-it after erasing Harry Potter with \ember{} (seed 42) at a moderate strength and at the strength that \ember{}'s selection score chooses. Edited tokens are in bold; all three belong to the Harry Potter feature. \note{verify $r$ at $\delta = 1$ and that the selection chose $\delta = 200$ for this run.}}
+  \label{tab:examples}
+\end{table}

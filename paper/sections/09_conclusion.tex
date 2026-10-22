@@ -1,0 +1,13 @@
+%=====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%=====================================================================
+
+Embedding-level erasure can only remove the concept features it finds.
+We show that \ember{} often misses them because concepts are quiet directions of the embedding space, overshadowed by generic topics, and because fixed feature widths and summary-based judging lose what remains.
+We address this with \cinder{}, which sharpens the embedding matrix toward the concept, lets each feature find its width, verifies features both bottom-up and top-down, and erases them relative to ordinary text.
+Sharpening against a multilingual background also turns embedding-level erasure, so far limited to English, into a single fit for eight languages that matches erasing each language separately at one eighth of the selection cost.
+We also find that what the model's first layer reads in an edit is dominated by one direction shared by all tokens, which separates what an edit removes from a concept from what it removes from every word.
+Evaluating \cinder{}, we further show that the standard protocol rewards destroying the edited tokens, and propose a collateral-aware evaluation that charges for it.
+Under this evaluation, embedding erasure appears as what it is, a way to block access to a concept through its words, and within that trade-off \cinder{} reaches more concepts and removes more per unit of edit.
+These findings suggest that improving embedding erasure starts with finding the concept, and that its evaluation must look at the words it edits.

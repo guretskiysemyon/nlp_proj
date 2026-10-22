@@ -1,0 +1,67 @@
+%=====================================================================
+\section{Centred and Uncentred Edits}
+\label{app:edit}
+%=====================================================================
+
+\paragraph{Read strength}
+The first thing the model does with an embedding is normalize it and project it into queries, keys and values.
+For a unit direction $\mathbf u$ we define its read strength as $\big\|[W_Q; W_K; W_V]\,(\mathbf g \odot \mathbf u)\big\|$, with the layer-0 attention projections stacked and $\mathbf g$ the layer-0 RMSNorm scale, relative to the mean over 500 random unit directions; for Llama we also stack the MLP's gate and up projections, as the multilingual study did.
+For a method we take the median over its edited tokens' directions $\cvec_t / \|\cvec_t\|$.
+
+\paragraph{The dictionary step does not depend on the metric}
+Write $A_c = A - \mu_B\mathbf 1^{\top}$ for the centred embeddings.
+The sharpened fit alternates $\tilde Z \leftarrow \tilde X Y^{\top}(YY^{\top}+\lambda I)^{-1}$ on $\tilde X = TA_c$ with a masked coefficient update, and \cinder{} maps the dictionary back as $T^{-1}\tilde Z$.
+
+\begin{proposition}
+\label{prop:metric}
+For invertible $T$, $B \in \R^{d\times n}$, $Y \in \R^{k\times n}$ and $\lambda \ge 0$ with $YY^{\top} + \lambda I \succ 0$,
+\begin{align*}
+  &\arg\min_Z \|T(B - ZY)\|_F^2 + \lambda\|TZ\|_F^2 \\
+  &\qquad = BY^{\top}(YY^{\top}+\lambda I)^{-1},
+\end{align*}
+independently of $T$.
+\end{proposition}
+
+\begin{proof}
+$Z \mapsto \tilde Z = TZ$ is a bijection, and in $\tilde Z$ the objective $\|TB - \tilde ZY\|_F^2 + \lambda\|\tilde Z\|_F^2$ is strictly convex with minimizer $\tilde Z^* = TBY^{\top}(YY^{\top}+\lambda I)^{-1}$; hence $Z^* = T^{-1}\tilde Z^* = BY^{\top}(YY^{\top}+\lambda I)^{-1}$.
+\end{proof}
+
+\noindent At convergence of the fit, the mapped-back dictionary is therefore the Euclidean least-squares dictionary of the \emph{centred} embeddings, $Z_c = A_cY^{\top}(YY^{\top}+\lambda I)^{-1}$, for the affine model $\e_t \approx \mu_B + Z\mathbf y_t$ (on Gemma, $\|T^{-1}\tilde Z - Z_c\|/\|Z_c\| \le \expnum{0.008}$ in all \expnum{137} runs).
+The coefficient step is where the metric matters: $Y$ is an $M$-orthogonal projection with $M = T^{\top}T$, so whitening chooses which tokens are grouped and how they are weighted.
+
+\begin{proposition}
+\label{cor:mean}
+\cinderz{}'s dictionary (Eq.~\ref{eq:cinderz}) is $Z_z = Z_c + \mu_B\mathbf b^{\top}$ with $\mathbf b = (YY^{\top}+\lambda I)^{-1}Y\mathbf 1$, so its edit is $\cvec^{z}_t = \cvec_t + \beta_t\mu_B$ with $\beta_t = \sum_{i\in\Fc} b_i Y_{i,t}$.
+\end{proposition}
+
+\begin{proof}
+Substitute $A = A_c + \mu_B\mathbf 1^{\top}$ in Eq.~\ref{eq:cinderz}.
+\end{proof}
+
+\noindent In the data, $\cvec^z_t - \cvec_t$ has at least \expnum{0.9995} of its energy along $\mu_B$ in every run (Gemma \expnum{137}, Llama \expnum{21}).
+For a feature of width $w$ with same-sign coefficients of size about $1/\sqrt w$, $\beta_t \approx 1$ whatever $w$, so at $\delta = 1$ an uncentred edit subtracts roughly one full $\mu_B$ (observed median $\beta$: \ember{} \expnum{0.66}, \cinderz{} \expnum{0.56}, \cinder{} \expnum{0.05}; the edited tokens' own coordinate along $\mu_B$ is \expnum{1.06}).
+The affine model also reconstructs raw embeddings better than the uncentred one (relative error \expnum{0.917} vs.\ \expnum{0.932}, 137 of 137 runs).
+
+\paragraph{Where the read-strength gap comes from}
+Concept means on Gemma-2-2B; $\perp\mu$: with $\hat\mu_B$ projected out of the edit.
+
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Edit & Read & $\hat\mu_B$ share & Read $\perp\mu$ & $\cos(\cvec_t,\e_t)$ \\
+\midrule
+\ember{} & \expnum{1.86} & \expnum{0.44} & \expnum{1.31} & \expnum{0.50} \\
+\ember{}, centred $Z$ & \expnum{1.09} & \expnum{0.07} & \expnum{1.31} & \expnum{0.35} \\
+\cinder{} & \expnum{1.18} & \expnum{0.05} & \expnum{1.32} & \expnum{0.30} \\
+\cinderz{} & \expnum{1.99} & \expnum{0.48} & \expnum{1.32} & \expnum{0.50} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent \ember{} vs.\ \cinder{}: $+0.68$ read (27 of 27 concepts), but $-0.01$ once $\hat\mu_B$ is removed ($p = 0.44$), with the same Rayleigh ratio of the background covariance along the edit (\expnum{4.3} vs.\ \expnum{4.4}).
+Across all edits, read strength follows the share along $\hat\mu_B$ (Spearman \expnum{0.75}) more closely than the background variance along the edit (\expnum{0.63}).
+The read strength of the eigendirections of $\Sigma_B$ is U-shaped in their variance (top decile \expnum{1.08}, middle deciles \expnum{0.81--0.88}, bottom decile \expnum{1.59}, lowest 1\% \expnum{3.4}); strongly read directions concentrate on a few coordinates with a large first-layer normalization weight.
+On Llama, A3z exceeds A3 by \expnum{$+4.48$} in read strength, of which \expnum{$+4.34$} is the mean term; $\hat\mu_B$ is read at \expnum{20.4$\times$}, so a \expnum{7\%} share suffices.
+\pending{WP6 follow-ups not yet run: a pure mean edit $\e_t - \beta_t\mu_B$ on \cinder{}'s tokens, to test whether the mean term erases the concept or only makes the word atypical; read strength with the normalization weight set to one; forward-pass sensitivity instead of the linear proxy.}
