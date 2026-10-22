@@ -153,11 +153,19 @@ Findings F36–F38 come from amendment 11 and from the existing E2 outputs (post
 - **F37. At r ≈ 1 the A3z edits already damage the surrounding prompt; CINDER and CINDER-RS do not (D19).** Context-MC at the collateral-rule point (an unrelated MMLU question right after a sentence with the edited word): CINDER-z 0.492 vs 0.533 for the same words in the unedited model (below in 9 of 11 concepts, Wilcoxon p 0.024), CINDER-RS-z 0.503 vs 0.548 (10 of 12, p 0.003); EMBER 0.525 vs 0.540 (p 0.52), CINDER 0.530 vs 0.535 (p 0.56), CINDER-RS 0.543 vs 0.549 (p 0.20). Answer-NLL excess over the nonce: CINDER-z +0.39 and CINDER-RS-z +0.37 nats, EMBER +0.29, CINDER +0.13, CINDER-RS +0.12. Paired against EMBER, context-MC is −0.027 (CI −0.057 to +0.006) for CINDER-z and −0.029 for CINDER-RS-z (p 0.10 each), +0.014 and +0.021 for CINDER and CINDER-RS (n.s.). So part of A3z's extra efficacy over its parent (F25) comes with disruption of the prompt around the edited word: the large-r pattern of F23 is already visible at the operating point. CINDER's and CINDER-RS's edits are the cleanest on this measure.
 - **F38. When the words must stay readable, efficacy collapses for every method; CINDER and CINDER-RS lead, A3z's lead disappears (E3, D19).** Selection restricted to grid points where the edited words can still be copied (copy ≥ 0.9; exclusive words reach 0.94–0.98 at the selected points). Efficacy at the E3 point: EMBER 0.06, CINDER 0.12, CINDER-RS 0.14, CINDER-z 0.07, CINDER-RS-z 0.07; H3v 0.12, 0.25, 0.27, 0.16, 0.16; median r 0.1–0.25. The E3 point equals the collateral-rule point in only 16 of 255 cases. Pre-registered paired H3v vs EMBER: CINDER +0.096 (CI −0.006 to +0.214; 7/3; Holm p 0.42), CINDER-RS +0.092 (7/3; 0.42), CINDER-z +0.029 (0.75), CINDER-RS-z +0.026 (0.75), so it is not significant. Counting EMBER's empty runs (intention-to-treat, as in F30; post hoc): CINDER +0.134 (CI +0.057 to +0.221; 10/2; Holm 0.015), CINDER-RS +0.166 (+0.090 to +0.246; 11/1; Holm 0.006), CINDER-z +0.053 and CINDER-RS-z +0.063 (Holm 0.33). The A3z edits break copy at smaller r, so E3 pushes them to r = 0.05 in 24 of 52 and 26 of 55 runs. So S2 holds in direction for CINDER's own edit (about twice EMBER's efficacy at matched integrity) and is significant only when EMBER's failures to edit are counted. In absolute terms, no method removes much while keeping its words. Alpaca coherence at the E3 points (seed 42) is 0.97–0.98 for every variant; H4 there is EMBER 0.18, CINDER 0.35, CINDER-RS 0.20, CINDER-z 0.16, CINDER-RS-z 0.25, and CINDER beats EMBER in 6 of 7 concepts (+0.17; descriptive).
 
+Findings F39–F43 come from the nonce-matching edit (amendment 13 and its addenda, post hoc; seed 42; D20).
+
+- **F39. A learned edit can move a token far (r ≈ 3) and keep it readable, which subtraction cannot (D20).** The nonce-matching edit learns only the edited rows. The objective: behave like the token's nonce on concept sentences and definitional prompts, keep copying, keep the unedited behaviour on outside-meaning sentences. Unconstrained (NM-free, CINDER's set), the selected rows sit at median r = 3 with copy 0.99 (exclusive words 1.00), echo 0.47, context-MC 0.52 (reference 0.53) and collateral 0.86, and break 16% of neutral prompts. Subtraction at r ≈ 1 already has copy 0.38–0.44 (F29), and at copy ≥ 0.9 it must stay at r ≤ 0.25 (F38). Test efficacy is 0.18 for NM-free, 0.21 for NM-free on EMBER's set, and 0.22 with self-written concept questions added (NM-QA). That is 2–3× the copy-gated subtraction on the same runs (E3: EMBER 0.07, CINDER 0.14, CINDER-z 0.06). Paired H3v: NM-free − CINDER-z (E3) +0.20 (7 of 9 concepts, p 0.055); NM-QA − CINDER-z (E3) +0.26 (7/1, p 0.039); NM-free-EMBER − EMBER (E3) +0.28 (6/1, p 0.047), uncorrected.
+- **F40. It does not reach the nonce point (D20).** The per-run nonce floor (efficacy when the edited words are replaced by nonces in the questions) averages 0.36 on these runs. The pre-registered attainment (efficacy ≥ floor − 0.05, copy ≥ 0.9, collateral ≥ 0.8) holds in 1 of 10 runs for NM-CINDER, 2 of 9 for NM-free, 2 of 8 for NM-EMBER, 3 of 7 for NM-free-EMBER and 3 of 10 for NM-QA. Almost all of these are runs whose floor is about 0 (COVID-19 0.00, Pornography 0.07–0.11). Only two runs reach a substantial floor: Baseball NM-free-EMBER (0.36 vs 0.31) and Heroin NM-QA (0.44 vs 0.49). Adding concept questions to the forget data (NM-QA) raises efficacy only from 0.18 to 0.22.
+- **F41. "Unknown but intact" splits into "copyable" and "nameable", and the free edits keep only the first (D20).** Asked "What is it?" about the word, NM-free and NM-QA usually do not repeat it: echo is 0.47–0.49 (reference 0.96, nonce 0.75). In 32–47% of answers the model instead names a different invented string (string check; nonce 0.17, real word 0.00, subtraction 0.08–0.09). Blind labels count these as BLIND, so T3 destruction is 0.47–0.59, about the subtraction level (0.49–0.61; agreement 0.92 exact and 0.97 on destruction over 152 duplicates). The edited token is read as some unfamiliar word that the model reproduces inside a quote but cannot refer to. The nonce reference behaves differently: it is echoed and mostly given an invented meaning (CONFAB) or an "I don't know".
+- **F42. Restricted to the concept subspace, the edit keeps everything and removes nothing (D20).** In the span of the set's concept components (rank ≤ 3), NM-CINDER and NM-EMBER keep the word (copy 0.97–0.99, echo 0.94–0.95, T3 destruction 0.01–0.04, 2–4% broken prompts) at r ≈ 0.2–0.3. But efficacy is 0.04 and 0.02, and T3 leak is 0.39 and 0.53 (reference about 0.5). In the same subspace, subtraction removes about 0.26 at r = 0.5 (F26). So the nonce objective pushes the edit away from the knowledge-removing direction. CINDER's subspace does not carry the nonce behaviour, and the subspace constraint is not what makes CINDER useful here.
+- **F43. CINDER's token set adds coverage, not a better edit (D20).** On the same objective, NM-free (CINDER's set) edits 9 runs and NM-free-EMBER 7 (EMBER has no set for Halloween, Heroin, Nazism or Uranium at seed 42). Where both edit, efficacy is similar (0.18 vs 0.21; collateral 0.86 for both). This matches F27: CINDER's practical advantage is that it finds tokens to edit.
+
 ### Speculations (to be tested)
 
 Each item is a speculation, not a result.
 
-- **S1. For concept-exclusive tokens, complete and graceful erasure may be incompatible for any input-embedding edit.** Their embedding is mostly the concept, so removing the concept removes the token's identity, and copy fails (F9, F10). Every method destroys 0.37–0.75 of its exclusive words at its selected point (F17); this is the open problem. An identity-preserving edit could separate "unknown" from "deleted": keep the component that lets the model copy the token, for example by removing the concept part only orthogonally to the token's own unembedding or identity direction. **Test:** such a variant on the same E1 and E2 settings. **Evidence (amendment 11):** with copy ≥ 0.9 enforced, every method keeps 0.94–0.98 of its exclusive words copyable but removes almost nothing (efficacy 0.06–0.14, F38); and since edits only block access through the edited tokens (F36), "graceful" erasure of an exclusive token would at best make it a nonce-like word.
+- **S1. For concept-exclusive tokens, complete and graceful erasure may be incompatible for any input-embedding edit.** Their embedding is mostly the concept, so removing the concept removes the token's identity, and copy fails (F9, F10). Every method destroys 0.37–0.75 of its exclusive words at its selected point (F17); this is the open problem. An identity-preserving edit could separate "unknown" from "deleted": keep the component that lets the model copy the token, for example by removing the concept part only orthogonally to the token's own unembedding or identity direction. **Test:** such a variant on the same E1 and E2 settings. **Evidence (amendment 11):** with copy ≥ 0.9 enforced, every method keeps 0.94–0.98 of its exclusive words copyable but removes almost nothing (efficacy 0.06–0.14, F38); and since edits only block access through the edited tokens (F36), "graceful" erasure of an exclusive token would at best make it a nonce-like word. **Tested (amendment 13):** a learned identity-preserving edit keeps the words copyable at r ≈ 3 and removes 2–3× more than copy-gated subtraction (F39), but stays below the nonce floor (F40), and the model can no longer name the word (F41). So "keep it copyable" is achievable; "keep it a nameable but unknown word" is not achieved by this objective.
 - **S2. CINDER's direction advantage lives in the subtraction regime, so any evaluation that forbids destruction should favour it** (F3, F6, F13). **Test (proposed E3, not launched):** integrity-gated selection (copy ≥ 0.9 and collateral ≥ 0.8) on the full r grid for EMBER, CINDER, 1b and CINDER-RS. It needs E2's judge-free tests at every grid point. The copy gate should hold on the exclusive words separately, since the pooled copy hides them (F17). **Partial support (amendment 9):** tightening the collateral gate from 0.8 to 0.9 moves every method to r = 0.5, and there every CINDER variant beats EMBER (+0.10 to +0.20, Holm-significant); at 0.7 plain CINDER's edge disappears (F31). **Tested (amendment 11, E3):** supported in direction for CINDER and CINDER-RS (efficacy 0.12–0.14 vs EMBER 0.06 at copy ≥ 0.9), significant only under intention-to-treat; A3z gains nothing (F38).
 - **S3. CINDER's token-set liability comes from the concept-only label, amplified by GS widening** (F4). The label admits generic words, and GS adds more of them. CINDER-RS tested the GS part (D15): without GS the Ancient Rome sets shrink and fewer edited tokens are multi-meaning, but validation collateral at matched r is no better than CINDER's. So GS explains the set sizes and some failure runs, not the faster collateral loss. **Test:** an exclusivity filter on the edit set, for the label part.
 - **S4. The paper's relearning robustness at δ = 200 may come from destruction.** Rows 40–120× the token's norm cannot be moved back by small fine-tuning steps. **Test:** LoRA relearning (§C.6) at r ≈ 0.5 vs r = 100.
@@ -244,7 +252,8 @@ cluster-bootstrap CI. Details in D17, numbers in [confirm.md](results/varwidth/l
 - **Confirmatory expansion** (amendment 8): 12 new concepts × 5 seeds, new frozen question sets, the 5 main variants under the collateral rule, fixed r = 0.5 and the paper rule, judge-free E2 on all 60 runs and 2,444 blind T3 labels on seed 42 (F24–F29, D17, [confirm.md](results/varwidth/layers/collateral/confirm.md)). No Gemini.
 - **Last-mile checks** (amendments 9 and 10): intention-to-treat and leave-one-out, gate sensitivity (0.7 and 0.9 on all 60 runs), the unreadability floor, 1,440 judged neutral-prompt generations, and Alpaca coherence on seed 42 (66 points, 8.3 NIS; plus 48 E3 points, 5.7 NIS, amendment 12; Gemini total 37.5 NIS) (F30–F35, D18, [last\_mile.md](results/varwidth/layers/collateral/last_mile.md)).
 - **Amendment 11:** word-free efficacy (stopped once shown 0 by construction; 9 run-variants), the MC-frame check, context damage from the E2 outputs, and E3 (copy test at 1,530 grid points and copy-gated selection with test passes on all 60 runs) (F36–F38, D19).
-- **Not started:** the identity-preserving edit (S1), the matched-read-strength control (S9), the powered A3z contrast and relearning.
+- **Amendment 13:** the nonce-matching edit (NM-CINDER, NM-free, NM-EMBER, NM-free-EMBER, NM-QA) on seed 42 of the 12 concepts, with judge-free E2, 2,219 blind T3 labels and 880 generation labels (F39–F43, D20, [nonce\_edit.md](results/varwidth/layers/collateral/nonce_edit.md)). No Gemini.
+- **Not started:** the matched-read-strength control (S9), the powered A3z contrast, a nonce-matching objective that also keeps the word nameable (F41), and relearning.
 
 ### What to keep in mind
 
@@ -1283,6 +1292,71 @@ A point with copy ≥ 0.9 exists in every run where a variant has an edit set (r
 
 No point has coherence below 0.9. Paired H4 vs EMBER at the E3 point (seed 42, descriptive): CINDER +0.169 (6 of 7 concepts), CINDER-RS-z +0.038 (3/2), CINDER-z −0.026 (3/2), CINDER-RS −0.086 (2/2). H4 is low everywhere because the harmonic mean follows the near-zero efficacy; runs at r = 0.05 often have efficacy 0 and so H4 0.
 
+### D20. Amendment 13: the nonce-matching edit
+
+**Goal.** An embedding edit can only block access through its tokens (F36), so the best it can do is turn the concept tokens into unknown but intact words. The target is the nonce reference: copy 1.00, echo 0.75, T3 destruction 0.06 (development), efficacy at the per-run nonce floor (F32).
+
+**Method** ([nonce\_edit.py](experiments/varwidth/nonce_edit.py)). The model is frozen and the output head stays untied. Δ_t is added to each edited row through a forward hook and trained with Adam, then written into the rows for evaluation. The loss is w_f · forget + copy + retain + 1e-3 · ‖Δ‖² (in units of ‖e_t‖); all terms are KL divergences with the target's top-64 probabilities plus the rest mass.
+- **forget:** the unedited model with the whole word replaced by its nonce, at every position from the word on. Sources: the concept's SNMF training sentences containing the token (up to 6 per token), and 3 new definitional chat prompts with the unedited model's answer to the nonce version teacher-forced.
+- **copy:** 4 new carriers with a new instruction; the target is the unedited model's own answer.
+- **retain:** multi-meaning tokens only; 3 sentences per token that the unedited model writes with the word outside the concept.
+- **Never trained on:** any evaluation item (collateral sets, qa, simdom, MMLU, the COPY carriers, the ASK prompt, the neutral prompts).
+- **Knob path:** w_f 0.05 → 0.15 → 0.5 → 2 (120, 60, 60, 60 steps, batch 16 per loss term); each knob continues from the last.
+- **Selection:** as E3 (validation MMLU ≥ 0.9, collateral ≥ 0.8, copy ≥ 0.9, max H3v), then the test pass.
+
+| Variant | Token set | Δ | Learning rate | Defined |
+|---|---|---|---|---|
+| NM-CINDER | CINDER-z | span of the set's concept components (rank ≤ 3) | 0.05 | amendment 13 |
+| NM-free | CINDER-z | unconstrained | 0.01 | amendment 13 |
+| NM-EMBER | EMBER | span of EMBER's concept components | 0.05 | amendment 13 |
+| NM-free-EMBER | EMBER | unconstrained | 0.01 | addendum (after the pilot) |
+| NM-QA | CINDER-z | unconstrained, + 3 self-written concept questions per token (near-duplicates of any evaluation item dropped: 17–30 per concept) | 0.003 | addendum 2, launched by its rule (2 of the first 3 NM-free concepts more than 0.1 below the floor) |
+
+**Results** (seed 42; [nonce\_edit.md](results/varwidth/layers/collateral/nonce_edit.md)):
+
+| Variant | Runs edited / with a set | Nonce point | Test efficacy | Nonce floor | Collateral | Copy (exclusive) | Echo | T3 destruction | T3 leak | Renamed | Broken prompts | Median r |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| NM-CINDER | 10 / 10 | 1 | 0.04 | 0.36 | 0.99 | 0.99 (0.97) | 0.94 | 0.01 | 0.39 | 0.01 | 0.02 | 0.18 |
+| NM-free | 9 / 10 | 2 | 0.18 | 0.36 | 0.86 | 0.99 (1.00) | 0.47 | 0.50 | 0.14 | 0.36 | 0.16 | 3.0 |
+| NM-EMBER | 8 / 8 | 2 | 0.02 | 0.27 | 0.96 | 0.97 (0.92) | 0.95 | 0.04 | 0.53 | 0.01 | 0.04 | 0.32 |
+| NM-free-EMBER | 7 / 8 | 3 | 0.21 | 0.26 | 0.86 | 0.99 (0.98) | 0.34 | 0.59 | 0.14 | 0.47 | 0.15 | 3.2 |
+| NM-QA | 10 / 10 | 3 | 0.22 | 0.36 | 0.89 | 1.00 (0.99) | 0.49 | 0.47 | 0.16 | 0.32 | 0.15 | 1.6 |
+| E3 EMBER / CINDER / CINDER-z (F38) | 8 / 10 / 10 | – | 0.07 / 0.14 / 0.06 | – | 0.97–0.99 | ≥ 0.9 by the rule | – | – | – | – | – | 0.05–0.25 |
+| Collateral-rule EMBER / CINDER-z (F29, F33) | – | – | 0.30 / 0.39 | – | 0.86 | 0.44 / 0.38 | 0.47 / 0.35 | 0.49 / 0.61 | 0.15 / 0.08 | 0.09 / 0.08 | 0.14 / 0.15 | 1 |
+
+"Renamed" is the share of answers to the T3 prompt that drop the word and name a capitalised non-dictionary string (real word 0.00, nonce 0.17). Gambling's NM-free and NM-free-EMBER have no knob passing validation collateral ≥ 0.8. Attainment on substantial floors: Baseball NM-free-EMBER and Heroin NM-QA; the other attainments are COVID-19 (floor 0.00) and Pornography (0.07–0.11).
+
+Per concept (test efficacy / collateral; * = nonce point):
+
+| Concept | Floor (CINDER / EMBER set) | NM-CINDER | NM-free | NM-EMBER | NM-free-EMBER | NM-QA |
+|---|---|---|---|---|---|---|
+| Baseball | 0.51 / 0.31 | 0.00 / 1.00 | 0.05 / 0.87 | 0.00 / 1.00 | 0.36 / 0.89* | 0.21 / 0.93 |
+| Cannabis | 0.52 / 0.49 | 0.15 / 1.00 | 0.34 / 0.90 | 0.12 / 1.00 | 0.31 / 0.83 | 0.37 / 0.90 |
+| COVID-19 | 0.00 / 0.00 | 0.00 / 0.98* | 0.00 / 0.87* | 0.00 / 0.97* | 0.11 / 0.82* | 0.00 / 0.97* |
+| Gambling | 0.35 / 0.32 | 0.04 / 0.97 | no edit | 0.00 / 0.87 | no edit | 0.00 / 0.91 |
+| Golf | 0.36 / 0.25 | 0.00 / 1.00 | 0.25 / 0.82 | 0.00 / 0.94 | 0.18 / 0.92 | 0.25 / 0.74 |
+| Gun | 0.37 / 0.31 | 0.00 / 0.99 | 0.17 / 0.80 | 0.00 / 0.86 | 0.14 / 0.86 | 0.24 / 0.79 |
+| Halloween | 0.16 / – | 0.00 / 0.98 | 0.16 / 0.79 | – | – | 0.05 / 0.91 |
+| Heroin | 0.49 / – | 0.00 / 1.00 | 0.22 / 0.92 | – | – | 0.44 / 0.92* |
+| Nazism | – | – | – | – | – | – |
+| Pornography | 0.11 / 0.07 | 0.00 / 1.00 | 0.11 / 0.91* | 0.04 / 1.00* | 0.11 / 0.95* | 0.21 / 0.89* |
+| Republic of Ireland | – / 0.39 | – | – | 0.04 / 1.00 | 0.24 / 0.77 | – |
+| Uranium | 0.69 / – | 0.17 / 1.00 | 0.29 / 0.89 | – | – | 0.46 / 0.90 |
+
+**Predictions.**
+- (a) NM-CINDER reaches the nonce point in most runs: **refuted** (1 of 10, on a floor of 0).
+- (b) NM-free ≥ NM-CINDER: **supported** (efficacy 0.18 vs 0.04, H3v 0.35 vs 0.08).
+- (c) NM-EMBER edits fewer runs and is no better: **supported** (8 vs 10 runs; efficacy 0.02).
+- Addendum, NM-free ≥ NM-free-EMBER and edits more runs: more runs, yes (9 vs 7); better per run, no (0.18 vs 0.21).
+
+**Pilot and incidents.**
+- **Pilot** (Baseball s42, losses and copy only): the first pilot evaluated with the training hook still active, which applied Δ twice (copy 0.00); fixed before any evaluation. The pilot showed the rank-3 subspace plateau, which led to addendum 1.
+- **Learning rate:** Adam makes w_f a weak brake on r (the free edits reach r ≈ 3 even at w_f 0.05). NM-QA's lower learning rate gives median r 1.6.
+- **T3 labelling round 1, batches 63–65:** one labeller first counted answers that name a different made-up string as CONFAB or IGNORANT, against the brief. After revising to the brief, 90 labels changed to BLIND, and destruction in those batches rose from 0.12–0.15 to 0.32–0.33.
+- **Agents:** T3 labels from 7 agents in 3 rounds (agent per batch group recorded in `judge/nm_round2_agents.json` and the report); generation labels from 4 agents (agreement 1.00 on 88 duplicates). The generation comparison with the subtraction points is approximate: those used each concept's first EMBER seed, which is not 42 for 4 concepts.
+
+**Status.** Done. Post hoc (amendment 13 and addenda), seed 42 only.
+
 ---
 
 ## Part 3. Reference
@@ -1319,7 +1393,7 @@ No point has coherence below 0.9. Paired H4 vs EMBER at the E3 point (seed 42, d
 | `copy`, `ctx_pass`, `del_likeness`, `ctxmc`, `echo`, `static_*` | T1, T2, T2, T2b, T3 echo, T4 |
 | `ctx_excess` | Answer-NLL excess over the nonce (secondary T2 diagnostic) |
 | KC, KO, IGN, INCOH | T3 labels KNOWS\_CONCEPT, KNOWS\_OTHER, IGNORANT, INCOHERENT |
-| F1–F38, S1–S9 | Findings and speculations of Part 1 (F24–F29 confirmatory, amendment 8; F36–F38 amendment 11; F30–F35 last-mile, amendments 9–10) |
+| F1–F43, S1–S9 | Findings and speculations of Part 1 (F24–F29 confirmatory, amendment 8; F36–F38 amendment 11; F39–F43 amendment 13; F30–F35 last-mile, amendments 9–10) |
 | `last_mile.py`, `result_g0.7.json` / `result_g0.9.json`, `alpaca_{sel,paper}.json` | Last-mile checks (D18): floor, generations, gate sensitivity, seed-42 Alpaca |
 | `result_fixed05.json`, `confirm_stats.py` | Test result at fixed r = 0.5; the amendment 8 analysis (D17) |
 | `collateral_rn`, `H3v (rn)`, `H4 (rn)` | Test collateral renormalized by the unedited test accuracy, and the scores built on it (amendment 6) |
@@ -1370,7 +1444,7 @@ No point has coherence below 0.9. Paired H4 vs EMBER at the E3 point (seed 42, d
 - Last-mile checks (D18): [last\_mile.md](results/varwidth/layers/collateral/last_mile.md) and `last_mile.json` (`python -m experiments.varwidth.last_mile report`); the sensitivity rows in confirm.md; per concept `last_mile/<concept>/{floor.json, gen.json}`; prompts in `last_mile/prompts.json` (with `prompts_meta.json` and the writers' inputs in `prompt_inputs/`); blind labels in `last_mile/judge/`; briefs `briefs/premise_writer.md` and `briefs/premise_judge.md`.
 - Gemini spend: [results/gemini\_usage.jsonl](results/gemini_usage.jsonl) (37.5 NIS in total: 8.3 for amendment 10 and 5.7 for amendment 12, after user-approved extensions of the 25 NIS stop).
 - T3 labels: [integrity/judge/](results/varwidth/layers/collateral/integrity/judge/): blind batches `batch_*.json`, agent labels `labels_*.json` (5,883 items plus 577 duplicate entries under 568 distinct ids, 473 of them labelled by a different agent than the original; batches 21–25 are CINDER-RS, batches 26–40 amendment 7), the id-to-config key `key.json`, and `pre_clarification/` (the first labels of batches 00–02, superseded after the brief's clarifications; 347 of 450 unchanged). Brief: [briefs/judge\_t3.md](results/varwidth/layers/collateral/briefs/judge_t3.md).
-- Code: [erase.py](experiments/varwidth/erase.py), [erase\_v2.py](experiments/varwidth/erase_v2.py), [collateral.py](experiments/varwidth/collateral.py), [collateral\_diag.py](experiments/varwidth/collateral_diag.py), [collateral\_report.py](experiments/varwidth/collateral_report.py), [integrity.py](experiments/varwidth/integrity.py), [confirm\_stats.py](experiments/varwidth/confirm_stats.py), [last\_mile.py](experiments/varwidth/last_mile.py).
+- Code: [erase.py](experiments/varwidth/erase.py), [erase\_v2.py](experiments/varwidth/erase_v2.py), [collateral.py](experiments/varwidth/collateral.py), [collateral\_diag.py](experiments/varwidth/collateral_diag.py), [collateral\_report.py](experiments/varwidth/collateral_report.py), [integrity.py](experiments/varwidth/integrity.py), [nonce\_edit.py](experiments/varwidth/nonce_edit.py), [confirm\_stats.py](experiments/varwidth/confirm_stats.py), [last\_mile.py](experiments/varwidth/last_mile.py).
 
 ### References
 

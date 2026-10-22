@@ -535,3 +535,16 @@ gain without them is not the nonce point.
 38 stop). Coherence 0.97–0.98 for every variant, none below 0.9 (prediction ≥ 0.95: met). H4 at the E3 point: EMBER
 0.18, CINDER 0.35, CINDER-RS 0.20, CINDER-z 0.16, CINDER-RS-z 0.25; paired vs EMBER CINDER +0.169 (6/1), CINDER-RS
 −0.086, CINDER-z −0.026, CINDER-RS-z +0.038 (descriptive).
+
+**Results of amendment 13 and addenda (2026-10-22; nonce_edit.md, doc F39–F43 and D20).** Seed 42.
+- Nonce-point attainment: NM-CINDER 1/10, NM-free 2/9, NM-EMBER 2/8, NM-free-EMBER 3/7, NM-QA 3/10; all but two on
+  runs whose floor is ≈ 0 (COVID-19, Pornography). Substantial: Baseball NM-free-EMBER, Heroin NM-QA.
+- Test efficacy (mean floor 0.36 / 0.27 for the CINDER / EMBER sets): NM-CINDER 0.04, NM-free 0.18, NM-EMBER 0.02,
+  NM-free-EMBER 0.21, NM-QA 0.22; collateral 0.86–0.99; copy 0.97–1.00; median r 0.18–0.32 (subspace) and 1.6–3.2
+  (free). Copy-gated subtraction (E3) on the same runs: 0.06–0.14.
+- T3 destruction: subspace variants 0.01–0.04 (leak 0.39–0.53); free variants 0.47–0.59, mostly answers that name a
+  different invented string ("renamed" 0.32–0.47 vs nonce 0.17). Generation broken: 0.02–0.04 (subspace), 0.15–0.16
+  (free). T3 agreement 0.92 / 0.97 (152 duplicates); generation agreement 1.00 (88).
+- Predictions: (a) refuted; (b) supported; (c) supported; addendum token-set prediction: more runs yes, better per run
+  no. Incidents: hook-during-evaluation bug in the first pilot (fixed before evaluation); a round-1 labeller's
+  departure from the brief on batches 63–65 (revised; destruction there 0.12–0.15 → 0.32–0.33).
