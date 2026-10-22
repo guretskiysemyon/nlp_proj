@@ -260,6 +260,7 @@ def select_paper(rows):
 
 
 PAPER_VARIANTS = ["sub:ember", "sub:cinder", "sub:cinder_rs", "sub:cinder_z", "sub:cinder_rs_z", "sub:1b"]
+TWOBYTWO = ["sub:ee", "sub:1b", "sub:1a", "sub:cross"]      # amendment 14: fixed-r test passes, no grid needed
 
 
 def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collateral"):
@@ -277,14 +278,18 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
     for v in variant_list(sets):
         d = out_dir(concept, seed, v)
         fname = {"collateral": "result.json", "paper": "result_paper.json", "fixed05": "result_fixed05.json",
-                 "e3": "result_e3.json"}[rule]
+                 "fixed1": "result_fixed1.json", "e3": "result_e3.json"}[rule]
         if rule == "collateral" and gate != COLL_GATE:          # gate sensitivity: its own file, result.json untouched
             fname = f"result_g{gate:g}.json"
-        if not (d / "grid.json").exists() or (d / fname).exists():
+        fixed = {"fixed05": 0.5, "fixed1": 1.0}.get(rule)
+        cell = fixed is not None and v in TWOBYTWO
+        if (d / fname).exists() or not ((d / "grid.json").exists() or cell):
             continue
-        if rule in ("paper", "fixed05") and v not in PAPER_VARIANTS:
+        if rule == "paper" and v not in PAPER_VARIANTS or rule == "fixed05" and v not in PAPER_VARIANTS + TWOBYTWO:
             continue
-        rows = json.loads((d / "grid.json").read_text())
+        if rule == "fixed1" and not cell:
+            continue
+        rows = json.loads((d / "grid.json").read_text()) if (d / "grid.json").exists() else []
         if v.startswith("proj:"):
             assert alpha, "run collateral_report shapes first (pooled alpha)"
             rows = [x for x in rows if x["param"] == float(alpha[v.split(':')[1]])]
@@ -297,12 +302,15 @@ def final(concept, seed, qfile, alpaca_variants, gate=COLL_GATE, rule="collatera
             cg = json.loads((d / "copygrid.json").read_text()) if (d / "copygrid.json").exists() else {}
             ok = {x["param"] for x in cg.values() if x["copy"] >= 0.9}
             best = select([x for x in rows if x["param"] in ok], gate)
-        else:                                    # fixed r = 0.5 (amendment 8)
-            best = next((x for x in rows if x["param"] == 0.5), None)
+        elif rows:                               # fixed r = 0.5 (amendment 8)
+            best = next((x for x in rows if x["param"] == fixed), None)
+        else:                                    # 2×2 cell without a grid (amendment 14): param = target r
+            best = {"param": fixed}
         res = {"concept": concept, "seed": seed, "variant": v, "gate": gate, "rule": rule}
         par = None if best is None else best["param"]
         same = [json.loads((d / f).read_text()) for f in ("result.json", "result_paper.json", "result_fixed05.json",
-                                                          "result_g0.7.json", "result_g0.9.json", "result_e3.json")
+                                                          "result_g0.7.json", "result_g0.9.json", "result_e3.json",
+                                                          "result_fixed1.json")
                 if f != fname and (d / f).exists()]
         same = [x for x in same if x.get("param") == par and "alpaca_instr" not in x]
         if same and v not in alpaca_variants:   # another rule chose the same point: deterministic eval, reuse it
@@ -352,7 +360,7 @@ def main():
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--alpaca", nargs="*", default=[])
     ap.add_argument("--gate", type=float, default=COLL_GATE)
-    ap.add_argument("--rule", choices=("collateral", "paper", "fixed05", "e3"), default="collateral")
+    ap.add_argument("--rule", choices=("collateral", "paper", "fixed05", "fixed1", "e3"), default="collateral")
     a = ap.parse_args()
     if a.what == "grid":
         grid(a.concept, a.seed, a.group, a.qfile, a.pilot, a.variants)

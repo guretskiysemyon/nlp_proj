@@ -548,3 +548,26 @@ gain without them is not the nonce point.
 - Predictions: (a) refuted; (b) supported; (c) supported; addendum token-set prediction: more runs yes, better per run
   no. Incidents: hook-during-evaluation bug in the first pilot (fixed before evaluation); a round-1 labeller's
   departure from the brief on batches 63–65 (revised; destruction there 0.12–0.15 → 0.32–0.33).
+
+## Amendment 14 (2026-10-22): confirmatory 2×2 at fixed strength (post hoc, after amendments 8–13)
+
+Written before any result. Question: is CINDER's advantage at equal edit strength (fixed r = 0.5, F26) a direction
+effect or a token-set effect? The development 2×2 (F6, 5 runs) found direction, not tokens.
+- **Cells** (existing `edits_s<seed>.pt`, dense Y as in development): ee = EMBER tokens × EMBER direction,
+  1b = EMBER tokens × CINDER direction, 1a = CINDER top-N tokens × CINDER direction, cross = CINDER top-N tokens ×
+  EMBER direction. ee exists in the 41 runs where EMBER's set is non-empty; 1b, 1a and cross need a CINDER set as
+  well, so the full 2×2 has 38 runs (Nazism 44, Republic of Ireland 42/43 have ee only).
+- **Measure:** test pass at fixed r = 0.5 (primary) and r = 1 (secondary): efficacy, specificity, renormalized
+  collateral, H3v (`result_fixed05.json`, `result_fixed1.json` in the cell dirs). No grid, no selection.
+- **Endpoints** (unit = concept, mean over seeds; Wilcoxon; 95% cluster bootstrap): Δ_dir = mean of (1b − ee) and
+  (1a − cross); Δ_tok = mean of (cross − ee) and (1a − 1b); on efficacy and H3v at r = 0.5, Holm over these 4. The 4
+  single contrasts and r = 1 are secondary.
+- **Predictions (from F6):** Δ_dir > 0 on efficacy (+0.10 to +0.15); Δ_tok ≈ 0 (−0.01 to −0.03); the direction costs
+  a little collateral (−0.01 to −0.05).
+No Gemini.
+
+**Results of amendment 14, primary (2026-10-22; twobytwo.md, doc F44 and D21).** Fixed r = 0.5, 38 full-2×2 runs,
+11 concepts. Δ_dir: efficacy +0.073 [+0.012, +0.150], 10/1 concepts, p 0.032, Holm 0.097; H3v +0.097
+[+0.029, +0.174], 10/1, p 0.014, Holm 0.055. Δ_tok: efficacy +0.016 (p 0.16), H3v +0.024 (p 0.10), Holm 0.20.
+Direction collateral cost −0.019 (p 0.054). Predictions: Δ_dir > 0 supported nominally, not after Holm, smaller than
+predicted; Δ_tok ≈ 0 supported; direction collateral cost supported. r = 1 (secondary) follows.

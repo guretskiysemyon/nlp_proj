@@ -205,6 +205,98 @@ def t3():
     return summ, con, agree
 
 
+CELLS = ["sub:ee", "sub:1b", "sub:1a", "sub:cross"]
+EFFECTS = {"Δ_dir": [("sub:1b", "sub:ee"), ("sub:1a", "sub:cross")],      # direction at fixed tokens
+           "Δ_tok": [("sub:cross", "sub:ee"), ("sub:1a", "sub:1b")]}     # tokens at fixed direction
+
+
+def twobytwo(fname):
+    """Amendment 14: the 2×2 at a fixed r. Per run, an effect = mean of its two contrasts (both cells present);
+    unit = concept (mean over seeds); Wilcoxon across concepts; cluster bootstrap."""
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in CELLS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / fname
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    out = {"means": {}, "effects": {}, "contrasts": {}}
+    for v in CELLS:
+        xs = [r for (c, s, vv), r in R.items() if vv == v and r.get("n_edit")]
+        out["means"][v] = {k: float(np.mean([x[k] for x in xs])) for k in ("efficacy", "collateral_rn", "H3v_rn",
+                                                                             "specificity", "r")} | {"n": len(xs)}
+
+    def stat(per):
+        x = np.array([np.mean(v) for v in per.values()])
+        if len(x) == 0:
+            return {"n_concepts": 0}
+        boot = np.random.default_rng(0).choice(x, (B, len(x)), replace=True).mean(1)
+        return {"n_concepts": len(x), "n_runs": sum(len(v) for v in per.values()), "mean": float(x.mean()),
+                "ci": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+                "p": float(wilcoxon(x).pvalue) if len(x) >= 2 and np.any(x != 0) else 1.0,
+                "pos": int((x > 0).sum()), "neg": int((x < 0).sum())}
+    for metric in ("efficacy", "H3v_rn", "collateral_rn"):
+        for name, pairs in EFFECTS.items():
+            per = {}
+            for c in EXPANSION:
+                for s in seeds(c):
+                    if all((c, s, v) in R and R[(c, s, v)].get("n_edit") for v in CELLS):
+                        per.setdefault(c, []).append(np.mean([R[(c, s, a)][metric] - R[(c, s, b)][metric]
+                                                              for a, b in pairs]))
+            out["effects"][f"{name}|{metric}"] = stat(per)
+        for a, b in EFFECTS["Δ_dir"] + EFFECTS["Δ_tok"]:
+            per = {}
+            for c in EXPANSION:
+                for s in seeds(c):
+                    if all((c, s, v) in R and R[(c, s, v)].get("n_edit") for v in (a, b)):
+                        per.setdefault(c, []).append(R[(c, s, a)][metric] - R[(c, s, b)][metric])
+            out["contrasts"][f"{a}−{b}|{metric}"] = stat(per)
+    keys = [f"{e}|{m}" for e in EFFECTS for m in ("efficacy", "H3v_rn")]
+    for k, a in zip(keys, holm(np.array([out["effects"][k].get("p", 1.0) for k in keys]))):
+        out["effects"][k]["p_holm"] = float(a)
+    return out
+
+
+def twobytwo_report():
+    """-> results/varwidth/layers/collateral/twobytwo.md and .json"""
+    res, L = {}, ["# 2×2 at fixed strength: direction vs token set (PREREG amendment 14)", "",
+                  "ee = EMBER tokens × EMBER direction; 1b = EMBER tokens × CINDER direction; 1a = CINDER top-N tokens × "
+                  "CINDER direction; cross = CINDER top-N tokens × EMBER direction. Test split, fixed r, no selection. "
+                  "Δ_dir = mean of (1b − ee) and (1a − cross); Δ_tok = mean of (cross − ee) and (1a − 1b). Unit = concept "
+                  "(mean over seeds), Wilcoxon, 95% cluster bootstrap; Holm over Δ_dir and Δ_tok × efficacy and H3v at "
+                  "r = 0.5.", ""]
+    for fname, tag in (("result_fixed05.json", "r = 0.5 (primary)"), ("result_fixed1.json", "r = 1 (secondary)")):
+        o = twobytwo(fname)
+        res[fname] = o
+        if not any(m["n"] for m in o["means"].values()):
+            continue
+        L += [f"## {tag}", "", "| Cell | runs | efficacy | collateral | specificity | H3v | achieved r |",
+              "|---|---|---|---|---|---|---|"]
+        L += [f"| {v.split(':')[1]} | {m['n']} | {m['efficacy']:.3f} | {m['collateral_rn']:.3f} | "
+              f"{m['specificity']:.3f} | {m['H3v_rn']:.3f} | {m['r']:.2f} |" for v, m in o["means"].items() if m["n"]]
+        L += ["", "| Effect | metric | concepts (runs) | mean | 95% CI | +/− concepts | p | Holm p |",
+              "|---|---|---|---|---|---|---|---|"]
+        for k, x in o["effects"].items():
+            if x.get("n_concepts"):
+                e, m = k.split("|")
+                L.append(f"| {e} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['pos']}/{x['neg']} | {x['p']:.3f} | "
+                         f"{x['p_holm']:.3f} |" if "p_holm" in x and fname == "result_fixed05.json" else
+                         f"| {e} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['pos']}/{x['neg']} | {x['p']:.3f} | – |")
+        L += ["", "| Contrast | metric | concepts (runs) | mean | 95% CI | p |", "|---|---|---|---|---|---|"]
+        for k, x in o["contrasts"].items():
+            if x.get("n_concepts"):
+                cst, m = k.split("|")
+                L.append(f"| {cst.replace('sub:', '')} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | "
+                         f"[{x['ci'][0]:+.3f}, {x['ci'][1]:+.3f}] | {x['p']:.3f} |")
+        L.append("")
+    (OUT / "twobytwo.json").write_text(json.dumps(res, indent=1))
+    (OUT / "twobytwo.md").write_text("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
 def fmt(x, n=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{n}f}"
 
@@ -297,4 +389,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    twobytwo_report() if sys.argv[1:] == ["2x2"] else main()

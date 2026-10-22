@@ -50,7 +50,7 @@ Add a fourth term, **collateral**: does the edited model still know ordinary fac
 - **Hyp. 2: the comparison changes.** In the subtraction regime the direction matters, so the EMBER vs CINDER comparison differs from the anchor. The pilot hints at this: at r = 1, an edit along CINDER's direction on EMBER's tokens reached efficacy 0.42, against 0.28 for EMBER.
   - **Verdict: partly** (F2, F3, F13, F18). At matched small r, CINDER's direction erases more (validation efficacy at r = 0.25: 0.26 vs 0.05) and removes more knowledge with little destruction. At each method's selected point the two tie (test H4 0.48 vs 0.48). The pilot's gap at r = 1 (0.42 vs 0.28) shrinks over all runs (1b 0.31 vs EMBER 0.31; 0.31 vs 0.25 on the 5 matched runs); the main gap sits at r = 0.25–0.5. CINDER-RS, CINDER's direction without GS, has the best mean test H4 (0.53), within noise. Under the paper's own rule, A3z changes the old comparison: CINDER's selection with an edit re-solved in the original space (A3z) matches EMBER (test H2 0.55 and 0.60 vs 0.60, against 0.33 for CINDER), so most of CINDER's old-evaluation gap came from its weakly read edit space, not its features (F19, F21). Under the collateral rule A3z adds nothing (F22). **Confirmatory (12 new concepts):** at fixed r = 0.5 every CINDER direction beats EMBER in 10 of 11 concepts (Holm p ≤ 0.054, F26), and under the paper rule EMBER beats CINDER as in the anchor (F28). At the selected points, no variant beats EMBER after Holm correction; the A3z variants come closest (+0.13 and +0.08, Holm p 0.07), and CINDER and CINDER-RS are null (F24). So the comparison changes at matched strength, not at each method's selected point.
 - **Hyp. 3: the 2×2 separates the two effects.** Changing only the token set and changing only the direction have separate, measurable effects on efficacy and collateral.
-  - **Verdict: partly** (F6, R3). At fixed r the direction raises efficacy (Δ\_dir +0.15 at r = 0.25, +0.09 at r = 1; validation, 5 runs) and the token set changes it little (Δ\_tok −0.01 to −0.03). At the selected points the effects are heterogeneous and inconclusive (test H3v: Δ\_dir +0.06, Δ\_tok −0.08).
+  - **Verdict: partly** (F6, R3). At fixed r the direction raises efficacy (Δ\_dir +0.15 at r = 0.25, +0.09 at r = 1; validation, 5 runs) and the token set changes it little (Δ\_tok −0.01 to −0.03). At the selected points the effects are heterogeneous and inconclusive (test H3v: Δ\_dir +0.06, Δ\_tok −0.08). **Confirmatory 2×2 (amendment 14, 12 new concepts, fixed r = 0.5, test):** Δ\_dir +0.073 efficacy and +0.097 H3v (10 of 11 concepts; p 0.032 and 0.014, Holm 0.097 and 0.055), Δ\_tok +0.016 and +0.024 (n.s.), collateral cost of the direction −0.019 (F44). So at equal strength the separation holds on new concepts: the direction carries the effect, the token set does not.
 - **Hyp. 4: shaped edits trade better.** Bounded projection and exclusivity-weighted edits reach a better efficacy–collateral trade-off than e − δc.
   - **Verdict: not supported at this sample size** (F2, F5, R4). Exclusivity weighting on EMBER's tokens has the best mean test H3v (0.50 vs 0.42 for EMBER), within noise. Bounded projection is worse (0.30 and 0.39). The pre-registered best shape (power m = 2 on CINDER's tokens) scored 0.37 on test.
 - **Expected limit: context blindness.** An embedding edit sees the token, not its context. " Harry" in Prince Harry and in Harry Potter is the same row, so no input-embedding edit can erase one and keep the other. The Pareto curves, not a single score, are the honest output.
@@ -160,6 +160,7 @@ Findings F39–F43 come from the nonce-matching edit (amendment 13 and its adden
 - **F41. "Unknown but intact" splits into "copyable" and "nameable", and the free edits keep only the first (D20).** Asked "What is it?" about the word, NM-free and NM-QA usually do not repeat it: echo is 0.47–0.49 (reference 0.96, nonce 0.75). In 32–47% of answers the model instead names a different invented string (string check; nonce 0.17, real word 0.00, subtraction 0.08–0.09). Blind labels count these as BLIND, so T3 destruction is 0.47–0.59, about the subtraction level (0.49–0.61; agreement 0.92 exact and 0.97 on destruction over 152 duplicates). The edited token is read as some unfamiliar word that the model reproduces inside a quote but cannot refer to. The nonce reference behaves differently: it is echoed and mostly given an invented meaning (CONFAB) or an "I don't know".
 - **F42. Restricted to the concept subspace, the edit keeps everything and removes nothing (D20).** In the span of the set's concept components (rank ≤ 3), NM-CINDER and NM-EMBER keep the word (copy 0.97–0.99, echo 0.94–0.95, T3 destruction 0.01–0.04, 2–4% broken prompts) at r ≈ 0.2–0.3. But efficacy is 0.04 and 0.02, and T3 leak is 0.39 and 0.53 (reference about 0.5). In the same subspace, subtraction removes about 0.26 at r = 0.5 (F26). So the nonce objective pushes the edit away from the knowledge-removing direction. CINDER's subspace does not carry the nonce behaviour, and the subspace constraint is not what makes CINDER useful here.
 - **F43. CINDER's token set adds coverage, not a better edit (D20).** On the same objective, NM-free (CINDER's set) edits 9 runs and NM-free-EMBER 7 (EMBER has no set for Halloween, Heroin, Nazism or Uranium at seed 42). Where both edit, efficacy is similar (0.18 vs 0.21; collateral 0.86 for both). This matches F27: CINDER's practical advantage is that it finds tokens to edit.
+- **F44. CINDER's advantage at equal strength is its direction, not its token set (confirmatory 2×2, amendment 14, D21).** Test pass at fixed r = 0.5 on the 4 cells (38 runs, 11 concepts). Changing only the direction (EMBER's → CINDER's, same tokens) raises efficacy by +0.073 (95% CI +0.012 to +0.150; 10 of 11 concepts; p 0.032, Holm 0.097) and H3v by +0.097 (+0.029 to +0.174; 10/1; p 0.014, Holm 0.055). Changing only the tokens (EMBER's → CINDER's top-N, same direction) gives +0.016 efficacy and +0.024 H3v (p 0.16, 0.10). The direction costs a little collateral, −0.019 (p 0.054). Both direction contrasts point the same way: on EMBER's tokens 1b − ee is +0.082 efficacy (p 0.004), on CINDER's tokens 1a − cross is +0.065 (p 0.042). Against F26 (CINDER − EMBER +0.15 H3v at r = 0.5), the direction accounts for most of the gap. This replicates F6 on held-out concepts, with a smaller direction effect than in development (+0.07 vs +0.15 at r = 0.25 to +0.09 at r = 1).
 
 ### Speculations (to be tested)
 
@@ -1357,6 +1358,38 @@ Per concept (test efficacy / collateral; * = nonce point):
 
 **Status.** Done. Post hoc (amendment 13 and addenda), seed 42 only.
 
+### D21. Amendment 14: the confirmatory 2×2 at fixed strength
+
+**Question.** CINDER beats EMBER at equal edit strength (F26). Is that its direction or its token set? The development 2×2 (D6, F6) said direction, on 5 runs.
+
+**Design.** The 4 cells of the existing edit sets (dense Y, as in development): ee = EMBER tokens × EMBER direction, 1b = EMBER tokens × CINDER direction, 1a = CINDER top-N tokens × CINDER direction, cross = CINDER top-N tokens × EMBER direction. ee exists in the 41 expansion runs where EMBER has a set; the other three need a CINDER set too, so the full 2×2 has 38 runs (Nazism 44 and Republic of Ireland 42/43 have ee only; where EMBER has no set, no cell exists). Test pass at fixed r = 0.5 (primary) and r = 1 (secondary), no grid and no selection (`erase_v2 final --rule fixed05 / fixed1`, files `result_fixed05.json`, `result_fixed1.json` in the cell directories). Δ\_dir = mean of (1b − ee) and (1a − cross); Δ\_tok = mean of (cross − ee) and (1a − 1b); unit = concept (mean over seeds), Wilcoxon, 95% cluster bootstrap, Holm over Δ\_dir and Δ\_tok × efficacy and H3v.
+
+**Results at r = 0.5** (from [twobytwo.md](results/varwidth/layers/collateral/twobytwo.md)):
+
+| Cell | Runs | Efficacy | Collateral | Specificity | H3v |
+|---|---|---|---|---|---|
+| ee (EMBER tokens, EMBER direction) | 41 | 0.201 | 0.934 | 0.987 | 0.389 |
+| 1b (EMBER tokens, CINDER direction) | 38 | 0.256 | 0.909 | 0.985 | 0.456 |
+| 1a (CINDER tokens, CINDER direction) | 38 | 0.263 | 0.918 | 0.987 | 0.475 |
+| cross (CINDER tokens, EMBER direction) | 38 | 0.204 | 0.940 | 0.987 | 0.389 |
+
+| Effect | Metric | Mean | 95% CI | Concepts +/− | p | Holm p |
+|---|---|---|---|---|---|---|
+| Δ\_dir | efficacy | +0.073 | [+0.012, +0.150] | 10/1 | 0.032 | 0.097 |
+| Δ\_dir | H3v | +0.097 | [+0.029, +0.174] | 10/1 | 0.014 | 0.055 |
+| Δ\_dir | collateral | −0.019 | [−0.035, +0.001] | 1/10 | 0.054 | – |
+| Δ\_tok | efficacy | +0.016 | [−0.001, +0.039] | 8/2 | 0.160 | 0.203 |
+| Δ\_tok | H3v | +0.024 | [+0.002, +0.049] | 8/3 | 0.102 | 0.203 |
+| Δ\_tok | collateral | +0.004 | [−0.007, +0.018] | 6/5 | 0.831 | – |
+
+Single contrasts (efficacy): 1b − ee +0.082 (p 0.004), 1a − cross +0.065 (p 0.042), cross − ee +0.025 (p 0.16), 1a − 1b +0.007 (p 0.43).
+
+**Verdicts on the predictions.** Δ\_dir > 0: supported in direction and nominally (10 of 11 concepts, p 0.014–0.032), not after Holm (0.055–0.097), and smaller than predicted (+0.07 vs +0.10 to +0.15). Δ\_tok ≈ 0: supported (+0.016, n.s.; predicted −0.01 to −0.03). Collateral cost of the direction: supported (−0.019; predicted −0.01 to −0.05).
+
+**Reading.** At equal strength, CINDER's direction removes more concept per unit of change on either token set; its token set adds little. With F27 (coverage) this gives CINDER's two separable advantages: a better direction, and finding tokens where EMBER finds none. The r = 1 secondary is added when its pass completes.
+
+**Status.** Primary done. Post hoc (amendment 14). No Gemini.
+
 ---
 
 ## Part 3. Reference
@@ -1393,7 +1426,8 @@ Per concept (test efficacy / collateral; * = nonce point):
 | `copy`, `ctx_pass`, `del_likeness`, `ctxmc`, `echo`, `static_*` | T1, T2, T2, T2b, T3 echo, T4 |
 | `ctx_excess` | Answer-NLL excess over the nonce (secondary T2 diagnostic) |
 | KC, KO, IGN, INCOH | T3 labels KNOWS\_CONCEPT, KNOWS\_OTHER, IGNORANT, INCOHERENT |
-| F1–F43, S1–S9 | Findings and speculations of Part 1 (F24–F29 confirmatory, amendment 8; F36–F38 amendment 11; F39–F43 amendment 13; F30–F35 last-mile, amendments 9–10) |
+| F1–F44, S1–S9 | Findings and speculations of Part 1 (F24–F29 confirmatory, amendment 8; F36–F38 amendment 11; F39–F43 amendment 13; F44 amendment 14; F30–F35 last-mile, amendments 9–10) |
+| `result_fixed1.json`, `--rule fixed1`, `confirm_stats 2x2` | 2×2 test pass at fixed r = 1; the amendment 14 analysis (D21) |
 | `last_mile.py`, `result_g0.7.json` / `result_g0.9.json`, `alpaca_{sel,paper}.json` | Last-mile checks (D18): floor, generations, gate sensitivity, seed-42 Alpaca |
 | `result_fixed05.json`, `confirm_stats.py` | Test result at fixed r = 0.5; the amendment 8 analysis (D17) |
 | `collateral_rn`, `H3v (rn)`, `H4 (rn)` | Test collateral renormalized by the unedited test accuracy, and the scores built on it (amendment 6) |
@@ -1439,6 +1473,7 @@ Per concept (test efficacy / collateral; * = nonce point):
 - E1 results: [collateral/poc.md](results/varwidth/layers/collateral/poc.md) (written by `python -m experiments.varwidth.collateral_report report`); per run `collateral/<concept>/s<seed>/<variant>/{grid.json, result.json}`; Pareto PNGs in [collateral/pareto/](results/varwidth/layers/collateral/pareto/); shape choice in [shape\_choice.json](results/varwidth/layers/collateral/shape_choice.json). Edit sets and the 2×2 top-N overlap (`_info.topN_overlap_rawY`): `collateral/<concept>/edits_s<seed>.pt`.
 - E2 results: [integrity/report.md](results/varwidth/layers/collateral/integrity/report.md) (written by `python -m experiments.varwidth.integrity report`); per config `integrity/<concept>/s<seed>/*.json`, with the words, nonces and tokens in `meta.json`; the pilots in `integrity/Harry_Potter/_pilot1_s42/` and `_pilot2_s42/`.
 - A3z (D16): the offline check [diag/a3z\_offline.json](results/varwidth/layers/collateral/diag/a3z_offline.json) (per run and edit: median cos(c, e), median µ, read strength, and for A3z the cosine to the parent's edit; script: `python -m experiments.varwidth.collateral_diag a3z`); per run `collateral/<concept>/s<seed>/sub_cinder_z/` and `sub_cinder_rs_z/` (`grid.json`, `result.json`); the paper-rule arm in `result_paper.json` next to `result.json` for `sub_ember`, `sub_cinder`, `sub_cinder_rs`, `sub_cinder_z`, `sub_cinder_rs_z` and `sub_1b`, summarized in poc.md ("Old evaluation: the paper-style rule" and "New evaluation, paired vs EMBER"). R14's matched-r means and gate sensitivity, R15's per-run H2 and R16's paired differences against the parent are computed from the same files with the rules of collateral\_report.py. The Llama diagnosis is on branch `orip-ml`: `results/ml/diagnose_a3/DIAGNOSIS.md`.
+- Confirmatory 2×2 (D21): [twobytwo.md](results/varwidth/layers/collateral/twobytwo.md) and `twobytwo.json` (written by `python -m experiments.varwidth.confirm_stats 2x2`); per run `collateral/<concept>/s<seed>/sub_{ee,1b,1a,cross}/result_fixed05.json` (and `result_fixed1.json`).
 - Confirmatory expansion (D17): [confirm.md](results/varwidth/layers/collateral/confirm.md) and `confirm.json` (written by `python -m experiments.varwidth.confirm_stats`); question set `data/collateral_questions_expansion.json` with its trail in `collateral/drafts/<concept>/{v0,F0,v1,F1}.json`, `final_chosen_expansion.json` and `base_answers_expansion.json`; per run `collateral/<concept>/s<seed>/<variant>/{grid.json, result.json, result_fixed05.json, result_paper.json}` and `integrity/<concept>/s<seed>/`; T3 batches 41–57.
 - Amendment 11 (D19): word-free questions and inputs in `last_mile/wordfree_draft/` and `wordfree_inputs/` (brief `briefs/wordfree_writer.md`), `wordfree.json` in the run directories, [template\_check.json](results/varwidth/layers/collateral/last_mile/template_check.json), `copygrid.json` and `result_e3.json` in the run directories, all summarised in last\_mile.md ("Word-free efficacy", "E3", "Context damage") by `python -m experiments.varwidth.last_mile report`.
 - Last-mile checks (D18): [last\_mile.md](results/varwidth/layers/collateral/last_mile.md) and `last_mile.json` (`python -m experiments.varwidth.last_mile report`); the sensitivity rows in confirm.md; per concept `last_mile/<concept>/{floor.json, gen.json}`; prompts in `last_mile/prompts.json` (with `prompts_meta.json` and the writers' inputs in `prompt_inputs/`); blind labels in `last_mile/judge/`; briefs `briefs/premise_writer.md` and `briefs/premise_judge.md`.
