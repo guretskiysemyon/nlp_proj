@@ -157,3 +157,24 @@ Two A1 units (Karate, Prime number) find features but fail a gate already at δ 
 0). Separately, the Gemini usage log on NFS was NUL-padded by concurrent appends from several hosts; all 24,789
 records were recovered by stripping NULs (a few may be lost; total ≈ 17 NIS). Future runs should log per job and
 merge.
+
+## 14. Seed-union selection helps CINDER reliably, A1 only on average
+
+PREREG amendment 1, RESULTS.md "Seed-union selection".
+- **A3zU vs A3z:** +0.08 strict, 19–4, p < 0.001. Pooling the three seeds' edits per token adds coverage
+  (21 → 29 concepts) and rarely hurts.
+- **A1U vs A1:** +0.05, 14–11, n.s. It gains concepts (Tuberculosis 0 → 0.93, The Matrix 0 → 1.00, Halloween
+  0 → 0.68) but loses where A1 was already good (Harry Potter 0.79 → 0.38, Cricket 0.56 → 0.27, Existentialism
+  0.47 → 0, gated). The pooled A1 edit spans 8 languages × 3 seeds of tokens: more shared pieces are hit, damage
+  grows, and gates fire at lower δ.
+- **Speculation:** a ≥2-of-3 vote rule would keep most of the gains and drop the damage. Not run.
+- **Hindi:** Tuberculosis A1U erases Hindi (H = 0.77), via features from seeds 1 and 2. This qualifies
+  observation 1: the concept-only limit is strong but not absolute.
+- **Infrastructure:** loading Llama over NFS on SLURM nodes took about 4 h per job under load. worker.sbatch now
+  copies the snapshot to node-local /tmp once per node (about 30 min, flock), after which loads take seconds.
+
+## 14. Seed union helps CINDER reliably, EMBER less
+
+Pooling over 3 fit seeds (amendment 1): A3zU − A3z +0.08 strict, 19–4, p < 0.001; A1U − A1 +0.05, 14–11, n.s. (gain
+on the new concepts only). Pooled, the two tie (0.31 vs 0.30). Operational notes: SLURM nodes loading Llama by mmap
+over NFS took ~1 h per shard under load; copying the snapshot to node-local /tmp first (worker.sbatch) fixed it.

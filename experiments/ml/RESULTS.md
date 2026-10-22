@@ -184,6 +184,60 @@ Wilcoxon p (ungated in parentheses):
 
 See `results/ml/data/qa_new/MANIFEST.md` and `results/ml/data/SAMPLE.md`.
 
+## Seed-union selection (2026-10-22, PREREG_NEW.md amendment 1)
+
+The edits from fit seeds 42, 1 and 2 are pooled: every token any seed edits is edited, with the mean of the seeds'
+edit vectors. The protocol is otherwise frozen. Both A1 (A1U) and A3z (A3zU) are pooled, so neither gets extra
+draws alone. 52 units were newly evaluated; 8 reuse the seed-42 result (only seed 42 edits) and 14 have no edit.
+Full tables are in `results/ml/UNION_RESULTS.md` (`python -m experiments.ml.analyze_union`).
+
+| All 38 concepts | A1 | A3z | A1U | A3zU |
+|---|---|---|---|---|
+| Concepts with an edit | 26 | 21 | **31** | 29 |
+| Mean strict score | 0.248 | 0.231 | 0.302 | **0.313** |
+| Mean ungated score | 0.252 | 0.282 | 0.320 | **0.349** |
+
+| Test, strict (ungated) | n | Difference [95% CI] | Wins–losses | Wilcoxon p | Verdict |
+|---|---|---|---|---|---|
+| **H4:** A3zU − A1U, all concepts | 38 | +0.011 [−0.114, +0.137] (+0.029) | 19–14 | 0.75 | **Not supported** by the pre-registered criterion (CI lower bound > −0.05). A tie: the point estimate favours A3zU, but the CI is wide. |
+| A3zU − A1U, concepts both edit | 26 | +0.082 [−0.063, +0.225] (+0.108) | 16–10 | 0.32 | Same direction, not significant. |
+| **H5:** A3zU − A3z | 38 | **+0.082 [+0.043, +0.128]** (+0.067) | **19–4** | **<0.001** | **Supported for CINDER.** |
+| **H5:** A1U − A1 | 38 | +0.054 [−0.033, +0.151] (+0.068) | 14–11 | 0.58 | **Not supported for A1.** |
+
+**What this shows.**
+1. **Pooling over seeds reliably helps fixed CINDER.** A3zU gains 8 more concepts (21 → 29) and +0.08, losing on
+   only 4 concepts. It holds on the new 20 alone (+0.07, 8–2) and on the original 18 (+0.10, 11–2).
+2. **For per-language EMBER, pooling is a gamble.** A1U gains concepts too (26 → 31), with large wins such as
+   Tuberculosis (0 → 0.93), The Matrix (0 → 1.00) and Halloween (0 → 0.68). But it loses heavily on concepts it
+   already edited well, such as Harry Potter (0.79 → 0.38), Cricket (0.56 → 0.27) and Existentialism (0.47 → 0, gated).
+   - The likely cause: A1's pooled edit unions 8 languages × 3 seeds of tokens, so it touches many more shared pieces.
+     Damage grows, and the gates fire at a lower δ.
+   - CINDER's single multilingual fit adds fewer, more consistent tokens per seed.
+3. **With pooling, fixed CINDER and per-language EMBER are still tied overall** (0.31 vs 0.30), at 1/8 of the
+   selection cost for CINDER. Where both edit, CINDER is ahead (+0.08, 16–10), but not significantly.
+4. **Hindi can be reached in some cases.** Tuberculosis A1U erases Hindi (H = 0.77), via features found only with
+   fit seeds 1 and 2. The "concept-only token" limit is strong but not absolute.
+
+## Seed-union selection (PREREG_NEW.md amendment 1, 2026-10-22)
+
+A1U and A3zU pool each approach's selections over fit seeds 42, 1 and 2. A token edited by any seed is edited, with
+the mean of the seeds' edit vectors. Evaluation and scoring are unchanged. Full tables are in
+`results/ml/UNION_RESULTS.md` (`python -m experiments.ml.analyze_union`).
+
+| All 38 concepts | A1 | A3z | A1U | A3zU |
+|---|---|---|---|---|
+| Concepts with an edit | 26 | 21 | **31** | 29 |
+| Mean strict / ungated | 0.248 / 0.252 | 0.231 / 0.282 | 0.302 / 0.320 | **0.313 / 0.349** |
+
+| Test (strict; ungated in brackets) | Difference [95% CI] | Wins–losses | Wilcoxon p | Verdict |
+|---|---|---|---|---|
+| H4: A3zU − A1U, all 38 | +0.011 [−0.114, +0.137] (+0.029) | 19–14 | 0.75 | Not supported (CI lower bound below −0.05): a tie |
+| H4: concepts both edit (26) | +0.082 [−0.063, +0.225] (+0.108) | 16–10 | 0.32 | Leans A3zU, not significant |
+| H5: A3zU − A3z | **+0.082 [+0.043, +0.128]** (+0.067) | 19–4 | **<0.001** | Confirmed (new 20 +0.068, original 18 +0.098) |
+| H5: A1U − A1 | +0.054 [−0.033, +0.151] (+0.068) | 14–11 | 0.58 | Not significant (new 20 +0.093, original 18 +0.011) |
+
+Pooling over seeds reliably improves fixed CINDER. Pooled, fixed CINDER and per-language EMBER remain tied.
+
 ## Assessment (final, after the held-out confirmation)
 
 **Established** (38 concepts, pre-registered tests on 20 unseen concepts):
@@ -195,6 +249,8 @@ See `results/ml/data/qa_new/MANIFEST.md` and `results/ml/data/SAMPLE.md`.
   A3z beats A2 by +0.21 (p ≈ 0.01). Confidence: high.
 - **A single multilingual fit with fixed CINDER matches per-language EMBER** (0.23 vs 0.25 strict, 0.28 vs 0.25
   ungated, 15–13, p = 0.78) at 1/8 of its selection cost. This is a tie, not a win. Confidence: moderate.
+  Pooling over 3 fit seeds keeps the tie (A3zU 0.31 vs A1U 0.30, p = 0.75). Pooling reliably helps CINDER
+  (+0.08, 19–4, p < 0.001) but not per-language EMBER (+0.05, 14–11, p = 0.58).
 - **Limits of embedding-only erasure:**
   - Hindi (and mostly Thai) cannot be erased, because almost no Hindi token is concept-only;
   - per-concept selection is unstable across fit seeds for every approach;
@@ -209,8 +265,8 @@ See `results/ml/data/qa_new/MANIFEST.md` and `results/ml/data/SAMPLE.md`.
 ## Suggested next steps (not run)
 
 1. A δ rule with a margin below the gate, especially for A3z. This needs no new fits, only re-scoring.
-2. Seed-robust selection: union or vote over 3 fit seeds. The selections exist (results/ml/seeds/); the union
-   reaches 29 concepts for CINDER vs 31 for A1. It still needs evaluation, about half a day of GPU time and no Gemini.
+2. Seed-robust selection: done (seed-union section above). Next variant: a vote rule (tokens edited by ≥ 2 of 3
+   seeds), which might keep A1U's coverage gains without its collateral damage.
 3. The A3z idea on the single-language CINDER ladder (Gemma).
 4. An fp16 confirmation on 2–3 RTX 2080s for 4–5 concepts.
 5. Noise and mean-token baselines, as in the EMBER paper.
