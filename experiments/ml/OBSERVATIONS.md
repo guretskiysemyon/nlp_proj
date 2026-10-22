@@ -172,9 +172,3 @@ PREREG amendment 1, RESULTS.md "Seed-union selection".
   observation 1: the concept-only limit is strong but not absolute.
 - **Infrastructure:** loading Llama over NFS on SLURM nodes took about 4 h per job under load. worker.sbatch now
   copies the snapshot to node-local /tmp once per node (about 30 min, flock), after which loads take seconds.
-
-## 14. Seed union helps CINDER reliably, EMBER less
-
-Pooling over 3 fit seeds (amendment 1): A3zU − A3z +0.08 strict, 19–4, p < 0.001; A1U − A1 +0.05, 14–11, n.s. (gain
-on the new concepts only). Pooled, the two tie (0.31 vs 0.30). Operational notes: SLURM nodes loading Llama by mmap
-over NFS took ~1 h per shard under load; copying the snapshot to node-local /tmp first (worker.sbatch) fixed it.

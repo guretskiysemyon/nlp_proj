@@ -218,26 +218,6 @@ Full tables are in `results/ml/UNION_RESULTS.md` (`python -m experiments.ml.anal
 4. **Hindi can be reached in some cases.** Tuberculosis A1U erases Hindi (H = 0.77), via features found only with
    fit seeds 1 and 2. The "concept-only token" limit is strong but not absolute.
 
-## Seed-union selection (PREREG_NEW.md amendment 1, 2026-10-22)
-
-A1U and A3zU pool each approach's selections over fit seeds 42, 1 and 2. A token edited by any seed is edited, with
-the mean of the seeds' edit vectors. Evaluation and scoring are unchanged. Full tables are in
-`results/ml/UNION_RESULTS.md` (`python -m experiments.ml.analyze_union`).
-
-| All 38 concepts | A1 | A3z | A1U | A3zU |
-|---|---|---|---|---|
-| Concepts with an edit | 26 | 21 | **31** | 29 |
-| Mean strict / ungated | 0.248 / 0.252 | 0.231 / 0.282 | 0.302 / 0.320 | **0.313 / 0.349** |
-
-| Test (strict; ungated in brackets) | Difference [95% CI] | Wins–losses | Wilcoxon p | Verdict |
-|---|---|---|---|---|
-| H4: A3zU − A1U, all 38 | +0.011 [−0.114, +0.137] (+0.029) | 19–14 | 0.75 | Not supported (CI lower bound below −0.05): a tie |
-| H4: concepts both edit (26) | +0.082 [−0.063, +0.225] (+0.108) | 16–10 | 0.32 | Leans A3zU, not significant |
-| H5: A3zU − A3z | **+0.082 [+0.043, +0.128]** (+0.067) | 19–4 | **<0.001** | Confirmed (new 20 +0.068, original 18 +0.098) |
-| H5: A1U − A1 | +0.054 [−0.033, +0.151] (+0.068) | 14–11 | 0.58 | Not significant (new 20 +0.093, original 18 +0.011) |
-
-Pooling over seeds reliably improves fixed CINDER. Pooled, fixed CINDER and per-language EMBER remain tied.
-
 ## Assessment (final, after the held-out confirmation)
 
 **Established** (38 concepts, pre-registered tests on 20 unseen concepts):
