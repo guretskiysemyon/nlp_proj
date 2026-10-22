@@ -104,6 +104,10 @@ Approach 2 replaces one factorization per language with a single cheap fit. Appr
   - The fix generalizes: over 38 concepts it adds +0.17 (16–5, Wilcoxon p = 0.007).
   - Where ML-EMBER and fixed ML-CINDER both edit, they score the same. CINDER's edge is coverage: ML-EMBER edits only 2 of the 20 new concepts, CINDER 10. This holds across 3 fit seeds (9–12 vs 17–21 of 38 concepts).
   - Counting coverage, fixed ML-CINDER beats ML-EMBER (p ≈ 0.01) and ties per-language EMBER (0.23 vs 0.25 strict, 0.28 vs 0.25 ungated) at 1/8 of its selection cost.
+- **Pooling selections over 3 fit seeds** (pre-registered; both methods pooled):
+  - Pooling reliably helps fixed ML-CINDER: +0.08, 19–4, p < 0.001, with 29 vs 21 concepts edited.
+  - It does not reliably help per-language EMBER (+0.05, 14–11, n.s.). It gains concepts but loses where single-seed EMBER was already good, probably because the 8-language × 3-seed token union adds collateral damage.
+  - Pooled, the two methods still tie (0.31 vs 0.30).
 
 ---
 
