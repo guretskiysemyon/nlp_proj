@@ -26,7 +26,11 @@ Let $M = \frac1m\sum_j \tilde{\mathbf u}_j\tilde{\mathbf u}_j^{\top} = P\,\mathr
 
 \begin{proposition}
 \label{prop:cs}
-(i) The eigenvalues of $M$ are the generalized eigenvalues of the pair $(\Sigma_C + \bm\delta\bm\delta^{\top},\, \Sigma_B + \varepsilon I)$, i.e.\ the stationary values of the ratio $R$ of Eq.~\ref{eq:rayleigh}, attained at $\mathbf v_j = W\mathbf p_j$.
+(i) The eigenvalues of $M$ are the generalized eigenvalues of the pair $(\Sigma_C + \bm\delta\bm\delta^{\top},\, \Sigma_B + \varepsilon I)$, i.e.\ the stationary values of
+\begin{equation*}
+  R(\mathbf{v}) = \frac{\mathbf v^{\top}\big(\Sigma_C + \bm\delta\bm\delta^{\top}\big)\mathbf v}{\mathbf v^{\top}(\Sigma_B + \varepsilon I)\,\mathbf v}, \qquad \bm\delta = \mu_C - \mu_B ,
+\end{equation*}
+where $\mu_C$ and $\Sigma_C$ are the mean and covariance of the page's embeddings, attained at $\mathbf v_j = W\mathbf p_j$.
 (ii) For any set of tokens with whitened second moment $G$, the second moment of the sharpened tokens along $\mathbf p_j$ is $g_j^{\gamma}\,\mathbf p_j^{\top}G\,\mathbf p_j$.
 In particular, background tokens, for which $G = I$ up to $\varepsilon$, carry the same energy along every direction after whitening and $g_j^{\gamma}$ after sharpening, and the target's own energy along $\mathbf p_j$ becomes $g_j^{\gamma}\lambda_j \approx (1-\eta)^{\gamma}\lambda_j^{1+\gamma}$ for $\lambda_j \gg \eta$.
 \end{proposition}
@@ -83,6 +87,7 @@ Strict purity of the best concept feature (raw \expnum{.568}): page \expnum{$+.0
 Separability of strict and neutral tokens (AUC, raw \expnum{.576}): page \expnum{$+.055$} (17 of 18 concepts), related \expnum{$+.041$} (17 of 18), disjoint \expnum{$+.037$} (15 of 18); on tokens absent from the target, related still gives \expnum{$+.034$} ($p = \expnum{.0003}$).
 With the wrong page the concept feature is found in \expnum{2 of 54} runs (raw \expnum{39}).
 The coverage measure used to choose $\eta$ rises only with the page target (\expnum{$+.033$}) and falls with the disjoint and related ones, so it was the circular quantity.
+No target but the wrong one changes the $\rho$-rank of the concept feature significantly (mean \expnum{4.9} raw, \expnum{3.9} page), although sharpening lifts concepts that the raw fit buries (Ancient Rome \expnum{22 $\to$ 2}, Harry Potter \expnum{14 $\to$ 1}, Halloween \expnum{15 $\to$ 1.3}).
 The target also steers which side of the concept is amplified: for Harry Potter, the page keeps the proper-name feature, while the disjoint and related targets yield a ``magic'' feature, both ranked first.
 Under global sparsity the purity gain disappears for every target, page included, while the separability gains remain.
 
@@ -108,3 +113,4 @@ No $\eta \in [0.05, 0.5]$ or $\gamma \in \{0.5, 1\}$ changes this, since the ech
 Sharpen only the resolvable directions, $S = I + \sum_{j:\lambda_j > \hat\lambda_{\text{edge}}} \big((1-\eta)\lambda_j + \eta - 1\big)\,\mathbf p_j\mathbf p_j^{\top}$, with $\hat\lambda_{\text{edge}}$ the largest eigenvalue of the random-type moment (the Marchenko--Pastur edge $(1+\sqrt{d/m})^2$ is a close closed form).
 On Llama this gives a concept-feature rank of about \expnum{5} against \expnum{10} for \ember{} ($p = \expnum{0.015}$) with \ember{}'s coherence, though no better than whitening alone; on Gemma it keeps 47--98 directions and changes nothing.
 Pooling the concept's text over eight languages raises the number of resolvable directions to about \expnum{85}, which, with the same rule, also works (rank \expnum{4.5}).
+The multilingual fits of \S\ref{sec:ml} were run before this analysis and use the full $S_\eta$ on the pooled target, without the rule; in this judge-free test, the pooled target without truncation still lets \expnum{82\%} of features pass $\rho \ge 2$ (concept rank \expnum{15.5}).

@@ -3,29 +3,27 @@
 \label{sec:intro}
 %=====================================================================
 
-As language models (LMs) are deployed in more applications, the ability to erase specific knowledge from them becomes important for safety and compliance \citep{eldan2023harry,li2024wmdp}.
-A prominent approach is \emph{persistent} concept erasure, which removes knowledge of a target concept by modifying the model's weights \citep{gurarieh2025precise,ashuach2026crisp}.
-Recently, \citet{suslik2026ember} showed that such methods overlook a part of the model that stores knowledge: the token embeddings.
-Their method, \ember{}, decomposes the embeddings of concept-related tokens into sparse features, selects the features of the target concept with an LLM judge, and subtracts them from a small set of tokens.\footnote{Our code is available at \url{https://github.com/guretskiysemyon/nlp_proj}.}
-Combined with MLP-based methods, it substantially improves robustness to relearning.
+As language models (LMs) are deployed more widely, erasing specific knowledge from them becomes important for safety and compliance \citep{eldan2023harry,li2024wmdp}.
+\emph{Persistent} concept erasure does so by modifying the model's weights \citep{gurarieh2025precise,ashuach2026crisp}, and \citet{suslik2026ember} showed that such methods overlook a part of the model that stores knowledge: the token embeddings.
+Their method, \ember{}, decomposes the embeddings of concept-related tokens into sparse features, selects the concept's features with an LLM judge, and subtracts them from a small set of tokens; combined with MLP-based methods, it substantially improves robustness to relearning.\footnote{Our code is available at \url{https://github.com/guretskiysemyon/nlp_proj}.}
 
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[
   box/.style={draw, rounded corners=2pt, align=center, font=\scriptsize, text width=2.85cm,
-              minimum height=0.86cm, inner sep=2pt},
+              minimum height=0.74cm, inner sep=1.5pt},
   eb/.style={box, draw=embergrey, fill=embergrey!7},
   cb/.style={box, draw=cinderorange, fill=cinderorange!7, line width=0.6pt},
   sl/.style={font=\scriptsize\bfseries, align=right, text width=1.15cm, anchor=east},
   hd/.style={font=\footnotesize\bfseries},
   arr/.style={-{Stealth[length=3pt]}, semithick, draw=black!45}]
   \node[eb] (e1) at (0,0) {Sparse MF of raw embeddings;\\ 1\% of tokens per feature};
-  \node[eb, below=0.22cm of e1] (e2) {$\rho > \tau$; LLM judge reads\\ a one-line summary};
-  \node[eb, below=0.22cm of e2] (e3) {$\e_t - \delta\,\cvec_t$, with $\delta$\\ up to 200};
-  \node[eb, below=0.22cm of e3] (e4) {efficacy, MMLU,\\ Alpaca coherence};
-  \node[eb, below=0.22cm of e4] (e5) {English only; one fit\\ per language otherwise};
+  \node[eb, below=0.15cm of e1] (e2) {$\rho > \tau$; LLM judge reads\\ a one-line summary};
+  \node[eb, below=0.15cm of e2] (e3) {$\e_t - \delta\,\cvec_t$, with $\delta$\\ up to 200};
+  \node[eb, below=0.15cm of e3] (e4) {efficacy, MMLU,\\ Alpaca coherence};
+  \node[eb, below=0.15cm of e4] (e5) {English only; one fit\\ per language otherwise};
   \node[cb, right=0.25cm of e1] (c1) {\textbf{sharpen} toward the concept;\\ \textbf{one global} sparsity budget};
-  \node[cb, right=0.25cm of e2] (c2) {judge \textbf{or} lexicon match\\ (one LLM call per concept)};
+  \node[cb, right=0.25cm of e2] (c2) {judge \textbf{or} lexicon match\\ (lexicon: one LLM call per concept)};
   \node[cb, right=0.25cm of e3] (c3) {same tokens; concept part\\ \textbf{relative to ordinary text}};
   \node[cb, right=0.25cm of e4] (c4) {+ \textbf{collateral}, edit size,\\ \textbf{word integrity}};
   \node[cb, right=0.25cm of e5] (c5) {\textbf{one fit for eight}\\ \textbf{languages}};
@@ -40,49 +38,26 @@ Combined with MLP-based methods, it substantially improves robustness to relearn
   \draw[arr, dashed] (e3) -- (e4);
   \draw[arr, dashed] (c3) -- (c4);
 \end{tikzpicture}
-\caption{\ember{} erases a concept by decomposing token embeddings into sparse features, identifying the concept's features, and subtracting them from concept tokens. \cinder{} keeps this framework and changes how the concept is found, verified and edited, so that quiet concepts become the strongest direction of the matrix. One \cinder{} fit serves eight languages, where \ember{} needs a fit per language. We also extend the evaluation so that destroying the edited words no longer counts as erasing the concept.}
+\caption{\ember{} decomposes token embeddings into sparse features, identifies the concept's features and subtracts them from concept tokens. \cinder{} keeps this framework and changes how the concept is found, verified and edited; one \cinder{} fit serves eight languages. Our evaluation no longer counts destroying the edited words as erasing the concept.}
 \label{fig:overview}
 \end{figure}
 
-However, an embedding edit can only remove what its features capture, and how reliably \ember{} finds a concept's features has not been studied.
-Its authors note that embeddings may not be an effective target for some concepts, that the tokens selected for editing may include semantically unrelated ones, and that the edit only applies to English tokens \citep[Limitations]{suslik2026ember}.
+However, an embedding edit can only remove what its features capture, and how reliably \ember{} finds them has not been studied \citep[Limitations]{suslik2026ember}.
+We hypothesize that the problem lies partly in the geometry \ember{} searches: concept tokens are rare, and rare tokens share a large component along the mean embedding of ordinary text, so \ember{} groups the concept with other rare tokens: its Harry Potter feature also collects Nestl\'e, Lego and Trump.
+Whitened, the concept forms a clean but \emph{quiet} cluster, of ordinary value to a factorization that minimizes reconstruction error (Figure~\ref{fig:mechanism}).
+A fixed feature width and a judge that reads only a one-sentence summary lose more, and when no feature is accepted, nothing is erased.
 
-In this work, we hypothesize that these limitations stem in part from the geometry in which \ember{} searches for features.
-A concept is carried by rare tokens, and in the raw embedding space rare tokens share a large common component, along the mean of all embeddings.
-\ember{}'s factorization therefore groups the concept with other rare tokens: the Harry Potter feature also collects Nestl\'e, Lego and Trump.
-Once this shared component is removed, the concept's tokens form a clean cluster, but a \emph{quiet} one, of ordinary value to a factorization that minimizes reconstruction error, so it is often not found at all (Figure~\ref{fig:mechanism}).
-Two more design choices compound the problem.
-Every feature keeps the same 1\% of the tokens regardless of how broad its concept is, and the judge accepts a feature based on a one-sentence summary that often abstracts the concept away.
-When no feature is accepted, nothing is erased.
+We introduce \cinder{} (Contrastive INformed Directional Embedding Removal; Figure~\ref{fig:overview}), which keeps \ember{}'s localize-then-edit framework and changes how the concept is found.
+It whitens the embeddings against ordinary text, removing the shared component, and sharpens them toward the concept's page, making the clean cluster loud; it lets each feature take as many tokens as the data supports; and it verifies features both bottom-up, with \ember{}'s judge, and top-down, against a lexicon generated once per concept.
+Its edit removes only what distinguishes the concept from ordinary text, while the variant \cinderz{}, like \ember{}, also removes part of what all tokens share.
 
-To tackle this gap, we introduce \cinder{} (Contrastive INformed Directional Embedding Removal; Figure~\ref{fig:overview}), which keeps \ember{}'s localize-then-edit framework and changes how the concept is found.
-\cinder{} whitens the embeddings against ordinary text, which removes the shared component, and sharpens them toward the concept's page, which makes the now clean concept cluster loud.
-It shares one sparsity budget across all features, so that each feature takes as many tokens as the data supports, and it verifies features both bottom-up, with \ember{}'s judge, and top-down, against a concept lexicon generated once per concept.
-Because the sharpened space is centred on ordinary text, \cinder{}'s edit removes only what distinguishes the concept; an uncentred variant, \cinderz{}, also removes part of the component that all tokens share, as \ember{}'s edit does.
+Sharpening also makes multilingual erasure practical, which \ember{} leaves to future work.
+\ember{} edits English token rows, so the concept survives in other languages; running it per language multiplies its cost by the number of languages, and a single \ember{} fit on multilingual text accepts a concept feature for only \expnum{10 of 38} concepts, mostly because its judge rejects the concept features the fit finds.
+\cinder{} whitens against a background balanced across languages, sharpens toward the concept's pages in all of them and adds its lexicon judge, and on Llama-3.1-8B-Instruct \citep{grattafiori2024llama3} a single \cinderz{} fit over eight languages comes within \expnum{0.02} of eight separate \ember{} runs, with an eighth of the judge calls: to our knowledge, the first multilingual erasure at the embedding level.
 
-Sharpening also makes multilingual erasure practical, which \ember{} leaves to future work \citep[Limitations]{suslik2026ember}.
-Because \ember{} edits the rows of English tokens, a concept it erases in English largely survives in other languages: on Gemma, edited models retain \expnum{0.19--0.24} more of the concept's knowledge in German, Spanish, French and Russian than in English.
-Running \ember{} separately in every language multiplies its factorizations and judge calls by the number of languages, and fitting it once on multilingual text mostly fails: it accepts a concept feature for only \expnum{10 of 38} concepts.
-In a multilingual matrix the concept is quieter still, since language identity carries far more energy than the concept does, and \ember{}'s judge rejects most of the concept features that the fit does contain.
-\cinder{} whitens against a background with equal text in every language, which weakens the language directions, sharpens toward the concept's pages in all languages, and verifies features with its lexicon as well.
-A single \cinder{} fit over eight languages, with the uncentred edit of \cinderz{}, then erases as well as eight separate \ember{} runs, with one factorization and one judging pass instead of eight, and an eighth of the judge calls; to our knowledge, this is the first multilingual erasure at the embedding level.
+Evaluating \cinder{} on Gemma-2-2B-it \citep{gemma2024gemma2} exposed a blind spot in the standard protocol: \ember{}'s tuning score prefers edits up to a hundred times longer than the embeddings they change, which destroy the edited words, and since the concept questions contain these words, a destroyed word counts as erased knowledge.
+We add \emph{collateral} questions that use the edited words in other meanings (e.g., Prince Harry when erasing Harry Potter), a common scale of edit size, and tests of whether the edited words survive.
+Once collateral damage is charged for, every method moves to edits about as long as the token, and embedding erasure turns out to block access to a concept through its words rather than remove it from the weights.
+In this regime, \cinder{} erases concepts that \ember{} misses (\expnum{14} vs.\ \expnum{3} runs in which only one method edits) and, at a moderate equal edit size, removes more (\expnum{$+0.15$} on the combined score, \expnum{10 of 11} held-out concepts); at each method's own operating point, the two tie.
 
-We assess \cinder{} through experiments on Gemma-2-2B-it \citep{gemma2024gemma2} and, across eight languages, Llama-3.1-8B-Instruct \citep{grattafiori2024llama3}.
-Notably, evaluating it exposed a blind spot in the standard protocol.
-\ember{}'s tuning score prefers edits up to a hundred times longer than the embeddings they change, which destroy the edited words rather than remove the concept from them.
-Because the concept questions contain the edited words, a destroyed word counts as erased knowledge, while MMLU and Alpaca coherence rarely encounter it.
-We therefore extend the evaluation with \emph{collateral} questions that use the edited words in their other meanings (e.g., Prince Harry when erasing Harry Potter), one scale of edit size shared by all methods, and tests of whether the edited words survive.
-
-Our results show that once collateral damage is charged for, every method moves from token-destroying edits to edits about as long as the token, and that embedding erasure blocks access to a concept through its words rather than removing it from the weights.
-Within this regime, \cinder{} erases concepts that \ember{} misses (\expnum{14} vs.\ \expnum{3} runs in which only one of the methods edits), and at a moderate, equal edit size its direction removes more (\expnum{$+0.15$} on the combined score, \expnum{10 of 11} held-out concepts); this advantage vanishes at larger edits, and at each method's own operating point the two tie.
-Across eight languages, a single \cinderz{} fit matches running \ember{} separately in each language (\expnum{0.23} vs.\ \expnum{0.25}) with an eighth of the judge calls, and finds concept features for twice as many concepts as a single multilingual \ember{} fit (\expnum{21} vs.\ \expnum{10} of 38).
-
-Finally, we analyze why the sharpened matrix finds the concept.
-Across 38 concepts, sharpening turns the concept from a feature that is valuable but mixed with unrelated rare tokens into one that is both pure and valuable, and finds it in more runs; global sparsity then sets its width close to where the concept's tokens actually end.
-The gain is not an artefact of sharpening toward the very text being scored: sharpening toward other pages about the concept keeps it, while another concept's page destroys the feature.
-We also find that the model's first layer reads the mean of all embeddings strongly, and that this shared direction, not the concept, explains why \ember{}'s edits are read more strongly than \cinder{}'s.
-Concepts that live between broader topics, such as Stoicism, remain out of reach for every method.
-
-To conclude, our work (1) diagnoses why embedding-level erasure misses quiet concepts, (2) introduces \cinder{}, which finds and erases them more reliably, (3) extends embedding-level erasure to many languages with a single fit, which needs an eighth of the judge calls and a fifth of the factorization work of erasing each language separately, and (4) shows that the standard evaluation of embedding erasure rewards destroying tokens, and proposes a collateral-aware alternative that needs no LLM judge inside the tuning loop.
-Overall, our findings suggest that where a concept is looked for matters as much as how it is removed, and that an embedding edit must be judged by what it does to the words it edits.
-
+To conclude, our work (1) diagnoses why embedding-level erasure misses quiet concepts; (2) introduces \cinder{}, which finds and erases them more reliably, with a lexicon judge that needs one LLM call per concept; (3) extends embedding-level erasure to eight languages with a single fit and an eighth of the judge calls; and (4) shows that the standard evaluation rewards destroying tokens, and proposes a collateral-aware alternative with no LLM judge in the tuning loop.

@@ -7,7 +7,7 @@ Single-language results use one small model (Gemma-2-2B-it) in English, and mult
 Whether the findings transfer to other models remains to be tested.
 
 \paragraph{Abstract concepts}
-Concepts defined by a register rather than by names, such as Stoicism or Gothic architecture, yield no concept-specific embedding feature under \ember{} or \cinder{} (\S\ref{sec:analysis}); embedding-level erasure, with either method, does not reach them.
+Concepts that lie between broader topics, such as Stoicism or Gothic architecture, yield no concept-specific embedding feature under \ember{} or \cinder{} (\S\ref{sec:analysis}); embedding-level erasure, with either method, does not reach them.
 
 \paragraph{Embedding edits in isolation}
 We evaluate embedding edits on their own, not ensembled with MLP-based methods as \ember{} recommends, and we do not test robustness to relearning, \ember{}'s main strength.
@@ -16,6 +16,10 @@ Whether relearning robustness also depends on the edit size ($r \approx 1$ vs.\ 
 \paragraph{Evaluation material}
 Efficacy and collateral are multiple-choice accuracies, and collateral is lenient, since the options and context can rescue a damaged word.
 Collateral questions, neutral prompts and free-text labels were written and checked by LLM agents, whose blind spots may be correlated, and no human spot check was done; non-English questions are machine-translated.
+
+\paragraph{Multilingual evaluation}
+The multilingual study follows \ember{}'s protocol (its $\delta$ grid and metrics, with perplexity in place of Alpaca) and has no collateral term, so, like the standard protocol, it cannot tell erasing a concept from destroying its words.
+On Gemma's three development concepts, the mean term that \cinderz{} and \ember{} add to their edits erases mostly by damaging the prompt (\S\ref{sec:token}), so part of A3z's gain over A3, and of every approach's score, may be such damage; the mean-only test was not repeated on Llama.
 
 \paragraph{Statistical power}
 With 11--12 held-out concepts as the unit of analysis, differences below about 0.08 are hard to resolve, and several supporting analyses were defined after the primary result was known; we label them post hoc.

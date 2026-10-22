@@ -62,7 +62,63 @@ EJ@5 & .74 & .64 & 64 & .99 & .43 & 81 \\
 The threshold $t = 5$ was chosen on this set.
 On the 15 concepts added after the prompt was fixed, EJ@5 does not generalize (precision \expnum{0.46}, recall \expnum{0.26}) and \twj{} falls to \expnum{0.53}/\expnum{0.56}, whereas TJ $\vee$ WJ+share keeps precision \expnum{0.71} and recall \expnum{0.89} (\expnum{49} of 75 runs hit, against \expnum{33} for TJ).
 In erasure the two judges perform the same.
-\expfill{Final judge comparison table on the held-out concepts, and a per-concept list of TJ's wrong rejections.}
+Table~\ref{tab:twj-heldout} gives the comparison on the held-out concepts (75 runs, \expnum{54} of them with a P candidate, \expnum{70} P-labelled candidates).
+
+% Source: results/varwidth/layers/layers.md ("L3 judges on the CS + GS-norm runs", scope "new (15 concepts)");
+% runs hit with P + B and the per-concept counts below: paper/drafts/tj_rejections_heldout.py (read-only recount of the
+% same caches and labels, experiments/varwidth/j3_data/).
+\begin{table}[ht]
+\centering
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{P only} & \multicolumn{3}{c}{P + B} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+Rule & Prec. & Rec. & Hit/54 & Prec. & Rec. & Hit/75 \\
+\midrule
+TJ & \expnum{.67} & \expnum{.53} & \expnum{33} & \expnum{.98} & \expnum{.21} & \expnum{34} \\
+WJ+share & \expnum{.79} & \expnum{.87} & \expnum{48} & \expnum{.99} & \expnum{.30} & \expnum{51} \\
+EJ@5 & \expnum{.46} & \expnum{.26} & \expnum{15} & \expnum{1.00} & \expnum{.15} & \expnum{28} \\
+\twj{} & \expnum{.53} & \expnum{.56} & \expnum{35} & \expnum{.99} & \expnum{.29} & \expnum{40} \\
+TJ $\vee$ WJ+share & \expnum{.71} & \expnum{.89} & \expnum{49} & \expnum{.98} & \expnum{.33} & \expnum{52} \\
+\bottomrule
+\end{tabular}
+\caption{Judges on the 15 held-out concepts (\cs{}+\gs{} fits, 5 seeds, top-20 candidates). Hit: runs with an accepted positive feature, of the runs that have one.}
+\label{tab:twj-heldout}
+\end{table}
+
+\paragraph{TJ's wrong rejections on the held-out concepts}
+TJ rejects \expnum{33} of the \expnum{70} P-labelled candidates, and TJ $\vee$ WJ+share recovers \expnum{25} of them.
+The rejections concentrate on five concepts (Table~\ref{tab:tj-rejections}), and the stage-1 descriptions show why: the description names the feature's spelling, script or the broader sense of its words rather than the concept, and stage~2 then rejects it.
+TJ rejects no P candidate of Doctor of Philosophy, Robot, Surfing or Tourism, and American Revolutionary War, Louvre and Prime number have none.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}P{1.3cm}ccP{3.7cm}@{}}
+\toprule
+Concept & Rej. & Runs & TJ's stage-1 description (stage-2 confidence) \\
+\midrule
+Karate & \expnum{7/7} & \expnum{0 $\to$ 5} & tokens starting with the letter `k' (\expnum{0.99--1.0}); letters `b' and `u' (\expnum{0.99--1.0}); features of \emph{kendo, kihon, shotokan, kyokushin, karateka} \\
+\addlinespace
+Flush toilet & \expnum{9/10} & \expnum{1 $\to$ 5} & sanitation, waste elimination and restrooms (\expnum{0.75--0.85}); sub-words starting with `fl' (\expnum{0.99--1.0}) for \emph{flush, flushing, flushometer} \\
+\addlinespace
+Existen\-tialism & \expnum{5/6} & \expnum{1 $\to$ 4} & being, existence and living (\expnum{0.85--0.95}) for \emph{existence, existentialism, existenzphilosophie} \\
+\addlinespace
+Sigmund Freud & \expnum{5/5} & \expnum{0 $\to$ 1} & analysis, examination and interpretation (\expnum{0.95}) for \emph{psychoanalysis, psychoanalyst, analytic} \\
+\addlinespace
+Judaism & \expnum{4/10} & \expnum{5 $\to$ 5} & Hebrew vowels, diacritics and letters (\expnum{0.85--0.95}) for Hebrew-script religious terms \\
+\addlinespace
+Cloud & \expnum{1/5} & \expnum{4 $\to$ 5} & atmospheric phenomena such as clouds, mist and smoke (\expnum{0.85}) \\
+Giraffe & \expnum{1/2} & \expnum{1 $\to$ 2} & African savanna wildlife, long-necked animals (\expnum{0.85}) \\
+The Matrix & \expnum{1/5} & \expnum{4 $\to$ 5} & ``the science fiction film franchise \emph{The Matrix} and its associated digital or numerical grids'' (\expnum{0.85}) \\
+\bottomrule
+\end{tabular}
+\caption{TJ's wrong rejections on the held-out concepts (our recount of the saved labels). Rej.: P-labelled candidates TJ rejects, of all P candidates; Runs: runs hit by TJ $\to$ by TJ $\vee$ WJ+share (of 5). Descriptions are paraphrased from the stored stage-1 answers, except the quoted one.}
+\label{tab:tj-rejections}
+\end{table}
 
 \paragraph{Cost}
 TJ makes two LLM calls per candidate feature (up to 20 per run).

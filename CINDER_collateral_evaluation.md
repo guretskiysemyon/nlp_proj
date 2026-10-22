@@ -972,6 +972,15 @@ So GS costs the bundle through its feature sets and failure runs, not through co
 > alike (1.31 vs 1.32) and have the same spectral profile, and EMBER re-solved on centred embeddings drops to 1.09.
 > Low-variance directions are read *more* strongly than average. Open: whether the mean term erases the concept or only
 > makes the word atypical (WP6 S1; consistent with CINDER-z's context damage).
+> **Answer (2026-10-23, paper analysis WP6b, `results/paper_analysis/mean_edit/REPORT.md`, pre-registered).** The mean
+> term is mostly generic damage. On the 8 development runs (validation), the concept-free edit β_t^z μ_B on CINDER's
+> tokens erases more than CINDER-z at every r ≥ 2 (0.60–0.76 vs 0.46–0.55) and +0.48 more than Noise at r ≥ 10 (7/7),
+> by breaking the prompt: an unrelated MMLU question after the word drops from 0.54 to 0.15–0.18, collateral to 0.07.
+> Efficacy above the deletion floor tracks context damage (Spearman 0.54); centred edits stay at the floor with the
+> context intact. Under the copy gate the mean edit erases 0.01 (CINDER 0.12); under the collateral rule it ties CINDER
+> and CINDER-z (test H3v 0.43 vs 0.42 / 0.41), so collateral does not catch prompt damage at r ≈ 0.5. EMBER replicates:
+> EMBER re-solved on centred embeddings loses the large-r gain and the damage, and erases more at r ≤ 0.5 (+0.06).
+> Backed only on 3 concepts; the multilingual A3z gain was not tested this way (open: rerun MEAN on Llama).
 
 **Origin.** The multilingual agents diagnosed ML-CINDER on Llama-3.1-8B (branch `orip-ml`, `results/ml/diagnose_a3/DIAGNOSIS.md`). Whitening against the background makes low-variance embedding directions as large as high-variance ones, so the CS features put their mass there. Mapped back to the embedding space, the edit direction is read by layer 0 at 1.1–1.7× a random direction, against 2.6–7.6× for ML-EMBER, and it is nearly orthogonal to the token. At large δ the row becomes a near-silent vector, and erasure stalls near 0.1 even at δ = 200. Re-solving the dictionary in the original space with Y fixed kept the direction close (cos 0.87–0.94 with the original edit) and returned the read strength to ML-EMBER's range. The user proposed testing the same fix on the single-language CINDER ladder (amendment 7).
 

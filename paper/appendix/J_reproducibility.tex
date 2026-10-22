@@ -4,7 +4,7 @@
 %=====================================================================
 
 \paragraph{Code and results}
-All code, pre-registrations and result files are in our repository.\note{Paths for the experiments pass; shorten for the final version.}
+All code, pre-registrations and result files are in our repository.
 \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=2pt]
 \item Single-language fits and features: \path{experiments/varwidth/} (fitting \path{core.py}, data \path{prep.py}, selection \path{select.py}); sharpening \path{experiments/whitening/sharpen.py}.
 \item Collateral-aware evaluation: \path{experiments/varwidth/erase_v2.py}, \path{collateral.py}, \path{integrity.py}, \path{last_mile.py}, \path{nonce_edit.py}, \path{confirm_stats.py}; pre-registration \path{results/varwidth/layers/PREREG.md}; results in \path{results/varwidth/layers/collateral/} (\path{confirm.md}, \path{last_mile.md}, \path{twobytwo.md}, \path{nonce_edit.md}).
@@ -15,4 +15,36 @@ All code, pre-registrations and result files are in our repository.\note{Paths f
 \end{itemize}
 
 \paragraph{Compute and cost}
-\expfill{GPU types and hours (NVIDIA TITAN Xp, RTX 2080 Ti and others on the university cluster); Gemini spend for feature judging, lexicons and question generation (about \expnum{16} NIS for the single-language ladder and about \expnum{17} NIS for the multilingual study).}
+All GPU work ran on the university's SLURM cluster, on NVIDIA TITAN Xp and GeForce RTX 2080 Ti nodes, one GPU per job for the jobs of Table~\ref{tab:cost} (one used two); factorizations of the single-language study ran on CPU nodes.
+Table~\ref{tab:cost} gives the GPU time allocated to each study and its Gemini spend (Gemini 3.5 Flash-Lite).
+In the multilingual study, evaluation dominates: \expnum{2.5--3.5} GPU-hours per concept and approach, \expnum{68}, \expnum{34}, \expnum{71} and \expnum{66} GPU-hours for A1, A2, A3 and A3z at fit seed 42, against under a minute per concept for the fits; its seed-42 fits and about \expnum{150} GPU-hours of evaluation (50 units) ran on workstation GPUs that the accounting does not record.
+The single-language feature-level ladder spent \expnum{7.5} NIS on feature judging (TJ, WJ, lexicons and a 10\% re-judge for noise) and \expnum{8.9} NIS on Alpaca coherence for its erasure anchor; the collateral-aware evaluation used Gemini only for Alpaca coherence (\expnum{7.1} NIS in development, \expnum{8.3} NIS for the seed-42 last-mile check and \expnum{5.7} NIS at the integrity-gated points), since its questions and all free-text labels were written by LLM agents (Claude) instead; the multilingual study spent \expnum{8.3} NIS on selection (judge and lexicon calls), \expnum{8.0} NIS on generating and verifying the questions of the 20 new concepts and \expnum{0.75} NIS on the stability study.
+The spend is logged with deliberately conservative prices (USD \expnum{0.30} or \expnum{0.25} per million input and \expnum{2.50} per million output tokens, \expnum{3.7} NIS per USD), so it is an upper bound.
+SLURM accounting also shows about \expnum{540} GPU-hours on 3--8 October, mostly on RTX 2080 Ti nodes (\expnum{446} for a second-pass $\delta$ search of the judge re-run), which belong to the preliminary \ember{}/SNMF study of App.~\ref{app:ember} but are partly recorded under job names that we cannot attribute to a single study; they are not in Table~\ref{tab:cost}.
+
+% GPU-hours: `sacct -u oripetel -X` (read-only), elapsed time x allocated GPUs, jobs grouped by name prefix
+% (ly_* ladder, cl_* collateral study except cl_pa_* / cl_vlm_* analyses, ml_* multilingual), as of 2026-10-23
+% (the mean-edit job cl_pa_mean was still running). Gemini: results/gemini_usage.jsonl summed by tag (ladder: judge_*,
+% cj_*, lo_words, pilot_TJ, erase*; collateral: collateral, collateral_alpaca, collateral_alpaca_e3; total 37.50 NIS);
+% nlp_proj_ml/results/ml/gemini_usage.jsonl (17.11 NIS; split from results/paper_analysis/ml_geometry/REPORT.md, Q3).
+% Prices: ember/gemini_budget.py (0.30 / 2.50 USD, 3.7 NIS/USD); ml_geometry/REPORT.md (0.25 / 2.50). The evaluator's
+% own log (gemini_usage_log.jsonl) records the same Alpaca calls at a lower price table (5.66 NIS instead of 29.99).
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Study & GPU-h & GPU & Gemini (NIS) \\
+\midrule
+Feature ladder & \expnum{20} & TITAN Xp & \expnum{16.4} \\
+Collateral evaluation & \expnum{346} & both & \expnum{21.1} \\
+Multilingual & \expnum{320}$^+$ & TITAN Xp & \expnum{17.1} \\
+Analyses (\S\ref{sec:analysis}) & \expnum{11}$^+$ & TITAN Xp & 0 \\
+\midrule
+Total & \expnum{696}$^+$ & & \expnum{54.6} \\
+\bottomrule
+\end{tabular}
+\caption{Compute and LLM cost per study (17--23 October 2026). GPU-h: allocated GPU time from the cluster's accounting (\expnum{182} TITAN Xp and \expnum{164} RTX 2080 Ti hours for the collateral study); $^+$: SLURM only, plus unrecorded workstation GPU time (about \expnum{150} GPU-hours for the multilingual evaluation; some analyses).}
+\label{tab:cost}
+\end{table}

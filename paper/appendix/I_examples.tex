@@ -34,5 +34,32 @@ After that, the raw feature drifts into unrelated names, places and taxonomic su
   \label{tab:hp-tokens}
 \end{table}
 
+\paragraph{Free text at the selected strength}
+Table~\ref{tab:examples} shows two prompts whose edited words are used outside the concept. A third, from the same run: asked ``In which year was Donald \textbf{Trump} first elected President [\dots]?'', the model answers ``[\dots] in 2016'' at $\delta = 1$ and only ``Donald Trump'' at $\delta = 200$.
+
 \paragraph{Judge rejections}
-\expfill{The descriptions and confidences of TJ's wrong rejections (Valentine's Day, Heroin, World War II; all at confidence 0.85), with the feature's top tokens.}
+\ember{}'s raw fits fail in the same way: its Heroin feature (seed 42) is described as ``substances, medications, and illicit drugs along with related concepts like pharmacology and addiction'' and its World War II feature (seed 43) as ``20th-century totalitarian political ideologies, regimes, and associated historical atrocities'', and both are ruled not to be the concept (confidence \expnum{0.85}); these are the descriptions quoted in \S\ref{sec:motivation}.
+Table~\ref{tab:tj-examples} shows three more concept features that \ember{}'s judge (TJ) rejected, from the sharpened fits with \ember{}'s 1\% row sparsity.
+In each case the top tokens are plainly the concept, the stage-1 description, written without seeing the concept, widens it to a broader category (even when, as for Valentine's Day, it names the concept), and stage~2 answers that the feature is \emph{not} the concept, with confidence \expnum{0.85}.
+Because the answer is ``not a member'', these rejections do not depend on the confidence threshold.
+
+% Source: results/varwidth/judge_rejected_examples.md (prompts rebuilt as experiments/varwidth/select.py sends them;
+% answers are the stored responses), runs results/varwidth/<Concept>/fixed_refit-False/seed<s>/judge.json.
+\begin{table}[ht]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}P{1.45cm}P{3.0cm}P{2.75cm}@{}}
+    \toprule
+    Concept & Top 20 tokens & Stage-1 description \\
+    \midrule
+    Heroin (seed 42, $\rho = \expnum{95}$) & drug(s), opium, opioid(s), narco, cocaine, heroin, opi, fentanyl, medications, morphine, pharmaceutical, pharmacology, pharmaco, addiction & ``pharmacological substances, specifically focusing on narcotics, opioids, and addictive drugs'' \\
+    \addlinespace
+    World War II (seed 42, $\rho = \expnum{31}$) & communist, Nazi(s), communism, fascist, Hitler, fascism, Soviet(s), socialist, Adolf, totalitarian, Mussolini, Germans, Holocaust & ``20th-century totalitarian regimes and their associated political ideologies and figures'' \\
+    \addlinespace
+    Valentine's Day (seed 43, $\rho = \expnum{21}$) & Valentine(s), Valentin, Christmas, Valent, Valent\'in, Halloween, Easter, holiday(s), Valentino, and the Chinese for ``lover'' & ``the concept of celebratory holidays and festive occasions, with a particular emphasis on Valentine's Day'' \\
+    \bottomrule
+  \end{tabular}
+  \caption{Concept features rejected by \ember{}'s judge (sharpened matrix, 1\% row sparsity). Tokens are listed in the judge's order with case and spacing variants merged; each description is quoted from the stored stage-1 answer, and stage~2 answered \texttt{is\_member = false}, confidence \expnum{0.85}, for all three.}
+  \label{tab:tj-examples}
+\end{table}

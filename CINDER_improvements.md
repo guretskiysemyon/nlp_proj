@@ -331,6 +331,15 @@ What the numbers show:
   > alike (1.31 vs 1.32) and have the same spectral profile, and EMBER re-solved on centred embeddings drops to 1.09.
   > Low-variance directions are read *more* strongly than average. Open: whether the mean term erases the concept or only
   > makes the word atypical (WP6 S1; consistent with CINDER-z's context damage).
+  > **Answer (2026-10-23, paper analysis WP6b, `results/paper_analysis/mean_edit/REPORT.md`, pre-registered).** The mean
+  > term is mostly generic damage. On the 8 development runs (validation), the concept-free edit β_t^z μ_B on CINDER's
+  > tokens erases more than CINDER-z at every r ≥ 2 (0.60–0.76 vs 0.46–0.55) and +0.48 more than Noise at r ≥ 10 (7/7),
+  > by breaking the prompt: an unrelated MMLU question after the word drops from 0.54 to 0.15–0.18, collateral to 0.07.
+  > Efficacy above the deletion floor tracks context damage (Spearman 0.54); centred edits stay at the floor with the
+  > context intact. Under the copy gate the mean edit erases 0.01 (CINDER 0.12); under the collateral rule it ties CINDER
+  > and CINDER-z (test H3v 0.43 vs 0.42 / 0.41), so collateral does not catch prompt damage at r ≈ 0.5. EMBER replicates:
+  > EMBER re-solved on centred embeddings loses the large-r gain and the damage, and erases more at r ≤ 0.5 (+0.06).
+  > Backed only on 3 concepts; the multilingual A3z gain was not tested this way (open: rerun MEAN on Llama).
 - **Why ML-CINDER needed the fix.** Llama's first layer reads ML-CINDER's mapped-back edits at 1.1–1.7× a random direction, against 2.6–7.6× for ML-EMBER, so erasure stalls near 0.1 even at δ = 200. A3z keeps CINDER's Y and selected features and re-solves Z on the raw embeddings: one k × k least-squares solve, no new fit and no new judge calls.
 - **Caveats.**
   - A3z was defined after ML-CINDER's results were seen.

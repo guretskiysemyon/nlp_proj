@@ -27,7 +27,7 @@ def rows(name):
 def main():
     plt.rcParams.update({"font.family": "serif", "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
                          "mathtext.fontset": "stix", "pdf.fonttype": 42})
-    fig, (a, b) = plt.subplots(1, 2, figsize=(6.8, 2.35), gridspec_kw={"width_ratios": [1, 1.15]})
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.8, 2.1), gridspec_kw={"width_ratios": [1, 1.15]})
 
     # (a) projection on mu_B vs frequency
     fr = rows("fig_frequency.csv")
@@ -37,7 +37,7 @@ def main():
     a.plot(x, q50, color=GREY, lw=1.6)
     a.axhline(0, color="#CCCCCC", lw=0.6)
     a.set_xlabel(r"token frequency in Wikipedia ($\log_{10}$ per million)", fontsize=7.5, color=INK)
-    a.set_ylabel(r"projection on the background mean $\hat\mu_B$", fontsize=7.5, color=INK)
+    a.set_ylabel(r"projection on $\hat\mu_B$", fontsize=7.5, color=INK)
     a.set_title("(a) Rare tokens share one direction", fontsize=8.5, color=INK, loc="left", pad=3)
     a.annotate("rare", xy=(-0.5, 41), xytext=(0.4, 48), fontsize=7, color=MUTED,
                arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.5))
@@ -62,7 +62,7 @@ def main():
     b.set_xlim(-0.03, 1.03)
     b.set_ylim(20, 112)
     b.set_xlabel("purity: concept-only share of the feature's tokens", fontsize=7.5, color=INK)
-    b.set_ylabel("value: percentile among features", fontsize=7.5, color=INK)
+    b.set_ylabel("value (percentile)", fontsize=7.5, color=INK)
     b.set_title("(b) The concept feature: raw, whitened, sharpened", fontsize=8.5, color=INK, loc="left", pad=3)
     b.legend(fontsize=6.5, frameon=False, loc="lower left", handletextpad=0.2, borderaxespad=0.2)
 
@@ -72,7 +72,7 @@ def main():
             ax.spines[s].set_visible(False)
         for s in ("left", "bottom"):
             ax.spines[s].set_color("#BBBBBB")
-    fig.subplots_adjust(left=0.075, right=0.99, bottom=0.18, top=0.9, wspace=0.28)
+    fig.subplots_adjust(left=0.075, right=0.99, bottom=0.2, top=0.89, wspace=0.28)
     out = ROOT / "paper/figures/mechanism.pdf"
     fig.savefig(out)
     fig.savefig(out.with_suffix(".png"), dpi=200)
