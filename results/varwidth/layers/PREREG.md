@@ -571,3 +571,7 @@ No Gemini.
 [+0.029, +0.174], 10/1, p 0.014, Holm 0.055. Δ_tok: efficacy +0.016 (p 0.16), H3v +0.024 (p 0.10), Holm 0.20.
 Direction collateral cost −0.019 (p 0.054). Predictions: Δ_dir > 0 supported nominally, not after Holm, smaller than
 predicted; Δ_tok ≈ 0 supported; direction collateral cost supported. r = 1 (secondary) follows.
+
+**Results of amendment 14, secondary r = 1 (2026-10-22).** Δ_dir: efficacy −0.016 [−0.072, +0.027], 6/5, p 0.97;
+H3v −0.007 (p 1.00). Δ_tok: efficacy +0.010 (p 0.56), H3v +0.012 (p 0.97). All cells at efficacy 0.27–0.29. The
+development direction effect at r = 1 (+0.09, F6) does not replicate; the direction effect is confined to r = 0.5.
