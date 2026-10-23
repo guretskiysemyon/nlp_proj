@@ -11,6 +11,7 @@ Collateral accuracy is normalized against the unedited model per token, like \em
 
 \subsection{Scores, Gates and Selection Rules}
 $\Hthree$ is the harmonic mean of efficacy, specificity and collateral; $H_4$ adds Alpaca coherence.
+As all questions are fixed in advance, scoring a grid point needs only forward passes, whereas \ember{}'s coherence term calls an LLM judge on 150 Alpaca outputs per point.
 A point is admissible only if MMLU stays at or above 0.9 and validation collateral at or above 0.8 of the unedited model.
 Each rule selects one grid point per run on validation and scores it once on test:
 

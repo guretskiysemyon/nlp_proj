@@ -15,11 +15,11 @@ We developed the evaluation on Harry Potter, Ancient Rome and Valentine's Day an
 
 \paragraph{Evaluation Metrics}
 We keep \ember{}'s metrics except relearning (\S\ref{sec:prelim}) and add two that target the edited tokens; the multilingual study keeps \ember{}'s alone, with perplexity on native text in place of Alpaca.
-\emph{Collateral} is accuracy on multiple-choice questions that use an edited token outside the concept, such as \emph{Harry} in Prince Harry or \emph{Caesar} in Caesar salad (\expnum{3{,}501} items on \expnum{1{,}026} tokens), written by LLM agents blind to the methods and frozen before any edited model was scored.
+\emph{Collateral} is accuracy on multiple-choice questions that use an edited token outside the concept, such as \emph{Harry} in Prince Harry or \emph{Caesar} in Caesar salad (\expnum{3{,}501} items, written by LLM agents and frozen before scoring).
 \emph{Word integrity} tests whether the model can still copy, define and read past an edited word, and keep its answers on neutral prompts that use it, against two references: the word deleted, and a \emph{nonce}, a pronounceable non-word that the model can repeat but does not understand, which is how an erased word should behave.
 Operating points are selected by $\Hthree = \hmean(\text{efficacy}, \text{specificity}, \text{collateral})$ among points that keep MMLU and collateral above 0.9 and 0.8 of the unedited model.
 Since equal $\delta$ does not mean equal edits across methods, all methods sweep one grid of \emph{edit sizes} $r = \operatorname{median}_t \|\e_t' - \e_t\| / \|\e_t\| \in \{0.05, \dots, 100\}$, where $r = 1$ means that each edit is as long as the token.
-As all questions are fixed in advance, scoring a grid point needs only forward passes, whereas \ember{}'s coherence term calls an LLM judge on 150 Alpaca outputs per point (\S\ref{app:eval}).
+Scoring a grid point needs only forward passes, with no LLM judge (\S\ref{app:eval}).
 
 \paragraph{Methods and Statistics}
 We compare \ember{}, \cinder{} (\cs{} + \gs{} + \twj{}), \cinderz{} and, to isolate Global Sparsity (\gs{}), \cinder{}-RS and \cinder{}-RS-z with row sparsity; in the multilingual study, A1 runs \ember{} per language, A2 is one multilingual \ember{} fit, A3 is multilingual \cinder{}, and A3z its \cinderz{} edit.
@@ -76,7 +76,6 @@ With a stricter collateral gate (0.9), all four \cinder{} variants beat \ember{}
 
 \paragraph{One \cinder{} fit replaces eight \ember{} fits}
 Counting concepts without an edit as failures, the single \cinderz{} fit (A3z) ties per-language \ember{} (A1; exploratory, non-inferiority not shown): \expnum{0.23} vs.\ \expnum{0.25} strict and \expnum{0.28} vs.\ \expnum{0.25} ungated, \expnum{15--13} in wins and losses ($p = \expnum{0.78}$; Table~\ref{tab:ml}).
-Pooling three fit seeds helps \cinderz{} (\expnum{$+0.08$}, $p < 0.001$) but not per-language \ember{}, and the two still tie.
 
 \begin{table}[t]
   \centering
@@ -100,7 +99,7 @@ Pooling three fit seeds helps \cinderz{} (\expnum{$+0.08$}, $p < 0.001$) but not
 
 \paragraph{A multilingual \ember{} fit rarely accepts the concept}
 Where the multilingual \ember{} fit (A2) selects a concept feature, it erases as well as \cinderz{}, but it does so for only \expnum{10} of 38 concepts and \expnum{2} of the 20 held-out ones, against \expnum{21} and \expnum{10} for \cinder{}; counting coverage, \cinderz{} beats it by \expnum{$+0.21$} (\expnum{15--4}, $p = \expnum{0.011}$).
-The loss is at the judge more than in the fit: the raw fit contains a lexicon-matching concept feature about as often as \cinder{}'s (\expnum{25--27} vs.\ \expnum{23--28} concepts per seed), but \ember{}'s judge accepts only \expnum{5\%} of those with 3--4 lexicon words, against \expnum{30\%} for \cinder{}'s; re-judged, \twj{} alone lifts the raw fit from \expnum{10} to \expnum{18} concepts, and sharpening alone to \expnum{16} (seed 42, post hoc; \S\ref{app:ml}).
+The loss is mostly at the judge: the raw fit contains a lexicon-matching concept feature about as often as \cinder{}'s, but \ember{}'s judge accepts few of them; re-judged with \twj{}, the raw fit reaches \expnum{18} concepts instead of \expnum{10}, and sharpening alone \expnum{16} (seed 42, post hoc; \S\ref{app:ml}).
 
 \paragraph{The mean term matters across languages}
 Multilingual \cinder{} (A3), whose edit is centred, erases weakly; its uncentred edit (A3z, defined after the development results) adds \expnum{$+0.17$} (\expnum{16 of the 21} edited concepts, $p = \expnum{0.007}$), in the same direction on the 20 pre-registered held-out concepts (\expnum{$+0.19$}, \expnum{7--3}, $p = \expnum{0.064}$).

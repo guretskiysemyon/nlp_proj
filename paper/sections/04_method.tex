@@ -23,7 +23,6 @@ We \emph{whiten} the embeddings against ordinary text, with the mean $\mu_B$ and
 with $\eta = 0.05$ and $\gamma = 1$; Sparse MF then factorizes $X = T(A - \mu_B\mathbf 1^{\top}) \approx \tilde Z Y$ with $T = S_\eta^{\gamma/2} W$.
 After whitening, the page's second moment along a direction measures how much more the concept uses it than ordinary text does, and sharpening multiplies the energy along each such direction by this ratio raised to $\gamma$, as in Fisher's discriminant and contrastive PCA \citep{fisher1936use,abid2018exploring} (Proposition~\ref{prop:cs}, \S\ref{app:cs}).
 Whitening removes the component that rare tokens share, so the concept's tokens separate from other rare tokens, but makes every direction equally strong; sharpening then makes the clean cluster worth a feature (\S\ref{sec:analysis}).
-On Llama, a single page yields few directions above sampling noise; pooling the pages of eight languages yields many more (\S\ref{app:cs-llama}).
 Since $T$ is invertible, the factorization maps back exactly: $\cvec_t = T^{-1}\tilde\cvec_t$.
 
 \paragraph{Global Sparsity}
@@ -55,7 +54,7 @@ a $k \times k$ solve with no new fit or judge call that adds exactly a mean term
 \label{sec:ml}
 
 \cinder{} erases a concept in eight languages with one fit.
-Because the concept competes with language identity, which multilingual models encode in a few dominant directions \citep{chang2022geometry,libovicky2020language}, \cinder{} whitens against a background with equal text in every language and sharpens toward the concept's pages in all of them.
+Because the concept competes with language identity, which multilingual models encode in a few dominant directions \citep{chang2022geometry,libovicky2020language}, \cinder{} whitens against a background with equal text in every language and sharpens toward the concept's pages in all of them (\S\ref{app:cs-llama}).
 It factorizes only a sample, 30 concept and 30 neutral sentences per language, to obtain the dictionary $Z$, and with $Z$ fixed solves the coefficients $Y$ of every token in the full sentence sets (up to 300 concept and 300 neutral per language).
 \twj{} then selects features once for all languages, and with $Y$ fixed, $Z$ is re-solved on the unsharpened embeddings to give the \cinderz{} edit (Eq.~\ref{eq:cinderz}).
 Against eight per-language \ember{} runs, this takes a fifth of the factorization work, as it factorizes a fifth of the rows, and an eighth of the judge calls, but a third of the LLM cost, as the eight-language lexicon is a long call; fit time stays about the same, because the sharpening transform itself takes time, and evaluation, most of the compute, is the same for all approaches (\S\ref{app:ml}).
