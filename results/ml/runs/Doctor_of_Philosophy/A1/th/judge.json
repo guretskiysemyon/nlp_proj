@@ -1,0 +1,292 @@
+{
+ "186": {
+  "tokens": [
+   " ว",
+   "ว",
+   "้ว",
+   "กว",
+   "อว",
+   "่ว",
+   "าว",
+   "ีว",
+   "์ว",
+   "นว",
+   "็นว",
+   "้าว",
+   "ยว",
+   "ันว",
+   "คว",
+   "่าว",
+   "ในว",
+   "รว",
+   "างว",
+   "มากกว"
+  ],
+  "description": "These tokens represent Thai script characters and common consonantal clusters containing the Thai letter vaw (ว).",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "147": {
+  "tokens": [
+   " Fil",
+   "Fil",
+   " fil",
+   "fil",
+   "Flo",
+   "Pol",
+   " Te",
+   "พล",
+   "fer",
+   " full",
+   "เล",
+   "f",
+   " ti",
+   "fect",
+   " ล",
+   "เพล",
+   "ล",
+   "สล",
+   "เสน",
+   "F"
+  ],
+  "description": "This feature vector activates strongly on words and subwords starting with the letters \"F\" or \"P\" (or their non-Latin equivalents).",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "11": {
+  "tokens": [
+   " EU",
+   " UK",
+   " Australian",
+   " US",
+   " African",
+   " Cape",
+   " OECD",
+   " South",
+   " UN",
+   " Poland",
+   "Chicago",
+   " World",
+   " Republic",
+   " Sue",
+   " U",
+   " University",
+   "ประเทศ",
+   " State",
+   " Town",
+   " Women"
+  ],
+  "description": "This feature activates for proper nouns and adjectives representing geographic regions, nations, and geopolitical entities.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "86": {
+  "tokens": [
+   " medic",
+   " SSA",
+   " stud",
+   " med",
+   "Nature",
+   "Daniel",
+   " Nature",
+   "CED",
+   "าด",
+   "ุด",
+   "SU",
+   "่ม",
+   " philosoph",
+   " Sem",
+   "Ed",
+   " doctor",
+   "ันน",
+   "ีก",
+   "แพ",
+   "ED"
+  ],
+  "description": "This feature vector is related to academic disciplines, education, and medical professions.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "161": {
+  "tokens": [
+   " UNESCO",
+   " Ivy",
+   "Res",
+   "alto",
+   " LS",
+   "เหต",
+   "บาท",
+   "ระด",
+   " Iron",
+   "JD",
+   "eman",
+   "ิการ",
+   "็นส",
+   "ว",
+   "สด",
+   "ยว",
+   "ซ",
+   "าล",
+   " GM",
+   "ลด"
+  ],
+  "description": "This feature vector is a noise filter capturing random subwords and high-frequency characters across multiple unrelated languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "20": {
+  "tokens": [
+   "Nature",
+   " Nature",
+   " natural",
+   " nat",
+   "Direct",
+   "waters",
+   " SPORT",
+   " Immigration",
+   " direct",
+   "roph",
+   "ียน",
+   " Science",
+   " Record",
+   "fect",
+   "ชาต",
+   " Real",
+   " rer",
+   "Spirit",
+   "ure",
+   " State"
+  ],
+  "description": "This feature activates strongly for terms related to the natural world, physical elements, and foundational concepts of reality and administration.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "71": {
+  "tokens": [
+   " Dublin",
+   "Min",
+   "DMA",
+   "Flo",
+   "lin",
+   "min",
+   "ุก",
+   "amin",
+   "Nature",
+   " Nature",
+   "เค",
+   " Concert",
+   "ระบ",
+   "airs",
+   "otions",
+   "ขนาด",
+   "ีเม",
+   "ivity",
+   " Science",
+   "in"
+  ],
+  "description": "This feature vector activates on mixed subword tokens and foreign characters spanning multiple unrelated domains.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "194": {
+  "tokens": [
+   " dissertation",
+   " doctoral",
+   " thesis",
+   " PhD",
+   " diplom",
+   " Graduate",
+   "graduate",
+   " 千",
+   "doctor",
+   "ิทย",
+   " student",
+   " University",
+   "ิดต",
+   "ภาค",
+   "โก",
+   "เฟ",
+   "Res",
+   "ธรรม",
+   "ิทยาศาสตร",
+   "태"
+  ],
+  "description": "This feature vector represents advanced academic degrees and higher education students.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "197": {
+  "tokens": [
+   ".Sc",
+   "Sc",
+   " Sc",
+   "Eng",
+   " Sch",
+   "ISC",
+   " Science",
+   " Sciences",
+   "เคร",
+   " St",
+   "ั",
+   "Ed",
+   " Ex",
+   "พน",
+   ".d",
+   " WC",
+   "แพร",
+   "็",
+   ".D",
+   " ศ"
+  ],
+  "description": "This vector activates on common abbreviations, prefixes, and academic or institutional terms, particularly relating to education and science.",
+  "verdict": [
+   false,
+   0.9
+  ]
+ },
+ "7": {
+  "tokens": [
+   "Dr",
+   " Dr",
+   " dr",
+   "Prof",
+   " Cir",
+   " St",
+   "ดร",
+   " ดร",
+   " наук",
+   "GC",
+   " Col",
+   " co",
+   " Grad",
+   "ปฏ",
+   "าจารย",
+   "อาร",
+   "โน",
+   " r",
+   "่อง",
+   "r"
+  ],
+  "description": "This feature vector represents academic, professional, and geographic titles and honorifics across multiple languages.",
+  "verdict": [
+   false,
+   0.9
+  ]
+ }
+}

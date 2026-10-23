@@ -1,0 +1,292 @@
+{
+ "173": {
+  "tokens": [
+   "\").",
+   "\"),",
+   ".).",
+   "\".",
+   "\")",
+   "\";",
+   "».",
+   ".),",
+   ")\"",
+   ".\"",
+   "?)",
+   ".)",
+   ").",
+   "\",",
+   ")..",
+   ");",
+   "'.",
+   "»,",
+   " ».",
+   "),"
+  ],
+  "description": "This feature vector activates on closing quotation marks or parentheses immediately followed by punctuation marks.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "101": {
+  "tokens": [
+   " Torah",
+   " Sinai",
+   " Rabbi",
+   " Israel",
+   " Jacob",
+   " Ezra",
+   " Moses",
+   " Isaac",
+   " Abraham",
+   " Saul",
+   " Jewish",
+   "rael",
+   "acob",
+   "usalem",
+   " Gaza",
+   " Joshua",
+   " Yah",
+   " Islam",
+   " Muhammad",
+   " divine"
+  ],
+  "description": "This vector is related to figures, locations, and concepts from Abrahamic religions, particularly Judaism and Islam.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "111": {
+  "tokens": [
+   " tutti",
+   " tutto",
+   " degli",
+   " senza",
+   " agli",
+   " delle",
+   " anche",
+   " tutte",
+   " dopo",
+   " così",
+   " sotto",
+   " gli",
+   " sono",
+   " nelle",
+   " dei",
+   " questo",
+   " alcuni",
+   " più",
+   " può",
+   " essere"
+  ],
+  "description": "Common Italian grammatical words, prepositions, articles, and pronouns.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "46": {
+  "tokens": [
+   " M",
+   " C",
+   " K",
+   " T",
+   " H",
+   " P",
+   " S",
+   " G",
+   " B",
+   " N",
+   " L",
+   " D",
+   " F",
+   " R",
+   " V",
+   " E",
+   " k",
+   " Z",
+   " Y",
+   " J"
+  ],
+  "description": "This vector represents single uppercase and lowercase consonant letters of the alphabet.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "107": {
+  "tokens": [
+   " diffuse",
+   " difficile",
+   " impart",
+   " PlayStation",
+   " diff",
+   " emanc",
+   " dispersion",
+   " sparse",
+   " spar",
+   " fiss",
+   " dif",
+   " compet",
+   " anarch",
+   " capit",
+   " guid",
+   " stav",
+   " diverse",
+   " perd",
+   " archit",
+   " propri"
+  ],
+  "description": "This feature vector activates on tokens containing or related to the Latin root \"div\"/\"dif\" meaning apart or separate, as well as various sub-word fragments starting with \"di-\" or \"ar-\".",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "128": {
+  "tokens": [
+   " Riv",
+   "iv",
+   " riv",
+   "ativ",
+   "ivi",
+   "riv",
+   "ivo",
+   "iva",
+   " relativ",
+   "tiv",
+   " viv",
+   "iven",
+   "ativa",
+   "ive",
+   "ativo",
+   "ivar",
+   "ivid",
+   " deriv",
+   "deriv",
+   "ives"
+  ],
+  "description": "This feature vector activates strongly on the letter sequence \"iv\" (or \"iv\"-related subwords and suffixes) across various linguistic contexts.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "41": {
+  "tokens": [
+   " Bib",
+   " bib",
+   " Rabbi",
+   " rab",
+   " Barbara",
+   "bi",
+   " Barbar",
+   "abb",
+   " abb",
+   "bbe",
+   "be",
+   "bb",
+   "ba",
+   "b",
+   " Cab",
+   " cab",
+   "bl",
+   " tamb",
+   "bia",
+   "bat"
+  ],
+  "description": "This feature vector represents subword tokens and fragments predominantly featuring the letter 'b' and the 'ab' phonetic sound.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "18": {
+  "tokens": [
+   " Ish",
+   " Ash",
+   "Sh",
+   " Yah",
+   " Sh",
+   " ash",
+   "akah",
+   "yah",
+   " sh",
+   "-Sh",
+   "sh",
+   " Gh",
+   " Ah",
+   "kah",
+   " Mish",
+   "nah",
+   "veh",
+   "arah",
+   "alah",
+   "ah"
+  ],
+  "description": "This feature vector activates on Hebrew-sounding phonetic suffixes and Hebrew-derived proper name components.",
+  "verdict": [
+   true,
+   0.85
+  ]
+ },
+ "24": {
+  "tokens": [
+   " tanto",
+   " poco",
+   " punto",
+   " motivo",
+   " modo",
+   " contrario",
+   " momento",
+   " caso",
+   " principio",
+   " medio",
+   " cerca",
+   " sino",
+   " meno",
+   " fondo",
+   " quanto",
+   " grado",
+   " largo",
+   " mano",
+   " resto",
+   " tant"
+  ],
+  "description": "This vector represents common Italian adverbial and prepositional nouns used in fixed locutions and phrases.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "33": {
+  "tokens": [
+   "Second",
+   " Second",
+   "second",
+   " second",
+   " secondo",
+   "conde",
+   "cond",
+   "nd",
+   " primo",
+   " prima",
+   " debut",
+   " Sidd",
+   "conc",
+   "present",
+   " categoria",
+   " final",
+   "Final",
+   " moment",
+   "arto",
+   "ultimo"
+  ],
+  "description": "This vector represents ordinal positioning and sequence-related terminology across multiple languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ }
+}

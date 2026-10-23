@@ -1,0 +1,292 @@
+{
+ "56": {
+  "tokens": [
+   "É",
+   "é",
+   " né",
+   "vé",
+   "né",
+   "té",
+   " Sé",
+   " té",
+   "mé",
+   " sé",
+   "ué",
+   " vé",
+   " mé",
+   "lé",
+   "cé",
+   " Pé",
+   "él",
+   "ché",
+   "és",
+   "ané"
+  ],
+  "description": "The feature vector activates strongly on lowercase and uppercase French words or syllables containing the letter 'é'.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "173": {
+  "tokens": [
+   " toujours",
+   " encore",
+   " donc",
+   " plutôt",
+   " bien",
+   " tout",
+   " rien",
+   " déjà",
+   " moins",
+   " alors",
+   " beaucoup",
+   " tous",
+   " pas",
+   " ainsi",
+   " mieux",
+   " aussi",
+   " surtout",
+   " jamais",
+   " même",
+   " trop"
+  ],
+  "description": "This vector represents common French adverbial modifiers of degree, time, and logical relation.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "97": {
+  "tokens": [
+   " Isaac",
+   "Jacob",
+   " Jacob",
+   " Abraham",
+   "aac",
+   "raham",
+   " Abram",
+   " Moses",
+   " Samuel",
+   " Adam",
+   " Nathan",
+   " Abe",
+   " Lazar",
+   " Ezra",
+   " Daniel",
+   "noch",
+   " Joseph",
+   " Benjamin",
+   " David",
+   " Simon"
+  ],
+  "description": "This vector activates in the context of traditional Hebrew and biblical male given names.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "98": {
+  "tokens": [
+   " doctrines",
+   " propositions",
+   " philosoph",
+   " doctrine",
+   " proposition",
+   " Philosoph",
+   " concepts",
+   " beige",
+   " concept",
+   " possibilit",
+   "osoph",
+   " miracles",
+   " ample",
+   " libert",
+   " sanct",
+   " princip",
+   " lieu",
+   " arb",
+   "ibilit",
+   " arist"
+  ],
+  "description": "This feature vector represents abstract philosophical, intellectual, and theological concepts and terms.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "71": {
+  "tokens": [
+   " opinions",
+   "inions",
+   "inion",
+   " opinion",
+   "isions",
+   "igion",
+   " religions",
+   " traditions",
+   " visions",
+   "isans",
+   "ision",
+   " religion",
+   "ions",
+   "isons",
+   " lieu",
+   "lion",
+   "ion",
+   "itions",
+   "ison",
+   " quelque"
+  ],
+  "description": "This vector represents word endings, suffixes, and morphological roots containing the \"ion\" sequence across multiple languages.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "124": {
+  "tokens": [
+   " occasion",
+   " occasions",
+   "occasion",
+   " occurrence",
+   " passages",
+   " occ",
+   " concern",
+   " Concern",
+   " passage",
+   " courage",
+   " regard",
+   " intellect",
+   " incident",
+   " menace",
+   " ambition",
+   " issue",
+   "occ",
+   " respect",
+   " sujet",
+   " importance"
+  ],
+  "description": "This feature vector represents abstract nouns and events relating to matters, topics, or occurrences.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "126": {
+  "tokens": [
+   " VIII",
+   " XII",
+   " XIII",
+   " VII",
+   " XIV",
+   " XVI",
+   " III",
+   " IX",
+   " XV",
+   " XI",
+   " II",
+   "III",
+   " IV",
+   "II",
+   " XX",
+   "IX",
+   " Jr",
+   " X",
+   " vi",
+   " Iv"
+  ],
+  "description": "This vector represents Roman numerals used for numbering, sequencing, or names.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "182": {
+  "tokens": [
+   "’app",
+   "’int",
+   "’acc",
+   "'app",
+   "’é",
+   "'acc",
+   "'int",
+   "’aut",
+   "’ex",
+   "’av",
+   "'aut",
+   "'é",
+   "'ex",
+   "'av",
+   "’ét",
+   "’elle",
+   "’",
+   "'icon",
+   " Isa",
+   " inté"
+  ],
+  "description": "These tokens represent French elided articles and prepositions attached to words via apostrophes.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "4": {
+  "tokens": [
+   " Zach",
+   "Sh",
+   " Nach",
+   " Bach",
+   " ach",
+   " sh",
+   " Sh",
+   " ache",
+   "ach",
+   " ash",
+   "ache",
+   " Rachel",
+   " Ash",
+   "acher",
+   "sh",
+   "noch",
+   "achat",
+   " Hoch",
+   "anche",
+   "achi"
+  ],
+  "description": "This vector activates strongly for words, name fragments, and morphemes containing the \"ach\" or \"sh\" phonetic sequences.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "183": {
+  "tokens": [
+   "Ha",
+   "hin",
+   "him",
+   "hil",
+   "han",
+   "HW",
+   "hab",
+   "hal",
+   "hn",
+   "hom",
+   "ha",
+   "hl",
+   "hor",
+   "hic",
+   " Ha",
+   "hy",
+   "hel",
+   "hu",
+   "hr",
+   "h"
+  ],
+  "description": "This feature activates on tokens and subwords starting with the letter 'h'.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}

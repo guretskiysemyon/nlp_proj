@@ -1,0 +1,292 @@
+{
+ "150": {
+  "tokens": [
+   "’acc",
+   "’av",
+   "'acc",
+   "’é",
+   "’app",
+   "'av",
+   "’aut",
+   "'é",
+   "'app",
+   "'aut",
+   "’am",
+   "’ex",
+   "’ét",
+   "’es",
+   "’elle",
+   "’util",
+   "'am",
+   "’il",
+   "'ex",
+   "’à"
+  ],
+  "description": "These tokens represent elided French articles and pronouns attached to subsequent words with an apostrophe.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "88": {
+  "tokens": [
+   " infections",
+   " infection",
+   "fection",
+   " infect",
+   " affection",
+   "ction",
+   " injection",
+   " injections",
+   " insect",
+   " contag",
+   " contamin",
+   "sect",
+   "tection",
+   "ect",
+   " intoxic",
+   "ctions",
+   " sect",
+   " parasites",
+   " mutants",
+   " vaccination"
+  ],
+  "description": "This feature vector represents biological contamination, pathogens, and infectious agents.",
+  "verdict": [
+   false,
+   0.85
+  ]
+ },
+ "162": {
+  "tokens": [
+   " km",
+   " mg",
+   "/kg",
+   " mm",
+   " cm",
+   " ml",
+   " %",
+   " °",
+   " million",
+   "%",
+   " litres",
+   " %.",
+   " doses",
+   " ≥",
+   " ≤",
+   " kil",
+   " dose",
+   " millions",
+   " (>",
+   " cent"
+  ],
+  "description": "This feature vector represents quantitative units of measurement and scale.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "69": {
+  "tokens": [
+   " enzymes",
+   " lymph",
+   " enzym",
+   " nerve",
+   " mutil",
+   " cyt",
+   "ocytes",
+   " cell",
+   " Cell",
+   "enzyme",
+   " cellul",
+   " germ",
+   " cortex",
+   " ATP",
+   " allerg",
+   " fib",
+   " cyst",
+   " Horm",
+   " antic",
+   " digestive"
+  ],
+  "description": "This feature vector represents biological cells and cellular processes.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "185": {
+  "tokens": [
+   " Occ",
+   " occ",
+   " occasion",
+   "occasion",
+   "'à",
+   " occup",
+   "’à",
+   " caus",
+   " cause",
+   " causes",
+   " fasc",
+   " poss",
+   " environ",
+   " capac",
+   " suff",
+   " Gall",
+   " nécess",
+   " Ob",
+   " Eug",
+   " ob"
+  ],
+  "description": "This vector represents word fragments and roots containing the letter sequence \"oc\" or similar phonetic and orthographic components common in French and English vocabulary.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "74": {
+  "tokens": [
+   " inoc",
+   " mutil",
+   " immun",
+   " anatom",
+   " invasive",
+   " pharmac",
+   " vacc",
+   " excav",
+   " radi",
+   " microbi",
+   " diagnostic",
+   " vaccination",
+   " carc",
+   " interrog",
+   " sympt",
+   " sect",
+   " mamm",
+   " toxic",
+   " implant",
+   " assim"
+  ],
+  "description": "This feature vector represents medical, biological, and clinical terminology, particularly relating to anatomy, treatment, and diagnostics.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "94": {
+  "tokens": [
+   " était",
+   " étaient",
+   " serait",
+   " sont",
+   " seront",
+   " avait",
+   " été",
+   " pourrait",
+   " sera",
+   " est",
+   " peuvent",
+   " soit",
+   " ont",
+   " être",
+   " doit",
+   " doivent",
+   " peut",
+   " fut",
+   " vient",
+   "ait"
+  ],
+  "description": "This feature vector represents French auxiliary and linking verbs across various tenses and moods.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "113": {
+  "tokens": [
+   " complications",
+   " complication",
+   " symptom",
+   " issue",
+   " troubles",
+   " issues",
+   " concern",
+   " Concern",
+   " sympt",
+   "ptom",
+   " causes",
+   " problème",
+   " probl",
+   " cause",
+   " distinctions",
+   " fuss",
+   " manifestations",
+   " conclusions",
+   " question",
+   " pain"
+  ],
+  "description": "This feature vector represents medical or general problems, complications, and symptoms.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "145": {
+  "tokens": [
+   " adolescents",
+   " adolescence",
+   " Smithsonian",
+   " Auckland",
+   " sexes",
+   " populations",
+   "adult",
+   " jeunes",
+   " assassin",
+   " patients",
+   " enfants",
+   " population",
+   " tuberculosis",
+   "村",
+   " reins",
+   " adultes",
+   " ench",
+   " donc",
+   "administr",
+   " viol"
+  ],
+  "description": "This feature vector activates strongly in response to demographic terms, particularly those relating to age groups, human populations, and social cohorts across multiple languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "179": {
+  "tokens": [
+   "ifique",
+   "ifie",
+   "ific",
+   "ifications",
+   "ifiant",
+   "ification",
+   "ifié",
+   "ifi",
+   "ifier",
+   "iqu",
+   "ique",
+   "iquer",
+   "iques",
+   "fic",
+   "iqué",
+   " modifier",
+   "modifier",
+   "lique",
+   "ication",
+   " signific"
+  ],
+  "description": "These tokens represent French morphological suffixes, roots, and inflections related to the verb-forming and noun-forming \"-ifier/-ication\" family.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}

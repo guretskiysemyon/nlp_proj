@@ -1,0 +1,292 @@
+{
+ "95": {
+  "tokens": [
+   "mathrm",
+   "frac",
+   "sqrt",
+   "cdot",
+   "equiv",
+   "left",
+   "math",
+   "dots",
+   "text",
+   "display",
+   "operator",
+   "prime",
+   "right",
+   "big",
+   "phi",
+   "dot",
+   "fty",
+   "begin",
+   "prod",
+   "mu"
+  ],
+  "description": "This feature vector activates on LaTeX mathematical symbols and formatting commands.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "68": {
+  "tokens": [
+   "{\\",
+   "^{",
+   "^{-",
+   "_{",
+   " {\\",
+   "!\\",
+   ",\\",
+   "+\\",
+   "\\",
+   " _{",
+   "{",
+   "^",
+   " \\",
+   "\\t",
+   " {-",
+   "=\\",
+   ".\\",
+   "}{",
+   "\\\\",
+   "}\\"
+  ],
+  "description": "These tokens represent common LaTeX formatting commands, mathematical symbols, and syntax delimiters used for typesetting equations.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "148": {
+  "tokens": [
+   " ≥",
+   " ≤",
+   " −",
+   " ′",
+   " ∈",
+   " ≠",
+   "^{-",
+   " ±",
+   "−",
+   " ×",
+   " ζ",
+   " π",
+   " φ",
+   " μ",
+   " _{",
+   "±",
+   "^{",
+   " {-",
+   ",-",
+   " →"
+  ],
+  "description": "This vector activates for mathematical and logical symbols, operators, and notation components.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "12": {
+  "tokens": [
+   "=p",
+   ",b",
+   "=x",
+   ",n",
+   "=(",
+   "=r",
+   "<n",
+   ",m",
+   "<b",
+   ")=",
+   ",q",
+   ",a",
+   "<a",
+   "+b",
+   "=\\",
+   "<p",
+   "+m",
+   "=",
+   "}=",
+   "!="
+  ],
+  "description": "This vector is related to programmatic syntax, such as assignment operators, comparison operators, and emoticons used in programming languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "140": {
+  "tokens": [
+   "Ġâ",
+   "â",
+   "Ġâī",
+   "ĠâĪ",
+   "ĠâĨ",
+   "≡",
+   "ĠâĢ",
+   "equiv",
+   " ≤",
+   " ≥",
+   "^{-",
+   " →",
+   " ∈",
+   " ≠",
+   " ×",
+   " §",
+   " ln",
+   "^{",
+   " >",
+   "_{"
+  ],
+  "description": "This vector activates on mathematical symbols and logical operators used in formal equations and notation.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "57": {
+  "tokens": [
+   " sollte",
+   " sollten",
+   " soll",
+   " müssen",
+   " können",
+   " muss",
+   " kann",
+   " wollen",
+   " konnte",
+   " könnte",
+   " schnell",
+   "kehr",
+   " Budapest",
+   " würde",
+   " statt",
+   " lassen",
+   " Paulo",
+   " einfach",
+   " linker",
+   " kan"
+  ],
+  "description": "These tokens represent German modal verbs and auxiliary verbs used to express necessity, possibility, or intention.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "52": {
+  "tokens": [
+   "}}}",
+   "}}",
+   " }}",
+   "}},",
+   ",.",
+   ")}",
+   " %.",
+   "})",
+   ",...",
+   "}-",
+   "}=",
+   "}\\",
+   "}",
+   "},",
+   "!",
+   " ).",
+   "}),",
+   ")!",
+   " …",
+   "!"
+  ],
+  "description": "This vector activates on various punctuation marks, closing brackets, and trailing syntax symbols commonly found at the ends of code blocks or sentences.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "7": {
+  "tokens": [
+   "}}}",
+   "}},",
+   "}}",
+   " }}",
+   "})",
+   ")}",
+   "}),",
+   "},",
+   "}).",
+   "}-",
+   "}:",
+   "}",
+   "}=",
+   "}\\",
+   " }",
+   "}.",
+   "}{",
+   ")=",
+   ")/",
+   "\")"
+  ],
+  "description": "This vector activates on closing curly brackets and parentheses, often accompanied by trailing punctuation marks or syntax symbols.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "58": {
+  "tokens": [
+   " kein",
+   " keine",
+   " nicht",
+   " keinen",
+   " nichts",
+   " Nicht",
+   " nur",
+   " schon",
+   " Not",
+   " noch",
+   " not",
+   "No",
+   " mehr",
+   " No",
+   "not",
+   " anders",
+   " nie",
+   " ni",
+   " bereits",
+   " gleich"
+  ],
+  "description": "This vector represents negation, limitation, and polarity markers across multiple languages.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "108": {
+  "tokens": [
+   " Algebra",
+   " Algorithm",
+   "Algorithm",
+   " algebra",
+   " Lemma",
+   " math",
+   "algorithm",
+   " Math",
+   " theoret",
+   " Calcul",
+   " analy",
+   "gorith",
+   "orem",
+   " geomet",
+   " Analy",
+   "oret",
+   " asympt",
+   "raph",
+   " Chem",
+   " numer"
+  ],
+  "description": "This feature activates on mathematical and computational terms, including branches of math, algorithms, and related theoretical concepts.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ }
+}

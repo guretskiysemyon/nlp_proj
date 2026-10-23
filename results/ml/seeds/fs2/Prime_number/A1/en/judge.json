@@ -1,0 +1,292 @@
+{
+ "105": {
+  "tokens": [
+   ")=",
+   "}=",
+   "=x",
+   "=(",
+   "=a",
+   "=r",
+   ")+",
+   "=\\",
+   "+i",
+   "=",
+   "!=",
+   "}-",
+   "+p",
+   "equiv",
+   "+\\",
+   " =",
+   ",-",
+   "+",
+   " {\\",
+   ",-"
+  ],
+  "description": "These tokens represent mathematical, logical, and programming assignment or equality operators.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "97": {
+  "tokens": [
+   "}}}",
+   ")}}",
+   " }}}",
+   "}}",
+   " }}",
+   "}},",
+   ")}",
+   "})",
+   "}/",
+   "}-",
+   "}",
+   "},",
+   " }",
+   "}\\",
+   "}(",
+   "}=",
+   "}{",
+   "}.",
+   ")^",
+   ")}\n\n"
+  ],
+  "description": "This feature vector activates on closing curly brace characters and related punctuation delimiters used in code syntax.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "82": {
+  "tokens": [
+   "frac",
+   "cdot",
+   "sqrt",
+   "equiv",
+   "left",
+   "subseteq",
+   "dots",
+   "math",
+   "display",
+   "operator",
+   "right",
+   "prime",
+   "fty",
+   "big",
+   "text",
+   "psilon",
+   "prod",
+   "begin",
+   "style",
+   "mu"
+  ],
+  "description": "This vector represents LaTeX mathematical symbols and formatting commands.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "164": {
+  "tokens": [
+   " weaker",
+   " stronger",
+   " slower",
+   " smaller",
+   " shorter",
+   " faster",
+   " larger",
+   " greater",
+   " higher",
+   " less",
+   " earlier",
+   " more",
+   " fastest",
+   " later",
+   " weak",
+   " smallest",
+   "More",
+   " powerful",
+   " slow",
+   " coaster"
+  ],
+  "description": "Comparative adjectives and degree modifiers indicating scale, magnitude, or intensity.",
+  "verdict": [
+   false,
+   0.99
+  ]
+ },
+ "150": {
+  "tokens": [
+   " exponent",
+   "ponents",
+   " integers",
+   " coefficients",
+   " coefficient",
+   " constants",
+   " integer",
+   " Numbers",
+   " numbers",
+   "egers",
+   " constant",
+   " modulus",
+   "ynomials",
+   "constant",
+   " fraction",
+   " number",
+   " primes",
+   " polynomial",
+   " divisor",
+   " lengths"
+  ],
+  "description": "This feature activates for mathematical terms related to numbers, quantities, and algebraic expressions.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "84": {
+  "tokens": [
+   " routines",
+   " formulas",
+   " equations",
+   "outines",
+   " formula",
+   " routine",
+   " equation",
+   " algorithm",
+   " muddy",
+   " algorithms",
+   " theorem",
+   " formulation",
+   " functions",
+   "-function",
+   " lemma",
+   "ynomials",
+   " function",
+   " formulated",
+   " notation",
+   "orem"
+  ],
+  "description": "This vector is related to mathematical and logical concepts, procedures, and expressions (e.g., formulas, equations, and algorithms).",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "56": {
+  "tokens": [
+   "!\\",
+   "/\\",
+   ",\\",
+   " {}\\",
+   " {\\",
+   "{\\",
+   ".\\",
+   "+\\",
+   ")\\",
+   "=\\",
+   " \\",
+   "\\",
+   "\\t",
+   "}\\",
+   "\\\\",
+   "\\n",
+   "Ġâ",
+   "Ġâģ",
+   "ĠâĪ",
+   "_{"
+  ],
+  "description": "This feature vector represents common LaTeX control sequences and syntax characters, particularly backslashes used for formatting and math commands.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "70": {
+  "tokens": [
+   " prove",
+   " proved",
+   " proves",
+   " proving",
+   " proven",
+   " proof",
+   " proofs",
+   " ensured",
+   " verified",
+   " demonstrated",
+   " guaranteed",
+   " verify",
+   " ensure",
+   " showed",
+   "ving",
+   " guarantee",
+   " solved",
+   " Pro",
+   " certainty",
+   " show"
+  ],
+  "description": "This vector activates for terms related to logical validation, proof, and empirical demonstration.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "52": {
+  "tokens": [
+   " Gaussian",
+   " convex",
+   " Gauss",
+   " divergence",
+   " asympt",
+   " quadratic",
+   " symmetric",
+   " diver",
+   " bounded",
+   " ellipt",
+   " linear",
+   " uniformly",
+   " finite",
+   " harmonic",
+   " logarith",
+   " Dir",
+   "Dir",
+   " pseud",
+   " generalized",
+   " compact"
+  ],
+  "description": "Mathematical properties and classes of functions or spaces.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "86": {
+  "tokens": [
+   " thereby",
+   " therefore",
+   " thus",
+   "Therefore",
+   "Moreover",
+   " indeed",
+   "However",
+   " namely",
+   "Similarly",
+   " respectively",
+   " however",
+   " aforementioned",
+   " However",
+   "Yet",
+   " instead",
+   " altogether",
+   " similarly",
+   " etc",
+   " simultaneously",
+   "Also"
+  ],
+  "description": "This vector activates for conjunctive and transitional adverbs that connect and structure logical relationships between clauses or sentences.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ }
+}
