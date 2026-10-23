@@ -7,17 +7,16 @@ Does an embedding edit remove the concept from a word, or the word from the mode
 Since the input embedding is where the model first reads a token, we expect an edit to control \emph{access} to the concept through the edited words, at a cost to the words.
 
 \paragraph{Embedding erasure blocks access}
-Since only input rows change, efficacy questions that contain none of the edited tokens are answered exactly as before (efficacy \expnum{0.000} in all \expnum{22} configurations checked, including $r = 100$): the knowledge remains in the weights, cut off from the edited words.
+Since only input rows change, efficacy questions that contain none of the edited tokens are answered exactly as before (efficacy \expnum{0.000} in all \expnum{22} configurations, including $r = 100$): the knowledge remains in the weights, cut off from the edited words.
 At the points our rule selects ($r \approx 1$), efficacy lies close to the floor reached by deleting those words from the questions, above it only for the -z variants.
 
 \paragraph{Removing more costs the words}
 At the selected points, about half of the edited words can no longer be read (\expnum{0.49--0.61}, seed 42), and most of the concept-exclusive ones (\expnum{0.65--0.81}), with no significant difference between methods; Table~\ref{tab:examples} shows destruction in free text.
-Requiring the words to stay copyable (post hoc) caps efficacy at \expnum{0.06--0.14}; under this constraint \cinder{} removes about twice as much as \ember{} (n.s.), whereas \cinderz{}'s advantage disappears.
+Requiring the words to stay copyable (post hoc) caps efficacy at \expnum{0.06--0.14} (Figure~\ref{fig:integrity}); under this constraint \cinder{} removes about twice as much as \ember{} (n.s.), whereas \cinderz{}'s advantage disappears.
 On the development concepts, its mean term alone erases more than \cinderz{} at $r \geq 2$ by breaking the prompt (an unrelated question after the word falls below chance), and almost nothing when the words must stay copyable (\S\ref{app:mean}).
 
 \paragraph{A nonce-like edit is only partly reachable}
 An erased word should behave like a nonce, copyable but meaningless; a learned edit that pushes each edited word toward its nonce's behaviour (post hoc) removes \expnum{2--3$\times$} as much as copy-gated \ember{} while keeping the words copyable, but reaches a substantial nonce floor in only \expnum{2} of 12 concepts (seed 42; \S\ref{app:nonce}).
-Figure~\ref{fig:integrity} (\S\ref{app:eval}) traces this trade-off along the edit-size grid.
 
 \begin{table}[t]
   \centering

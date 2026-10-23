@@ -70,6 +70,7 @@ See App.~\ref{app:gs-tail}.
 Each of the top 10 features by $\rho$ was shown, blind to condition, as its 20 strongest tokens with source words and labelled specific (P), broader (B) or unrelated (N) by two independent LLM annotators (agreement \expnum{0.94}, $\kappa = \expnum{0.88}$; parent topics fixed before any fit).
 At $|\Sc| = 300$, a P feature is among the top 3 in \expnum{7\%} of abstract and \expnum{50\%} of entity runs under \ember{} (Mann--Whitney $p = \expnum{0.043}$), and \cs{} changes top-10 presence by \expnum{$+0.04$} (n.s.); \cs{}+\gs{} gains \expnum{$+0.22$} from two concepts (Baroque, Utilitarianism).
 Stoicism illustrates the pattern: its top features are emotions, philosophy and religion, ethics and discourse words, and its most Stoic feature is a spelling feature that mixes \emph{Stoic} and \emph{stoa} with \emph{stock} and \emph{store}.
+That abstract concepts' top features are parent topics and discourse words may reflect a register they share; we did not test this.
 
 \paragraph{Contamination}
 For Harry Potter, Baseball and Ancient Rome, a fraction $f \in \{0.1, 0.25, 0.5\}$ of the 300 concept sentences is replaced by sentences from adjacent pages (Harry Potter: Magic, The Lord of the Rings, The Chronicles of Narnia, Fantasy literature; Baseball: Softball, Cricket; Ancient Rome: Ancient Greece, Byzantine Empire), or, as a control added afterwards, from unrelated pages. Sentences naming the concept are dropped, and the sharpening target stays the concept's own page.
