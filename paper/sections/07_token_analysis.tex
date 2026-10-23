@@ -8,10 +8,10 @@ Since the input embedding is where the model first reads a token, we expect an e
 
 \paragraph{Embedding erasure blocks access}
 Since only input rows change, efficacy questions that contain none of the edited tokens are answered exactly as before (efficacy \expnum{0.000} in all \expnum{22} configurations checked, including $r = 100$): the knowledge remains in the weights, cut off from the edited words.
-At our operating points, efficacy lies close to the floor reached by deleting those words from the questions, above it only for the -z variants.
+At the points our rule selects ($r \approx 1$), efficacy lies close to the floor reached by deleting those words from the questions, above it only for the -z variants.
 
 \paragraph{Removing more costs the words}
-At these points, about half of the edited words can no longer be read (\expnum{0.49--0.61}, seed 42), and most of the concept-exclusive ones (\expnum{0.65--0.81}), with no significant difference between methods; Table~\ref{tab:examples} shows destruction in free text.
+At the selected points, about half of the edited words can no longer be read (\expnum{0.49--0.61}, seed 42), and most of the concept-exclusive ones (\expnum{0.65--0.81}), with no significant difference between methods; Table~\ref{tab:examples} shows destruction in free text.
 Requiring the words to stay copyable (post hoc) caps efficacy at \expnum{0.06--0.14}; under this constraint \cinder{} removes about twice as much as \ember{} (n.s.), whereas \cinderz{}'s advantage disappears.
 On the development concepts, its mean term alone erases more than \cinderz{} at $r \geq 2$ by breaking the prompt (an unrelated question after the word falls below chance), and almost nothing when the words must stay copyable (\S\ref{app:mean}).
 

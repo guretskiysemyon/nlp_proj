@@ -21,6 +21,7 @@ If sparse MF gives $\mathbf x_t \approx \sum_i Y_{i,t}\tilde\z_i$, then $\e_t - 
 Every erasure run checks numerically that the transformed embedding rows equal the factorized matrix columns before editing.
 
 \subsection{Why sharpening finds the concept}
+\label{app:cs-why}
 
 Let $M = \frac1m\sum_j \tilde{\mathbf u}_j\tilde{\mathbf u}_j^{\top} = P\,\mathrm{diag}(\lambda_j)\,P^{\top}$ be the whitened second moment of the target, so that $S_\eta = P\,\mathrm{diag}(g_j)\,P^{\top}$ with $g_j = (1-\eta)\lambda_j + \eta$.
 

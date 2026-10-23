@@ -22,7 +22,7 @@ Since equal $\delta$ does not mean equal edits across methods, all methods sweep
 As all questions are fixed in advance, scoring a grid point needs only forward passes, whereas \ember{}'s coherence term calls an LLM judge on 150 Alpaca outputs per point (\S\ref{app:eval}).
 
 \paragraph{Methods and Statistics}
-We compare \ember{}, \cinder{} (\cs{} + \gs{} + \twj{}), \cinderz{} and, to isolate \gs{}, \cinder{}-RS and \cinder{}-RS-z with row sparsity; in the multilingual study, A1 runs \ember{} per language, A2 is one multilingual \ember{} fit, A3 is multilingual \cinder{}, and A3z its \cinderz{} edit.
+We compare \ember{}, \cinder{} (\cs{} + \gs{} + \twj{}), \cinderz{} and, to isolate Global Sparsity (\gs{}), \cinder{}-RS and \cinder{}-RS-z with row sparsity; in the multilingual study, A1 runs \ember{} per language, A2 is one multilingual \ember{} fit, A3 is multilingual \cinder{}, and A3z its \cinderz{} edit.
 Each method selects one operating point per run on validation questions (besides our rule, we report \ember{}'s $H$ without Alpaca and a fixed $r = 0.5$) and is scored once on test questions.
 Comparisons are paired by run, with the concept as the unit (Wilcoxon tests, Holm correction, bootstrap 95\% intervals); only the comparisons under our rule, $H$ and fixed $r$ and the multilingual hypotheses (\S\ref{app:ml}) were pre-registered, and other analyses are post hoc unless marked.
 

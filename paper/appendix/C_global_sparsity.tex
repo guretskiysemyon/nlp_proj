@@ -67,7 +67,8 @@ Seed Jaccard & .719 & .726 & .735 & .717 & .733 \\
 Only GS-norm adapts the width per concept while staying as clean and stable as \ember{}'s rule.
 This sweep used a 5\% cap; with the current 3\% cap, concept widths range over \expnum{21--114} tokens (concept means).
 
-\paragraph{Width, tails and breadth}
+\subsection{Widths and the Natural Tail}
+\label{app:gs-tail}
 We use the saved fits of 38 concepts $\times$ 5 seeds (\ember{}; \cs{} with row sparsity; \cs{}+\gs{}; raw \gs{}; \cs{} with 2\% row sparsity), 950 fits in all.
 \emph{Dense re-solve.} With the saved dictionary fixed, $Y' = (Z^{\top}Z+\lambda I)^{-1}Z^{\top}A$ equals $Y$ on the support in every fit (maximum error \expnum{$2.2\cdot10^{-6}$}), and every \gs{} support is exactly the set of tokens whose share exceeds a single threshold per fit.
 \emph{Natural tail.} Along the dense ranking of the concept feature (identified by lexicon hits), a token is \emph{page-enriched} if it occurs in $\Sc$ and is at least 20 times more frequent there than in Wikipedia; the natural tail $T$ is the first rank at which fewer than half of the next 20 tokens are page-enriched, fixed before any width statistic was computed.
