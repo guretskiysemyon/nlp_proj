@@ -11,8 +11,8 @@ SNMF, which edits MLP weights, erased all five languages about equally (\expnum{
 \paragraph{Languages, model and data}
 Llama-3.1-8B-Instruct in its eight supported languages: English, German, French, Italian, Portuguese, Hindi, Spanish and Thai.
 The transformer runs in 4-bit NF4 and the edited embeddings in fp16, identically for every approach.
-Concept sentences come from the concept's native Wikipedia page (via interlanguage links), up to 300 per language, topped up with NLLB translations of English sentences for short pages; neutral sentences come from native Wikipedia pages.
-Shared fits use 30 concept and 30 neutral sentences per language.
+Concept sentences come from the concept's native Wikipedia page (via interlanguage links), up to 300 per language, topped up with NLLB translations of English sentences for short pages; an equal number of neutral sentences comes from native Wikipedia pages.
+Shared fits factorize the tokens of 30 concept and 30 neutral sentences per language (about \expnum{6{,}500} tokens), the fewest that give a full-rank matrix; with the dictionary fixed, a ridge least-squares solve followed by the fit's own support rule gives the coefficients of every token in the full sets, and \cinderz{} then re-solves the dictionary on the raw embeddings with these coefficients fixed.
 The 20 held-out concepts are French Revolution, Tuberculosis, Cricket, Buddhism, Plutonium, Judaism, Karate, Existentialism, Prime number, The Matrix, Louvre, American Revolutionary War, Robot, Sigmund Freud, Giraffe, Surfing, Flush toilet, Cloud, Doctor of Philosophy and Tourism.
 \ember{}'s English questions are used as published; German, French and Spanish come from existing translations; Italian, Portuguese, Hindi and Thai are machine-translated (NLLB and MADLAD candidates ranked by LaBSE, with script and number checks).
 Questions for the new concepts were generated from the English page in \ember{}'s format, checked by a blind verifier and by automatic checks, and translated the same way.
@@ -186,6 +186,7 @@ With \ember{}'s judge, sharpening raises coverage from \expnum{10} to \expnum{16
 
 \paragraph{Selection cost}
 Per concept (fit seed 42), per-language \ember{} runs 8 factorizations over about \expnum{30{,}600} rows with \expnum{160} judge calls (\expnum{0.055} NIS); the single fits run one factorization over about \expnum{6{,}500} sampled rows plus a coefficient solve for the full set, with \expnum{20} judge calls (\ember{}: \expnum{0.007} NIS) or \expnum{20} calls and one lexicon call (\cinder{}: \expnum{0.017} NIS, \expnum{0.007} once the lexicon is cached across seeds).
+The lexicon call is long, 20 words in each of the eight languages, and costs about as much as \expnum{30} judge calls.
 Factorization work (rows $\times$ iterations) drops about fivefold, but \cinder{}'s wall-clock fit time (\expnum{40} s on a GPU) matches \ember{}'s eight fits (\expnum{44} s) because of the sharpening transform.
 Evaluation takes \expnum{2.5--3.5} GPU-hours per concept and approach, about 250 times the fit stage, and is the same for every approach.
 

@@ -1,7 +1,7 @@
 \begin{abstract}
 Embedding-level concept erasure removes a concept from a language model by editing its token embeddings, but it can only remove the concept features it finds.
 We show that \ember{} often misses them: concept tokens are rare, and rare tokens share a common direction that groups the concept with unrelated words.
-We introduce \cinder{}, which sharpens the embeddings toward the concept against ordinary text, lets each feature take as many tokens as the data supports, and verifies features against a lexicon generated once per concept.
+We introduce \cinder{} (Contrastive INformed Directional Embedding Removal), which sharpens the embeddings toward the concept against ordinary text, lets each feature take as many tokens as the data supports, and verifies features against a lexicon generated once per concept.
 The same sharpening extends embedding-level erasure, so far limited to English, to eight languages: a single fit with the uncentred \cinderz{} edit comes within 0.02 of per-language \ember{} at an eighth of the judge calls.
 We further show that the standard evaluation rewards edits that destroy the edited words, and propose a collateral-aware evaluation that charges for this damage.
 Under it, \cinder{} erases concepts that \ember{} misses and, at moderate edit size, removes more, and embedding erasure is revealed to block access to a concept through its words rather than remove it from the weights.

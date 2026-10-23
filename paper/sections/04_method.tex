@@ -3,7 +3,7 @@
 \label{sec:method}
 %=====================================================================
 
-\cinder{} keeps \ember{}'s data, Sparse MF, $\rho$ filter and edit form (Eq.~\ref{eq:edit}), and changes how features are decomposed (\S\ref{sec:cs}), identified (\S\ref{sec:twj}) and erased (\S\ref{sec:cinderz}); \S\ref{sec:ml} extends it to many languages with one fit.
+\cinder{} (Contrastive INformed Directional Embedding Removal) keeps \ember{}'s data, Sparse MF, $\rho$ filter and edit form (Eq.~\ref{eq:edit}), and changes how features are decomposed (\S\ref{sec:cs}), identified (\S\ref{sec:twj}) and erased (\S\ref{sec:cinderz}); \S\ref{sec:ml} extends it to many languages with one fit.
 
 \subsection{Finding Concept Features in a Sharpened Space}
 \label{sec:cs}
@@ -54,7 +54,8 @@ a $k \times k$ solve with no new fit or judge call that adds exactly a mean term
 \subsection{One Fit for Eight Languages}
 \label{sec:ml}
 
-\cinder{} erases a concept in eight languages with one fit on 30 concept and 30 neutral sentences per language, the fewest that yield a full-rank matrix.
-Here the concept also competes with language identity, which multilingual models encode in a few dominant directions \citep{chang2022geometry,libovicky2020language}, so \cinder{} whitens against a background with equal text in every language, which weakens the language directions about threefold relative to an English background, and sharpens toward the concept's pages pooled over all languages.
-With the dictionary fixed, it solves the coefficients of every token in the full multilingual sentence sets, selects features with \twj{}, whose lexicon covers all languages in one LLM call, and builds the edit as in \cinderz{}.
-The saving is in selection: per-language \ember{} runs eight factorizations and eight judging passes per concept (\expnum{160} judge calls), \cinder{} one of each (\expnum{20} calls), about a fifth of the factorization work and a third of the LLM cost; GPU fit time and evaluation, which dominates, cost about the same (\S\ref{app:ml}).
+\cinder{} erases a concept in eight languages with one fit.
+Because the concept competes with language identity, which multilingual models encode in a few dominant directions \citep{chang2022geometry,libovicky2020language}, \cinder{} whitens against a background with equal text in every language and sharpens toward the concept's pages in all of them.
+It factorizes only a sample, 30 concept and 30 neutral sentences per language, to obtain the dictionary $Z$, and with $Z$ fixed solves the coefficients $Y$ of every token in the full sentence sets (up to 300 concept and 300 neutral per language).
+\twj{} then selects features once for all languages, and with $Y$ fixed, $Z$ is re-solved on the unsharpened embeddings to give the \cinderz{} edit (Eq.~\ref{eq:cinderz}).
+Against eight per-language \ember{} runs, this takes a fifth of the factorization work, as it factorizes a fifth of the rows, and an eighth of the judge calls, but a third of the LLM cost, as the eight-language lexicon is a long call; fit time stays about the same, because the sharpening transform itself takes time, and evaluation, most of the compute, is the same for all approaches (\S\ref{app:ml}).

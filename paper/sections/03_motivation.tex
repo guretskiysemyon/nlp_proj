@@ -29,10 +29,11 @@ A rejected concept is not erased at all; on 12 held-out concepts, \ember{} edits
 
 \paragraph{The edit stays in English}
 On Gemma, \ember{}-edited models retain \expnum{0.19--0.24} more of the concept's knowledge in German, Spanish, French and Russian than in English (\S\ref{app:ml}).
-A single \ember{} fit on multilingual text accepts a concept feature for only \expnum{10 of 38} concepts on Llama-3.1-8B, mostly at the judge; the means of the eight languages carry \expnum{34} times the energy of the concept, which is itself about \expnum{3} times quieter than in English.
+On Llama-3.1-8B, a single \ember{} fit on text in all eight languages accepts a concept feature for only \expnum{10 of 38} concepts, mostly because its judge rejects the concept features the fit finds (\S\ref{sec:exp-ml}).
+In such a fit, the concept also competes with language: what separates the eight languages carries \expnum{34} times the energy of the concept (\S\ref{app:ml}).
 
 \paragraph{The evaluation rewards destroying tokens}
 $H$ selects the largest strength, $\delta = 200$, for \expnum{6 of the 10} concepts \ember{} edits in our reproduction.
 The edited embedding is then 40--120 times longer than the original and points along $-\cvec_t$: the word is replaced rather than cleaned.
-No metric registers this: the concept questions contain the edited words, so a destroyed word counts as erased knowledge, the similar-domain questions avoid them, the MMLU gate never binds in any of the \expnum{344} grid points we scored, and Alpaca coherence stays at or above \expnum{0.92}.
-Free text does: on Harry Potter at $\delta = 200$, \expnum{12 of 20} prompts, most using the edited words in other senses, break, against \expnum{0--1} at $\delta = 1$ (Table~\ref{tab:examples}): the regime of \emph{token destruction}.
+No metric registers this: the concept questions contain the edited words, so a destroyed word counts as erased knowledge, and the other checks rarely use them (\S\ref{app:ember}).
+Prompts that use these words in other senses do break, \expnum{12 of 20} on Harry Potter at $\delta = 200$ against \expnum{0--1} at $\delta = 1$ (Table~\ref{tab:examples}): we call this \emph{token destruction}.
