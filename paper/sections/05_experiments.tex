@@ -32,7 +32,7 @@ Comparisons are paired by run, with the concept as the unit (Wilcoxon tests, Hol
 \paragraph{The standard protocol rewards token destruction}
 Without a collateral term, selection settles on edits a hundred times the token's length for \ember{} and \cinderz{} (Table~\ref{tab:destruction}); with it, every method moves to $r \approx 1$.
 At the destructive points, \expnum{24--34\%} of neutral prompts break, and efficacy exceeds the level reached by deleting the edited words from the questions (\expnum{0.23--0.28}) in \expnum{83\%} and \expnum{98\%} of runs: the edits likely derail the prompt as well as delete the word.
-Alpaca coherence registers none of this, and under $H$ the ranking reappears through destruction, with \ember{} ahead of \cinder{} (n.s.).
+Alpaca coherence registers none of this, and selecting by $H$ even puts \ember{} ahead of \cinder{} (n.s.; Figure~\ref{fig:results}).
 
 \begin{table}[t]
   \centering
@@ -57,7 +57,7 @@ Alpaca coherence registers none of this, and under $H$ the ranking reappears thr
 
 \paragraph{At moderate edit size, \cinder{}'s direction removes more}
 At $r = 0.5$, every \cinder{} variant removes more than \ember{} at the same collateral (efficacy \expnum{0.25--0.30} vs.\ \expnum{0.20}); for \cinder{}, the gain is \expnum{$+0.15$} $\Hthree$ on \expnum{10 of 11} concepts (Holm $p = \expnum{0.012}$; Figure~\ref{fig:results}).
-Crossing the two token sets with the two directions (post hoc) attributes it to the direction (\expnum{$+0.07$} efficacy, \expnum{10 of 11} concepts, Holm $p = \expnum{0.10}$) rather than the token set (\expnum{$+0.02$}; \S\ref{app:dir}).
+Swapping token sets and directions between the methods (post hoc) attributes the gain to the direction rather than the token set (\S\ref{app:dir}).
 At $r = 1$ it vanishes (\expnum{$-0.02$}, $p = \expnum{0.97}$; post hoc): on the development concepts, centred directions plateau near the deletion floor by then, and \ember{} passes it only by damaging the prompt (\S\ref{app:mean}).
 
 \paragraph{At their own operating points, the methods tie}
