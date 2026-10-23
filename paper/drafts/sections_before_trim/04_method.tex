@@ -1,0 +1,107 @@
+%=====================================================================
+\section{\cinder{}}
+\label{sec:method}
+%=====================================================================
+
+To find quiet concepts and erase them, we propose \cinder{}.
+\cinder{} follows \ember{}'s localize-then-edit approach and changes each of its three stages: (1)~decomposing a contrastively sharpened embedding matrix under a global sparsity budget (\S\ref{sec:cs}), (2)~identifying concept-related features with a two-way judge (\S\ref{sec:twj}), and (3)~erasing them, with or without the component that all tokens share (\S\ref{sec:cinderz}).
+Finally, we extend the pipeline to many languages with a single fit (\S\ref{sec:ml}).
+\cinder{} keeps \ember{}'s data $\Sc$, $\Sn$ and $\vs$, its Sparse MF algorithm, its $\rho$ filter and the form of its edit (Eq.~\ref{eq:edit}).
+
+\subsection{Finding Concept Features in a Sharpened Space}
+\label{sec:cs}
+
+Sparse MF finds the directions that explain the most energy of the matrix it is given (\S\ref{sec:motivation}).
+Rather than changing the factorization, we change the matrix, so that the concept carries the energy.
+Whitening is a standard step before sparse coding \citep{hyvarinen2000ica}, and contrasting a target dataset with a background is a standard way to reveal what is specific to it \citep{abid2018exploring}; Contrastive Sharpening (\cs{}) combines the two.
+
+\paragraph{Contrastive Sharpening}
+We first \emph{whiten} the embeddings against ordinary text, so that directions which many tokens use no longer dominate.
+With the mean $\mu_B$ and covariance $\Sigma_B$ of the embeddings of the token types in a large Wikipedia sample, computed once per model, each embedding is mapped to
+\begin{equation}
+  \tilde{\mathbf{u}}_t = W(\e_t - \mu_B), \qquad W = (\Sigma_B + \varepsilon I)^{-1/2},
+  \label{eq:whiten}
+\end{equation}
+so that every background direction has unit variance.
+We then \emph{sharpen} the whitened embeddings toward the concept.
+Let $\tilde{\mathbf u}_1,\dots,\tilde{\mathbf u}_m$ be the whitened embeddings of the token types on the concept's Wikipedia page; then
+\begin{equation}
+  \mathbf{x}_t = S_\eta^{\gamma/2}\,\tilde{\mathbf u}_t, \qquad
+  S_\eta = (1-\eta)\,\tfrac{1}{m}\textstyle\sum_{j} \tilde{\mathbf u}_j \tilde{\mathbf u}_j^{\top} + \eta I ,
+  \label{eq:sharpen}
+\end{equation}
+with $\eta = 0.05$ and $\gamma = 1$.
+Sparse MF then factorizes $X = T(A - \mu_B\mathbf 1^{\top}) \approx \tilde Z Y$, where $T = S_\eta^{\gamma/2} W$.
+
+Intuitively, after whitening the page's second moment along a direction measures how much more the concept uses that direction than ordinary text does.
+In the original coordinates, this is the ratio
+\begin{equation}
+  R(\mathbf{v}) = \frac{\mathbf v^{\top}\big(\Sigma_C + \bm\delta\bm\delta^{\top}\big)\mathbf v}{\mathbf v^{\top}(\Sigma_B + \varepsilon I)\,\mathbf v}, \qquad \bm\delta = \mu_C - \mu_B ,
+  \label{eq:rayleigh}
+\end{equation}
+where $\mu_C$ and $\Sigma_C$ are the mean and covariance of the page's embeddings.
+Its stationary directions solve a generalized eigenproblem, as in Fisher's discriminant and contrastive PCA \citep{fisher1936use,abid2018exploring}, and sharpening multiplies the energy along each of them by its ratio raised to $\gamma$ (Proposition~\ref{prop:cs}, \S\ref{app:cs}).
+The two steps do different jobs (\S\ref{sec:analysis}).
+Whitening removes the component that rare tokens share, so the concept's tokens separate from other rare tokens into a pure cluster; but it also makes every direction equally strong, so the cluster becomes ordinary and is found less often than before.
+Sharpening then raises the cluster's value, so that the concept is both pure and worth a feature.
+When a page yields few directions that rise above sampling noise, as single English pages do on a model with a larger embedding dimension, we sharpen only those directions; this adds no hyperparameter (\S\ref{app:cs-llama}).
+
+Because $T$ is linear and invertible and the mean cancels in a difference, the factorization maps back exactly: each token's concept part in the original space is $\cvec_t = T^{-1}\tilde\cvec_t$.
+We revisit this mapping in \S\ref{sec:cinderz}.
+
+\paragraph{Global Sparsity}
+\ember{}'s row sparsity (RS) bounds every feature separately.
+Global Sparsity (\gs{}) instead bounds the whole matrix, with the same total budget:
+\begin{equation}
+  \text{RS: } \|\mathbf y_i\|_0 \le s\,n \;\; \forall i, \qquad \text{GS: } \|Y\|_0 \le s\,k\,n .
+  \label{eq:gs}
+\end{equation}
+In each alternating step, after the dense update of $Y$, \gs{} scores every entry by its share of its row, $|y_{ij}| / \|\mathbf y_i\|_2$, and keeps the $s\,k\,n$ highest-scoring entries of the matrix, with a floor of $0.2\%$ and a cap of $3\%$ of the tokens per feature.
+Keeping the global top entries is the exact projection onto the \gs{} constraint, as in iterative hard thresholding \citep{blumensath2009iht}, and mirrors across features what BatchTopK does across examples \citep{bussmann2024batchtopk}.
+The score is scale-free on purpose: with raw magnitudes, a few high-energy generic features take the whole budget.
+Since the support is chosen anew in every iteration, a feature's width shapes its direction and not only the set of edited tokens (\S\ref{app:gs}).
+
+\subsection{Identifying Concept Features from Both Directions}
+\label{sec:twj}
+
+\ember{}'s token judge (TJ) works bottom-up: it abstracts a feature into a sentence and compares the sentence with the concept.
+Its failures occur when the abstraction drops the concept (\S\ref{sec:motivation}).
+Inspired by query expansion in retrieval, which expands a query before matching it \citep{wang2023query2doc,gao2023hyde}, the Two-Way Judge (\twj{}) adds a top-down path.
+Once per concept, before any feature is judged, an LLM expands the concept into a lexicon $L_C$ of 20 words specific to it rather than to its broader category.
+Each feature's top tokens are mapped to the words they come from in $\Sc$ (e.g., \textit{ffindor} $\to$ \textit{Gryffindor}), giving a word list $W_i$, and the expansion judge accepts the feature if $|W_i \cap L_C| \ge t$ (EJ@$t$).
+\twj{} accepts a feature if either path does: $\text{TJ} \vee \text{EJ@}5$.
+The two paths fail in different ways, since a summary can lose the concept, whereas a lexicon can miss unlisted words or match a broader feature that shares them; their union raises recall, and $t$ controls precision.
+The lexicon path is deterministic and adds no LLM call per feature (\S\ref{app:twj}).
+
+\subsection{Erasing Concept Features, With and Without the Mean}
+\label{sec:cinderz}
+
+Because $T$ is invertible, the sharpened factorization maps back exactly, and for fixed coefficients the least-squares dictionary does not depend on the metric in which the error is measured (Proposition~\ref{prop:metric}, \S\ref{app:edit}).
+Whitening therefore does not distort the mapped-back edit.
+What differs from \ember{} is the centring.
+The sharpened fit works on embeddings centred at the background mean $\mu_B$, so \cinder{}'s concept part $\cvec_t$ describes how a token departs from ordinary text.
+\ember{} factorizes raw embeddings, so its features also absorb a share of $\mu_B$, the component that all tokens share, and its edit removes part of it as well (\expnum{44\%} of the edit's energy on Gemma).
+The model's first layer reads this shared direction strongly (\expnum{2.9$\times$} a random direction on Gemma, \expnum{20$\times$} on Llama), and it alone explains why \ember{}'s edit is read more strongly than \cinder{}'s (\S\ref{sec:analysis}).
+To compare the two on equal terms, \cinderz{} keeps every decision of the sharpened fit, namely the coefficients $Y$, the selected features $\Fc$ and hence the edited tokens, and re-solves only the dictionary on the raw, uncentred embeddings:
+\begin{equation}
+  Z_{z} = A\,Y^{\top}\big(Y Y^{\top} + \lambda I\big)^{-1}.
+  \label{eq:cinderz}
+\end{equation}
+This single $k \times k$ least-squares solve needs no new fit and no further judge calls, and it adds exactly a mean term, $\cvec^{z}_t = \cvec_t + \beta_t\,\mu_B$ for a scalar $\beta_t$ (Corollary~\ref{cor:mean}).
+We report both variants: \cinder{} removes only what distinguishes the concept from ordinary text, while \cinderz{}, like \ember{}, also removes part of what every token shares.
+Whether the shared part helps to erase the concept or only makes the word atypical is an empirical question, which \S\ref{sec:experiments} and \S\ref{sec:token} address.
+
+\subsection{One Fit for Eight Languages}
+\label{sec:ml}
+
+Erasing a concept in every language a model serves requires editing the tokens of every language (\S\ref{sec:motivation}).
+\cinder{} does so with a single fit.
+It samples 30 concept and 30 neutral sentences in each of eight languages, the fewest that yield a full-rank matrix, and builds one matrix from all of them.
+In such a matrix the concept competes not only with generic topics but also with language and script identity, which a multilingual model encodes in a few dominant directions \citep{chang2022geometry,libovicky2020language}.
+\cinder{} therefore whitens against a background with equal amounts of text in every language, which weakens the language directions about threefold, and sharpens toward the concept's pages pooled over all languages, which gives $S_\eta$ many more directions that rise above sampling noise than a single page does (\S\ref{app:cs-llama}).
+After the fit, it keeps the dictionary fixed and solves the coefficients of every token in the full multilingual sentence sets, so that tokens outside the sample can be edited as well.
+Features are selected with \twj{}, whose lexicon covers all languages in a single LLM call, and the edit is built as in \cinderz{}.
+
+The saving is in selection.
+Per-language \ember{} runs eight factorizations and eight judging passes per concept (\expnum{160} judge calls); \cinder{} runs one of each (\expnum{20} calls) plus one lexicon call, about a fifth of the factorization work and a third of the LLM cost of selection.
+The sharpening transform makes \cinder{}'s single fit about as slow in wall-clock time as \ember{}'s eight, and evaluation, which dominates the total (\expnum{2.5--3.5} GPU-hours per concept), costs the same for every approach, since each language must still be tested.
