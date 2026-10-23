@@ -1,0 +1,201 @@
+%=====================================================================
+\section{Multilingual Erasure: Details}
+\label{app:ml}
+%=====================================================================
+
+\paragraph{English erasure leaks}
+In a first study we erased \ember{}'s 18 concepts from Gemma-2-2B-it with \ember{}, SNMF \citep{shafran2026constructing} and their combination, tuned every edit in English, and asked the held-out questions in English, German, Spanish, French and Russian.
+Retention, the share of the concept knowledge left (1 = as before, 0 = chance), was on average \expnum{0.24} higher in the four other languages than in English under \ember{} (95\% CI \expnum{[0.15, 0.32]}; \expnum{0.19 [0.12, 0.27]} with unparseable answers dropped), and \expnum{0.41} (\expnum{0.31}) higher in Russian, where the English edit touches none of the concept's tokens. These numbers use the original scorer of App.~\ref{app:ember}.
+SNMF, which edits MLP weights, erased all five languages about equally (\expnum{$+0.01$}), and adding \ember{} to it brought the gap back (\expnum{$+0.16$}).
+
+\paragraph{Languages, model and data}
+Llama-3.1-8B-Instruct in its eight supported languages: English, German, French, Italian, Portuguese, Hindi, Spanish and Thai.
+The transformer runs in 4-bit NF4 and the edited embeddings in fp16, identically for every approach.
+Concept sentences come from the concept's native Wikipedia page (via interlanguage links), up to 300 per language, topped up with NLLB translations of English sentences for short pages; an equal number of neutral sentences comes from native Wikipedia pages.
+Shared fits factorize the tokens of 30 concept and 30 neutral sentences per language (about \expnum{6{,}500} tokens), the fewest that give a full-rank matrix; with the dictionary fixed, a ridge least-squares solve followed by the fit's own support rule gives the coefficients of every token in the full sets, and \cinderz{} then re-solves the dictionary on the raw embeddings with these coefficients fixed.
+The 20 held-out concepts are French Revolution, Tuberculosis, Cricket, Buddhism, Plutonium, Judaism, Karate, Existentialism, Prime number, The Matrix, Louvre, American Revolutionary War, Robot, Sigmund Freud, Giraffe, Surfing, Flush toilet, Cloud, Doctor of Philosophy and Tourism.
+\ember{}'s English questions are used as published; German, French and Spanish come from existing translations; Italian, Portuguese, Hindi and Thai are machine-translated (NLLB and MADLAD candidates ranked by LaBSE, with script and number checks).
+Questions for the new concepts were generated from the English page in \ember{}'s format, checked by a blind verifier and by automatic checks, and translated the same way.
+
+\paragraph{Metrics and gates}
+Per language $L$: efficacy (chance-corrected concept accuracy driven to chance), specificity (harmonic mean of Global-MMLU and similar-domain retention), fluency ($\min(1, \text{ppl}_{\text{orig}}/\text{ppl}_{\text{edit}})$ on 100 held-out native sentences), and $H_L$, their harmonic mean.
+A concept's score is the mean $H_L$ over eligible languages (unedited accuracy $\geq 0.4$).
+$\delta \in \{0.5, \dots, 200\}$ is chosen on validation, one value for all languages, and fails if MMLU or fluency drops below 0.9 of the unedited model in any language.
+We report the \emph{strict} score (0 if a gate fails on test) and the \emph{ungated} one.
+
+\paragraph{Approaches}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lP{2.05cm}P{1.7cm}P{1.95cm}@{}}
+\toprule
+ & Fit & Selection & Edit \\
+\midrule
+A1 & 8 per-language \ember{} fits & TJ per language & each language's; overlaps resolved by page length \\
+A2 & 1 fit on the 8-language sample, $Y$ extrapolated & TJ & \ember{}'s \\
+A3 & A2 with \cs{} (8-language background) and \gs{} & \twj{} & mapped back \\
+A3z & as A3 & as A3 & $Z$ re-solved on raw $E$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Results}
+Table~\ref{tab:ml-dev} gives the development run on \ember{}'s 18 concepts, on which A3z was defined (post hoc, after A3's result).
+The hypotheses were then pre-registered and tested on the 20 new concepts with the protocol frozen (Table~\ref{tab:ml-prereg}): H1, that a single multilingual \ember{} fit (A2) comes within 0.05 of per-language \ember{} (A1) on the concepts both edit; H2, that the original-space edit (A3z) beats the mapped-back one (A3) on most of the concepts A3 edits, with a higher mean; and H3, that A3z is at least as good as A2 on the concepts all four approaches edit.
+On the 20 new concepts, only H2 can be tested with more than two concepts, and its gain has the same sign as in development (\expnum{$+0.19$}, \expnum{7}--\expnum{3}, $p = \expnum{0.064}$; ungated \expnum{$+0.26$}, \expnum{8}--\expnum{2}, $p = \expnum{0.014}$).
+Over all 38 concepts, H2 holds (\expnum{$+0.166$}, 95\% CI \expnum{$[+0.054, +0.268]$}, \expnum{16}--\expnum{5}, $p = \expnum{0.007}$); H1 is consistent with the data but rests on 10 concepts (\expnum{$-0.051$} \expnum{$[-0.156, +0.057]$}, \expnum{3}--\expnum{7}, $p = \expnum{0.38}$); and H3 is not supported (\expnum{$-0.005$} \expnum{$[-0.22, +0.17]$}, \expnum{5}--\expnum{4}, $p = \expnum{0.73}$).
+Over the concepts that either approach edits (no edit scored 0), A3z beats A2 (\expnum{$+0.213$} \expnum{$[+0.053, +0.366]$}, \expnum{15}--\expnum{4}, $p = \expnum{0.011}$) and ties A1 (\expnum{$-0.023$} \expnum{$[-0.156, +0.110]$}, \expnum{15}--\expnum{13}, $p = \expnum{0.78}$).
+
+% Source: nlp_proj_ml/results/ml/REPORT_tables.md (per-concept test scores; [v2] = it/pt/hi/th on the cleaned
+% question sets) and nlp_proj_ml/results/ml/PREREG_RESULTS.md ("Original 18 concepts" summary).
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}P{3.1cm}cccc@{}}
+\toprule
+Concept & A1 & A2 & A3 & A3z \\
+\midrule
+Cannabis & \expnum{.41} & -- & \expnum{.57} & \expnum{.85} \\
+Harry Potter & \expnum{.79} & \expnum{.65} & \expnum{.26} & \expnum{.34} \\
+COVID-19 pandemic & \expnum{.70} & \expnum{.42} & \expnum{.37} & \expnum{.73} \\
+Pornography & \expnum{.64} & \expnum{.74} & \expnum{.28} & 0$^*$ \\
+Baseball & \expnum{.54} & \expnum{.52} & \expnum{.35} & \expnum{.69} \\
+Uranium & \expnum{.58} & -- & \expnum{.12} & \expnum{.15} \\
+Gun & \expnum{.22} & \expnum{.39} & \expnum{.18} & \expnum{.53} \\
+Culture of Greece & \expnum{.30} & \expnum{.27} & \expnum{.23} & \expnum{.55} \\
+Gambling & \expnum{.54} & \expnum{.50} & \expnum{.22} & \expnum{.38} \\
+Ancient Rome & \expnum{.42} & -- & -- & -- \\
+Nazism & -- & -- & \expnum{.09} & \expnum{.33} \\
+Golf & \expnum{.33} & -- & -- & -- \\
+Republic of Ireland & \expnum{.24} & -- & -- & -- \\
+Artificial intelligence & \expnum{.22} & 0$^*$ & \expnum{.33} & 0$^*$ \\
+World War II & \expnum{.27} & -- & -- & -- \\
+Halloween, Heroin, Valentine's Day & -- & -- & -- & -- \\
+\midrule
+Concepts edited (of 18) & \expnum{14} & \expnum{8} & \expnum{11} & \expnum{11} \\
+Mean, strict & \expnum{.344} & \expnum{.194} & \expnum{.166} & \expnum{.253} \\
+Mean, ungated & \expnum{.344} & \expnum{.222} & \expnum{.166} & \expnum{.326} \\
+\bottomrule
+\end{tabular}
+\caption{Development run of the multilingual study: test score per concept on Llama-3.1-8B-Instruct (8 languages, fit seed 42). --: no concept feature selected, so no edit (score 0); $^*$: a gate failed on test (ungated, on the original translations: Pornography A3z \expnum{0.76}, Artificial intelligence A2 \expnum{0.48} and A3z \expnum{0.52}). A3z was defined after this run.}
+\label{tab:ml-dev}
+\end{table}
+
+% Source: nlp_proj_ml/results/ml/PREREG_RESULTS.md ("New 20 concepts (confirmation)", strict and ungated).
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Test & $n$ & $\Delta$ [95\% CI] & W--L & $p$ \\
+\midrule
+H1: A2 $-$ A1 & \expnum{2} & \expnum{$-.03$ [$-.29$, $+.23$]} & \expnum{1--1} & \expnum{1.00} \\
+H2: A3z $-$ A3 & \expnum{10} & \expnum{$+.19$ [$+.03$, $+.35$]} & \expnum{7--3} & \expnum{.064} \\
+\quad ungated & \expnum{10} & \expnum{$+.26$ [$+.13$, $+.38$]} & \expnum{8--2} & \expnum{.014} \\
+H3: A3z $-$ A2 & \expnum{2} & \expnum{$+.11$ [$-.11$, $+.32$]} & \expnum{1--1} & \expnum{1.00} \\
+A3z $-$ A2, either & \expnum{10} & \expnum{$+.34$ [$+.15$, $+.53$]} & \expnum{8--1} & \expnum{.012} \\
+A3z $-$ A1, either & \expnum{14} & \expnum{$+.07$ [$-.14$, $+.26$]} & \expnum{9--4} & \expnum{.34} \\
+\midrule
+\multicolumn{5}{@{}l}{Concepts edited (of 20): A1 \expnum{12}, A2 \expnum{2}, A3 \expnum{10}, A3z \expnum{10}} \\
+\multicolumn{5}{@{}l}{Mean strict: A1 \expnum{.162}, A2 \expnum{.040}, A3 \expnum{.114}, A3z \expnum{.210}} \\
+\bottomrule
+\end{tabular}
+\caption{Pre-registered tests on the 20 held-out concepts (strict score unless noted; a concept without an edit scores 0). $n$: concepts in the test, i.e.\ those both approaches edit (H1), that A3 edits (H2), that all four edit (H3), or that either edits (last two rows). Bootstrap CI over concepts; W--L: concepts won and lost; two-sided Wilcoxon signed-rank $p$.}
+\label{tab:ml-prereg}
+\end{table}
+
+\paragraph{Coverage across fit seeds}
+We repeated selection, without evaluation, with fit seeds 1 and 2 (Table~\ref{tab:ml-seeds}).
+The counts are stable, and the gap between A2 and \cinder{}'s selection holds at every seed and in both concept sets; but which concepts are edited changes with the seed, so that the union over three seeds covers \expnum{31} (A1), \expnum{13} (A2) and \expnum{29} (A3) of the 38 concepts.
+
+% Source: nlp_proj_ml/results/ml/seeds/COVERAGE.md (per-concept edited-token counts per seed; split into the
+% original 18 and the new 20 concepts by counting the rows of that table).
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & Original 18 & New 20 & All 38 \\
+\midrule
+A1 & \expnum{14/13/15 (16)} & \expnum{12/11/13 (15)} & \expnum{26/24/28 (31)} \\
+A2 & \expnum{8/6/7 (8)} & \expnum{2/3/5 (5)} & \expnum{10/9/12 (13)} \\
+A3, A3z & \expnum{11/9/12 (15)} & \expnum{10/8/8 (14)} & \expnum{21/17/20 (29)} \\
+\bottomrule
+\end{tabular}
+\caption{Concepts with an edit for fit seeds 42 / 1 / 2 (union over the three seeds in parentheses). A3z uses A3's selection.}
+\label{tab:ml-seeds}
+\end{table}
+
+\paragraph{Seed-union follow-up}
+Defined as an amendment to the pre-registration after the coverage study and before any of its evaluations, the seed union pools the three seeds' edits for both A1 (A1U) and A3z (A3zU), so that neither gets extra draws alone: every token that some seed edits is edited, with the mean of the seeds' edit vectors; all other settings are frozen (\expnum{52} units newly evaluated; Table~\ref{tab:ml-union}).
+Pooling helps A3z reliably (A3zU $-$ A3z \expnum{$+0.082$}, 95\% CI \expnum{$[+0.043, +0.128]$}, \expnum{19}--\expnum{4}, $p < 0.001$; on the new 20 alone \expnum{$+0.068$}, \expnum{8}--\expnum{2}) and A1 not (\expnum{$+0.054$} \expnum{$[-0.033, +0.151]$}, \expnum{14}--\expnum{11}, $p = \expnum{0.58}$): A1U gains concepts, such as Tuberculosis (\expnum{0 $\to$ 0.93}) and The Matrix (\expnum{0 $\to$ 1.00}), but loses on concepts it already erased, such as Harry Potter (\expnum{0.79 $\to$ 0.38}) and Cricket (\expnum{0.56 $\to$ 0.27}), likely because its union of 8 languages $\times$ 3 seeds touches many more shared pieces, so the gates fire at a smaller $\delta$.
+The pooled approaches tie (A3zU $-$ A1U \expnum{$+0.011$} \expnum{$[-0.114, +0.137]$}, \expnum{19}--\expnum{14}, $p = \expnum{0.75}$), which misses the pre-registered non-inferiority criterion (CI lower bound above $-0.05$); where both edit, A3zU leads by \expnum{$+0.082$} (\expnum{16}--\expnum{10}, $p = \expnum{0.32}$).
+Pooling also reaches Hindi in one case: Tuberculosis A1U erases it ($H_L = \expnum{0.77}$) through features found only at seeds 1 and 2.
+
+% Source: nlp_proj_ml/results/ml/UNION_RESULTS.md ("All 38 concepts", "New 20 concepts") and
+% nlp_proj_ml/experiments/ml/RESULTS.md ("Seed-union selection").
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+All 38 concepts & A1 & A3z & A1U & A3zU \\
+\midrule
+Concepts edited & \expnum{26} & \expnum{21} & \expnum{31} & \expnum{29} \\
+Mean, strict & \expnum{.248} & \expnum{.231} & \expnum{.302} & \expnum{.313} \\
+Mean, ungated & \expnum{.252} & \expnum{.282} & \expnum{.320} & \expnum{.349} \\
+\bottomrule
+\end{tabular}
+\caption{Seed-union follow-up: single-seed (fit seed 42) and pooled (seeds 42, 1, 2) per-language \ember{} and \cinderz{}; a concept without an edit scores 0.}
+\label{tab:ml-union}
+\end{table}
+
+\paragraph{Language identity in the single fit}
+Each token of the multilingual $\vs$ is assigned to a language when at least 80\% of its occurrences, normalized by each language's token count, come from that language.
+In the raw sample matrix, the language means carry \expnum{1.6\%} of the centred energy against \expnum{0.047\%} for the concept-vs-neutral mean (median ratio \expnum{34$\times$}), the concept is \expnum{2.9$\times$} quieter than in an English-only matrix (38 of 38 concepts), and the top principal directions are explained by language (\expnum{$\eta^2 = 0.25$}) rather than by the concept (\expnum{0.004}).
+Whitening against the eight-language background halves the language share (\expnum{1.6\% $\to$ 0.8\%}) and cuts the enrichment of the top contrastive directions from \expnum{8.2} (English background) to \expnum{2.6}, but those directions remain single-language clusters.
+\expnum{8.6\%} of the raw fit's features and \expnum{13.7\%} of its judged candidates are dominated by one language (mostly German and English function words), against \expnum{4.9\%} and \expnum{0\%} for the sharpened fit.
+The raw fit nevertheless contains a lexicon-matching concept feature in \expnum{25--27} of 38 concepts per seed (sharpened: \expnum{23--28}); the token judge accepts candidates with 3--4 lexicon words far less often when they come from the raw fit (\expnum{5\%} vs.\ \expnum{30\%}), e.g.\ describing Cannabis's \emph{marijuana, cannabis, alcohol, tobacco, THC} as ``psychoactive substances''.
+Blind labels of the features accepted only by the lexicon path are specific or broader, never unrelated, for both fits.
+
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    Concepts covered (of 38) & \ember{} judge & two-way judge \\
+    \midrule
+    Raw fit & \expnum{10 / 9 / 12} & \expnum{18 / 20 / 18} \\
+    Sharpened fit (\cs{}+\gs{}) & \expnum{16 / 16 / 16} & \expnum{21 / 17 / 20} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Concepts with an accepted feature in the multilingual fit (Llama-3.1-8B, seeds 42 / 1 / 2), by fit and judge. Off-diagonal cells re-judge the saved fits and are counterfactual: no edit was evaluated for them.}
+  \label{tab:ml-2x2}
+\end{table}
+
+\paragraph{Coverage by fit and judge}
+Table~\ref{tab:ml-2x2} re-judges the saved fits.
+With \ember{}'s judge, sharpening raises coverage from \expnum{10} to \expnum{16} concepts (seed 42); with the two-way judge, the raw fit reaches \expnum{18} and the sharpened fit \expnum{21}, a difference that is not significant over three seeds, so either half of \cinder{}'s selection closes most of the gap.
+\cinder{}'s selected features also spread over more scripts (\expnum{34\%} use two or more, against \expnum{15\%} for per-language \ember{} and none for the multilingual \ember{} fit), although much of their Devanagari and Thai mass is generic words.
+
+\paragraph{Selection cost}
+Every fit's judge sees its top 10 candidates by $\rho$, with two calls each (\S\ref{app:twj}).
+Per concept (fit seed 42), per-language \ember{} runs 8 factorizations over about \expnum{30{,}600} rows with \expnum{160} judge calls (USD \expnum{0.015}); the single fits run one factorization over about \expnum{6{,}500} sampled rows plus a coefficient solve for the full set, with \expnum{20} judge calls (\ember{}: USD \expnum{0.0019}) or \expnum{20} calls and one lexicon call (\cinder{}: USD \expnum{0.0047}, \expnum{0.0019} once the lexicon is cached across seeds).
+The lexicon call is long, 20 words in each of the eight languages, and costs about as much as \expnum{30} judge calls.
+Factorization work (rows $\times$ iterations) drops about fivefold, but \cinder{}'s wall-clock fit time (\expnum{40} s on a GPU) matches \ember{}'s eight fits (\expnum{44} s) because of the sharpening transform.
+Evaluation takes \expnum{2.5--3.5} GPU-hours per concept and approach, about 250 times the fit stage, and is the same for every approach.
+
+\paragraph{Why Hindi and Thai resist}
+\ember{} edits only concept-only tokens, which never occur in the neutral sentences.
+Llama splits Hindi and Thai words into short pieces that also occur in everyday text, so almost none qualify: on Baseball, \expnum{32\%} of English question tokens are concept-only, against \expnum{13\%} in German, \expnum{6\%} in Thai and \expnum{5\%} in Hindi, and the share of questions containing an edited token falls from \expnum{0.94} (English) to \expnum{0.00} (Hindi).
+The same mechanism lets an edit made for one language act in every language that shares its pieces: Golf's per-language fit found its only feature in Thai, whose tokens cover \expnum{76\%} of the English questions.
+
+\paragraph{Robustness}
+Counts of concepts with an edit are stable across three fit seeds (A2: \expnum{9--12}; A3: \expnum{17--21} of 38), but which concepts are edited is not, and the edited token sets of one concept overlap by a Jaccard index of only \expnum{$\approx$0.2} across seeds, for every approach.
+In \expnum{6} runs, across all approaches, a $\delta$ that passed both gates on validation failed one on test.

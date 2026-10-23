@@ -1,0 +1,33 @@
+LABELLING RUBRIC (concept vocabularies)
+
+Each line of a batch file is one vocabulary item of a language-model tokenizer, met in a Wikipedia article about a
+CONCEPT (named in the section header). Format:
+    id | token | source words | context
+  token          the token as the tokenizer writes it; a leading "▁" marks a word-initial token, no "▁" means the
+                 token is a piece from inside a word
+  source words   the whole word(s) of the article this token was cut from, most frequent first
+  context        one place where it occurs, the token marked [[like this]]
+
+Judge the SOURCE WORD (the whole word the token comes from, first in the list) in the sense it has in the context.
+Judge that word itself, not the longer phrase around it (in "a device called a Time Turner", the word "Time" is
+generic). If the token is a piece of a longer word (e.g. "wart" from "Hogwarts", "Sean" from "Seanad"), judge the
+longer word.
+
+Labels (exactly one per item):
+  S  concept-specific. The word names something that belongs to THIS concept in particular: its own named entities
+     (people, characters, places, organisations, works, events, products), its technical or in-world terms, or a
+     word that mostly occurs when talking about this concept. Someone who forgot the concept would lose this word's
+     meaning here.
+  A  adjacent. Related to the concept's topic area or to a neighbouring concept, but not specific to this concept;
+     it is common in other contexts of the same domain.
+  U  unrelated. Generic vocabulary (function words, ordinary verbs/adjectives/nouns, numbers, dates, units),
+     names of people, places or institutions that are not part of the concept (e.g. authors of cited studies,
+     unrelated cities, companies mentioned in passing), and pieces whose source word you cannot tell.
+
+Worked examples for the concept "Chess" (not part of any batch):
+  ▁castling (castling) S      ▁Kasparov (Kasparov) S      ▁FIDE (FIDE) S      ▁checkmate S      ▁pawn S
+  ▁tournament A    ▁strategy A    ▁checkers A (neighbouring game)    ▁grandmaster S (chess title)
+  ▁Soviet (Soviet, "the Soviet school of chess") A    ▁the U    ▁computed U    ▁Cambridge (a cited publisher) U
+  ▁Time (Time, "Time magazine named him") U    "ov" from "Kasparov" -> judge Kasparov -> S
+
+Be decisive; when torn between two labels choose the less specific one (S vs A -> A, A vs U -> U).

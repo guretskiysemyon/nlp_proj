@@ -1,0 +1,444 @@
+#!/usr/bin/env python
+"""Pre-registered analysis of the confirmatory expansion (PREREG amendment 8). CPU only, from saved files.
+
+    python -m experiments.varwidth.confirm_stats   # -> results/varwidth/layers/collateral/confirm.md + confirm.json
+
+Primary: paired H3v (collateral rule, test split, collateral renormalized by the unedited model's per-token test
+accuracy) for each CINDER variant minus EMBER, on runs where both edit. Unit = concept (mean over its seeds), two-sided
+Wilcoxon signed-rank across concepts, Holm over the 4 contrasts, 95% cluster-bootstrap CI (concepts resampled).
+Secondary: the same at fixed r = 0.5 and under the paper rule (H2); failure rate (H3v < 0.25); edit rate; judge-free
+E2 integrity (copy, echo) at the selected point.
+"""
+from __future__ import annotations
+
+import json
+
+import numpy as np
+from scipy.stats import wilcoxon
+
+from experiments.varwidth.collateral import EXP_VARIANTS, EXPANSION, OUT, seeds
+from experiments.varwidth.collateral_report import NAMES, renorm
+from experiments.varwidth.common import slug
+from experiments.varwidth.erase import hm
+
+RULES = {"collateral": "result.json", "fixed05": "result_fixed05.json", "paper": "result_paper.json"}
+CONTRASTS = [v for v in EXP_VARIANTS if v != "sub:ember"]
+IOUT = OUT / "integrity"
+FAIL = 0.25
+B = 10000
+
+
+def load(rule):
+    """{(concept, seed, variant): result} for the expansion runs under one rule (variants with an empty edit set
+    have no result)."""
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in EXP_VARIANTS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / RULES[rule]
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    for r in R.values():
+        r["H2"] = hm([r["efficacy"], r["specificity"]])
+    return R
+
+
+def edits(r):
+    return r is not None and r.get("n_edit", 0) > 0
+
+
+def holm(p):
+    order = np.argsort(p)
+    adj, run = np.empty(len(p)), 0.0
+    for i, k in enumerate(order):
+        run = max(run, (len(p) - i) * p[k])
+        adj[k] = min(1.0, run)
+    return adj
+
+
+def contrast(R, v, metric):
+    """Per-concept mean paired difference (v - EMBER) over seeds where both edit."""
+    per = {}
+    for c in EXPANSION:
+        d = [R[(c, s, v)][metric] - R[(c, s, "sub:ember")][metric] for s in seeds(c)
+             if edits(R.get((c, s, v))) and edits(R.get((c, s, "sub:ember")))]
+        if d:
+            per[c] = (float(np.mean(d)), len(d))
+    x = np.array([m for m, _ in per.values()])
+    out = {"n_concepts": len(x), "n_pairs": sum(n for _, n in per.values()), "per_concept": per}
+    if len(x) == 0:
+        return out
+    rng = np.random.default_rng(0)
+    boot = rng.choice(x, (B, len(x)), replace=True).mean(1)
+    out.update(mean=float(x.mean()), ci=[float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+               p=float(wilcoxon(x).pvalue) if len(x) >= 2 and np.any(x != 0) else 1.0,
+               wins=int((x > 0).sum()), losses=int((x < 0).sum()))
+    return out
+
+
+def contrast_itt(R, v, metric):
+    """Intention-to-treat (amendment 9): every run counts; a variant with no edit scores as the unedited model
+    (efficacy 0, so H3v 0). Per-concept mean over all seeds of (v - EMBER)."""
+    val = lambda r: r[metric] if edits(r) else 0.0          # noqa: E731
+    x = np.array([np.mean([val(R.get((c, s, v))) - val(R.get((c, s, "sub:ember"))) for s in seeds(c)])
+                  for c in EXPANSION])
+    rng = np.random.default_rng(0)
+    boot = rng.choice(x, (B, len(x)), replace=True).mean(1)
+    return {"n_concepts": len(x), "mean": float(x.mean()), "ci": [float(np.percentile(boot, 2.5)),
+            float(np.percentile(boot, 97.5))], "p": float(wilcoxon(x).pvalue) if np.any(x != 0) else 1.0,
+            "wins": int((x > 0).sum()), "losses": int((x < 0).sum())}
+
+
+def loo(R, v, metric):
+    """Leave one concept out: (dropped concept, mean, p) of the primary contrast."""
+    full = contrast(R, v, metric)["per_concept"]
+    out = []
+    for c in full:
+        x = np.array([m for cc, (m, _) in full.items() if cc != c])
+        out.append((c, float(x.mean()), float(wilcoxon(x).pvalue) if np.any(x != 0) else 1.0))
+    return out
+
+
+def load_gate(g):
+    """Collateral-rule results at another gate (result_g<g>.json; amendment 9)."""
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in EXP_VARIANTS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / f"result_g{g:g}.json"
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    return R
+
+
+def by_variant(R, metric):
+    """Mean of a metric per variant over the runs where it edits, and over concept means."""
+    out = {}
+    for v in EXP_VARIANTS:
+        xs = [r[metric] for (c, s, vv), r in R.items() if vv == v and edits(r)]
+        out[v] = float(np.mean(xs)) if xs else float("nan")
+    return out
+
+
+def rates(R):
+    """Edit rate (runs with a non-empty set whose rule picked a point) and failure rate (H3v < 0.25, over all 60 runs;
+    a run without an edit counts as a failure of the method)."""
+    n = sum(len(seeds(c)) for c in EXPANSION)
+    out = {}
+    for v in EXP_VARIANTS:
+        rs = [R.get((c, s, v)) for c in EXPANSION for s in seeds(c)]
+        out[v] = {"has_set": sum(r is not None for r in rs) / n, "edit_rate": sum(edits(r) for r in rs) / n,
+                  "fail_rate": sum((not edits(r)) or r["H3v_rn"] < FAIL for r in rs) / n,
+                  "fail_rate_when_edits": float(np.mean([r["H3v_rn"] < FAIL for r in rs if edits(r)]))
+                  if any(edits(r) for r in rs) else float("nan")}
+    return out
+
+
+def integrity():
+    """Judge-free copy / echo at the selected point: {variant: (copy, echo, n runs)} and the paired copy contrast."""
+    from experiments.varwidth.integrity import summarize
+    S = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            d = IOUT / slug(c) / f"s{s}"
+            for v in EXP_VARIANTS:
+                if (d / f"{v.replace(':', '_')}@sel.json").exists():
+                    S[(c, s, v)] = summarize(d, f"{v}@sel")["summary"]
+    out = {}
+    for v in EXP_VARIANTS:
+        xs = [x for (c, s, vv), x in S.items() if vv == v]
+        out[v] = {"copy": float(np.mean([x["copy"] for x in xs])) if xs else float("nan"),
+                  "echo": float(np.mean([x["echo"] for x in xs])) if xs else float("nan"), "n": len(xs)}
+    R = {k: {"copy": x["copy"], "n_edit": 1} for k, x in S.items()}
+    return out, {v: contrast(R, v, "copy") for v in CONTRASTS}
+
+
+AGENTS_X = {b: a for a, bs in enumerate([(41, 42, 43), (44, 45, 46), (47, 48, 49), (50, 51, 52), (53, 54, 55),
+                                         (56, 57)]) for b in bs}     # amendment 8 labellers: batches per agent
+
+
+def t3():
+    """Expansion T3 (seed 42, selected point): per variant graceful / leak / confab / destruction, destruction of
+    exclusive vs multi-meaning words, the paired destruction contrast (unit = concept), and cross-agent agreement
+    on the expansion duplicates."""
+    from collections import Counter
+
+    from experiments.varwidth.integrity import DESTR, GRACEFUL, JDIR, LEAK, labels, token_class
+    key, lab = json.loads((JDIR / "key.json").read_text()), labels()
+    rows = {}
+    for i, k in key.items():
+        if k["concept"] in EXPANSION and i in lab and k["config"].endswith("@sel"):
+            rows.setdefault(k["concept"], []).append((k["config"][:-4], k["key"], lab[i]))
+    out, per = {}, {}
+    for c, rs in rows.items():
+        cls_tok = token_class(c)
+        meta = json.loads((IOUT / slug(c) / "s42" / "meta.json").read_text())["words"]
+        wcls = {w: "multi" if any(cls_tok.get(t) == "multi" for t in v["tokens"]) else
+                "exclusive" if any(cls_tok.get(t) == "exclusive" for t in v["tokens"]) else "unclassified"
+                for w, v in meta.items()}
+        for v, w, lb in rs:
+            out.setdefault(v, {"all": Counter(), "exclusive": [], "multi": []})["all"][lb] += 1
+            if wcls.get(w) in ("exclusive", "multi"):
+                out[v][wcls[w]].append(lb in DESTR)
+            per.setdefault((c, v), []).append(lb in DESTR)
+    summ = {}
+    for v, g in out.items():
+        n = sum(g["all"].values())
+        summ[v] = {"n": n, "graceful": sum(g["all"][x] for x in GRACEFUL) / n,
+                   "leak": sum(g["all"][x] for x in LEAK) / n, "confab": g["all"]["CONFAB"] / n,
+                   "destruction": sum(g["all"][x] for x in DESTR) / n,
+                   "destr_exclusive": float(np.mean(g["exclusive"])) if g["exclusive"] else float("nan"),
+                   "n_exclusive": len(g["exclusive"]),
+                   "destr_multi": float(np.mean(g["multi"])) if g["multi"] else float("nan"), "n_multi": len(g["multi"])}
+    R = {(c, 42, v): {"destr": float(np.mean(x)), "n_edit": 1} for (c, v), x in per.items()}
+    con = {v: contrast(R, v, "destr") for v in CONTRASTS}
+    batch_of = {it["id"]: int(f.stem.split("_")[1]) for f in JDIR.glob("batch_*.json")
+                for it in json.loads(f.read_text())}
+    dups = [(i, i + "d") for i in key if key[i]["concept"] in EXPANSION and i in lab and i + "d" in lab
+            and AGENTS_X.get(batch_of.get(i)) != AGENTS_X.get(batch_of.get(i + "d"))]
+    agree = {"n": len(dups), "exact": float(np.mean([lab[a] == lab[b] for a, b in dups])) if dups else float("nan"),
+             "destruction": float(np.mean([(lab[a] in DESTR) == (lab[b] in DESTR) for a, b in dups]))
+             if dups else float("nan"),
+             "leak": float(np.mean([(lab[a] in LEAK) == (lab[b] in LEAK) for a, b in dups])) if dups else float("nan")}
+    return summ, con, agree
+
+
+CELLS = ["sub:ee", "sub:1b", "sub:1a", "sub:cross"]
+EFFECTS = {"Δ_dir": [("sub:1b", "sub:ee"), ("sub:1a", "sub:cross")],      # direction at fixed tokens
+           "Δ_tok": [("sub:cross", "sub:ee"), ("sub:1a", "sub:1b")]}     # tokens at fixed direction
+
+
+def twobytwo(fname):
+    """Amendment 14: the 2×2 at a fixed r. Per run, an effect = mean of its two contrasts (both cells present);
+    unit = concept (mean over seeds); Wilcoxon across concepts; cluster bootstrap."""
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in CELLS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / fname
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    out = {"means": {}, "effects": {}, "contrasts": {}}
+    for v in CELLS:
+        xs = [r for (c, s, vv), r in R.items() if vv == v and r.get("n_edit")]
+        out["means"][v] = {k: float(np.mean([x[k] for x in xs])) for k in ("efficacy", "collateral_rn", "H3v_rn",
+                                                                             "specificity", "r")} | {"n": len(xs)}
+
+    def stat(per):
+        x = np.array([np.mean(v) for v in per.values()])
+        if len(x) == 0:
+            return {"n_concepts": 0}
+        boot = np.random.default_rng(0).choice(x, (B, len(x)), replace=True).mean(1)
+        return {"n_concepts": len(x), "n_runs": sum(len(v) for v in per.values()), "mean": float(x.mean()),
+                "ci": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+                "p": float(wilcoxon(x).pvalue) if len(x) >= 2 and np.any(x != 0) else 1.0,
+                "pos": int((x > 0).sum()), "neg": int((x < 0).sum())}
+    for metric in ("efficacy", "H3v_rn", "collateral_rn"):
+        for name, pairs in EFFECTS.items():
+            per = {}
+            for c in EXPANSION:
+                for s in seeds(c):
+                    if all((c, s, v) in R and R[(c, s, v)].get("n_edit") for v in CELLS):
+                        per.setdefault(c, []).append(np.mean([R[(c, s, a)][metric] - R[(c, s, b)][metric]
+                                                              for a, b in pairs]))
+            out["effects"][f"{name}|{metric}"] = stat(per)
+        for a, b in EFFECTS["Δ_dir"] + EFFECTS["Δ_tok"]:
+            per = {}
+            for c in EXPANSION:
+                for s in seeds(c):
+                    if all((c, s, v) in R and R[(c, s, v)].get("n_edit") for v in (a, b)):
+                        per.setdefault(c, []).append(R[(c, s, a)][metric] - R[(c, s, b)][metric])
+            out["contrasts"][f"{a}−{b}|{metric}"] = stat(per)
+    keys = [f"{e}|{m}" for e in EFFECTS for m in ("efficacy", "H3v_rn")]
+    for k, a in zip(keys, holm(np.array([out["effects"][k].get("p", 1.0) for k in keys]))):
+        out["effects"][k]["p_holm"] = float(a)
+    return out
+
+
+def twobytwo_report():
+    """-> results/varwidth/layers/collateral/twobytwo.md and .json"""
+    res, L = {}, ["# 2×2 at fixed strength: direction vs token set (PREREG amendment 14)", "",
+                  "ee = EMBER tokens × EMBER direction; 1b = EMBER tokens × CINDER direction; 1a = CINDER top-N tokens × "
+                  "CINDER direction; cross = CINDER top-N tokens × EMBER direction. Test split, fixed r, no selection. "
+                  "Δ_dir = mean of (1b − ee) and (1a − cross); Δ_tok = mean of (cross − ee) and (1a − 1b). Unit = concept "
+                  "(mean over seeds), Wilcoxon, 95% cluster bootstrap; Holm over Δ_dir and Δ_tok × efficacy and H3v at "
+                  "r = 0.5.", ""]
+    for fname, tag in (("result_fixed05.json", "r = 0.5 (primary)"), ("result_fixed1.json", "r = 1 (secondary)")):
+        o = twobytwo(fname)
+        res[fname] = o
+        if not any(m["n"] for m in o["means"].values()):
+            continue
+        L += [f"## {tag}", "", "| Cell | runs | efficacy | collateral | specificity | H3v | achieved r |",
+              "|---|---|---|---|---|---|---|"]
+        L += [f"| {v.split(':')[1]} | {m['n']} | {m['efficacy']:.3f} | {m['collateral_rn']:.3f} | "
+              f"{m['specificity']:.3f} | {m['H3v_rn']:.3f} | {m['r']:.2f} |" for v, m in o["means"].items() if m["n"]]
+        L += ["", "| Effect | metric | concepts (runs) | mean | 95% CI | +/− concepts | p | Holm p |",
+              "|---|---|---|---|---|---|---|---|"]
+        for k, x in o["effects"].items():
+            if x.get("n_concepts"):
+                e, m = k.split("|")
+                L.append(f"| {e} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['pos']}/{x['neg']} | {x['p']:.3f} | "
+                         f"{x['p_holm']:.3f} |" if "p_holm" in x and fname == "result_fixed05.json" else
+                         f"| {e} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['pos']}/{x['neg']} | {x['p']:.3f} | – |")
+        L += ["", "| Contrast | metric | concepts (runs) | mean | 95% CI | p |", "|---|---|---|---|---|---|"]
+        for k, x in o["contrasts"].items():
+            if x.get("n_concepts"):
+                cst, m = k.split("|")
+                L.append(f"| {cst.replace('sub:', '')} | {m} | {x['n_concepts']} ({x['n_runs']}) | {x['mean']:+.3f} | "
+                         f"[{x['ci'][0]:+.3f}, {x['ci'][1]:+.3f}] | {x['p']:.3f} |")
+        L.append("")
+    (OUT / "twobytwo.json").write_text(json.dumps(res, indent=1))
+    (OUT / "twobytwo.md").write_text("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
+COVERAGE_SETTINGS = [("Own selected point (collateral rule, primary)", "result.json"),
+                     ("Equal strength (fixed r = 0.5)", "result_fixed05.json"),
+                     ("Collateral gate 0.9", "result_g0.9.json"), ("Collateral gate 0.7", "result_g0.7.json"),
+                     ("Integrity-gated (copy ≥ 0.9)", "result_e3.json"), ("Paper rule (old evaluation)", "result_paper.json")]
+NI_MARGIN = 0.05      # non-inferiority margin on H3v (post hoc, about 10% of EMBER's mean)
+
+
+def load_file(fname):
+    R = {}
+    for c in EXPANSION:
+        for s in seeds(c):
+            for v in EXP_VARIANTS:
+                f = OUT / slug(c) / f"s{s}" / v.replace(":", "_") / fname
+                if f.exists():
+                    R[(c, s, v)] = json.loads(f.read_text())
+    renorm(R)
+    return R
+
+
+def coverage_report():
+    """Every selection setting both ways (post hoc): runs where both methods edit (both judges accept a concept
+    feature) and all runs (no edit = H3v 0), with non-inferiority at NI_MARGIN on the first.
+    -> results/varwidth/layers/collateral/coverage_split.md and .json"""
+    res, L = {}, ["# CINDER vs EMBER by coverage (post hoc)", "",
+                  "Paired H3v difference (variant − EMBER), unit = concept, two-sided Wilcoxon, Holm over the 4 variants "
+                  "within each setting and view, 95% cluster bootstrap. Both edit = runs where both judges accept at least "
+                  f"one concept feature. All runs = all 60, no edit scored as H3v 0. Non-inferior = lower CI bound above "
+                  f"−{NI_MARGIN}.", ""]
+    for name, fname in COVERAGE_SETTINGS:
+        R = load_file(fname)
+        A = {v: contrast(R, v, "H3v_rn") for v in CONTRASTS}
+        B = {v: contrast_itt(R, v, "H3v_rn") for v in CONTRASTS}
+        ha = holm(np.array([A[v].get("p", 1.0) for v in CONTRASTS]))
+        hb = holm(np.array([B[v]["p"] for v in CONTRASTS]))
+        res[name] = {}
+        L += [f"## {name}", "", "| Variant − EMBER | both edit: concepts (pairs) | mean [95% CI] | w/l | Holm p | "
+              "non-inferior | all runs: mean [95% CI] | w/l | Holm p |", "|---|---|---|---|---|---|---|---|---|"]
+        for v, a1, b1 in zip(CONTRASTS, ha, hb):
+            a, b = A[v], B[v]
+            ni = a["ci"][0] > -NI_MARGIN
+            res[name][v] = {"both": {k: x for k, x in a.items() if k != "per_concept"} | {"p_holm": float(a1),
+                            "non_inferior": bool(ni)}, "all": b | {"p_holm": float(b1)}}
+            L.append(f"| {NAMES[v]} | {a['n_concepts']} ({a['n_pairs']}) | {a['mean']:+.3f} [{a['ci'][0]:+.3f}, "
+                     f"{a['ci'][1]:+.3f}] | {a['wins']}/{a['losses']} | {a1:.3f} | {'yes' if ni else 'no'} | "
+                     f"{b['mean']:+.3f} [{b['ci'][0]:+.3f}, {b['ci'][1]:+.3f}] | {b['wins']}/{b['losses']} | {b1:.3f} |")
+        L.append("")
+    (OUT / "coverage_split.json").write_text(json.dumps(res, indent=1, default=str))
+    (OUT / "coverage_split.md").write_text("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
+def fmt(x, n=2):
+    return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{n}f}"
+
+
+def main():
+    res = {"rules": {}}
+    lines = ["# Confirmatory expansion (PREREG amendment 8)", "",
+             "12 concepts × seeds 42–46. Test split. Collateral renormalized by the unedited model's per-token test "
+             "accuracy. Paired contrasts on runs where both methods edit; unit = concept (mean over seeds); "
+             "two-sided Wilcoxon across concepts; Holm over the 4 primary contrasts; 95% cluster-bootstrap CI.", ""]
+    for rule, metric in (("collateral", "H3v_rn"), ("fixed05", "H3v_rn"), ("paper", "H2"), ("paper", "H3v_rn")):
+        R = load(rule)
+        C = {v: contrast(R, v, metric) for v in CONTRASTS}
+        adj = holm(np.array([C[v].get("p", 1.0) for v in CONTRASTS]))
+        for v, a in zip(CONTRASTS, adj):
+            C[v]["p_holm"] = float(a)
+        res["rules"][f"{rule}|{metric}"] = {"contrasts": C, "means": by_variant(R, metric), "rates": rates(R)}
+        tag = {"collateral": "Primary: collateral rule", "fixed05": "Secondary: fixed r = 0.5",
+               "paper": "Secondary: paper rule"}[rule]
+        lines += [f"## {tag}, {metric}", "", "| Variant − EMBER | concepts (pairs) | mean Δ | 95% CI | wins/losses | "
+                  "Wilcoxon p | Holm p |", "|---|---|---|---|---|---|---|"]
+        for v in CONTRASTS:
+            x = C[v]
+            if "mean" not in x:
+                lines.append(f"| {NAMES[v]} | 0 | – | – | – | – | – |")
+                continue
+            lines.append(f"| {NAMES[v]} | {x['n_concepts']} ({x['n_pairs']}) | {x['mean']:+.3f} | "
+                         f"[{x['ci'][0]:+.3f}, {x['ci'][1]:+.3f}] | {x['wins']}/{x['losses']} | {x['p']:.3f} | "
+                         f"{x['p_holm']:.3f} |")
+        rt = res["rules"][f"{rule}|{metric}"]["rates"]
+        mn = res["rules"][f"{rule}|{metric}"]["means"]
+        lines += ["", f"| Variant | mean {metric} (runs where it edits) | edit set exists | edit rate | "
+                  f"failure rate (H3v < {FAIL}, no edit = fail) | failure rate when it edits |", "|---|---|---|---|---|---|"]
+        for v in EXP_VARIANTS:
+            lines.append(f"| {NAMES[v]} | {fmt(mn[v])} | {fmt(rt[v]['has_set'])} | {fmt(rt[v]['edit_rate'])} | "
+                         f"{fmt(rt[v]['fail_rate'])} | {fmt(rt[v]['fail_rate_when_edits'])} |")
+        lines.append("")
+    R = load("collateral")
+    lines += ["## Sensitivity (amendment 9, post hoc)", "",
+              "Intention-to-treat: all 60 runs; a variant with no edit scores as the unedited model (H3v 0). Gates: "
+              "the collateral rule re-run at gate 0.7 and 0.9 (paired, runs where both edit). LOO: the primary "
+              "contrast with one concept left out (range of mean and p).", "",
+              "| Variant − EMBER | ITT mean Δ [95% CI] (w/l, p) | gate 0.7 mean Δ (p) | gate 0.9 mean Δ (p) | "
+              "LOO mean range | LOO p range |", "|---|---|---|---|---|---|"]
+    res["sensitivity"] = {}
+    G = {g: load_gate(g) for g in (0.7, 0.9)}
+    itts = {v: contrast_itt(R, v, "H3v_rn") for v in CONTRASTS}
+    adj = holm(np.array([itts[v]["p"] for v in CONTRASTS]))
+    for v, a in zip(CONTRASTS, adj):
+        it = dict(itts[v], p_holm=float(a))
+        gs = {g: contrast(G[g], v, "H3v_rn") if G[g] else {} for g in G}
+        lo = loo(R, v, "H3v_rn")
+        res["sensitivity"][v] = {"itt": it, "gates": gs, "loo": lo}
+        gtxt = [f"{x['mean']:+.3f} ({x['p']:.3f})" if "mean" in x else "pending" for x in gs.values()]
+        lines.append(f"| {NAMES[v]} | {it['mean']:+.3f} [{it['ci'][0]:+.3f}, {it['ci'][1]:+.3f}] ({it['wins']}/"
+                     f"{it['losses']}, p {it['p']:.3f}, Holm {it['p_holm']:.3f}) | {gtxt[0]} | {gtxt[1]} | "
+                     f"{min(m for _, m, _ in lo):+.3f} to {max(m for _, m, _ in lo):+.3f} | "
+                     f"{min(p for _, _, p in lo):.3f} to {max(p for _, _, p in lo):.3f} |")
+    lines.append("")
+    I, IC = integrity()
+    res["integrity"], res["integrity_contrast"] = I, IC
+    lines += ["## Secondary: E2 integrity at the selected point (judge-free)", "",
+              "| Variant | copy | echo | runs |", "|---|---|---|---|"]
+    lines += [f"| {NAMES[v]} | {fmt(I[v]['copy'])} | {fmt(I[v]['echo'])} | {I[v]['n']} |" for v in EXP_VARIANTS]
+    lines += ["", "| Variant − EMBER, copy | concepts (pairs) | mean Δ | 95% CI | Wilcoxon p |", "|---|---|---|---|---|"]
+    for v in CONTRASTS:
+        x = IC[v]
+        if "mean" in x:
+            lines.append(f"| {NAMES[v]} | {x['n_concepts']} ({x['n_pairs']}) | {x['mean']:+.3f} | "
+                         f"[{x['ci'][0]:+.3f}, {x['ci'][1]:+.3f}] | {x['p']:.3f} |")
+    T, TC, AG = t3()
+    res["t3"], res["t3_contrast"], res["t3_agreement"] = T, TC, AG
+    lines += ["", "## Secondary: T3 labels at the selected point (seed 42, blind agents)", "",
+              f"Cross-agent agreement on {AG['n']} expansion duplicates: exact label {fmt(AG['exact'])}, destruction "
+              f"yes/no {fmt(AG['destruction'])}, leak yes/no {fmt(AG['leak'])}.", "",
+              "| Variant | n | graceful | leak | confab | destruction | destruction, exclusive (n) | "
+              "destruction, multi (n) |", "|---|---|---|---|---|---|---|---|"]
+    lines += [f"| {NAMES[v]} | {T[v]['n']} | {fmt(T[v]['graceful'])} | {fmt(T[v]['leak'])} | {fmt(T[v]['confab'])} | "
+              f"{fmt(T[v]['destruction'])} | {fmt(T[v]['destr_exclusive'])} ({T[v]['n_exclusive']}) | "
+              f"{fmt(T[v]['destr_multi'])} ({T[v]['n_multi']}) |" for v in EXP_VARIANTS if v in T]
+    lines += ["", "| Variant − EMBER, destruction | concepts | mean Δ | 95% CI | Wilcoxon p |", "|---|---|---|---|---|"]
+    for v in CONTRASTS:
+        x = TC[v]
+        if "mean" in x:
+            lines.append(f"| {NAMES[v]} | {x['n_concepts']} | {x['mean']:+.3f} | [{x['ci'][0]:+.3f}, "
+                         f"{x['ci'][1]:+.3f}] | {x['p']:.3f} |")
+    (OUT / "confirm.json").write_text(json.dumps(res, indent=1, default=str))
+    (OUT / "confirm.md").write_text("\n".join(lines) + "\n")
+    print("\n".join(lines))
+
+
+if __name__ == "__main__":
+    import sys
+    {"2x2": twobytwo_report, "coverage": coverage_report}.get(sys.argv[1] if sys.argv[1:] else "", main)()

@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+
+% "final" = non-anonymous camera-ready layout (course report).
+\usepackage[final]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,calc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{url}
+
+% ---------------------------------------------------------------------------
+% Draft switches. Set \drafttrue while the paper is being filled in:
+%   \pending{...}  an analysis result that a background analysis is producing (orange)
+%   \expfill{...}  an experiment slot that the experiments pass fills in (blue)
+%   \expnum{...}   a number taken from our internal reports, to be re-checked (blue, inline)
+%   \note{...}     a note to the authors (red)
+% With \draftfalse, \expnum prints its number plainly and the other three print nothing.
+% ---------------------------------------------------------------------------
+\newif\ifdraft
+\draftfalse
+\ifdraft
+  \newcommand{\pending}[1]{{\color{orange!85!black}[\textbf{Analysis pending:} #1]}}
+  \newcommand{\expfill}[1]{{\color{blue!70!black}[\textbf{Experiments:} #1]}}
+  \newcommand{\expnum}[1]{{\color{blue!70!black}#1}}
+  \newcommand{\note}[1]{{\color{red!75!black}[#1]}}
+\else
+  \newcommand{\pending}[1]{}
+  \newcommand{\expfill}[1]{}
+  \newcommand{\expnum}[1]{#1}
+  \newcommand{\note}[1]{}
+\fi
+
+% ---------------------------------------------------------------------------
+% Names and notation
+% ---------------------------------------------------------------------------
+\newcommand{\ember}{EMBER}
+\newcommand{\cinder}{CINDER}
+\newcommand{\cinderz}{CINDER-z}
+\newcommand{\cs}{CS}
+\newcommand{\gs}{GS}
+\newcommand{\twj}{TWJ}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vs}{\mathcal{V}^*}
+\newcommand{\Sc}{\mathcal{S}_C}
+\newcommand{\Sn}{\mathcal{S}_N}
+\newcommand{\Fc}{\mathcal{F}_C}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\cvec}{\mathbf{c}}
+\newcommand{\hmean}{\operatorname{HM}}
+\newcommand{\Hthree}{H_{3}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\definecolor{embergrey}{HTML}{7F7F7F}
+\definecolor{cinderorange}{HTML}{D55E00}
+\definecolor{cinderamber}{HTML}{E69F00}
+\definecolor{csblue}{HTML}{0072B2}
+
+\title{From EMBER to CINDER:\\ Sharpen the Concept, Burn It Once in Eight Languages, Spare the Word}
+
+\author{Semyon Guretskiy \\
+  Tel Aviv University \\
+  \texttt{semyong@mail.tau.ac.il} \\\And
+  Ori Petel \\
+  Tel Aviv University \\
+  \texttt{oripetel@mail.tau.ac.il} \\\And
+  Mary Arav \\
+  Tel Aviv University \\
+  \texttt{maryarav@mail.tau.ac.il} \\}
+
+\begin{document}
+\maketitle
+
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+\input{sections/02_preliminaries}
+\input{sections/03_motivation}
+\input{sections/04_method}
+\input{sections/05_experiments}
+\input{sections/06_analysis}
+\input{sections/07_token_analysis}
+\input{sections/08_related_work}
+\input{sections/09_conclusion}
+\input{sections/10_statements}
+
+\bibliography{references}
+
+\appendix
+\input{appendix/A_ember}
+\input{appendix/B_contrastive_sharpening}
+\input{appendix/C_global_sparsity}
+\input{appendix/D_two_way_judge}
+\input{appendix/E_edit_space}
+\input{appendix/F_multilingual}
+\input{appendix/G_evaluation}
+\input{appendix/H_analyses}
+\input{appendix/I_examples}
+\input{appendix/J_reproducibility}
+
+\end{document}

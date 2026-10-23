@@ -361,3 +361,217 @@ within a concept, then a two-sided Wilcoxon signed-rank test across concepts, pl
 
 **Development numbers it is meant to confirm or refute:** CINDER-RS − EMBER +0.09 overall but +0.01 without the
 failure run; integrity destruction EMBER 0.30 vs CINDER 0.21 and CINDER-RS 0.19.
+
+**Note (2026-10-20): freeze.** `data/collateral_questions_expansion.json` frozen in commit 8423d03, sha256[:16]
+5ba1d287f3b405b1 (12 concepts, 1,026 multi-meaning tokens, 3,501 items), before any edited model was scored on it.
+
+**Note (2026-10-21): deviations.** (1) E2 integrity is measured at the selected point only, the endpoint named above;
+the extra configs at r = 0.5 were dropped for time (two early runs have them; unused). (2) Variants with an empty edit
+set are skipped (no result file), as "runs where both edit" implies. (3) The finals reuse another rule's test result
+when that rule chose the same point (deterministic evaluation). (4) The T3 brief left two cases open (same-referent
+proper nouns without a concept link; hedged look-alike corrections), and the agents resolved them differently; batches
+were random, and cross-agent agreement on 202 duplicates is 0.97 exact and 0.99 on destruction.
+
+**Results (2026-10-21; confirm.md, CINDER_collateral_evaluation.md D17 and F24–F29).**
+- Primary (collateral rule, paired H3v vs EMBER, 11 concepts): CINDER +0.042 (CI −0.009, +0.096; Holm p 0.41),
+  CINDER-RS +0.034 (−0.043, +0.112; 0.41), CINDER-z +0.132 (+0.048, +0.212; 0.074), CINDER-RS-z +0.084
+  (+0.020, +0.153; 0.074). No contrast is significant after Holm.
+- Fixed r = 0.5: +0.151, +0.141, +0.086, +0.115 (Holm p 0.012, 0.037, 0.054, 0.012), 10 of 11 concepts each.
+- Paper rule, H2: −0.134, −0.153, +0.161, +0.088 (Holm p 0.056, 0.084, 0.004, 0.084).
+- Edit rate: EMBER 41/60, CINDER and CINDER-z 52/60, CINDER-RS and CINDER-RS-z 55/60. Failure rate (no edit
+  counts as failure): 0.37, 0.17, 0.17, 0.18, 0.15.
+- Integrity at the selected point: copy 0.40–0.44, T3 destruction 0.49–0.61 (EMBER 0.49, CINDER 0.52, CINDER-RS 0.60),
+  exclusive words 0.65–0.81; no significant paired difference.
+- Against the development numbers: CINDER-RS − EMBER is +0.03 (development +0.09, +0.01 without the failure run);
+  the integrity advantage of CINDER and CINDER-RS (0.21 and 0.19 vs 0.30) is refuted (0.52 and 0.60 vs 0.49).
+
+## Amendment 9 (2026-10-21): last-mile checks (post hoc; defined after the amendment 8 results were seen)
+
+Written before any result of items 2–4 exists. Item 1 was computed while writing this amendment.
+1. **Intention-to-treat primary.** All 60 runs; a variant with no edit set, or no point passing the gates, scores as
+   the unedited model (efficacy 0, so H3v 0). Same unit, test, Holm and bootstrap as amendment 8.
+   **Leave one concept out** for the primary contrast.
+2. **Gate sensitivity.** The collateral rule re-run on the saved grids at gate 0.7 and 0.9 (MMLU gate unchanged),
+   test pass at the new point (`result_g0.7.json`, `result_g0.9.json`); paired as in amendment 8.
+3. **Unreadability floor of efficacy.** The unedited model on the efficacy test questions with each (run, variant)
+   edit set's tokens made unreadable in the text: replaced by a nonce, or removed. Compared with the efficacy at the
+   collateral-rule and paper-rule points. Prediction (the token-destruction thesis): at the paper-rule point, EMBER's
+   and CINDER-z's efficacy is close to the deletion floor; at the collateral-rule point, efficacy is mostly below it.
+4. **Generation damage.** 20 neutral prompts per concept (blind Claude writer, edited multi-meaning tokens in outside
+   meanings), at the concept's first seed where EMBER edits; greedy, 80 tokens; unedited, the 5 variants at their
+   collateral-rule point, EMBER and CINDER-z at the paper-rule point. Blind agents label each answer OK or BROKEN
+   against the unedited answer (D3's rule). Endpoint: broken rate per config. Prediction: paper-rule points break far
+   more prompts than collateral-rule points (development: 3–12 of 20 at δ = 200, 0–1 at δ = 1).
+No Gemini.
+
+## Amendment 10 (2026-10-21): Alpaca coherence on seed 42 (user-approved Gemini extension, about 8 NIS)
+
+Alpaca coherence (50 prompts, the development scorer) at seed 42's collateral-rule point of each variant that edits
+(48 points), and at the paper-rule points of EMBER and CINDER-z (about 19), for H4 = HM(efficacy, specificity,
+coherence, collateral) on one full concept sweep, and for coherence at the destruction regime. Hard stop
+GEMINI_BUDGET_NIS = 32 for these jobs (23.49 spent before). Reported per variant and as paired H4 vs EMBER on seed 42
+(descriptive, 12 concepts × 1 seed). Prediction: coherence ≥ 0.9 at the collateral-rule points; lower at r = 30–100.
+
+**Results of amendments 9 and 10 (2026-10-21; last_mile.md, confirm.md "Sensitivity", doc F30–F35 and D18).**
+- ITT (all 60 runs): CINDER +0.123, CINDER-RS +0.133, CINDER-z +0.167, CINDER-RS-z +0.178 (Holm p 0.103, 0.103,
+  0.103, 0.049). LOO: A3z contrasts p ≤ 0.049 with any concept left out; CINDER and CINDER-RS p 0.08–0.70.
+- Gate 0.9: +0.174, +0.147, +0.195, +0.102 (p 0.004, 0.004, 0.002, 0.014; all below 0.05 after Holm). Gate 0.7:
+  −0.019, −0.041, +0.121, +0.070 (p 0.70, 0.37, 0.07, 0.24).
+- Floor: deletion floor 0.23–0.28. Collateral-rule efficacy 0.29–0.39, at or below the floor in 17–53% of runs.
+  Paper-rule efficacy EMBER 0.47, CINDER-z 0.68, above the floor in 83% and 98% of runs. Prediction for the paper
+  rule (close to the floor) refuted; prediction for the collateral rule (mostly below) not met either (about at it).
+- Generation (9 matched concepts): broken 0.15–0.27 at the collateral-rule points, 0.24 (EMBER) and 0.34 (CINDER-z)
+  at the paper-rule points. Prediction (paper far worse) supported in direction; the collateral-rule points are not
+  near the development δ = 1 rate (0–1 of 20).
+- Alpaca seed 42: coherence 0.97–0.98 at every point (none below 0.9), paper-rule points included. H4 paired vs
+  EMBER: CINDER-z +0.140 (7/0), CINDER-RS-z +0.064, CINDER −0.015, CINDER-RS −0.032. Gemini 8.33 NIS.
+
+## Amendment 11 (2026-10-21, evening): word-free efficacy and integrity-gated selection (post hoc; one day left)
+
+Written before either result exists. The powered CINDER-z test on new concepts does not fit in the remaining day
+(only 3 unused concepts have efficacy questions), so both checks reuse the 60 expansion runs.
+1. **Word-free efficacy.** New efficacy questions per concept (blind Claude writers, 60 drafts each) that avoid every
+   token edited by any variant at any seed of that concept, kept only if (a) no question or option contains such a
+   token id (tokenizer check) and (b) the unedited model answers correctly (option order seed 42). Plus the
+   existing qa_test items that contain none of the (run, variant)'s edited token ids. Efficacy_wf = 1 −
+   normalized accuracy on these items, at the collateral-rule and paper-rule points. Endpoints: efficacy_wf per
+   variant; paired CINDER-z − EMBER on efficacy_wf and on H3v with efficacy_wf (unit = concept, Wilcoxon).
+   Question: does each method's efficacy survive when the edited words are absent?
+2. **E3, integrity-gated selection.** T1 copy (2 carriers, ≤ 60 words) at every grid point with r ≤ 2.5; points
+   above have copy ≈ 0 (F9) and are excluded. Rule: the collateral rule (MMLU ≥ 0.9, collateral ≥ 0.8, max H3v on
+   validation) restricted to points with copy ≥ 0.9; test pass at that point (`result_e3.json`). Endpoints: paired
+   H3v vs EMBER as amendment 8 (Holm over 4), edit rate under the gate, exclusive-word copy at the selected point.
+   Prediction (S2): CINDER variants beat EMBER under E3.
+No Gemini.
+
+## Amendment 13 (2026-10-21, night): the nonce-matching edit (post hoc; defined after amendment 11)
+
+Written before any evaluation result of this method exists. Motivation: embedding edits only block access through the
+edited tokens (the output head is untied, so prompts without them are unchanged). The achievable target is "the
+concept tokens become unknown but intact words": the nonce reference (copy 1.00, T3 destruction 0.06, mostly
+CONFAB / IGNORANT) at efficacy near the nonce floor. All methods at r ≈ 1 reach the floor's efficacy only by
+destroying the words (copy 0.40–0.44, T3 destruction 0.49–0.61).
+
+**Method.** Only the edited rows change: e'_t = e_t + Δ_t (TL-scaled space), Δ_t learned with the model frozen.
+Loss = w_f · forget + copy + retain + 1e-3 · Σ‖Δ_t‖² / ‖e_t‖².
+- forget: KL(unedited model with the token replaced by its nonce ‖ edited model with the token), at every position
+  from the token on (top-64 + rest approximation of the target), on (i) concept sentences containing the token (the
+  SNMF training data of the concept, not evaluation data) and (ii) 3 new definitional chat prompts (not the T3 prompt),
+  teacher-forcing the unedited model's greedy answer to the nonce prompt.
+- copy: KL(unedited ‖ edited) on the response to 4 new copy carriers with a new instruction (not the evaluation's two
+  carriers or instruction), teacher-forcing the unedited model's greedy answer.
+- retain: multi-meaning tokens only; KL(unedited ‖ edited) from the token on, on 3 sentences per token that the unedited
+  model writes with the word in a sense unrelated to the concept.
+- Never trained on: the collateral question sets, qa / simdom / MMLU items, the COPY carriers, the ASK prompt, the
+  neutral generation prompts.
+
+**Variants** (seed 42, 12 expansion concepts; a variant with an empty set does not edit):
+NM-CINDER (CINDER-z token set; Δ_t in the span of that set's concept components, rank ≤ number of concept features),
+NM-free (CINDER-z token set; Δ_t unconstrained), NM-EMBER (EMBER's set and subspace).
+**Knob:** w_f ∈ {0.5, 2, 8}; fixed steps and learning rate, tuned on one pilot run (Baseball s42, training loss and
+copy only; no evaluation metric used).
+**Selection** (validation, as E3): MMLU-frac ≥ 0.9, validation collateral ≥ 0.8, copy (COPY carriers) ≥ 0.9, max
+validation H3v. Test pass at the selected point (`result_nm.json`).
+
+**Endpoints.** Primary: nonce-point attainment per run = test efficacy ≥ (per-run nonce floor of the set − 0.05) and
+copy ≥ 0.9 and test collateral ≥ 0.8; attainment rate per variant. Secondary: paired test H3v vs the E3-selected
+EMBER and CINDER-z (unit = concept, Wilcoxon), exclusive-word copy, echo and context-MC (judge-free), T3 destruction
+vs the nonce reference and generation broken rate at the selected points (seed 42, blind labels).
+**Predictions.** (a) NM-CINDER reaches the nonce point in most runs where it edits. (b) NM-free ≥ NM-CINDER.
+(c) NM-EMBER edits fewer runs (empty sets) and is no better where it edits. No Gemini.
+
+**Note (2026-10-21, 21:30): amendment 11 item 1 stopped early (by construction).** The model loader unties Gemma's
+lm_head (`ember/erasure/model_loader.py`), so every edit changes input rows only. A prompt with no edited token id
+runs exactly as in the unedited model, so word-free efficacy is 0 unless the MC frame contains an edited token. A CPU
+check finds none of the frame's 34 token ids in any of the 255 run-variant edit sets. The word-free jobs were stopped
+after 9 run-variants (Golf s44, Gun s43) confirmed it: accuracy on 43–51 new items and 4–6 old items equals the
+unedited model at both the collateral-rule and the paper-rule point (efficacy 0.000 in all 18 configs).
+
+## Amendment 12 (2026-10-21, 21:30): Alpaca coherence at the E3 points (user-approved, about 6 NIS)
+
+Written before any E3 result exists. Alpaca coherence (50 prompts, the development scorer) at seed 42's E3 point
+(amendment 11 item 2) of each of the 5 variants that edit under E3. A point equal to the collateral-rule or
+paper-rule point reuses that score. Reported: coherence per variant, H4 = HM(efficacy, specificity, coherence,
+collateral) under E3, and paired H4 vs EMBER on seed 42 (descriptive). Gemini hard stop GEMINI_BUDGET_NIS = 38 for
+these jobs (31.82 spent before). Prediction: coherence ≥ 0.95 at every E3 point (smaller r than the collateral rule).
+
+**Amendment 13 addendum (2026-10-21, 22:15; after the pilot, before any efficacy or collateral result).** The pilot
+(Baseball s42, training losses and evaluation-carrier copy only) showed the rank-≤3 CINDER subspace barely lowers the
+forget loss, while the free edit does (KL 2.70 → 0.28, copy 0.98) at a large move (r = 3.5 at w_f = 0.5). Changes:
+(1) variant NM-free-EMBER (EMBER's token set, unconstrained Δ) added, so NM-free (CINDER-z set) vs NM-free-EMBER
+isolates the token set; (2) the knob path is w_f = 0.05 → 0.15 → 0.5 → 2 (120, 60, 60, 60 steps), adding weaker forget
+weights that keep r near or below 1, so the selection can find points with collateral ≥ 0.8. Grid rows report r,
+validation collateral and copy per knob. Prediction for the token set: NM-free ≥ NM-free-EMBER, and NM-free edits more
+runs.
+
+**Amendment 13 addendum 2 (2026-10-21, 23:00; before any result of the variant below).** Follow-up variant
+**NM-QA**: NM-free on the CINDER-z set plus forget data from concept questions written by the unedited model itself
+(3 per token: "Write 3 short quiz questions about {concept} that use the word '{w}'"), target = the unedited model's
+greedy answer to the nonce version of each question (KL per answer position, as the definitional prompts). Questions
+that match any qa / simdom / collateral item exactly or nearly (difflib ratio ≥ 0.8 after normalisation, or word
+Jaccard ≥ 0.6, or word containment ≥ 0.8, added before any data was generated) are dropped. Same knob path and selection, learning rate 0.003 (instead of 0.01) so r can stay near 1.
+**Launch rule:** NM-QA runs only if, in at least 2 of the first 3 concepts completed by NM-free, the selected point's
+test efficacy is below its nonce floor by more than 0.1. **Scoring caveat:** NM-QA trains on the efficacy test's format
+(held-out items), so it is judged on the other formats as well (copy, T3, generation, echo, context-MC); an efficacy
+gain without them is not the nonce point.
+
+**Addendum 2 launch (2026-10-22, 00:05).** First 3 NM-free concepts (test efficacy vs nonce floor): Baseball 0.05 vs
+0.51, Cannabis 0.34 vs 0.52, COVID-19 0.00 vs 0.00. Rule met (2 of 3 below by > 0.1); NM-QA submitted to start at
+01:30 (GPU share).
+
+**Results of amendment 11 (2026-10-22; last_mile.md, doc F36–F38 and D19).**
+- Word-free efficacy: 0 by construction (untied output head; frame tokens never edited), confirmed on 9 run-variants
+  at both points (efficacy 0.000 in 18 configs); jobs stopped early (note above).
+- E3 (copy ≥ 0.9): paired H3v vs EMBER CINDER +0.096, CINDER-RS +0.092, CINDER-z +0.029, CINDER-RS-z +0.026 (Holm p
+  0.42, 0.42, 0.75, 0.75): not significant. Intention-to-treat (post hoc, amendment 9's definition): +0.134, +0.166,
+  +0.053, +0.063 (Holm 0.015, 0.006, 0.33, 0.33). Efficacy at the E3 point 0.06 (EMBER), 0.12, 0.14, 0.07, 0.07;
+  exclusive-word copy 0.94–0.98. Prediction (CINDER variants beat EMBER under E3): supported in direction for CINDER
+  and CINDER-RS, significant only under intention-to-treat; not for A3z.
+- Context damage at the collateral-rule point (existing E2 outputs, post hoc): context-MC below the real-word
+  reference for CINDER-z (9 of 11 concepts, p 0.024) and CINDER-RS-z (10 of 12, p 0.003), not for EMBER, CINDER or
+  CINDER-RS.
+
+**Results of amendment 12 (2026-10-22).** All 48 seed-42 E3 points (45 scored, 3 reused), 5.68 NIS (total 37.50 of the
+38 stop). Coherence 0.97–0.98 for every variant, none below 0.9 (prediction ≥ 0.95: met). H4 at the E3 point: EMBER
+0.18, CINDER 0.35, CINDER-RS 0.20, CINDER-z 0.16, CINDER-RS-z 0.25; paired vs EMBER CINDER +0.169 (6/1), CINDER-RS
+−0.086, CINDER-z −0.026, CINDER-RS-z +0.038 (descriptive).
+
+**Results of amendment 13 and addenda (2026-10-22; nonce_edit.md, doc F39–F43 and D20).** Seed 42.
+- Nonce-point attainment: NM-CINDER 1/10, NM-free 2/9, NM-EMBER 2/8, NM-free-EMBER 3/7, NM-QA 3/10; all but two on
+  runs whose floor is ≈ 0 (COVID-19, Pornography). Substantial: Baseball NM-free-EMBER, Heroin NM-QA.
+- Test efficacy (mean floor 0.36 / 0.27 for the CINDER / EMBER sets): NM-CINDER 0.04, NM-free 0.18, NM-EMBER 0.02,
+  NM-free-EMBER 0.21, NM-QA 0.22; collateral 0.86–0.99; copy 0.97–1.00; median r 0.18–0.32 (subspace) and 1.6–3.2
+  (free). Copy-gated subtraction (E3) on the same runs: 0.06–0.14.
+- T3 destruction: subspace variants 0.01–0.04 (leak 0.39–0.53); free variants 0.47–0.59, mostly answers that name a
+  different invented string ("renamed" 0.32–0.47 vs nonce 0.17). Generation broken: 0.02–0.04 (subspace), 0.15–0.16
+  (free). T3 agreement 0.92 / 0.97 (152 duplicates); generation agreement 1.00 (88).
+- Predictions: (a) refuted; (b) supported; (c) supported; addendum token-set prediction: more runs yes, better per run
+  no. Incidents: hook-during-evaluation bug in the first pilot (fixed before evaluation); a round-1 labeller's
+  departure from the brief on batches 63–65 (revised; destruction there 0.12–0.15 → 0.32–0.33).
+
+## Amendment 14 (2026-10-22): confirmatory 2×2 at fixed strength (post hoc, after amendments 8–13)
+
+Written before any result. Question: is CINDER's advantage at equal edit strength (fixed r = 0.5, F26) a direction
+effect or a token-set effect? The development 2×2 (F6, 5 runs) found direction, not tokens.
+- **Cells** (existing `edits_s<seed>.pt`, dense Y as in development): ee = EMBER tokens × EMBER direction,
+  1b = EMBER tokens × CINDER direction, 1a = CINDER top-N tokens × CINDER direction, cross = CINDER top-N tokens ×
+  EMBER direction. ee exists in the 41 runs where EMBER's set is non-empty; 1b, 1a and cross need a CINDER set as
+  well, so the full 2×2 has 38 runs (Nazism 44, Republic of Ireland 42/43 have ee only).
+- **Measure:** test pass at fixed r = 0.5 (primary) and r = 1 (secondary): efficacy, specificity, renormalized
+  collateral, H3v (`result_fixed05.json`, `result_fixed1.json` in the cell dirs). No grid, no selection.
+- **Endpoints** (unit = concept, mean over seeds; Wilcoxon; 95% cluster bootstrap): Δ_dir = mean of (1b − ee) and
+  (1a − cross); Δ_tok = mean of (cross − ee) and (1a − 1b); on efficacy and H3v at r = 0.5, Holm over these 4. The 4
+  single contrasts and r = 1 are secondary.
+- **Predictions (from F6):** Δ_dir > 0 on efficacy (+0.10 to +0.15); Δ_tok ≈ 0 (−0.01 to −0.03); the direction costs
+  a little collateral (−0.01 to −0.05).
+No Gemini.
+
+**Results of amendment 14, primary (2026-10-22; twobytwo.md, doc F44 and D21).** Fixed r = 0.5, 38 full-2×2 runs,
+11 concepts. Δ_dir: efficacy +0.073 [+0.012, +0.150], 10/1 concepts, p 0.032, Holm 0.097; H3v +0.097
+[+0.029, +0.174], 10/1, p 0.014, Holm 0.055. Δ_tok: efficacy +0.016 (p 0.16), H3v +0.024 (p 0.10), Holm 0.20.
+Direction collateral cost −0.019 (p 0.054). Predictions: Δ_dir > 0 supported nominally, not after Holm, smaller than
+predicted; Δ_tok ≈ 0 supported; direction collateral cost supported. r = 1 (secondary) follows.
+
+**Results of amendment 14, secondary r = 1 (2026-10-22).** Δ_dir: efficacy −0.016 [−0.072, +0.027], 6/5, p 0.97;
+H3v −0.007 (p 1.00). Δ_tok: efficacy +0.010 (p 0.56), H3v +0.012 (p 0.97). All cells at efficacy 0.27–0.29. The
+development direction effect at r = 1 (+0.09, F6) does not replicate; the direction effect is confined to r = 0.5.

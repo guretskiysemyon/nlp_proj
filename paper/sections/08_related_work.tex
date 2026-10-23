@@ -1,0 +1,17 @@
+%=====================================================================
+\section{Related Work}
+\label{sec:related}
+%=====================================================================
+
+\paragraph{Concept Erasure and Its Evaluation}
+Unlearning methods optimize a forget objective \citep{eldan2023harry,li2024wmdp,ashuach2026crisp} or edit the parameters that store the concept \citep{gurarieh2025precise,shafran2026constructing,suslik2026ember}; in both, erasure is often undone by relearning \citep{deeb2024unlearning}, adversarial prompts \citep{lynch2024eight} or another format \citep{ye2025formindependent,hong2025intrinsic}.
+Knowledge editing tests specificity on \emph{neighborhood} prompts that share surface form with the edit \citep{meng2022locating}; our collateral term brings this idea to embedding erasure, and our nonce reference follows the \emph{wug} test \citep{berko1958child}.
+
+\paragraph{Sparse Dictionaries and Their Interpretation}
+Sparse factorizations recover interpretable parts of data \citep{lee1999nmf,hoyer2004nmf} and of model activations \citep{bricken2023monosemanticity,huben2024sparse,gao2025scaling}, with the sparsity allocation shaping what is found \citep{makhzani2014ksparse,bussmann2024batchtopk}; their features are commonly named by an LLM \citep{bills2023language,paulo2024automatically}, whose verbalized confidence is poorly calibrated \citep{xiong2024can}.
+
+\paragraph{Geometry of Token Embeddings}
+Embedding spaces are anisotropic \citep{ethayarajh2019contextual,mu2018allbutthetop}, rare tokens degenerate \citep{gao2019representation}, and whitening improves semantic similarity \citep{su2021whitening}; INLP and LEACE \citep{ravfogel2020null,belrose2023leace} also whiten, but to remove a concept from representations, whereas we whiten to find it in the weights.
+
+\paragraph{Multilingual Knowledge and Unlearning}
+Multilingual LMs encode language identity in a few dominant directions \citep{chang2022geometry,libovicky2020language} and share conceptual knowledge across languages \citep{wendler2024llamas}, yet unlearning in one language often fails to carry over \citep{choi2024crosslingual,lu2025learn}.

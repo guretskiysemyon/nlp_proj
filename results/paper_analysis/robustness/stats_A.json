@@ -1,0 +1,493 @@
+{
+ "S300": {
+  "abstract/EMBER": {
+   "n_concepts": 9,
+   "P@1": 0.0,
+   "P@3": 0.06666666666666668,
+   "P@10": 0.4444444444444444,
+   "P@10_ci": [
+    0.1111111111111111,
+    0.7777777777777778
+   ],
+   "P_rank_mean_cap11": 8.488888888888889,
+   "lex5@10": 0.022222222222222223,
+   "stability": 0.6353566723131939,
+   "nP": 0.6000000000000001,
+   "nB": 3.1777777777777776,
+   "nN": 6.222222222222222
+  },
+  "abstract/CS": {
+   "n_concepts": 9,
+   "P@1": 0.0,
+   "P@3": 0.0,
+   "P@10": 0.4888888888888888,
+   "P@10_ci": [
+    0.2,
+    0.7777777777777778
+   ],
+   "P_rank_mean_cap11": 9.022222222222222,
+   "lex5@10": 0.0,
+   "stability": 0.8779709372752851,
+   "nP": 0.5111111111111111,
+   "nB": 3.0444444444444447,
+   "nN": 6.444444444444445
+  },
+  "abstract/CSGS": {
+   "n_concepts": 9,
+   "P@1": 0.0,
+   "P@3": 0.17777777777777778,
+   "P@10": 0.6666666666666666,
+   "P@10_ci": [
+    0.3333333333333333,
+    1.0
+   ],
+   "P_rank_mean_cap11": 7.222222222222222,
+   "lex5@10": 0.0,
+   "stability": 0.7548932473229147,
+   "nP": 0.6888888888888889,
+   "nB": 2.511111111111111,
+   "nN": 6.800000000000001
+  },
+  "entity/EMBER": {
+   "n_concepts": 4,
+   "P@1": 0.4,
+   "P@3": 0.5,
+   "P@10": 0.6,
+   "P@10_ci": [
+    0.2,
+    1.0
+   ],
+   "P_rank_mean_cap11": 5.6,
+   "lex5@10": 0.8,
+   "stability": 0.5017390536841337,
+   "nP": 1.25,
+   "nB": 2.25,
+   "nN": 6.5
+  },
+  "entity/CS": {
+   "n_concepts": 4,
+   "P@1": 0.65,
+   "P@3": 0.65,
+   "P@10": 0.7,
+   "P@10_ci": [
+    0.25,
+    1.0
+   ],
+   "P_rank_mean_cap11": 4.35,
+   "lex5@10": 0.8500000000000001,
+   "stability": 0.6229551700947581,
+   "nP": 1.45,
+   "nB": 1.8499999999999999,
+   "nN": 6.699999999999999
+  },
+  "entity/CSGS": {
+   "n_concepts": 4,
+   "P@1": 0.45,
+   "P@3": 0.45,
+   "P@10": 0.65,
+   "P@10_ci": [
+    0.2,
+    0.95
+   ],
+   "P_rank_mean_cap11": 5.85,
+   "lex5@10": 0.75,
+   "stability": 0.5446149149586986,
+   "nP": 1.4,
+   "nB": 2.2,
+   "nN": 6.4
+  },
+  "MWU EMBER abstract vs entity P@10": {
+   "abstract_mean": 0.4444444444444444,
+   "entity_mean": 0.6,
+   "p": 0.6064979888020765
+  },
+  "paired CS-EMBER abstract P@10": {
+   "n": 9,
+   "mean_diff": 0.044444444444444446,
+   "ci": [
+    -0.06666666666666665,
+    0.19999999999999998
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER abstract P@10": {
+   "n": 9,
+   "mean_diff": 0.2222222222222222,
+   "ci": [
+    0.0,
+    0.5555555555555556
+   ],
+   "wilcoxon_p": 0.5,
+   "n_pos": 2,
+   "n_neg": 0
+  },
+  "paired CS-EMBER entity P@10": {
+   "n": 4,
+   "mean_diff": 0.1,
+   "ci": [
+    -0.14999999999999997,
+    0.44999999999999996
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER entity P@10": {
+   "n": 4,
+   "mean_diff": 0.05000000000000002,
+   "ci": [
+    -0.14999999999999997,
+    0.30000000000000004
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "MWU EMBER abstract vs entity P@3": {
+   "abstract_mean": 0.06666666666666668,
+   "entity_mean": 0.5,
+   "p": 0.042677671191821746
+  },
+  "paired CS-EMBER abstract P@3": {
+   "n": 9,
+   "mean_diff": -0.06666666666666668,
+   "ci": [
+    -0.15555555555555556,
+    0.0
+   ],
+   "wilcoxon_p": 0.5,
+   "n_pos": 0,
+   "n_neg": 2
+  },
+  "paired CSGS-EMBER abstract P@3": {
+   "n": 9,
+   "mean_diff": 0.1111111111111111,
+   "ci": [
+    -0.04444444444444446,
+    0.26666666666666666
+   ],
+   "wilcoxon_p": 0.375,
+   "n_pos": 4,
+   "n_neg": 1
+  },
+  "paired CS-EMBER entity P@3": {
+   "n": 4,
+   "mean_diff": 0.15,
+   "ci": [
+    0.0,
+    0.44999999999999996
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 0
+  },
+  "paired CSGS-EMBER entity P@3": {
+   "n": 4,
+   "mean_diff": -0.04999999999999999,
+   "ci": [
+    -0.44999999999999996,
+    0.30000000000000004
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "MWU EMBER abstract vs entity P_rank_mean_cap11": {
+   "abstract_mean": 8.488888888888889,
+   "entity_mean": 5.6,
+   "p": 0.2907032058407988
+  },
+  "paired CS-EMBER abstract P_rank_mean_cap11": {
+   "n": 9,
+   "mean_diff": 0.5333333333333334,
+   "ci": [
+    -0.1999999999999998,
+    1.333333333333333
+   ],
+   "wilcoxon_p": 0.3125,
+   "n_pos": 3,
+   "n_neg": 2
+  },
+  "paired CSGS-EMBER abstract P_rank_mean_cap11": {
+   "n": 9,
+   "mean_diff": -1.2666666666666666,
+   "ci": [
+    -3.177777777777778,
+    0.4444444444444444
+   ],
+   "wilcoxon_p": 0.40625,
+   "n_pos": 2,
+   "n_neg": 4
+  },
+  "paired CS-EMBER entity P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": -1.25,
+   "ci": [
+    -4.5,
+    0.7500000000000003
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER entity P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": 0.25,
+   "ci": [
+    -3.0,
+    3.75
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  }
+ },
+ "S190": {
+  "abstract/EMBER": {
+   "n_concepts": 4,
+   "P@1": 0.0,
+   "P@3": 0.15,
+   "P@10": 0.25,
+   "P@10_ci": [
+    0.0,
+    0.75
+   ],
+   "P_rank_mean_cap11": 9.1,
+   "lex5@10": 0.2,
+   "stability": 0.7077994469298817,
+   "nP": 0.3,
+   "nB": 2.9,
+   "nN": 6.799999999999999
+  },
+  "abstract/CS": {
+   "n_concepts": 4,
+   "P@1": 0.0,
+   "P@3": 0.05,
+   "P@10": 0.25,
+   "P@10_ci": [
+    0.0,
+    0.75
+   ],
+   "P_rank_mean_cap11": 9.25,
+   "lex5@10": 0.0,
+   "stability": 0.5302132694336592,
+   "nP": 0.25,
+   "nB": 2.8000000000000003,
+   "nN": 6.949999999999999
+  },
+  "abstract/CSGS": {
+   "n_concepts": 4,
+   "P@1": 0.05,
+   "P@3": 0.2,
+   "P@10": 0.25,
+   "P@10_ci": [
+    0.0,
+    0.75
+   ],
+   "P_rank_mean_cap11": 8.95,
+   "lex5@10": 0.0,
+   "stability": 0.6029351395730707,
+   "nP": 0.25,
+   "nB": 2.5999999999999996,
+   "nN": 7.15
+  },
+  "entity/EMBER": {
+   "n_concepts": 4,
+   "P@1": 0.25,
+   "P@3": 0.55,
+   "P@10": 0.75,
+   "P@10_ci": [
+    0.5,
+    1.0
+   ],
+   "P_rank_mean_cap11": 4.8,
+   "lex5@10": 0.9,
+   "stability": 0.5853876320089808,
+   "nP": 1.4,
+   "nB": 2.0,
+   "nN": 6.6
+  },
+  "entity/CS": {
+   "n_concepts": 4,
+   "P@1": 0.5,
+   "P@3": 0.65,
+   "P@10": 0.75,
+   "P@10_ci": [
+    0.25,
+    1.0
+   ],
+   "P_rank_mean_cap11": 4.2,
+   "lex5@10": 0.95,
+   "stability": 0.375121187235873,
+   "nP": 1.7999999999999998,
+   "nB": 2.3,
+   "nN": 5.8999999999999995
+  },
+  "entity/CSGS": {
+   "n_concepts": 4,
+   "P@1": 0.45,
+   "P@3": 0.6,
+   "P@10": 0.75,
+   "P@10_ci": [
+    0.25,
+    1.0
+   ],
+   "P_rank_mean_cap11": 4.35,
+   "lex5@10": 0.8,
+   "stability": 0.7478913192071087,
+   "nP": 1.6,
+   "nB": 2.5,
+   "nN": 5.9
+  },
+  "MWU EMBER abstract vs entity P@10": {
+   "abstract_mean": 0.25,
+   "entity_mean": 0.75,
+   "p": 0.1720337089218229
+  },
+  "paired CS-EMBER abstract P@10": {
+   "n": 4,
+   "mean_diff": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 0,
+   "n_neg": 0
+  },
+  "paired CSGS-EMBER abstract P@10": {
+   "n": 4,
+   "mean_diff": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 0,
+   "n_neg": 0
+  },
+  "paired CS-EMBER entity P@10": {
+   "n": 4,
+   "mean_diff": 0.0,
+   "ci": [
+    -0.30000000000000004,
+    0.30000000000000004
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER entity P@10": {
+   "n": 4,
+   "mean_diff": 0.0,
+   "ci": [
+    -0.30000000000000004,
+    0.30000000000000004
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 1
+  },
+  "MWU EMBER abstract vs entity P@3": {
+   "abstract_mean": 0.15,
+   "entity_mean": 0.55,
+   "p": 0.2186037372080598
+  },
+  "paired CS-EMBER abstract P@3": {
+   "n": 4,
+   "mean_diff": -0.09999999999999999,
+   "ci": [
+    -0.3,
+    0.0
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 0,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER abstract P@3": {
+   "n": 4,
+   "mean_diff": 0.05000000000000002,
+   "ci": [
+    0.0,
+    0.15000000000000005
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 0
+  },
+  "paired CS-EMBER entity P@3": {
+   "n": 4,
+   "mean_diff": 0.09999999999999998,
+   "ci": [
+    -0.30000000000000004,
+    0.7
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 2
+  },
+  "paired CSGS-EMBER entity P@3": {
+   "n": 4,
+   "mean_diff": 0.04999999999999999,
+   "ci": [
+    -0.4,
+    0.65
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 2
+  },
+  "MWU EMBER abstract vs entity P_rank_mean_cap11": {
+   "abstract_mean": 9.1,
+   "entity_mean": 4.8,
+   "p": 0.10159149986165274
+  },
+  "paired CS-EMBER abstract P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": 0.15000000000000002,
+   "ci": [
+    0.0,
+    0.45000000000000007
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 1,
+   "n_neg": 0
+  },
+  "paired CSGS-EMBER abstract P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": -0.15000000000000002,
+   "ci": [
+    -0.45000000000000007,
+    0.0
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 0,
+   "n_neg": 1
+  },
+  "paired CS-EMBER entity P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": -0.5999999999999996,
+   "ci": [
+    -4.6499999999999995,
+    2.5500000000000003
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 2,
+   "n_neg": 1
+  },
+  "paired CSGS-EMBER entity P_rank_mean_cap11": {
+   "n": 4,
+   "mean_diff": -0.44999999999999973,
+   "ci": [
+    -4.499999999999999,
+    2.5500000000000003
+   ],
+   "wilcoxon_p": 1.0,
+   "n_pos": 2,
+   "n_neg": 1
+  }
+ },
+ "unlabelled_top10_slots": 0
+}

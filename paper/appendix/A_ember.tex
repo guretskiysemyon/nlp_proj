@@ -1,0 +1,34 @@
+%=====================================================================
+\section{\ember{}: Reproduction Details}
+\label{app:ember}
+%=====================================================================
+
+\paragraph{Sparse MF}
+We follow \ember{}'s App.~A.1.
+Given $A \in \R^{d \times n}$, alternating least squares updates $Y \leftarrow (Z^{\top}Z + \lambda I)^{-1}Z^{\top}A$ and $Z \leftarrow AY^{\top}(YY^{\top} + \lambda I)^{-1}$ with ridge $\lambda = 10^{-4}$.
+After each $Y$ update the sparsity rule is applied to the dense $Y$ (row sparsity: the top $\lceil s\,n \rceil$ entries of each row by magnitude, $s = 0.01$), and each row of $Y$ is rescaled to unit norm with the scale absorbed into $Z$.
+$Z$ and $Y$ start from i.i.d.\ $\mathcal N(0,1)$ draws; we stop when the relative error improves by less than $10^{-4}$ for 200 iterations and the support changes in fewer than 0.5\% of its entries, or after 20{,}000 iterations.
+$k = 100$ on Gemma-2-2B-it ($d = 2304$) and $k = 200$ on Llama-3.1-8B-Instruct ($d = 4096$).
+Embeddings are the input embedding rows scaled by $\sqrt d$ for Gemma, as the model uses them.
+
+\paragraph{Data}
+\ember{}'s 18 concepts: Ancient Rome, Artificial Intelligence, Baseball, Cannabis, COVID-19 pandemic, Culture of Greece, Gambling, Golf, Gun, Halloween, Harry Potter, Heroin, Nazism, Pornography, Republic of Ireland, Uranium, Valentine's Day, World War II.
+$\Sc$ holds 300 sentences sampled from the concept's Wikipedia page and $\Sn$ 300 sentences from random English Wikipedia pages (sampling seed 42); for Harry Potter $|\vs| = 4{,}780$.
+Questions follow \ember{}: 50 validation and 50 test multiple-choice questions per concept and per similar domain, and MMLU \citep{hendrycks2021mmlu}.
+The 20 additional concepts are listed in App.~\ref{app:ml}.
+
+\paragraph{Feature selection}
+The 20 features with the largest $\rho$ (Eq.~\ref{eq:rho}) and $\rho > 2$ go to the judge, which uses \ember{}'s two prompts (its Figures 4--5) on each feature's top 20 concept-labelled tokens and accepts at confidence $\geq 0.85$.
+Our judge is Gemini~3.5 Flash-Lite; \ember{} used Gemini~2.5 Flash-Lite.
+Re-judging 230 candidates flipped 0.4\% of decisions.
+
+\paragraph{Fidelity}
+On \ember{}'s protocol our reproduction reaches concept, similar-domain and MMLU accuracy of \expnum{48.4}, \expnum{83.2} and \expnum{55.1}, against \expnum{52.1}, \expnum{84.6} and \expnum{53.6} in the paper's Table~6.
+Tuning with Alpaca coherence inside the $\delta$ grid, as the paper does, gives the same $\delta$ and result as our cheaper MMLU gate on Harry Potter ($H = \expnum{0.727}$ vs.\ \expnum{0.726}).
+In an earlier phase we found that a 4-token answer budget in the original multiple-choice scorer counted many correct answers as wrong at large edit strengths, inflating \ember{}'s efficacy. All erasure numbers here use the repaired scorer, except the cross-lingual leakage of the first study (App.~\ref{app:ml}), which we report with the original scorer and with unparseable answers dropped.
+
+\paragraph{Why the protocol misses token destruction}
+Over the \expnum{344} points of the first erasure run (\ember{} and six intermediate variants on 14 concepts, 8 strengths each, seed 42), MMLU never falls below \expnum{0.93} of the unedited model, so the 0.9 gate never rejects a strength, and Alpaca coherence stays at or above \expnum{0.92} at every selected point; the similar-domain questions avoid the edited words.
+We wrote 20 neutral prompts per development concept, most using an edited word in another sense (Prince Harry, Caesar salad) and a few on adjacent topics with no edited word, and compared each greedy answer with the unedited model's.
+At $\delta = 200$, \ember{} breaks \expnum{12}, \expnum{3} and \expnum{7} of 20 on Harry Potter, Ancient Rome and Valentine's Day (seeds 42, 44 and 42), and \cinder{} \expnum{9}, \expnum{12} and \expnum{9}; at $\delta = 1$, both break \expnum{0--1} on each.
+$\delta = 200$ is \ember{}'s selected strength on Harry Potter; for \cinder{}, which selected $\delta = 2$ there, it is a stress test.

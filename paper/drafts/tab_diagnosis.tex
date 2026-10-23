@@ -1,0 +1,19 @@
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}P{1.45cm}P{3.15cm}P{2.3cm}@{}}
+    \toprule
+    Stage & Issue & \cinder{}'s change \\
+    \midrule
+    Decompose & The concept hides behind rarity; once separated, it is quiet & Contrastive Sharpening (\S\ref{sec:cs}) \\
+    Decompose & One width for every feature & Global Sparsity (\S\ref{sec:cs}) \\
+    Identify & The judge reads a summary that loses the concept & Two-Way Judge (\S\ref{sec:twj}) \\
+    Erase & Centred and uncentred edits differ by a direction all tokens share & Both variants (\S\ref{sec:cinderz}) \\
+    Scope & Edits English tokens only; one multilingual fit finds few concepts & One fit for eight languages (\S\ref{sec:ml}) \\
+    Evaluate & Destroying a word scores as erasing a concept & Collateral-aware evaluation (\S\ref{sec:setup}) \\
+    \bottomrule
+  \end{tabular}
+  \caption{Issues in each stage of \ember{} and \cinder{}'s change. The Erase row concerns a choice in our own design.}
+  \label{tab:diagnosis}
+\end{table}

@@ -1,0 +1,34 @@
+%=====================================================================
+\section{Preliminaries and Notation}
+\label{sec:prelim}
+%=====================================================================
+
+We follow the notation of \citet{suslik2026ember}: a transformer LM \citep{vaswani2017attention} has hidden dimension $d$, vocabulary $\mathcal V$ and input embedding matrix $E \in \R^{|\mathcal V| \times d}$, whose row $\e_t \in \R^d$ embeds token $t$.
+
+\paragraph{Concept Erasure in Language Models}
+Given a model $M$ and a target concept $C$ (e.g., Harry Potter), persistent concept erasure updates the parameters of $M$ so that it no longer answers questions about $C$ better than chance, while maintaining its performance on other concepts and tasks \citep{eldan2023harry,li2024wmdp,gurarieh2025precise,suslik2026ember}.
+We assume target sentences $\Sc$ from $C$'s Wikipedia page and neutral sentences $\Sn$ from unrelated pages.
+
+\paragraph{EMBER}
+\ember{} follows a localize-then-edit approach with three stages.
+(1)~\emph{Decomposing.}
+Let $\vs$ be the token types that appear in $\Sc \cup \Sn$, $n = |\vs|$, and $A = E_{\vs}^{\top} \in \R^{d \times n}$.
+\ember{} factorizes $A \approx ZY$, with a dictionary $Z \in \R^{d \times k}$ of \emph{embedding features} $\z_i$ and coefficients $Y \in \R^{k \times n}$, keeping the 1\% largest entries of each row of $Y$ and alternating least squares (Sparse MF).
+(2)~\emph{Identifying.}
+Tokens are labelled concept, neutral or both, by whether they appear in $\Sc$, $\Sn$ or both; with $T_C$ and $T_N$ the concept- and neutral-labelled tokens, each feature is scored by its mass ratio
+\begin{equation}
+  \rho_i = \frac{\sum_{t\in T_C} |Y_{i,t}|}{\sum_{t \in T_N} |Y_{i,t}|},
+  \label{eq:rho}
+\end{equation}
+and features with $\rho_i > \tau = 2$ go to an LLM judge that first describes the feature's top tokens without seeing the concept, then decides from the description alone whether the feature is the concept, accepting at confidence $\geq 0.85$.
+The accepted features form $\Fc$.
+(3)~\emph{Erasing.}
+Each concept token with $Y_{i,t} \neq 0$ for some $i \in \Fc$ is edited as
+\begin{equation}
+  \e_t' = \e_t - \delta\, \cvec_t, \qquad \cvec_t = \sum_{i \in \Fc} Y_{i,t}\, \z_i ,
+  \label{eq:edit}
+\end{equation}
+where $\cvec_t$ is the token's \emph{concept part} and $\delta \geq 0$ the erasure strength.
+
+\paragraph{Evaluating Erasure}
+\ember{} measures efficacy (accuracy on multiple-choice questions about $C$), specificity (similar-domain questions and MMLU; \citealp{hendrycks2021mmlu}), coherence (AlpacaEval judged by an LLM; \citealp{taori2023alpaca}) and robustness to relearning \citep{deeb2024unlearning}; the harmonic mean $H$ of all but relearning, normalized by the unedited model, selects $\delta \in \{0.5, \dots, 200\}$ on validation questions.

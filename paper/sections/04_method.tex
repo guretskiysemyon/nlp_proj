@@ -1,0 +1,60 @@
+%=====================================================================
+\section{\cinder{}}
+\label{sec:method}
+%=====================================================================
+
+\cinder{} (Contrastive INformed Directional Embedding Removal) keeps \ember{}'s data, Sparse MF, $\rho$ filter and edit form (Eq.~\ref{eq:edit}), and changes how features are decomposed (\S\ref{sec:cs}), identified (\S\ref{sec:twj}) and erased (\S\ref{sec:cinderz}); \S\ref{sec:ml} extends it to many languages with one fit.
+
+\subsection{Finding Concept Features in a Sharpened Space}
+\label{sec:cs}
+
+Sparse MF finds the directions with the most energy; rather than changing the factorization, we change the matrix so that the concept carries that energy, combining whitening, a standard step before sparse coding \citep{hyvarinen2000ica}, with a target--background contrast \citep{abid2018exploring}.
+
+\paragraph{Contrastive Sharpening}
+Contrastive Sharpening (\cs{}) \emph{whitens} the embeddings against ordinary text, with the mean $\mu_B$ and covariance $\Sigma_B$ of the token types of a large Wikipedia sample (computed once per model), and \emph{sharpens} them toward the whitened token types $\tilde{\mathbf u}_1,\dots,\tilde{\mathbf u}_m$ of the concept's Wikipedia page:
+\begin{equation}
+\begin{aligned}
+  \tilde{\mathbf{u}}_t &= W(\e_t - \mu_B), \quad W = (\Sigma_B + \varepsilon I)^{-1/2},\\
+  \mathbf{x}_t &= S_\eta^{\gamma/2}\,\tilde{\mathbf u}_t, \quad
+  S_\eta = (1-\eta)\,\tfrac{1}{m}\textstyle\sum_{j} \tilde{\mathbf u}_j \tilde{\mathbf u}_j^{\top} + \eta I ,
+\end{aligned}
+  \label{eq:whiten}
+\end{equation}
+with $\eta = 0.05$ and $\gamma = 1$; Sparse MF then factorizes $X = T(A - \mu_B\mathbf 1^{\top}) \approx \tilde Z Y$ with $T = S_\eta^{\gamma/2} W$.
+After whitening, the page's second moment along a direction measures how much more the concept uses it than ordinary text does, and sharpening multiplies the energy along each such direction by this ratio raised to $\gamma$, as in Fisher's discriminant and contrastive PCA \citep{fisher1936use,abid2018exploring} (Proposition~\ref{prop:cs}, \S\ref{app:cs}).
+Whitening removes the component that rare tokens share, so the concept's tokens separate from other rare tokens, but makes every direction equally strong; sharpening then makes the clean cluster worth a feature (\S\ref{sec:analysis}).
+Since $T$ is invertible, the factorization maps back exactly: $\cvec_t = T^{-1}\tilde\cvec_t$.
+
+\paragraph{Global Sparsity}
+\ember{}'s row sparsity (RS) bounds every feature separately, $\|\mathbf y_i\|_0 \le s\,n$; Global Sparsity (\gs{}) bounds the whole matrix with the same total budget, $\|Y\|_0 \le s\,k\,n$.
+After each dense update of $Y$, \gs{} keeps the $s\,k\,n$ entries with the largest share of their row, $|y_{ij}| / \|\mathbf y_i\|_2$, with a floor of $0.2\%$ and a cap of $3\%$ of the tokens per feature.
+For this score, it is the exact projection onto the constraint, as in iterative hard thresholding \citep{blumensath2009iht}, and mirrors across features what BatchTopK does across examples \citep{bussmann2024batchtopk}; the scale-free score keeps a few high-energy generic features from taking the budget (\S\ref{app:gs}).
+
+\subsection{Identifying Concept Features from Both Directions}
+\label{sec:twj}
+
+\ember{}'s token judge (TJ) works bottom-up, abstracting a feature into a sentence, and fails when the abstraction drops the concept.
+Inspired by query expansion \citep{wang2023query2doc,gao2023hyde}, the Two-Way Judge (\twj{}) adds a top-down path: once per concept, before any feature is judged, an LLM expands the concept into a lexicon $L_C$ of 20 words specific to it rather than to its broader category.
+Each feature's top tokens are mapped to the words they come from in $\Sc$ (e.g., \textit{ffindor} $\to$ \textit{Gryffindor}), giving a word list $W_i$, and the expansion judge accepts the feature if $|W_i \cap L_C| \ge t$ (EJ@$t$); \twj{} accepts if either path does ($\text{TJ} \vee \text{EJ@}5$).
+The union raises recall, $t$ controls precision, and the lexicon path adds no LLM call per feature (\S\ref{app:twj}).
+
+\subsection{Erasing With and Without the Mean}
+\label{sec:cinderz}
+
+For fixed coefficients, the least-squares dictionary does not depend on the metric in which the error is measured (Proposition~\ref{prop:metric}, \S\ref{app:edit}), so whitening does not distort the mapped-back edit; what differs from \ember{} is the centring.
+\cinder{}'s concept part describes how a token departs from ordinary text, whereas \ember{}'s features also absorb a share of $\mu_B$, the component that all tokens share (\expnum{44\%} of its edit's energy on Gemma), which the model's first layer reads strongly (\S\ref{sec:analysis}).
+\cinderz{} keeps the sharpened fit's coefficients $Y$, selected features and edited tokens, and re-solves only the dictionary on the raw embeddings,
+\begin{equation}
+  Z_{z} = A\,Y^{\top}\big(Y Y^{\top} + \lambda I\big)^{-1},
+  \label{eq:cinderz}
+\end{equation}
+a $k \times k$ solve with no new fit or judge call that adds exactly a mean term, $\cvec^{z}_t = \cvec_t + \beta_t\,\mu_B$ (Proposition~\ref{cor:mean}).
+
+\subsection{One Fit for Eight Languages}
+\label{sec:ml}
+
+\cinder{} erases a concept in eight languages with one fit.
+Because the concept competes with language identity, which multilingual models encode in a few dominant directions \citep{chang2022geometry,libovicky2020language}, \cinder{} whitens against a background with equal text in every language and sharpens toward the concept's pages in all of them (\S\ref{app:cs-llama}).
+It factorizes only a sample, 30 concept and 30 neutral sentences per language, to obtain the dictionary $Z$, and with $Z$ fixed solves the coefficients $Y$ of every token in the full sentence sets (up to 300 concept and 300 neutral per language).
+\twj{} then selects features once for all languages, and with $Y$ fixed, $Z$ is re-solved on the unsharpened embeddings to give the \cinderz{} edit (Eq.~\ref{eq:cinderz}).
+Against eight per-language \ember{} runs, this takes a fifth of the factorization work, as it factorizes a fifth of the rows, and an eighth of the judge calls, but a third of the LLM cost, as the eight-language lexicon is a long call; fit time stays about the same, because the sharpening transform itself takes time, and evaluation, most of the compute, is the same for all approaches (\S\ref{app:ml}).

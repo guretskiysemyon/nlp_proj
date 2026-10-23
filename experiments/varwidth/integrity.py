@@ -204,9 +204,9 @@ def configs(concept, seed, pilot=False):
     sc = OUT / "shape_choice.json"
     alpha = json.loads(sc.read_text())["best_alpha"] if sc.exists() else {"ember": 1.0, "cinder": 1.0}
     out = []
-    if concept in EXPANSION:                      # amendment 8: selected point and fixed r = 0.5 for the 5 variants
-        from experiments.varwidth.collateral import EXP_VARIANTS
-        names = [f"{v}@sel" for v in EXP_VARIANTS] + [f"{v}@0.5" for v in EXP_VARIANTS]
+    if concept in EXPANSION:                      # amendment 8: integrity at the selected point only (the endpoint;
+        from experiments.varwidth.collateral import EXP_VARIANTS   # @0.5 dropped for time, Oct 20)
+        names = [f"{v}@sel" for v in EXP_VARIANTS]
     else:
         names = None
     names = names or (PILOT_CONFIGS if pilot else [f"{v}@sel" for v in SEL_VARIANTS] + \
@@ -418,8 +418,15 @@ GRACEFUL, LEAK, DESTR = {"IGNORANT", "KNOWS_OTHER"}, {"KNOWS_CONCEPT"}, {"BLIND"
 
 def token_class(concept):
     """{slot-key word: 'multi' | 'exclusive'} from the chosen question-set version (via the token strings)."""
-    sel = json.loads((OUT / "drafts" / slug(concept) / "selection.json").read_text())["chosen"]
-    d = json.loads((OUT / "drafts" / slug(concept) / f"{sel}.json").read_text())
+    D = OUT / "drafts" / slug(concept)
+    if concept in EXPANSION:   # amendment 8: no selector; v1, with the classes the F1 check flipped
+        out = {e["token"]: e["class"] for e in json.loads((D / "v1.json").read_text())["tokens"]}
+        for t in json.loads((D / "F1.json").read_text())["tokens"]:
+            if t.get("class_ok") is False and t["token"] in out:
+                out[t["token"]] = "exclusive" if out[t["token"]] == "multi" else "multi"
+        return out
+    sel = json.loads((D / "selection.json").read_text())["chosen"]
+    d = json.loads((D / f"{sel}.json").read_text())
     return {e["token"]: e["class"] for e in d["tokens"]}
 
 

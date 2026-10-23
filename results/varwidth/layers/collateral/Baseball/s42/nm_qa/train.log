@@ -1,0 +1,19 @@
+data: forget=456 copy=244 retain=95 info={'n_tokens': 61, 'n_words': 61, 'n_multi': 50} qa_questions=86 dropped={'n_dropped_overlap': 30}
+wf=0.05 step=0 forget=2.963 copy=0.000 retain=0.000 |d|=0.107 [4s]
+wf=0.05 step=40 forget=1.661 copy=0.000 retain=0.036 |d|=0.853 [185s]
+wf=0.05 step=80 forget=1.347 copy=0.001 retain=0.011 |d|=1.022 [365s]
+wf=0.05 step=119 forget=1.335 copy=0.002 retain=0.010 |d|=1.108 [540s]
+wf=0.05 r=1.07 eff=0.10 spec=0.98 coll=0.89 copy=1.00 mmlu=1.00
+wf=0.15 step=0 forget=0.783 copy=0.003 retain=0.010 |d|=1.111 [651s]
+wf=0.15 step=40 forget=0.591 copy=0.004 retain=0.016 |d|=1.351 [828s]
+wf=0.15 step=59 forget=0.865 copy=0.004 retain=0.016 |d|=1.461 [917s]
+wf=0.15 r=1.43 eff=0.14 spec=0.92 coll=0.89 copy=1.00 mmlu=1.00
+wf=0.5 step=0 forget=0.828 copy=0.003 retain=0.025 |d|=1.467 [1028s]
+wf=0.5 step=40 forget=0.610 copy=0.003 retain=0.026 |d|=1.880 [1207s]
+wf=0.5 step=59 forget=0.547 copy=0.029 retain=0.046 |d|=2.044 [1294s]
+wf=0.5 r=2.01 eff=0.07 spec=0.92 coll=0.87 copy=0.98 mmlu=1.00
+wf=2.0 step=0 forget=0.561 copy=0.003 retain=0.024 |d|=2.051 [1406s]
+wf=2.0 step=40 forget=0.497 copy=0.038 retain=0.060 |d|=2.602 [1579s]
+wf=2.0 step=59 forget=0.252 copy=0.046 retain=0.046 |d|=2.767 [1665s]
+wf=2.0 r=2.71 eff=0.10 spec=0.92 coll=0.84 copy=0.92 mmlu=1.00
+TEST param=0.15 eff=0.21 spec=0.98 coll=0.93

@@ -1,0 +1,30 @@
+%=====================================================================
+\section{Embedding-Space Analysis}
+\label{sec:analysis}
+%=====================================================================
+
+Why does \cinder{} find concepts that \ember{} misses?
+We analyze the features before any edit (\expnum{38} concepts, 15 added after the method was frozen; 5 seeds), judge-free wherever possible (\S\ref{app:analyses}).
+
+\paragraph{Sharpening makes the concept pure and valuable}
+We start a single sparse feature on each concept's lexicon tokens and repeat \ember{}'s fitting step until its tokens stop changing (Figure~\ref{fig:mechanism}b; \S\ref{app:cs-why}).
+In the raw matrix it drifts to other rare tokens, ending only \expnum{24\%} concept-only yet among the most valuable features; whitening makes it pure (\expnum{86\%}) but ordinary (\expnum{70th} percentile of feature energies), and sharpening keeps it pure and makes it valuable (\expnum{91st}; above whitening in \expnum{37 of 38} concepts).
+Both are needed in ordinary fits, where 100 features compete: a lexicon-matching concept feature emerges in \expnum{69\%} of sharpened runs, against \expnum{56\%} raw and \expnum{49\%} whitened-only.
+The raw feature's value is mostly the shared mean ($\hat\mu_B$ holds \expnum{97\%} of its energy above an average feature's), which also makes its nearest neighbour a feature of unrelated rare names; after sharpening, the neighbour is a related topic (magic for Harry Potter; \S\ref{app:geometry}).
+
+\paragraph{Widths follow the data}
+On the sharpened matrix, \ember{}'s 1\% cut stops before the natural tail (\S\ref{app:gs-tail}) for \expnum{25 of 38} concepts, and Global Sparsity (\gs{}) widths follow the tail (rank correlation \expnum{0.67} vs.\ \expnum{0.27} for the fixed width; mean error \expnum{30} vs.\ \expnum{42} tokens, $p < 0.001$), though they compress its range; \gs{} changes which tokens a feature keeps, not its direction (cosine \expnum{0.97}), and helps only after Contrastive Sharpening (\cs{}).
+
+\paragraph{The two-way judge recovers concepts lost in the summary}
+On 19 concepts, \twj{} accepts the concept or a broader version of it in \expnum{82 of 91} runs, against \expnum{61} for \ember{}'s judge, with \expnum{1 of 110} acceptances unrelated, though most added features are broader than the concept.
+On 15 harder concepts added later, this gain mostly disappears (\expnum{40} vs.\ \expnum{34} of 75 runs), but a second pass in which the judge also sees each token's source word recovers it (\expnum{52}; \S\ref{app:twj}).
+
+\paragraph{The gain is not circular}
+The concept's page, our sharpening target, contains the sentences whose tokens we score, yet sharpening toward page sentences outside the sample or toward other pages about the concept raises the strict purity of the concept feature as much (\expnum{$+0.06$} vs.\ \expnum{$+0.05$}; Holm $p = \expnum{0.034}$, \expnum{0.081}; pre-registered), while another concept's page destroys it (found in \expnum{2 of 54} runs; \S\ref{app:cs-circ}).
+
+\paragraph{Abstract concepts stay out of reach}
+On 13 abstract concepts such as Stoicism and Gothic architecture, the top-ranked feature is specific to the concept in \expnum{0 of 65} runs under both \ember{} and \cs{}, against \expnum{13} and \expnum{23 of 40} for entity concepts; their top features are parent topics and discourse words, perhaps a register they share (untested).
+
+\paragraph{The first layer reads the shared mean}
+The first layer responds to \ember{}'s and \cinderz{}'s edits about twice as strongly as to a random direction, and to \cinder{}'s \expnum{1.2$\times$} (Figure~\ref{fig:read}, \S\ref{app:edit}).
+The gap is the mean term: about half of an uncentred edit lies along $\hat\mu_B$, which the first layer amplifies (\expnum{2.9$\times$} on Gemma, \expnum{20$\times$} on Llama); without it, the two edits draw the same response (\expnum{1.31$\times$} vs.\ \expnum{1.32$\times$}).

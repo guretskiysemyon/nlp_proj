@@ -1,0 +1,56 @@
+%=====================================================================
+\section*{Limitations}
+%=====================================================================
+
+\paragraph{Model and language coverage}
+Single-language results use one small model (Gemma-2-2B-it) in English, and multilingual results use one model (Llama-3.1-8B-Instruct) with a 4-bit quantized transformer and fp16 embeddings.
+Whether the findings transfer to other models remains to be tested.
+
+\paragraph{Abstract concepts}
+Concepts that lie between broader topics, such as Stoicism or Gothic architecture, yield no concept-specific embedding feature under \ember{} or \cinder{} (\S\ref{sec:analysis}); embedding-level erasure, with either method, does not reach them.
+
+\paragraph{Embedding edits in isolation}
+We evaluate embedding edits on their own, not ensembled with MLP-based methods as \ember{} recommends, and we do not test robustness to relearning, \ember{}'s main strength.
+Whether relearning robustness also depends on the edit size ($r \approx 1$ vs.\ $r \approx 100$) is an open question.
+
+\paragraph{Evaluation material}
+Efficacy and collateral are multiple-choice accuracies, and collateral is lenient, since the options and context can rescue a damaged word.
+Collateral questions, neutral prompts and free-text labels were written and checked by LLM agents, whose blind spots may be correlated, and no human spot check was done; non-English questions are machine-translated.
+
+\paragraph{Multilingual evaluation}
+The multilingual study follows \ember{}'s protocol (its $\delta$ grid and metrics, with perplexity in place of Alpaca) and has no collateral term, so, like the standard protocol, it cannot tell erasing a concept from destroying its words.
+On Gemma's three development concepts, the mean term that \cinderz{} and \ember{} add to their edits erases mostly by damaging the prompt (\S\ref{sec:token}), so part of multilingual \cinderz{}'s gain over \cinder{}, and of every approach's score, may be such damage; the mean-only test was not repeated on Llama.
+
+\paragraph{Statistical power}
+With 11--12 held-out concepts as the unit of analysis, differences below about 0.08 are hard to resolve, and several supporting analyses were defined after the primary result was known; we label them post hoc.
+
+\paragraph{Sharpening target}
+Contrastive Sharpening uses the concept's own Wikipedia page as its target, which overlaps the concept sentences. Targets disjoint from the sample keep the feature-level gains (\S\ref{sec:analysis}), but the erasure experiments use the page target, and $\eta$ and $\gamma$ were chosen with it.
+
+%=====================================================================
+\section*{Ethical Considerations}
+%=====================================================================
+
+\cinder{} is designed to remove hazardous, private or copyrighted knowledge more reliably.
+Like other editing techniques, it carries a dual-use risk: an effective erasure method could be used to suppress legitimate information.
+Our evaluation findings also carry a caution: embedding-level erasure, as commonly evaluated, can appear effective while only blocking access through specific words and damaging their other meanings, so it should not be relied on alone to remove dangerous knowledge.
+
+%=====================================================================
+\section*{AI Disclosure and Reflection}
+%=====================================================================
+
+The research questions, hypotheses and main ideas of this work are our own; we used AI tools to support them, not to replace them.
+We used Claude Code (Anthropic) as a research assistant: to brainstorm and critique our ideas, to implement and debug the experiment code, and to scale the experiments to 38 concepts, several seeds and eight languages on the cluster.
+In the final experimental stages, once we were satisfied with their direction, we let it make routine decisions within the plan we had set, and reviewed them afterwards.
+It also helped draft and revise this report; we read every part of it, marked what to change, and set its style, its framing and the negative results it reports.
+LLMs also produced part of the evaluation material: Claude agents wrote and checked the collateral questions and neutral prompts and labelled features and free-text answers without seeing the method (\S\ref{sec:setup}), and Gemini~3.5 Flash-Lite generated and verified the questions of the 20 new multilingual concepts.
+Within the method, Gemini~3.5 Flash-Lite is the feature judge, the lexicon generator and the coherence judge (\ember{} used Gemini~2.5 Flash-Lite).
+We take full responsibility for every claim in the paper.
+
+\paragraph{Reflection}
+The assistant was most useful for implementation and scale: it let us test each idea on many concepts and seeds rather than a few examples.
+The ideas behind \cinder{}, however, came from working with the data by hand: we wrote Jupyter notebooks with the assistant's help, ran them ourselves, inspected the features and the evaluations, and experimented.
+We found no substitute for this, and our impression is that the assistant could not have proposed these directions on its own.
+It was least reliable where judgement was needed.
+It stated findings with more confidence than it had, so we asked it to give a confidence level with each claim; its drafts were dense; numbers drifted from the result files, and two audits of the text against them corrected about 40 claims; and it sometimes acted before we had agreed, starting an analysis we had only discussed or editing text we had asked only to discuss.
+We therefore kept the decisions with us and checked its claims against the code and the results.

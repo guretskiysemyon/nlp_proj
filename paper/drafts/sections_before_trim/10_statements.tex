@@ -1,0 +1,42 @@
+%=====================================================================
+\section*{Limitations}
+%=====================================================================
+
+\paragraph{Model and language coverage}
+Single-language results use one small model (Gemma-2-2B-it) in English, and multilingual results use one model (Llama-3.1-8B-Instruct) with a 4-bit quantized transformer and fp16 embeddings.
+Whether the findings transfer to other models remains to be tested.
+
+\paragraph{Abstract concepts}
+Concepts defined by a register rather than by names, such as Stoicism or Gothic architecture, yield no concept-specific embedding feature under \ember{} or \cinder{} (\S\ref{sec:analysis}); embedding-level erasure, with either method, does not reach them.
+
+\paragraph{Embedding edits in isolation}
+We evaluate embedding edits on their own, not ensembled with MLP-based methods as \ember{} recommends, and we do not test robustness to relearning, \ember{}'s main strength.
+Whether relearning robustness also depends on the edit size ($r \approx 1$ vs.\ $r \approx 100$) is an open question.
+
+\paragraph{Evaluation material}
+Efficacy and collateral are multiple-choice accuracies, and collateral is lenient, since the options and context can rescue a damaged word.
+Collateral questions, neutral prompts and free-text labels were written and checked by LLM agents, whose blind spots may be correlated, and no human spot check was done; non-English questions are machine-translated.
+
+\paragraph{Statistical power}
+With 11--12 held-out concepts as the unit of analysis, differences below about 0.08 are hard to resolve, and several supporting analyses were defined after the primary result was known; we label them post hoc.
+
+\paragraph{Sharpening target}
+Contrastive Sharpening uses the concept's own Wikipedia page as its target, which overlaps the concept sentences. Targets disjoint from the sample keep the feature-level gains (\S\ref{sec:analysis}), but the erasure experiments use the page target, and $\eta$ and $\gamma$ were chosen with it.
+
+%=====================================================================
+\section*{Ethical Considerations}
+%=====================================================================
+
+\cinder{} is designed to remove hazardous, private or copyrighted knowledge more reliably.
+Like other editing techniques, it carries a dual-use risk: an effective erasure method could be used to suppress legitimate information.
+Our evaluation findings also carry a caution: embedding-level erasure, as commonly evaluated, can appear effective while only blocking access through specific words and damaging their other meanings, so it should not be relied on alone to remove dangerous knowledge.
+
+%=====================================================================
+\section*{AI Disclosure and Reflection}
+%=====================================================================
+
+\note{To be completed by the team. Draft from the project records:}
+We used Claude Code (Anthropic's Claude models) throughout the project: to write and debug the experiment code, run and monitor cluster jobs, write and review evaluation material (collateral questions, neutral prompts, blind labels of free-text answers), analyze results, and draft and edit this report.
+Gemini~3.5 Flash-Lite served as the feature judge and lexicon generator (\ember{} used Gemini~2.5 Flash-Lite).
+Every design decision, pre-registration and claim was reviewed by the authors.
+\note{Reflection: what worked, what did not, where the AI was wrong.}
