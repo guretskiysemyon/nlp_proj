@@ -18,8 +18,9 @@ All code, pre-registrations and result files are in our repository.
 All GPU work ran on the university's SLURM cluster, on NVIDIA TITAN Xp and GeForce RTX 2080 Ti nodes, one GPU per job for the jobs of Table~\ref{tab:cost} (one used two); factorizations of the single-language study ran on CPU nodes.
 Table~\ref{tab:cost} gives the GPU time allocated to each study and its Gemini spend (Gemini 3.5 Flash-Lite).
 In the multilingual study, evaluation dominates: \expnum{2.5--3.5} GPU-hours per concept and approach, \expnum{68}, \expnum{34}, \expnum{71} and \expnum{66} GPU-hours for A1, A2, A3 and A3z at fit seed 42, against under a minute per concept for the fits; its seed-42 fits and about \expnum{150} GPU-hours of evaluation (50 units) ran on workstation GPUs that the accounting does not record.
-The single-language feature-level ladder spent \expnum{7.5} NIS on feature judging (TJ, WJ, lexicons and a 10\% re-judge for noise) and \expnum{8.9} NIS on Alpaca coherence for its erasure anchor; the collateral-aware evaluation used Gemini only for Alpaca coherence (\expnum{7.1} NIS in development, \expnum{8.3} NIS for the seed-42 last-mile check and \expnum{5.7} NIS at the integrity-gated points), since its questions and all free-text labels were written by LLM agents (Claude) instead; the multilingual study spent \expnum{8.3} NIS on selection (judge and lexicon calls), \expnum{8.0} NIS on generating and verifying the questions of the 20 new concepts and \expnum{0.75} NIS on the stability study.
-The spend is logged with deliberately conservative prices (USD \expnum{0.30} or \expnum{0.25} per million input and \expnum{2.50} per million output tokens, \expnum{3.7} NIS per USD), so it is an upper bound.
+The single-language feature-level ladder spent USD \expnum{2.03} on feature judging (TJ, WJ, lexicons and a 10\% re-judge for noise) and USD \expnum{2.41} on Alpaca coherence for its erasure anchor; the collateral-aware evaluation used Gemini only for Alpaca coherence (USD \expnum{1.92} in development, \expnum{2.24} for the seed-42 last-mile check and \expnum{1.54} at the integrity-gated points), since its questions and all free-text labels were written by LLM agents (Claude) instead; the multilingual study spent USD \expnum{2.24} on selection (judge and lexicon calls), \expnum{2.16} on generating and verifying the questions of the 20 new concepts and \expnum{0.20} on the stability study.
+The spend is logged with deliberately conservative prices (USD \expnum{0.30} or \expnum{0.25} per million input and \expnum{2.50} per million output tokens), so it is an upper bound.
+% Amounts in USD = the logged NIS amounts / 3.7 (the rate the logs used).
 SLURM accounting also shows about \expnum{540} GPU-hours on 3--8 October, mostly on RTX 2080 Ti nodes (\expnum{446} for a second-pass $\delta$ search of the judge re-run), which belong to the preliminary \ember{}/SNMF study of App.~\ref{app:ember} but are partly recorded under job names that we cannot attribute to a single study; they are not in Table~\ref{tab:cost}.
 
 % GPU-hours: `sacct -u oripetel -X` (read-only), elapsed time x allocated GPUs, jobs grouped by name prefix
@@ -35,14 +36,14 @@ SLURM accounting also shows about \expnum{540} GPU-hours on 3--8 October, mostly
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lccc@{}}
 \toprule
-Study & GPU-h & GPU & Gemini (NIS) \\
+Study & GPU-h & GPU & Gemini (USD) \\
 \midrule
-Feature ladder & \expnum{20} & TITAN Xp & \expnum{16.4} \\
-Collateral evaluation & \expnum{346} & both & \expnum{21.1} \\
-Multilingual & \expnum{320}$^+$ & TITAN Xp & \expnum{17.1} \\
+Feature ladder & \expnum{20} & TITAN Xp & \expnum{4.43} \\
+Collateral evaluation & \expnum{346} & both & \expnum{5.70} \\
+Multilingual & \expnum{320}$^+$ & TITAN Xp & \expnum{4.62} \\
 Analyses (\S\ref{sec:analysis}) & \expnum{11}$^+$ & TITAN Xp & 0 \\
 \midrule
-Total & \expnum{696}$^+$ & & \expnum{54.6} \\
+Total & \expnum{696}$^+$ & & \expnum{14.76} \\
 \bottomrule
 \end{tabular}
 \caption{Compute and LLM cost per study (17--23 October 2026). GPU-h: allocated GPU time from the cluster's accounting (\expnum{182} TITAN Xp and \expnum{164} RTX 2080 Ti hours for the collateral study); $^+$: SLURM only, plus unrecorded workstation GPU time (about \expnum{150} GPU-hours for the multilingual evaluation; some analyses).}

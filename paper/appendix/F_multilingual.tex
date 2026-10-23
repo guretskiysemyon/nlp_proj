@@ -185,7 +185,8 @@ With \ember{}'s judge, sharpening raises coverage from \expnum{10} to \expnum{16
 \cinder{}'s selected features also spread over more scripts (\expnum{34\%} use two or more, against \expnum{15\%} for per-language \ember{} and none for the multilingual \ember{} fit), although much of their Devanagari and Thai mass is generic words.
 
 \paragraph{Selection cost}
-Per concept (fit seed 42), per-language \ember{} runs 8 factorizations over about \expnum{30{,}600} rows with \expnum{160} judge calls (\expnum{0.055} NIS); the single fits run one factorization over about \expnum{6{,}500} sampled rows plus a coefficient solve for the full set, with \expnum{20} judge calls (\ember{}: \expnum{0.007} NIS) or \expnum{20} calls and one lexicon call (\cinder{}: \expnum{0.017} NIS, \expnum{0.007} once the lexicon is cached across seeds).
+Every fit's judge sees its top 10 candidates by $\rho$, with two calls each (\S\ref{app:twj}).
+Per concept (fit seed 42), per-language \ember{} runs 8 factorizations over about \expnum{30{,}600} rows with \expnum{160} judge calls (USD \expnum{0.015}); the single fits run one factorization over about \expnum{6{,}500} sampled rows plus a coefficient solve for the full set, with \expnum{20} judge calls (\ember{}: USD \expnum{0.0019}) or \expnum{20} calls and one lexicon call (\cinder{}: USD \expnum{0.0047}, \expnum{0.0019} once the lexicon is cached across seeds).
 The lexicon call is long, 20 words in each of the eight languages, and costs about as much as \expnum{30} judge calls.
 Factorization work (rows $\times$ iterations) drops about fivefold, but \cinder{}'s wall-clock fit time (\expnum{40} s on a GPU) matches \ember{}'s eight fits (\expnum{44} s) because of the sharpening transform.
 Evaluation takes \expnum{2.5--3.5} GPU-hours per concept and approach, about 250 times the fit stage, and is the same for every approach.

@@ -60,7 +60,8 @@ EJ@5 & .74 & .64 & 64 & .99 & .43 & 81 \\
 
 \noindent Recall counts only positives that some rule accepted.
 The threshold $t = 5$ was chosen on this set.
-On the 15 concepts added after the prompt was fixed, EJ@5 does not generalize (precision \expnum{0.46}, recall \expnum{0.26}) and \twj{} falls to \expnum{0.53}/\expnum{0.56}, whereas TJ $\vee$ WJ+share keeps precision \expnum{0.71} and recall \expnum{0.89} (\expnum{49} of 54 runs hit, against \expnum{33} for TJ).
+The 15 concepts added after the prompt was fixed were picked informally rather than from earlier erasure benchmarks, and they are harder for every judge: TJ finds the concept or a broader version of it in \expnum{34} of 75 runs, against \expnum{61} of 91 on the first 19 concepts.
+On them, EJ@5 does not generalize (precision \expnum{0.46}, recall \expnum{0.26}) and \twj{} falls to \expnum{0.53}/\expnum{0.56}, whereas TJ $\vee$ WJ+share keeps precision \expnum{0.71} and recall \expnum{0.89} (\expnum{49} of 54 runs hit, against \expnum{33} for TJ).
 In erasure the two judges perform the same.
 Table~\ref{tab:twj-heldout} gives the comparison on the held-out concepts (75 runs, \expnum{54} of them with a P candidate, \expnum{70} P-labelled candidates).
 
@@ -121,5 +122,6 @@ The Matrix & \expnum{1/5} & \expnum{4 $\to$ 5} & ``the science fiction film fran
 \end{table}
 
 \paragraph{Cost}
-TJ makes two LLM calls per candidate feature (up to 20 per run).
+TJ makes two LLM calls per candidate feature, one that describes its top tokens and one that decides from the description.
+In the single-language study it judges up to 20 candidates per run (the 20 features with the largest $\rho$ above 2), so up to 40 calls; in the multilingual study it judges the top 10 of each fit, so 20 calls per fit, which gives the \expnum{20} and \expnum{160} calls per concept of Table~\ref{tab:ml}.
 The lexicon path makes one call per concept, shared by all seeds and fits, and its matching is deterministic, so its decisions are reproducible and free to recompute after any change to the factorization.

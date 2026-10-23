@@ -22,7 +22,7 @@ Since equal $\delta$ does not mean equal edits across methods, all methods sweep
 Scoring a grid point needs only forward passes, with no LLM judge (\S\ref{app:eval}).
 
 \paragraph{Methods and Statistics}
-We compare \ember{}, \cinder{} (\cs{} + \gs{} + \twj{}), \cinderz{} and, to isolate Global Sparsity (\gs{}), \cinder{}-RS and \cinder{}-RS-z with row sparsity; in the multilingual study, A1 runs \ember{} per language, A2 is one multilingual \ember{} fit, A3 is multilingual \cinder{}, and A3z its \cinderz{} edit.
+We compare \ember{}, \cinder{} (\cs{} + \gs{} + \twj{}), \cinderz{} and, to isolate Global Sparsity (\gs{}), \cinder{}-RS and \cinder{}-RS-z with row sparsity; in the multilingual study, we compare \ember{} run per language with single fits of \ember{}, \cinder{} and \cinderz{} over all eight languages (A1--A3z in \S\ref{app:ml}).
 Each method selects one operating point per run on validation questions (besides our rule, we report \ember{}'s $H$ without Alpaca and a fixed $r = 0.5$) and is scored once on test questions.
 Comparisons are paired by run, with the concept as the unit (Wilcoxon tests, Holm correction, bootstrap 95\% intervals); only the comparisons under our rule, $H$ and fixed $r$ and the multilingual hypotheses (\S\ref{app:ml}) were pre-registered, and other analyses are post hoc unless marked.
 
@@ -75,32 +75,32 @@ With a stricter collateral gate (0.9), all four \cinder{} variants beat \ember{}
 \label{sec:exp-ml}
 
 \paragraph{One \cinder{} fit replaces eight \ember{} fits}
-Counting concepts without an edit as failures, the single \cinderz{} fit (A3z) ties per-language \ember{} (A1; exploratory, non-inferiority not shown): \expnum{0.23} vs.\ \expnum{0.25} strict and \expnum{0.28} vs.\ \expnum{0.25} ungated, \expnum{15--13} in wins and losses ($p = \expnum{0.78}$; Table~\ref{tab:ml}).
+Counting concepts without an edit as failures, the single \cinderz{} fit ties per-language \ember{} (exploratory; non-inferiority not shown): \expnum{0.23} vs.\ \expnum{0.25} strict and \expnum{0.28} vs.\ \expnum{0.25} ungated, \expnum{15--13} in wins and losses ($p = \expnum{0.78}$; Table~\ref{tab:ml}).
 
 \begin{table}[t]
   \centering
-  \small
-  \setlength{\tabcolsep}{3.5pt}
+  \footnotesize
+  \setlength{\tabcolsep}{2.5pt}
   \begin{tabular}{@{}lcccc@{}}
     \toprule
-     & A1 & A2 & A3 & A3z \\
+     & \ember{} & \ember{} & \cinder{} & \cinderz{} \\
+     & per lang. & one fit & one fit & one fit \\
     \midrule
-    Fits per concept & 8 & 1 & 1 & 1 \\
-    Judge calls per concept & \expnum{160} & \expnum{20} & \expnum{20} & \expnum{20} \\
-    LLM cost per concept (NIS) & \expnum{.055} & \expnum{.007} & \expnum{.017} & \expnum{.017} \\
-    Concepts with a feature (of 38) & \expnum{26} & \expnum{10} & \expnum{21} & \expnum{21} \\
+    Judge calls & \expnum{160} & \expnum{20} & \expnum{20} & \expnum{20} \\
+    LLM cost (USD) & \expnum{.015} & \expnum{.0019} & \expnum{.0047} & \expnum{.0047} \\
+    Concepts edited & \expnum{26} & \expnum{10} & \expnum{21} & \expnum{21} \\
     Score, strict & \expnum{0.25} & \expnum{0.11} & \expnum{0.14} & \expnum{0.23} \\
     Score, ungated & \expnum{0.25} & \expnum{0.14} & \expnum{0.14} & \expnum{0.28} \\
     \bottomrule
   \end{tabular}
-  \caption{Multilingual erasure on Llama-3.1-8B-Instruct (38 concepts, 8 languages, fit seed 42, test split; approaches in \S\ref{sec:setup}); concepts without an edit score 0.}
+  \caption{Multilingual erasure on Llama-3.1-8B-Instruct (38 concepts, 8 languages, fit seed 42, test split): per-language \ember{} against single fits over all eight languages. Calls and cost are per concept; concepts without an edit score 0.}
   \label{tab:ml}
 \end{table}
 
 \paragraph{A multilingual \ember{} fit rarely accepts the concept}
-Where the multilingual \ember{} fit (A2) selects a concept feature, it erases as well as \cinderz{}, but it does so for only \expnum{10} of 38 concepts and \expnum{2} of the 20 held-out ones, against \expnum{21} and \expnum{10} for \cinder{}; counting coverage, \cinderz{} beats it by \expnum{$+0.21$} (\expnum{15--4}, $p = \expnum{0.011}$).
+Where the multilingual \ember{} fit selects a concept feature, it erases as well as \cinderz{}, but it does so for only \expnum{10} of 38 concepts and \expnum{2} of the 20 held-out ones, against \expnum{21} and \expnum{10} for \cinder{}; counting coverage, \cinderz{} beats it by \expnum{$+0.21$} (\expnum{15--4}, $p = \expnum{0.011}$).
 The loss is mostly at the judge: the raw fit contains a lexicon-matching concept feature about as often as \cinder{}'s, but \ember{}'s judge accepts few of them; re-judged with \twj{}, the raw fit reaches \expnum{18} concepts instead of \expnum{10}, and sharpening alone \expnum{16} (seed 42, post hoc; \S\ref{app:ml}).
 
 \paragraph{The mean term matters across languages}
-Multilingual \cinder{} (A3), whose edit is centred, erases weakly; its uncentred edit (A3z, defined after the development results) adds \expnum{$+0.17$} (\expnum{16 of the 21} edited concepts, $p = \expnum{0.007}$), in the same direction on the 20 pre-registered held-out concepts (\expnum{$+0.19$}, \expnum{7--3}, $p = \expnum{0.064}$).
+Multilingual \cinder{}, whose edit is centred, erases weakly; its uncentred \cinderz{} edit (defined after the development results) adds \expnum{$+0.17$} (\expnum{16 of the 21} edited concepts, $p = \expnum{0.007}$), in the same direction on the 20 pre-registered held-out concepts (\expnum{$+0.19$}, \expnum{7--3}, $p = \expnum{0.064}$).
 Across all approaches, erasure is strongest in English, about 0.6 of that in the other Latin-script languages, little in Thai and almost none in Hindi, whose words split into pieces that are rarely concept-only (\S\ref{app:ml}).

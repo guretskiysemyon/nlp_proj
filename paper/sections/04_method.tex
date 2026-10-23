@@ -11,7 +11,7 @@
 Sparse MF finds the directions with the most energy; rather than changing the factorization, we change the matrix so that the concept carries that energy, combining whitening, a standard step before sparse coding \citep{hyvarinen2000ica}, with a target--background contrast \citep{abid2018exploring}.
 
 \paragraph{Contrastive Sharpening}
-We \emph{whiten} the embeddings against ordinary text, with the mean $\mu_B$ and covariance $\Sigma_B$ of the token types of a large Wikipedia sample (computed once per model), and \emph{sharpen} them toward the whitened token types $\tilde{\mathbf u}_1,\dots,\tilde{\mathbf u}_m$ of the concept's Wikipedia page:
+Contrastive Sharpening (\cs{}) \emph{whitens} the embeddings against ordinary text, with the mean $\mu_B$ and covariance $\Sigma_B$ of the token types of a large Wikipedia sample (computed once per model), and \emph{sharpens} them toward the whitened token types $\tilde{\mathbf u}_1,\dots,\tilde{\mathbf u}_m$ of the concept's Wikipedia page:
 \begin{equation}
 \begin{aligned}
   \tilde{\mathbf{u}}_t &= W(\e_t - \mu_B), \quad W = (\Sigma_B + \varepsilon I)^{-1/2},\\

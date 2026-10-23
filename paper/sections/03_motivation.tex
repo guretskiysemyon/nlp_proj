@@ -16,12 +16,13 @@ We find five issues, which Figure~\ref{fig:overview} maps to \cinder{}'s changes
 
 \paragraph{The concept hides behind rarity}
 Sparse MF minimizes squared reconstruction error, so a feature is worth the energy it explains.
-Concept tokens carry as much energy as neutral ones but are rarer (in \expnum{35 of 38} concepts), and in Gemma's embeddings rare tokens share a large component along the background mean $\mu_B$ (Figure~\ref{fig:mechanism}a; cf.\ \citealp{gao2019representation}).
-\ember{}'s concept feature is therefore loud for the wrong reason: \expnum{42\%} of its squared norm lies along $\hat\mu_B$, against \expnum{12\%} for a typical feature, and it groups the concept with unrelated rare tokens, which \ember{} then edits (\S\ref{app:examples}).
+Concept tokens carry as much energy as neutral ones but are rarer (in \expnum{35 of 38} concepts), and in Gemma's embeddings rare tokens share a large component along the background mean $\mu_B$, the average embedding of ordinary text (Figure~\ref{fig:mechanism}a; cf.\ \citealp{gao2019representation}).
+\ember{}'s concept feature is therefore loud for the wrong reason: \expnum{42\%} of its squared norm lies along $\hat\mu_B = \mu_B/\|\mu_B\|$, against \expnum{12\%} for a typical feature, and it groups the concept with unrelated rare tokens, which \ember{} then edits (\S\ref{app:examples}).
 Whitening removes the shared component but leaves a pure, ordinary cluster, which the factorization finds less often than before (Figure~\ref{fig:mechanism}b): in this sense the concept is \emph{quiet}.
 
 \paragraph{One width does not fit all concepts}
-\ember{} keeps the top 1\% of tokens, about 48, in every feature, but the \emph{natural tail}, where tokens ranked by their share of the concept feature stop being specific to the concept's page, lies beyond this cut for \expnum{15} of 38 concepts and before it for another \expnum{15} (\S\ref{app:gs-tail}).
+\ember{} keeps the top 1\% of tokens, about 48, in every feature.
+Ranked by their share of the concept feature, tokens stay specific to the concept's page up to a point we call the \emph{natural tail}; it comes after 48 for \expnum{15} of 38 concepts, which \ember{} cuts short, and before 48 for another \expnum{15}, whose features it pads with nonspecific tokens (\S\ref{app:gs-tail}).
 
 \paragraph{The judge loses the concept in its summary}
 The judge decides from a one-sentence description, and the description is where concepts get lost: Heroin and World War II features became ``substances, medications, and illicit drugs [\dots]'' and ``20th-century totalitarian political ideologies [\dots]'', and the judge ruled them not to be the concept (\S\ref{app:examples}).
