@@ -1,0 +1,120 @@
+{
+ "concept": "Pornography",
+ "F_C": [
+  54
+ ],
+ "n_tau": 75,
+ "candidates": [
+  {
+   "feature": 144,
+   "rho": 278804.4745102525,
+   "description": "This vector activates for common Thai name suffixes and proper noun tokens, reflecting language modeling patterns for Thai morphology and named entities.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 109,
+   "rho": 81740.75628630817,
+   "description": "This feature vector represents common Thai syllable endings, character substrings, and subword suffixes.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 84,
+   "rho": 49523.4620757401,
+   "description": "This feature vector activates strongly on the Thai consonant \"ท\" (tho thahan) and words or sub-word tokens containing it.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 142,
+   "rho": 38398.06595351547,
+   "description": "These tokens represent Thai script characters, tone marks, and common subword character combinations.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 145,
+   "rho": 22109.148267190903,
+   "description": "This vector activates on common Thai consonant clusters and syllable initial components.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 54,
+   "rho": 41.52631401379239,
+   "description": "This feature vector activates strongly in response to sexually explicit content, particularly terms related to pornography and adult websites.",
+   "is_member": true,
+   "confidence": 0.99,
+   "TJ": true,
+   "EJ": false,
+   "selected": true,
+   "width": 21
+  },
+  {
+   "feature": 70,
+   "rho": 12.222849786140689,
+   "description": "This feature vector activates on a random mixture of multilingual text fragments, non-standard characters, and subword tokens.",
+   "is_member": false,
+   "confidence": 0.99,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 82,
+   "rho": 12.015281803651325,
+   "description": "This vector activates on isolated fragments of proper nouns, foreign scripts, and technical acronyms with no unifying semantic theme.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 113,
+   "rho": 10.100490906547979,
+   "description": "This feature vector represents subword fragments and characters from diverse multilingual and technical text.",
+   "is_member": false,
+   "confidence": 0.99,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  },
+  {
+   "feature": 1,
+   "rho": 9.438634542836635,
+   "description": "This vector represents subword fragments and characters from Thai and English scripts, acting as a multilingual text tokenization feature.",
+   "is_member": false,
+   "confidence": 1.0,
+   "TJ": false,
+   "EJ": false,
+   "selected": false,
+   "width": 21
+  }
+ ],
+ "judge": "TJ"
+}

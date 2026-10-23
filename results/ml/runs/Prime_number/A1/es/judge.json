@@ -1,0 +1,292 @@
+{
+ "1": {
+  "tokens": [
+   "977",
+   "947",
+   "997",
+   "971",
+   "967",
+   "953",
+   "937",
+   "907",
+   "983",
+   "941",
+   "991",
+   "929",
+   "919",
+   "97",
+   "911",
+   "877",
+   "887",
+   "95",
+   "92",
+   "881"
+  ],
+  "description": "This vector represents three-digit prime numbers, with some stray two-digit numbers included as noise.",
+  "verdict": [
+   true,
+   0.95
+  ]
+ },
+ "108": {
+  "tokens": [
+   "599",
+   "617",
+   "577",
+   "613",
+   "587",
+   "619",
+   "607",
+   "647",
+   "593",
+   "641",
+   "61",
+   "643",
+   "59",
+   "661",
+   "62",
+   "601",
+   "631",
+   "569",
+   "563",
+   "571"
+  ],
+  "description": "This vector activates strongly for three-digit prime numbers.",
+  "verdict": [
+   true,
+   0.95
+  ]
+ },
+ "132": {
+  "tokens": [
+   " ≤",
+   " ≥",
+   "ĠâĪ",
+   " ∈",
+   " ×",
+   "Ġâ",
+   " √",
+   " ±",
+   " θ",
+   " −",
+   " σ",
+   " φ",
+   " π",
+   " ζ",
+   " τ",
+   " →",
+   "â",
+   "±",
+   "ĠâĻ",
+   "≡"
+  ],
+  "description": "This feature vector activates on mathematical symbols, Greek letters, and logical operators used in equations and technical notation.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "135": {
+  "tokens": [
+   ")}}",
+   ")+",
+   "}}}",
+   ")}",
+   "})",
+   ")=",
+   ")/(",
+   ")/",
+   "}},",
+   "}=",
+   "))",
+   "}}",
+   "}-",
+   ")*(",
+   ")!",
+   ")(",
+   "}",
+   "!)",
+   "...)",
+   "),"
+  ],
+  "description": "This vector represents common closing punctuation and bracket combinations used in programming syntax.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "130": {
+  "tokens": [
+   "439",
+   "463",
+   "431",
+   "443",
+   "467",
+   "449",
+   "461",
+   "457",
+   "433",
+   "421",
+   "409",
+   "479",
+   "419",
+   "403",
+   "43",
+   "450",
+   "499",
+   "47",
+   "401",
+   "491"
+  ],
+  "description": "This vector represents prime numbers.",
+  "verdict": [
+   true,
+   1.0
+  ]
+ },
+ "171": {
+  "tokens": [
+   "{\\",
+   " {\\",
+   "=\\",
+   "={",
+   "^{",
+   "_{",
+   "!\\",
+   "(\\",
+   ",\\",
+   ".{",
+   "{",
+   "^{-",
+   " {(",
+   "+\\",
+   " {",
+   "\\",
+   "=(",
+   "({",
+   " _{",
+   " \\"
+  ],
+  "description": "These tokens represent common LaTeX formatting symbols, braces, and math commands used in typesetting code.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "16": {
+  "tokens": [
+   ")}}",
+   "}}}",
+   "}}",
+   "}},",
+   ")}",
+   "})",
+   "}\\",
+   "}",
+   " }",
+   "}-",
+   "}.",
+   "))",
+   "},{",
+   "}{",
+   "}=",
+   "frac",
+   "math",
+   "right",
+   "cdot",
+   "left"
+  ],
+  "description": "This feature vector activates on mathematical formatting commands, operators, and closing bracket syntax typically used in LaTeX markup.",
+  "verdict": [
+   false,
+   1.0
+  ]
+ },
+ "91": {
+  "tokens": [
+   "733",
+   "751",
+   "721",
+   "739",
+   "673",
+   "701",
+   "743",
+   "727",
+   "691",
+   "73",
+   "683",
+   "661",
+   "71",
+   "719",
+   "709",
+   "677",
+   "761",
+   "757",
+   "653",
+   "70"
+  ],
+  "description": "This vector represents prime numbers within specific numerical ranges.",
+  "verdict": [
+   true,
+   0.99
+  ]
+ },
+ "143": {
+  "tokens": [
+   "020",
+   "322",
+   "821",
+   "320",
+   "521",
+   "823",
+   "523",
+   "421",
+   "721",
+   "619",
+   "024",
+   "919",
+   "419",
+   "120",
+   "124",
+   "827",
+   "123",
+   "311",
+   "719",
+   "317"
+  ],
+  "description": "This vector represents numerical data or ID codes with varying prefixes and suffixes.",
+  "verdict": [
+   false,
+   0.95
+  ]
+ },
+ "119": {
+  "tokens": [
+   "809",
+   "839",
+   "841",
+   "829",
+   "859",
+   "827",
+   "853",
+   "857",
+   "811",
+   "797",
+   "823",
+   "821",
+   "79",
+   "83",
+   "85",
+   "787",
+   "863",
+   "81",
+   "89",
+   "883"
+  ],
+  "description": "This vector is related to prime numbers in the eight-hundreds range.",
+  "verdict": [
+   true,
+   0.95
+  ]
+ }
+}

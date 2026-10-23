@@ -1,0 +1,179 @@
+{
+ "concept": "Uranium",
+ "approach": "A3z",
+ "best_delta": 10.0,
+ "delta_selected_on": "v1 train",
+ "v2_langs": [
+  "it",
+  "pt",
+  "hi",
+  "th"
+ ],
+ "baseline_v2": {
+  "train": {
+   "it": {
+    "qa": 0.6
+   },
+   "pt": {
+    "qa": 0.7
+   },
+   "hi": {
+    "qa": 0.52
+   },
+   "th": {
+    "qa": 0.52
+   }
+  },
+  "test": {
+   "it": {
+    "qa": 0.68,
+    "simdom": 0.62
+   },
+   "pt": {
+    "qa": 0.66,
+    "simdom": 0.66
+   },
+   "hi": {
+    "qa": 0.68,
+    "simdom": 0.4
+   },
+   "th": {
+    "qa": 0.58,
+    "simdom": 0.48
+   }
+  }
+ },
+ "per_lang": {
+  "en": {
+   "mmlu": 0.67,
+   "ppl": 35.030553847628376,
+   "mmlu_frac": 0.9882352941176471,
+   "fluency": 0.9980316461554711,
+   "invalid_mmlu": 0.0,
+   "qa": 0.64,
+   "simdom": 0.7,
+   "invalid_qa": 0.0,
+   "efficacy": 0.17021276595744672,
+   "simdom_frac": 1.0,
+   "specificity": 0.9940828402366864,
+   "H": 0.38056941374087094,
+   "eligible": true
+  },
+  "de": {
+   "mmlu": 0.54,
+   "ppl": 22.686395858432512,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.6,
+   "simdom": 0.64,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.0,
+   "eligible": true
+  },
+  "fr": {
+   "mmlu": 0.525,
+   "ppl": 23.74726755062861,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9994466208518293,
+   "invalid_mmlu": 0.0,
+   "qa": 0.62,
+   "simdom": 0.68,
+   "invalid_qa": 0.020000000000000018,
+   "efficacy": 0.1777777777777777,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.3934140553867353,
+   "eligible": true
+  },
+  "it": {
+   "mmlu": 0.57,
+   "ppl": 20.317255801789305,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.62,
+   "simdom": 0.62,
+   "invalid_qa": 0.07999999999999996,
+   "efficacy": 0.13953488372093037,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.3272727272727275,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "pt": {
+   "mmlu": 0.57,
+   "ppl": 19.567156623022,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.64,
+   "simdom": 0.66,
+   "invalid_qa": 0.0,
+   "efficacy": 0.04878048780487809,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.13333333333333344,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "hi": {
+   "mmlu": 0.46,
+   "ppl": 9.572126334313694,
+   "mmlu_frac": 1.0,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.68,
+   "simdom": 0.4,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.0,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "es": {
+   "mmlu": 0.6,
+   "ppl": 20.258657393277943,
+   "mmlu_frac": 0.9859154929577465,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0,
+   "qa": 0.66,
+   "simdom": 0.58,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 0.9929078014184397,
+   "H": 0.0,
+   "eligible": true
+  },
+  "th": {
+   "mmlu": 0.425,
+   "ppl": 12.381185366257464,
+   "mmlu_frac": 0.9722222222222222,
+   "fluency": 0.9912349945147448,
+   "invalid_mmlu": 0.015000000000000013,
+   "qa": 0.58,
+   "simdom": 0.48,
+   "invalid_qa": 0.0,
+   "efficacy": 0.0,
+   "simdom_frac": 1.0,
+   "specificity": 0.9859154929577465,
+   "H": 0.0,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  }
+ },
+ "gated": false,
+ "score": 0.1543236912167084,
+ "score_v1": 0.1843728945234057
+}

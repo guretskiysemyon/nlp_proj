@@ -1,0 +1,179 @@
+{
+ "concept": "Gun",
+ "approach": "A3zU",
+ "best_delta": 10.0,
+ "delta_selected_on": "v1 train",
+ "v2_langs": [
+  "it",
+  "pt",
+  "hi",
+  "th"
+ ],
+ "baseline_v2": {
+  "train": {
+   "it": {
+    "qa": 0.78
+   },
+   "pt": {
+    "qa": 0.72
+   },
+   "hi": {
+    "qa": 0.58
+   },
+   "th": {
+    "qa": 0.42
+   }
+  },
+  "test": {
+   "it": {
+    "qa": 0.66,
+    "simdom": 0.78
+   },
+   "pt": {
+    "qa": 0.78,
+    "simdom": 0.6
+   },
+   "hi": {
+    "qa": 0.58,
+    "simdom": 0.62
+   },
+   "th": {
+    "qa": 0.6,
+    "simdom": 0.56
+   }
+  }
+ },
+ "per_lang": {
+  "en": {
+   "mmlu": 0.67,
+   "ppl": 36.33099895910981,
+   "mmlu_frac": 0.9882352941176471,
+   "fluency": 0.962307735100688,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.22,
+   "simdom": 0.68,
+   "invalid_qa": 0.72,
+   "efficacy": 1.0,
+   "simdom_frac": 0.7049180327868854,
+   "specificity": 0.8228727645517714,
+   "H": 0.9218223015408618,
+   "eligible": true
+  },
+  "de": {
+   "mmlu": 0.52,
+   "ppl": 22.84071732194643,
+   "mmlu_frac": 0.9473684210526315,
+   "fluency": 0.9933550337024765,
+   "invalid_mmlu": 0.020000000000000018,
+   "qa": 0.7,
+   "simdom": 0.66,
+   "invalid_qa": 0.07999999999999996,
+   "efficacy": 0.11764705882352955,
+   "simdom_frac": 0.9534883720930232,
+   "specificity": 0.9504185447520928,
+   "H": 0.2841216502212798,
+   "eligible": true
+  },
+  "fr": {
+   "mmlu": 0.515,
+   "ppl": 24.071500016980607,
+   "mmlu_frac": 0.9814814814814815,
+   "fluency": 0.9859845165942067,
+   "invalid_mmlu": 0.0,
+   "qa": 0.64,
+   "simdom": 0.7,
+   "invalid_qa": 0.12,
+   "efficacy": 0.26415094339622647,
+   "simdom_frac": 0.8823529411764705,
+   "specificity": 0.929281122150789,
+   "H": 0.5105488215560593,
+   "eligible": true
+  },
+  "it": {
+   "mmlu": 0.56,
+   "ppl": 20.317241042393352,
+   "mmlu_frac": 0.9687500000000003,
+   "fluency": 1.0,
+   "invalid_mmlu": 0.0050000000000000044,
+   "qa": 0.36,
+   "simdom": 0.74,
+   "invalid_qa": 0.48,
+   "efficacy": 0.7317073170731707,
+   "simdom_frac": 0.9245283018867924,
+   "specificity": 0.9461227032077234,
+   "H": 0.876267514453831,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "pt": {
+   "mmlu": 0.59,
+   "ppl": 19.57973699588224,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9994605458832506,
+   "invalid_mmlu": 0.0050000000000000044,
+   "qa": 0.3,
+   "simdom": 0.58,
+   "invalid_qa": 0.62,
+   "efficacy": 0.9056603773584906,
+   "simdom_frac": 0.9428571428571428,
+   "specificity": 0.9705882352941176,
+   "H": 0.9569349168667313,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "hi": {
+   "mmlu": 0.45,
+   "ppl": 9.873824672124647,
+   "mmlu_frac": 0.9523809523809523,
+   "fluency": 0.9694446328723363,
+   "invalid_mmlu": 0.025000000000000022,
+   "qa": 0.5,
+   "simdom": 0.48,
+   "invalid_qa": 0.16000000000000003,
+   "efficacy": 0.24242424242424232,
+   "simdom_frac": 0.6216216216216216,
+   "specificity": 0.7522485690923958,
+   "H": 0.4625442283659401,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  },
+  "es": {
+   "mmlu": 0.605,
+   "ppl": 20.34423500750334,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9958027799316131,
+   "invalid_mmlu": 0.0,
+   "qa": 0.36,
+   "simdom": 0.72,
+   "invalid_qa": 0.52,
+   "efficacy": 0.7924528301886793,
+   "simdom_frac": 0.9591836734693877,
+   "specificity": 0.9791666666666665,
+   "H": 0.9125763232837084,
+   "eligible": true
+  },
+  "th": {
+   "mmlu": 0.43,
+   "ppl": 12.283731666183675,
+   "mmlu_frac": 1.0,
+   "fluency": 0.9990990150325503,
+   "invalid_mmlu": 0.010000000000000009,
+   "qa": 0.58,
+   "simdom": 0.56,
+   "invalid_qa": 0.07999999999999996,
+   "efficacy": 0.05714285714285716,
+   "simdom_frac": 1.0,
+   "specificity": 1.0,
+   "H": 0.15383903940220284,
+   "eligible": true,
+   "eligible_train": true,
+   "qa_version": "v2"
+  }
+ },
+ "gated": false,
+ "score": 0.6348318494613268,
+ "score_v1": 0.6081779607995011
+}
